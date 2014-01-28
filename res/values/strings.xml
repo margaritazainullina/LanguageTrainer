@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Language Trainer</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="username">Hello, User</string>
+    <string name="vocabulary">Vocabulary</string>
+    <string name="grammar">Grammar</string>
+    <string name="listening">Listening</string>
+    <string name="other">Other</string>
+    <string name="mock_tests">Mock tests</string>
+    <string name="settings">settings</string>
+    <string name="title_activity_vocabulary">VocabularyActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_grammar">GrammarActivity</string>
+    <string name="practice_words">Practice words</string>
+    <string name="title_activity_word_practice">WordPracticeActivity</string>
+    <string name="title_activity_word_practice_result">WordPracticeResultActivity</string>
+
+</resources>
