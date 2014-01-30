@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".GrammarActivity" >
+    tools:context="ua.hneu.languagetrainer.VocabularyActivityFragment" >
 
    <TextView 
     android:id="@+id/item_detail"
@@ -32,6 +32,6 @@
         android:layout_alignLeft="@+id/progressBar"
         android:layout_below="@+id/progressBar"
         android:text="@string/practice_words" 
-        android:onClick="onClickPracticeGrammar"/>
+        android:onClick="onClickPracticeVocabulary"/>
 
 </RelativeLayout>

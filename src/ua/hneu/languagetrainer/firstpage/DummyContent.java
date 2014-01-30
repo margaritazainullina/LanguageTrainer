@@ -27,6 +27,7 @@ public class DummyContent {
 	 */
 	public static Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
 
+	//TODO: Fetch this values from localised strings
 	static {	
 		addItem(new DummyItem("1", "Vocabulary"));
 		addItem(new DummyItem("2", "Grammar"));

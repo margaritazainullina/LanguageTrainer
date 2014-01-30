@@ -78,8 +78,5 @@ public class VocabularyActivityFragment extends Fragment {
 		return rootView;
 	}
 	
-	public void onClickPracticeGrammar(View v){
-		Intent intent = new Intent(getActivity(), WordPracticeActivity.class);
-		startActivity(intent);
-	}
+	
 }

@@ -4,9 +4,11 @@ import ua.edu.hneu.test.R;
 import ua.hneu.languagetrainer.data.CurrentUserData;
 import ua.hneu.languagetrainer.firstpage.DummyContent;
 import ua.hneu.languagetrainer.firstpage.DummyContent.DummyItem;
+import ua.hneu.languagetrainer.pages.WordPracticeActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.View;
 import android.widget.TextView;
 
 /**
@@ -93,9 +95,14 @@ public class ItemListActivity extends FragmentActivity implements
 		} else {
 			// In single-pane mode, simply start the detail activity
 			// for the selected item ID.
-			Intent detailIntent = new Intent(this, ItemDetailActivity.class);
+			Intent detailIntent = new Intent(this, VocabularyActivityFragment.class);
 			detailIntent.putExtra(VocabularyActivityFragment.ARG_ITEM_ID, id);
 			startActivity(detailIntent);
 		}
+	}
+	
+	public void onClickPracticeVocabulary(View v){
+		Intent intent = new Intent(this, WordPracticeActivity.class);
+		startActivity(intent);
 	}
 }
