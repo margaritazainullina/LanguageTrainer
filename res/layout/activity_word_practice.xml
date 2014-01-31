@@ -15,7 +15,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="24dp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -32,7 +33,8 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/textView3"
         android:layout_below="@+id/textView2"
-        android:text="@string/previous" />
+        android:text="@string/previous"
+        android:onClick="buttonPreviousOnClick" />
 
     <Button
         android:id="@+id/buttonNext"

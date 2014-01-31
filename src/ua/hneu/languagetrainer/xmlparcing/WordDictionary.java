@@ -25,7 +25,7 @@ public class WordDictionary {
     }
     
     public DictionaryEntry fetchRandom() {
-        int a = new Random(System.currentTimeMillis()).nextInt(entries.size() - 1);
+        int a = new Random().nextInt(entries.size() - 1);
         return entries.get(a);
     }
 }

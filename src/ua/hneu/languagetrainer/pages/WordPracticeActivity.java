@@ -14,11 +14,14 @@ import java.util.List;
 import ua.edu.hneu.test.R;
 import ua.edu.hneu.test.R.layout;
 import ua.edu.hneu.test.R.menu;
+import ua.hneu.languagetrainer.VocabularyActivityFragment;
 import ua.hneu.languagetrainer.xmlparcing.*;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class WordPracticeActivity extends Activity {
@@ -28,15 +31,24 @@ public class WordPracticeActivity extends Activity {
 	public boolean isLast = true;
 	public static DictionaryEntry curEntry;
 	public static int idx = -1;
+	public static int numberOfWordsInSample = 10;
 
+	Button prevButton = (Button) findViewById(R.id.buttonPrevious);
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_word_practice);
 		String s = readFile("JLPT_N5_RUS.xml");
-		this.dict = DictUtil.readXml(s);
-		curEntry  = dict.fetchRandom();
+		dict = DictUtil.readXml(s);
+		// replace fetching of entries with some complicated method
+		for (int i = 0; i < numberOfWordsInSample; i++) {
+			curDict.add(dict.fetchRandom());
+		}
+		curEntry = curDict.get(0);
+		idx = 0;
 		showEntry(curEntry);
+		prevButton.setEnabled(false);
 	}
 
 	String readFile(String path) {
@@ -67,47 +79,37 @@ public class WordPracticeActivity extends Activity {
 		getMenuInflater().inflate(R.menu.word_practice, menu);
 		return true;
 	}
-	
-	public void buttonNextOnClick(View v){
-		// if is on last entry - add to current dictionary and show entry
-		// else - show next entry
+
+	public void buttonNextOnClick(View v) {
 		idx++;
-		if (idx != curDict.size()) {
-			isLast = false;
-		} else {
-			isLast = true;
+		//if was disabled
+		prevButton.setEnabled(true);
+		if (idx>= numberOfWordsInSample) {
+			// go to next activity
+			Intent matchWordsIntent = new Intent(this, MatchWordsActivity.class);
+			startActivity(matchWordsIntent);
 		}
-
-		if (isLast) {
-			curEntry = dict.fetchRandom();
-			curDict.add(curEntry);
-			showEntry(curEntry);
-		} else {
-			showEntry(curDict.get(idx));
-		}
-
-		if (curDict.size() >= 10) {
-
-		}
+		showEntry(curDict.get(idx));
 	}
 
 	private void showEntry(DictionaryEntry dictionaryEntry) {
 		TextView t1 = (TextView) findViewById(R.id.textView1);
 		TextView t2 = (TextView) findViewById(R.id.textView2);
 
-		t1.setText(curEntry.getWord());
-		t2.setText(curEntry.toString());
-		/*
-		 * label.setText(curEntry.getWord()); label.setFont(new Font(36));
-		 * info.setText(curEntry.toString()); info.setFont(new Font(18));
-		 * info.setWrapText(true);
-		 */
+		t1.setText(dictionaryEntry.getWord());
+		t2.setText(dictionaryEntry.toString());
+
 	}
 
-	private void handlePreviousWord() {
-		idx--;
+	public void buttonPreviousOnClick(View v) {
+		
+		if(idx>0){
+			idx--;
 		curEntry = curDict.get(idx);
-		showEntry(curEntry);
+		showEntry(curEntry);}
+		else{
+			prevButton.setEnabled(false);
+		}
 	}
 
 }

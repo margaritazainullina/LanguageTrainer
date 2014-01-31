@@ -19,5 +19,6 @@
     <string name="title_activity_word_practice_result">WordPracticeResultActivity</string>
     <string name="previous">Previous</string>
     <string name="next">Next</string>
+    <string name="title_activity_match_the_words">MatchTheWordsActivity</string>
 
 </resources>
