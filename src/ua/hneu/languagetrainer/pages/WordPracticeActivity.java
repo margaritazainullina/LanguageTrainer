@@ -32,13 +32,16 @@ public class WordPracticeActivity extends Activity {
 	public static DictionaryEntry curEntry;
 	public static int idx = -1;
 	public static int numberOfWordsInSample = 10;
-
-	Button prevButton = (Button) findViewById(R.id.buttonPrevious);
+	
+	Button prevButton;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_word_practice);
+						
+		prevButton = (Button) findViewById(R.id.buttonPrevious);
+		
 		String s = readFile("JLPT_N5_RUS.xml");
 		dict = DictUtil.readXml(s);
 		// replace fetching of entries with some complicated method
@@ -50,7 +53,8 @@ public class WordPracticeActivity extends Activity {
 		showEntry(curEntry);
 		prevButton.setEnabled(false);
 	}
-
+	
+	//stub - read file from local storage to the string
 	String readFile(String path) {
 		BufferedWriter bw;
 		StringBuffer buffer = new StringBuffer();
@@ -84,18 +88,21 @@ public class WordPracticeActivity extends Activity {
 		idx++;
 		//if was disabled
 		prevButton.setEnabled(true);
+		
 		if (idx>= numberOfWordsInSample) {
 			// go to next activity
 			Intent matchWordsIntent = new Intent(this, MatchWordsActivity.class);
 			startActivity(matchWordsIntent);
-		}
+		} else{
 		showEntry(curDict.get(idx));
+		}
 	}
 
 	private void showEntry(DictionaryEntry dictionaryEntry) {
 		TextView t1 = (TextView) findViewById(R.id.textView1);
 		TextView t2 = (TextView) findViewById(R.id.textView2);
 
+		//set word info to the texViews
 		t1.setText(dictionaryEntry.getWord());
 		t2.setText(dictionaryEntry.toString());
 

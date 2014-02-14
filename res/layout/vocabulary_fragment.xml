@@ -20,11 +20,11 @@
 
     <ProgressBar
         android:id="@+id/progressBar"
-        android:layout_width="100dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
         android:layout_height="20dp"
         android:layout_alignLeft="@+id/item_detail"
-        android:layout_below="@+id/item_detail" 
-        style="?android:attr/progressBarStyleHorizontal"/>
+        android:layout_below="@+id/item_detail" />
 
     <Button
         android:id="@+id/button1"

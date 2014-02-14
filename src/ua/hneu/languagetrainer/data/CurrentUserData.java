@@ -24,7 +24,7 @@ public class CurrentUserData {
 	private int allCountWords = -1;
 
 	private CurrentUserData() {
-		//TODO: fetch these valuse from bd or xml file, currently - stub
+		//TODO: fetch these values from bd or xml file, currently - stub
 		userName = "Margarita";
 		userLevel = 2;
 		learnedWords = 563;

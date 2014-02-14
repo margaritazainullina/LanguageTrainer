@@ -70,6 +70,35 @@ public class ItemListActivity extends FragmentActivity implements
 	 */
 	@Override
 	public void onItemSelected(String id) {
+		CurrentUserData ud = CurrentUserData.getInstance();
+		//switch themes
+		switch(ud.getUserLevel()){
+		case 0:{
+			getApplicationContext().setTheme(R.style.AppTheme);
+			break;
+		}
+		case 1:{
+			getApplicationContext().setTheme(R.style.N1Theme);
+			break;
+		}
+		case 2:{
+			getApplicationContext().setTheme(R.style.N2Theme);
+			break;
+		}
+		case 3:{
+			getApplicationContext().setTheme(R.style.N3Theme);
+			break;
+		}
+		case 4:{
+			getApplicationContext().setTheme(R.style.N4Theme);
+			break;
+		}
+		case 5:{
+			getApplicationContext().setTheme(R.style.N5Theme);
+			break;
+		}
+		}
+		
 		if (mTwoPane) {
 			// In two-pane mode, show the detail view in this activity by
 			// adding or replacing the detail fragment using a

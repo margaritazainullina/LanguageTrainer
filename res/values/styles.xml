@@ -2,24 +2,53 @@
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppBaseTheme" parent="android:Theme.Black">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here.
         -->
     </style>
 
     <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
 
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-        <item name="android:background">#000000</item>
-        <item name="android:textColor">#FFFFFF</item>
+    
+     <style name="AppTheme" parent="AppBaseTheme">
+        <item name="android:background">@color/Background</item>
+        <item name="android:textColor">@color/White</item>
     </style>
 
+    <style name="N1Theme" parent="AppBaseTheme">
+        <item name="android:background">@color/Background</item>
+        <item name="android:textColor">@color/Gold</item>
+    </style>
+
+    <style name="N2Theme" parent="AppBaseTheme">
+        <item name="android:background">@color/Background</item>
+        <item name="android:textColor">@color/Lime</item>
+    </style>
+
+    <style name="N3Theme" parent="AppBaseTheme">
+        <item name="android:background">@color/Background</item>
+        <item name="android:textColor">@color/Salmon</item>
+    </style>
+
+    <style name="N4Theme" parent="AppBaseTheme">
+        <item name="android:background">@color/Background</item>
+        <item name="android:textColor">@color/Liliac</item>
+    </style>
+
+    <style name="N5Theme" parent="AppBaseTheme">
+        <item name="android:background">@color/Background</item>
+        <item name="android:textColor">@color/Skyblue</item>
+    </style>
+    
+    
+
+    <color name="Background">#111111</color>
+    <color name="White">#FFFFFF</color>
     <color name="Liliac">#C9A0DC</color>
     <color name="Salmon">#FF8969</color>
     <color name="Lime">#E0DD38</color>
