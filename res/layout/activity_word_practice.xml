@@ -9,7 +9,7 @@
     tools:context="ua.hneu.languagetrainer.pages.WordPracticeActivity" >
    
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/wordTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -19,11 +19,28 @@
         android:textSize="24dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/transcriptionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
+        android:layout_alignLeft="@+id/wordTextView"
+        android:layout_below="@+id/wordTextView"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <TextView
+        android:id="@+id/romajiTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/transcriptionTextView"
+        android:layout_below="@+id/transcriptionTextView"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <TextView
+        android:id="@+id/examplesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/romajiTextView"
+        android:layout_below="@+id/transcriptionTextView"
         android:text="Medium Text"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -31,8 +48,7 @@
         android:id="@+id/buttonPrevious"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView3"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/romajiTextView"
         android:text="@string/previous"
         android:onClick="buttonPreviousOnClick" />
 
@@ -40,8 +56,7 @@
         android:id="@+id/buttonNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/buttonPrevious"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/romajiTextView"
         android:layout_toRightOf="@+id/buttonPrevious"
         android:text="@string/next" 
         android:onClick="buttonNextOnClick"

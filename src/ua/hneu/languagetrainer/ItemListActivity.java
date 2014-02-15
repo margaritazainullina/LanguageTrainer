@@ -38,6 +38,7 @@ public class ItemListActivity extends FragmentActivity implements
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		getApplication().setTheme(R.style.AppTheme);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_item_list);
 
@@ -71,6 +72,7 @@ public class ItemListActivity extends FragmentActivity implements
 	@Override
 	public void onItemSelected(String id) {
 		CurrentUserData ud = CurrentUserData.getInstance();
+		
 		//switch themes
 		switch(ud.getUserLevel()){
 		case 0:{

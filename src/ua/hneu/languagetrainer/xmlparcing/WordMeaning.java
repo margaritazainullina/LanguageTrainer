@@ -5,11 +5,13 @@ import java.util.List;
 public class WordMeaning {
 
     private String transcription;
+    private String romaji;
     private List<String> translations;
     private List<String> examples;
 
-    public WordMeaning(String transcription, List<String> translations, List<String> examples) {
-        this.transcription = transcription;
+    public WordMeaning(String transcription, String romaji,List<String> translations, List<String> examples) {
+    	this.transcription = transcription;
+    	this.romaji = romaji;
         this.translations = translations;
         this.examples = examples;
     }
@@ -38,7 +40,15 @@ public class WordMeaning {
     public void setTranscription(String transcription) {
         this.transcription = transcription;
     }
+    
+    public void setRomaji(String romaji) {
+        this.romaji = romaji;
+    }
 
+    public String getRomaji() {
+        return romaji;
+    }
+    
     public List<String> getTranslations() {
         return translations;
     }

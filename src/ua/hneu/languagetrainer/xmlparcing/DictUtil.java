@@ -1,72 +1,72 @@
 package ua.hneu.languagetrainer.xmlparcing;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.DocumentBuilder;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
+
+import android.content.Context;
 
 public class DictUtil {
 
-	public static WordDictionary readXml(String data) {		
-		//String finalData = fXmlFile.getPath();
-		WordDictionary dict = new WordDictionary();
-
-		/*FileInputStream in;
+	// context of activity and path to the local xml file with vocabulary
+	public static String readXml(Context ctx,String path) {
+		// string with xml file
+		String finalData = null;
+		
+		FileInputStream in;
 		try {
-			in = new FileInputStream(fXmlFile);
-
+			// read file from the activity's context
+			in = ctx.openFileInput(path);
 			StringBuffer data = new StringBuffer();
 			InputStreamReader isr = new InputStreamReader(in);
-
 			BufferedReader inRd = new BufferedReader(isr);
-
-			StringBuilder inLine = new StringBuilder();
 			String text;
 			while ((text = inRd.readLine()) != null) {
-				inLine.append(text);
-				inLine.append("\n");
+				data.append(text);
+				data.append("\n");
 			}
 			in.close();
-
-			 finalData = data.toString();
+			// set xml content to the data string
+			finalData = data.toString();
 
 		} catch (Exception e1) {
 			e1.printStackTrace();
-		}*/
-
+		}
+		return finalData;
+	}
+		public static WordDictionary ParseVocabularyXml(String data) {
+			WordDictionary dict = new WordDictionary();
 		try {
+			//make a document from string
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory
 					.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			//Document doc = dBuilder.parse(new InputSource(new ByteArrayInputStream(data)));
-			Document doc = dBuilder.parse(new InputSource(new StringReader(data)));
-			//Document doc = dBuilder.parse(data);
+			Document doc = dBuilder.parse(new InputSource(new StringReader(
+					data)));
 
 			doc.getDocumentElement().normalize();
 
 			Element dictionary = doc.getDocumentElement();
+			//get word cards
 			NodeList cardList = dictionary.getElementsByTagName("card");
 			for (int i = 0; i < cardList.getLength(); i++) {
 
-				// declaring variables for push into dictionary
+				// declaring variables for pushing into dictionary
 				int id;
 				String word1;
 				List<String> translations = new ArrayList<String>();
 				List<String> examples = new ArrayList<String>();
 				String transcription;
+				String romaji;
 				List<WordMeaning> wordMeanings = new ArrayList<WordMeaning>();
 
 				// parcing xml
@@ -86,6 +86,7 @@ public class DictUtil {
 						Element meaning = (Element) meaningList.item(k);
 
 						transcription = meaning.getAttribute("transcription");
+						romaji = meaning.getAttribute("romaji");
 
 						NodeList translationsList = meaning
 								.getElementsByTagName("translations");
@@ -111,7 +112,7 @@ public class DictUtil {
 								examples.add(example.getTextContent());
 							}
 						}
-						wordMeanings.add(new WordMeaning(transcription,
+						wordMeanings.add(new WordMeaning(transcription, romaji,
 								translations, examples));
 					}
 				}
