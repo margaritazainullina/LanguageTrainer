@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Large Text"
+        android:text="Kanji"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="24dp" />
 
@@ -22,44 +22,43 @@
         android:id="@+id/transcriptionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/wordTextView"
         android:layout_below="@+id/wordTextView"
-        android:text="Medium Text"
+        android:text="Transcription"
         android:textAppearance="?android:attr/textAppearanceMedium" />
     
     <TextView
         android:id="@+id/romajiTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/transcriptionTextView"
         android:layout_below="@+id/transcriptionTextView"
-        android:text="Medium Text"
+        android:text="Romaji"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
     <TextView
-        android:id="@+id/examplesTextView"
+        android:id="@+id/translationTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/romajiTextView"
-        android:layout_below="@+id/transcriptionTextView"
-        android:text="Medium Text"
+        android:layout_below="@+id/romajiTextView"
+        android:text="Translation"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
         android:id="@+id/buttonPrevious"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/romajiTextView"
-        android:text="@string/previous"
-        android:onClick="buttonPreviousOnClick" />
+        android:layout_alignLeft="@+id/translationTextView"
+        android:layout_below="@+id/translationTextView"
+        android:onClick="buttonPreviousOnClick"
+        android:text="@string/previous" />
 
     <Button
         android:id="@+id/buttonNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/romajiTextView"
+        android:layout_alignBottom="@+id/buttonPrevious"
         android:layout_toRightOf="@+id/buttonPrevious"
-        android:text="@string/next" 
         android:onClick="buttonNextOnClick"
-        />
+        android:text="@string/next" />
 
 </RelativeLayout>

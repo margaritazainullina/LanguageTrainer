@@ -4,51 +4,80 @@ import java.util.List;
 
 public class DictionaryEntry {
 
-    private int id;
-    private String word;
-    private List<WordMeaning> meanings;
+	private int id;
+	private String word;
+	private WordMeaning meaning;
 
-    public DictionaryEntry(int id, String word, List<WordMeaning> meanings) {
-        this.id = id;
-        this.word = word;
-        this.meanings = meanings;
-    }
+	public DictionaryEntry(int id, String word, WordMeaning meaning) {
+		this.id = id;
+		this.word = word;
+		this.meaning = meaning;
+	}
 
-    @Override
-    public String toString() {
-        String s = "";
-        for (WordMeaning wm : meanings) {
-            if (!"".equals(wm.getTranscription())) {
-                s += " [" + wm.getTranscription() + "]" + "\n" + wm.translationsToString() + "\n" + wm.examplesToString();
-            } else { 
-                s += wm.translationsToString() + "\n" + wm.examplesToString();
-            }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("[");
+		sb.append(meaning.transcription);
+		sb.append(", ");
+		sb.append(meaning.romaji);
+		sb.append("]");
+		sb.append("]");
+		sb.append("\n");
+		sb.append(meaning.translationsToString());
+		sb.append("\n");	
+		return sb.toString();
+	}
 
-        }
-        return s;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public String getWord() {
+		return word;
+	}
 
-    public String getWord() {
-        return word;
-    }
+	public void setWord(String word) {
+		this.word = word;
+	}
 
-    public void setWord(String word) {
-        this.word = word;
-    }
+	public WordMeaning getMeanings() {
+		return meaning;
+	}
 
-    public List<WordMeaning> getMeanings() {
-        return meanings;
-    }
+	public List<String> getTranslations() {
+		return this.meaning.translations;
+	}
 
-    public void setMeanings(List<WordMeaning> meanings) {
-        this.meanings = meanings;
-    }
+	public String getTranscription() {
+		return this.meaning.transcription;
+	}
+
+	public String getRomaji() {
+		return this.meaning.romaji;
+	}
+
+	public void setMeanings(WordMeaning meaning) {
+		this.meaning = meaning;
+	}
+
+	public void setTranslations(List<String> translations) {
+		this.meaning.translations = translations;
+	}
+
+	public void setTranscription(String transcription) {
+		this.meaning.transcription = transcription;
+	}
+
+	public void setRomaji(String romaji) {
+		this.meaning.romaji = romaji;
+	}
+
+	public String translationsToString() {
+		return this.meaning.translationsToString();
+	}
 }

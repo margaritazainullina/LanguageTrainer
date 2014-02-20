@@ -35,14 +35,14 @@ public class WordPracticeActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//Log.d("Activ", ((App) getApplication()).str);
+		// Log.d("Activ", ((App) getApplication()).str);
 
 		setContentView(R.layout.activity_word_practice);
 
 		prevButton = (Button) findViewById(R.id.buttonPrevious);
 
 		// read file and parse to WordDictionary
-		String xml = DictUtil.readXml(this, "JLPT_N5_RUS.xml");
+		String xml = DictUtil.readFile(this, "JLPT_N5_RUS.xml");
 		dict = DictUtil.ParseVocabularyXml(xml);
 		// replace fetching of entries with some complicated method
 		for (int i = 0; i < numberOfWordsInSample; i++) {
@@ -79,16 +79,17 @@ public class WordPracticeActivity extends Activity {
 		TextView wordTextView = (TextView) findViewById(R.id.wordTextView);
 		TextView transcriptionTextView = (TextView) findViewById(R.id.transcriptionTextView);
 		TextView romajiTextView = (TextView) findViewById(R.id.romajiTextView);
+		TextView translationTextView = (TextView) findViewById(R.id.translationTextView);
 
 		// set word info to the texViews
-		//todo: make normal api forgetting word transcription/meaning etc.
+		// todo: make normal api forgetting word transcription/meaning etc.
 		wordTextView.setText(dictionaryEntry.getWord());
-		transcriptionTextView.setText(dictionaryEntry.getMeanings().get(0).getTranscription());
-		romajiTextView.setText(dictionaryEntry.getMeanings().get(0).getRomaji());
+		transcriptionTextView.setText(dictionaryEntry.getTranscription());
+		romajiTextView.setText(dictionaryEntry.getRomaji());
+		translationTextView.setText(dictionaryEntry.translationsToString());
 	}
 
 	public void buttonPreviousOnClick(View v) {
-
 		if (idx > 0) {
 			idx--;
 			curEntry = curDict.get(idx);

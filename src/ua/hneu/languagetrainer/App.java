@@ -1,10 +1,13 @@
 package ua.hneu.languagetrainer;
 
+import ua.hneu.languagetrainer.xmlparcing.DictUtil;
 import android.app.Application;
+import android.content.Context;
 import android.util.Log;
 
 public class App extends Application {
-
+	 private static Context context;
+	 
 	private static String userName = "";
 	// From 1 to 5 (N1-N5)
 	private static int userLevel = -1;
@@ -82,77 +85,116 @@ public class App extends Application {
 		return allCountWords;
 	}
 
-	public static void setUserName(String userName) {
-		App.userName = userName;
+	// if data was updated by set method - also write it to the file
+	public void setUserName(String userName) {
+		App.userName = userName;		
+		updateUserData();
 	}
 
 	public static void setUserLevel(int userLevel) {
 		App.userLevel = userLevel;
+		updateUserData();
 	}
 
 	public static void setLearnedWords(int learnedWords) {
 		App.learnedWords = learnedWords;
+		updateUserData();
 	}
 
 	public static void setAllWords(int allWords) {
 		App.allWords = allWords;
+		updateUserData();
 	}
 
 	public static void setLearnedGrammar(int learnedGrammar) {
 		App.learnedGrammar = learnedGrammar;
+		updateUserData();
 	}
 
 	public static void setAllGrammar(int allGrammar) {
 		App.allGrammar = allGrammar;
+		updateUserData();
 	}
 
 	public static void setLearnedAudio(int learnedAudio) {
 		App.learnedAudio = learnedAudio;
+		updateUserData();
 	}
 
 	public static void setAllAudio(int allAudio) {
 		App.allAudio = allAudio;
+		updateUserData();
 	}
 
 	public static void setLearnedTests(int learnedTests) {
 		App.learnedTests = learnedTests;
+		updateUserData();
 	}
 
 	public static void setAllTests(int allTests) {
 		App.allTests = allTests;
+		updateUserData();
 	}
 
 	public static void setLearnedGiongo(int learnedGiongo) {
 		App.learnedGiongo = learnedGiongo;
+		updateUserData();
 	}
 
 	public static void setAllGiongo(int allGiongo) {
 		App.allGiongo = allGiongo;
+		updateUserData();
 	}
 
 	public static void setLearnedCountWords(int learnedCountWords) {
 		App.learnedCountWords = learnedCountWords;
+		updateUserData();
 	}
 
 	public static void setAllCountWords(int allCountWords) {
 		App.allCountWords = allCountWords;
+		updateUserData();
 	}
 
 	@Override
-	public void onCreate() {
-		userName = "Margarita";
-		userLevel = 2;
-		learnedWords = 988;
-		allWords = 1810;
-		learnedGrammar = 15;
-		allGrammar = 260;
-		learnedAudio = 11;
-		allAudio = 48;
-		learnedGiongo = 114;
-		allGiongo = 230;
-		learnedCountWords = 45;
-		allCountWords = 80;
+	public void onCreate() {		
+		// reading from csv file user.txt
+		// all values are separated with commas and match the class fields
+		String data = DictUtil.readFile(this, "user.txt");
+		String[] elements = data.split("(,)(\\s)+");
+		userName = elements[0];
+		userLevel = Integer.parseInt(elements[1]);
+		learnedWords = Integer.parseInt(elements[2]);
+		allWords = Integer.parseInt(elements[3]);
+		learnedGrammar = Integer.parseInt(elements[4]);
+		allGrammar = Integer.parseInt(elements[5]);
+		learnedAudio = Integer.parseInt(elements[6]);
+		allAudio = Integer.parseInt(elements[7]);
+		learnedGiongo = Integer.parseInt(elements[8]);
+		allGiongo = Integer.parseInt(elements[9]);
+		learnedCountWords = Integer.parseInt(elements[10]);
+		allCountWords = Integer.parseInt(elements[11]);
+
+		App.context = getApplicationContext();
 		super.onCreate();
+	}
+		
+	public  static void updateUserData() {
+		// writing to csv file current user values
+		StringBuilder data = new StringBuilder();
+		data.append(userName + ", ");
+		data.append(learnedWords + ", ");
+		data.append(allWords + ", ");
+		data.append(learnedGrammar + ", ");
+		data.append(allGrammar + ", ");
+		data.append(learnedAudio + ", ");
+		data.append(allAudio + ", ");
+		data.append(learnedGiongo + ", ");
+		data.append(allGiongo + ", ");
+		data.append(learnedCountWords + ", ");
+		data.append(allCountWords + ", ");
+
+		DictUtil.writeFile(context, "user.txt", data.toString());
 	}
 
 }
