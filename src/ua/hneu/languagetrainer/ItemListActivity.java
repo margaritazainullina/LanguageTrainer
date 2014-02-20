@@ -1,10 +1,10 @@
 package ua.hneu.languagetrainer;
 
 import ua.edu.hneu.test.R;
-import ua.hneu.languagetrainer.data.CurrentUserData;
 import ua.hneu.languagetrainer.firstpage.DummyContent;
 import ua.hneu.languagetrainer.firstpage.DummyContent.DummyItem;
 import ua.hneu.languagetrainer.pages.WordPracticeActivity;
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -34,7 +34,6 @@ public class ItemListActivity extends FragmentActivity implements
 	 * device.
 	 */
 	private boolean mTwoPane;
-	private CurrentUserData ud = CurrentUserData.getInstance();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +55,11 @@ public class ItemListActivity extends FragmentActivity implements
 
 			// set username and userlevel on main activity
 			TextView textViewUserName = (TextView) findViewById(R.id.textViewUserName);
-			textViewUserName.setText(ud.getUserName());
+			textViewUserName.setText(App.getUserName());
+			
 
 			TextView textViewUserInfo = (TextView) findViewById(R.id.textViewUserInfo);
-			textViewUserInfo.setText("Your level is: N" + ud.getUserLevel());
+			textViewUserInfo.setText("Your level is: N" + App.getUserLevel());
 		}
 
 		// TODO: If exposing deep links into your app, handle intents here.
@@ -71,10 +71,9 @@ public class ItemListActivity extends FragmentActivity implements
 	 */
 	@Override
 	public void onItemSelected(String id) {
-		CurrentUserData ud = CurrentUserData.getInstance();
 		
 		//switch themes
-		switch(ud.getUserLevel()){
+		switch(App.getUserLevel()){
 		case 0:{
 			getApplicationContext().setTheme(R.style.AppTheme);
 			break;

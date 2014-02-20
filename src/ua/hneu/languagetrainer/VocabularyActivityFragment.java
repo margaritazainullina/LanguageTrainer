@@ -1,7 +1,6 @@
 package ua.hneu.languagetrainer;
 
 import android.annotation.TargetApi;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,11 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import ua.edu.hneu.test.R;
-import ua.hneu.languagetrainer.data.CurrentUserData;
 import ua.hneu.languagetrainer.firstpage.DummyContent;
-import ua.hneu.languagetrainer.pages.WordPracticeActivity;
 
 /**
  * A fragment representing a single Item detail screen. This fragment is either
@@ -27,7 +23,6 @@ public class VocabularyActivityFragment extends Fragment {
 	 * represents.
 	 */
 	public static final String ARG_ITEM_ID = "item_id";
-	CurrentUserData ud = CurrentUserData.getInstance();
 
 	/**
 	 * The dummy content this fragment is presenting.
@@ -63,11 +58,11 @@ public class VocabularyActivityFragment extends Fragment {
 
 		// Show the dummy content as text in a TextView.
 		if (mItem != null) {
-			double learned = ud.getLearnedWords() ;
-			double all = ud.getAllWords();
+			double learned = App.getLearnedWords() ;
+			double all = App.getAllWords();
 			int learnedPersentage = (int) Math.round((learned / all) * 100);
-			String info = "You have learned " + ud.getLearnedWords()
-					+ " words out of " + ud.getAllWords() + "\n"
+			String info = "You have learned " + App.getLearnedWords()
+					+ " words out of " + App.getAllWords() + "\n"
 					+ learnedPersentage+ "%";
 			((TextView) rootView.findViewById(R.id.item_detail)).setText(info);
 			

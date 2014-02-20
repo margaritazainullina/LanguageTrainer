@@ -35,7 +35,7 @@ public class WordPracticeActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Log.d("Activ", ((App) getApplication()).str);
+		//Log.d("Activ", ((App) getApplication()).str);
 
 		setContentView(R.layout.activity_word_practice);
 
