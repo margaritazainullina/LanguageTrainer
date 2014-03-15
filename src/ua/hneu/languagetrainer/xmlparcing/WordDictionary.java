@@ -6,9 +6,42 @@ import java.util.Random;
 
 public class WordDictionary {
 
-    private List<DictionaryEntry> entries;
+    private ArrayList<DictionaryEntry> entries;
 
-    public WordDictionary() {
+    public ArrayList<DictionaryEntry> getEntries() {
+		return entries;
+	}
+    
+    public ArrayList<String> getAllKanji() {
+    	ArrayList<String> kanji = new ArrayList<String>();
+    	for (DictionaryEntry e : entries) {
+    		kanji.add(e.getWord());
+		}
+		return kanji;
+	}
+    
+    public ArrayList<String> getAllReadings() {
+    	ArrayList<String> readings = new ArrayList<String>();
+    	for (DictionaryEntry e : entries) {
+    		readings.add(e.getTranscription()+" "+e.getRomaji());
+		}
+		return readings;
+	}
+    
+    public ArrayList<String> getAllTranslations() {
+    	ArrayList<String> translation = new ArrayList<String>();
+    	for (DictionaryEntry e : entries) {
+    		translation.add(e.getTranslations().toString());
+		}
+		return translation;
+	}
+    
+   
+	public void setEntries(ArrayList<DictionaryEntry> entries) {
+		this.entries = entries;
+	}
+
+	public WordDictionary() {
         this.entries = new ArrayList<DictionaryEntry>();
     }
 

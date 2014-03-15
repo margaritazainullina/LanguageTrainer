@@ -1,12 +1,6 @@
 package ua.hneu.languagetrainer.pages;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.List;
-
 import ua.edu.hneu.test.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.xmlparcing.DictUtil;
@@ -15,7 +9,6 @@ import ua.hneu.languagetrainer.xmlparcing.WordDictionary;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +16,7 @@ import android.widget.TextView;
 
 public class WordPracticeActivity extends Activity {
 	public static WordDictionary dict = new WordDictionary();
-	public static WordDictionary curDict = new WordDictionary();
+
 	public static List<Integer> shownIndexes;
 	public boolean isLast = true;
 	public static DictionaryEntry curEntry;
@@ -36,7 +29,8 @@ public class WordPracticeActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// Log.d("Activ", ((App) getApplication()).str);
-
+		App.setCurrentDictionary(new WordDictionary());
+		
 		setContentView(R.layout.activity_word_practice);
 
 		prevButton = (Button) findViewById(R.id.buttonPrevious);
@@ -46,9 +40,9 @@ public class WordPracticeActivity extends Activity {
 		dict = DictUtil.ParseVocabularyXml(xml);
 		// replace fetching of entries with some complicated method
 		for (int i = 0; i < numberOfWordsInSample; i++) {
-			curDict.add(dict.fetchRandom());
+			App.getCurrentDictionary().add(dict.fetchRandom());
 		}
-		curEntry = curDict.get(0);
+		curEntry = App.getCurrentDictionary().get(0);
 		idx = 0;
 		showEntry(curEntry);
 		prevButton.setEnabled(false);
@@ -71,7 +65,7 @@ public class WordPracticeActivity extends Activity {
 			Intent matchWordsIntent = new Intent(this, MatchWordsActivity.class);
 			startActivity(matchWordsIntent);
 		} else {
-			showEntry(curDict.get(idx));
+			showEntry(App.getCurrentDictionary().get(idx));
 		}
 	}
 
@@ -92,7 +86,7 @@ public class WordPracticeActivity extends Activity {
 	public void buttonPreviousOnClick(View v) {
 		if (idx > 0) {
 			idx--;
-			curEntry = curDict.get(idx);
+			curEntry = App.getCurrentDictionary().get(idx);
 			showEntry(curEntry);
 		} else {
 			prevButton.setEnabled(false);

@@ -1,6 +1,7 @@
 package ua.hneu.languagetrainer;
 
 import ua.hneu.languagetrainer.xmlparcing.DictUtil;
+import ua.hneu.languagetrainer.xmlparcing.WordDictionary;
 import android.app.Application;
 import android.content.Context;
 import android.util.Log;
@@ -28,6 +29,17 @@ public class App extends Application {
 	private static int allGiongo = -1;
 	private static int learnedCountWords = -1;
 	private static int allCountWords = -1;
+	
+	//dictionary
+	private static WordDictionary currentDictionary;	
+	
+	public static WordDictionary getCurrentDictionary() {
+		return currentDictionary;
+	}
+
+	public static void setCurrentDictionary(WordDictionary currentDictionary1) {
+		currentDictionary = currentDictionary1;
+	}
 
 	public static String getUserName() {
 		return userName;
