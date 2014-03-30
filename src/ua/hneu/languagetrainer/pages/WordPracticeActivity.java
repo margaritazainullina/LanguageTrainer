@@ -21,7 +21,7 @@ public class WordPracticeActivity extends Activity {
 	public boolean isLast = true;
 	public static DictionaryEntry curEntry;
 	public static int idx = -1;
-	public static int numberOfWordsInSample = 10;
+	public static int numberOfWordsInSample = 7;
 
 	Button prevButton;
 
@@ -68,15 +68,18 @@ public class WordPracticeActivity extends Activity {
 			showEntry(App.getCurrentDictionary().get(idx));
 		}
 	}
-
+	public void buttonSkipOnClick(View v) {
+		Intent matchWordsIntent = new Intent(this, MatchWordsActivity.class);
+		startActivity(matchWordsIntent);
+	}
+	
 	private void showEntry(DictionaryEntry dictionaryEntry) {
 		TextView wordTextView = (TextView) findViewById(R.id.wordTextView);
 		TextView transcriptionTextView = (TextView) findViewById(R.id.transcriptionTextView);
 		TextView romajiTextView = (TextView) findViewById(R.id.romajiTextView);
 		TextView translationTextView = (TextView) findViewById(R.id.translationTextView);
 
-		// set word info to the texViews
-		// todo: make normal api forgetting word transcription/meaning etc.
+		// set word info to the texViews		
 		wordTextView.setText(dictionaryEntry.getWord());
 		transcriptionTextView.setText(dictionaryEntry.getTranscription());
 		romajiTextView.setText(dictionaryEntry.getRomaji());

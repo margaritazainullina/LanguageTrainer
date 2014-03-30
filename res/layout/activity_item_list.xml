@@ -18,6 +18,8 @@
     this two-pane version.
 
     For more on layout aliases, see: http://developer.android.com/training/multiscreen/screensizes.html#TaskUseAliasFilters-->
+   
+   <!--left side for small devices-->
     <FrameLayout
         android:id="@+id/item_detail_container"
         android:layout_width="match_parent"

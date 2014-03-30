@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -12,7 +12,7 @@
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="380dp"
         android:baselineAligned="false" >
 
         <LinearLayout
@@ -55,4 +55,28 @@
         </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+    <Button
+        android:id="@+id/buttonOk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"        
+        android:onClick="buttonOkOnClick"
+        android:layout_below="@+id/linearLayout1"
+        android:text="@string/ok" />
+
+    <Button
+        android:id="@+id/buttonSkip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_toRightOf="@+id/buttonOk"
+        android:text="@string/skip" />
+
+    <TextView
+        android:id="@+id/isCorrectTextView"
+        android:layout_toRightOf="@+id/buttonSkip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

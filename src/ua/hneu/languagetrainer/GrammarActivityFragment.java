@@ -2,6 +2,7 @@ package ua.hneu.languagetrainer;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,7 @@ public class GrammarActivityFragment extends Fragment {
 			// to load content from a content provider.
 			mItem = DummyContent.ITEM_MAP.get(getArguments().getString(
 					ARG_ITEM_ID));
+			Log.i("GrammarActivityFragment", "GrammarActivityFragment.onCreate()");
 			
 		}
 	}
@@ -52,7 +54,7 @@ public class GrammarActivityFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.grammar_fragment,
 				container, false);
-		
+		Log.i("GrammarActivityFragment", "GrammarActivityFragment.onCreateView()");
 		// Show the dummy content as text in a TextView.
 		/*if (mItem != null) {
 			((TextView) rootView.findViewById(R.id.item_detail))

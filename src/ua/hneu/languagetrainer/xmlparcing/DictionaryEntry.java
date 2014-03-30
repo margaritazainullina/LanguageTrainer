@@ -1,8 +1,9 @@
 package ua.hneu.languagetrainer.xmlparcing;
 
+import java.util.Collections;
 import java.util.List;
 
-public class DictionaryEntry {
+public class DictionaryEntry implements Comparable{
 
 	private int id;
 	private String word;
@@ -14,6 +15,7 @@ public class DictionaryEntry {
 		this.meaning = meaning;
 	}
 
+	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -79,5 +81,11 @@ public class DictionaryEntry {
 
 	public String translationsToString() {
 		return this.meaning.translationsToString();
+	}
+
+	@Override
+	public int compareTo(Object e) {
+		DictionaryEntry e1 = (DictionaryEntry) e;
+		return this.word.compareTo(e1.word);
 	}
 }

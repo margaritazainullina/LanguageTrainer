@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +40,7 @@ public class VocabularyActivityFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		Log.i("VocabularyActivityFragment", "VocabularyActivityFragment.onCreate()");
 		if (getArguments().containsKey(ARG_ITEM_ID)) {
 			// Load the dummy content specified by the fragment
 			// arguments. In a real-world scenario, use a Loader
@@ -55,7 +56,9 @@ public class VocabularyActivityFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.vocabulary_fragment,
 				container, false);
-
+		
+		Log.i("VocabularyActivityFragment", "VocabularyActivityFragment.onCreateView()");
+		
 		// Show the dummy content as text in a TextView.
 		if (mItem != null) {
 			double learned = App.getLearnedWords() ;

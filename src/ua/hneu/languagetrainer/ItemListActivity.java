@@ -8,6 +8,7 @@ import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -40,6 +41,7 @@ public class ItemListActivity extends FragmentActivity implements
 		getApplication().setTheme(R.style.AppTheme);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_item_list);
+		Log.i("ItemListActivity", "ItemListActivity.onCreate()");
 
 		if (findViewById(R.id.item_detail_container) != null) {
 			// The detail container view will be present only in the
@@ -47,6 +49,7 @@ public class ItemListActivity extends FragmentActivity implements
 			// res/values-sw600dp). If this view is present, then the
 			// activity should be in two-pane mode.
 			mTwoPane = true;
+			
 
 			// In two-pane mode, list items should be given the
 			// 'activated' state when touched.
@@ -56,12 +59,14 @@ public class ItemListActivity extends FragmentActivity implements
 			// set username and userlevel on main activity
 			TextView textViewUserName = (TextView) findViewById(R.id.textViewUserName);
 			textViewUserName.setText(App.getUserName());
-			
 
 			TextView textViewUserInfo = (TextView) findViewById(R.id.textViewUserInfo);
 			textViewUserInfo.setText("Your level is: N" + App.getUserLevel());
 		}
-
+		else{
+			
+		}
+		Log.i("mTwoPane", "mTwoPane - "+mTwoPane);
 		// TODO: If exposing deep links into your app, handle intents here.
 	}
 
@@ -71,35 +76,35 @@ public class ItemListActivity extends FragmentActivity implements
 	 */
 	@Override
 	public void onItemSelected(String id) {
-		
-		//switch themes
-		switch(App.getUserLevel()){
-		case 0:{
+		Log.i("ItemListActivity", "ItemDetailActivity.onItemSelected()");
+		// switch themes
+		switch (App.getUserLevel()) {
+		case 0: {
 			getApplicationContext().setTheme(R.style.AppTheme);
 			break;
 		}
-		case 1:{
+		case 1: {
 			getApplicationContext().setTheme(R.style.N1Theme);
 			break;
 		}
-		case 2:{
+		case 2: {
 			getApplicationContext().setTheme(R.style.N2Theme);
 			break;
 		}
-		case 3:{
+		case 3: {
 			getApplicationContext().setTheme(R.style.N3Theme);
 			break;
 		}
-		case 4:{
+		case 4: {
 			getApplicationContext().setTheme(R.style.N4Theme);
 			break;
 		}
-		case 5:{
+		case 5: {
 			getApplicationContext().setTheme(R.style.N5Theme);
 			break;
 		}
 		}
-		
+
 		if (mTwoPane) {
 			// In two-pane mode, show the detail view in this activity by
 			// adding or replacing the detail fragment using a
@@ -110,28 +115,38 @@ public class ItemListActivity extends FragmentActivity implements
 			GrammarActivityFragment grammarFragment = new GrammarActivityFragment();
 			vocabularyFragment.setArguments(arguments);
 			grammarFragment.setArguments(arguments);
-			//Loading fragments accordingly to selected menu items
-			//if selected Vocabulary 
-			if(id=="1"){
-			getSupportFragmentManager().beginTransaction()
-					.replace(R.id.item_detail_container, vocabularyFragment).commit();
+			// Loading fragments accordingly to selected menu items
+			// if selected Vocabulary
+			if (id == "1") {
+				getSupportFragmentManager()
+						.beginTransaction()
+						.replace(R.id.item_detail_container, vocabularyFragment)
+						.commit();
 			}
-			//if selected Grammar 
-			else{
+			// if selected Grammar
+			else {
 				getSupportFragmentManager().beginTransaction()
-				.replace(R.id.item_detail_container, grammarFragment).commit();				
+						.replace(R.id.item_detail_container, grammarFragment)
+						.commit();
 			}
 
 		} else {
 			// In single-pane mode, simply start the detail activity
 			// for the selected item ID.
-			Intent detailIntent = new Intent(this, VocabularyActivityFragment.class);
+			/*Intent detailIntent = new Intent(this,
+					VocabularyActivityFragment.class);
 			detailIntent.putExtra(VocabularyActivityFragment.ARG_ITEM_ID, id);
-			startActivity(detailIntent);
+			startActivity(detailIntent);*/
+			
+			if (id == "1") {
+				Intent detailIntent = new Intent(this,
+						VocabularyActivityFragment.class);
+				startActivity(detailIntent);
+			}
 		}
 	}
-	
-	public void onClickPracticeVocabulary(View v){
+
+	public void onClickPracticeVocabulary(View v) {
 		Intent intent = new Intent(this, WordPracticeActivity.class);
 		startActivity(intent);
 	}
