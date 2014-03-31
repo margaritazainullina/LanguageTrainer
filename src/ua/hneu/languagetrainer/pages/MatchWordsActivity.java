@@ -10,6 +10,7 @@ import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.xmlparcing.DictionaryEntry;
 import ua.hneu.languagetrainer.xmlparcing.WordDictionary;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -31,7 +32,7 @@ public class MatchWordsActivity extends Activity {
 	TextView isCorrectTextView;
 	
 	// has 3 fields - index of kanji, transcription, translation
-	int[] currentAnswer = new int[3];
+	int[] currentAnswer = new int[]{-1,-1,-1};
 
 	ArrayList<Integer> kanjiIndices;
 	ArrayList<Integer> readingIndices;
@@ -126,6 +127,8 @@ public class MatchWordsActivity extends Activity {
 		readingListView.setOnItemClickListener(readingListClickListener);
 		translationListView
 				.setOnItemClickListener(translationListClickListener);
+		
+		
 	}
 
 	@Override
@@ -178,5 +181,10 @@ public class MatchWordsActivity extends Activity {
 		currentAnswer[0] = -1;
 		currentAnswer[1] = -1;
 		currentAnswer[2] = -1;
+	}
+	
+	public void buttonSkipMatchOnClick(View v) {
+		Intent matchWordsIntent = new Intent(this, SelectTestActivity.class);
+		startActivity(matchWordsIntent);
 	}
 }

@@ -2,12 +2,15 @@ package ua.hneu.languagetrainer.xmlparcing;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
+
 public class WordDictionary {
 
 	private ArrayList<DictionaryEntry> entries;
 
-	//all entries with kanji, transcription, romaji and translation
+	// all entries with kanji, transcription, romaji and translation
 	public ArrayList<DictionaryEntry> getEntries() {
 		return entries;
 	}
@@ -22,6 +25,16 @@ public class WordDictionary {
 		return kanji;
 	}
 
+	// returns ArrayList of all ids in dictionary (without empty ones)
+	public ArrayList<Integer> getAllIds() {
+		ArrayList<Integer> ids = new ArrayList<Integer>();
+		for (DictionaryEntry e : entries) {
+			if (e.getWord() != "")
+				ids.add(e.getId());
+		}
+		return ids;
+	}
+
 	// returns ArrayList of transcription and romaji in dictionary
 	public ArrayList<String> getAllReadings() {
 		ArrayList<String> readings = new ArrayList<String>();
@@ -31,7 +44,7 @@ public class WordDictionary {
 		return readings;
 	}
 
-	//returns ArrayList of all translations in dictionary 
+	// returns ArrayList of all translations in dictionary
 	public ArrayList<String> getAllTranslations() {
 		ArrayList<String> translation = new ArrayList<String>();
 		for (DictionaryEntry e : entries) {
@@ -39,15 +52,27 @@ public class WordDictionary {
 		}
 		return translation;
 	}
-	
-	public void sort(){
-		  Collections.sort(entries);
+
+	//returns Set with stated size of unique random entries from currrent dictionary
+	public Set<DictionaryEntry> getRandomEntries(int size) {
+		Set<DictionaryEntry> random = new HashSet<DictionaryEntry>();
+
+		Random rn = new Random();
+		while (random.size() < size) {
+			int i = rn.nextInt(entries.size());
+				random.add(entries.get(i));
+		}
+		return random;
 	}
-	
-	public void reverse(){
-		  Collections.reverse(entries);
+
+	public void sort() {
+		Collections.sort(entries);
 	}
-	
+
+	public void reverse() {
+		Collections.reverse(entries);
+	}
+
 	public void setEntries(ArrayList<DictionaryEntry> entries) {
 		this.entries = entries;
 	}

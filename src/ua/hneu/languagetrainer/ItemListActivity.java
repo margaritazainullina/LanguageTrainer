@@ -3,7 +3,10 @@ package ua.hneu.languagetrainer;
 import ua.edu.hneu.test.R;
 import ua.hneu.languagetrainer.firstpage.DummyContent;
 import ua.hneu.languagetrainer.firstpage.DummyContent.DummyItem;
+import ua.hneu.languagetrainer.pages.SelectTestActivity;
 import ua.hneu.languagetrainer.pages.WordPracticeActivity;
+import ua.hneu.languagetrainer.xmlparcing.DictUtil;
+import ua.hneu.languagetrainer.xmlparcing.WordDictionary;
 import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
@@ -49,7 +52,6 @@ public class ItemListActivity extends FragmentActivity implements
 			// res/values-sw600dp). If this view is present, then the
 			// activity should be in two-pane mode.
 			mTwoPane = true;
-			
 
 			// In two-pane mode, list items should be given the
 			// 'activated' state when touched.
@@ -62,11 +64,10 @@ public class ItemListActivity extends FragmentActivity implements
 
 			TextView textViewUserInfo = (TextView) findViewById(R.id.textViewUserInfo);
 			textViewUserInfo.setText("Your level is: N" + App.getUserLevel());
+		} else {
+
 		}
-		else{
-			
-		}
-		Log.i("mTwoPane", "mTwoPane - "+mTwoPane);
+		Log.i("mTwoPane", "mTwoPane - " + mTwoPane);
 		// TODO: If exposing deep links into your app, handle intents here.
 	}
 
@@ -133,11 +134,13 @@ public class ItemListActivity extends FragmentActivity implements
 		} else {
 			// In single-pane mode, simply start the detail activity
 			// for the selected item ID.
-			/*Intent detailIntent = new Intent(this,
-					VocabularyActivityFragment.class);
-			detailIntent.putExtra(VocabularyActivityFragment.ARG_ITEM_ID, id);
-			startActivity(detailIntent);*/
-			
+			/*
+			 * Intent detailIntent = new Intent(this,
+			 * VocabularyActivityFragment.class);
+			 * detailIntent.putExtra(VocabularyActivityFragment.ARG_ITEM_ID,
+			 * id); startActivity(detailIntent);
+			 */
+
 			if (id == "1") {
 				Intent detailIntent = new Intent(this,
 						VocabularyActivityFragment.class);
@@ -147,7 +150,19 @@ public class ItemListActivity extends FragmentActivity implements
 	}
 
 	public void onClickPracticeVocabulary(View v) {
+
 		Intent intent = new Intent(this, WordPracticeActivity.class);
 		startActivity(intent);
+
+		// stub!!!
+		/*
+		 * WordDictionary dict = new WordDictionary();
+		 * App.setCurrentDictionary(new WordDictionary()); String xml =
+		 * DictUtil.readFile(this, "JLPT_N5_RUS.xml"); dict =
+		 * DictUtil.ParseVocabularyXml(xml); // replace fetching of entries with
+		 * some complicated method for (int i = 0; i < 7; i++) {
+		 * App.getCurrentDictionary().add(dict.fetchRandom()); } Intent intent =
+		 * new Intent(this, SelectTestActivity.class); startActivity(intent);
+		 */
 	}
 }

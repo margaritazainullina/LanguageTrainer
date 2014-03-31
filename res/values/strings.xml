@@ -22,6 +22,7 @@
     <string name="skip">Skip exercise</string>
     <string name="ok">Ok</string>
     <string name="title_activity_match_the_words">MatchTheWordsActivity</string>
-    <string name="title_activity_word_practice_activity1">WordPracticeActivity1</string>
+    <string name="title_activity_word_practice_activity">WordPracticeActivity</string>
+    <string name="title_select_test_activity">Select test activity</string>
 
 </resources>

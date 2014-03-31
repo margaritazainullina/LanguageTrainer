@@ -54,6 +54,10 @@ public class DictionaryEntry implements Comparable{
 	public List<String> getTranslations() {
 		return this.meaning.translations;
 	}
+	
+	public String getTranslationsToString() {		
+		return this.meaning.translationsToString();
+	}
 
 	public String getTranscription() {
 		return this.meaning.transcription;

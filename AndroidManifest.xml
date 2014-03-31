@@ -51,7 +51,11 @@
         </activity>
         <activity
             android:name="ua.hneu.languagetrainer.pages.WordPracticeActivity1"
-            android:label="@string/title_activity_word_practice_activity1" >
+            android:label="@string/title_activity_word_practice_activity" >
+        </activity>
+        <activity
+            android:name="ua.hneu.languagetrainer.pages.SelectTestActivity"
+            android:label="@string/title_select_test_activity" >
         </activity>
     </application>
 
