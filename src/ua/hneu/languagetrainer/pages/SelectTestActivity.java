@@ -1,8 +1,6 @@
 package ua.hneu.languagetrainer.pages;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Set;
 
 import ua.edu.hneu.test.R;
@@ -28,7 +26,8 @@ public class SelectTestActivity extends Activity {
 	TextView transcriptionTextView;
 	TextView romajiTextView;
 	TextView translationTextView;
-
+	TextView isRight;
+	DictionaryEntry rightAnswer;
 	int answersNumber = 5;
 	int currentWordNumber = -1;
 
@@ -43,6 +42,7 @@ public class SelectTestActivity extends Activity {
 		romajiTextView = (TextView) findViewById(R.id.romajiTextView);
 		translationTextView = (TextView) findViewById(R.id.translationTextView);
 		answersListView = (ListView) findViewById(R.id.answersListView);
+		isRight = (TextView) findViewById(R.id.isRight);
 
 		// current dictionary with words for current session
 		curDictionary = App.getCurrentDictionary();
@@ -61,17 +61,19 @@ public class SelectTestActivity extends Activity {
 		transcriptionTextView.setText(e.getTranscription());
 		romajiTextView.setText(e.getRomaji());
 		String s = e.translationsToString();
-		
-		//translationTextView.setText(s);
+
+		// translationTextView.setText(s);
 		// get dictionary with random entries, add current one and shuffle
 		randomDictionary = curDictionary.getRandomEntries(answersNumber - 1);
 		randomDictionary.add(curDictionary.get(currentWordNumber));
-		
-		//create List randomDictionaryList for ArrayAdapter from set randomDictionary
+		rightAnswer = curDictionary.get(currentWordNumber);
+
+		// create List randomDictionaryList for ArrayAdapter from set
+		// randomDictionary
 		WordDictionary randomDictionaryList = new WordDictionary();
 		randomDictionaryList.getEntries().addAll(randomDictionary);
-		
-		//shuffle list
+
+		// shuffle list
 		Collections.shuffle(randomDictionaryList.getEntries());
 
 		// creating adapters ListView with possible answers
@@ -97,13 +99,38 @@ public class SelectTestActivity extends Activity {
 		@Override
 		public void onItemClick(final AdapterView<?> parent, final View view,
 				final int position, final long itemID) {
+
+			String selectedFromList = (String) (answersListView
+					.getItemAtPosition(position));
+			String rightAnswer1 = rightAnswer.getTranslationsToString();
 			
-			//show next word and possible answers
-			//TODO: checking whether answer is correct
-			//TODO: checking word dictionary boundaries and button following o resultActivity
-			nextWord();
+			//replace it!!! 
+			//TODO: replace symbols [ and ] from getTranslationsToString() method!
+			selectedFromList = selectedFromList.substring(1, selectedFromList.length()-1);
+			
+			if (selectedFromList.equals(rightAnswer1))
+								isRight.setText("Correct!");
+				//isRight.setText(position);
+				
+			else
+				isRight.setText("Wrong");
+				//isRight.setText(position);
+
+			if (currentWordNumber < curDictionary.size() - 1) {
+				// show next word and possible answers
+				nextWord();
+			} else {
+				endTesting();
+			}
 		}
 	};
+
+	public void endTesting() {
+		// go to resultActivity to show result of all vocabulary training
+		Intent resultActivity = new Intent(this,
+				WordPracticeResultActivity.class);
+		startActivity(resultActivity);
+	}
 
 	public void buttonSkipSelectOnClick(View v) {
 		// change it

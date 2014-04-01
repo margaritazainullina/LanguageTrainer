@@ -127,8 +127,6 @@ public class MatchWordsActivity extends Activity {
 		readingListView.setOnItemClickListener(readingListClickListener);
 		translationListView
 				.setOnItemClickListener(translationListClickListener);
-		
-		
 	}
 
 	@Override

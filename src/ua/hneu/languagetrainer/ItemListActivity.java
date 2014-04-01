@@ -150,19 +150,20 @@ public class ItemListActivity extends FragmentActivity implements
 	}
 
 	public void onClickPracticeVocabulary(View v) {
-
-		Intent intent = new Intent(this, WordPracticeActivity.class);
-		startActivity(intent);
-
-		// stub!!!
 		/*
-		 * WordDictionary dict = new WordDictionary();
-		 * App.setCurrentDictionary(new WordDictionary()); String xml =
-		 * DictUtil.readFile(this, "JLPT_N5_RUS.xml"); dict =
-		 * DictUtil.ParseVocabularyXml(xml); // replace fetching of entries with
-		 * some complicated method for (int i = 0; i < 7; i++) {
-		 * App.getCurrentDictionary().add(dict.fetchRandom()); } Intent intent =
-		 * new Intent(this, SelectTestActivity.class); startActivity(intent);
+		 * Intent intent = new Intent(this, WordPracticeActivity.class);
+		 * startActivity(intent);
 		 */
+		// stub!!!
+		WordDictionary dict = new WordDictionary();
+		App.setCurrentDictionary(new WordDictionary());
+		String xml = DictUtil.readFile(this, "JLPT_N5_RUS.xml");
+		dict = DictUtil.ParseVocabularyXml(xml);
+		// replace fetching of entries with some complicated method
+		for (int i = 0; i < 7; i++) {
+			App.getCurrentDictionary().add(dict.fetchRandom());
+		}
+		Intent intent = new Intent(this, SelectTestActivity.class);
+		startActivity(intent);
 	}
 }

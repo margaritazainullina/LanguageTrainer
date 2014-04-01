@@ -48,11 +48,19 @@
         </ListView>
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/isRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AnswersLinearLayout"
+        android:layout_toRightOf="@+id/isRight"/>
+
     <Button
         android:id="@+id/buttonSkipSelect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/AnswersLinearLayout"
+        android:layout_toRightOf="@+id/isRight"
         android:onClick="buttonSkipSelectOnClick"
         android:text="@string/skip" />
 
