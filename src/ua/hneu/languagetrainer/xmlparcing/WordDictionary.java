@@ -48,19 +48,20 @@ public class WordDictionary {
 	public ArrayList<String> getAllTranslations() {
 		ArrayList<String> translation = new ArrayList<String>();
 		for (DictionaryEntry e : entries) {
-			translation.add(e.getTranslations().toString());
+			translation.add(e.getTranslationsToString() + "");
 		}
 		return translation;
 	}
 
-	//returns Set with stated size of unique random entries from currrent dictionary
+	// returns Set with stated size of unique random entries from currrent
+	// dictionary
 	public Set<DictionaryEntry> getRandomEntries(int size) {
 		Set<DictionaryEntry> random = new HashSet<DictionaryEntry>();
 
 		Random rn = new Random();
 		while (random.size() < size) {
 			int i = rn.nextInt(entries.size());
-				random.add(entries.get(i));
+			random.add(entries.get(i));
 		}
 		return random;
 	}

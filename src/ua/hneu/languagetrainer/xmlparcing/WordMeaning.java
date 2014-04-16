@@ -16,8 +16,8 @@ public class WordMeaning {
 
 	WordMeaning() {
 	}
-
-	String translationsToString() {
+	
+	public String translationsToString() {
 		StringBuilder sb = new StringBuilder();
 		for (String tr : translations) {
 			sb.append(tr + ", ");

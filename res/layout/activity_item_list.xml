@@ -44,7 +44,7 @@
 
     <fragment
         android:id="@+id/item_list"
-        android:name="ua.hneu.languagetrainer.ItemListFragment"
+        android:name="ua.hneu.languagetrainer.masterdetailflow.ItemListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"

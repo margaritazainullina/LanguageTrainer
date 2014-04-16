@@ -102,12 +102,8 @@ public class SelectTestActivity extends Activity {
 
 			String selectedFromList = (String) (answersListView
 					.getItemAtPosition(position));
-			String rightAnswer1 = rightAnswer.getTranslationsToString();
-			
-			//replace it!!! 
-			//TODO: replace symbols [ and ] from getTranslationsToString() method!
-			selectedFromList = selectedFromList.substring(1, selectedFromList.length()-1);
-			
+			String rightAnswer1 = rightAnswer.getTranslationsToString();	
+						
 			if (selectedFromList.equals(rightAnswer1))
 								isRight.setText("Correct!");
 				//isRight.setText(position);
