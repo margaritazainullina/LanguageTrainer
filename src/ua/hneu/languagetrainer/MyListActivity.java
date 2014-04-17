@@ -1,14 +1,12 @@
 package ua.hneu.languagetrainer;
 
+import android.R;
 import android.app.ListActivity;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.ArrayAdapter;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class MyListActivity extends ListActivity {
 	MySimpleArrayAdapter adapter;
@@ -25,15 +23,10 @@ public class MyListActivity extends ListActivity {
 
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-		// String item = (String) getListAdapter().getItem(position);
-
-		// changes color of selected item
-		for (int i = 0; i < l.getChildCount(); i++) {
-			View v3 = l.getChildAt(i);
-			adapter.changeColor(v3, Color.WHITE);
-		}
-		adapter.changeColor(v, Color.YELLOW);
-
+		
+		Animation animFadeIn = AnimationUtils.loadAnimation(this,
+				R.anim.fade_out);
+		adapter.hideListViewRow(v,animFadeIn);
 	}
 
 }
