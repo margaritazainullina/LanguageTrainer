@@ -19,9 +19,7 @@ import android.text.TextUtils;
 
 import java.util.List;
 
-import ua.edu.hneu.test.R;
-import ua.edu.hneu.test.R.string;
-import ua.edu.hneu.test.R.xml;
+import ua.edu.hneu.languagetrainer.R;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On

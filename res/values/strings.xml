@@ -15,14 +15,13 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_grammar">GrammarActivity</string>
     <string name="practice_words">Practice words</string>
-    <string name="title_activity_word_practice">WordPracticeActivity</string>
-    <string name="title_activity_word_practice_result">WordPracticeResultActivity</string>
+    <string name="title_activity_word_practice">Inroduction of words</string>
+    <string name="title_activity_word_practice_result">Your result</string>
     <string name="previous">Previous</string>
     <string name="next">Next</string>
     <string name="skip">Skip exercise</string>
     <string name="ok">Ok</string>
-    <string name="title_activity_match_the_words">MatchTheWordsActivity</string>
-    <string name="title_activity_word_practice_activity">WordPracticeActivity</string>
-    <string name="title_select_test_activity">Select test activity</string>
+    <string name="title_activity_match_the_words">Match words with their readings and translation</string>
+   <string name="title_select_test_activity">Select right answer from the list</string>
 
 </resources>

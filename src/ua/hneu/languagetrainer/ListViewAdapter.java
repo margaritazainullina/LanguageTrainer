@@ -2,7 +2,7 @@ package ua.hneu.languagetrainer;
 
 import java.util.ArrayList;
 
-import ua.edu.hneu.test.R;
+import ua.edu.hneu.languagetrainer.R;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -13,11 +13,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class MySimpleArrayAdapter extends ArrayAdapter<String> {
+public class ListViewAdapter extends ArrayAdapter<String> {
 	private final Context context;
 	private final ArrayList<String> values;
 
-	public MySimpleArrayAdapter(Context context, ArrayList<String> values) {
+	public ListViewAdapter(Context context, ArrayList<String> values) {
 		super(context, R.layout.rowlayout, values);
 		this.context = context;
 		this.values = values;
@@ -34,8 +34,6 @@ public class MySimpleArrayAdapter extends ArrayAdapter<String> {
 	}
 
 	public void changeColor(View rowView, int color) {
-		LayoutInflater inflater = (LayoutInflater) context
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		TextView textView = (TextView) rowView.findViewById(R.id.label);
 		textView.setTextColor(color);
 	}
@@ -50,9 +48,9 @@ public class MySimpleArrayAdapter extends ArrayAdapter<String> {
 		textView.setTextColor(color);
 	}
 
-	public void hideListViewRow(View listRow, Animation anim) {
+	public void hideElement(View listRow, Animation anim, long duration) {
 		//settings for fading of listView row
-		anim.setDuration(350);
+		anim.setDuration(duration);
 		anim.setFillAfter(true);
 		listRow.startAnimation(anim);
 		//disable the row

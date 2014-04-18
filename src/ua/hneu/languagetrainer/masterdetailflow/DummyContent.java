@@ -7,7 +7,7 @@ import java.util.Map;
 
 import android.content.res.Resources;
 
-import ua.edu.hneu.test.R;
+import ua.edu.hneu.languagetrainer.R;
 
 /**
  * Helper class for providing sample content for user interfaces created by

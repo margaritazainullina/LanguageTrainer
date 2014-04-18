@@ -1,21 +1,16 @@
 package ua.hneu.languagetrainer.masterdetailflow;
 
-import ua.edu.hneu.test.R;
+import ua.edu.hneu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
-import ua.hneu.languagetrainer.MyListActivity;
-import ua.hneu.languagetrainer.pages.MatchWordsActivity;
-import ua.hneu.languagetrainer.pages.SelectTestActivity;
-import ua.hneu.languagetrainer.pages.WordPracticeActivity;
+import ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity;
 import ua.hneu.languagetrainer.xmlparcing.DictUtil;
 import ua.hneu.languagetrainer.xmlparcing.WordDictionary;
-import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-
 /**
  * An activity representing a list of Items. This activity has different
  * presentations for handset and tablet-size devices. On handsets, the activity
@@ -152,19 +147,19 @@ public class ItemListActivity extends FragmentActivity implements
 
 	public void onClickPracticeVocabulary(View v) {
 		
-		  Intent intent = new Intent(this, MyListActivity.class);
+		  Intent intent = new Intent(this, WordIntroductionActivity.class);
 		  startActivity(intent);
 		 
 		// stub!!!
 		/*WordDictionary dict = new WordDictionary();
 		App.setCurrentDictionary(new WordDictionary());
-		String xml = DictUtil.readFile(this, "JLPT_N5_RUS.xml");
+		String xml = DictUtil.readFile(this, "test.xml");
 		dict = DictUtil.ParseVocabularyXml(xml);
-		// replace fetching of entries with some complicated method
+		// replace fetching of entries with some more complicated method
 		for (int i = 0; i < 7; i++) {
 			App.getCurrentDictionary().add(dict.fetchRandom());
 		}
-		Intent intent = new Intent(this, SelectTestActivity.class);
+		Intent intent = new Intent(this, WordIntroductionActivity.class);
 		startActivity(intent);*/
 	}
 }

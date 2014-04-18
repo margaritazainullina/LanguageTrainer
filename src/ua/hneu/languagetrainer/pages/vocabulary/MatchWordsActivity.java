@@ -1,20 +1,22 @@
-package ua.hneu.languagetrainer.pages;
+package ua.hneu.languagetrainer.pages.vocabulary;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import ua.edu.hneu.test.R;
+import ua.edu.hneu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.ListViewAdapter;
 import ua.hneu.languagetrainer.xmlparcing.WordDictionary;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -40,11 +42,18 @@ public class MatchWordsActivity extends Activity {
 	ArrayList<String> kanji1;
 	ArrayList<String> readings1;
 	ArrayList<String> translations1;
-	
+
 	// custom adapters for ListViews
 	ListViewAdapter adapter1;
 	ListViewAdapter adapter2;
 	ListViewAdapter adapter3;
+
+	// views - rows with given answer
+	View v1;
+	View v2;
+	View v3;
+
+	int numberOfRightAnswers = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -108,11 +117,11 @@ public class MatchWordsActivity extends Activity {
 		}
 
 		// creating adapters for columns - ListViews
-		
-		adapter1 = new ListViewAdapter(this,kanji);
-		adapter2 = new ListViewAdapter(this,readings);
-		adapter3 = new ListViewAdapter(this,translations);
-		
+
+		adapter1 = new ListViewAdapter(this, kanji);
+		adapter2 = new ListViewAdapter(this, readings);
+		adapter3 = new ListViewAdapter(this, translations);
+
 		// bindings adapters to ListViews
 		kanjiListView = (ListView) findViewById(R.id.kanjiListView);
 		kanjiListView.setAdapter(adapter1);
@@ -136,13 +145,17 @@ public class MatchWordsActivity extends Activity {
 		return true;
 	}
 
-	
 	// listeners for list
 	final private transient OnItemClickListener kanjiListClickListener = new OnItemClickListener() {
 		@Override
 		public void onItemClick(final AdapterView<?> parent, final View view,
 				final int position, final long itemID) {
 			currentAnswer[0] = kanjiIndices.get(position);
+			// change color of selected row
+			adapter1.setColorToListViewRow((ListView) parent, position,
+					Color.YELLOW);
+			// and remember this row for fading out if it is correct
+			v1 = view;
 		}
 	};
 	final private transient OnItemClickListener readingListClickListener = new OnItemClickListener() {
@@ -150,6 +163,9 @@ public class MatchWordsActivity extends Activity {
 		public void onItemClick(final AdapterView<?> parent, final View view,
 				final int position, final long itemID) {
 			currentAnswer[1] = readingIndices.get(position);
+			adapter2.setColorToListViewRow((ListView) parent, position,
+					Color.YELLOW);
+			v2 = view;
 		}
 	};
 	final private transient OnItemClickListener translationListClickListener = new OnItemClickListener() {
@@ -157,6 +173,9 @@ public class MatchWordsActivity extends Activity {
 		public void onItemClick(final AdapterView<?> parent, final View view,
 				final int position, final long itemID) {
 			currentAnswer[2] = translationIndices.get(position);
+			adapter3.setColorToListViewRow((ListView) parent, position,
+					Color.YELLOW);
+			v3 = view;
 		}
 	};
 
@@ -165,6 +184,10 @@ public class MatchWordsActivity extends Activity {
 		boolean ifWordWithoutKanji = false;
 
 		// get value from map - if reading the same, set hasKanji
+		if (currentAnswer[1] == -1 || currentAnswer[2] == -1) {
+			return;
+		}
+
 		String s1 = readings1.get(currentAnswer[1]);
 		if (hasKanji.get(s1))
 			ifWordWithoutKanji = true;
@@ -172,10 +195,30 @@ public class MatchWordsActivity extends Activity {
 		// if all indices are the same
 		// or hasKanji=false and 2nd and 3rd are the same
 		if ((currentAnswer[0] == currentAnswer[1] && currentAnswer[1] == currentAnswer[2])
-				|| (currentAnswer[0] == -1 && !ifWordWithoutKanji && currentAnswer[1] == currentAnswer[2]))
+				|| (currentAnswer[0] == -1 && !ifWordWithoutKanji && currentAnswer[1] == currentAnswer[2])) {
+			numberOfRightAnswers++;
+			// if all is done
+			if (numberOfRightAnswers == readingsNumber-1) {
+				Intent matchWordsIntent = new Intent(this,
+						TranslationTestActivity.class);
+				startActivity(matchWordsIntent);
+			}
+
 			isCorrectTextView.setText("Correct!");
-		else
+			// fade correct selected answers
+			Animation fadeOutAnimation = AnimationUtils.loadAnimation(this,
+					android.R.anim.fade_out);
+			if (currentAnswer[0] != -1)
+				adapter1.hideElement(v1, fadeOutAnimation, 350);
+			adapter2.hideElement(v2, fadeOutAnimation, 350);
+			adapter3.hideElement(v3, fadeOutAnimation, 350);
+		} else
 			isCorrectTextView.setText("Wrong");
+		// make selected items white
+		if (currentAnswer[0] != -1)
+			adapter1.changeColor(v1, Color.WHITE);
+		adapter2.changeColor(v2, Color.WHITE);
+		adapter3.changeColor(v3, Color.WHITE);
 
 		// reset values
 		currentAnswer[0] = -1;
@@ -184,7 +227,8 @@ public class MatchWordsActivity extends Activity {
 	}
 
 	public void buttonSkipMatchOnClick(View v) {
-		Intent matchWordsIntent = new Intent(this, SelectTestActivity.class);
+		Intent matchWordsIntent = new Intent(this,
+				TranslationTestActivity.class);
 		startActivity(matchWordsIntent);
 	}
 }

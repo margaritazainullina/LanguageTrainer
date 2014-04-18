@@ -4,7 +4,6 @@ import ua.hneu.languagetrainer.xmlparcing.DictUtil;
 import ua.hneu.languagetrainer.xmlparcing.WordDictionary;
 import android.app.Application;
 import android.content.Context;
-import android.util.Log;
 
 public class App extends Application {
 	 private static Context context;

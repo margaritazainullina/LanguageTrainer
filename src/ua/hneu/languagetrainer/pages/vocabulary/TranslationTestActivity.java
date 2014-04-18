@@ -1,8 +1,9 @@
-package ua.hneu.languagetrainer.pages;
+package ua.hneu.languagetrainer.pages.vocabulary;
 
 import java.util.Collections;
 import java.util.Set;
-import ua.edu.hneu.test.R;
+
+import ua.edu.hneu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.ListViewAdapter;
 import ua.hneu.languagetrainer.xmlparcing.DictionaryEntry;
@@ -13,12 +14,14 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class SelectTestActivity extends Activity {
+public class TranslationTestActivity extends Activity {
 	// dictionary with words of current session
 	WordDictionary curDictionary;
 	// dictionary with random words for possible answers
@@ -98,23 +101,54 @@ public class SelectTestActivity extends Activity {
 		@Override
 		public void onItemClick(final AdapterView<?> parent, final View view,
 				final int position, final long itemID) {
-
 			String selectedFromList = (String) (answersListView
 					.getItemAtPosition(position));
 			String rightAnswer1 = rightAnswer.getTranslationsToString();
-
+			// comparing correct and selected answer
 			if (selectedFromList.equals(rightAnswer1)) {
-				/*
-				 * isRight.setText("Correct!"); adapter.changeColor(view,
-				 * Color.GREEN);
-				 */
-				// TODO: delay to show that the answer is correct
-				if (currentWordNumber < curDictionary.size() - 1) {
-					// show next word and possible answers
-					nextWord();
-				} else {
-					endTesting();
-				}
+				// change color to green and fade out
+				isRight.setText("Correct!");
+				adapter.changeColor(view, Color.GREEN);
+				//fading out textboxes
+				
+				fadeOut(wordTextView, 750);
+				fadeOut(transcriptionTextView, 750);
+				fadeOut(romajiTextView, 750);
+				fadeOut(isRight, 750);
+			 		
+				//fading out listview
+				ListView v = (ListView) view.getParent();
+				fadeOut(v, 750);
+				
+				Animation fadeOutAnimation = AnimationUtils.loadAnimation(
+						v.getContext(), android.R.anim.fade_out);
+				fadeOutAnimation.setDuration(750);
+				v.startAnimation(fadeOutAnimation);
+
+				fadeOutAnimation
+						.setAnimationListener(new Animation.AnimationListener() {
+
+							@Override
+							public void onAnimationEnd(Animation animation) {
+								// when previous information faded out
+								// show next word and possible answers or go to
+								// next exercise
+								if (currentWordNumber < curDictionary.size() - 1) {
+									nextWord();
+								} else {
+									endTesting();
+								}
+							}
+
+							// doesn't needed, just implementation
+							@Override
+							public void onAnimationRepeat(Animation arg0) {
+							}
+
+							@Override
+							public void onAnimationStart(Animation arg0) {
+							}
+						});
 			} else {
 				// change color of row and set text
 				adapter.changeColor(view, Color.RED);
@@ -122,16 +156,22 @@ public class SelectTestActivity extends Activity {
 			}
 		}
 	};
+	
+	public void fadeOut(View v,long duration){
+		Animation fadeOutAnimation = AnimationUtils.loadAnimation(
+				v.getContext(), android.R.anim.fade_out);
+		fadeOutAnimation.setDuration(750);
+		v.startAnimation(fadeOutAnimation);
+	}
 
 	public void endTesting() {
 		// go to resultActivity to show result of all vocabulary training
-		Intent resultActivity = new Intent(this,
-				WordPracticeResultActivity.class);
+		Intent resultActivity = new Intent(this, ResultActivity.class);
 		startActivity(resultActivity);
 	}
 
 	public void buttonSkipSelectOnClick(View v) {
-		// go to next excercise activity
+		// go to next exercise activity
 		Intent matchWordsIntent = new Intent(this, MatchWordsActivity.class);
 		startActivity(matchWordsIntent);
 	}
