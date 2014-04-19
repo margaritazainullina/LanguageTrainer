@@ -128,4 +128,12 @@ public class DictUtil {
 		}
 		return dict;
 	}
+
+	public static void updateXmlWithResults(WordDictionary w){
+		//TODO: update <statistics status=""> in the xml
+		for (DictionaryEntry e : w.getEntries()) {
+			double p = e.getLearnedPercentage();
+			
+		}
+	}
 }

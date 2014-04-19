@@ -97,11 +97,10 @@ public class App extends Application {
 	public static int getAllCountWords() {
 		return allCountWords;
 	}
-
 	
 	
-	public static int getNumberOfWordRepeatationsForLearning() {
-		return numberOfWordRepeatationsForLearning;
+	public static double getPercentageIncrement() {
+		return 1.0/numberOfWordRepeatationsForLearning;
 	}
 
 	public static void setNumberOfWordRepeatationsForLearning(

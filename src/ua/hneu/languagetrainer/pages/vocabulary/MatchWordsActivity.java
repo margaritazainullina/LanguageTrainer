@@ -34,14 +34,14 @@ public class MatchWordsActivity extends Activity {
 
 	// has 3 elements - index of kanji, transcription, translation
 	int[] currentAnswer = new int[] { -1, -1, -1 };
-	
+
 	ArrayList<Integer> wordEntryIds;
 	// lists with indices
 	ArrayList<Integer> kanjiIndices;
 	ArrayList<Integer> readingIndices;
 	ArrayList<Integer> translationIndices;
 	HashMap<String, Boolean> hasKanji;
-	HashMap<Integer, Integer> wordIndexAndKanjiIndex;	
+	HashMap<Integer, Integer> wordIndexAndKanjiIndex;
 
 	// lists with initial data from dictionary (not shuffled);
 	ArrayList<String> kanji1;
@@ -58,12 +58,15 @@ public class MatchWordsActivity extends Activity {
 	View v2;
 	View v3;
 
+	//TODO: make this for every word
+	boolean ifWasWrong = false;
+
 	int numberOfRightAnswers = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_match_the_words);
+		setContentView(R.layout.activity_match_words);
 
 		// current dictionary with words for current session
 		curDictionary = App.getCurrentDictionary();
@@ -82,7 +85,7 @@ public class MatchWordsActivity extends Activity {
 		readingIndices = new ArrayList<Integer>(readingsNumber);
 		translationIndices = new ArrayList<Integer>(translationsNumber);
 		hasKanji = new HashMap<String, Boolean>(readingsNumber);
-		//map - real index (id of word entry) and readingIndiex for shuffling
+		// map - real index (id of word entry) and readingIndiex for shuffling
 		wordIndexAndKanjiIndex = new HashMap<Integer, Integer>(readingsNumber);
 
 		// initializing indices
@@ -160,8 +163,10 @@ public class MatchWordsActivity extends Activity {
 				final int position, final long itemID) {
 			currentAnswer[0] = kanjiIndices.get(position);
 			// change color of selected row
-			adapter1.setColorToListViewRow((ListView) parent, position,
-					Color.YELLOW);
+			//TODO: replace with colors from xml
+			//adapter1.setBackgroundColorOfListViewRow((ListView) parent, position,Color.argb(1, 40, 158, 181));
+			adapter1.setTextColorOfListViewRow((ListView) parent, position,Color.YELLOW);
+			
 			// and remember this row for fading out if it is correct
 			v1 = view;
 		}
@@ -171,7 +176,7 @@ public class MatchWordsActivity extends Activity {
 		public void onItemClick(final AdapterView<?> parent, final View view,
 				final int position, final long itemID) {
 			currentAnswer[1] = readingIndices.get(position);
-			adapter2.setColorToListViewRow((ListView) parent, position,
+			adapter2.setTextColorOfListViewRow((ListView) parent, position,
 					Color.YELLOW);
 			v2 = view;
 		}
@@ -181,7 +186,7 @@ public class MatchWordsActivity extends Activity {
 		public void onItemClick(final AdapterView<?> parent, final View view,
 				final int position, final long itemID) {
 			currentAnswer[2] = translationIndices.get(position);
-			adapter3.setColorToListViewRow((ListView) parent, position,
+			adapter3.setTextColorOfListViewRow((ListView) parent, position,
 					Color.YELLOW);
 			v3 = view;
 		}
@@ -190,8 +195,7 @@ public class MatchWordsActivity extends Activity {
 	public void buttonOkOnClick(View v) {
 		// if the word don't have a kanji currentAnswer[0] isn't regarded
 		boolean ifWordWithoutKanji = false;
-
-		//if user didn't answered at all - do nothing
+		// if user didn't answered at all - do nothing
 		if (currentAnswer[1] == -1 || currentAnswer[2] == -1) {
 			return;
 		}
@@ -207,7 +211,7 @@ public class MatchWordsActivity extends Activity {
 				|| (currentAnswer[0] == -1 && !ifWordWithoutKanji && currentAnswer[1] == currentAnswer[2])) {
 			numberOfRightAnswers++;
 			// if all is done
-			if (numberOfRightAnswers == readingsNumber-1) {
+			if (numberOfRightAnswers == readingsNumber - 1) {
 				Intent matchWordsIntent = new Intent(this,
 						TranslationTestActivity.class);
 				startActivity(matchWordsIntent);
@@ -221,14 +225,17 @@ public class MatchWordsActivity extends Activity {
 				adapter1.hideElement(v1, fadeOutAnimation, 350);
 			adapter2.hideElement(v2, fadeOutAnimation, 350);
 			adapter3.hideElement(v3, fadeOutAnimation, 350);
-			//and write result to current dictionary
-			DictionaryEntry currentEntry = curDictionary.get(currentAnswer[1]);
-			//curDictionary.getWordWithId(currentEntry.getId());
-			double percentage = 1.0/App.getNumberOfWordRepeatationsForLearning();
-			currentEntry.setLearnedPercentage(percentage);
-			
+			// and write result to current dictionary if wrong answer was not
+			// given
+			if (!ifWasWrong) {
+				DictionaryEntry currentEntry = curDictionary
+						.get(currentAnswer[1]);
+				currentEntry.setLearnedPercentage(currentEntry.getLearnedPercentage()+ App.getPercentageIncrement());
+			}
+
 		} else
 			isCorrectTextView.setText("Wrong");
+		ifWasWrong = true;
 		// make selected items white
 		if (currentAnswer[0] != -1)
 			adapter1.changeColor(v1, Color.WHITE);

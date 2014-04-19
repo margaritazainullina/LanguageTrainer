@@ -1,16 +1,44 @@
 package ua.hneu.languagetrainer.pages.vocabulary;
 
 import ua.edu.hneu.languagetrainer.R;
+import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.xmlparcing.DictUtil;
+import ua.hneu.languagetrainer.xmlparcing.DictionaryEntry;
+import ua.hneu.languagetrainer.xmlparcing.WordDictionary;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.widget.TextView;
 
 public class ResultActivity extends Activity {
+	TextView resultTextView;
+	WordDictionary curDictionary;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_word_practice_result);
+		setContentView(R.layout.activity_vocabulary_result);
+		// current dictionary with words for current session
+		curDictionary = App.getCurrentDictionary();
+
+		resultTextView = (TextView) findViewById(R.id.resultTextView);
+		int numberOfLearnedWords = 0;
+		StringBuffer sb = new StringBuffer();
+		for (DictionaryEntry entry : curDictionary.getEntries()) {
+			if (entry.getLearnedPercentage() >= 1) {
+				numberOfLearnedWords++;
+				sb.append(entry.getWord());
+				sb.append(", ");
+			}
+		}
+		StringBuffer sb1 = new StringBuffer();
+		sb1.append("You've learned ");
+		sb1.append(numberOfLearnedWords);
+		sb1.append(" words:\n");
+		sb1.append(sb);
+		resultTextView.setText(sb1);
+		
+		DictUtil.updateXmlWithResults(curDictionary);
 	}
 
 	@Override

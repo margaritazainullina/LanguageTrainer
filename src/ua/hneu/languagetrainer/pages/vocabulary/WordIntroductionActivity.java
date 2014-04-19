@@ -31,12 +31,12 @@ public class WordIntroductionActivity extends Activity {
 		// Log.d("Activ", ((App) getApplication()).str);
 		App.setCurrentDictionary(new WordDictionary());
 		
-		setContentView(R.layout.activity_word_practice);
+		setContentView(R.layout.activity_word_introduction);
 
 		prevButton = (Button) findViewById(R.id.buttonPrevious);
 
 		// read file and parse to WordDictionary
-		String xml = DictUtil.readFile(this, "test.xml");
+		String xml = DictUtil.readFile(this, "test3.xml");
 		dict = DictUtil.ParseVocabularyXml(xml);
 		// replace fetching of entries with some complicated method
 		for (int i = 0; i < numberOfWordsInSample; i++) {

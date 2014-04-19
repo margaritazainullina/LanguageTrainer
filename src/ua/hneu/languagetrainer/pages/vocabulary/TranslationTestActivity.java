@@ -26,6 +26,7 @@ public class TranslationTestActivity extends Activity {
 	WordDictionary curDictionary;
 	// dictionary with random words for possible answers
 	Set<DictionaryEntry> randomDictionary;
+	WordDictionary randomDictionaryList;
 	// activity elements
 	ListView answersListView;
 	TextView wordTextView;
@@ -40,10 +41,12 @@ public class TranslationTestActivity extends Activity {
 	// custom adapter for ListView
 	ListViewAdapter adapter;
 
+	boolean ifWasWrong = false;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.select_test_activity);
+		setContentView(R.layout.activity_translation_test);
 
 		// Initialize
 		wordTextView = (TextView) findViewById(R.id.wordTextView);
@@ -76,7 +79,7 @@ public class TranslationTestActivity extends Activity {
 
 		// create List randomDictionaryList for ArrayAdapter from set
 		// randomDictionary
-		WordDictionary randomDictionaryList = new WordDictionary();
+		randomDictionaryList = new WordDictionary();
 		randomDictionaryList.getEntries().addAll(randomDictionary);
 		// shuffle list
 		Collections.shuffle(randomDictionaryList.getEntries());
@@ -101,25 +104,30 @@ public class TranslationTestActivity extends Activity {
 		@Override
 		public void onItemClick(final AdapterView<?> parent, final View view,
 				final int position, final long itemID) {
+
 			String selectedFromList = (String) (answersListView
 					.getItemAtPosition(position));
 			String rightAnswer1 = rightAnswer.getTranslationsToString();
 			// comparing correct and selected answer
 			if (selectedFromList.equals(rightAnswer1)) {
+
+				// increment percentage
+				if (!ifWasWrong)
+					rightAnswer.setLearnedPercentage(rightAnswer.getLearnedPercentage()+ App.getPercentageIncrement());
+					
 				// change color to green and fade out
 				isRight.setText("Correct!");
 				adapter.changeColor(view, Color.GREEN);
-				//fading out textboxes
-				
+				// fading out textboxes
 				fadeOut(wordTextView, 750);
 				fadeOut(transcriptionTextView, 750);
 				fadeOut(romajiTextView, 750);
 				fadeOut(isRight, 750);
-			 		
-				//fading out listview
+
+				// fading out listview
 				ListView v = (ListView) view.getParent();
 				fadeOut(v, 750);
-				
+
 				Animation fadeOutAnimation = AnimationUtils.loadAnimation(
 						v.getContext(), android.R.anim.fade_out);
 				fadeOutAnimation.setDuration(750);
@@ -153,11 +161,12 @@ public class TranslationTestActivity extends Activity {
 				// change color of row and set text
 				adapter.changeColor(view, Color.RED);
 				isRight.setText("Wrong");
+				ifWasWrong = true;
 			}
 		}
 	};
-	
-	public void fadeOut(View v,long duration){
+
+	public void fadeOut(View v, long duration) {
 		Animation fadeOutAnimation = AnimationUtils.loadAnimation(
 				v.getContext(), android.R.anim.fade_out);
 		fadeOutAnimation.setDuration(750);
@@ -171,8 +180,8 @@ public class TranslationTestActivity extends Activity {
 	}
 
 	public void buttonSkipSelectOnClick(View v) {
-		// go to next exercise activity
-		Intent matchWordsIntent = new Intent(this, MatchWordsActivity.class);
+		// TODO: go to next exercise activity or result?
+		Intent matchWordsIntent = new Intent(this, ResultActivity.class);
 		startActivity(matchWordsIntent);
 	}
 }

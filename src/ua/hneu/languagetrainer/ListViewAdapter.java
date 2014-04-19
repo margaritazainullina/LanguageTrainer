@@ -38,7 +38,7 @@ public class ListViewAdapter extends ArrayAdapter<String> {
 		textView.setTextColor(color);
 	}
 
-	public void setColorToListViewRow(ListView l, int position, int color) {
+	public void setTextColorOfListViewRow(ListView l, int position, int color) {
 		for (int i = 0; i < l.getChildCount(); i++) {
 			View row = l.getChildAt(i);
 			this.changeColor(row, Color.WHITE);
@@ -46,6 +46,11 @@ public class ListViewAdapter extends ArrayAdapter<String> {
 		View currentRow = l.getChildAt(position);
 		TextView textView = (TextView) currentRow.findViewById(R.id.label);
 		textView.setTextColor(color);
+	}
+	
+	//TODO: make method
+	public void setBackgroundColorOfListViewRow(ListView l, int position, int color) {
+		
 	}
 
 	public void hideElement(View listRow, Animation anim, long duration) {
