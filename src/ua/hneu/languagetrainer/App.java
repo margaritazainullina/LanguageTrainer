@@ -6,7 +6,9 @@ import android.app.Application;
 import android.content.Context;
 
 public class App extends Application {
-	 private static Context context;
+	private static Context context;
+	
+	private static int numberOfWordRepeatationsForLearning =10;  
 	 
 	private static String userName = "";
 	// From 1 to 5 (N1-N5)
@@ -94,6 +96,17 @@ public class App extends Application {
 
 	public static int getAllCountWords() {
 		return allCountWords;
+	}
+
+	
+	
+	public static int getNumberOfWordRepeatationsForLearning() {
+		return numberOfWordRepeatationsForLearning;
+	}
+
+	public static void setNumberOfWordRepeatationsForLearning(
+			int numberOfWordRepeatationsForLearning) {
+		App.numberOfWordRepeatationsForLearning = numberOfWordRepeatationsForLearning;
 	}
 
 	// if data was updated by set method - also write it to the file

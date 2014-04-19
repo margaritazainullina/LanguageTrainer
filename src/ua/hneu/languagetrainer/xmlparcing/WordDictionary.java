@@ -10,6 +10,13 @@ public class WordDictionary {
 
 	private ArrayList<DictionaryEntry> entries;
 
+	public DictionaryEntry getWordWithId(int id){
+		for (DictionaryEntry entry : entries) {
+			if(entry.getId()==id) return entry;
+		}
+		return null;
+	}
+	
 	// all entries with kanji, transcription, romaji and translation
 	public ArrayList<DictionaryEntry> getEntries() {
 		return entries;

@@ -79,7 +79,7 @@ public class DictUtil {
 				String romaji;
 				WordMeaning wordMeaning = new WordMeaning();
 
-				// parcing xml
+				// Parsing xml
 				Element card = (Element) cardList.item(i);
 				Element word = (Element) card.getChildNodes().item(0);
 
@@ -90,7 +90,21 @@ public class DictUtil {
 						"meanings").item(0);
 				Element meaning = (Element) meanings.getElementsByTagName(
 						"meaning").item(0);
-
+				//get statistics (percentage) of how well the user knows the word with attribute "status"
+				Element statistics = (Element) meanings.getElementsByTagName(
+						"statistics").item(0);
+				String status = statistics.getAttribute("status");
+				double learnedPercentage;
+				try{
+					learnedPercentage = Double.parseDouble(status) ;
+				}
+				catch (Exception e){
+					//if something bad occurs
+					//set percentage to 0
+					//TODO: set it also in file
+					learnedPercentage=0;
+				}
+				
 				transcription = meaning.getAttribute("transcription");
 				romaji = meaning.getAttribute("romaji");
 
@@ -104,17 +118,14 @@ public class DictUtil {
 						Element translation = (Element) translationList.item(m);
 						translations.add(translation.getTextContent());
 					}
-
 					wordMeaning = new WordMeaning(transcription, romaji,
 							translations);
-
 				}
-				dict.add(new DictionaryEntry(id, word1, wordMeaning));
+				dict.add(new DictionaryEntry(id, word1, wordMeaning, learnedPercentage));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return dict;
 	}
-
 }

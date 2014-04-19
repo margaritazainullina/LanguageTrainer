@@ -6,7 +6,9 @@ import java.util.HashMap;
 import ua.edu.hneu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.ListViewAdapter;
+import ua.hneu.languagetrainer.xmlparcing.DictionaryEntry;
 import ua.hneu.languagetrainer.xmlparcing.WordDictionary;
+import ua.hneu.languagetrainer.pages.*;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -32,11 +34,14 @@ public class MatchWordsActivity extends Activity {
 
 	// has 3 elements - index of kanji, transcription, translation
 	int[] currentAnswer = new int[] { -1, -1, -1 };
+	
+	ArrayList<Integer> wordEntryIds;
 	// lists with indices
 	ArrayList<Integer> kanjiIndices;
 	ArrayList<Integer> readingIndices;
 	ArrayList<Integer> translationIndices;
 	HashMap<String, Boolean> hasKanji;
+	HashMap<Integer, Integer> wordIndexAndKanjiIndex;	
 
 	// lists with initial data from dictionary (not shuffled);
 	ArrayList<String> kanji1;
@@ -48,7 +53,7 @@ public class MatchWordsActivity extends Activity {
 	ListViewAdapter adapter2;
 	ListViewAdapter adapter3;
 
-	// views - rows with given answer
+	// views - rows with given answers
 	View v1;
 	View v2;
 	View v3;
@@ -77,6 +82,8 @@ public class MatchWordsActivity extends Activity {
 		readingIndices = new ArrayList<Integer>(readingsNumber);
 		translationIndices = new ArrayList<Integer>(translationsNumber);
 		hasKanji = new HashMap<String, Boolean>(readingsNumber);
+		//map - real index (id of word entry) and readingIndiex for shuffling
+		wordIndexAndKanjiIndex = new HashMap<Integer, Integer>(readingsNumber);
 
 		// initializing indices
 		for (int i = 0; i < readingsNumber; i++) {
@@ -85,6 +92,7 @@ public class MatchWordsActivity extends Activity {
 			if (i < kanjiNumber) {
 				kanjiIndices.add(i);
 				hasKanji.put(reading, true);
+				wordIndexAndKanjiIndex.put(curDictionary.get(i).getId(), i);
 			} else {
 				hasKanji.put(reading, false);
 			}
@@ -183,11 +191,12 @@ public class MatchWordsActivity extends Activity {
 		// if the word don't have a kanji currentAnswer[0] isn't regarded
 		boolean ifWordWithoutKanji = false;
 
-		// get value from map - if reading the same, set hasKanji
+		//if user didn't answered at all - do nothing
 		if (currentAnswer[1] == -1 || currentAnswer[2] == -1) {
 			return;
 		}
 
+		// get value from map - if reading the same, set hasKanji
 		String s1 = readings1.get(currentAnswer[1]);
 		if (hasKanji.get(s1))
 			ifWordWithoutKanji = true;
@@ -212,6 +221,12 @@ public class MatchWordsActivity extends Activity {
 				adapter1.hideElement(v1, fadeOutAnimation, 350);
 			adapter2.hideElement(v2, fadeOutAnimation, 350);
 			adapter3.hideElement(v3, fadeOutAnimation, 350);
+			//and write result to current dictionary
+			DictionaryEntry currentEntry = curDictionary.get(currentAnswer[1]);
+			//curDictionary.getWordWithId(currentEntry.getId());
+			double percentage = 1.0/App.getNumberOfWordRepeatationsForLearning();
+			currentEntry.setLearnedPercentage(percentage);
+			
 		} else
 			isCorrectTextView.setText("Wrong");
 		// make selected items white

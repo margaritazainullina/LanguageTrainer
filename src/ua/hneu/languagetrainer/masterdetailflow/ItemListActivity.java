@@ -3,8 +3,6 @@ package ua.hneu.languagetrainer.masterdetailflow;
 import ua.edu.hneu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity;
-import ua.hneu.languagetrainer.xmlparcing.DictUtil;
-import ua.hneu.languagetrainer.xmlparcing.WordDictionary;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;

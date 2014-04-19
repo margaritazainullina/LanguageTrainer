@@ -8,13 +8,14 @@ public class DictionaryEntry implements Comparable{
 	private int id;
 	private String word;
 	private WordMeaning meaning;
+	private double learnedPercentage;
 
-	public DictionaryEntry(int id, String word, WordMeaning meaning) {
+	public DictionaryEntry(int id, String word, WordMeaning meaning, double learnedPercentage) {
 		this.id = id;
 		this.word = word;
 		this.meaning = meaning;
+		this.learnedPercentage = learnedPercentage;
 	}
-
 	
 	@Override
 	public String toString() {
@@ -85,6 +86,14 @@ public class DictionaryEntry implements Comparable{
 
 	public String translationsToString() {
 		return this.meaning.translationsToString();
+	}
+
+	public double getLearnedPercentage() {
+		return learnedPercentage;
+	}
+
+	public void setLearnedPercentage(double learnedPercentage) {
+		this.learnedPercentage = learnedPercentage;
 	}
 
 	@Override
