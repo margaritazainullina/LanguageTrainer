@@ -1,12 +1,10 @@
 package ua.hneu.languagetrainer;
 
-import ua.hneu.languagetrainer.xmlparcing.DictUtil;
-import ua.hneu.languagetrainer.xmlparcing.WordDictionary;
+import ua.hneu.languagetrainer.model.WordDictionary;
 import android.app.Application;
 import android.content.Context;
 
 public class App extends Application {
-	private static Context context;
 	
 	private static int numberOfWordRepeatationsForLearning =10;  
 	 
@@ -30,9 +28,13 @@ public class App extends Application {
 	private static int allGiongo = -1;
 	private static int learnedCountWords = -1;
 	private static int allCountWords = -1;
+	//TODO:set-get
+	private static int countWordsInCurrentDict = 10;
 	
-	//dictionary
-	private static WordDictionary currentDictionary;	
+	//dictionary for session
+	private static WordDictionary currentDictionary;
+
+	private static Context context;	
 	
 	public static WordDictionary getCurrentDictionary() {
 		return currentDictionary;
@@ -178,12 +180,30 @@ public class App extends Application {
 		App.allCountWords = allCountWords;
 		updateUserData();
 	}
+	
+	public static int getNumberOfWordRepeatationsForLearning() {
+		return numberOfWordRepeatationsForLearning;
+	}
+
+	public static int getCountWordsInCurrentDict() {
+		return countWordsInCurrentDict;
+	}
+
+	public static void setCountWordsInCurrentDict(int countWordsInCurrentDict) {
+		App.countWordsInCurrentDict = countWordsInCurrentDict;
+	}
 
 	@Override
 	public void onCreate() {		
 		// reading from csv file user.txt
 		// all values are separated with commas and match the class fields
-		String data = DictUtil.readFile(this, "user.txt");
+		
+		//TODO:fetch from db!!
+		
+		userName = "Margarita";
+		userLevel = 2;
+		
+		/*String data = DictUtil.readFile(this, "user.txt");
 		String[] elements = data.split("(,)(\\s)+");
 		userName = elements[0];
 		userLevel = Integer.parseInt(elements[1]);
@@ -196,7 +216,7 @@ public class App extends Application {
 		learnedGiongo = Integer.parseInt(elements[8]);
 		allGiongo = Integer.parseInt(elements[9]);
 		learnedCountWords = Integer.parseInt(elements[10]);
-		allCountWords = Integer.parseInt(elements[11]);
+		allCountWords = Integer.parseInt(elements[11]);*/
 
 		App.context = getApplicationContext();
 		super.onCreate();
@@ -204,7 +224,8 @@ public class App extends Application {
 		
 	public  static void updateUserData() {
 		// writing to csv file current user values
-		StringBuilder data = new StringBuilder();
+		//TODO: write to db!!
+		/*StringBuilder data = new StringBuilder();
 		data.append(userName + ", ");
 		data.append(learnedWords + ", ");
 		data.append(allWords + ", ");
@@ -217,7 +238,7 @@ public class App extends Application {
 		data.append(learnedCountWords + ", ");
 		data.append(allCountWords + ", ");
 
-		DictUtil.writeFile(context, "user.txt", data.toString());
+		DictUtil.writeFile(context, "user.txt", data.toString());*/
 	}
 
 }

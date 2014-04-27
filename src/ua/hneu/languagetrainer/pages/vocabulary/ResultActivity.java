@@ -2,9 +2,8 @@ package ua.hneu.languagetrainer.pages.vocabulary;
 
 import ua.edu.hneu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
-import ua.hneu.languagetrainer.xmlparcing.DictUtil;
-import ua.hneu.languagetrainer.xmlparcing.DictionaryEntry;
-import ua.hneu.languagetrainer.xmlparcing.WordDictionary;
+import ua.hneu.languagetrainer.model.DictionaryEntry;
+import ua.hneu.languagetrainer.model.WordDictionary;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -27,7 +26,7 @@ public class ResultActivity extends Activity {
 		for (DictionaryEntry entry : curDictionary.getEntries()) {
 			if (entry.getLearnedPercentage() >= 1) {
 				numberOfLearnedWords++;
-				sb.append(entry.getWord());
+				sb.append(entry.getKanji());
 				sb.append(", ");
 			}
 		}
@@ -38,7 +37,8 @@ public class ResultActivity extends Activity {
 		sb1.append(sb);
 		resultTextView.setText(sb1);
 		
-		DictUtil.updateXmlWithResults(curDictionary);
+		//TODO: write to db!!
+		//DictUtil.updateXmlWithResults(curDictionary);
 	}
 
 	@Override

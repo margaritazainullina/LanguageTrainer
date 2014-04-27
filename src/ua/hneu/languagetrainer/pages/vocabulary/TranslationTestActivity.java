@@ -6,8 +6,8 @@ import java.util.Set;
 import ua.edu.hneu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.ListViewAdapter;
-import ua.hneu.languagetrainer.xmlparcing.DictionaryEntry;
-import ua.hneu.languagetrainer.xmlparcing.WordDictionary;
+import ua.hneu.languagetrainer.model.DictionaryEntry;
+import ua.hneu.languagetrainer.model.WordDictionary;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -68,7 +68,7 @@ public class TranslationTestActivity extends Activity {
 		currentWordNumber++;
 		// show word, reading and translations - set text to all TextViews
 		DictionaryEntry e = curDictionary.get(currentWordNumber);
-		wordTextView.setText(e.getWord());
+		wordTextView.setText(e.getKanji());
 		transcriptionTextView.setText(e.getTranscription());
 		romajiTextView.setText(e.getRomaji());
 

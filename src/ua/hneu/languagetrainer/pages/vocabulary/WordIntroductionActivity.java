@@ -3,9 +3,9 @@ package ua.hneu.languagetrainer.pages.vocabulary;
 import java.util.List;
 import ua.edu.hneu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
-import ua.hneu.languagetrainer.xmlparcing.DictUtil;
-import ua.hneu.languagetrainer.xmlparcing.DictionaryEntry;
-import ua.hneu.languagetrainer.xmlparcing.WordDictionary;
+import ua.hneu.languagetrainer.model.DictionaryEntry;
+import ua.hneu.languagetrainer.model.WordDictionary;
+import ua.hneu.languagetrainer.service.VocabularyService;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,19 +29,16 @@ public class WordIntroductionActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// Log.d("Activ", ((App) getApplication()).str);
-		App.setCurrentDictionary(new WordDictionary());
 		
 		setContentView(R.layout.activity_word_introduction);
-
 		prevButton = (Button) findViewById(R.id.buttonPrevious);
 
 		// read file and parse to WordDictionary
-		String xml = DictUtil.readFile(this, "test3.xml");
-		dict = DictUtil.ParseVocabularyXml(xml);
-		// replace fetching of entries with some complicated method
-		for (int i = 0; i < numberOfWordsInSample; i++) {
-			App.getCurrentDictionary().add(dict.fetchRandom());
-		}
+		//TODO: from db!!
+		/*String xml = DictUtil.readFile(this, "test3.xml");
+		dict = DictUtil.ParseVocabularyXml(xml);*/
+		
+		// TODO: replace fetching of entries with some complicated method	
 		curEntry = App.getCurrentDictionary().get(0);
 		idx = 0;
 		showEntry(curEntry);
@@ -80,7 +77,7 @@ public class WordIntroductionActivity extends Activity {
 		TextView translationTextView = (TextView) findViewById(R.id.translationTextView);
 
 		// set word info to the texViews		
-		wordTextView.setText(dictionaryEntry.getWord());
+		wordTextView.setText(dictionaryEntry.getKanji());
 		transcriptionTextView.setText(dictionaryEntry.getTranscription());
 		romajiTextView.setText(dictionaryEntry.getRomaji());
 		translationTextView.setText(dictionaryEntry.translationsToString());

@@ -3,12 +3,12 @@ package ua.hneu.languagetrainer.pages.vocabulary;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+
 import ua.edu.hneu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.ListViewAdapter;
-import ua.hneu.languagetrainer.xmlparcing.DictionaryEntry;
-import ua.hneu.languagetrainer.xmlparcing.WordDictionary;
-import ua.hneu.languagetrainer.pages.*;
+import ua.hneu.languagetrainer.model.DictionaryEntry;
+import ua.hneu.languagetrainer.model.WordDictionary;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;

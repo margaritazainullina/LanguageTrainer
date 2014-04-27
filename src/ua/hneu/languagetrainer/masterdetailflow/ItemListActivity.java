@@ -2,13 +2,19 @@ package ua.hneu.languagetrainer.masterdetailflow;
 
 import ua.edu.hneu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
+import ua.hneu.languagetrainer.model.DictionaryEntry;
 import ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity;
+import ua.hneu.languagetrainer.service.VocabularyService;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
 /**
  * An activity representing a list of Items. This activity has different
  * presentations for handset and tablet-size devices. On handsets, the activity
@@ -37,7 +43,9 @@ public class ItemListActivity extends FragmentActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		getApplication().setTheme(R.style.AppTheme);
 		super.onCreate(savedInstanceState);
+
 		setContentView(R.layout.activity_item_list);
+
 		Log.i("ItemListActivity", "ItemListActivity.onCreate()");
 
 		if (findViewById(R.id.item_detail_container) != null) {
@@ -144,20 +152,27 @@ public class ItemListActivity extends FragmentActivity implements
 	}
 
 	public void onClickPracticeVocabulary(View v) {
-		
-		  Intent intent = new Intent(this, WordIntroductionActivity.class);
-		  startActivity(intent);
-		 
-		// stub!!!
-		/*WordDictionary dict = new WordDictionary();
-		App.setCurrentDictionary(new WordDictionary());
-		String xml = DictUtil.readFile(this, "test.xml");
-		dict = DictUtil.ParseVocabularyXml(xml);
-		// replace fetching of entries with some more complicated method
-		for (int i = 0; i < 7; i++) {
-			App.getCurrentDictionary().add(dict.fetchRandom());
-		}
+		// load vocabulary dictionary from db
+		App.setCurrentDictionary(VocabularyService.createCurrentDictionary(
+				App.getUserLevel(), App.getCountWordsInCurrentDict(),
+				getContentResolver()));
+
+		// DictionaryEntry de = VocabularyService.getEntryById(5,
+		// getContentResolver());
+
 		Intent intent = new Intent(this, WordIntroductionActivity.class);
-		startActivity(intent);*/
+		startActivity(intent);
+
+		// stub!!!
+		/*
+		 * WordDictionary dict = new WordDictionary();
+		 * App.setCurrentDictionary(new WordDictionary()); String xml =
+		 * DictUtil.readFile(this, "test.xml"); dict =
+		 * DictUtil.ParseVocabularyXml(xml); // replace fetching of entries with
+		 * some more complicated method for (int i = 0; i < 7; i++) {
+		 * App.getCurrentDictionary().add(dict.fetchRandom()); } Intent intent =
+		 * new Intent(this, WordIntroductionActivity.class);
+		 * startActivity(intent);
+		 */
 	}
 }
