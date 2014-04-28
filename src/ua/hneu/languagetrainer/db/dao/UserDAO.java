@@ -1,4 +1,5 @@
 package ua.hneu.languagetrainer.db.dao;
+
 import java.util.HashMap;
 
 import ua.hneu.languagetrainer.db.DictionaryDbHelper;
@@ -13,30 +14,37 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.text.TextUtils;
 
-public class VocabularyDAO extends ContentProvider {
+public class UserDAO extends ContentProvider {
 
-	public static String TABLE_NAME = "vocabulary";
+	public static String TABLE_NAME = "user";
 	public static final String ID = "_id";
-	public static final String KANJI = "kanji";
+	public static final String LANGUAGE = "language";
 	public static final String LEVEL = "level";
-	public static final String TRANSCRIPTION = "transcription";
-	public static final String ROMAJI = "romaji";
-	public static final String TRANSLATIONS = "translations";
-	public static final String EXAMPLES = "examples";
-	public static final String PERCENTAGE = "percentage";
-	public static final String SHOWNTIMES = "showntimes";
-	public static final String LASTVIEW = "lastview";
+	public static final String LEARNEDVOC = "learnedVocabulary";
+	public static final String ALLVOC = "numberOfVocabularyInLevel";
+	public static final String LEARNEDGRAMMAR = "learnedGrammar";
+	public static final String ALLGRAMMAR = "numberOfGrammarInLevel";
+	public static final String LEARNEDAUDIO = "learnedAudio";
+	public static final String ALLAUDIO = "numberOfAudioInLevel";
+	public static final String LEARNEDGIONGO = "learnedGiongo";
+	public static final String ALLGIONGO = "numberOfGiongoInLevel";
+	public static final String LEARNEDCWORDS = "learnedCounterWords";
+	public static final String ALLCWORDS = "numberOfCounterWordsInLevel";
+	public static final String CURDICTSIZE = "numberOfentriesInCurrentDict";	
+	public static final String REPETATIONNUM = "numberOfRepeatationsForLearning";
+	public static final String TESTAVG = "testAveragePercentage";
 
 	public static final Uri CONTENT_URI = Uri
-			.parse("content://ua.hneu.languagetrainer.db.vocabularyprovider");
+			.parse("content://ua.edu.hneu.languagetrainer.db.userprovider/dictionary");
+	
 	public static final int URI_CODE = 1;
 	public static final int URI_CODE_ID = 2;
-
+	
 	private static final UriMatcher mUriMatcher;
 
 	private static HashMap<String, String> mContactMap;
 
-	static SQLiteDatabase db;
+	private static SQLiteDatabase db;
 
 	static {
 		mUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -46,17 +54,21 @@ public class VocabularyDAO extends ContentProvider {
 
 		mContactMap = new HashMap<String, String>();
 		mContactMap.put(DictionaryDbHelper._ID, DictionaryDbHelper._ID);
-
-		mContactMap.put(KANJI, KANJI);
+		mContactMap.put(LANGUAGE, LANGUAGE);
 		mContactMap.put(LEVEL, LEVEL);
-		mContactMap.put(TRANSCRIPTION, TRANSCRIPTION);
-		mContactMap.put(ROMAJI, ROMAJI);
-		mContactMap.put(TRANSLATIONS, TRANSLATIONS);
-		mContactMap.put(EXAMPLES, EXAMPLES);
-		mContactMap.put(PERCENTAGE, PERCENTAGE);
-		mContactMap.put(LASTVIEW, LASTVIEW);
-		mContactMap.put(SHOWNTIMES, SHOWNTIMES);
-
+		mContactMap.put(LEARNEDVOC, LEARNEDVOC);
+		mContactMap.put(ALLVOC, ALLVOC);
+		mContactMap.put(LEARNEDGRAMMAR, LEARNEDGRAMMAR);
+		mContactMap.put(ALLGRAMMAR, ALLGRAMMAR);
+		mContactMap.put(LEARNEDAUDIO, LEARNEDAUDIO);
+		mContactMap.put(ALLAUDIO, ALLAUDIO);
+		mContactMap.put(LEARNEDGIONGO, LEARNEDGIONGO);
+		mContactMap.put(ALLGIONGO, ALLGIONGO);
+		mContactMap.put(LEARNEDCWORDS, LEARNEDCWORDS);
+		mContactMap.put(ALLCWORDS, ALLCWORDS);
+		mContactMap.put(CURDICTSIZE, CURDICTSIZE);
+		mContactMap.put(REPETATIONNUM, REPETATIONNUM);
+		mContactMap.put(TESTAVG, TESTAVG);
 	}
 
 	public String getDbName() {
@@ -72,7 +84,7 @@ public class VocabularyDAO extends ContentProvider {
 		db = (new DictionaryDbHelper(getContext())).getWritableDatabase();
 		return (db == null) ? false : true;
 	}
-	
+
 	@Override
 	public Cursor query(Uri url, String[] projection, String selection,
 			String[] selectionArgs, String sort) {
@@ -95,7 +107,7 @@ public class VocabularyDAO extends ContentProvider {
 
 		ContentValues values = new ContentValues(inValues);
 
-		long rowId = db.insert(TABLE_NAME, KANJI, values);
+		long rowId = db.insert(TABLE_NAME, LEVEL, values);
 		if (rowId > 0) {
 			Uri uri = ContentUris.withAppendedId(CONTENT_URI, rowId);
 			getContext().getContentResolver().notifyChange(uri, null);

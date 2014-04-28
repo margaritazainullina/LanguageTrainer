@@ -1,10 +1,10 @@
 package ua.hneu.languagetrainer.pages.vocabulary;
 
 import java.util.List;
-import ua.edu.hneu.languagetrainer.R;
+import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
-import ua.hneu.languagetrainer.model.DictionaryEntry;
-import ua.hneu.languagetrainer.model.WordDictionary;
+import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
+import ua.hneu.languagetrainer.model.vocabulary.WordDictionary;
 import ua.hneu.languagetrainer.service.VocabularyService;
 import android.app.Activity;
 import android.content.Intent;

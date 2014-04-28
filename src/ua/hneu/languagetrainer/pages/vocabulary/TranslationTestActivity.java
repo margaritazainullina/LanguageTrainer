@@ -3,11 +3,11 @@ package ua.hneu.languagetrainer.pages.vocabulary;
 import java.util.Collections;
 import java.util.Set;
 
-import ua.edu.hneu.languagetrainer.R;
+import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.ListViewAdapter;
-import ua.hneu.languagetrainer.model.DictionaryEntry;
-import ua.hneu.languagetrainer.model.WordDictionary;
+import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
+import ua.hneu.languagetrainer.model.vocabulary.WordDictionary;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -113,8 +113,10 @@ public class TranslationTestActivity extends Activity {
 
 				// increment percentage
 				if (!ifWasWrong)
-					rightAnswer.setLearnedPercentage(rightAnswer.getLearnedPercentage()+ App.getPercentageIncrement());
-					
+					rightAnswer.setLearnedPercentage(rightAnswer
+							.getLearnedPercentage()
+							+ App.getUserInfo().getPercentageIncrement());
+
 				// change color to green and fade out
 				isRight.setText("Correct!");
 				adapter.changeColor(view, Color.GREEN);

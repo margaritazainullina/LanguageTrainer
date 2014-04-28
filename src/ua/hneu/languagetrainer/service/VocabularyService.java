@@ -14,9 +14,9 @@ import java.util.Set;
 
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
-import ua.hneu.languagetrainer.model.DictionaryEntry;
-import ua.hneu.languagetrainer.model.WordDictionary;
-import ua.hneu.languagetrainer.model.WordMeaning;
+import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
+import ua.hneu.languagetrainer.model.vocabulary.WordDictionary;
+import ua.hneu.languagetrainer.model.vocabulary.WordMeaning;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.res.AssetManager;
@@ -148,17 +148,16 @@ public class VocabularyService {
 	}
 
 	public void createTable() {
-		VocabularyDAO.getDb().execSQL(
-				"CREATE TABLE " + VocabularyDAO.TABLE_NAME
-						+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-						+ VocabularyDAO.KANJI + " TEXT, " + VocabularyDAO.LEVEL
-						+ " TEXT, " + VocabularyDAO.TRANSCRIPTION + " TEXT, "
-						+ VocabularyDAO.ROMAJI + " TEXT, "
-						+ VocabularyDAO.TRANSLATIONS + " TEXT, "
-						+ VocabularyDAO.EXAMPLES + " TEXT, "
-						+ VocabularyDAO.PERCENTAGE + " REAL, "
-						+ VocabularyDAO.LASTVIEW + " DATETIME,"
-						+ VocabularyDAO.SHOWNTIMES + " INTEGER);");
+		// TODO: WHY DOES IT NULL?!!!!
+		SQLiteDatabase db = VocabularyDAO.getDb();
+		db.execSQL("CREATE TABLE " + VocabularyDAO.TABLE_NAME
+				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+				+ VocabularyDAO.KANJI + " TEXT, " + VocabularyDAO.LEVEL
+				+ " TEXT, " + VocabularyDAO.TRANSCRIPTION + " TEXT, "
+				+ VocabularyDAO.ROMAJI + " TEXT, " + VocabularyDAO.TRANSLATIONS
+				+ " TEXT, " + VocabularyDAO.EXAMPLES + " TEXT, "
+				+ VocabularyDAO.PERCENTAGE + " REAL, " + VocabularyDAO.LASTVIEW
+				+ " DATETIME," + VocabularyDAO.SHOWNTIMES + " INTEGER);");
 	}
 
 	public void dropTable() {
@@ -202,21 +201,23 @@ public class VocabularyService {
 			DictionaryEntry de = new DictionaryEntry(0, kanji, level,
 					transcription, romaji, translations, "", 0, "", 0);
 			this.insert(de, cr);
-
 		}
 	}
 
 	public static WordDictionary createCurrentDictionary(int level,
 			int countWordsInCurrentDict, ContentResolver contentResolver) {
 		WordDictionary all = new WordDictionary();
+		//TODO: include entries of levels below
+		
 		all = selectAllEntriesOflevel(level, contentResolver);
 
 		WordDictionary current = new WordDictionary();
 		// TODO: replace random with SRS methodology
 		Random rn = new Random();
-		while (current.size() < App.getCountWordsInCurrentDict()) {
-			int i = rn.nextInt(getNumberOfWordsInLevel(level, contentResolver));
-			DictionaryEntry entry = getEntryById(i, contentResolver);
+		while (current.size() < App.getUserInfo()
+				.getNumberOfEntriesInCurrentDict()) {
+			int i = rn.nextInt(all.size());
+			DictionaryEntry entry = all.get(i);
 			// if (entry.getLevel() == level)
 			current.add(entry);
 		}
@@ -227,23 +228,14 @@ public class VocabularyService {
 			ContentResolver contentResolver) {
 		WordDictionary wd = new WordDictionary();
 
-		/*
-		 * Cursor mCount= VocabularyDAO.getDb().rawQuery
-		 * ("select count(*) from "+VocabularyDAO.TABLE_NAME+ " where level='" +
-		 * level+"'", null);
-		 */
-
 		String[] selectionArgs = { VocabularyDAO.ID, VocabularyDAO.KANJI,
 				VocabularyDAO.LEVEL, VocabularyDAO.TRANSCRIPTION,
 				VocabularyDAO.ROMAJI, VocabularyDAO.TRANSLATIONS,
 				VocabularyDAO.EXAMPLES, VocabularyDAO.PERCENTAGE,
 				VocabularyDAO.SHOWNTIMES, VocabularyDAO.LASTVIEW };
-
 		Cursor c = contentResolver.query(VocabularyDAO.CONTENT_URI,
-				selectionArgs, "level="+level, null, null);
-
+				selectionArgs, "level=" + level, null, null);
 		c.moveToFirst();
-
 		int id = 0;
 		String kanji = "";
 		String transcription = "";
@@ -274,7 +266,6 @@ public class VocabularyService {
 					lastview, showntimes);
 			wd.add(de);
 		}
-
 		return wd;
 	}
 

@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import ua.edu.hneu.languagetrainer.R;
+import ua.hneu.edu.languagetrainer.R;
 
 /**
  * A fragment representing a single Item detail screen. This fragment is either

@@ -1,6 +1,6 @@
 package ua.hneu.languagetrainer.masterdetailflow;
 
-import ua.edu.hneu.languagetrainer.R;
+import ua.hneu.edu.languagetrainer.R;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;

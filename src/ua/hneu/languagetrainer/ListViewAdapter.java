@@ -2,7 +2,7 @@ package ua.hneu.languagetrainer;
 
 import java.util.ArrayList;
 
-import ua.edu.hneu.languagetrainer.R;
+import ua.hneu.edu.languagetrainer.R;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;

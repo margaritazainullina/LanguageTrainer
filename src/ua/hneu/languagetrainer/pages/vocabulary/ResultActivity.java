@@ -1,9 +1,9 @@
 package ua.hneu.languagetrainer.pages.vocabulary;
 
-import ua.edu.hneu.languagetrainer.R;
+import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
-import ua.hneu.languagetrainer.model.DictionaryEntry;
-import ua.hneu.languagetrainer.model.WordDictionary;
+import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
+import ua.hneu.languagetrainer.model.vocabulary.WordDictionary;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;

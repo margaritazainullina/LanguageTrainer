@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
-import ua.edu.hneu.languagetrainer.R;
+import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.ListViewAdapter;
-import ua.hneu.languagetrainer.model.DictionaryEntry;
-import ua.hneu.languagetrainer.model.WordDictionary;
+import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
+import ua.hneu.languagetrainer.model.vocabulary.WordDictionary;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -58,7 +58,7 @@ public class MatchWordsActivity extends Activity {
 	View v2;
 	View v3;
 
-	//TODO: make this for every word
+	// TODO: make this for every word
 	boolean ifWasWrong = false;
 
 	int numberOfRightAnswers = 0;
@@ -163,10 +163,12 @@ public class MatchWordsActivity extends Activity {
 				final int position, final long itemID) {
 			currentAnswer[0] = kanjiIndices.get(position);
 			// change color of selected row
-			//TODO: replace with colors from xml
-			//adapter1.setBackgroundColorOfListViewRow((ListView) parent, position,Color.argb(1, 40, 158, 181));
-			adapter1.setTextColorOfListViewRow((ListView) parent, position,Color.YELLOW);
-			
+			// TODO: replace with colors from xml
+			// adapter1.setBackgroundColorOfListViewRow((ListView) parent,
+			// position,Color.argb(1, 40, 158, 181));
+			adapter1.setTextColorOfListViewRow((ListView) parent, position,
+					Color.YELLOW);
+
 			// and remember this row for fading out if it is correct
 			v1 = view;
 		}
@@ -230,7 +232,9 @@ public class MatchWordsActivity extends Activity {
 			if (!ifWasWrong) {
 				DictionaryEntry currentEntry = curDictionary
 						.get(currentAnswer[1]);
-				currentEntry.setLearnedPercentage(currentEntry.getLearnedPercentage()+ App.getPercentageIncrement());
+				currentEntry.setLearnedPercentage(currentEntry
+						.getLearnedPercentage()
+						+ App.getUserInfo().getPercentageIncrement());
 			}
 
 		} else

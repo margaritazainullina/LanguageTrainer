@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import ua.edu.hneu.languagetrainer.R;
+import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 
 /**
@@ -61,11 +61,11 @@ public class VocabularyActivityFragment extends Fragment {
 		
 		// Show the dummy content as text in a TextView.
 		if (mItem != null) {
-			double learned = App.getLearnedWords() ;
-			double all = App.getAllWords();
-			int learnedPersentage = (int) Math.round((learned / all) * 100);
-			String info = "You have learned " + App.getLearnedWords()
-					+ " words out of " + App.getAllWords() + "\n"
+			int learned = App.getUserInfo().getLearnedVocabulary() ;
+			int all = App.getUserInfo().getNumberOfVocabularyInLevel();
+			int learnedPersentage = (int) Math.round(((double)learned / (double)all) * 100);
+			String info = "You have learned " + learned
+					+ " words out of " + all + "\n"
 					+ learnedPersentage+ "%";
 			((TextView) rootView.findViewById(R.id.item_detail)).setText(info);
 			

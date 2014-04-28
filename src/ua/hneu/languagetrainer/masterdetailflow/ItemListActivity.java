@@ -1,18 +1,13 @@
 package ua.hneu.languagetrainer.masterdetailflow;
 
-import ua.edu.hneu.languagetrainer.R;
+import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
-import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
-import ua.hneu.languagetrainer.model.DictionaryEntry;
 import ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity;
-import ua.hneu.languagetrainer.service.VocabularyService;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 /**
@@ -60,12 +55,9 @@ public class ItemListActivity extends FragmentActivity implements
 			((ItemListFragment) getSupportFragmentManager().findFragmentById(
 					R.id.item_list)).setActivateOnItemClick(true);
 
-			// set username and userlevel on main activity
-			TextView textViewUserName = (TextView) findViewById(R.id.textViewUserName);
-			textViewUserName.setText(App.getUserName());
-
+			// set userlevel on main activity
 			TextView textViewUserInfo = (TextView) findViewById(R.id.textViewUserInfo);
-			textViewUserInfo.setText("Your level is: N" + App.getUserLevel());
+			textViewUserInfo.setText("Your level is: N" + App.getUserInfo().getUserLevel());
 		} else {
 
 		}
@@ -81,7 +73,7 @@ public class ItemListActivity extends FragmentActivity implements
 	public void onItemSelected(String id) {
 		Log.i("ItemListActivity", "ItemDetailActivity.onItemSelected()");
 		// switch themes
-		switch (App.getUserLevel()) {
+		switch (App.getUserInfo().getUserLevel()) {
 		case 0: {
 			getApplicationContext().setTheme(R.style.AppTheme);
 			break;
@@ -153,9 +145,7 @@ public class ItemListActivity extends FragmentActivity implements
 
 	public void onClickPracticeVocabulary(View v) {
 		// load vocabulary dictionary from db
-		App.setCurrentDictionary(VocabularyService.createCurrentDictionary(
-				App.getUserLevel(), App.getCountWordsInCurrentDict(),
-				getContentResolver()));
+		
 
 		// DictionaryEntry de = VocabularyService.getEntryById(5,
 		// getContentResolver());
