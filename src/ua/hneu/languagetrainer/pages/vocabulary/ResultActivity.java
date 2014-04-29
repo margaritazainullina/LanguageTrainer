@@ -11,19 +11,17 @@ import android.widget.TextView;
 
 public class ResultActivity extends Activity {
 	TextView resultTextView;
-	WordDictionary curDictionary;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_vocabulary_result);
 		// current dictionary with words for current session
-		curDictionary = App.getCurrentDictionary();
 
 		resultTextView = (TextView) findViewById(R.id.resultTextView);
 		int numberOfLearnedWords = 0;
 		StringBuffer sb = new StringBuffer();
-		for (DictionaryEntry entry : curDictionary.getEntries()) {
+		for (DictionaryEntry entry : App.vp.getLearnedWords().getEntries()) {
 			if (entry.getLearnedPercentage() >= 1) {
 				numberOfLearnedWords++;
 				sb.append(entry.getKanji());

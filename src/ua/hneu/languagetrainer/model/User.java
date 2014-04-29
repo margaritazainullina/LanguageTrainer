@@ -53,6 +53,7 @@ public class User {
 		this.numberOfEntriesInCurrentDict = numberOfEntriesInCurrentDict;
 		this.numberOfRepeatationsForLearning = numberOfRepeatationsForLearning;
 		this.testAveragePercentage = testAveragePercentage;
+		this.lastPassing = lastPassing;
 	}
 
 	public int getId() {

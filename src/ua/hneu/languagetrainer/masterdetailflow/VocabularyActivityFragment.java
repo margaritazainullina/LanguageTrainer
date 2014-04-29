@@ -61,8 +61,8 @@ public class VocabularyActivityFragment extends Fragment {
 		
 		// Show the dummy content as text in a TextView.
 		if (mItem != null) {
-			int learned = App.getUserInfo().getLearnedVocabulary() ;
-			int all = App.getUserInfo().getNumberOfVocabularyInLevel();
+			int learned = App.userInfo.getLearnedVocabulary() ;
+			int all = App.userInfo.getNumberOfVocabularyInLevel();
 			int learnedPersentage = (int) Math.round(((double)learned / (double)all) * 100);
 			String info = "You have learned " + learned
 					+ " words out of " + all + "\n"

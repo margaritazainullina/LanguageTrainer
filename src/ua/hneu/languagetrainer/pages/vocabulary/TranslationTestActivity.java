@@ -22,8 +22,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class TranslationTestActivity extends Activity {
-	// dictionary with words of current session
-	WordDictionary curDictionary;
 	// dictionary with random words for possible answers
 	Set<DictionaryEntry> randomDictionary;
 	WordDictionary randomDictionaryList;
@@ -56,9 +54,6 @@ public class TranslationTestActivity extends Activity {
 		answersListView = (ListView) findViewById(R.id.answersListView);
 		isRight = (TextView) findViewById(R.id.isRight);
 
-		// current dictionary with words for current session
-		curDictionary = App.getCurrentDictionary();
-
 		// at first show word and possible answers
 		nextWord();
 	}
@@ -67,15 +62,15 @@ public class TranslationTestActivity extends Activity {
 		// move pointer to next word
 		currentWordNumber++;
 		// show word, reading and translations - set text to all TextViews
-		DictionaryEntry e = curDictionary.get(currentWordNumber);
+		DictionaryEntry e = App.currentDictionary.get(currentWordNumber);
 		wordTextView.setText(e.getKanji());
 		transcriptionTextView.setText(e.getTranscription());
 		romajiTextView.setText(e.getRomaji());
 
 		// get dictionary with random entries, add current one and shuffle
-		randomDictionary = curDictionary.getRandomEntries(answersNumber - 1);
-		randomDictionary.add(curDictionary.get(currentWordNumber));
-		rightAnswer = curDictionary.get(currentWordNumber);
+		randomDictionary = App.currentDictionary.getRandomEntries(answersNumber - 1);
+		randomDictionary.add(App.currentDictionary.get(currentWordNumber));
+		rightAnswer = App.currentDictionary.get(currentWordNumber);
 
 		// create List randomDictionaryList for ArrayAdapter from set
 		// randomDictionary
@@ -115,7 +110,7 @@ public class TranslationTestActivity extends Activity {
 				if (!ifWasWrong)
 					rightAnswer.setLearnedPercentage(rightAnswer
 							.getLearnedPercentage()
-							+ App.getUserInfo().getPercentageIncrement());
+							+ App.userInfo.getPercentageIncrement());
 
 				// change color to green and fade out
 				isRight.setText("Correct!");
@@ -143,7 +138,7 @@ public class TranslationTestActivity extends Activity {
 								// when previous information faded out
 								// show next word and possible answers or go to
 								// next exercise
-								if (currentWordNumber < curDictionary.size() - 1) {
+								if (currentWordNumber < App.currentDictionary.size() - 1) {
 									nextWord();
 								} else {
 									endTesting();

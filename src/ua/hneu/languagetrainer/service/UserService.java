@@ -1,14 +1,6 @@
 package ua.hneu.languagetrainer.service;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.Locale;
-
 import ua.hneu.languagetrainer.db.dao.UserDAO;
-import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
 import ua.hneu.languagetrainer.model.User;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -39,7 +31,7 @@ public class UserService {
 		cr.insert(UserDAO.CONTENT_URI, values);
 	}
 
-	public void edit(User u, ContentResolver cr) {
+	public void update(User u, ContentResolver cr) {
 		ContentValues values = new ContentValues();
 		values.put(UserDAO.LANGUAGE, u.getLanguage());
 		values.put(UserDAO.LEVEL, u.getUserLevel());

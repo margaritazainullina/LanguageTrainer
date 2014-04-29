@@ -29,17 +29,12 @@ public class WordIntroductionActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// Log.d("Activ", ((App) getApplication()).str);
-		
+				
 		setContentView(R.layout.activity_word_introduction);
 		prevButton = (Button) findViewById(R.id.buttonPrevious);
-
-		// read file and parse to WordDictionary
-		//TODO: from db!!
-		/*String xml = DictUtil.readFile(this, "test3.xml");
-		dict = DictUtil.ParseVocabularyXml(xml);*/
 		
-		// TODO: replace fetching of entries with some complicated method	
-		curEntry = App.getCurrentDictionary().get(0);
+		//show first entry
+		curEntry = App.currentDictionary.get(0);
 		idx = 0;
 		showEntry(curEntry);
 		prevButton.setEnabled(false);
@@ -59,13 +54,16 @@ public class WordIntroductionActivity extends Activity {
 
 		if (idx >= numberOfWordsInSample) {
 			// if all words have been showed go to next activity
-			Intent matchWordsIntent = new Intent(this, MatchWordsActivity.class);
-			startActivity(matchWordsIntent);
+			goToNextPassingActivity();
 		} else {
-			showEntry(App.getCurrentDictionary().get(idx));
+			showEntry(App.currentDictionary.get(idx));
 		}
 	}
 	public void buttonSkipOnClick(View v) {
+		goToNextPassingActivity();
+	}
+	
+	public void goToNextPassingActivity() {
 		Intent matchWordsIntent = new Intent(this, MatchWordsActivity.class);
 		startActivity(matchWordsIntent);
 	}
@@ -81,12 +79,16 @@ public class WordIntroductionActivity extends Activity {
 		transcriptionTextView.setText(dictionaryEntry.getTranscription());
 		romajiTextView.setText(dictionaryEntry.getRomaji());
 		translationTextView.setText(dictionaryEntry.translationsToString());
+		
+		//and write information to db
+		dictionaryEntry.incrementShowntimes();
+		App.vs.update(dictionaryEntry, getContentResolver());
 	}
 
 	public void buttonPreviousOnClick(View v) {
 		if (idx > 0) {
 			idx--;
-			curEntry = App.getCurrentDictionary().get(idx);
+			curEntry = App.currentDictionary.get(idx);
 			showEntry(curEntry);
 		} else {
 			prevButton.setEnabled(false);

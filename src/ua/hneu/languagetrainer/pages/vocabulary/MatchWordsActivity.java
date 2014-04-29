@@ -9,6 +9,7 @@ import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.ListViewAdapter;
 import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
 import ua.hneu.languagetrainer.model.vocabulary.WordDictionary;
+import ua.hneu.languagetrainer.service.VocabularyService;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -69,7 +70,7 @@ public class MatchWordsActivity extends Activity {
 		setContentView(R.layout.activity_match_words);
 
 		// current dictionary with words for current session
-		curDictionary = App.getCurrentDictionary();
+		curDictionary = App.currentDictionary;
 		curDictionary.sort();
 		curDictionary.reverse();
 
@@ -128,7 +129,6 @@ public class MatchWordsActivity extends Activity {
 		}
 
 		// creating adapters for columns - ListViews
-
 		adapter1 = new ListViewAdapter(this, kanji);
 		adapter2 = new ListViewAdapter(this, readings);
 		adapter3 = new ListViewAdapter(this, translations);
@@ -232,9 +232,20 @@ public class MatchWordsActivity extends Activity {
 			if (!ifWasWrong) {
 				DictionaryEntry currentEntry = curDictionary
 						.get(currentAnswer[1]);
+				//increment percentage
 				currentEntry.setLearnedPercentage(currentEntry
-						.getLearnedPercentage()
-						+ App.getUserInfo().getPercentageIncrement());
+						.getLearnedPercentage()						+ App.userInfo.getPercentageIncrement());
+				//and increment number of correct answers in current session
+				App.vp.incrementNumberOfCorrectAnswersInMatching();	
+				//if word becomes learned,		
+				if(currentEntry.getLearnedPercentage()==1){
+					// remove word from current dictionary for learning
+					App.currentDictionary.remove(currentEntry);
+					//update information id db
+					App.vs.update(currentEntry, getContentResolver());
+					//and 
+					App.vp.makeWordLearned(currentEntry);
+				}
 			}
 
 		} else
@@ -253,6 +264,10 @@ public class MatchWordsActivity extends Activity {
 	}
 
 	public void buttonSkipMatchOnClick(View v) {
+		goToNextPassingActivity();
+	}
+
+	public void goToNextPassingActivity() {
 		Intent matchWordsIntent = new Intent(this,
 				TranslationTestActivity.class);
 		startActivity(matchWordsIntent);

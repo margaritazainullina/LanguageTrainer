@@ -57,7 +57,7 @@ public class ItemListActivity extends FragmentActivity implements
 
 			// set userlevel on main activity
 			TextView textViewUserInfo = (TextView) findViewById(R.id.textViewUserInfo);
-			textViewUserInfo.setText("Your level is: N" + App.getUserInfo().getUserLevel());
+			textViewUserInfo.setText("Your level is: N" + App.userInfo.getUserLevel());
 		} else {
 
 		}
@@ -73,7 +73,7 @@ public class ItemListActivity extends FragmentActivity implements
 	public void onItemSelected(String id) {
 		Log.i("ItemListActivity", "ItemDetailActivity.onItemSelected()");
 		// switch themes
-		switch (App.getUserInfo().getUserLevel()) {
+		switch (App.userInfo.getUserLevel()) {
 		case 0: {
 			getApplicationContext().setTheme(R.style.AppTheme);
 			break;

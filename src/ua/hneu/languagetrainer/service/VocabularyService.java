@@ -81,65 +81,22 @@ public class VocabularyService {
 		cr.insert(VocabularyDAO.CONTENT_URI, values);
 	}
 
-	public void edit(int id, String kanji, int level, String transcription,
-			String romaji, String translations, String examples,
-			double percentage, String lastview, int showntimes,
+	public void update(DictionaryEntry de,
 			ContentResolver cr) {
 		ContentValues values = new ContentValues();
-		values.put(VocabularyDAO.KANJI, kanji);
-		values.put(VocabularyDAO.LEVEL, level);
-		values.put(VocabularyDAO.TRANSCRIPTION, transcription);
-		values.put(VocabularyDAO.ROMAJI, romaji);
-		values.put(VocabularyDAO.TRANSLATIONS, translations);
-		values.put(VocabularyDAO.EXAMPLES, examples);
-		values.put(VocabularyDAO.PERCENTAGE, percentage);
-		values.put(VocabularyDAO.LASTVIEW, lastview);
-		values.put(VocabularyDAO.SHOWNTIMES, showntimes);
-		cr.update(VocabularyDAO.CONTENT_URI, values, "_ID=" + id, null);
+		values.put(VocabularyDAO.ID, de.getId());
+		values.put(VocabularyDAO.KANJI, de.getKanji());
+		values.put(VocabularyDAO.LEVEL, de.getLevel());
+		values.put(VocabularyDAO.TRANSCRIPTION, de.getTranscription());
+		values.put(VocabularyDAO.ROMAJI, de.getRomaji());
+		values.put(VocabularyDAO.TRANSLATIONS, de.getTranslationsToString());
+		values.put(VocabularyDAO.EXAMPLES, de.getExamples());
+		values.put(VocabularyDAO.PERCENTAGE, de.getLearnedPercentage());
+		values.put(VocabularyDAO.LASTVIEW, de.getLastview());
+		values.put(VocabularyDAO.SHOWNTIMES, de.getShowntimes());
+		cr.update(VocabularyDAO.CONTENT_URI, values, "_ID=" +  de.getId(), null);
 	}
 
-	public void setPercentage(int id, double percentage, ContentResolver cr) {
-
-		String[] col = { "KANJI", "LEVEL", "TRANSCRIPTION", "ROMAJI",
-				"TRANSLATIONS", "EXAMPLES", "PERCENTAGE", "LASTVIEW",
-				"SHOWNTIMES" };
-		Cursor c = cr.query(VocabularyDAO.CONTENT_URI, col, "_ID=" + id, null,
-				null, null);
-		c.moveToFirst();
-
-		String kanji = "";
-		int level = 0;
-		String transcription = "";
-		String romaji = "";
-		String translations = "";
-		String examples = "";
-		String lastview = "";
-		String showntimes = "";
-
-		while (!c.isAfterLast()) {
-			kanji = c.getString(0);
-			level = c.getInt(1);
-			transcription = c.getString(2);
-			romaji = c.getString(3);
-			translations = c.getString(4);
-			examples = c.getString(5);
-			lastview = c.getString(7);
-			showntimes = c.getString(8);
-			c.moveToNext();
-		}
-
-		ContentValues values = new ContentValues();
-		values.put(VocabularyDAO.KANJI, kanji);
-		values.put(VocabularyDAO.LEVEL, level);
-		values.put(VocabularyDAO.TRANSCRIPTION, transcription);
-		values.put(VocabularyDAO.ROMAJI, romaji);
-		values.put(VocabularyDAO.TRANSLATIONS, translations);
-		values.put(VocabularyDAO.EXAMPLES, examples);
-		values.put(VocabularyDAO.PERCENTAGE, percentage);
-		values.put(VocabularyDAO.LASTVIEW, lastview);
-		values.put(VocabularyDAO.SHOWNTIMES, showntimes);
-		cr.update(VocabularyDAO.CONTENT_URI, values, "_ID=" + id, null);
-	}
 
 	public void emptyTable() {
 		VocabularyDAO.getDb()
@@ -212,7 +169,7 @@ public class VocabularyService {
 		WordDictionary current = new WordDictionary();
 		// TODO: replace random with SRS methodology
 		Random rn = new Random();
-		while (current.size() < App.getUserInfo()
+		while (current.size() < App.userInfo
 				.getNumberOfEntriesInCurrentDict()) {
 			int i = rn.nextInt(all.size());
 			DictionaryEntry entry = all.get(i);

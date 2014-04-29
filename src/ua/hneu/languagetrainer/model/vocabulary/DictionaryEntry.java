@@ -20,7 +20,7 @@ public class DictionaryEntry implements Comparable{
 			String romaji, List<String> translations, String examples, double percentage, String lastview, int  showntimes) {
 						
 		WordMeaning meaning = new WordMeaning(transcription, romaji,translations);
-		
+		this.id = id;
 		this.kanji = kanji;
 		this.level=level;
 		this.examples=examples;
@@ -93,8 +93,8 @@ public class DictionaryEntry implements Comparable{
 		this.lastview = lastview;
 	}
 
-	public void setShowntimes(int showntimes) {
-		this.showntimes = showntimes;
+	public void incrementShowntimes() {
+		this.showntimes++;
 	}
 
 	public void setMeaning(WordMeaning meaning) {

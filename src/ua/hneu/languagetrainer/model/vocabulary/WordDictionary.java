@@ -92,7 +92,10 @@ public class WordDictionary {
 	public void add(DictionaryEntry e) {
 		entries.add(e);
 	}
-
+	
+	public void remove(DictionaryEntry e) {
+		entries.remove(e);
+	}
 	public int size() {
 		return entries.size();
 	}
