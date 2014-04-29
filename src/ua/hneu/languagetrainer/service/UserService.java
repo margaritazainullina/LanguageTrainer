@@ -1,5 +1,12 @@
 package ua.hneu.languagetrainer.service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Locale;
+
 import ua.hneu.languagetrainer.db.dao.UserDAO;
 import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
 import ua.hneu.languagetrainer.model.User;
@@ -28,6 +35,7 @@ public class UserService {
 		values.put(UserDAO.REPETATIONNUM,
 				u.getNumberOfRepeatationsForLearning());
 		values.put(UserDAO.TESTAVG, u.getTestAveragePercentage());
+		values.put(UserDAO.LASTPASSING, u.getLastPassing());
 		cr.insert(UserDAO.CONTENT_URI, values);
 	}
 
@@ -49,6 +57,8 @@ public class UserService {
 		values.put(UserDAO.REPETATIONNUM,
 				u.getNumberOfRepeatationsForLearning());
 		values.put(UserDAO.TESTAVG, u.getTestAveragePercentage());
+
+		values.put(UserDAO.LASTPASSING, u.getLastPassing());
 		cr.update(UserDAO.CONTENT_URI, values, "_ID=" + u.getId(), null);
 	}
 
@@ -75,7 +85,8 @@ public class UserService {
 						+ UserDAO.ALLCWORDS + " INTEGER," 
 						+ UserDAO.CURDICTSIZE + " INTEGER," 
 						+ UserDAO.REPETATIONNUM + " INTEGER,"
-						+ UserDAO.TESTAVG + " REAL);");
+						+ UserDAO.TESTAVG + " REAL,"
+						+ UserDAO.LASTPASSING+" DATETIME);");
 	}
 
 	public void dropTable() {
@@ -88,7 +99,7 @@ public class UserService {
 				UserDAO.ALLGRAMMAR, UserDAO.LEARNEDAUDIO,UserDAO.ALLAUDIO,
 				UserDAO.LEARNEDGIONGO,UserDAO.ALLGIONGO, UserDAO.LEARNEDCWORDS,
 				UserDAO.ALLCWORDS, UserDAO.CURDICTSIZE, UserDAO.REPETATIONNUM,
-				UserDAO.TESTAVG };
+				UserDAO.TESTAVG, UserDAO.LASTPASSING};
 		
 		Cursor c = cr.query(UserDAO.CONTENT_URI, selectionArgs, "_ID=" + id, null,
 				null, null);
@@ -108,6 +119,7 @@ public class UserService {
 		int numberOfEntriesInCurrentDict = 0;
 		int numberOfRepeatationsForLearning = 0;
 		double testAveragePercentage = 0;
+		String lastPassing = null;
 		
 		c.moveToFirst();
 		
@@ -128,6 +140,7 @@ public class UserService {
 			numberOfEntriesInCurrentDict = c.getInt(13);
 			numberOfRepeatationsForLearning = c.getInt(14);
 			testAveragePercentage = c.getDouble(15);
+			lastPassing = c.getString(16);
 			c.moveToNext();
 		}
 		User u = new User(id, language, userLevel, learnedVocabulary,
@@ -135,7 +148,7 @@ public class UserService {
 				numberOfGrammarInLevel, learnedAudio, numberOfAudioInLevel,
 				learnedGiongo, numberOfGiongoInLevel, learnedCounterWords,
 				numberOfCounterWordsInLevel, numberOfEntriesInCurrentDict,
-				numberOfRepeatationsForLearning, testAveragePercentage);
+				numberOfRepeatationsForLearning, testAveragePercentage, lastPassing);
 		return u;
 	}
 }

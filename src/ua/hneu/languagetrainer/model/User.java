@@ -1,5 +1,7 @@
 package ua.hneu.languagetrainer.model;
 
+import java.util.Date;
+
 public class User {
 	private int id;
 	private String language;
@@ -25,6 +27,7 @@ public class User {
 	// Information about tests is in table Tests
 	// just statistics for quick access
 	private double testAveragePercentage = 0;
+	private String lastPassing;
 
 	public User(int id, String language, int userLevel, int learnedVocabulary,
 			int numberOfVocabularyInLevel, int learnedGrammar,
@@ -32,7 +35,7 @@ public class User {
 			int numberOfAudioInLevel, int learnedGiongo,
 			int numberOfGiongoInLevel, int learnedCounterWords,
 			int numberOfCounterWordsInLevel, int numberOfEntriesInCurrentDict,
-			int numberOfRepeatationsForLearning, double testAveragePercentage) {
+			int numberOfRepeatationsForLearning, double testAveragePercentage, String lastPassing) {
 		super();
 		this.id = id;
 		this.language = language;
@@ -115,7 +118,11 @@ public class User {
 	public double getTestAveragePercentage() {
 		return testAveragePercentage;
 	}
-
+	
+	public String getLastPassing() {
+		return lastPassing;
+	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -179,6 +186,9 @@ public class User {
 
 	public void setTestAveragePercentage(double testAveragePercentage) {
 		this.testAveragePercentage = testAveragePercentage;
+	}
+	public void setLastPassing(String lastPassing) {
+		this.lastPassing = lastPassing;
 	}
 
 	// increment for percentage of learned element when responding correctly

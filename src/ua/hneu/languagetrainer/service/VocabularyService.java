@@ -76,8 +76,7 @@ public class VocabularyService {
 		values.put(VocabularyDAO.TRANSLATIONS, de.getTranslationsToString());
 		values.put(VocabularyDAO.EXAMPLES, de.getExamples());
 		values.put(VocabularyDAO.PERCENTAGE, de.getLearnedPercentage());
-		values.put(VocabularyDAO.LASTVIEW, de.getLastview());// 2013-10-07
-																// 08:23:19
+		values.put(VocabularyDAO.LASTVIEW, de.getLastview());
 		values.put(VocabularyDAO.SHOWNTIMES, de.getShowntimes());
 		cr.insert(VocabularyDAO.CONTENT_URI, values);
 	}
@@ -148,7 +147,6 @@ public class VocabularyService {
 	}
 
 	public void createTable() {
-		// TODO: WHY DOES IT NULL?!!!!
 		SQLiteDatabase db = VocabularyDAO.getDb();
 		db.execSQL("CREATE TABLE " + VocabularyDAO.TABLE_NAME
 				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -179,7 +177,7 @@ public class VocabularyService {
 			// do reading, usually loop until end of file reading
 			String mLine;
 			while ((mLine = reader.readLine()) != null) {
-				// 3 столбца разделены знаками табуляции
+				// 3 columns separated by tabulation characters
 				if (mLine != null) {
 					String[] parts = mLine.split("\t");
 					entries1.add(parts);
