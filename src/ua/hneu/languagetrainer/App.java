@@ -22,35 +22,37 @@ public class App extends Application {
 	public static VocabularyPassing vp = new VocabularyPassing();
 	// contentResolver for database
 	public static ContentResolver cr;
-
 	public static VocabularyService vs = new VocabularyService();
-	
 	public static Context context;
-	
+
+	public static boolean isShowRomaji;
+
 	@Override
 	public void onCreate() {
-		cr = getContentResolver();		
-		  /*us.dropTable();
-		  us.createTable();		  
-		  User u = new User(1, "ENG", 5, 0, 637, 0, 0, 0, 0, 0, 0, 0, 0, 10,
-		  10, 0, "2013-10-07 08:23:19"); 
-		  us.insert(u,cr);		*/ 
-		//User u1 = new User(1, "ENG", 5, 0, 637, 0, 0, 0, 0, 0, 0, 0, 0, 10,10, 0, "2013-10-07 08:23:19");
-		//us.update(u1, cr);
-		
+		cr = getContentResolver();
+		/*
+		 us.dropTable(); us.createTable(); User u = new User(1, "ENG", 5, 0,
+		  637, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 0, "2013-10-07 08:23:19");
+		  us.insert(u,cr);*/
 		
 		// fetch user data from db
 		userInfo = us.selectUser(getContentResolver(), 1);
+
+		// if level is 5 or 4 - show romaji in tests
+		if (userInfo.getUserLevel() == 4 || userInfo.getUserLevel() == 5)
+			isShowRomaji = true;
+		else
+			isShowRomaji = false;
 
 		// load dictionary currentDictionary =
 		currentDictionary = VocabularyService.createCurrentDictionary(
 				userInfo.getUserLevel(),
 				userInfo.getNumberOfEntriesInCurrentDict(), cr);
-		
+
 		DictionaryEntry de = currentDictionary.get(0);
-		de.setKanji("1");
+		de.incrementShowntimes();
 		vs.update(de, cr);
-		
+
 		App.context = getApplicationContext();
 		super.onCreate();
 	}

@@ -65,7 +65,7 @@ public class TranslationTestActivity extends Activity {
 		DictionaryEntry e = App.currentDictionary.get(currentWordNumber);
 		wordTextView.setText(e.getKanji());
 		transcriptionTextView.setText(e.getTranscription());
-		romajiTextView.setText(e.getRomaji());
+		if (App.isShowRomaji) romajiTextView.setText(e.getRomaji());
 
 		// get dictionary with random entries, add current one and shuffle
 		randomDictionary = App.currentDictionary.getRandomEntries(answersNumber - 1);
@@ -111,7 +111,15 @@ public class TranslationTestActivity extends Activity {
 					rightAnswer.setLearnedPercentage(rightAnswer
 							.getLearnedPercentage()
 							+ App.userInfo.getPercentageIncrement());
-
+				
+				if (rightAnswer.getLearnedPercentage() == 1) {
+					// remove word from current dictionary for learning
+					App.currentDictionary.remove(rightAnswer);
+					// update information id db
+					App.vs.update(rightAnswer, getContentResolver());
+					// and set it as learned
+					App.vp.makeWordLearned(rightAnswer);
+				}
 				// change color to green and fade out
 				isRight.setText("Correct!");
 				adapter.changeColor(view, Color.GREEN);
@@ -159,6 +167,9 @@ public class TranslationTestActivity extends Activity {
 				adapter.changeColor(view, Color.RED);
 				isRight.setText("Wrong");
 				ifWasWrong = true;
+				// set information about wrong answer in VocabularyPassing
+				App.vp.incrementNumberOfIncorrectAnswersInTranslation();
+				App.vp.addProblemWord(App.currentDictionary.get(currentWordNumber));
 			}
 		}
 	};

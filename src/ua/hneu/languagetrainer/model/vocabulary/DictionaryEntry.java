@@ -1,35 +1,36 @@
 package ua.hneu.languagetrainer.model.vocabulary;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
-public class DictionaryEntry implements Comparable{
+import ua.hneu.languagetrainer.App;
+
+public class DictionaryEntry implements Comparable<DictionaryEntry> {
 
 	private int id;
 	private String kanji;
 	private int level;
 	private String examples;
 	private String lastview;
-	private int showntimes;	
+	private int showntimes;
 	private double learnedPercentage;
 	private WordMeaning meaning;
-	
-	public DictionaryEntry(int id, String kanji, int level, String transcription,
-			String romaji, List<String> translations, String examples, double percentage, String lastview, int  showntimes) {
-						
-		WordMeaning meaning = new WordMeaning(transcription, romaji,translations);
+
+	public DictionaryEntry(int id, String kanji, int level,
+			String transcription, String romaji, List<String> translations,
+			String examples, double percentage, String lastview, int showntimes) {
+
+		WordMeaning meaning = new WordMeaning(transcription, romaji,
+				translations);
 		this.id = id;
 		this.kanji = kanji;
-		this.level=level;
-		this.examples=examples;
-		this.lastview=lastview;
-		this.showntimes=showntimes;	
-		this.learnedPercentage=percentage;
+		this.level = level;
+		this.examples = examples;
+		this.lastview = lastview;
+		this.showntimes = showntimes;
+		this.learnedPercentage = percentage;
 		this.meaning = meaning;
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -41,14 +42,14 @@ public class DictionaryEntry implements Comparable{
 		sb.append("]");
 		sb.append("\n");
 		sb.append(meaning.translationsToString());
-		sb.append("\n");	
+		sb.append("\n");
 		return sb.toString();
 	}
-	
+
 	public int getId() {
 		return id;
 	}
-		
+
 	public String getKanji() {
 		return kanji;
 	}
@@ -72,7 +73,7 @@ public class DictionaryEntry implements Comparable{
 	public WordMeaning getMeaning() {
 		return meaning;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -108,8 +109,8 @@ public class DictionaryEntry implements Comparable{
 	public List<String> getTranslations() {
 		return this.meaning.translations;
 	}
-	
-	public String getTranslationsToString() {		
+
+	public String getTranslationsToString() {
 		return this.meaning.translationsToString();
 	}
 
@@ -150,9 +151,15 @@ public class DictionaryEntry implements Comparable{
 	}
 
 	@Override
-	public int compareTo(Object e) {
+	public int compareTo(DictionaryEntry e) {
 		DictionaryEntry e1 = (DictionaryEntry) e;
 		return this.kanji.compareTo(e1.kanji);
 	}
-	
+
+	public String readingsToString() {
+		if (App.isShowRomaji)
+			return this.getTranscription() + " - " + this.getRomaji();			
+		else
+			return this.getTranscription();
+	}
 }

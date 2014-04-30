@@ -30,6 +30,9 @@ public class WordIntroductionActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		// Log.d("Activ", ((App) getApplication()).str);
 				
+		//increment number of 
+		App.vp.incrementNumberOfPassingsInARow();
+		
 		setContentView(R.layout.activity_word_introduction);
 		prevButton = (Button) findViewById(R.id.buttonPrevious);
 		
@@ -77,6 +80,7 @@ public class WordIntroductionActivity extends Activity {
 		// set word info to the texViews		
 		wordTextView.setText(dictionaryEntry.getKanji());
 		transcriptionTextView.setText(dictionaryEntry.getTranscription());
+		if (App.isShowRomaji)
 		romajiTextView.setText(dictionaryEntry.getRomaji());
 		translationTextView.setText(dictionaryEntry.translationsToString());
 		

@@ -202,16 +202,19 @@ public class MatchWordsActivity extends Activity {
 			return;
 		}
 
-		// get value from map - if reading the same, set hasKanji
+		// get value from map - if reading is the same, set hasKanji
 		String s1 = readings1.get(currentAnswer[1]);
-		if (hasKanji.get(s1))
+		if (hasKanji.get(s1)!=null)
 			ifWordWithoutKanji = true;
+
+		DictionaryEntry currentEntry = curDictionary.get(currentAnswer[1]);
 
 		// if all indices are the same
 		// or hasKanji=false and 2nd and 3rd are the same
 		if ((currentAnswer[0] == currentAnswer[1] && currentAnswer[1] == currentAnswer[2])
 				|| (currentAnswer[0] == -1 && !ifWordWithoutKanji && currentAnswer[1] == currentAnswer[2])) {
 			numberOfRightAnswers++;
+
 			// if all is done
 			if (numberOfRightAnswers == readingsNumber - 1) {
 				Intent matchWordsIntent = new Intent(this,
@@ -230,37 +233,41 @@ public class MatchWordsActivity extends Activity {
 			// and write result to current dictionary if wrong answer was not
 			// given
 			if (!ifWasWrong) {
-				DictionaryEntry currentEntry = curDictionary
-						.get(currentAnswer[1]);
-				//increment percentage
+				// increment percentage
 				currentEntry.setLearnedPercentage(currentEntry
-						.getLearnedPercentage()						+ App.userInfo.getPercentageIncrement());
-				//and increment number of correct answers in current session
-				App.vp.incrementNumberOfCorrectAnswersInMatching();	
-				//if word becomes learned,		
-				if(currentEntry.getLearnedPercentage()==1){
+						.getLearnedPercentage()
+						+ App.userInfo.getPercentageIncrement());
+				// and increment number of correct answers in current session
+				App.vp.makeWordLearned(currentEntry);
+				
+				// if word becomes learned,
+				if (currentEntry.getLearnedPercentage() == 1) {
 					// remove word from current dictionary for learning
 					App.currentDictionary.remove(currentEntry);
-					//update information id db
+					// update information id db
 					App.vs.update(currentEntry, getContentResolver());
-					//and 
+					// and set it as learned
 					App.vp.makeWordLearned(currentEntry);
+					App.vp.incrementNumberOfCorrectAnswersInMatching();
 				}
 			}
-
-		} else
+		} else {
 			isCorrectTextView.setText("Wrong");
-		ifWasWrong = true;
-		// make selected items white
-		if (currentAnswer[0] != -1)
-			adapter1.changeColor(v1, Color.WHITE);
-		adapter2.changeColor(v2, Color.WHITE);
-		adapter3.changeColor(v3, Color.WHITE);
-
+			ifWasWrong = true;
+			// make selected items white
+			if (currentAnswer[0] != -1)
+				adapter1.changeColor(v1, Color.WHITE);
+			adapter2.changeColor(v2, Color.WHITE);
+			adapter3.changeColor(v3, Color.WHITE);
+			// set information about wrong answer in VocabularyPassing
+			App.vp.incrementNumberOfIncorrectAnswersInMatching();
+			App.vp.addProblemWord(currentEntry);
+		}
 		// reset values
 		currentAnswer[0] = -1;
 		currentAnswer[1] = -1;
 		currentAnswer[2] = -1;
+
 	}
 
 	public void buttonSkipMatchOnClick(View v) {

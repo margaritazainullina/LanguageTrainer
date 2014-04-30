@@ -2,6 +2,10 @@ package ua.hneu.languagetrainer.model;
 
 import java.util.Date;
 
+import android.content.ContentResolver;
+
+import ua.hneu.languagetrainer.service.UserService;
+
 public class User {
 	private int id;
 	private String language;
@@ -190,11 +194,17 @@ public class User {
 	}
 	public void setLastPassing(String lastPassing) {
 		this.lastPassing = lastPassing;
+		//updateUserData();
 	}
 
 	// increment for percentage of learned element when responding correctly
 	public double getPercentageIncrement() {
 		return 1.0 / numberOfRepeatationsForLearning;
+	}
+
+	public void updateUserData(ContentResolver cr) {
+		UserService us = new UserService();
+		us.update(this, cr);
 	}
 
 }

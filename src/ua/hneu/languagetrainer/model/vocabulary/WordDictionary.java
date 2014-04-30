@@ -6,17 +6,20 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+import ua.hneu.languagetrainer.App;
+
 public class WordDictionary {
 
 	private ArrayList<DictionaryEntry> entries;
 
-	public DictionaryEntry getWordWithId(int id){
+	public DictionaryEntry getWordWithId(int id) {
 		for (DictionaryEntry entry : entries) {
-			if(entry.getId()==id) return entry;
+			if (entry.getId() == id)
+				return entry;
 		}
 		return null;
 	}
-	
+
 	// all entries with kanji, transcription, romaji and translation
 	public ArrayList<DictionaryEntry> getEntries() {
 		return entries;
@@ -45,8 +48,8 @@ public class WordDictionary {
 	// returns ArrayList of transcription and romaji in dictionary
 	public ArrayList<String> getAllReadings() {
 		ArrayList<String> readings = new ArrayList<String>();
-		for (DictionaryEntry e : entries) {
-			readings.add(e.getTranscription() + " " + e.getRomaji());
+		for (DictionaryEntry e : entries) {			
+				readings.add(e.readingsToString());
 		}
 		return readings;
 	}
@@ -92,10 +95,11 @@ public class WordDictionary {
 	public void add(DictionaryEntry e) {
 		entries.add(e);
 	}
-	
+
 	public void remove(DictionaryEntry e) {
 		entries.remove(e);
 	}
+
 	public int size() {
 		return entries.size();
 	}

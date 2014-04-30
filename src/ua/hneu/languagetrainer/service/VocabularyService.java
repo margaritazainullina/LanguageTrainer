@@ -81,8 +81,7 @@ public class VocabularyService {
 		cr.insert(VocabularyDAO.CONTENT_URI, values);
 	}
 
-	public void update(DictionaryEntry de,
-			ContentResolver cr) {
+	public void update(DictionaryEntry de, ContentResolver cr) {
 		ContentValues values = new ContentValues();
 		values.put(VocabularyDAO.ID, de.getId());
 		values.put(VocabularyDAO.KANJI, de.getKanji());
@@ -94,9 +93,8 @@ public class VocabularyService {
 		values.put(VocabularyDAO.PERCENTAGE, de.getLearnedPercentage());
 		values.put(VocabularyDAO.LASTVIEW, de.getLastview());
 		values.put(VocabularyDAO.SHOWNTIMES, de.getShowntimes());
-		cr.update(VocabularyDAO.CONTENT_URI, values, "_ID=" +  de.getId(), null);
+		cr.update(VocabularyDAO.CONTENT_URI, values, "_ID=" + de.getId(), null);
 	}
-
 
 	public void emptyTable() {
 		VocabularyDAO.getDb()
@@ -162,15 +160,14 @@ public class VocabularyService {
 	public static WordDictionary createCurrentDictionary(int level,
 			int countWordsInCurrentDict, ContentResolver contentResolver) {
 		WordDictionary all = new WordDictionary();
-		//TODO: include entries of levels below
-		
+		// TODO: include entries of levels below
+
 		all = selectAllEntriesOflevel(level, contentResolver);
 
 		WordDictionary current = new WordDictionary();
 		// TODO: replace random with SRS methodology
 		Random rn = new Random();
-		while (current.size() < App.userInfo
-				.getNumberOfEntriesInCurrentDict()) {
+		while (current.size() < App.userInfo.getNumberOfEntriesInCurrentDict()) {
 			int i = rn.nextInt(all.size());
 			DictionaryEntry entry = all.get(i);
 			// if (entry.getLevel() == level)
@@ -187,7 +184,7 @@ public class VocabularyService {
 				VocabularyDAO.LEVEL, VocabularyDAO.TRANSCRIPTION,
 				VocabularyDAO.ROMAJI, VocabularyDAO.TRANSLATIONS,
 				VocabularyDAO.EXAMPLES, VocabularyDAO.PERCENTAGE,
-				VocabularyDAO.SHOWNTIMES, VocabularyDAO.LASTVIEW };
+				VocabularyDAO.LASTVIEW, VocabularyDAO.SHOWNTIMES };
 		Cursor c = contentResolver.query(VocabularyDAO.CONTENT_URI,
 				selectionArgs, "level=" + level, null, null);
 		c.moveToFirst();
@@ -197,7 +194,7 @@ public class VocabularyService {
 		String romaji = "";
 		String translations = "";
 		String examples = "";
-		int percentage = 0;
+		double percentage = 0;
 		String lastview = "";
 		int showntimes = 0;
 
@@ -208,7 +205,7 @@ public class VocabularyService {
 			romaji = c.getString(4);
 			translations = c.getString(5);
 			examples = c.getString(6);
-			percentage = c.getInt(7);
+			percentage = c.getDouble(7);
 			lastview = c.getString(8);
 			showntimes = c.getInt(9);
 			c.moveToNext();

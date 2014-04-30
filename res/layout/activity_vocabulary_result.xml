@@ -9,9 +9,50 @@
     tools:context=".ResultActivity" >
 
     <TextView
+        android:id="@+id/learnedWordsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/resultTextView"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/totalPercentageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/learnedWordsTextView"
+        android:layout_below="@+id/learnedWordsTextView"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/sessionPercentageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/totalPercentageTextView"
+        android:layout_below="@+id/totalPercentageTextView"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/recommendationsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/sessionPercentageTextView"
+        android:layout_below="@+id/sessionPercentageTextView"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/mistakesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/recommendationsTextView"
+        android:layout_below="@+id/recommendationsTextView"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/cautionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/mistakesTextView"
+        android:layout_below="@+id/mistakesTextView"
+        android:text="6"
         android:textSize="24dp" />
 
 </RelativeLayout>

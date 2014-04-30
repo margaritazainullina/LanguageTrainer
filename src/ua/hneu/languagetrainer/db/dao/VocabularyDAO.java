@@ -28,7 +28,7 @@ public class VocabularyDAO extends ContentProvider {
 	public static final String LASTVIEW = "lastview";
 
 	public static final Uri CONTENT_URI = Uri
-			.parse("content://ua.hneu.languagetrainer.db.vocabularyprovider");
+			.parse("content://ua.edu.hneu.languagetrainer.db.vocabularyprovider/dictionary");
 	public static final int URI_CODE = 1;
 	public static final int URI_CODE_ID = 2;
 

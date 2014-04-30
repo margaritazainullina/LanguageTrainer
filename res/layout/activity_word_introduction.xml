@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Kanji"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="24dp" />
 
@@ -23,7 +22,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/wordTextView"
-        android:text="Transcription"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -31,7 +29,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/transcriptionTextView"
-        android:text="Romaji"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -40,7 +37,6 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/romajiTextView"
         android:layout_below="@+id/romajiTextView"
-        android:text="Translation"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
