@@ -72,21 +72,21 @@ public class TranslationTestActivity extends Activity {
 			isFromJapanese = true;
 
 		// show word, reading and translations - set text to all TextViews
-		DictionaryEntry e = App.currentDictionary.get(currentWordNumber);
+		DictionaryEntry currentEntry = App.currentDictionary.get(currentWordNumber);
 		if (isFromJapanese) {
-			wordTextView.setText(e.getKanji());
-			transcriptionTextView.setText(e.getTranscription());
+			wordTextView.setText(currentEntry.getKanji());
+			transcriptionTextView.setText(currentEntry.getTranscription());
 			if (App.isShowRomaji)
-				romajiTextView.setText(e.getRomaji());
+				romajiTextView.setText(currentEntry.getRomaji());
 		} else {
 			transcriptionTextView.setText("");
 			romajiTextView.setText("");
-			wordTextView.setText(e.translationsToString());
+			wordTextView.setText(currentEntry.translationsToString());
 		}
 
 		// get dictionary with random entries, add current one and shuffle
-		randomDictionary = App.currentDictionary
-				.getRandomEntries(answersNumber - 1, false);
+		randomDictionary = App.currentDictionary.getRandomEntries(
+				answersNumber - 1, false);
 		randomDictionary.add(App.currentDictionary.get(currentWordNumber));
 		rightAnswer = App.currentDictionary.get(currentWordNumber);
 
@@ -108,6 +108,11 @@ public class TranslationTestActivity extends Activity {
 		// bindings adapter to ListView
 		answersListView.setAdapter(adapter);
 		answersListView.setOnItemClickListener(answersListViewClickListener);
+		// set colors
+		int color = currentEntry.getIntColor();
+		wordTextView.setTextColor(color);
+		transcriptionTextView.setTextColor(color);
+		romajiTextView.setTextColor(color);
 	}
 
 	@Override
@@ -125,7 +130,7 @@ public class TranslationTestActivity extends Activity {
 			DictionaryEntry selected = randomDictionaryList.get(position);
 			// comparing correct and selected answer
 			if (selected == rightAnswer) {
-				App.vp.incrementNumberOfCorrectAnswersInTranslation();				
+				App.vp.incrementNumberOfCorrectAnswersInTranslation();
 				// increment percentage
 				if (!ifWasWrong)
 					rightAnswer.setLearnedPercentage(rightAnswer
@@ -187,7 +192,7 @@ public class TranslationTestActivity extends Activity {
 				// change color of row and set text
 				adapter.changeColor(view, Color.RED);
 				isRight.setText("Wrong");
-					ifWasWrong = true;
+				ifWasWrong = true;
 				// set information about wrong answer in VocabularyPassing
 				App.vp.incrementNumberOfIncorrectAnswersInTranslation();
 				App.vp.addProblemWord(App.currentDictionary
@@ -204,13 +209,14 @@ public class TranslationTestActivity extends Activity {
 	}
 
 	public void endTesting() {
-		// go to TranscriptionActivity 
+		// go to TranscriptionActivity
 		Intent nextActivity = new Intent(this, TranscriptionTestActivity.class);
 		startActivity(nextActivity);
 	}
 
 	public void buttonSkipSelectOnClick(View v) {
-		Intent matchWordsIntent = new Intent(this, TranscriptionTestActivity.class);
+		Intent matchWordsIntent = new Intent(this,
+				TranscriptionTestActivity.class);
 		startActivity(matchWordsIntent);
 	}
 }

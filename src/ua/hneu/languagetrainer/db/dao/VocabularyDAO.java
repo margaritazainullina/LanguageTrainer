@@ -26,6 +26,7 @@ public class VocabularyDAO extends ContentProvider {
 	public static final String PERCENTAGE = "percentage";
 	public static final String SHOWNTIMES = "showntimes";
 	public static final String LASTVIEW = "lastview";
+	public static final String COLOR = "color";
 
 	public static final Uri CONTENT_URI = Uri
 			.parse("content://ua.edu.hneu.languagetrainer.db.vocabularyprovider/dictionary");
@@ -46,7 +47,6 @@ public class VocabularyDAO extends ContentProvider {
 
 		mContactMap = new HashMap<String, String>();
 		mContactMap.put(DictionaryDbHelper._ID, DictionaryDbHelper._ID);
-
 		mContactMap.put(KANJI, KANJI);
 		mContactMap.put(LEVEL, LEVEL);
 		mContactMap.put(TRANSCRIPTION, TRANSCRIPTION);
@@ -56,7 +56,7 @@ public class VocabularyDAO extends ContentProvider {
 		mContactMap.put(PERCENTAGE, PERCENTAGE);
 		mContactMap.put(LASTVIEW, LASTVIEW);
 		mContactMap.put(SHOWNTIMES, SHOWNTIMES);
-
+		mContactMap.put(COLOR, COLOR);
 	}
 
 	public String getDbName() {

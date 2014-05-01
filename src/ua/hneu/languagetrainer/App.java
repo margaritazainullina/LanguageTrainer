@@ -30,11 +30,15 @@ public class App extends Application {
 	@Override
 	public void onCreate() {
 		cr = getContentResolver();
-		/*
-		 us.dropTable();
-		us.createTable(); User u = new User(1, "ENG", 5, 0,
-		  637, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 0, "2013-10-07 08:23:19");
-		  us.insert(u,cr);*/
+		VocabularyService vs = new VocabularyService();
+		vs.dropTable();
+		vs.createTable();
+		vs.bulkInsertFromCSV("N5.txt", getAssets(), 5, getContentResolver());
+		us.dropTable();
+		us.createTable(); 
+		User u = new User(1, "ENG", 5, 0,
+		637, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 0, "");
+		us.insert(u,cr);
 		
 		// fetch user data from db
 		userInfo = us.selectUser(getContentResolver(), 1);

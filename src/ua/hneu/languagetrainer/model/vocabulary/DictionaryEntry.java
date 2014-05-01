@@ -2,6 +2,8 @@ package ua.hneu.languagetrainer.model.vocabulary;
 
 import java.util.List;
 
+import android.graphics.Color;
+
 import ua.hneu.languagetrainer.App;
 
 public class DictionaryEntry implements Comparable<DictionaryEntry> {
@@ -14,10 +16,12 @@ public class DictionaryEntry implements Comparable<DictionaryEntry> {
 	private int showntimes;
 	private double learnedPercentage;
 	private WordMeaning meaning;
+	private String color;
 
 	public DictionaryEntry(int id, String kanji, int level,
 			String transcription, String romaji, List<String> translations,
-			String examples, double percentage, String lastview, int showntimes) {
+			String examples, double percentage, String lastview,
+			int showntimes, String color) {
 
 		WordMeaning meaning = new WordMeaning(transcription, romaji,
 				translations);
@@ -29,6 +33,7 @@ public class DictionaryEntry implements Comparable<DictionaryEntry> {
 		this.showntimes = showntimes;
 		this.learnedPercentage = percentage;
 		this.meaning = meaning;
+		this.color = color;
 	}
 
 	@Override
@@ -73,6 +78,16 @@ public class DictionaryEntry implements Comparable<DictionaryEntry> {
 	public WordMeaning getMeaning() {
 		return meaning;
 	}
+	
+	public String getColor() {
+		return this.color;
+	}
+
+	public int getIntColor() {
+		String[] rgb = this.color.split(",");
+		int color = Color.rgb(Integer.parseInt(rgb[0]), Integer.parseInt(rgb[1]), Integer.parseInt(rgb[2]));
+		return color;
+	}
 
 	public void setId(int id) {
 		this.id = id;
@@ -92,6 +107,10 @@ public class DictionaryEntry implements Comparable<DictionaryEntry> {
 
 	public void setLastview(String lastview) {
 		this.lastview = lastview;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
 	}
 
 	public void incrementShowntimes() {
@@ -136,7 +155,7 @@ public class DictionaryEntry implements Comparable<DictionaryEntry> {
 
 	public void setRomaji(String romaji) {
 		this.meaning.romaji = romaji;
-	}	
+	}
 
 	public double getLearnedPercentage() {
 		return learnedPercentage;
@@ -154,7 +173,7 @@ public class DictionaryEntry implements Comparable<DictionaryEntry> {
 
 	public String readingsToString() {
 		if (App.isShowRomaji)
-			return this.getTranscription() + " - " + this.getRomaji();			
+			return this.getTranscription() + " - " + this.getRomaji();
 		else
 			return this.getTranscription();
 	}

@@ -22,6 +22,7 @@ import android.content.ContentValues;
 import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.util.Log;
 
 public class VocabularyService {
@@ -29,7 +30,7 @@ public class VocabularyService {
 	public static DictionaryEntry getEntryById(int id, ContentResolver cr) {
 		String[] col = { "KANJI", "LEVEL", "TRANSCRIPTION", "ROMAJI",
 				"TRANSLATIONS", "EXAMPLES", "PERCENTAGE", "LASTVIEW",
-				"SHOWNTIMES" };
+				"SHOWNTIMES", "COLOR" };
 		Cursor c = cr.query(VocabularyDAO.CONTENT_URI, col, "_ID=" + id, null,
 				null, null);
 		c.moveToFirst();
@@ -45,25 +46,29 @@ public class VocabularyService {
 		int percentage = 0;
 		String lastview = "";
 		int showntimes = 0;
+		String color = "";
 
 		while (!c.isAfterLast()) {
-			kanji = c.getString(0);
-			id = c.getInt(1);
-			transcription = c.getString(2);
-			romaji = c.getString(3);
-			translations = c.getString(4);
-			examples = c.getString(5);
-			percentage = c.getInt(6);
-			lastview = c.getString(7);
-			showntimes = c.getInt(8);
-			c.moveToNext();
+			id = c.getInt(0);
+			kanji = c.getString(1);
+			level = c.getInt(2);
+			transcription = c.getString(3);
+			romaji = c.getString(4);
+			translations = c.getString(5);
+			examples = c.getString(6);
+			percentage = c.getInt(7);
+			lastview = c.getString(8);
+			showntimes = c.getInt(9);
+			color = c.getString(10);
+			c.moveToNext();	
 		}
 
 		List<String> translations1 = new ArrayList<String>(
 				Arrays.asList(translations.split(";")));
 
 		de = new DictionaryEntry(id, kanji, level, transcription, romaji,
-				translations1, examples, percentage, lastview, showntimes);
+				translations1, examples, percentage, lastview, showntimes,
+				color);
 		return de;
 	}
 
@@ -78,6 +83,7 @@ public class VocabularyService {
 		values.put(VocabularyDAO.PERCENTAGE, de.getLearnedPercentage());
 		values.put(VocabularyDAO.LASTVIEW, de.getLastview());
 		values.put(VocabularyDAO.SHOWNTIMES, de.getShowntimes());
+		values.put(VocabularyDAO.COLOR, de.getColor());
 		cr.insert(VocabularyDAO.CONTENT_URI, values);
 	}
 
@@ -93,6 +99,7 @@ public class VocabularyService {
 		values.put(VocabularyDAO.PERCENTAGE, de.getLearnedPercentage());
 		values.put(VocabularyDAO.LASTVIEW, de.getLastview());
 		values.put(VocabularyDAO.SHOWNTIMES, de.getShowntimes());
+		values.put(VocabularyDAO.COLOR, de.getColor());
 		cr.update(VocabularyDAO.CONTENT_URI, values, "_ID=" + de.getId(), null);
 	}
 
@@ -110,7 +117,8 @@ public class VocabularyService {
 				+ VocabularyDAO.ROMAJI + " TEXT, " + VocabularyDAO.TRANSLATIONS
 				+ " TEXT, " + VocabularyDAO.EXAMPLES + " TEXT, "
 				+ VocabularyDAO.PERCENTAGE + " REAL, " + VocabularyDAO.LASTVIEW
-				+ " DATETIME," + VocabularyDAO.SHOWNTIMES + " INTEGER);");
+				+ " DATETIME," + VocabularyDAO.SHOWNTIMES + " INTEGER, "
+				+ VocabularyDAO.COLOR + " TEXT);");
 	}
 
 	public void dropTable() {
@@ -151,8 +159,37 @@ public class VocabularyService {
 			String[] meanings = entry[3].split(";");
 			List<String> translations = new ArrayList<String>(
 					Arrays.asList(meanings));
+
+			// setting random colors
+			Random r = new Random();
+			int r1 = r.nextInt(5);
+			String color = "";
+			switch (r1) {
+			case 0: {
+				color = "138,213,240";
+				break;
+			}
+			case 1: {
+				color = "214,173,235";
+				break;
+			}
+			case 2: {
+				color = "197,226,109";
+				break;
+			}
+
+			case 3: {
+				color = "255,217,128";
+				break;
+			}
+			case 4: {
+				color = "255,148,148";
+				break;
+			}
+			}
+
 			DictionaryEntry de = new DictionaryEntry(0, kanji, level,
-					transcription, romaji, translations, "", 0, "", 0);
+					transcription, romaji, translations, "", 0, "", 0, color);
 			this.insert(de, cr);
 		}
 	}
@@ -170,7 +207,6 @@ public class VocabularyService {
 		while (current.size() < App.userInfo.getNumberOfEntriesInCurrentDict()) {
 			int i = rn.nextInt(all.size());
 			DictionaryEntry entry = all.get(i);
-			// if (entry.getLevel() == level)
 			current.add(entry);
 		}
 		return current;
@@ -184,7 +220,7 @@ public class VocabularyService {
 				VocabularyDAO.LEVEL, VocabularyDAO.TRANSCRIPTION,
 				VocabularyDAO.ROMAJI, VocabularyDAO.TRANSLATIONS,
 				VocabularyDAO.EXAMPLES, VocabularyDAO.PERCENTAGE,
-				VocabularyDAO.LASTVIEW, VocabularyDAO.SHOWNTIMES };
+				VocabularyDAO.LASTVIEW, VocabularyDAO.SHOWNTIMES, VocabularyDAO.COLOR };
 		Cursor c = contentResolver.query(VocabularyDAO.CONTENT_URI,
 				selectionArgs, "level=" + level, null, null);
 		c.moveToFirst();
@@ -197,7 +233,8 @@ public class VocabularyService {
 		double percentage = 0;
 		String lastview = "";
 		int showntimes = 0;
-
+		String color = "";
+		
 		while (!c.isAfterLast()) {
 			id = c.getInt(0);
 			kanji = c.getString(1);
@@ -208,6 +245,7 @@ public class VocabularyService {
 			percentage = c.getDouble(7);
 			lastview = c.getString(8);
 			showntimes = c.getInt(9);
+     		color=c.getString(10);
 			c.moveToNext();
 
 			List<String> translations1 = new ArrayList<String>(
@@ -215,7 +253,7 @@ public class VocabularyService {
 
 			DictionaryEntry de = new DictionaryEntry(id, kanji, level,
 					transcription, romaji, translations1, examples, percentage,
-					lastview, showntimes);
+					lastview, showntimes,color);
 			wd.add(de);
 		}
 		return wd;

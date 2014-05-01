@@ -41,8 +41,8 @@ public class TranscriptionTestActivity extends Activity {
 	boolean ifWasWrong = false;
 
 	// sets direction
-	// true - question is kanji and answers are transcriptions false - vice
-	// versa
+	// true - question is kanji and answers are transcriptions 
+	// false - vice versa
 	// sets randomly for every question
 	boolean isKanjiShown;
 
@@ -66,16 +66,16 @@ public class TranscriptionTestActivity extends Activity {
 		// move pointer to next word
 		// if word does't have a kanji, skip it
 		currentWordNumber++;
-		DictionaryEntry e = App.currentDictionary.get(currentWordNumber);
-		while (e.getKanji().isEmpty()) {
+		DictionaryEntry currentEntry = App.currentDictionary.get(currentWordNumber);
+		while (currentEntry.getKanji().isEmpty()) {
 			currentWordNumber++;
 			if (currentWordNumber >= App.currentDictionary.size()-1)
 				endTesting();
-			e = App.currentDictionary.get(currentWordNumber);
+			currentEntry = App.currentDictionary.get(currentWordNumber);
 		}
 
-		System.out.println(e);
-		if (e.getKanji().isEmpty())
+		System.out.println(currentEntry);
+		if (currentEntry.getKanji().isEmpty())
 			nextWord();
 		// set randomly direction
 		if (Math.random() < 0.5)
@@ -85,13 +85,13 @@ public class TranscriptionTestActivity extends Activity {
 
 		// show word, reading and translations - set text to all TextViews
 		if (isKanjiShown) {
-			wordTextView.setText(e.getKanji());
+			wordTextView.setText(currentEntry.getKanji());
 			transcriptionTextView.setText("");
 			romajiTextView.setText("");
 		} else {
-			transcriptionTextView.setText(e.getTranscription());
+			transcriptionTextView.setText(currentEntry.getTranscription());
 			if (App.isShowRomaji)
-				romajiTextView.setText(e.getRomaji());
+				romajiTextView.setText(currentEntry.getRomaji());
 			wordTextView.setText("");
 		}
 
@@ -119,6 +119,12 @@ public class TranscriptionTestActivity extends Activity {
 		// bindings adapter to ListView
 		answersListView.setAdapter(adapter);
 		answersListView.setOnItemClickListener(answersListViewClickListener);
+		
+		// set colors
+		int color = currentEntry.getIntColor();
+		wordTextView.setTextColor(color);
+		transcriptionTextView.setTextColor(color);
+		romajiTextView.setTextColor(color);
 	}
 
 	@Override

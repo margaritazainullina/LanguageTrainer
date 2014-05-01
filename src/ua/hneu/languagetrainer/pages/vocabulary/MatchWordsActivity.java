@@ -167,8 +167,8 @@ public class MatchWordsActivity extends Activity {
 			return;
 		}
 
-		DictionaryEntry e2 = curDictionary.getEntryById(currentAnswer[1]);
-		boolean ifWordWithoutKanji = (e2.getKanji().isEmpty());
+		DictionaryEntry currentEntry = curDictionary.getEntryById(currentAnswer[1]);
+		boolean ifWordWithoutKanji = (currentEntry.getKanji().isEmpty());
 
 		// if all indices are the same
 		// or hasKanji=false and 2nd and 3rd are the same
@@ -185,19 +185,19 @@ public class MatchWordsActivity extends Activity {
 			}
 			// and write result to current dictionary if wrong answer was not
 			// given
-			if (!wrongAnswers.getEntries().contains(e2)) {				
+			if (!wrongAnswers.getEntries().contains(currentEntry)) {				
 				// increment percentage
-				e2.setLearnedPercentage(e2.getLearnedPercentage()
+				currentEntry.setLearnedPercentage(currentEntry.getLearnedPercentage()
 						+ App.userInfo.getPercentageIncrement());
 				// if word becomes learned,
-				if (e2.getLearnedPercentage() == 1) {
+				if (currentEntry.getLearnedPercentage() == 1) {
 					// remove word from current dictionary for learning
-					learnedWords.add(e2);
+					learnedWords.add(currentEntry);
 					// update information id db
-					App.vs.update(e2, getContentResolver());
+					App.vs.update(currentEntry, getContentResolver());
 					// and set it as learned (also increments number of words
 					// learned)
-					App.vp.makeWordLearned(e2);
+					App.vp.makeWordLearned(currentEntry);
 				} else
 					// and increment number of correct answers in current
 					// session anyway
@@ -214,7 +214,7 @@ public class MatchWordsActivity extends Activity {
 
 		} else {
 			// add given answer to wrong
-			wrongAnswers.add(e2);
+			wrongAnswers.add(currentEntry);
 			isCorrectTextView.setText("Wrong");
 			// make selected items white
 			if (currentAnswer[0] != -1)
@@ -223,7 +223,7 @@ public class MatchWordsActivity extends Activity {
 			adapter3.changeColor(v3, Color.WHITE);
 			// set information about wrong answer in VocabularyPassing
 			App.vp.incrementNumberOfIncorrectAnswersInMatching();
-			App.vp.addProblemWord(e2);
+			App.vp.addProblemWord(currentEntry);
 		}
 		// reset values
 		currentAnswer[0] = -1;

@@ -8,6 +8,7 @@ import ua.hneu.languagetrainer.model.vocabulary.WordDictionary;
 import ua.hneu.languagetrainer.service.VocabularyService;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -15,28 +16,36 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class WordIntroductionActivity extends Activity {
-	public static WordDictionary dict = new WordDictionary();
-
+	
 	public static List<Integer> shownIndexes;
 	public boolean isLast = true;
 	public static DictionaryEntry curEntry;
 	public static int idx = -1;
 	public static int numberOfWordsInSample = 7;
 
+	TextView wordTextView;
+	TextView transcriptionTextView;
+	TextView romajiTextView;
+	TextView translationTextView;
 	Button prevButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// Log.d("Activ", ((App) getApplication()).str);
-				
-		//increment number of 
+		// initialise views
+		wordTextView = (TextView) findViewById(R.id.wordTextView);
+		transcriptionTextView = (TextView) findViewById(R.id.transcriptionTextView);
+		romajiTextView = (TextView) findViewById(R.id.romajiTextView);
+		translationTextView = (TextView) findViewById(R.id.translationTextView);
+
+		// increment number of
 		App.vp.incrementNumberOfPassingsInARow();
-		
+
 		setContentView(R.layout.activity_word_introduction);
 		prevButton = (Button) findViewById(R.id.buttonPrevious);
-		
-		//show first entry
+
+		// show first entry
 		curEntry = App.currentDictionary.get(0);
 		idx = 0;
 		showEntry(curEntry);
@@ -62,27 +71,35 @@ public class WordIntroductionActivity extends Activity {
 			showEntry(App.currentDictionary.get(idx));
 		}
 	}
+
 	public void buttonSkipOnClick(View v) {
 		goToNextPassingActivity();
 	}
-	
+
 	public void goToNextPassingActivity() {
 		Intent matchWordsIntent = new Intent(this, MatchWordsActivity.class);
 		startActivity(matchWordsIntent);
 	}
-	
-	private void showEntry(DictionaryEntry dictionaryEntry) {
-		TextView wordTextView = (TextView) findViewById(R.id.wordTextView);
-		TextView transcriptionTextView = (TextView) findViewById(R.id.transcriptionTextView);
-		TextView romajiTextView = (TextView) findViewById(R.id.romajiTextView);
-		TextView translationTextView = (TextView) findViewById(R.id.translationTextView);
 
+	private void showEntry(DictionaryEntry dictionaryEntry) {	
+		wordTextView = (TextView) findViewById(R.id.wordTextView);
+		transcriptionTextView = (TextView) findViewById(R.id.transcriptionTextView);
+		romajiTextView = (TextView) findViewById(R.id.romajiTextView);
+		translationTextView = (TextView) findViewById(R.id.translationTextView);
+		
 		// set word info to the texViews		
 		wordTextView.setText(dictionaryEntry.getKanji());
 		transcriptionTextView.setText(dictionaryEntry.getTranscription());
 		if (App.isShowRomaji)
 		romajiTextView.setText(dictionaryEntry.getRomaji());
 		translationTextView.setText(dictionaryEntry.translationsToString());
+		
+		//set color of entry
+		int color = App.currentDictionary.get(idx).getIntColor();						
+		wordTextView.setTextColor(color);
+		transcriptionTextView.setTextColor(color);
+		romajiTextView.setTextColor(color);
+		translationTextView.setTextColor(color);
 		
 		//and write information to db
 		dictionaryEntry.incrementShowntimes();
