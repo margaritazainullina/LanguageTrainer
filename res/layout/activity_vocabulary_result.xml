@@ -52,7 +52,14 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/mistakesTextView"
         android:layout_below="@+id/mistakesTextView"
-        android:text="6"
         android:textSize="24dp" />
+
+    <Button
+        android:id="@+id/buttonRepeatTraining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cautionTextView"
+        android:onClick="buttonRepeatTrainingOnClick"
+        android:text="@string/repeatTraining" />
 
 </RelativeLayout>

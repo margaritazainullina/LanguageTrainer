@@ -62,6 +62,8 @@ public class MatchWordsActivity extends Activity {
 	// TODO: make this for every word
 	boolean ifWasWrong = false;
 
+	WordDictionary learnedWords = new WordDictionary();
+
 	int numberOfRightAnswers = 0;
 
 	@Override
@@ -204,7 +206,7 @@ public class MatchWordsActivity extends Activity {
 
 		// get value from map - if reading is the same, set hasKanji
 		String s1 = readings1.get(currentAnswer[1]);
-		if (hasKanji.get(s1)!=null)
+		if (hasKanji.get(s1) != null)
 			ifWordWithoutKanji = true;
 
 		DictionaryEntry currentEntry = curDictionary.get(currentAnswer[1]);
@@ -232,28 +234,29 @@ public class MatchWordsActivity extends Activity {
 			adapter3.hideElement(v3, fadeOutAnimation, 350);
 			// and write result to current dictionary if wrong answer was not
 			// given
-			if (!ifWasWrong) {
+			if (!ifWasWrong) {				
 				// increment percentage
 				currentEntry.setLearnedPercentage(currentEntry
 						.getLearnedPercentage()
 						+ App.userInfo.getPercentageIncrement());
-				// and increment number of correct answers in current session
-				App.vp.makeWordLearned(currentEntry);
-				
+
 				// if word becomes learned,
 				if (currentEntry.getLearnedPercentage() == 1) {
 					// remove word from current dictionary for learning
-					App.currentDictionary.remove(currentEntry);
+					learnedWords.add(currentEntry);
 					// update information id db
 					App.vs.update(currentEntry, getContentResolver());
-					// and set it as learned
+					// and set it as learned (also increments number of words
+					// learned)
 					App.vp.makeWordLearned(currentEntry);
+				} else
+					// and increment number of correct answers in current
+					// session anyway
 					App.vp.incrementNumberOfCorrectAnswersInMatching();
-				}
 			}
 		} else {
-			isCorrectTextView.setText("Wrong");
-			ifWasWrong = true;
+			isCorrectTextView.setText("Wrong");			
+				ifWasWrong = true;
 			// make selected items white
 			if (currentAnswer[0] != -1)
 				adapter1.changeColor(v1, Color.WHITE);
@@ -275,6 +278,12 @@ public class MatchWordsActivity extends Activity {
 	}
 
 	public void goToNextPassingActivity() {
+		// delete learned words from current
+		// dictionaryApp.currentDictionary.remove(currentEntry);App.currentDictionary.remove(currentEntry);App.currentDictionary.remove(currentEntry);App.currentDictionary.remove(currentEntry);
+		for (DictionaryEntry e : learnedWords.getEntries()) {
+			App.currentDictionary.remove(e);
+		}
+
 		Intent matchWordsIntent = new Intent(this,
 				TranslationTestActivity.class);
 		startActivity(matchWordsIntent);

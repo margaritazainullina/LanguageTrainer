@@ -21,7 +21,9 @@
     <string name="next">Next</string>
     <string name="skip">Skip exercise</string>
     <string name="ok">Ok</string>
+    <string name="repeatTraining">Repeat training</string>
+    <string name="title_translation_test_activity">Select right answer from the list</string>
+    <string name="title_transcription_test_activity"> Select right answer from the list </string>
     <string name="title_activity_match_the_words">Match words with their readings and translation</string>
-   <string name="title_select_test_activity">Select right answer from the list</string>
 
 </resources>

@@ -48,8 +48,8 @@ public class WordDictionary {
 	// returns ArrayList of transcription and romaji in dictionary
 	public ArrayList<String> getAllReadings() {
 		ArrayList<String> readings = new ArrayList<String>();
-		for (DictionaryEntry e : entries) {			
-				readings.add(e.readingsToString());
+		for (DictionaryEntry e : entries) {
+			readings.add(e.readingsToString());
 		}
 		return readings;
 	}
@@ -63,15 +63,17 @@ public class WordDictionary {
 		return translation;
 	}
 
-	// returns Set with stated size of unique random entries from currrent
+	// returns Set with stated size of unique random entries from current
 	// dictionary
-	public Set<DictionaryEntry> getRandomEntries(int size) {
+	public Set<DictionaryEntry> getRandomEntries(int size,
+			boolean kanjiIsNessesary) {
 		Set<DictionaryEntry> random = new HashSet<DictionaryEntry>();
-
 		Random rn = new Random();
-		while (random.size() < size) {
+		while (random.size() <= size) {
 			int i = rn.nextInt(entries.size());
-			random.add(entries.get(i));
+			if ((kanjiIsNessesary && entries.get(i).getKanji() != "")
+					|| !kanjiIsNessesary)
+				random.add(entries.get(i));
 		}
 		return random;
 	}
@@ -111,5 +113,17 @@ public class WordDictionary {
 	public DictionaryEntry fetchRandom() {
 		int a = new Random().nextInt(entries.size() - 1);
 		return entries.get(a);
+	}
+
+	public ArrayList<String> getAllKanjiWithReadings() {
+		ArrayList<String> readings = new ArrayList<String>();
+		for (DictionaryEntry e : entries) {
+			if (App.isShowRomaji)
+				readings.add(e.getKanji() + " [" + e.getTranscription() + " - "
+						+ e.getRomaji() + "]");
+			else
+				readings.add(e.getKanji() + " [" + e.getTranscription() + "]");
+		}
+		return readings;
 	}
 }

@@ -1,18 +1,18 @@
 package ua.hneu.languagetrainer.passing;
 
-import java.util.Date;
 import java.util.Hashtable;
 
-import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
 import ua.hneu.languagetrainer.model.vocabulary.WordDictionary;
 
 public class VocabularyPassing {
 	private int numberOfCorrectAnswersInMatching = 0;
 	private int numberOfCorrectAnswersInTranslation = 0;
+	private int numberOfCorrectAnswersInTranscription = 0;
 	private int numberOfIncorrectAnswersInMatching = 0;
 	private int numberOfIncorrectAnswersInTranslation = 0;
-	private int numberOfPassingsInARow=0;
+	private int numberOfIncorrectAnswersInTranscription = 0;
+	private int numberOfPassingsInARow = 0;
 
 	// learned words while passing
 	private WordDictionary learnedWords = new WordDictionary();
@@ -26,6 +26,7 @@ public class VocabularyPassing {
 	public int getNumberOfCorrectAnswersInTranslation() {
 		return numberOfCorrectAnswersInTranslation;
 	}
+
 	public int getNumberOfIncorrectAnswersInMatching() {
 		return numberOfIncorrectAnswersInMatching;
 	}
@@ -37,6 +38,15 @@ public class VocabularyPassing {
 	public int getNumberOfPassingsInARow() {
 		return numberOfPassingsInARow;
 	}
+	
+
+	public int getTranscription() {
+		return numberOfCorrectAnswersInTranscription;
+	}
+
+	public int getNumberOfIncorrectAnswersInTranscription() {
+		return numberOfIncorrectAnswersInTranscription;
+	}
 
 	public void incrementNumberOfCorrectAnswersInMatching() {
 		this.numberOfCorrectAnswersInMatching++;
@@ -45,6 +55,7 @@ public class VocabularyPassing {
 	public void incrementNumberOfCorrectAnswersInTranslation() {
 		this.numberOfCorrectAnswersInTranslation++;
 	}
+
 	public void incrementNumberOfIncorrectAnswersInMatching() {
 		this.numberOfIncorrectAnswersInMatching++;
 	}
@@ -53,6 +64,14 @@ public class VocabularyPassing {
 		this.numberOfIncorrectAnswersInTranslation++;
 	}
 
+	public void incrementNumberOfCorrectAnswersInTranscription() {
+		this.numberOfCorrectAnswersInTranscription++;		
+	}
+	
+	public void incrementNumberOfIncorrectAnswersInTranscription() {
+		this.numberOfIncorrectAnswersInTranscription++;		
+	}
+	
 	public void incrementNumberOfPassingsInARow() {
 		this.numberOfPassingsInARow++;
 	}
@@ -74,7 +93,21 @@ public class VocabularyPassing {
 		if (problemWords.containsKey(de)) {
 			int oldValue = problemWords.get(de);
 			problemWords.put(de, oldValue++);
-		}
-		else problemWords.put(de, 1);
+		} else
+			problemWords.put(de, 1);
 	}
+
+	public void clearInfo() {
+		// reset all values except for numberOfPassingsInARow for analyzing of
+		// how many times user passed tests in a row
+		this.learnedWords = null;
+		this.numberOfCorrectAnswersInMatching = 0;
+		this.numberOfCorrectAnswersInTranslation = 0;
+		this.numberOfIncorrectAnswersInMatching = 0;
+		this.numberOfIncorrectAnswersInTranslation = 0;
+	}
+
+	
+
+	
 }
