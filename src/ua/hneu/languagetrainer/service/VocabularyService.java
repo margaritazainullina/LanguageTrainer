@@ -73,7 +73,7 @@ public class VocabularyService {
 		values.put(VocabularyDAO.LEVEL, de.getLevel());
 		values.put(VocabularyDAO.TRANSCRIPTION, de.getTranscription());
 		values.put(VocabularyDAO.ROMAJI, de.getRomaji());
-		values.put(VocabularyDAO.TRANSLATIONS, de.getTranslationsToString());
+		values.put(VocabularyDAO.TRANSLATIONS, de.translationsToString());
 		values.put(VocabularyDAO.EXAMPLES, de.getExamples());
 		values.put(VocabularyDAO.PERCENTAGE, de.getLearnedPercentage());
 		values.put(VocabularyDAO.LASTVIEW, de.getLastview());
@@ -88,7 +88,7 @@ public class VocabularyService {
 		values.put(VocabularyDAO.LEVEL, de.getLevel());
 		values.put(VocabularyDAO.TRANSCRIPTION, de.getTranscription());
 		values.put(VocabularyDAO.ROMAJI, de.getRomaji());
-		values.put(VocabularyDAO.TRANSLATIONS, de.getTranslationsToString());
+		values.put(VocabularyDAO.TRANSLATIONS, de.translationsToString());
 		values.put(VocabularyDAO.EXAMPLES, de.getExamples());
 		values.put(VocabularyDAO.PERCENTAGE, de.getLearnedPercentage());
 		values.put(VocabularyDAO.LASTVIEW, de.getLastview());

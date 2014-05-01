@@ -81,7 +81,7 @@ public class TranslationTestActivity extends Activity {
 		} else {
 			transcriptionTextView.setText("");
 			romajiTextView.setText("");
-			wordTextView.setText(e.getTranslationsToString());
+			wordTextView.setText(e.translationsToString());
 		}
 
 		// get dictionary with random entries, add current one and shuffle

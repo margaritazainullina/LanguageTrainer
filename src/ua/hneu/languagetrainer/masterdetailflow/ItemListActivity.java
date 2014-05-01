@@ -2,6 +2,7 @@ package ua.hneu.languagetrainer.masterdetailflow;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.pages.vocabulary.MatchWordsActivity;
 import ua.hneu.languagetrainer.pages.vocabulary.TranscriptionTestActivity;
 import ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity;
 import android.content.Intent;
@@ -149,9 +150,9 @@ public class ItemListActivity extends FragmentActivity implements
 		
 
 		// DictionaryEntry de = VocabularyService.getEntryById(5,
-		// getContentResolver());WordIntroductionActivity
+		// getContentResolver());
 
-		Intent intent = new Intent(this, TranscriptionTestActivity.class);
+		Intent intent = new Intent(this, WordIntroductionActivity.class);
 		startActivity(intent);
 
 		// stub!!!

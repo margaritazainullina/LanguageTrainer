@@ -12,7 +12,7 @@ public class WordDictionary {
 
 	private ArrayList<DictionaryEntry> entries;
 
-	public DictionaryEntry getWordWithId(int id) {
+	public DictionaryEntry getEntryById(int id) {
 		for (DictionaryEntry entry : entries) {
 			if (entry.getId() == id)
 				return entry;
@@ -58,7 +58,7 @@ public class WordDictionary {
 	public ArrayList<String> getAllTranslations() {
 		ArrayList<String> translation = new ArrayList<String>();
 		for (DictionaryEntry e : entries) {
-			translation.add(e.getTranslationsToString() + "");
+			translation.add(e.translationsToString() + "");
 		}
 		return translation;
 	}
@@ -136,15 +136,11 @@ public class WordDictionary {
 		int a = new Random().nextInt(entries.size() - 1);
 		return entries.get(a);
 	}
-
+	
 	public ArrayList<String> getAllKanjiWithReadings() {
 		ArrayList<String> readings = new ArrayList<String>();
-		for (DictionaryEntry e : entries) {
-			if (App.isShowRomaji)
-				readings.add(e.getKanji() + " [" + e.getTranscription() + " - "
-						+ e.getRomaji() + "]");
-			else
-				readings.add(e.getKanji() + " [" + e.getTranscription() + "]");
+		for (DictionaryEntry e : entries) {			
+				readings.add(e.readingsToString());
 		}
 		return readings;
 	}

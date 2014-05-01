@@ -110,7 +110,7 @@ public class DictionaryEntry implements Comparable<DictionaryEntry> {
 		return this.meaning.translations;
 	}
 
-	public String getTranslationsToString() {
+	public String translationsToString() {
 		return this.meaning.translationsToString();
 	}
 
@@ -136,11 +136,7 @@ public class DictionaryEntry implements Comparable<DictionaryEntry> {
 
 	public void setRomaji(String romaji) {
 		this.meaning.romaji = romaji;
-	}
-
-	public String translationsToString() {
-		return this.meaning.translationsToString();
-	}
+	}	
 
 	public double getLearnedPercentage() {
 		return learnedPercentage;

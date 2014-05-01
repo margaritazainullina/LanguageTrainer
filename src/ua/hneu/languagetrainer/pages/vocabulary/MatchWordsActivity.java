@@ -25,9 +25,10 @@ import android.widget.TextView;
 
 public class MatchWordsActivity extends Activity {
 	WordDictionary curDictionary;
-	int kanjiNumber;
+
 	int readingsNumber;
 	int translationsNumber;
+
 	ListView kanjiListView;
 	ListView readingListView;
 	ListView translationListView;
@@ -36,18 +37,17 @@ public class MatchWordsActivity extends Activity {
 	// has 3 elements - index of kanji, transcription, translation
 	int[] currentAnswer = new int[] { -1, -1, -1 };
 
-	ArrayList<Integer> wordEntryIds;
 	// lists with indices
-	ArrayList<Integer> kanjiIndices;
-	ArrayList<Integer> readingIndices;
-	ArrayList<Integer> translationIndices;
-	HashMap<String, Boolean> hasKanji;
-	HashMap<Integer, Integer> wordIndexAndKanjiIndex;
+	ArrayList<Integer> kanjiIndices = new ArrayList<Integer>();
+	ArrayList<Integer> readingIndices = new ArrayList<Integer>();
+	ArrayList<Integer> translationIndices = new ArrayList<Integer>();
+	// dictionary with words with wrong answers
+	WordDictionary wrongAnswers = new WordDictionary();
+	WordDictionary learnedWords = new WordDictionary();
 
-	// lists with initial data from dictionary (not shuffled);
-	ArrayList<String> kanji1;
-	ArrayList<String> readings1;
-	ArrayList<String> translations1;
+	ArrayList<String> kanji = new ArrayList<String>();
+	ArrayList<String> readings = new ArrayList<String>();
+	ArrayList<String> translations = new ArrayList<String>();
 
 	// custom adapters for ListViews
 	ListViewAdapter adapter1;
@@ -59,51 +59,29 @@ public class MatchWordsActivity extends Activity {
 	View v2;
 	View v3;
 
-	// TODO: make this for every word
-	boolean ifWasWrong = false;
-
-	WordDictionary learnedWords = new WordDictionary();
-
-	int numberOfRightAnswers = 0;
-
+	int numberOfAnswers = 0;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_match_words);
-
 		// current dictionary with words for current session
 		curDictionary = App.currentDictionary;
-		curDictionary.sort();
-		curDictionary.reverse();
 
+		// Initialize views
+		kanjiListView = (ListView) findViewById(R.id.kanjiListView);
+		readingListView = (ListView) findViewById(R.id.readingListView);
+		translationListView = (ListView) findViewById(R.id.translationListView);
 		isCorrectTextView = (TextView) findViewById(R.id.isCorrectTextView);
 
-		kanjiNumber = curDictionary.getAllKanji().size();
 		readingsNumber = curDictionary.size();
-		translationsNumber = curDictionary.size();
-
-		// creating shuffled indices arrays for 3 columns with kanji, readings
-		// and translations
-		kanjiIndices = new ArrayList<Integer>(kanjiNumber);
-		readingIndices = new ArrayList<Integer>(readingsNumber);
-		translationIndices = new ArrayList<Integer>(translationsNumber);
-		hasKanji = new HashMap<String, Boolean>(readingsNumber);
-		// map - real index (id of word entry) and readingIndiex for shuffling
-		wordIndexAndKanjiIndex = new HashMap<Integer, Integer>(readingsNumber);
 
 		// initializing indices
 		for (int i = 0; i < readingsNumber; i++) {
-			String reading = curDictionary.get(i).getTranscription() + " "
-					+ curDictionary.get(i).getRomaji();
-			if (i < kanjiNumber) {
-				kanjiIndices.add(i);
-				hasKanji.put(reading, true);
-				wordIndexAndKanjiIndex.put(curDictionary.get(i).getId(), i);
-			} else {
-				hasKanji.put(reading, false);
-			}
-			readingIndices.add(i);
-			translationIndices.add(i);
+			if (!curDictionary.get(i).getKanji().isEmpty())
+				kanjiIndices.add(curDictionary.get(i).getId());
+			readingIndices.add(curDictionary.get(i).getId());
+			translationIndices.add(curDictionary.get(i).getId());
 		}
 
 		// shuffling indices
@@ -111,23 +89,14 @@ public class MatchWordsActivity extends Activity {
 		Collections.shuffle(readingIndices);
 		Collections.shuffle(translationIndices);
 
-		// get content of lists from curDictionary
-		kanji1 = curDictionary.getAllKanji();
-		readings1 = curDictionary.getAllReadings();
-		translations1 = curDictionary.getAllTranslations();
-
-		// and place it to new lists
-		ArrayList<String> kanji = new ArrayList<String>(kanjiNumber);
-		ArrayList<String> readings = new ArrayList<String>(readingsNumber);
-		ArrayList<String> translations = new ArrayList<String>(
-				translationsNumber);
-
-		// shuffle it
 		for (int i = 0; i < readingsNumber; i++) {
-			if (i < kanjiNumber)
-				kanji.add(kanji1.get(kanjiIndices.get(i)));
-			readings.add(readings1.get(readingIndices.get(i)));
-			translations.add(translations1.get(translationIndices.get(i)));
+			if (i < kanjiIndices.size())
+				kanji.add(curDictionary.getEntryById(kanjiIndices.get(i))
+						.getKanji());
+			readings.add(curDictionary.getEntryById(readingIndices.get(i))
+					.readingsToString());
+			translations.add(curDictionary.getEntryById(
+					translationIndices.get(i)).translationsToString());
 		}
 
 		// creating adapters for columns - ListViews
@@ -136,13 +105,8 @@ public class MatchWordsActivity extends Activity {
 		adapter3 = new ListViewAdapter(this, translations);
 
 		// bindings adapters to ListViews
-		kanjiListView = (ListView) findViewById(R.id.kanjiListView);
 		kanjiListView.setAdapter(adapter1);
-
-		readingListView = (ListView) findViewById(R.id.readingListView);
 		readingListView.setAdapter(adapter2);
-
-		translationListView = (ListView) findViewById(R.id.translationListView);
 		translationListView.setAdapter(adapter3);
 
 		kanjiListView.setOnItemClickListener(kanjiListClickListener);
@@ -197,33 +161,48 @@ public class MatchWordsActivity extends Activity {
 	};
 
 	public void buttonOkOnClick(View v) {
-		// if the word don't have a kanji currentAnswer[0] isn't regarded
-		boolean ifWordWithoutKanji = false;
+
 		// if user didn't answered at all - do nothing
 		if (currentAnswer[1] == -1 || currentAnswer[2] == -1) {
 			return;
 		}
 
-		// get value from map - if reading is the same, set hasKanji
-		String s1 = readings1.get(currentAnswer[1]);
-		if (hasKanji.get(s1) != null)
-			ifWordWithoutKanji = true;
-
-		DictionaryEntry currentEntry = curDictionary.get(currentAnswer[1]);
+		DictionaryEntry e2 = curDictionary.getEntryById(currentAnswer[1]);
+		boolean ifWordWithoutKanji = (e2.getKanji().isEmpty());
 
 		// if all indices are the same
 		// or hasKanji=false and 2nd and 3rd are the same
-		if ((currentAnswer[0] == currentAnswer[1] && currentAnswer[1] == currentAnswer[2])
-				|| (currentAnswer[0] == -1 && !ifWordWithoutKanji && currentAnswer[1] == currentAnswer[2])) {
-			numberOfRightAnswers++;
-
+		boolean isMatch = (currentAnswer[0] == currentAnswer[1] && currentAnswer[1] == currentAnswer[2]);
+		boolean isMatchWithoutKanji = (currentAnswer[0] == -1
+				&& ifWordWithoutKanji && currentAnswer[1] == currentAnswer[2]);
+		if (isMatch || isMatchWithoutKanji) {
+			numberOfAnswers++;
 			// if all is done
-			if (numberOfRightAnswers == readingsNumber - 1) {
+			if (numberOfAnswers == readingsNumber - 1) {
 				Intent matchWordsIntent = new Intent(this,
 						TranslationTestActivity.class);
 				startActivity(matchWordsIntent);
 			}
-
+			// and write result to current dictionary if wrong answer was not
+			// given
+			if (!wrongAnswers.getEntries().contains(e2)) {				
+				// increment percentage
+				e2.setLearnedPercentage(e2.getLearnedPercentage()
+						+ App.userInfo.getPercentageIncrement());
+				// if word becomes learned,
+				if (e2.getLearnedPercentage() == 1) {
+					// remove word from current dictionary for learning
+					learnedWords.add(e2);
+					// update information id db
+					App.vs.update(e2, getContentResolver());
+					// and set it as learned (also increments number of words
+					// learned)
+					App.vp.makeWordLearned(e2);
+				} else
+					// and increment number of correct answers in current
+					// session anyway
+					App.vp.incrementNumberOfCorrectAnswersInMatching();
+			}
 			isCorrectTextView.setText("Correct!");
 			// fade correct selected answers
 			Animation fadeOutAnimation = AnimationUtils.loadAnimation(this,
@@ -232,31 +211,11 @@ public class MatchWordsActivity extends Activity {
 				adapter1.hideElement(v1, fadeOutAnimation, 350);
 			adapter2.hideElement(v2, fadeOutAnimation, 350);
 			adapter3.hideElement(v3, fadeOutAnimation, 350);
-			// and write result to current dictionary if wrong answer was not
-			// given
-			if (!ifWasWrong) {				
-				// increment percentage
-				currentEntry.setLearnedPercentage(currentEntry
-						.getLearnedPercentage()
-						+ App.userInfo.getPercentageIncrement());
 
-				// if word becomes learned,
-				if (currentEntry.getLearnedPercentage() == 1) {
-					// remove word from current dictionary for learning
-					learnedWords.add(currentEntry);
-					// update information id db
-					App.vs.update(currentEntry, getContentResolver());
-					// and set it as learned (also increments number of words
-					// learned)
-					App.vp.makeWordLearned(currentEntry);
-				} else
-					// and increment number of correct answers in current
-					// session anyway
-					App.vp.incrementNumberOfCorrectAnswersInMatching();
-			}
 		} else {
-			isCorrectTextView.setText("Wrong");			
-				ifWasWrong = true;
+			// add given answer to wrong
+			wrongAnswers.add(e2);
+			isCorrectTextView.setText("Wrong");
 			// make selected items white
 			if (currentAnswer[0] != -1)
 				adapter1.changeColor(v1, Color.WHITE);
@@ -264,7 +223,7 @@ public class MatchWordsActivity extends Activity {
 			adapter3.changeColor(v3, Color.WHITE);
 			// set information about wrong answer in VocabularyPassing
 			App.vp.incrementNumberOfIncorrectAnswersInMatching();
-			App.vp.addProblemWord(currentEntry);
+			App.vp.addProblemWord(e2);
 		}
 		// reset values
 		currentAnswer[0] = -1;
