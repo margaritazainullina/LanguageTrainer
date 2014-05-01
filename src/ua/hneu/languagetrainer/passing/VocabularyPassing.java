@@ -43,17 +43,25 @@ public class VocabularyPassing {
 	public int getTranscription() {
 		return numberOfCorrectAnswersInTranscription;
 	}
-
-	public int getNumberOfIncorrectAnswersInTranscription() {
-		return numberOfIncorrectAnswersInTranscription;
-	}
-
+	
 	public void incrementNumberOfCorrectAnswersInMatching() {
 		this.numberOfCorrectAnswersInMatching++;
 	}
 
 	public void incrementNumberOfCorrectAnswersInTranslation() {
 		this.numberOfCorrectAnswersInTranslation++;
+	}
+
+	public void incrementNumberOfCorrectAnswersInTranscription() {
+		this.numberOfCorrectAnswersInTranscription++;		
+	}
+	
+	public int getNumberOfIncorrectAnswersInTranscription() {
+		return numberOfIncorrectAnswersInTranscription;
+	}
+	
+	public int getNumberOfCorrectAnswersInTranscription() {
+		return numberOfCorrectAnswersInTranscription;
 	}
 
 	public void incrementNumberOfIncorrectAnswersInMatching() {
@@ -64,10 +72,6 @@ public class VocabularyPassing {
 		this.numberOfIncorrectAnswersInTranslation++;
 	}
 
-	public void incrementNumberOfCorrectAnswersInTranscription() {
-		this.numberOfCorrectAnswersInTranscription++;		
-	}
-	
 	public void incrementNumberOfIncorrectAnswersInTranscription() {
 		this.numberOfIncorrectAnswersInTranscription++;		
 	}
@@ -91,8 +95,7 @@ public class VocabularyPassing {
 
 	public void addProblemWord(DictionaryEntry de) {
 		if (problemWords.containsKey(de)) {
-			int oldValue = problemWords.get(de);
-			problemWords.put(de, oldValue++);
+			problemWords.put(de, problemWords.get(de) + 1);
 		} else
 			problemWords.put(de, 1);
 	}
@@ -105,9 +108,5 @@ public class VocabularyPassing {
 		this.numberOfCorrectAnswersInTranslation = 0;
 		this.numberOfIncorrectAnswersInMatching = 0;
 		this.numberOfIncorrectAnswersInTranslation = 0;
-	}
-
-	
-
-	
+	}	
 }

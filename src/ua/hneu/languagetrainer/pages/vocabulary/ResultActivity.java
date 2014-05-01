@@ -38,14 +38,15 @@ public class ResultActivity extends Activity {
 		for (DictionaryEntry entry : App.vp.getLearnedWords().getEntries()) {
 			if (entry.getLearnedPercentage() >= 1) {
 				numberOfLearnedWords++;
-				if (entry.getKanji() != "")
+				if (!entry.getKanji().isEmpty())
 					sb.append(entry.getKanji());
 				else
 					sb.append(entry.getTranscription());
 				sb.append(", ");
 			}
 		}
-		sb.delete(sb.length() - 3, sb.length() - 1);
+		if (sb.length() != 0)
+			sb.delete(sb.length() - 3, sb.length() - 1);
 		StringBuffer sb1 = new StringBuffer();
 		if (numberOfLearnedWords == 0)
 			sb1.append("You haven't learned any word :(");
@@ -58,25 +59,6 @@ public class ResultActivity extends Activity {
 			sb1.append(" words:\n");
 		sb1.append(sb);
 		learnedWordsTextView.setText(sb1);
-
-		// information about session result
-		int correct = App.vp.getNumberOfCorrectAnswersInMatching()
-				+ App.vp.getNumberOfCorrectAnswersInTranslation();
-		int incorrect = App.vp.getNumberOfIncorrectAnswersInMatching()
-				+ App.vp.getNumberOfIncorrectAnswersInTranslation();
-		double success = (double) (correct - incorrect)
-				/ (double) (correct + incorrect);
-		double percentage = Math.round((double) correct
-				/ (double) (correct + incorrect) * 100);
-
-		if (success > 0.9)
-			sessionPercentageTextView.setText("Great! ");
-		else if (success > 0.6)
-			sessionPercentageTextView.setText("Good! ");
-		else
-			sessionPercentageTextView.setText("You should be more attentive. ");
-		sessionPercentageTextView.append("You answered correctly on "
-				+ percentage + "% questions");
 
 		// update information in userInfo and db
 		User u = App.userInfo;
@@ -94,17 +76,38 @@ public class ResultActivity extends Activity {
 		// mistakes
 		StringBuffer sb2 = new StringBuffer();
 		sb2.append("Pay attention to words: ");
-		int numberOfWordsWithWrongAnswers = 0;
+		int numberOfProblemWords = 0;
 		for (DictionaryEntry entry : App.vp.getProblemWords().keySet()) {
 			if (App.vp.getProblemWords().get(entry) >= 2) {
-				sb2.append(entry.getKanji());
+				if (!entry.getKanji().isEmpty())
+					sb2.append(entry.getKanji());
+				else
+					sb2.append(entry.getTranscription());
 				sb2.append(", ");
-				numberOfWordsWithWrongAnswers++;
+			numberOfProblemWords++;
 			}
 		}
-		sb2.delete(sb.length() - 2, sb.length() - 2);
-		if (numberOfWordsWithWrongAnswers != 0)
+		sb2.delete(sb2.length() - 3, sb2.length() - 1);
+		if (numberOfProblemWords != 0)
 			mistakesTextView.setText(sb2);
+
+		// information about session result
+		int correct = App.vp.getNumberOfCorrectAnswersInMatching()
+				+ App.vp.getNumberOfCorrectAnswersInTranslation()
+				+ App.vp.getNumberOfCorrectAnswersInTranscription();
+		int incorrect = App.vp.getNumberOfIncorrectAnswersInMatching()
+				+ App.vp.getNumberOfIncorrectAnswersInTranslation()
+				+ App.vp.getNumberOfIncorrectAnswersInTranscription();
+		int success = (int) Math.round(((double) (correct - incorrect)
+				/ (correct + incorrect) * 100));
+		if (success > 80)
+			sessionPercentageTextView.setText("Great! ");
+		else if (success > 60)
+			sessionPercentageTextView.setText("Good! ");
+		else
+			sessionPercentageTextView.setText("You should be more attentive. ");
+		sessionPercentageTextView.append("Your correct answer rate is "
+				+ success);
 
 		// cautions
 		int num = App.vp.getNumberOfPassingsInARow();

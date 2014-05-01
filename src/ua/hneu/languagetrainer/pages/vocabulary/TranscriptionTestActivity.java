@@ -64,10 +64,18 @@ public class TranscriptionTestActivity extends Activity {
 
 	public void nextWord() {
 		// move pointer to next word
+		// if word does't have a kanji, skip it
 		currentWordNumber++;
 		DictionaryEntry e = App.currentDictionary.get(currentWordNumber);
-		// if word does't have a kanji, skip it
-		if (e.getKanji() == "")
+		while (e.getKanji().isEmpty()) {
+			currentWordNumber++;
+			if (currentWordNumber >= App.currentDictionary.size()-1)
+				endTesting();
+			e = App.currentDictionary.get(currentWordNumber);
+		}
+
+		System.out.println(e);
+		if (e.getKanji().isEmpty())
 			nextWord();
 		// set randomly direction
 		if (Math.random() < 0.5)

@@ -69,11 +69,33 @@ public class WordDictionary {
 			boolean kanjiIsNessesary) {
 		Set<DictionaryEntry> random = new HashSet<DictionaryEntry>();
 		Random rn = new Random();
+
+		int numberOfEntriesWithKanji = 0;
+		for (DictionaryEntry entry : entries) {
+			if (entry.getKanji() != "")
+				numberOfEntriesWithKanji++;
+		}
+
 		while (random.size() <= size) {
 			int i = rn.nextInt(entries.size());
-			if ((kanjiIsNessesary && entries.get(i).getKanji() != "")
-					|| !kanjiIsNessesary)
+			boolean isEmpty = false;
+			if(entries.get(i).getKanji().isEmpty())
+				isEmpty=true;
+			
+			if (kanjiIsNessesary && !isEmpty) {
 				random.add(entries.get(i));
+			}
+			if (!kanjiIsNessesary) {
+				random.add(entries.get(i));
+			}
+
+			if (kanjiIsNessesary) {
+				// if number of entries with kanji in current dictionary is less
+				// than target size - return set of entries as is to avoid
+				// eternal cycle
+				if (numberOfEntriesWithKanji == random.size() - 1)
+					return random;
+			}
 		}
 		return random;
 	}
