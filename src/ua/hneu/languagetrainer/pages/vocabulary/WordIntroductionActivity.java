@@ -99,7 +99,6 @@ public class WordIntroductionActivity extends Activity {
 		wordTextView.setTextColor(color);
 		transcriptionTextView.setTextColor(color);
 		romajiTextView.setTextColor(color);
-		translationTextView.setTextColor(color);
 		
 		//and write information to db
 		dictionaryEntry.incrementShowntimes();

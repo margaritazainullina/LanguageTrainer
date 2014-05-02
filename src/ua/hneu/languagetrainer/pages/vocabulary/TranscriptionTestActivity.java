@@ -49,14 +49,14 @@ public class TranscriptionTestActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_transcription_test);
+		setContentView(R.layout.activity_translation_transcription_test);
 
 		// Initialize
 		wordTextView = (TextView) findViewById(R.id.wordTextView);
 		transcriptionTextView = (TextView) findViewById(R.id.transcriptionTextView);
 		romajiTextView = (TextView) findViewById(R.id.romajiTextView);
 		answersListView = (ListView) findViewById(R.id.answersListView);
-		isRight = (TextView) findViewById(R.id.isRight);
+		isRight = (TextView) findViewById(R.id.isCorrectTextView);
 
 		// at first show word and possible answers
 		nextWord();

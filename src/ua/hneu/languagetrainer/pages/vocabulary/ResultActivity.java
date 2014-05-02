@@ -50,13 +50,14 @@ public class ResultActivity extends Activity {
 		StringBuffer sb1 = new StringBuffer();
 		if (numberOfLearnedWords == 0)
 			sb1.append("You haven't learned any word :(");
-		else
+		else {
 			sb1.append("You've learned ");
-		sb1.append(numberOfLearnedWords);
-		if (numberOfLearnedWords == 1)
-			sb1.append(" word:\n");
-		else
-			sb1.append(" words:\n");
+			sb1.append(numberOfLearnedWords);
+			if (numberOfLearnedWords == 1)
+				sb1.append(" word:\n");
+			else
+				sb1.append(" words:\n");
+		}
 		sb1.append(sb);
 		learnedWordsTextView.setText(sb1);
 
@@ -84,7 +85,7 @@ public class ResultActivity extends Activity {
 				else
 					sb2.append(entry.getTranscription());
 				sb2.append(", ");
-			numberOfProblemWords++;
+				numberOfProblemWords++;
 			}
 		}
 		sb2.delete(sb2.length() - 3, sb2.length() - 1);
@@ -100,6 +101,9 @@ public class ResultActivity extends Activity {
 				+ App.vp.getNumberOfIncorrectAnswersInTranscription();
 		int success = (int) Math.round(((double) (correct - incorrect)
 				/ (correct + incorrect) * 100));
+		if (success < 0)
+			success = 0;
+		
 		if (success > 80)
 			sessionPercentageTextView.setText("Great! ");
 		else if (success > 60)

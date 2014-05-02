@@ -26,7 +26,7 @@ import android.widget.TextView;
 public class MatchWordsActivity extends Activity {
 	WordDictionary curDictionary;
 
-	int readingsNumber;
+	int entriesFormatchingNumber = 5;
 	int translationsNumber;
 
 	ListView kanjiListView;
@@ -60,7 +60,7 @@ public class MatchWordsActivity extends Activity {
 	View v3;
 
 	int numberOfAnswers = 0;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -74,10 +74,8 @@ public class MatchWordsActivity extends Activity {
 		translationListView = (ListView) findViewById(R.id.translationListView);
 		isCorrectTextView = (TextView) findViewById(R.id.isCorrectTextView);
 
-		readingsNumber = curDictionary.size();
-
 		// initializing indices
-		for (int i = 0; i < readingsNumber; i++) {
+		for (int i = 0; i < entriesFormatchingNumber; i++) {
 			if (!curDictionary.get(i).getKanji().isEmpty())
 				kanjiIndices.add(curDictionary.get(i).getId());
 			readingIndices.add(curDictionary.get(i).getId());
@@ -89,7 +87,7 @@ public class MatchWordsActivity extends Activity {
 		Collections.shuffle(readingIndices);
 		Collections.shuffle(translationIndices);
 
-		for (int i = 0; i < readingsNumber; i++) {
+		for (int i = 0; i < entriesFormatchingNumber; i++) {
 			if (i < kanjiIndices.size())
 				kanji.add(curDictionary.getEntryById(kanjiIndices.get(i))
 						.getKanji());
@@ -167,7 +165,8 @@ public class MatchWordsActivity extends Activity {
 			return;
 		}
 
-		DictionaryEntry currentEntry = curDictionary.getEntryById(currentAnswer[1]);
+		DictionaryEntry currentEntry = curDictionary
+				.getEntryById(currentAnswer[1]);
 		boolean ifWordWithoutKanji = (currentEntry.getKanji().isEmpty());
 
 		// if all indices are the same
@@ -178,16 +177,17 @@ public class MatchWordsActivity extends Activity {
 		if (isMatch || isMatchWithoutKanji) {
 			numberOfAnswers++;
 			// if all is done
-			if (numberOfAnswers == readingsNumber - 1) {
+			if (numberOfAnswers == entriesFormatchingNumber - 1) {
 				Intent matchWordsIntent = new Intent(this,
 						TranslationTestActivity.class);
 				startActivity(matchWordsIntent);
 			}
 			// and write result to current dictionary if wrong answer was not
 			// given
-			if (!wrongAnswers.getEntries().contains(currentEntry)) {				
+			if (!wrongAnswers.getEntries().contains(currentEntry)) {
 				// increment percentage
-				currentEntry.setLearnedPercentage(currentEntry.getLearnedPercentage()
+				currentEntry.setLearnedPercentage(currentEntry
+						.getLearnedPercentage()
 						+ App.userInfo.getPercentageIncrement());
 				// if word becomes learned,
 				if (currentEntry.getLearnedPercentage() == 1) {
