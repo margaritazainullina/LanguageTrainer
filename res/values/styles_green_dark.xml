@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="GreyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/gray</item>
+    </style>
+
+    <style name="AutoCompleteTextViewGreen_dark" parent="android:Widget.Holo.AutoCompleteTextView">
+        <item name="android:dropDownSelector">@drawable/green_dark_list_selector_holo_dark</item>
+        <item name="android:background">@drawable/green_dark_edit_text_holo_dark</item>
+    </style>
+
+    <style name="ButtonGreen_dark" parent="android:Widget.Holo.Button">
+        <item name="android:background">@drawable/green_dark_btn_default_holo_dark</item>
+    </style>
+
+    <style name="ImageButtonGreen_dark" parent="android:Widget.Holo.ImageButton">
+        <item name="android:background">@drawable/green_dark_btn_default_holo_dark</item>
+    </style>
+
+    <style name="SpinnerGreen_dark" parent="android:Widget.Holo.Spinner">
+        <item name="android:background">@drawable/green_dark_spinner_background_holo_dark</item>
+        <item name="android:dropDownSelector">@drawable/green_dark_list_selector_holo_dark</item>
+    </style>
+
+    <style name="TabGreen_dark">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:paddingLeft">16dip</item>
+        <item name="android:paddingRight">16dip</item>
+        <item name="android:background">@drawable/green_dark_tab_indicator_holo</item>
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:minWidth">80dip</item>
+    </style>
+
+    <style name="TabTextGreen_dark">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <!-- v14 <item name="android:textAllCaps">true</item> -->
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:maxWidth">180dip</item>
+    </style>
+
+    <style name="ProgressBarGreen_dark" parent="android:Widget.Holo.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/green_dark_progress_horizontal_holo_dark</item>
+        <item name="android:indeterminateDrawable">@drawable/green_dark_progress_indeterminate_horizontal_holo_dark</item>
+    </style>
+
+    <style name="SeekBarGreen_dark" parent="android:Widget.Holo.SeekBar">
+        <item name="android:progressDrawable">@drawable/green_dark_scrubber_progress_horizontal_holo_dark</item>
+        <item name="android:indeterminateDrawable">@drawable/green_dark_scrubber_progress_horizontal_holo_dark</item>
+        <item name="android:thumb">@drawable/green_dark_scrubber_control_selector_holo_dark</item>
+    </style>
+
+    <style name="RatingBarGreen_dark" parent="android:Widget.Holo.RatingBar">
+        <item name="android:progressDrawable">@drawable/green_dark_ratingbar_full_holo_dark</item>
+        <item name="android:indeterminateDrawable">@drawable/green_dark_ratingbar_full_holo_dark</item>
+    </style>
+
+    <style name="RatingBarBigGreen_dark" parent="android:Widget.Holo.RatingBar.Indicator">
+        <item name="android:progressDrawable">@drawable/green_dark_ratingbar_holo_dark</item>
+        <item name="android:indeterminateDrawable">@drawable/green_dark_ratingbar_holo_dark</item>
+    </style>
+
+    <style name="RatingBarSmallGreen_dark" parent="android:Widget.Holo.RatingBar.Small">
+        <item name="android:progressDrawable">@drawable/green_dark_ratingbar_small_holo_dark</item>
+        <item name="android:indeterminateDrawable">@drawable/green_dark_ratingbar_small_holo_dark</item>
+    </style>
+
+    <style name="ToggleGreen_dark" parent="android:Widget.Holo.Button.Toggle">
+        <item name="android:background">@drawable/green_dark_btn_toggle_holo_dark</item>
+    </style>
+
+</resources>

@@ -1,14 +1,12 @@
 package ua.hneu.languagetrainer.pages.vocabulary;
 
 import java.util.List;
+
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
-import ua.hneu.languagetrainer.model.vocabulary.WordDictionary;
-import ua.hneu.languagetrainer.service.VocabularyService;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;

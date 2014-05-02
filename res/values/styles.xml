@@ -4,63 +4,10 @@
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
-    <style name="AppBaseTheme" parent="android:Theme.Black">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
+    <style name="AppBaseTheme" parent="android:Theme.Holo">
     </style>
 
-    <!-- Application theme. -->
-
-    
-     <style name="AppTheme" parent="AppBaseTheme">
-        <item name="android:background">@color/Background</item>
-        <item name="android:textColor">@color/White</item>
-    </style>
-
-    <style name="N1Theme" parent="AppBaseTheme">
-        <item name="android:background">@color/Background</item>
-        <item name="android:textColor">@color/Red</item>
-    </style>
-
-    <style name="N2Theme" parent="AppBaseTheme">
-        <item name="android:background">@color/Background</item>
-        <item name="android:textColor">@color/Yellow</item>
-    </style>
-
-    <style name="N3Theme" parent="AppBaseTheme">
-        <item name="android:background">@color/Background</item>
-        <item name="android:textColor">@color/Green</item>
-    </style>
-
-    <style name="N4Theme" parent="AppBaseTheme">
-        <item name="android:background">@color/Background</item>
-        <item name="android:textColor">@color/Violet</item>
-    </style>
-
-    <style name="N5Theme" parent="AppBaseTheme">
-        <item name="android:background">@color/Background</item>
-        <item name="android:textColor">@color/Blue</item>
-    </style>
-    
-    
-
-    <color name="Background">#111111</color>
-    <color name="White">#FFFFFF</color>
-    <color name="Blue">#33B5E5</color>
-    <color name="Violet">#AA66CC</color>
-    <color name="Green">#99CC00</color>
-    <color name="Yellow">#FFBB33</color>
-    <color name="Red">#FF4444</color>
-    
-    <color name="DarkBlue">#0099CC</color>
-    <color name="DarkViolet">#9933CC</color>
-    <color name="DarkGreen">#669900</color>
-    <color name="DarkYellow">#FF8800</color>
-    <color name="DarkRed">#CC0000</color>
-    
-    <color name="InactiveText">#808080</color>
+    <!-- Application theme. -->    
+  
 
 </resources>

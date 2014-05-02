@@ -48,14 +48,14 @@ public class App extends Application {
 		userInfo = us.selectUser(getContentResolver(), 1);
 
 		// if level is 5 or 4 - show romaji in tests
-		if (userInfo.getUserLevel() == 4 || userInfo.getUserLevel() == 5)
+		if (userInfo.getLevel() == 4 || userInfo.getLevel() == 5)
 			isShowRomaji = true;
 		else
 			isShowRomaji = false;
 
 		// load dictionary currentDictionary =
 		currentDictionary = VocabularyService.createCurrentDictionary(
-				userInfo.getUserLevel(),
+				userInfo.getLevel(),
 				userInfo.getNumberOfEntriesInCurrentDict(), cr);
 
 		DictionaryEntry de = currentDictionary.get(0);

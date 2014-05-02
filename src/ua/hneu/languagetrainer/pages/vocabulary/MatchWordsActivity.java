@@ -2,14 +2,13 @@ package ua.hneu.languagetrainer.pages.vocabulary;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.ListViewAdapter;
 import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
 import ua.hneu.languagetrainer.model.vocabulary.WordDictionary;
-import ua.hneu.languagetrainer.service.VocabularyService;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -127,11 +126,8 @@ public class MatchWordsActivity extends Activity {
 				final int position, final long itemID) {
 			currentAnswer[0] = kanjiIndices.get(position);
 			// change color of selected row
-			// TODO: replace with colors from xml
-			// adapter1.setBackgroundColorOfListViewRow((ListView) parent,
-			// position,Color.argb(1, 40, 158, 181));
 			adapter1.setTextColorOfListViewRow((ListView) parent, position,
-					Color.YELLOW);
+					Color.parseColor("#ffbb33"));
 
 			// and remember this row for fading out if it is correct
 			v1 = view;
@@ -143,7 +139,7 @@ public class MatchWordsActivity extends Activity {
 				final int position, final long itemID) {
 			currentAnswer[1] = readingIndices.get(position);
 			adapter2.setTextColorOfListViewRow((ListView) parent, position,
-					Color.YELLOW);
+					Color.parseColor("#ffbb33"));
 			v2 = view;
 		}
 	};
@@ -153,11 +149,12 @@ public class MatchWordsActivity extends Activity {
 				final int position, final long itemID) {
 			currentAnswer[2] = translationIndices.get(position);
 			adapter3.setTextColorOfListViewRow((ListView) parent, position,
-					Color.YELLOW);
+					Color.parseColor("#ffbb33"));
 			v3 = view;
 		}
 	};
 
+	@SuppressLint("ResourceAsColor")
 	public void buttonOkOnClick(View v) {
 
 		// if user didn't answered at all - do nothing
@@ -204,6 +201,7 @@ public class MatchWordsActivity extends Activity {
 					App.vp.incrementNumberOfCorrectAnswersInMatching();
 			}
 			isCorrectTextView.setText("Correct!");
+			isCorrectTextView.setTextColor(Color.parseColor("#669900"));
 			// fade correct selected answers
 			Animation fadeOutAnimation = AnimationUtils.loadAnimation(this,
 					android.R.anim.fade_out);
@@ -216,11 +214,12 @@ public class MatchWordsActivity extends Activity {
 			// add given answer to wrong
 			wrongAnswers.add(currentEntry);
 			isCorrectTextView.setText("Wrong");
+			isCorrectTextView.setTextColor(Color.parseColor("#cс0000"));
 			// make selected items white
 			if (currentAnswer[0] != -1)
-				adapter1.changeColor(v1, Color.WHITE);
-			adapter2.changeColor(v2, Color.WHITE);
-			adapter3.changeColor(v3, Color.WHITE);
+				adapter1.changeColor(v1, Color.parseColor("#eaeaea"));
+			adapter2.changeColor(v2, Color.parseColor("#eaeaea"));
+			adapter3.changeColor(v3, Color.parseColor("#eaeaea"));
 			// set information about wrong answer in VocabularyPassing
 			App.vp.incrementNumberOfIncorrectAnswersInMatching();
 			App.vp.addProblemWord(currentEntry);

@@ -1,4 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/ua/hneu/languagetrainer/ListViewAdapter.java=UTF-8
+encoding//src/ua/hneu/languagetrainer/pages/vocabulary/MatchWordsActivity.java=UTF-8
+encoding//src/ua/hneu/languagetrainer/pages/vocabulary/TranscriptionTestActivity.java=UTF-8
+encoding//src/ua/hneu/languagetrainer/pages/vocabulary/TranslationTestActivity.java=UTF-8
 encoding//src/ua/hneu/languagetrainer/service=UTF-8
 encoding//src/ua/hneu/languagetrainer/service/VocabularyService.java=UTF-8

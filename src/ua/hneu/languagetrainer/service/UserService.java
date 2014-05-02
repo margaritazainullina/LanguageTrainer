@@ -12,7 +12,7 @@ public class UserService {
 	public void insert(User u, ContentResolver cr) {
 		ContentValues values = new ContentValues();
 		values.put(UserDAO.LANGUAGE, u.getLanguage());
-		values.put(UserDAO.LEVEL, u.getUserLevel());
+		values.put(UserDAO.LEVEL, u.getLevel());
 		values.put(UserDAO.LEARNEDVOC, u.getLearnedVocabulary());
 		values.put(UserDAO.ALLVOC, u.getNumberOfVocabularyInLevel());
 		values.put(UserDAO.LEARNEDGRAMMAR, u.getLearnedGrammar());
@@ -34,7 +34,7 @@ public class UserService {
 	public void update(User u, ContentResolver cr) {
 		ContentValues values = new ContentValues();
 		values.put(UserDAO.LANGUAGE, u.getLanguage());
-		values.put(UserDAO.LEVEL, u.getUserLevel());
+		values.put(UserDAO.LEVEL, u.getLevel());
 		values.put(UserDAO.LEARNEDVOC, u.getLearnedVocabulary());
 		values.put(UserDAO.ALLVOC, u.getNumberOfVocabularyInLevel());
 		values.put(UserDAO.LEARNEDGRAMMAR, u.getLearnedGrammar());

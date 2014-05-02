@@ -2,14 +2,13 @@ package ua.hneu.languagetrainer.masterdetailflow;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
-import ua.hneu.languagetrainer.pages.vocabulary.MatchWordsActivity;
-import ua.hneu.languagetrainer.pages.vocabulary.TranscriptionTestActivity;
 import ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 /**
@@ -35,10 +34,11 @@ public class ItemListActivity extends FragmentActivity implements
 	 * device.
 	 */
 	private boolean mTwoPane;
-
+	TextView textViewUserInfo;
+	RatingBar ratingBar;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		getApplication().setTheme(R.style.AppTheme);
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_item_list);
@@ -58,8 +58,12 @@ public class ItemListActivity extends FragmentActivity implements
 					R.id.item_list)).setActivateOnItemClick(true);
 
 			// set userlevel on main activity
-			TextView textViewUserInfo = (TextView) findViewById(R.id.textViewUserInfo);
-			textViewUserInfo.setText("Your level is: N" + App.userInfo.getUserLevel());
+			
+			textViewUserInfo= (TextView) findViewById(R.id.textViewUserInfo);
+			textViewUserInfo.setText("Your level is: N" + App.userInfo.getLevel());
+			ratingBar = (RatingBar)findViewById(R.id.levelRatingBar);				
+			ratingBar.setRating(6-App.userInfo.getLevel());
+			
 		} else {
 
 		}
@@ -74,34 +78,7 @@ public class ItemListActivity extends FragmentActivity implements
 	@Override
 	public void onItemSelected(String id) {
 		Log.i("ItemListActivity", "ItemDetailActivity.onItemSelected()");
-		// switch themes
-		switch (App.userInfo.getUserLevel()) {
-		case 0: {
-			getApplicationContext().setTheme(R.style.AppTheme);
-			break;
-		}
-		case 1: {
-			getApplicationContext().setTheme(R.style.N1Theme);
-			break;
-		}
-		case 2: {
-			getApplicationContext().setTheme(R.style.N2Theme);
-			break;
-		}
-		case 3: {
-			getApplicationContext().setTheme(R.style.N3Theme);
-			break;
-		}
-		case 4: {
-			getApplicationContext().setTheme(R.style.N4Theme);
-			break;
-		}
-		case 5: {
-			getApplicationContext().setTheme(R.style.N5Theme);
-			break;
-		}
-		}
-
+		
 		if (mTwoPane) {
 			// In two-pane mode, show the detail view in this activity by
 			// adding or replacing the detail fragment using a
@@ -130,15 +107,15 @@ public class ItemListActivity extends FragmentActivity implements
 		} else {
 			// In single-pane mode, simply start the detail activity
 			// for the selected item ID.
-			/*
-			 * Intent detailIntent = new Intent(this,
-			 * VocabularyActivityFragment.class);
-			 * detailIntent.putExtra(VocabularyActivityFragment.ARG_ITEM_ID,
-			 * id); startActivity(detailIntent);
-			 */
+			
+			  Intent detailIntent = new Intent(this,
+			  VocabularyActivityFragment.class);
+			  detailIntent.putExtra(VocabularyActivityFragment.ARG_ITEM_ID,
+			 id); startActivity(detailIntent);
+			 
 
 			if (id == "1") {
-				Intent detailIntent = new Intent(this,
+				detailIntent = new Intent(this,
 						VocabularyActivityFragment.class);
 				startActivity(detailIntent);
 			}

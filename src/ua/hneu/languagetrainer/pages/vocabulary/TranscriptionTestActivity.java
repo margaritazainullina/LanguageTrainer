@@ -1,7 +1,6 @@
 package ua.hneu.languagetrainer.pages.vocabulary;
 
 import java.util.Collections;
-import java.util.Random;
 import java.util.Set;
 
 import ua.hneu.edu.languagetrainer.R;
@@ -125,6 +124,7 @@ public class TranscriptionTestActivity extends Activity {
 		wordTextView.setTextColor(color);
 		transcriptionTextView.setTextColor(color);
 		romajiTextView.setTextColor(color);
+		isRight.setText("");
 	}
 
 	@Override
@@ -159,7 +159,7 @@ public class TranscriptionTestActivity extends Activity {
 				}
 				// change color to green and fade out
 				isRight.setText("Correct!");
-				adapter.changeColor(view, Color.GREEN);
+				adapter.changeColor(view, Color.parseColor("#669900"));
 				// fading out textboxes
 				fadeOut(wordTextView, 750);
 				fadeOut(transcriptionTextView, 750);
@@ -202,7 +202,7 @@ public class TranscriptionTestActivity extends Activity {
 						});
 			} else {
 				// change color of row and set text
-				adapter.changeColor(view, Color.RED);
+				adapter.changeColor(view, Color.parseColor("#cс0000"));
 				isRight.setText("Wrong");
 				ifWasWrong = true;
 				// set information about wrong answer in VocabularyPassing

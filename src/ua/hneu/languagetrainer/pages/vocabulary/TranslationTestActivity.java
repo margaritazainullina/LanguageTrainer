@@ -112,7 +112,8 @@ public class TranslationTestActivity extends Activity {
 		int color = currentEntry.getIntColor();
 		wordTextView.setTextColor(color);
 		transcriptionTextView.setTextColor(color);
-		romajiTextView.setTextColor(color);
+		romajiTextView.setTextColor(color);		
+		isRight.setText("");
 	}
 
 	@Override
@@ -147,7 +148,7 @@ public class TranslationTestActivity extends Activity {
 				}
 				// change color to green and fade out
 				isRight.setText("Correct!");
-				adapter.changeColor(view, Color.GREEN);
+				adapter.changeColor(view, Color.parseColor("#669900"));
 				// fading out textboxes
 				fadeOut(wordTextView, 750);
 				fadeOut(transcriptionTextView, 750);
@@ -190,7 +191,7 @@ public class TranslationTestActivity extends Activity {
 						});
 			} else {
 				// change color of row and set text
-				adapter.changeColor(view, Color.RED);
+				adapter.changeColor(view, Color.parseColor("#CC0000"));
 				isRight.setText("Wrong");
 				ifWasWrong = true;
 				// set information about wrong answer in VocabularyPassing

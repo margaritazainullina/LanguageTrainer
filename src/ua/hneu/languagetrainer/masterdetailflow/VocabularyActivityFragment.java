@@ -19,6 +19,8 @@ import ua.hneu.languagetrainer.App;
  * {@link ItemDetailActivity} on handsets.
  */
 public class VocabularyActivityFragment extends Fragment {
+	TextView infoTextView;
+	ProgressBar progressBar;
 	/**
 	 * The fragment argument representing the item ID that this fragment
 	 * represents.
@@ -40,7 +42,8 @@ public class VocabularyActivityFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Log.i("VocabularyActivityFragment", "VocabularyActivityFragment.onCreate()");
+		Log.i("VocabularyActivityFragment",
+				"VocabularyActivityFragment.onCreate()");
 		if (getArguments().containsKey(ARG_ITEM_ID)) {
 			// Load the dummy content specified by the fragment
 			// arguments. In a real-world scenario, use a Loader
@@ -56,24 +59,28 @@ public class VocabularyActivityFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.vocabulary_fragment,
 				container, false);
-		
-		Log.i("VocabularyActivityFragment", "VocabularyActivityFragment.onCreateView()");
-		
+
+		infoTextView = (TextView) rootView.findViewById(R.id.infoTextView);
+		progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
+
+		Log.i("VocabularyActivityFragment",
+				"VocabularyActivityFragment.onCreateView()");
+
 		// Show the dummy content as text in a TextView.
 		if (mItem != null) {
-			int learned = App.userInfo.getLearnedVocabulary() ;
+			int learned = App.userInfo.getLearnedVocabulary();
 			int all = App.userInfo.getNumberOfVocabularyInLevel();
-			int learnedPersentage = (int) Math.round(((double)learned / (double)all) * 100);
-			String info = "You have learned " + learned
-					+ " words out of " + all + "\n"
-					+ learnedPersentage+ "%";
-			((TextView) rootView.findViewById(R.id.item_detail)).setText(info);
-			
-			((ProgressBar) rootView.findViewById(R.id.progressBar)).setProgress(learnedPersentage);
-		}
+			int learnedPersentage = (int) Math
+					.round(((double) learned / (double) all) * 100);
+			String info = "You have learned " + learned + " words out of "
+					+ all + "\n" + learnedPersentage + "%";
 
+			infoTextView.setText(info);
+			//infoTextView.setT
+			progressBar.setProgress(learnedPersentage);
+
+		}
 		return rootView;
 	}
-	
-	
+
 }

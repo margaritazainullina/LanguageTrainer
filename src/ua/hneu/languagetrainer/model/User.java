@@ -1,10 +1,7 @@
 package ua.hneu.languagetrainer.model;
 
-import java.util.Date;
-
-import android.content.ContentResolver;
-
 import ua.hneu.languagetrainer.service.UserService;
+import android.content.ContentResolver;
 
 public class User {
 	private int id;
@@ -68,7 +65,7 @@ public class User {
 		return language;
 	}
 
-	public int getUserLevel() {
+	public int getLevel() {
 		return userLevel;
 	}
 

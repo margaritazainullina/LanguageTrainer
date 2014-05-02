@@ -8,7 +8,9 @@
     android:orientation="horizontal"
     android:showDividers="middle"
     tools:context=".ItemListActivity" >
-<!--     android:divider="?android:attr/dividerHorizontal" -->
+
+    <!-- android:divider="?android:attr/dividerHorizontal" -->
+
 
     <!--
     This layout is a two-pane layout for the Items
@@ -16,10 +18,11 @@
     res/values-sw600dp/refs.xml for an example of layout aliases
     that replace the single-pane version of the layout with
     this two-pane version.
+    -->
 
-    For more on layout aliases, see: http://developer.android.com/training/multiscreen/screensizes.html#TaskUseAliasFilters-->
-   
-   <!--left side for small devices-->
+
+    <!-- left side for small devices -->
+
     <FrameLayout
         android:id="@+id/item_detail_container"
         android:layout_width="match_parent"
@@ -28,19 +31,26 @@
         android:layout_toRightOf="@+id/item_list" />
 
     <TextView
-        android:id="@+id/textViewUserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
         android:id="@+id/textViewUserInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textViewUserName"
+        android:layout_marginTop="15dp"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <RatingBar
+        android:id="@+id/levelRatingBar"        
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@+id/textViewUserInfo"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:rating="4"
+        android:stepSize="1" />
 
     <fragment
         android:id="@+id/item_list"
@@ -48,9 +58,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/item_detail_container"
-        tools:context=".ItemListActivity"/>
-       <!--  tools:layout="@android:layout/list_content" /> -->
-    
+        android:layout_below="@+id/levelRatingBar"
+        tools:context=".ItemListActivity" />
+
+    <!-- tools:layout="@android:layout/list_content" /> -->
 
 </RelativeLayout>

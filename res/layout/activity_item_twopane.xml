@@ -25,7 +25,7 @@
         android:name="ua.hneu.languagetrainer.masterdetailflow.ItemListFragment"
         android:layout_width="150dp"
         android:layout_height="match_parent"
-        android:layout_alignTop="@+id/item_detail_container"
+        android:layout_below="@+id/levelRatingBar"
         tools:layout="@android:layout/list_content" />
 
     <FrameLayout
@@ -35,20 +35,26 @@
         android:layout_below="@+id/textViewUserInfo"
         android:layout_toRightOf="@+id/item_list" />
 
-    <TextView
-        android:id="@+id/textViewUserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
+   <TextView
         android:id="@+id/textViewUserInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textViewUserName"
+        android:layout_marginTop="15dp"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+  <RatingBar
+        android:id="@+id/levelRatingBar"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewUserInfo"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:rating="4"
+        android:stepSize="1" />
 
 </RelativeLayout>

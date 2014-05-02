@@ -6,8 +6,6 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-import ua.hneu.languagetrainer.App;
-
 public class WordDictionary {
 
 	private ArrayList<DictionaryEntry> entries;

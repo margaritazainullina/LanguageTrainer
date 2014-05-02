@@ -1,28 +1,22 @@
 package ua.hneu.languagetrainer.service;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
 import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
 import ua.hneu.languagetrainer.model.vocabulary.WordDictionary;
-import ua.hneu.languagetrainer.model.vocabulary.WordMeaning;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Color;
 import android.util.Log;
 
 public class VocabularyService {
