@@ -139,12 +139,7 @@ public class TranslationTestActivity extends Activity {
 							+ App.userInfo.getPercentageIncrement());
 
 				if (rightAnswer.getLearnedPercentage() == 1) {
-					// remove word from current dictionary for learning
-					App.currentDictionary.remove(rightAnswer);
-					// update information id db
-					App.vs.update(rightAnswer, getContentResolver());
-					// and set it as learned
-					App.vp.makeWordLearned(rightAnswer);
+					App.vp.makeWordLearned(rightAnswer, getContentResolver());
 				}
 				// change color to green and fade out
 				isRight.setText("Correct!");
@@ -219,5 +214,10 @@ public class TranslationTestActivity extends Activity {
 		Intent matchWordsIntent = new Intent(this,
 				TranscriptionTestActivity.class);
 		startActivity(matchWordsIntent);
+	}
+	
+	public void buttonIAlrKnow(View v) {
+		App.vp.makeWordLearned(rightAnswer, getContentResolver());
+		nextWord();
 	}
 }

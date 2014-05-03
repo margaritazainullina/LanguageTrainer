@@ -18,7 +18,6 @@ public class UserDAO extends ContentProvider {
 
 	public static String TABLE_NAME = "user";
 	public static final String ID = "_id";
-	public static final String LANGUAGE = "language";
 	public static final String LEVEL = "level";
 	public static final String LEARNEDVOC = "learnedVocabulary";
 	public static final String ALLVOC = "numberOfVocabularyInLevel";
@@ -55,7 +54,6 @@ public class UserDAO extends ContentProvider {
 
 		mContactMap = new HashMap<String, String>();
 		mContactMap.put(DictionaryDbHelper._ID, DictionaryDbHelper._ID);
-		mContactMap.put(LANGUAGE, LANGUAGE);
 		mContactMap.put(LEVEL, LEVEL);
 		mContactMap.put(LEARNEDVOC, LEARNEDVOC);
 		mContactMap.put(ALLVOC, ALLVOC);

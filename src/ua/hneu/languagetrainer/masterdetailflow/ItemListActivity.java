@@ -57,10 +57,9 @@ public class ItemListActivity extends FragmentActivity implements
 			((ItemListFragment) getSupportFragmentManager().findFragmentById(
 					R.id.item_list)).setActivateOnItemClick(true);
 
-			// set userlevel on main activity
-			
+			// set userlevel on main activity			
 			textViewUserInfo= (TextView) findViewById(R.id.textViewUserInfo);
-			textViewUserInfo.setText("Your level is: N" + App.userInfo.getLevel());
+			textViewUserInfo.setText(this.getString(R.string.your_level) + App.userInfo.getLevel());
 			ratingBar = (RatingBar)findViewById(R.id.levelRatingBar);				
 			ratingBar.setRating(6-App.userInfo.getLevel());
 			
@@ -68,7 +67,6 @@ public class ItemListActivity extends FragmentActivity implements
 
 		}
 		Log.i("mTwoPane", "mTwoPane - " + mTwoPane);
-		// TODO: If exposing deep links into your app, handle intents here.
 	}
 
 	/**
@@ -91,7 +89,7 @@ public class ItemListActivity extends FragmentActivity implements
 			grammarFragment.setArguments(arguments);
 			// Loading fragments accordingly to selected menu items
 			// if selected Vocabulary
-			if (id == "1") {
+			if (id == "vocabulary") {
 				getSupportFragmentManager()
 						.beginTransaction()
 						.replace(R.id.item_detail_container, vocabularyFragment)
@@ -123,25 +121,7 @@ public class ItemListActivity extends FragmentActivity implements
 	}
 
 	public void onClickPracticeVocabulary(View v) {
-		// load vocabulary dictionary from db
-		
-
-		// DictionaryEntry de = VocabularyService.getEntryById(5,
-		// getContentResolver());
-
 		Intent intent = new Intent(this, WordIntroductionActivity.class);
 		startActivity(intent);
-
-		// stub!!!
-		/*
-		 * WordDictionary dict = new WordDictionary();
-		 * App.setCurrentDictionary(new WordDictionary()); String xml =
-		 * DictUtil.readFile(this, "test.xml"); dict =
-		 * DictUtil.ParseVocabularyXml(xml); // replace fetching of entries with
-		 * some more complicated method for (int i = 0; i < 7; i++) {
-		 * App.getCurrentDictionary().add(dict.fetchRandom()); } Intent intent =
-		 * new Intent(this, WordIntroductionActivity.class);
-		 * startActivity(intent);
-		 */
 	}
 }

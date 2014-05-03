@@ -5,7 +5,6 @@ import android.content.ContentResolver;
 
 public class User {
 	private int id;
-	private String language;
 	// From 1 to 5 (N1-N5)
 	// "-1" means that user haven't selected level yet
 	private int userLevel = -1;
@@ -30,7 +29,7 @@ public class User {
 	private double testAveragePercentage = 0;
 	private String lastPassing;
 
-	public User(int id, String language, int userLevel, int learnedVocabulary,
+	public User(int id,  int userLevel, int learnedVocabulary,
 			int numberOfVocabularyInLevel, int learnedGrammar,
 			int numberOfGrammarInLevel, int learnedAudio,
 			int numberOfAudioInLevel, int learnedGiongo,
@@ -39,7 +38,6 @@ public class User {
 			int numberOfRepeatationsForLearning, double testAveragePercentage, String lastPassing) {
 		super();
 		this.id = id;
-		this.language = language;
 		this.userLevel = userLevel;
 		this.learnedVocabulary = learnedVocabulary;
 		this.numberOfVocabularyInLevel = numberOfVocabularyInLevel;
@@ -61,10 +59,7 @@ public class User {
 		return id;
 	}
 
-	public String getLanguage() {
-		return language;
-	}
-
+	
 	public int getLevel() {
 		return userLevel;
 	}
@@ -129,11 +124,7 @@ public class User {
 		this.id = id;
 	}
 
-	public void setLanguage(String language) {
-		this.language = language;
-	}
-
-	public void setUserLevel(int userLevel) {
+		public void setUserLevel(int userLevel) {
 		this.userLevel = userLevel;
 	}
 

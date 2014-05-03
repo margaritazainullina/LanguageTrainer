@@ -37,8 +37,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ua.hneu.languagetrainer.masterdetailflow.ItemDetailActivity"
-            android:label="@string/title_item_detail" >
+            android:name="ua.hneu.languagetrainer.masterdetailflow.ItemDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ItemListActivity" />

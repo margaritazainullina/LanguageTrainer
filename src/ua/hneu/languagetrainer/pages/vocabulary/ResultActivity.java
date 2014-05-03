@@ -48,14 +48,10 @@ public class ResultActivity extends Activity {
 			sb.delete(sb.length() - 3, sb.length() - 1);
 		StringBuffer sb1 = new StringBuffer();
 		if (numberOfLearnedWords == 0)
-			sb1.append("You haven't learned any word :(");
+			sb1.append(this.getString(R.string.you_havent_learned_any_word));
 		else {
-			sb1.append("You've learned ");
-			sb1.append(numberOfLearnedWords);
-			if (numberOfLearnedWords == 1)
-				sb1.append(" word:\n");
-			else
-				sb1.append(" words:\n");
+			sb1.append(this.getString(R.string.youve_learned)+" ");
+			sb1.append(numberOfLearnedWords+": ");
 		}
 		sb1.append(sb);
 		learnedWordsTextView.setText(sb1);
@@ -70,12 +66,16 @@ public class ResultActivity extends Activity {
 		int learned = App.userInfo.getLearnedVocabulary();
 		double totalPercentage = Math
 				.round(((double) learned / (double) all) * 100);
-		totalPercentageTextView.setText("By now you have learned "
-				+ totalPercentage + " % of vocabulary");
+		totalPercentageTextView.setText(this
+				.getString(R.string.by_now_youve_learned)
+				+ " "
+				+ totalPercentage
+				+ " "
+				+ this.getString(R.string.percentage_of_voc));
 
 		// mistakes
 		StringBuffer sb2 = new StringBuffer();
-		sb2.append("Pay attention to words: ");
+		sb2.append(this.getString(R.string.pay_attention_to_words) + " ");
 		int numberOfProblemWords = 0;
 		for (DictionaryEntry entry : App.vp.getProblemWords().keySet()) {
 			if (App.vp.getProblemWords().get(entry) >= 2) {
@@ -102,20 +102,21 @@ public class ResultActivity extends Activity {
 				/ (correct + incorrect) * 100));
 		if (success < 0)
 			success = 0;
-		
+
 		if (success > 80)
-			sessionPercentageTextView.setText("Great! ");
+			sessionPercentageTextView.setText(this.getString(R.string.great)+" ");
 		else if (success > 60)
-			sessionPercentageTextView.setText("Good! ");
+			sessionPercentageTextView.setText(this.getString(R.string.good)+" ");
 		else
-			sessionPercentageTextView.setText("You should be more attentive. ");
-		sessionPercentageTextView.append("Your correct answer rate is "
-				+ success);
+			sessionPercentageTextView.setText(this
+					.getString(R.string.more_atentive) + " ");
+		sessionPercentageTextView.append(this
+				.getString(R.string.correct_answer_rate) + " " + success);
 
 		// cautions
 		int num = App.vp.getNumberOfPassingsInARow();
 		if (num > 5)
-			cautionTextView.setText("It's enough vocabulary for today.");
+			cautionTextView.setText(this.getString(R.string.enough));
 
 		// clear information about passing
 		App.vp.clearInfo();

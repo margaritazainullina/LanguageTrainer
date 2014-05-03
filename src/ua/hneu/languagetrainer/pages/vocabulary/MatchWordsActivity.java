@@ -25,7 +25,7 @@ import android.widget.TextView;
 public class MatchWordsActivity extends Activity {
 	WordDictionary curDictionary;
 
-	int entriesFormatchingNumber = 5;
+	int entriesForMatchingNumber = 5;
 	int translationsNumber;
 
 	ListView kanjiListView;
@@ -35,6 +35,7 @@ public class MatchWordsActivity extends Activity {
 
 	// has 3 elements - index of kanji, transcription, translation
 	int[] currentAnswer = new int[] { -1, -1, -1 };
+	int[] rowsSelected = new int[] { -1, -1, -1 };
 
 	// lists with indices
 	ArrayList<Integer> kanjiIndices = new ArrayList<Integer>();
@@ -74,7 +75,7 @@ public class MatchWordsActivity extends Activity {
 		isCorrectTextView = (TextView) findViewById(R.id.isCorrectTextView);
 
 		// initializing indices
-		for (int i = 0; i < entriesFormatchingNumber; i++) {
+		for (int i = 0; i < entriesForMatchingNumber; i++) {
 			if (!curDictionary.get(i).getKanji().isEmpty())
 				kanjiIndices.add(curDictionary.get(i).getId());
 			readingIndices.add(curDictionary.get(i).getId());
@@ -86,7 +87,7 @@ public class MatchWordsActivity extends Activity {
 		Collections.shuffle(readingIndices);
 		Collections.shuffle(translationIndices);
 
-		for (int i = 0; i < entriesFormatchingNumber; i++) {
+		for (int i = 0; i < entriesForMatchingNumber; i++) {
 			if (i < kanjiIndices.size())
 				kanji.add(curDictionary.getEntryById(kanjiIndices.get(i))
 						.getKanji());
@@ -128,9 +129,9 @@ public class MatchWordsActivity extends Activity {
 			// change color of selected row
 			adapter1.setTextColorOfListViewRow((ListView) parent, position,
 					Color.parseColor("#ffbb33"));
-
 			// and remember this row for fading out if it is correct
 			v1 = view;
+			rowsSelected[0] = position;
 		}
 	};
 	final private transient OnItemClickListener readingListClickListener = new OnItemClickListener() {
@@ -141,6 +142,7 @@ public class MatchWordsActivity extends Activity {
 			adapter2.setTextColorOfListViewRow((ListView) parent, position,
 					Color.parseColor("#ffbb33"));
 			v2 = view;
+			rowsSelected[1] = position;
 		}
 	};
 	final private transient OnItemClickListener translationListClickListener = new OnItemClickListener() {
@@ -151,6 +153,7 @@ public class MatchWordsActivity extends Activity {
 			adapter3.setTextColorOfListViewRow((ListView) parent, position,
 					Color.parseColor("#ffbb33"));
 			v3 = view;
+			rowsSelected[2] = position;
 		}
 	};
 
@@ -174,10 +177,8 @@ public class MatchWordsActivity extends Activity {
 		if (isMatch || isMatchWithoutKanji) {
 			numberOfAnswers++;
 			// if all is done
-			if (numberOfAnswers == entriesFormatchingNumber - 1) {
-				Intent matchWordsIntent = new Intent(this,
-						TranslationTestActivity.class);
-				startActivity(matchWordsIntent);
+			if (numberOfAnswers == entriesForMatchingNumber - 1) {
+				goToNextPassingActivity();
 			}
 			// and write result to current dictionary if wrong answer was not
 			// given
@@ -194,7 +195,7 @@ public class MatchWordsActivity extends Activity {
 					App.vs.update(currentEntry, getContentResolver());
 					// and set it as learned (also increments number of words
 					// learned)
-					App.vp.makeWordLearned(currentEntry);
+					App.vp.makeWordLearned(currentEntry, getContentResolver());
 				} else
 					// and increment number of correct answers in current
 					// session anyway
@@ -203,18 +204,13 @@ public class MatchWordsActivity extends Activity {
 			isCorrectTextView.setText("Correct!");
 			isCorrectTextView.setTextColor(Color.parseColor("#669900"));
 			// fade correct selected answers
-			Animation fadeOutAnimation = AnimationUtils.loadAnimation(this,
-					android.R.anim.fade_out);
-			if (currentAnswer[0] != -1)
-				adapter1.hideElement(v1, fadeOutAnimation, 350);
-			adapter2.hideElement(v2, fadeOutAnimation, 350);
-			adapter3.hideElement(v3, fadeOutAnimation, 350);
+			fadeout(v1, v2, v3);
 
 		} else {
 			// add given answer to wrong
 			wrongAnswers.add(currentEntry);
 			isCorrectTextView.setText("Wrong");
-			isCorrectTextView.setTextColor(Color.parseColor("#cс0000"));
+			isCorrectTextView.setTextColor(Color.parseColor("#CC0000"));
 			// make selected items white
 			if (currentAnswer[0] != -1)
 				adapter1.changeColor(v1, Color.parseColor("#eaeaea"));
@@ -235,15 +231,71 @@ public class MatchWordsActivity extends Activity {
 		goToNextPassingActivity();
 	}
 
-	public void goToNextPassingActivity() {
-		// delete learned words from current
-		// dictionaryApp.currentDictionary.remove(currentEntry);App.currentDictionary.remove(currentEntry);App.currentDictionary.remove(currentEntry);App.currentDictionary.remove(currentEntry);
-		for (DictionaryEntry e : learnedWords.getEntries()) {
-			App.currentDictionary.remove(e);
-		}
-
+	public void goToNextPassingActivity() {		
 		Intent matchWordsIntent = new Intent(this,
 				TranslationTestActivity.class);
 		startActivity(matchWordsIntent);
+	}
+
+	public void fadeout(View view1, View view2, View view3) {
+		Animation fadeOutAnimation = AnimationUtils.loadAnimation(this,
+				android.R.anim.fade_out);
+		if (view1 != null)
+			adapter1.hideElement(view1, fadeOutAnimation, 350);
+		adapter2.hideElement(view2, fadeOutAnimation, 350);
+		adapter3.hideElement(view3, fadeOutAnimation, 350);
+	}
+
+	public void buttonIAlrKnow(View v) {
+		boolean a1 = true;
+		int a = -1;
+		for (int i = 0; i < 3; i++) {
+			if (currentAnswer[i] != -1)
+				a = currentAnswer[i];
+		}
+		for (int i = 0; i < 3; i++) {
+			if (currentAnswer[i] != -1 && currentAnswer[i] != a)
+				a1 = false;
+		}
+		if (!a1 && a != -1)
+			return;
+		if (currentAnswer[0] != -1) {
+			App.vp.makeWordLearned(
+					curDictionary.getEntryById(currentAnswer[0]),
+					getContentResolver());
+		} else if (currentAnswer[1] != -1) {
+			App.vp.makeWordLearned(
+					curDictionary.getEntryById(currentAnswer[1]),
+					getContentResolver());
+		} else if (currentAnswer[2] != -1) {
+			App.vp.makeWordLearned(
+					curDictionary.getEntryById(currentAnswer[2]),
+					getContentResolver());
+		}
+		int i1 = -1, i2 = -1, i3 = -1;
+		for (int i = 0; i < readingIndices.size(); i++) {
+			if (i < kanjiIndices.size())
+				if (kanjiIndices.get(i) == a)
+					i1 = i;
+			if (readingIndices.get(i) == a)
+				i2 = i;
+			if (translationIndices.get(i) == a)
+				i3 = i;
+		}
+
+		if (i1 != -1)
+			v1 = kanjiListView.getChildAt(i1);
+		v2 = readingListView.getChildAt(i2);
+		v3 = translationListView.getChildAt(i3);
+		numberOfAnswers++;
+		fadeout(v1, v2, v3);
+
+		currentAnswer[0] = -1;
+		currentAnswer[1] = -1;
+		currentAnswer[2] = -1;		
+		
+		if (numberOfAnswers >= entriesForMatchingNumber - 1) {
+			goToNextPassingActivity();
+		}
 	}
 }

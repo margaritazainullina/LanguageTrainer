@@ -5,6 +5,7 @@ import java.util.List;
 import android.graphics.Color;
 
 import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.App.Languages;
 
 public class DictionaryEntry implements Comparable<DictionaryEntry> {
 
@@ -15,16 +16,19 @@ public class DictionaryEntry implements Comparable<DictionaryEntry> {
 	private String lastview;
 	private int showntimes;
 	private double learnedPercentage;
-	private WordMeaning meaning;
+	private WordMeaning meaningEng;
+	private WordMeaning meaningRus;
 	private String color;
 
 	public DictionaryEntry(int id, String kanji, int level,
 			String transcription, String romaji, List<String> translations,
-			String examples, double percentage, String lastview,
-			int showntimes, String color) {
+			List<String> translationsRus, String examples, double percentage,
+			String lastview, int showntimes, String color) {
 
 		WordMeaning meaning = new WordMeaning(transcription, romaji,
 				translations);
+		WordMeaning meaningRus = new WordMeaning(transcription, romaji,
+				translationsRus);
 		this.id = id;
 		this.kanji = kanji;
 		this.level = level;
@@ -32,22 +36,24 @@ public class DictionaryEntry implements Comparable<DictionaryEntry> {
 		this.lastview = lastview;
 		this.showntimes = showntimes;
 		this.learnedPercentage = percentage;
-		this.meaning = meaning;
+		this.meaningEng = meaning;
+		this.meaningRus = meaningRus;
 		this.color = color;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("[");
-		sb.append(meaning.transcription);
-		sb.append(", ");
-		sb.append(meaning.romaji);
-		sb.append("]");
+		sb.append(this.getRomaji());
+		sb.append(" [");
+		sb.append(meaningEng.hiragana);
+		sb.append("/");
+		sb.append(meaningEng.romaji);
 		sb.append("]");
 		sb.append("\n");
-		sb.append(meaning.translationsToString());
+		sb.append(meaningEng.translationsToString());
 		sb.append("\n");
+		sb.append(meaningRus.translationsToString());
 		return sb.toString();
 	}
 
@@ -75,17 +81,18 @@ public class DictionaryEntry implements Comparable<DictionaryEntry> {
 		return showntimes;
 	}
 
-	public WordMeaning getMeaning() {
-		return meaning;
+	public WordMeaning getMeaningEng() {
+		return meaningEng;
 	}
-	
+
 	public String getColor() {
 		return this.color;
 	}
 
 	public int getIntColor() {
 		String[] rgb = this.color.split(",");
-		int color = Color.rgb(Integer.parseInt(rgb[0]), Integer.parseInt(rgb[1]), Integer.parseInt(rgb[2]));
+		int color = Color.rgb(Integer.parseInt(rgb[0]),
+				Integer.parseInt(rgb[1]), Integer.parseInt(rgb[2]));
 		return color;
 	}
 
@@ -118,43 +125,61 @@ public class DictionaryEntry implements Comparable<DictionaryEntry> {
 	}
 
 	public void setMeaning(WordMeaning meaning) {
-		this.meaning = meaning;
+		this.meaningEng = meaning;
 	}
 
 	public WordMeaning getMeanings() {
-		return meaning;
+		return meaningEng;
 	}
 
-	public List<String> getTranslations() {
-		return this.meaning.translations;
+	public List<String> getTranslationsEng() {
+		return this.meaningEng.translations;
+	}
+
+	public List<String> getTranslationsRus() {
+		return this.meaningRus.translations;
+	}
+
+	public String translationsEngToString() {
+		return this.meaningEng.translationsToString();
+	}
+
+	public String translationsRusToString() {
+		return this.meaningRus.translationsToString();
 	}
 
 	public String translationsToString() {
-		return this.meaning.translationsToString();
+		if (App.lang==Languages.RUS)
+			return this.meaningRus.translationsToString();
+		return this.meaningEng.translationsToString();
 	}
 
 	public String getTranscription() {
-		return this.meaning.transcription;
+		return this.meaningEng.hiragana;
 	}
 
 	public String getRomaji() {
-		return this.meaning.romaji;
+		return this.meaningEng.romaji;
 	}
 
 	public void setMeanings(WordMeaning meaning) {
-		this.meaning = meaning;
+		this.meaningEng = meaning;
 	}
 
 	public void setTranslations(List<String> translations) {
-		this.meaning.translations = translations;
+		this.meaningEng.translations = translations;
+	}
+
+	public void setTranslationsRus(List<String> translations) {
+		this.meaningRus.translations = translations;
 	}
 
 	public void setTranscription(String transcription) {
-		this.meaning.transcription = transcription;
+		this.meaningEng.hiragana = transcription;
 	}
 
 	public void setRomaji(String romaji) {
-		this.meaning.romaji = romaji;
+		this.meaningEng.romaji = romaji;
 	}
 
 	public double getLearnedPercentage() {

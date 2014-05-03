@@ -40,7 +40,7 @@ public class TranscriptionTestActivity extends Activity {
 	boolean ifWasWrong = false;
 
 	// sets direction
-	// true - question is kanji and answers are transcriptions 
+	// true - question is kanji and answers are transcriptions
 	// false - vice versa
 	// sets randomly for every question
 	boolean isKanjiShown;
@@ -65,15 +65,15 @@ public class TranscriptionTestActivity extends Activity {
 		// move pointer to next word
 		// if word does't have a kanji, skip it
 		currentWordNumber++;
-		DictionaryEntry currentEntry = App.currentDictionary.get(currentWordNumber);
+		DictionaryEntry currentEntry = App.currentDictionary
+				.get(currentWordNumber);
 		while (currentEntry.getKanji().isEmpty()) {
 			currentWordNumber++;
-			if (currentWordNumber >= App.currentDictionary.size()-1)
+			if (currentWordNumber >= App.currentDictionary.size() - 1)
 				endTesting();
 			currentEntry = App.currentDictionary.get(currentWordNumber);
 		}
 
-		System.out.println(currentEntry);
 		if (currentEntry.getKanji().isEmpty())
 			nextWord();
 		// set randomly direction
@@ -118,7 +118,7 @@ public class TranscriptionTestActivity extends Activity {
 		// bindings adapter to ListView
 		answersListView.setAdapter(adapter);
 		answersListView.setOnItemClickListener(answersListViewClickListener);
-		
+
 		// set colors
 		int color = currentEntry.getIntColor();
 		wordTextView.setTextColor(color);
@@ -150,12 +150,7 @@ public class TranscriptionTestActivity extends Activity {
 							+ App.userInfo.getPercentageIncrement());
 
 				if (rightAnswer.getLearnedPercentage() == 1) {
-					// remove word from current dictionary for learning
-					App.currentDictionary.remove(rightAnswer);
-					// update information id db
-					App.vs.update(rightAnswer, getContentResolver());
-					// and set it as learned
-					App.vp.makeWordLearned(rightAnswer);
+					App.vp.makeWordLearned(rightAnswer, getContentResolver());
 				}
 				// change color to green and fade out
 				isRight.setText("Correct!");
@@ -227,8 +222,12 @@ public class TranscriptionTestActivity extends Activity {
 	}
 
 	public void buttonSkipSelectOnClick(View v) {
-		// TODO: go to next exercise activity or result?
 		Intent matchWordsIntent = new Intent(this, ResultActivity.class);
 		startActivity(matchWordsIntent);
+	}
+
+	public void buttonIAlrKnow(View v) {
+		App.vp.makeWordLearned(rightAnswer, getContentResolver());
+		nextWord();
 	}
 }

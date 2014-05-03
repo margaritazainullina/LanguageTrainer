@@ -1,30 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Language Trainer</string>
-    <string name="title_item_detail">Item Detail</string>
-    <string name="username">Hello, User</string>
-    <string name="vocabulary">Vocabulary</string>
-    <string name="grammar">Grammar</string>
-    <string name="listening">Listening</string>
-    <string name="other">Other</string>
-    <string name="mock_tests">Mock tests</string>
-    <string name="settings">settings</string>
+    <string name="app_name">JLPT Trainer</string>
+    <string name="title">JLPT Trainer</string>
+    <string name="action_settings">action_settings</string>
     <string name="title_activity_vocabulary">VocabularyActivity</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_grammar">GrammarActivity</string>
-    <string name="practice_words">Practice words</string>
-    <string name="title_activity_word_practice">Inroduction of words</string>
+    <!-- Vocabulary activity -->
+    <string name="practice_words">Учить слова</string>
+    <string name="title_activity_word_practice">Слова для запоминания</string>
     <string name="title_activity_word_practice_result">Your result</string>
-    <string name="previous">Previous</string>
-    <string name="next">Next</string>
-    <string name="skip">Skip exercise</string>
-    <string name="skipIntroduction">Skip introduction</string>
+    <string name="previous">Назад</string>
+    <string name="next">Далее</string>
+    <string name="i_already_know">Я уже знаю это слово</string>
+    <string name="skip">Пропустить упражнение</string>
+    <string name="skipIntroduction">Перейти к упражнениям </string>
     <string name="ok">OK</string>
-    <string name="repeatTraining">Repeat training</string>
-    <string name="title_translation_test_activity">Select right answer from the list</string>
-    <string name="title_transcription_test_activity"> Select right answer from the list </string>
-    <string name="title_activity_match_the_words">Match words with their readings and translation</string>
+    <string name="repeatTraining">Пройти еще раз</string>
+    <string name="title_translation_test_activity">Выберите правильный вариант перевода из списка</string>
+    <string name="title_transcription_test_activity">Выберите правильное чтение из списка </string>
+    <string name="title_activity_match_the_words">Поставьте в соответствие слово, произношение и перевод</string>
+    <!-- Main activity -->
+    <string name="your_level">Ваш уровень: N</string>
+    <string name="vocabulary">Слова</string>
+    <string name="grammar">Грамматика</string>
+    <string name="listening">Аудирование</string>
+    <string name="mock_tests">Тесты</string>
+    <string name="other">Дополнительно</string>
+    <string name="settings">Настройки</string>
+    <!-- Vocabulary activity fragment -->
+    <string name="you_have_learned">Вы выучили </string>
+    <string name="words_out_of"> слов из </string>
+    <string name="words_out_of1"> слово из </string>
+    <!-- Result activity -->
+    <string name="you_havent_learned_any_word">Вы не выучили ни одного слова :(</string>
+    <string name="by_now_youve_learned">Всего выучено слов </string>
+    <string name="percentage_of_voc"> % от всех слов</string>
+    <string name="pay_attention_to_words">Обратите вниание на слова:</string>
+    <string name="great">Отлично! </string>
+    <string name="good">Хорошо! </string>
+    <string name="more_atentive">Будьте внимательнее! </string>
+    <string name="correct_answer_rate">Ваш процент правильных ответов состаляет </string>
+    <string name="enough">Достаточно прохождения на сегодня. </string>
+    <string name="youve_learned">Выучено слов </string>
 
 </resources>

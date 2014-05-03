@@ -11,7 +11,6 @@ public class UserService {
 
 	public void insert(User u, ContentResolver cr) {
 		ContentValues values = new ContentValues();
-		values.put(UserDAO.LANGUAGE, u.getLanguage());
 		values.put(UserDAO.LEVEL, u.getLevel());
 		values.put(UserDAO.LEARNEDVOC, u.getLearnedVocabulary());
 		values.put(UserDAO.ALLVOC, u.getNumberOfVocabularyInLevel());
@@ -33,7 +32,6 @@ public class UserService {
 
 	public void update(User u, ContentResolver cr) {
 		ContentValues values = new ContentValues();
-		values.put(UserDAO.LANGUAGE, u.getLanguage());
 		values.put(UserDAO.LEVEL, u.getLevel());
 		values.put(UserDAO.LEARNEDVOC, u.getLearnedVocabulary());
 		values.put(UserDAO.ALLVOC, u.getNumberOfVocabularyInLevel());
@@ -63,7 +61,6 @@ public class UserService {
 		db.execSQL(
 				"CREATE TABLE " + UserDAO.TABLE_NAME
 						+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-						+ UserDAO.LANGUAGE + " TEXT, " 
 						+ UserDAO.LEVEL+ " INTEGER, " 
 						+ UserDAO.LEARNEDVOC + " INTEGER, "
 						+ UserDAO.ALLVOC + " INTEGER, "
@@ -86,7 +83,7 @@ public class UserService {
 	}
 
 	public User selectUser(ContentResolver cr,int id) {
-		String[] selectionArgs = { UserDAO.ID, UserDAO.LANGUAGE, UserDAO.LEVEL,
+		String[] selectionArgs = { UserDAO.ID, UserDAO.LEVEL,
 				UserDAO.LEARNEDVOC, UserDAO.ALLVOC, UserDAO.LEARNEDGRAMMAR,
 				UserDAO.ALLGRAMMAR, UserDAO.LEARNEDAUDIO,UserDAO.ALLAUDIO,
 				UserDAO.LEARNEDGIONGO,UserDAO.ALLGIONGO, UserDAO.LEARNEDCWORDS,
@@ -96,7 +93,6 @@ public class UserService {
 		Cursor c = cr.query(UserDAO.CONTENT_URI, selectionArgs, "_ID=" + id, null,
 				null, null);
 
-		String language = "";
 		int userLevel = -1;
 		int learnedVocabulary = 0;
 		int numberOfVocabularyInLevel = 0;
@@ -117,25 +113,24 @@ public class UserService {
 		
 		while (!c.isAfterLast()) {
 			id = c.getInt(0);
-			language = c.getString(1);
-			userLevel = c.getInt(2);
-			learnedVocabulary = c.getInt(3);
-			numberOfVocabularyInLevel = c.getInt(4);
-			learnedGrammar = c.getInt(5);
-			numberOfGrammarInLevel = c.getInt(6);
-			learnedAudio = c.getInt(7);
-			numberOfAudioInLevel = c.getInt(8);
-			learnedGiongo = c.getInt(9);
-			numberOfGiongoInLevel = c.getInt(10);
-			learnedCounterWords = c.getInt(11);
-			numberOfCounterWordsInLevel = c.getInt(12);
-			numberOfEntriesInCurrentDict = c.getInt(13);
-			numberOfRepeatationsForLearning = c.getInt(14);
-			testAveragePercentage = c.getDouble(15);
-			lastPassing = c.getString(16);
+			userLevel = c.getInt(1);
+			learnedVocabulary = c.getInt(2);
+			numberOfVocabularyInLevel = c.getInt(3);
+			learnedGrammar = c.getInt(4);
+			numberOfGrammarInLevel = c.getInt(5);
+			learnedAudio = c.getInt(6);
+			numberOfAudioInLevel = c.getInt(7);
+			learnedGiongo = c.getInt(8);
+			numberOfGiongoInLevel = c.getInt(9 );
+			learnedCounterWords = c.getInt(10);
+			numberOfCounterWordsInLevel = c.getInt(11);
+			numberOfEntriesInCurrentDict = c.getInt(12);
+			numberOfRepeatationsForLearning = c.getInt(13);
+			testAveragePercentage = c.getDouble(14);
+			lastPassing = c.getString(15);
 			c.moveToNext();
 		}
-		User u = new User(id, language, userLevel, learnedVocabulary,
+		User u = new User(id, userLevel, learnedVocabulary,
 				numberOfVocabularyInLevel, learnedGrammar,
 				numberOfGrammarInLevel, learnedAudio, numberOfAudioInLevel,
 				learnedGiongo, numberOfGiongoInLevel, learnedCounterWords,

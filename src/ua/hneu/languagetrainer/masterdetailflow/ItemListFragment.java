@@ -69,13 +69,10 @@ public class ItemListFragment extends ListFragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		Log.i("ItemListFragment", "ItemListFragment.onItemSelected()");
-		// TODO: replace with a real list adapter.
-		setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
+		Log.i("ItemListFragment", "ItemListFragment.onCreate()");
+		setListAdapter(new ArrayAdapter<MainMenuValues.MenuItem>(getActivity(),
 				android.R.layout.simple_list_item_activated_1,
-				android.R.id.text1, DummyContent.ITEMS));
-	
+				android.R.id.text1, MainMenuValues.ITEMS));
 	}
 
 	@Override
@@ -118,7 +115,7 @@ public class ItemListFragment extends ListFragment {
 
 		// Notify the active callbacks interface (the activity, if the
 		// fragment is attached to one) that an item has been selected.
-		mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).id);
+		mCallbacks.onItemSelected(MainMenuValues.ITEMS.get(position).id);
 	}
 
 	@Override

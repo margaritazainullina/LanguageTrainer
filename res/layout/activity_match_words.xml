@@ -82,6 +82,15 @@
             android:layout_height="wrap_content"
             android:onClick="buttonSkipMatchOnClick"
             android:text="@string/skip" />
+
+        <Button
+            android:id="@+id/buttonIAlrKnow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            style="?android:attr/buttonStyle"
+            android:onClick="buttonIAlrKnow"
+            android:text="@string/i_already_know" />
     </LinearLayout>
 
 </LinearLayout>

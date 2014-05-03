@@ -4,12 +4,12 @@ import java.util.List;
 
 public class WordMeaning {
 
-	String transcription;
+	String hiragana;
 	String romaji;
 	List<String> translations;
 
 	WordMeaning(String transcription, String romaji, List<String> translations) {
-		this.transcription = transcription;
+		this.hiragana = transcription;
 		this.romaji = romaji;
 		this.translations = translations;
 	}
@@ -28,4 +28,6 @@ public class WordMeaning {
 			s = s.substring(0, s.length() - 2);
 		return s;
 	}
+
+	
 }

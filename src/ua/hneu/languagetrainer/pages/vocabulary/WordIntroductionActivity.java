@@ -31,7 +31,7 @@ public class WordIntroductionActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// Log.d("Activ", ((App) getApplication()).str);
-		// initialise views
+		// Initialize views
 		wordTextView = (TextView) findViewById(R.id.wordTextView);
 		transcriptionTextView = (TextView) findViewById(R.id.transcriptionTextView);
 		romajiTextView = (TextView) findViewById(R.id.romajiTextView);

@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+import ua.hneu.languagetrainer.service.VocabularyService;
+
 public class WordDictionary {
 
 	private ArrayList<DictionaryEntry> entries;
@@ -61,6 +63,21 @@ public class WordDictionary {
 		return translation;
 	}
 
+	public void addEntriesToDictionaryAndGet(int size) {
+		Set<DictionaryEntry> de = new HashSet<DictionaryEntry>();
+		de.addAll(this.entries);
+		Random rn = new Random();
+		while (de.size() < size) {
+			int i = rn.nextInt(VocabularyService.all.size());
+			de.add(VocabularyService.all.get(i));
+		}
+
+		ArrayList<DictionaryEntry> l = new ArrayList<DictionaryEntry>();
+		l.addAll(de);
+		this.entries = l;
+
+	}
+
 	// returns Set with stated size of unique random entries from current
 	// dictionary
 	public Set<DictionaryEntry> getRandomEntries(int size,
@@ -70,16 +87,16 @@ public class WordDictionary {
 
 		int numberOfEntriesWithKanji = 0;
 		for (DictionaryEntry entry : entries) {
-			if (entry.getKanji() != "")
+			if (entry.getKanji().isEmpty())
 				numberOfEntriesWithKanji++;
 		}
 
 		while (random.size() <= size) {
 			int i = rn.nextInt(entries.size());
 			boolean isEmpty = false;
-			if(entries.get(i).getKanji().isEmpty())
-				isEmpty=true;
-			
+			if (entries.get(i).getKanji().isEmpty())
+				isEmpty = true;
+
 			if (kanjiIsNessesary && !isEmpty) {
 				random.add(entries.get(i));
 			}
@@ -134,11 +151,11 @@ public class WordDictionary {
 		int a = new Random().nextInt(entries.size() - 1);
 		return entries.get(a);
 	}
-	
+
 	public ArrayList<String> getAllKanjiWithReadings() {
 		ArrayList<String> readings = new ArrayList<String>();
-		for (DictionaryEntry e : entries) {			
-				readings.add(e.readingsToString());
+		for (DictionaryEntry e : entries) {
+			readings.add(e.readingsToString());
 		}
 		return readings;
 	}

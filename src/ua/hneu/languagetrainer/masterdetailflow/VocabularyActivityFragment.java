@@ -30,7 +30,7 @@ public class VocabularyActivityFragment extends Fragment {
 	/**
 	 * The dummy content this fragment is presenting.
 	 */
-	private DummyContent.DummyItem mItem;
+	private MainMenuValues.MenuItem mItem;
 
 	/**
 	 * Mandatory empty constructor for the fragment manager to instantiate the
@@ -48,7 +48,7 @@ public class VocabularyActivityFragment extends Fragment {
 			// Load the dummy content specified by the fragment
 			// arguments. In a real-world scenario, use a Loader
 			// to load content from a content provider.
-			mItem = DummyContent.ITEM_MAP.get(getArguments().getString(
+			mItem = MainMenuValues.ITEM_MAP.get(getArguments().getString(
 					ARG_ITEM_ID));
 		}
 	}
@@ -70,17 +70,20 @@ public class VocabularyActivityFragment extends Fragment {
 		if (mItem != null) {
 			int learned = App.userInfo.getLearnedVocabulary();
 			int all = App.userInfo.getNumberOfVocabularyInLevel();
+
 			int learnedPersentage = (int) Math
 					.round(((double) learned / (double) all) * 100);
-			String info = "You have learned " + learned + " words out of "
-					+ all + "\n" + learnedPersentage + "%";
+			String info = this.getString(R.string.you_have_learned) + " "
+					+ learned + " ";
+			if (learned % 10 == 1)
+				info += this.getString(R.string.words_out_of1);
+			else
+				info += this.getString(R.string.words_out_of);
+			info += " " + all + "\n" + learnedPersentage + "%";
 
 			infoTextView.setText(info);
-			//infoTextView.setT
 			progressBar.setProgress(learnedPersentage);
-
 		}
 		return rootView;
 	}
-
 }

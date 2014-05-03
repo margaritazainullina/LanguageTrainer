@@ -2,8 +2,13 @@ package ua.hneu.languagetrainer.passing;
 
 import java.util.Hashtable;
 
+import android.content.ContentResolver;
+
+import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.model.User;
 import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
 import ua.hneu.languagetrainer.model.vocabulary.WordDictionary;
+import ua.hneu.languagetrainer.service.UserService;
 
 public class VocabularyPassing {
 	private int numberOfCorrectAnswersInMatching = 0;
@@ -38,12 +43,11 @@ public class VocabularyPassing {
 	public int getNumberOfPassingsInARow() {
 		return numberOfPassingsInARow;
 	}
-	
 
 	public int getTranscription() {
 		return numberOfCorrectAnswersInTranscription;
 	}
-	
+
 	public void incrementNumberOfCorrectAnswersInMatching() {
 		this.numberOfCorrectAnswersInMatching++;
 	}
@@ -53,13 +57,13 @@ public class VocabularyPassing {
 	}
 
 	public void incrementNumberOfCorrectAnswersInTranscription() {
-		this.numberOfCorrectAnswersInTranscription++;		
+		this.numberOfCorrectAnswersInTranscription++;
 	}
-	
+
 	public int getNumberOfIncorrectAnswersInTranscription() {
 		return numberOfIncorrectAnswersInTranscription;
 	}
-	
+
 	public int getNumberOfCorrectAnswersInTranscription() {
 		return numberOfCorrectAnswersInTranscription;
 	}
@@ -73,9 +77,9 @@ public class VocabularyPassing {
 	}
 
 	public void incrementNumberOfIncorrectAnswersInTranscription() {
-		this.numberOfIncorrectAnswersInTranscription++;		
+		this.numberOfIncorrectAnswersInTranscription++;
 	}
-	
+
 	public void incrementNumberOfPassingsInARow() {
 		this.numberOfPassingsInARow++;
 	}
@@ -88,9 +92,22 @@ public class VocabularyPassing {
 		return problemWords;
 	}
 
-	public void makeWordLearned(DictionaryEntry de) {
+	public void makeWordLearned(DictionaryEntry de, ContentResolver cr) {
+		//update info in user table
+		User u = App.userInfo;
+		u.setLearnedVocabulary(u.getLearnedVocabulary() + 1);
+		UserService us = new UserService();
+		us.update(u, cr);
+		//update current dictionary
+		de.setLearnedPercentage(1);
 		learnedWords.add(de);
 		incrementNumberOfCorrectAnswersInMatching();
+		App.currentDictionary.remove(de);
+		//add entries to current dictionary to match target size
+		App.currentDictionary.addEntriesToDictionaryAndGet(App.userInfo.getNumberOfEntriesInCurrentDict());
+		//update info in vocabulary table
+		App.vs.update(de, cr);
+		
 	}
 
 	public void addProblemWord(DictionaryEntry de) {
@@ -108,5 +125,5 @@ public class VocabularyPassing {
 		this.numberOfCorrectAnswersInTranslation = 0;
 		this.numberOfIncorrectAnswersInMatching = 0;
 		this.numberOfIncorrectAnswersInTranslation = 0;
-	}	
+	}
 }

@@ -32,7 +32,7 @@ public class GrammarActivityFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		if (getArguments().containsKey(ARG_ITEM_ID)) {
-			DummyContent.ITEM_MAP.get(getArguments().getString(
+			MainMenuValues.ITEM_MAP.get(getArguments().getString(
 					ARG_ITEM_ID));
 			Log.i("GrammarActivityFragment", "GrammarActivityFragment.onCreate()");
 			
