@@ -92,22 +92,26 @@ public class VocabularyPassing {
 		return problemWords;
 	}
 
-	public void makeWordLearned(DictionaryEntry de, ContentResolver cr) {
-		//update info in user table
+	public void makeWordLearned(DictionaryEntry de, ContentResolver cr, boolean isKanjiNeeded) {
+		// update info in user table
 		User u = App.userInfo;
 		u.setLearnedVocabulary(u.getLearnedVocabulary() + 1);
 		UserService us = new UserService();
 		us.update(u, cr);
-		//update current dictionary
+		// update current dictionary
 		de.setLearnedPercentage(1);
 		learnedWords.add(de);
 		incrementNumberOfCorrectAnswersInMatching();
 		App.currentDictionary.remove(de);
-		//add entries to current dictionary to match target size
-		App.currentDictionary.addEntriesToDictionaryAndGet(App.userInfo.getNumberOfEntriesInCurrentDict());
-		//update info in vocabulary table
+		// add entries to current dictionary to match target size
+		if(!isKanjiNeeded)
+		App.currentDictionary.addEntriesToDictionaryAndGet(
+				App.userInfo.getNumberOfEntriesInCurrentDict());
+		else App.currentDictionary.addEntriesToDictionaryAndGetOnlyWithKanji(
+				App.userInfo.getNumberOfEntriesInCurrentDict());
+		// update info in vocabulary table
 		App.vs.update(de, cr);
-		
+
 	}
 
 	public void addProblemWord(DictionaryEntry de) {

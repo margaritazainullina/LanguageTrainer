@@ -26,7 +26,7 @@ public class UserService {
 		values.put(UserDAO.REPETATIONNUM,
 				u.getNumberOfRepeatationsForLearning());
 		values.put(UserDAO.TESTAVG, u.getTestAveragePercentage());
-		values.put(UserDAO.LASTPASSING, u.getLastPassing());
+		values.put(UserDAO.ISLEVELLAUNCHEDFIRSTTIME, u.getIsLevelLaunchedFirstTime());
 		cr.insert(UserDAO.CONTENT_URI, values);
 	}
 
@@ -47,8 +47,7 @@ public class UserService {
 		values.put(UserDAO.REPETATIONNUM,
 				u.getNumberOfRepeatationsForLearning());
 		values.put(UserDAO.TESTAVG, u.getTestAveragePercentage());
-
-		values.put(UserDAO.LASTPASSING, u.getLastPassing());
+		values.put(UserDAO.ISLEVELLAUNCHEDFIRSTTIME, u.getIsLevelLaunchedFirstTime());
 		cr.update(UserDAO.CONTENT_URI, values, "_ID=" + u.getId(), null);
 	}
 
@@ -75,7 +74,7 @@ public class UserService {
 						+ UserDAO.CURDICTSIZE + " INTEGER," 
 						+ UserDAO.REPETATIONNUM + " INTEGER,"
 						+ UserDAO.TESTAVG + " REAL,"
-						+ UserDAO.LASTPASSING+" DATETIME);");
+						+ UserDAO.ISLEVELLAUNCHEDFIRSTTIME+" INTEGER);");
 	}
 
 	public void dropTable() {
@@ -88,7 +87,7 @@ public class UserService {
 				UserDAO.ALLGRAMMAR, UserDAO.LEARNEDAUDIO,UserDAO.ALLAUDIO,
 				UserDAO.LEARNEDGIONGO,UserDAO.ALLGIONGO, UserDAO.LEARNEDCWORDS,
 				UserDAO.ALLCWORDS, UserDAO.CURDICTSIZE, UserDAO.REPETATIONNUM,
-				UserDAO.TESTAVG, UserDAO.LASTPASSING};
+				UserDAO.TESTAVG, UserDAO.ISLEVELLAUNCHEDFIRSTTIME};
 		
 		Cursor c = cr.query(UserDAO.CONTENT_URI, selectionArgs, "_ID=" + id, null,
 				null, null);
@@ -107,7 +106,7 @@ public class UserService {
 		int numberOfEntriesInCurrentDict = 0;
 		int numberOfRepeatationsForLearning = 0;
 		double testAveragePercentage = 0;
-		String lastPassing = null;
+		int isLevelLaunchedFirstTime = 1;
 		
 		c.moveToFirst();
 		
@@ -127,15 +126,16 @@ public class UserService {
 			numberOfEntriesInCurrentDict = c.getInt(12);
 			numberOfRepeatationsForLearning = c.getInt(13);
 			testAveragePercentage = c.getDouble(14);
-			lastPassing = c.getString(15);
+			isLevelLaunchedFirstTime = c.getInt(15);
 			c.moveToNext();
 		}
+		c.close();
 		User u = new User(id, userLevel, learnedVocabulary,
 				numberOfVocabularyInLevel, learnedGrammar,
 				numberOfGrammarInLevel, learnedAudio, numberOfAudioInLevel,
 				learnedGiongo, numberOfGiongoInLevel, learnedCounterWords,
 				numberOfCounterWordsInLevel, numberOfEntriesInCurrentDict,
-				numberOfRepeatationsForLearning, testAveragePercentage, lastPassing);
+				numberOfRepeatationsForLearning, testAveragePercentage, isLevelLaunchedFirstTime);
 		return u;
 	}
 }

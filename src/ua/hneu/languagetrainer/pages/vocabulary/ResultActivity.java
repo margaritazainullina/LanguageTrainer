@@ -111,7 +111,7 @@ public class ResultActivity extends Activity {
 			sessionPercentageTextView.setText(this
 					.getString(R.string.more_atentive) + " ");
 		sessionPercentageTextView.append(this
-				.getString(R.string.correct_answer_rate) + " " + success);
+				.getString(R.string.correct_answer_rate) + " " + success+"%");
 
 		// cautions
 		int num = App.vp.getNumberOfPassingsInARow();

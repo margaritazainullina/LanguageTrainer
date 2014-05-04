@@ -49,7 +49,10 @@ public class TranscriptionTestActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_translation_transcription_test);
+		App.currentDictionary.addEntriesToDictionaryAndGetOnlyWithKanji(App.userInfo.getNumberOfEntriesInCurrentDict());
 
+		
+		
 		// Initialize
 		wordTextView = (TextView) findViewById(R.id.wordTextView);
 		transcriptionTextView = (TextView) findViewById(R.id.transcriptionTextView);
@@ -65,6 +68,8 @@ public class TranscriptionTestActivity extends Activity {
 		// move pointer to next word
 		// if word does't have a kanji, skip it
 		currentWordNumber++;
+		if (currentWordNumber >= App.currentDictionary.size() - 1) endTesting();
+		
 		DictionaryEntry currentEntry = App.currentDictionary
 				.get(currentWordNumber);
 		while (currentEntry.getKanji().isEmpty()) {
@@ -104,6 +109,7 @@ public class TranscriptionTestActivity extends Activity {
 		// randomDictionary
 		randomDictionaryList = new WordDictionary();
 		randomDictionaryList.getEntries().addAll(randomDictionary);
+		randomDictionaryList.addEntriesToDictionaryAndGetOnlyWithKanji(answersNumber);
 		// shuffle list
 		Collections.shuffle(randomDictionaryList.getEntries());
 
@@ -142,6 +148,8 @@ public class TranscriptionTestActivity extends Activity {
 			DictionaryEntry selected = randomDictionaryList.get(position);
 			// comparing correct and selected answer
 			if (selected == rightAnswer) {
+				//set lastView also when user answered correctly
+				rightAnswer.setLastView();
 				App.vp.incrementNumberOfCorrectAnswersInTranslation();
 				// increment percentage
 				if (!ifWasWrong)
@@ -150,7 +158,7 @@ public class TranscriptionTestActivity extends Activity {
 							+ App.userInfo.getPercentageIncrement());
 
 				if (rightAnswer.getLearnedPercentage() == 1) {
-					App.vp.makeWordLearned(rightAnswer, getContentResolver());
+					App.vp.makeWordLearned(rightAnswer, getContentResolver(),true);
 				}
 				// change color to green and fade out
 				isRight.setText("Correct!");
@@ -197,7 +205,7 @@ public class TranscriptionTestActivity extends Activity {
 						});
 			} else {
 				// change color of row and set text
-				adapter.changeColor(view, Color.parseColor("#cс0000"));
+				adapter.changeColor(view, Color.parseColor("#CC0000"));
 				isRight.setText("Wrong");
 				ifWasWrong = true;
 				// set information about wrong answer in VocabularyPassing
@@ -227,7 +235,7 @@ public class TranscriptionTestActivity extends Activity {
 	}
 
 	public void buttonIAlrKnow(View v) {
-		App.vp.makeWordLearned(rightAnswer, getContentResolver());
+		App.vp.makeWordLearned(rightAnswer, getContentResolver(),true);
 		nextWord();
 	}
 }

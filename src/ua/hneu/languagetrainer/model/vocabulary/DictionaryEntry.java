@@ -1,20 +1,26 @@
 package ua.hneu.languagetrainer.model.vocabulary;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
+import android.util.Log;
 
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.App.Languages;
 
-public class DictionaryEntry implements Comparable<DictionaryEntry> {
+public class DictionaryEntry {
 
 	private int id;
 	private String kanji;
 	private int level;
 	private String examples;
 	private String lastview;
-	private int showntimes;
+	private int shownTimes;
 	private double learnedPercentage;
 	private WordMeaning meaningEng;
 	private WordMeaning meaningRus;
@@ -34,7 +40,7 @@ public class DictionaryEntry implements Comparable<DictionaryEntry> {
 		this.level = level;
 		this.examples = examples;
 		this.lastview = lastview;
-		this.showntimes = showntimes;
+		this.shownTimes = showntimes;
 		this.learnedPercentage = percentage;
 		this.meaningEng = meaning;
 		this.meaningRus = meaningRus;
@@ -44,6 +50,8 @@ public class DictionaryEntry implements Comparable<DictionaryEntry> {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
+		sb.append(kanji);
+		sb.append(" - ");
 		sb.append(this.getRomaji());
 		sb.append(" [");
 		sb.append(meaningEng.hiragana);
@@ -54,6 +62,7 @@ public class DictionaryEntry implements Comparable<DictionaryEntry> {
 		sb.append(meaningEng.translationsToString());
 		sb.append("\n");
 		sb.append(meaningRus.translationsToString());
+
 		return sb.toString();
 	}
 
@@ -77,8 +86,8 @@ public class DictionaryEntry implements Comparable<DictionaryEntry> {
 		return lastview;
 	}
 
-	public int getShowntimes() {
-		return showntimes;
+	public int getShownTimes() {
+		return shownTimes;
 	}
 
 	public WordMeaning getMeaningEng() {
@@ -112,8 +121,12 @@ public class DictionaryEntry implements Comparable<DictionaryEntry> {
 		this.examples = examples;
 	}
 
-	public void setLastview(String lastview) {
-		this.lastview = lastview;
+	// sets to current time
+	public void setLastView() {
+		SimpleDateFormat dateFormat = new SimpleDateFormat(
+				"yyyy-MM-dd HH:mm:ss.SS");
+		String now = dateFormat.format(new Date());
+		this.lastview = now;
 	}
 
 	public void setColor(String color) {
@@ -121,7 +134,7 @@ public class DictionaryEntry implements Comparable<DictionaryEntry> {
 	}
 
 	public void incrementShowntimes() {
-		this.showntimes++;
+		this.shownTimes++;
 	}
 
 	public void setMeaning(WordMeaning meaning) {
@@ -149,7 +162,7 @@ public class DictionaryEntry implements Comparable<DictionaryEntry> {
 	}
 
 	public String translationsToString() {
-		if (App.lang==Languages.RUS)
+		if (App.lang == Languages.RUS)
 			return this.meaningRus.translationsToString();
 		return this.meaningEng.translationsToString();
 	}
@@ -190,10 +203,65 @@ public class DictionaryEntry implements Comparable<DictionaryEntry> {
 		this.learnedPercentage = learnedPercentage;
 	}
 
-	@Override
-	public int compareTo(DictionaryEntry e) {
-		DictionaryEntry e1 = (DictionaryEntry) e;
-		return this.kanji.compareTo(e1.kanji);
+	enum DictionaryEntryComparator implements Comparator<DictionaryEntry> {
+		LAST_VIEWED {
+			@SuppressLint("SimpleDateFormat")
+			public int compare(DictionaryEntry de1, DictionaryEntry de2) {
+				SimpleDateFormat dateFormat = new SimpleDateFormat(
+						"yyyy-MM-dd HH:mm:ss.SSS");
+				boolean isAfter = false;
+				try {
+					if (de1.getLastview().isEmpty()
+							|| de2.getLastview().isEmpty()) {
+						// gets randomly - entries wont' be in a row
+						isAfter = (Math.random() < 0.5);
+					} else {
+						Log.i("DictionaryEntryComparator",
+								"compared: " + de1.getLastview() + " and "
+										+ de2.getLastview());
+						Date date1 = dateFormat.parse(de1.getLastview());
+						Date date2 = dateFormat.parse(de2.getLastview());
+						isAfter = (date1.after(date2));
+						/*
+						 * Log.i("DictionaryEntryComparator", "compared: " +
+						 * de1.getLastview() + " and " + de2.getLastview());
+						 */
+					}
+				} catch (ParseException e) {
+					Log.e("DictionaryEntryComparator", "error in comparison: "
+							+ de1.getLastview() + " and " + de2.getLastview());
+					return 1;
+				}
+				if (isAfter)
+					return -1;
+				else
+					return 1;
+			}
+		},
+		LEARNED_PERCENTAGE {
+			public int compare(DictionaryEntry de1, DictionaryEntry de2) {
+				if (de1.getLearnedPercentage() > de2.getLearnedPercentage())
+					return 1;
+				else
+					return -1;
+			}
+		},
+		TIMES_SHOWN {
+			public int compare(DictionaryEntry de1, DictionaryEntry de2) {
+				if (de1.getShownTimes() > de2.getShownTimes())
+					return 1;
+				else
+					return -1;
+			}
+		},
+		RANDOM {
+			public int compare(DictionaryEntry de1, DictionaryEntry de2) {
+				if (Math.random() < 0.5)
+					return -1;
+				else
+					return 1;
+			}
+		};
 	}
 
 	public String readingsToString() {

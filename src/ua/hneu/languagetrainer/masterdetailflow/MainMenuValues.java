@@ -5,11 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import android.content.Context;
-import android.content.res.Resources;
-
-import ua.hneu.edu.languagetrainer.R;
-
 public class MainMenuValues {
 	public static List<MenuItem> ITEMS = new ArrayList<MenuItem>();
 

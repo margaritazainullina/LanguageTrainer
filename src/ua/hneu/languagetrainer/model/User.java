@@ -1,5 +1,6 @@
 package ua.hneu.languagetrainer.model;
 
+import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.service.UserService;
 import android.content.ContentResolver;
 
@@ -27,15 +28,18 @@ public class User {
 	// Information about tests is in table Tests
 	// just statistics for quick access
 	private double testAveragePercentage = 0;
-	private String lastPassing;
+	// if user created - VocabularyService.all hasn't been created
+	// 1-true, 0-false for storing in db
+	public int isLevelLaunchedFirstTime = 1;
 
-	public User(int id,  int userLevel, int learnedVocabulary,
+	public User(int id, int userLevel, int learnedVocabulary,
 			int numberOfVocabularyInLevel, int learnedGrammar,
 			int numberOfGrammarInLevel, int learnedAudio,
 			int numberOfAudioInLevel, int learnedGiongo,
 			int numberOfGiongoInLevel, int learnedCounterWords,
 			int numberOfCounterWordsInLevel, int numberOfEntriesInCurrentDict,
-			int numberOfRepeatationsForLearning, double testAveragePercentage, String lastPassing) {
+			int numberOfRepeatationsForLearning, double testAveragePercentage,
+			int isLevelLaunchedFirstTime) {
 		super();
 		this.id = id;
 		this.userLevel = userLevel;
@@ -52,14 +56,13 @@ public class User {
 		this.numberOfEntriesInCurrentDict = numberOfEntriesInCurrentDict;
 		this.numberOfRepeatationsForLearning = numberOfRepeatationsForLearning;
 		this.testAveragePercentage = testAveragePercentage;
-		this.lastPassing = lastPassing;
+		this.isLevelLaunchedFirstTime = isLevelLaunchedFirstTime;
 	}
 
 	public int getId() {
 		return id;
 	}
 
-	
 	public int getLevel() {
 		return userLevel;
 	}
@@ -115,17 +118,20 @@ public class User {
 	public double getTestAveragePercentage() {
 		return testAveragePercentage;
 	}
-	
-	public String getLastPassing() {
-		return lastPassing;
+
+	public int getIsLevelLaunchedFirstTime() {
+		return isLevelLaunchedFirstTime;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
 
-		public void setUserLevel(int userLevel) {
+	public void setUserLevel(int userLevel) {
 		this.userLevel = userLevel;
+		// if user passed to a new level - vocabulary VocabularyService.all
+		// hasn't been created
+		App.userInfo.isLevelLaunchedFirstTime = 1;
 	}
 
 	public void setLearnedVocabulary(int learnedVocabulary) {
@@ -180,9 +186,9 @@ public class User {
 	public void setTestAveragePercentage(double testAveragePercentage) {
 		this.testAveragePercentage = testAveragePercentage;
 	}
-	public void setLastPassing(String lastPassing) {
-		this.lastPassing = lastPassing;
-		//updateUserData();
+
+	public void setIsLevelLaunchedFirstTime(int isLevelLaunchedFirstTime) {
+		this.isLevelLaunchedFirstTime = isLevelLaunchedFirstTime;
 	}
 
 	// increment for percentage of learned element when responding correctly

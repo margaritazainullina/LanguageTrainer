@@ -1,47 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">JLPT Trainer</string>
     <string name="title">JLPT Trainer</string>
     <string name="action_settings">action_settings</string>
     <string name="title_activity_vocabulary">VocabularyActivity</string>
     <string name="title_activity_grammar">GrammarActivity</string>
-    <!-- Vocabulary activity -->
-    <string name="practice_words">Учить слова</string>
-    <string name="title_activity_word_practice">Слова для запоминания</string>
+    <string name="practice_words">Practice words</string>
+    <string name="title_activity_word_practice">Inroduction of words</string>
     <string name="title_activity_word_practice_result">Your result</string>
-    <string name="previous">Назад</string>
-    <string name="next">Далее</string>
-    <string name="i_already_know">Я уже знаю это слово</string>
-    <string name="skip">Пропустить упражнение</string>
-    <string name="skipIntroduction">Перейти к упражнениям </string>
+    <string name="i_already_know">I already know this word</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip exercise</string>
+    <string name="skipIntroduction">Skip introduction</string>
     <string name="ok">OK</string>
-    <string name="repeatTraining">Пройти еще раз</string>
-    <string name="title_translation_test_activity">Выберите правильный вариант перевода из списка</string>
-    <string name="title_transcription_test_activity">Выберите правильное чтение из списка </string>
-    <string name="title_activity_match_the_words">Поставьте в соответствие слово, произношение и перевод</string>
+    <string name="repeatTraining">Repeat training</string>
+    <string name="title_translation_test_activity">Select right translation from the list</string>
+    <string name="title_transcription_test_activity"> Select right transcription from the list </string>
+    <string name="title_activity_match_the_words">Match words with their readings and translation</string>
     <!-- Main activity -->
-    <string name="your_level">Ваш уровень: N</string>
-    <string name="vocabulary">Слова</string>
-    <string name="grammar">Грамматика</string>
-    <string name="listening">Аудирование</string>
-    <string name="mock_tests">Тесты</string>
-    <string name="other">Дополнительно</string>
-    <string name="settings">Настройки</string>
+    <string name="your_level">Your level is: N</string>
+    <string name="vocabulary">Vocabulary</string>
+    <string name="grammar">Grammar</string>
+    <string name="listening">Listening</string>
+    <string name="mock_tests">Mock tests</string>
+    <string name="other">Other</string>
+    <string name="settings">Settings</string>
     <!-- Vocabulary activity fragment -->
-    <string name="you_have_learned">Вы выучили </string>
-    <string name="words_out_of"> слов из </string>
-    <string name="words_out_of1"> слово из </string>
-    <!-- Result activity -->
-    <string name="you_havent_learned_any_word">Вы не выучили ни одного слова :(</string>
-    <string name="by_now_youve_learned">Всего выучено слов </string>
-    <string name="percentage_of_voc"> % от всех слов</string>
-    <string name="pay_attention_to_words">Обратите вниание на слова:</string>
-    <string name="great">Отлично! </string>
-    <string name="good">Хорошо! </string>
-    <string name="more_atentive">Будьте внимательнее! </string>
-    <string name="correct_answer_rate">Ваш процент правильных ответов состаляет </string>
-    <string name="enough">Достаточно прохождения на сегодня. </string>
-    <string name="youve_learned">Выучено слов </string>
+    <string name="you_have_learned">You have learned </string>
+        <!-- Result activity -->
+    <string name="you_havent_learned_any_word">You haven"'" learned any word :(</string>
+    <string name="by_now_youve_learned">By now you have learned </string>
+    <string name="percentage_of_voc"> % of vocabulary</string>
+    <string name="pay_attention_to_words">Pay attention to words:</string>
+    <string name="great">Great! </string>
+    <string name="good">Good! </string>
+    <string name="more_atentive">You should be more attentive! </string>
+    <string name="correct_answer_rate">Your correct answer rate is </string>
+    <string name="enough">It"'"s enough vocabulary for today. </string>
+    <string name="youve_learned">Words learned </string>
 
 </resources>

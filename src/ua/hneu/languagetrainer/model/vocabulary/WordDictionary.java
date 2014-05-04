@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+import android.util.Log;
+
 import ua.hneu.languagetrainer.service.VocabularyService;
 
 public class WordDictionary {
@@ -63,19 +65,56 @@ public class WordDictionary {
 		return translation;
 	}
 
+	public void addEntriesToDictionaryAndGetOnlyWithKanji(int size) {
+
+		Random rn = new Random();
+		// remove word without kanji to match target size
+		int wordsWithKanji = 0;
+		for (DictionaryEntry dictionaryEntry : this.entries) {
+			if (!dictionaryEntry.getKanji().isEmpty())
+				wordsWithKanji++;
+		}
+		if (wordsWithKanji >= size)
+			return;
+		else {
+			for (int i = 0; i < this.entries.size(); i++) {
+				// delete entries without kanji
+				if (this.entries.get(i).getKanji().isEmpty()) {
+					int j = rn.nextInt(VocabularyService.all.size());
+					DictionaryEntry e = VocabularyService.all.get(j);
+					if (e.getLearnedPercentage() != 1
+							&& (!e.getKanji().isEmpty()))
+						this.entries.set(i, e);
+					wordsWithKanji++;
+				}
+			}
+		}
+		while (wordsWithKanji < size) {
+			int i = rn.nextInt(VocabularyService.all.size());
+			DictionaryEntry e = VocabularyService.all.get(i);
+			// if the word is not learned
+			if (e.getLearnedPercentage() != 1) {
+				this.entries.add(e);
+				wordsWithKanji++;
+			}
+		}
+	}
+
 	public void addEntriesToDictionaryAndGet(int size) {
 		Set<DictionaryEntry> de = new HashSet<DictionaryEntry>();
 		de.addAll(this.entries);
 		Random rn = new Random();
 		while (de.size() < size) {
 			int i = rn.nextInt(VocabularyService.all.size());
-			de.add(VocabularyService.all.get(i));
+			DictionaryEntry e = VocabularyService.all.get(i);
+			// if the word is not learned
+			if (e.getLearnedPercentage() != 1)
+				de.add(e);
 		}
 
 		ArrayList<DictionaryEntry> l = new ArrayList<DictionaryEntry>();
 		l.addAll(de);
 		this.entries = l;
-
 	}
 
 	// returns Set with stated size of unique random entries from current
@@ -87,7 +126,7 @@ public class WordDictionary {
 
 		int numberOfEntriesWithKanji = 0;
 		for (DictionaryEntry entry : entries) {
-			if (entry.getKanji().isEmpty())
+			if (!entry.getKanji().isEmpty())
 				numberOfEntriesWithKanji++;
 		}
 
@@ -105,22 +144,13 @@ public class WordDictionary {
 			}
 
 			if (kanjiIsNessesary) {
-				// if number of entries with kanji in current dictionary is less
-				// than target size - return set of entries as is to avoid
-				// eternal cycle
-				if (numberOfEntriesWithKanji == random.size() - 1)
+				if (numberOfEntriesWithKanji == random.size() - 1) {
+					this.addEntriesToDictionaryAndGetOnlyWithKanji(size);
 					return random;
+				}
 			}
 		}
 		return random;
-	}
-
-	public void sort() {
-		Collections.sort(entries);
-	}
-
-	public void reverse() {
-		Collections.reverse(entries);
 	}
 
 	public void setEntries(ArrayList<DictionaryEntry> entries) {
@@ -159,4 +189,45 @@ public class WordDictionary {
 		}
 		return readings;
 	}
+
+	public void sortByLastViewedTime() {
+		try {
+			Collections.sort(this.entries,
+					DictionaryEntry.DictionaryEntryComparator.LAST_VIEWED);
+		} catch (Exception e) {
+			Log.e("sortByLastViewedTime",
+					e.getMessage() + " Caused:" + e.getCause());
+		}
+	}
+
+	public void sortByPercentage() {
+		try {
+			Collections
+					.sort(this.entries,
+							DictionaryEntry.DictionaryEntryComparator.LEARNED_PERCENTAGE);
+		} catch (Exception e) {
+			Log.e("sortByPercentage",
+					e.getMessage() + " Caused:" + e.getCause());
+		}
+	}
+
+	public void sortByTimesShown() {
+		try {
+			Collections.sort(this.entries,
+					DictionaryEntry.DictionaryEntryComparator.TIMES_SHOWN);
+		} catch (Exception e) {
+			Log.e("sortByTimesShown",
+					e.getMessage() + " Caused:" + e.getCause());
+		}
+	}
+
+	public void sortRandomly() {
+		try {
+			Collections.sort(this.entries,
+					DictionaryEntry.DictionaryEntryComparator.RANDOM);
+		} catch (Exception e) {
+			Log.e("sortRandomly", e.getMessage() + " Caused:" + e.getCause());
+		}
+	}
+
 }

@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.App.Languages;
 
 /**
  * A fragment representing a single Item detail screen. This fragment is either
@@ -75,10 +76,19 @@ public class VocabularyActivityFragment extends Fragment {
 					.round(((double) learned / (double) all) * 100);
 			String info = this.getString(R.string.you_have_learned) + " "
 					+ learned + " ";
-			if (learned % 10 == 1)
-				info += this.getString(R.string.words_out_of1);
-			else
-				info += this.getString(R.string.words_out_of);
+			if (App.lang == Languages.RUS) {
+				if (learned % 10 == 1)
+					info += "слово из";
+				else if (learned % 10 >= 1 || learned % 10 < 5)
+					info += "слова из";
+				else
+					info += "слов из";
+			} else {
+				if (learned > 1)
+					info += "words of";
+				else
+					info += "word of";
+			}
 			info += " " + all + "\n" + learnedPersentage + "%";
 
 			infoTextView.setText(info);

@@ -65,6 +65,8 @@ public class TranslationTestActivity extends Activity {
 	public void nextWord() {
 		// move pointer to next word
 		currentWordNumber++;
+		if (currentWordNumber >= App.currentDictionary.size() - 1) endTesting();
+		
 		// set randomly direction
 		if (Math.random() < 0.5)
 			isFromJapanese = false;
@@ -72,7 +74,8 @@ public class TranslationTestActivity extends Activity {
 			isFromJapanese = true;
 
 		// show word, reading and translations - set text to all TextViews
-		DictionaryEntry currentEntry = App.currentDictionary.get(currentWordNumber);
+		DictionaryEntry currentEntry = App.currentDictionary
+				.get(currentWordNumber);
 		if (isFromJapanese) {
 			wordTextView.setText(currentEntry.getKanji());
 			transcriptionTextView.setText(currentEntry.getTranscription());
@@ -112,7 +115,7 @@ public class TranslationTestActivity extends Activity {
 		int color = currentEntry.getIntColor();
 		wordTextView.setTextColor(color);
 		transcriptionTextView.setTextColor(color);
-		romajiTextView.setTextColor(color);		
+		romajiTextView.setTextColor(color);
 		isRight.setText("");
 	}
 
@@ -131,6 +134,8 @@ public class TranslationTestActivity extends Activity {
 			DictionaryEntry selected = randomDictionaryList.get(position);
 			// comparing correct and selected answer
 			if (selected == rightAnswer) {
+				// set lastView also when user answered correctly
+				rightAnswer.setLastView();
 				App.vp.incrementNumberOfCorrectAnswersInTranslation();
 				// increment percentage
 				if (!ifWasWrong)
@@ -139,7 +144,7 @@ public class TranslationTestActivity extends Activity {
 							+ App.userInfo.getPercentageIncrement());
 
 				if (rightAnswer.getLearnedPercentage() == 1) {
-					App.vp.makeWordLearned(rightAnswer, getContentResolver());
+					App.vp.makeWordLearned(rightAnswer, getContentResolver(),false);
 				}
 				// change color to green and fade out
 				isRight.setText("Correct!");
@@ -215,9 +220,9 @@ public class TranslationTestActivity extends Activity {
 				TranscriptionTestActivity.class);
 		startActivity(matchWordsIntent);
 	}
-	
+
 	public void buttonIAlrKnow(View v) {
-		App.vp.makeWordLearned(rightAnswer, getContentResolver());
+		App.vp.makeWordLearned(rightAnswer, getContentResolver(),false);
 		nextWord();
 	}
 }

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -21,6 +22,8 @@ import android.util.Log;
 
 public class VocabularyService {
 	public static WordDictionary all;
+	boolean isFirstTimeCreated;
+
 	public static DictionaryEntry getEntryById(int id, ContentResolver cr) {
 		String[] col = { "KANJI", "LEVEL", "TRANSCRIPTION", "ROMAJI",
 				"TRANSLATIONS", "TRANSLATIONS_RUS", "EXAMPLES", "PERCENTAGE",
@@ -81,7 +84,7 @@ public class VocabularyService {
 		values.put(VocabularyDAO.EXAMPLES, de.getExamples());
 		values.put(VocabularyDAO.PERCENTAGE, de.getLearnedPercentage());
 		values.put(VocabularyDAO.LASTVIEW, de.getLastview());
-		values.put(VocabularyDAO.SHOWNTIMES, de.getShowntimes());
+		values.put(VocabularyDAO.SHOWNTIMES, de.getShownTimes());
 		values.put(VocabularyDAO.COLOR, de.getColor());
 		cr.insert(VocabularyDAO.CONTENT_URI, values);
 	}
@@ -98,7 +101,7 @@ public class VocabularyService {
 		values.put(VocabularyDAO.EXAMPLES, de.getExamples());
 		values.put(VocabularyDAO.PERCENTAGE, de.getLearnedPercentage());
 		values.put(VocabularyDAO.LASTVIEW, de.getLastview());
-		values.put(VocabularyDAO.SHOWNTIMES, de.getShowntimes());
+		values.put(VocabularyDAO.SHOWNTIMES, de.getShownTimes());
 		values.put(VocabularyDAO.COLOR, de.getColor());
 		cr.update(VocabularyDAO.CONTENT_URI, values, "_ID=" + de.getId(), null);
 	}
@@ -194,7 +197,7 @@ public class VocabularyService {
 					0, "", 0, color);
 			this.insert(de, cr);
 			Log.i("BulkInsertFromCSV", "insetred: " + de);
-			}
+		}
 	}
 
 	public static WordDictionary createCurrentDictionary(int level,
@@ -202,13 +205,35 @@ public class VocabularyService {
 		all = new WordDictionary();
 		all = selectAllEntriesOflevel(level, contentResolver);
 		WordDictionary current = new WordDictionary();
-		// TODO: replace random with SRS methodology
-		Random rn = new Random();
-		while (current.size() < App.userInfo.getNumberOfEntriesInCurrentDict()) {
-			int i = rn.nextInt(all.size());
-			DictionaryEntry entry = all.get(i);
-			current.add(entry);
+		// if words have never been showed - set entries randomly
+		if (App.userInfo.isLevelLaunchedFirstTime == 1) {
+			all.sortRandomly();
+			for (int i = 0; i < App.userInfo.getNumberOfEntriesInCurrentDict(); i++) {
+				DictionaryEntry e = all.get(i);
+				if (e.getLearnedPercentage() != 1)
+					current.add(e);
+			}
+		} else {
+			// sorting descending
+			// get last elements
+			all.sortByLastViewedTime();
+			int i = all.size() - 1;
+			while (current.size() < App.userInfo
+					.getNumberOfEntriesInCurrentDict()) {
+				DictionaryEntry e = all.get(i);
+				if (e.getLearnedPercentage() != 1)
+					current.add(e);
+				i--;
+				Log.i("createCurrentDictionary", all.get(i).toString());
+			}
 		}
+		// Random rn = new Random();
+		/*
+		 * while (current.size() <
+		 * App.userInfo.getNumberOfEntriesInCurrentDict()) { int i =
+		 * rn.nextInt(all.size()); DictionaryEntry entry = all.get(i);
+		 * current.add(entry); }
+		 */
 		return current;
 	}
 
@@ -262,19 +287,19 @@ public class VocabularyService {
 					examples, percentage, lastview, showntimes, color);
 			wd.add(de);
 		}
+		c.close();
 		return wd;
 	}
 
-	//TODO: where clause
 	public int getNumberOfWordsInLevel(int level,
 			ContentResolver contentResolver) {
 		Cursor countCursor = contentResolver.query(VocabularyDAO.CONTENT_URI,
-				new String[] { "count(*) AS count" }, 
-				VocabularyDAO.LEVEL+ "=" + level + "",
-	             null, null);		
-		
+				new String[] { "count(*) AS count" }, VocabularyDAO.LEVEL + "="
+						+ level + "", null, null);
+
 		countCursor.moveToFirst();
 		int count = countCursor.getInt(0);
+		countCursor.close();
 		return count;
 	}
 }

@@ -25,7 +25,8 @@
                 android:id="@+id/kanjiListView"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:visibility="visible" >
+                android:visibility="visible" 
+                android:listSelector="@drawable/list">
             </ListView>
         </LinearLayout>
 

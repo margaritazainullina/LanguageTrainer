@@ -32,7 +32,7 @@ public class UserDAO extends ContentProvider {
 	public static final String CURDICTSIZE = "numberOfentriesInCurrentDict";	
 	public static final String REPETATIONNUM = "numberOfRepeatationsForLearning";
 	public static final String TESTAVG = "testAveragePercentage";
-	public static final String LASTPASSING = "timeOfLastPassing";	
+	public static final String ISLEVELLAUNCHEDFIRSTTIME = "isLevelLaunchedFirstTime";	
 
 	public static final Uri CONTENT_URI = Uri
 			.parse("content://ua.edu.hneu.languagetrainer.db.userprovider/dictionary");
@@ -68,7 +68,7 @@ public class UserDAO extends ContentProvider {
 		mContactMap.put(CURDICTSIZE, CURDICTSIZE);
 		mContactMap.put(REPETATIONNUM, REPETATIONNUM);
 		mContactMap.put(TESTAVG, TESTAVG);
-		mContactMap.put(LASTPASSING, LASTPASSING);
+		mContactMap.put(ISLEVELLAUNCHEDFIRSTTIME, ISLEVELLAUNCHEDFIRSTTIME);
 	}
 
 	public String getDbName() {

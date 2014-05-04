@@ -63,6 +63,8 @@ public class MatchWordsActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		// sort - less learned will be first
+		//App.currentDictionary.sortByPercentage();
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_match_words);
 		// current dictionary with words for current session
@@ -195,12 +197,15 @@ public class MatchWordsActivity extends Activity {
 					App.vs.update(currentEntry, getContentResolver());
 					// and set it as learned (also increments number of words
 					// learned)
-					App.vp.makeWordLearned(currentEntry, getContentResolver());
+					App.vp.makeWordLearned(currentEntry, getContentResolver(),
+							false);
 				} else
 					// and increment number of correct answers in current
 					// session anyway
 					App.vp.incrementNumberOfCorrectAnswersInMatching();
 			}
+			// set lastView also when user answered correctly
+			currentEntry.setLastView();
 			isCorrectTextView.setText("Correct!");
 			isCorrectTextView.setTextColor(Color.parseColor("#669900"));
 			// fade correct selected answers
@@ -231,7 +236,7 @@ public class MatchWordsActivity extends Activity {
 		goToNextPassingActivity();
 	}
 
-	public void goToNextPassingActivity() {		
+	public void goToNextPassingActivity() {
 		Intent matchWordsIntent = new Intent(this,
 				TranslationTestActivity.class);
 		startActivity(matchWordsIntent);
@@ -262,15 +267,15 @@ public class MatchWordsActivity extends Activity {
 		if (currentAnswer[0] != -1) {
 			App.vp.makeWordLearned(
 					curDictionary.getEntryById(currentAnswer[0]),
-					getContentResolver());
+					getContentResolver(), false);
 		} else if (currentAnswer[1] != -1) {
 			App.vp.makeWordLearned(
 					curDictionary.getEntryById(currentAnswer[1]),
-					getContentResolver());
+					getContentResolver(), false);
 		} else if (currentAnswer[2] != -1) {
 			App.vp.makeWordLearned(
 					curDictionary.getEntryById(currentAnswer[2]),
-					getContentResolver());
+					getContentResolver(), false);
 		}
 		int i1 = -1, i2 = -1, i3 = -1;
 		for (int i = 0; i < readingIndices.size(); i++) {
@@ -292,8 +297,8 @@ public class MatchWordsActivity extends Activity {
 
 		currentAnswer[0] = -1;
 		currentAnswer[1] = -1;
-		currentAnswer[2] = -1;		
-		
+		currentAnswer[2] = -1;
+
 		if (numberOfAnswers >= entriesForMatchingNumber - 1) {
 			goToNextPassingActivity();
 		}

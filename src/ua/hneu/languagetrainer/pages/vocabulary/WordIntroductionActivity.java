@@ -5,6 +5,7 @@ import java.util.List;
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,12 +15,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class WordIntroductionActivity extends Activity {
-	
+
 	public static List<Integer> shownIndexes;
 	public boolean isLast = true;
 	public static DictionaryEntry curEntry;
 	public static int idx = -1;
-	public static int numberOfWordsInSample = 7;
 
 	TextView wordTextView;
 	TextView transcriptionTextView;
@@ -30,7 +30,15 @@ public class WordIntroductionActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// Log.d("Activ", ((App) getApplication()).str);
+		// if it's not first time when user sees entries of current level
+		// sort - entries shown less times will be first shown
+		// else it makes no sense, all is sorted initially
+		if (App.userInfo.isLevelLaunchedFirstTime == 0)
+			App.currentDictionary.sortByTimesShown();
+		// change this value
+		App.userInfo.isLevelLaunchedFirstTime = 0;
+		App.userInfo.updateUserData(getContentResolver());
+
 		// Initialize views
 		wordTextView = (TextView) findViewById(R.id.wordTextView);
 		transcriptionTextView = (TextView) findViewById(R.id.transcriptionTextView);
@@ -61,8 +69,7 @@ public class WordIntroductionActivity extends Activity {
 		idx++;
 		// if Next button was disabled
 		prevButton.setEnabled(true);
-
-		if (idx >= numberOfWordsInSample) {
+		if (idx >= App.userInfo.getNumberOfEntriesInCurrentDict()) {
 			// if all words have been showed go to next activity
 			goToNextPassingActivity();
 		} else {
@@ -79,28 +86,30 @@ public class WordIntroductionActivity extends Activity {
 		startActivity(matchWordsIntent);
 	}
 
-	private void showEntry(DictionaryEntry dictionaryEntry) {	
+	@SuppressLint("SimpleDateFormat")
+	private void showEntry(DictionaryEntry currentEntry) {
 		wordTextView = (TextView) findViewById(R.id.wordTextView);
 		transcriptionTextView = (TextView) findViewById(R.id.transcriptionTextView);
 		romajiTextView = (TextView) findViewById(R.id.romajiTextView);
 		translationTextView = (TextView) findViewById(R.id.translationTextView);
-		
-		// set word info to the texViews		
-		wordTextView.setText(dictionaryEntry.getKanji());
-		transcriptionTextView.setText(dictionaryEntry.getTranscription());
+
+		// set word info to the texViews
+		wordTextView.setText(currentEntry.getKanji());
+		transcriptionTextView.setText(currentEntry.getTranscription());
 		if (App.isShowRomaji)
-		romajiTextView.setText(dictionaryEntry.getRomaji());
-		translationTextView.setText(dictionaryEntry.translationsToString());
-		
-		//set color of entry
-		int color = App.currentDictionary.get(idx).getIntColor();						
+			romajiTextView.setText(currentEntry.getRomaji());
+		translationTextView.setText(currentEntry.translationsToString());
+
+		// set color of entry
+		int color = App.currentDictionary.get(idx).getIntColor();
 		wordTextView.setTextColor(color);
 		transcriptionTextView.setTextColor(color);
 		romajiTextView.setTextColor(color);
-		
-		//and write information to db
-		dictionaryEntry.incrementShowntimes();
-		App.vs.update(dictionaryEntry, getContentResolver());
+
+		// and write information to db
+		currentEntry.setLastView();
+		currentEntry.incrementShowntimes();
+		App.vs.update(currentEntry, getContentResolver());
 	}
 
 	public void buttonPreviousOnClick(View v) {

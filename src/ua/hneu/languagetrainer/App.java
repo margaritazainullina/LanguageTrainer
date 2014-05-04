@@ -1,5 +1,6 @@
 package ua.hneu.languagetrainer;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 import ua.hneu.edu.languagetrainer.R;
@@ -42,32 +43,36 @@ public class App extends Application {
 			lang = Languages.RUS;
 		else
 			lang = Languages.ENG;
-		
-		//set localized menu elements
-		MainMenuValues.addItem(new MainMenuValues.MenuItem("vocabulary", this.getString(R.string.vocabulary)));
-		MainMenuValues.addItem(new MainMenuValues.MenuItem("vocabulary", this.getString(R.string.grammar)));
-		MainMenuValues.addItem(new MainMenuValues.MenuItem("vocabulary", this.getString(R.string.listening)));
-		MainMenuValues.addItem(new MainMenuValues.MenuItem("vocabulary", this.getString(R.string.mock_tests)));
-		MainMenuValues.addItem(new MainMenuValues.MenuItem("vocabulary", this.getString(R.string.other)));
-		MainMenuValues.addItem(new MainMenuValues.MenuItem("vocabulary", this.getString(R.string.settings)));
-		
+
+		// set localized menu elements
+		MainMenuValues.addItem(new MainMenuValues.MenuItem("vocabulary", this
+				.getString(R.string.vocabulary)));
+		MainMenuValues.addItem(new MainMenuValues.MenuItem("vocabulary", this
+				.getString(R.string.grammar)));
+		MainMenuValues.addItem(new MainMenuValues.MenuItem("vocabulary", this
+				.getString(R.string.listening)));
+		MainMenuValues.addItem(new MainMenuValues.MenuItem("vocabulary", this
+				.getString(R.string.mock_tests)));
+		MainMenuValues.addItem(new MainMenuValues.MenuItem("vocabulary", this
+				.getString(R.string.other)));
+		MainMenuValues.addItem(new MainMenuValues.MenuItem("vocabulary", this
+				.getString(R.string.settings)));
+
 		cr = getContentResolver();
 		VocabularyService vs = new VocabularyService();
-		/*
-		 * vs.dropTable(); vs.createTable(); vs.bulkInsertFromCSV("N5.txt",
-		 * getAssets(), 5, getContentResolver()); vs.bulkInsertFromCSV("N4.txt",
-		 * getAssets(), 4, getContentResolver()); vs.bulkInsertFromCSV("N3.txt",
-		 * getAssets(), 3, getContentResolver()); vs.bulkInsertFromCSV("N3.txt",
-		 * getAssets(), 2, getContentResolver()); vs.bulkInsertFromCSV("N1.txt",
-		 * getAssets(), 1, getContentResolver()); us.dropTable();
-		 * us.createTable();
-		 */
-		/*us.dropTable();
-		us.createTable();
-		User u = new User(1, 3, 0, vs.getNumberOfWordsInLevel(3, cr), 0, 0, 0,
-				0, 0, 0, 0, 0, 10, 10, 0, "");
-		us.insert(u, cr);*/
 
+		/*vs.dropTable();
+		vs.createTable();
+		vs.bulkInsertFromCSV("N5.txt", getAssets(), 5, getContentResolver());
+		/*vs.bulkInsertFromCSV("N4.txt", getAssets(), 4, getContentResolver());
+		vs.bulkInsertFromCSV("N3.txt", getAssets(), 3, getContentResolver());
+		vs.bulkInsertFromCSV("N3.txt", getAssets(), 2, getContentResolver());
+		vs.bulkInsertFromCSV("N1.txt", getAssets(), 1, getContentResolver());
+		us.dropTable();
+		us.createTable();
+		User u = new User(1, 5, 0, vs.getNumberOfWordsInLevel(5, cr), 0, 0,
+				0, 0, 0, 0, 0, 0, 10, 10, 0, 1);
+		us.insert(u, cr);*/
 		// fetch user data from db
 		userInfo = us.selectUser(getContentResolver(), 1);
 
@@ -81,10 +86,6 @@ public class App extends Application {
 		currentDictionary = VocabularyService.createCurrentDictionary(
 				userInfo.getLevel(),
 				userInfo.getNumberOfEntriesInCurrentDict(), cr);
-
-		DictionaryEntry de = currentDictionary.get(0);
-		de.incrementShowntimes();
-		vs.update(de, cr);
 
 		App.context = getApplicationContext();
 		super.onCreate();
