@@ -64,7 +64,7 @@ public class MatchWordsActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// sort - less learned will be first
-		//App.currentDictionary.sortByPercentage();
+		// App.currentDictionary.sortByPercentage();
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_match_words);
 		// current dictionary with words for current session
@@ -189,21 +189,22 @@ public class MatchWordsActivity extends Activity {
 				currentEntry.setLearnedPercentage(currentEntry
 						.getLearnedPercentage()
 						+ App.userInfo.getPercentageIncrement());
+				// increment number of correct answers in current session
+				App.vp.incrementNumberOfCorrectAnswersInMatching();
 				// if word becomes learned,
 				if (currentEntry.getLearnedPercentage() == 1) {
 					// remove word from current dictionary for learning
 					learnedWords.add(currentEntry);
-					// update information id db
-					App.vs.update(currentEntry, getContentResolver());
+
 					// and set it as learned (also increments number of words
 					// learned)
 					App.vp.makeWordLearned(currentEntry, getContentResolver(),
 							false);
-				} else
-					// and increment number of correct answers in current
-					// session anyway
-					App.vp.incrementNumberOfCorrectAnswersInMatching();
-			}
+				} else{
+					// update information id db
+					//makeWordLearned updates info as well
+					App.vs.update(currentEntry, getContentResolver());}
+				}
 			// set lastView also when user answered correctly
 			currentEntry.setLastView();
 			isCorrectTextView.setText("Correct!");

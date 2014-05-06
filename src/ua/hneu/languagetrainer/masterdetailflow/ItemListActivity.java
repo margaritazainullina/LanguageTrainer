@@ -2,6 +2,7 @@ package ua.hneu.languagetrainer.masterdetailflow;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.pages.GreetingActivity;
 import ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -36,7 +37,7 @@ public class ItemListActivity extends FragmentActivity implements
 	private boolean mTwoPane;
 	TextView textViewUserInfo;
 	RatingBar ratingBar;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -44,6 +45,13 @@ public class ItemListActivity extends FragmentActivity implements
 		setContentView(R.layout.activity_item_list);
 
 		Log.i("ItemListActivity", "ItemListActivity.onCreate()");
+
+		// if it isn't first launch of app - start greeting activity
+		if (App.userInfo == null) {
+			Intent greetingIntent = new Intent(this, GreetingActivity.class);
+			startActivity(greetingIntent);
+			return;
+		}
 
 		if (findViewById(R.id.item_detail_container) != null) {
 			// The detail container view will be present only in the
@@ -57,14 +65,26 @@ public class ItemListActivity extends FragmentActivity implements
 			((ItemListFragment) getSupportFragmentManager().findFragmentById(
 					R.id.item_list)).setActivateOnItemClick(true);
 
-			// set userlevel on main activity			
-			textViewUserInfo= (TextView) findViewById(R.id.textViewUserInfo);
-			textViewUserInfo.setText(this.getString(R.string.your_level) + App.userInfo.getLevel());
-			ratingBar = (RatingBar)findViewById(R.id.levelRatingBar);				
-			ratingBar.setRating(6-App.userInfo.getLevel());
-			
-		} else {
+			// set userlevel on main activity
+			textViewUserInfo = (TextView) findViewById(R.id.textViewUserInfo);
+			textViewUserInfo.setText(this.getString(R.string.your_level)
+					+ App.userInfo.getLevel());
+			ratingBar = (RatingBar) findViewById(R.id.levelRatingBar);
+			ratingBar.setRating(6 - App.userInfo.getLevel());
 
+		} else {
+			mTwoPane = false;
+			// In two-pane mode, list items should be given the
+			// 'activated' state when touched.
+			((ItemListFragment) getSupportFragmentManager().findFragmentById(
+					R.id.item_list)).setActivateOnItemClick(true);
+
+			// set userlevel on main activity
+			textViewUserInfo = (TextView) findViewById(R.id.textViewUserInfo);
+			textViewUserInfo.setText(this.getString(R.string.your_level)
+					+ App.userInfo.getLevel());
+			ratingBar = (RatingBar) findViewById(R.id.levelRatingBar);
+			ratingBar.setRating(6 - App.userInfo.getLevel());
 		}
 		Log.i("mTwoPane", "mTwoPane - " + mTwoPane);
 	}
@@ -76,7 +96,7 @@ public class ItemListActivity extends FragmentActivity implements
 	@Override
 	public void onItemSelected(String id) {
 		Log.i("ItemListActivity", "ItemDetailActivity.onItemSelected()");
-		
+
 		if (mTwoPane) {
 			// In two-pane mode, show the detail view in this activity by
 			// adding or replacing the detail fragment using a
@@ -105,15 +125,17 @@ public class ItemListActivity extends FragmentActivity implements
 		} else {
 			// In single-pane mode, simply start the detail activity
 			// for the selected item ID.
-			
-			  Intent detailIntent = new Intent(this,
-			  VocabularyActivityFragment.class);
-			  detailIntent.putExtra(VocabularyActivityFragment.ARG_ITEM_ID,
-			 id); startActivity(detailIntent);
-			 
 
+			/*
+			 * Intent detailIntent = new Intent(this,
+			 * VocabularyActivityFragment.class);
+			 * detailIntent.putExtra(VocabularyActivityFragment.ARG_ITEM_ID,
+			 * id); startActivity(detailIntent);
+			 */
+
+			// if vocabulary item selected
 			if (id == "1") {
-				detailIntent = new Intent(this,
+				Intent detailIntent = new Intent(this,
 						VocabularyActivityFragment.class);
 				startActivity(detailIntent);
 			}

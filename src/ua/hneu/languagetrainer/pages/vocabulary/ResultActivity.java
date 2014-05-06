@@ -2,6 +2,7 @@ package ua.hneu.languagetrainer.pages.vocabulary;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.masterdetailflow.ItemListActivity;
 import ua.hneu.languagetrainer.model.User;
 import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
 import android.app.Activity;
@@ -50,8 +51,8 @@ public class ResultActivity extends Activity {
 		if (numberOfLearnedWords == 0)
 			sb1.append(this.getString(R.string.you_havent_learned_any_word));
 		else {
-			sb1.append(this.getString(R.string.youve_learned)+" ");
-			sb1.append(numberOfLearnedWords+": ");
+			sb1.append(this.getString(R.string.youve_learned) + " ");
+			sb1.append(numberOfLearnedWords + ": ");
 		}
 		sb1.append(sb);
 		learnedWordsTextView.setText(sb1);
@@ -104,14 +105,16 @@ public class ResultActivity extends Activity {
 			success = 0;
 
 		if (success > 80)
-			sessionPercentageTextView.setText(this.getString(R.string.great)+" ");
+			sessionPercentageTextView.setText(this.getString(R.string.great)
+					+ " ");
 		else if (success > 60)
-			sessionPercentageTextView.setText(this.getString(R.string.good)+" ");
+			sessionPercentageTextView.setText(this.getString(R.string.good)
+					+ " ");
 		else
 			sessionPercentageTextView.setText(this
 					.getString(R.string.more_atentive) + " ");
 		sessionPercentageTextView.append(this
-				.getString(R.string.correct_answer_rate) + " " + success+"%");
+				.getString(R.string.correct_answer_rate) + " " + success + "%");
 
 		// cautions
 		int num = App.vp.getNumberOfPassingsInARow();
@@ -127,6 +130,12 @@ public class ResultActivity extends Activity {
 		Intent matchWordsIntent = new Intent(this,
 				WordIntroductionActivity.class);
 		startActivity(matchWordsIntent);
+	}
+
+	public void buttonToMainMenuOnClick(View v) {
+		// go to master/detail flow
+		Intent main = new Intent(this, ItemListActivity.class);
+		startActivity(main);
 	}
 
 	@Override

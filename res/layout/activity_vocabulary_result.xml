@@ -46,12 +46,29 @@
         android:layout_height="wrap_content"
         android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/buttonRepeatTraining"
-        style="?android:attr/buttonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="buttonRepeatTrainingOnClick"
-        android:text="@string/repeatTraining" />
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin" >
+
+        <Button
+            android:id="@+id/buttonRepeatTraining"
+            style="?android:attr/buttonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="buttonRepeatTrainingOnClick"
+            android:text="@string/repeatTraining" />
+
+        <Button
+            android:id="@+id/buttonToMainMenu"
+            style="?android:attr/buttonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="buttonToMainMenuOnClick"
+            android:text="@string/to_main_menu" />
+    </LinearLayout>
 
 </LinearLayout>

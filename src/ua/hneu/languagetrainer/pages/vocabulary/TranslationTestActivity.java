@@ -146,6 +146,7 @@ public class TranslationTestActivity extends Activity {
 				if (rightAnswer.getLearnedPercentage() == 1) {
 					App.vp.makeWordLearned(rightAnswer, getContentResolver(),false);
 				}
+				App.vs.update(rightAnswer, getContentResolver());
 				// change color to green and fade out
 				isRight.setText("Correct!");
 				adapter.changeColor(view, Color.parseColor("#669900"));

@@ -51,8 +51,6 @@ public class TranscriptionTestActivity extends Activity {
 		setContentView(R.layout.activity_translation_transcription_test);
 		App.currentDictionary.addEntriesToDictionaryAndGetOnlyWithKanji(App.userInfo.getNumberOfEntriesInCurrentDict());
 
-		
-		
 		// Initialize
 		wordTextView = (TextView) findViewById(R.id.wordTextView);
 		transcriptionTextView = (TextView) findViewById(R.id.transcriptionTextView);
@@ -160,6 +158,7 @@ public class TranscriptionTestActivity extends Activity {
 				if (rightAnswer.getLearnedPercentage() == 1) {
 					App.vp.makeWordLearned(rightAnswer, getContentResolver(),true);
 				}
+				App.vs.update(rightAnswer, getContentResolver());
 				// change color to green and fade out
 				isRight.setText("Correct!");
 				adapter.changeColor(view, Color.parseColor("#669900"));

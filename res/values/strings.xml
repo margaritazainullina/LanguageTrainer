@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Greeting activity -->
+    <string name="greeting">Welcome to JLPT trainer. </string>
+    <string name="info">You can take a level definition test or choose target level, if you\'re confident in your knowledge. You can choose another level anytime you want with saving all information.</string>
+    <string name="take_test">Take a test</string>
+    <string name="start_learning">Start learning</string>
+    <string name="level">Level:</string>
+    <string name="title_greeting">Greeting</string>
+    <!-- Level defining -->
+    <string name="title_level_def_test_activity">Test</string>
+    <!--  -->
     <string name="app_name">JLPT Trainer</string>
     <string name="title">JLPT Trainer</string>
     <string name="action_settings">action_settings</string>
@@ -28,8 +39,8 @@
     <string name="settings">Settings</string>
     <!-- Vocabulary activity fragment -->
     <string name="you_have_learned">You have learned </string>
-        <!-- Result activity -->
-    <string name="you_havent_learned_any_word">You haven"'" learned any word :(</string>
+    <!-- Result activity -->
+    <string name="you_havent_learned_any_word">You haven\t learned any word :(</string>
     <string name="by_now_youve_learned">By now you have learned </string>
     <string name="percentage_of_voc"> % of vocabulary</string>
     <string name="pay_attention_to_words">Pay attention to words:</string>
@@ -37,7 +48,8 @@
     <string name="good">Good! </string>
     <string name="more_atentive">You should be more attentive! </string>
     <string name="correct_answer_rate">Your correct answer rate is </string>
-    <string name="enough">It"'"s enough vocabulary for today. </string>
+    <string name="enough">It\'s enough vocabulary for today. </string>
     <string name="youve_learned">Words learned </string>
+    <string name="to_main_menu">Return to main menu </string>
 
 </resources>

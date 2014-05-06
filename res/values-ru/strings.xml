@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Greeting activity -->
+    <string name="greeting">Добро пожаловать в программу JLPT trainer.</string>
+    <string name="info">Вы можете пройти небольшой тест на определение уровня или выбрать уровень самостоятельно, если вы уверены. Уровнь можно поменять в настройках в любой момент и вернуться к нему с сохранением всей информации о прохождении. </string>
+    <string name="take_test">Пройти тест</string>
+    <string name="start_learning">Начать изучение</string>
+    <string name="level">Уровень:</string>
+    <string name="title_greeting">Приветствие</string>
+    <!-- Level defining -->
+    <string name="title_level_def_test_activity">Тест</string>
+    <!--  -->
+    <string name="app_name">JLPT Trainer</string>
+    <string name="title">JLPT Trainer</string>
+    <string name="action_settings">action_settings</string>
+    <string name="title_activity_vocabulary">VocabularyActivity</string>
+    <string name="title_activity_grammar">GrammarActivity</string>
+    <!-- Vocabulary activity -->
+    <string name="practice_words">Учить слова</string>
+    <string name="title_activity_word_practice">Слова для запоминания</string>
+    <string name="title_activity_word_practice_result">Your result</string>
+    <string name="previous">Назад</string>
+    <string name="next">Далее</string>
+    <string name="i_already_know">Я уже знаю это слово</string>
+    <string name="skip">Пропустить упражнение</string>
+    <string name="skipIntroduction">Перейти к упражнениям </string>
+    <string name="ok">OK</string>
+    <string name="repeatTraining">Пройти еще раз</string>
+    <string name="title_translation_test_activity">Выберите правильный вариант перевода из списка</string>
+    <string name="title_transcription_test_activity">Выберите правильное чтение из списка </string>
+    <string name="title_activity_match_the_words">Поставьте в соответствие слово, произношение и перевод</string>
+    <!-- Main activity -->
+    <string name="your_level">Ваш уровень: N</string>
+    <string name="vocabulary">Слова</string>
+    <string name="grammar">Грамматика</string>
+    <string name="listening">Аудирование</string>
+    <string name="mock_tests">Тесты</string>
+    <string name="other">Дополнительно</string>
+    <string name="settings">Настройки</string>
+    <!-- Vocabulary activity fragment -->
+    <string name="you_have_learned">Вы выучили </string>
+    <!-- Result activity -->
+    <string name="you_havent_learned_any_word">Вы не выучили ни одного слова :(</string>
+    <string name="by_now_youve_learned">Всего выучено слов </string>
+    <string name="percentage_of_voc"> % от всех слов</string>
+    <string name="pay_attention_to_words">Обратите вниание на слова:</string>
+    <string name="great">Отлично! </string>
+    <string name="good">Хорошо! </string>
+    <string name="more_atentive">Будьте внимательнее! </string>
+    <string name="correct_answer_rate">Ваш процент правильных ответов состаляет </string>
+    <string name="enough">Достаточно прохождения на сегодня. </string>
+    <string name="youve_learned">Выучено слов </string>
+    <string name="to_main_menu">Вернуться в главное меню</string>
+
+</resources>

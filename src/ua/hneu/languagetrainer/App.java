@@ -4,16 +4,19 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import ua.hneu.edu.languagetrainer.R;
+import ua.hneu.languagetrainer.masterdetailflow.ItemDetailActivity;
 import ua.hneu.languagetrainer.masterdetailflow.MainMenuValues;
 import ua.hneu.languagetrainer.model.User;
 import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
 import ua.hneu.languagetrainer.model.vocabulary.WordDictionary;
+import ua.hneu.languagetrainer.pages.GreetingActivity;
 import ua.hneu.languagetrainer.passing.VocabularyPassing;
 import ua.hneu.languagetrainer.service.UserService;
 import ua.hneu.languagetrainer.service.VocabularyService;
 import android.app.Application;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 
 public class App extends Application {
 
@@ -60,39 +63,60 @@ public class App extends Application {
 
 		cr = getContentResolver();
 		VocabularyService vs = new VocabularyService();
+		/*
+		 * vs.dropTable(); vs.createTable(); vs.bulkInsertFromCSV("N5.txt",
+		 * getAssets(), 5, getContentResolver()); vs.bulkInsertFromCSV("N4.txt",
+		 * getAssets(), 4, getContentResolver()); vs.bulkInsertFromCSV("N3.txt",
+		 * getAssets(), 3, getContentResolver()); vs.bulkInsertFromCSV("N3.txt",
+		 * getAssets(), 2, getContentResolver()); vs.bulkInsertFromCSV("N1.txt",
+		 * getAssets(), 1, getContentResolver()); us.dropTable();
+		 * us.createTable();
+		 */
 
-		/*vs.dropTable();
-		vs.createTable();
-		vs.bulkInsertFromCSV("N5.txt", getAssets(), 5, getContentResolver());
-		/*vs.bulkInsertFromCSV("N4.txt", getAssets(), 4, getContentResolver());
-		vs.bulkInsertFromCSV("N3.txt", getAssets(), 3, getContentResolver());
-		vs.bulkInsertFromCSV("N3.txt", getAssets(), 2, getContentResolver());
-		vs.bulkInsertFromCSV("N1.txt", getAssets(), 1, getContentResolver());
-		us.dropTable();
-		us.createTable();
-		User u = new User(1, 5, 0, vs.getNumberOfWordsInLevel(5, cr), 0, 0,
-				0, 0, 0, 0, 0, 0, 10, 10, 0, 1);
-		us.insert(u, cr);*/
-		// fetch user data from db
-		userInfo = us.selectUser(getContentResolver(), 1);
+		// if it isn't first time when launching app - user exists in db
+		User currentUser =us.getUserWithCurrentLevel(cr);
+		if (currentUser != null) {
+			// fetch user data from db
+			userInfo = currentUser;
+			// if level is 5 or 4 - show romaji in tests
+			if (userInfo.getLevel() == 4 || userInfo.getLevel() == 5)
+				isShowRomaji = true;
+			else
+				isShowRomaji = false;
 
-		// if level is 5 or 4 - show romaji in tests
-		if (userInfo.getLevel() == 4 || userInfo.getLevel() == 5)
-			isShowRomaji = true;
-		else
-			isShowRomaji = false;
+			// load dictionary
+			currentDictionary = VocabularyService.createCurrentDictionary(
+					userInfo.getLevel(),
+					userInfo.getNumberOfEntriesInCurrentDict(), cr);
 
-		// load dictionary currentDictionary =
-		currentDictionary = VocabularyService.createCurrentDictionary(
-				userInfo.getLevel(),
-				userInfo.getNumberOfEntriesInCurrentDict(), cr);
-
+		}
 		App.context = getApplicationContext();
 		super.onCreate();
 	}
 
 	public static void updateUserData() {
 		us.update(userInfo, cr);
+	}
+
+	public static void goToLevel(int level) {
+		// if user with this level doesn't exist - create new user with new
+		// level
+		User currentUser = us.selectUser(cr, level);
+		if (currentUser == null) {
+			int id = us.getNumberOfUsers(cr) + 1;
+			userInfo = new User(id, level, 0,
+					vs.getNumberOfWordsInLevel(5, cr), 0, 0, 0, 0, 0, 0, 0, 0,
+					10, 10, 0, 1, 1);
+			us.insert(userInfo, cr);
+			// load dictionary
+			currentDictionary = VocabularyService.createCurrentDictionary(
+					userInfo.getLevel(),
+					userInfo.getNumberOfEntriesInCurrentDict(), cr);
+		} else {
+			userInfo = currentUser;
+			us.update(userInfo, cr);
+		}
+
 	}
 
 }

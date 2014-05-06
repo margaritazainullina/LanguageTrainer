@@ -1,6 +1,7 @@
 package ua.hneu.languagetrainer.masterdetailflow;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.App.Languages;
+import ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity;
 
 /**
  * A fragment representing a single Item detail screen. This fragment is either
@@ -79,7 +81,7 @@ public class VocabularyActivityFragment extends Fragment {
 			if (App.lang == Languages.RUS) {
 				if (learned % 10 == 1)
 					info += "слово из";
-				else if (learned % 10 >= 1 || learned % 10 < 5)
+				else if (learned % 10 >= 1 && learned % 10 < 5)
 					info += "слова из";
 				else
 					info += "слов из";
@@ -95,5 +97,5 @@ public class VocabularyActivityFragment extends Fragment {
 			progressBar.setProgress(learnedPersentage);
 		}
 		return rootView;
-	}
+	}	
 }

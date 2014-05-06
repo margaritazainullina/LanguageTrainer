@@ -1,6 +1,7 @@
 package ua.hneu.languagetrainer.service;
 
 import ua.hneu.languagetrainer.db.dao.UserDAO;
+import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
 import ua.hneu.languagetrainer.model.User;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -17,7 +18,7 @@ public class UserService {
 		values.put(UserDAO.LEARNEDGRAMMAR, u.getLearnedGrammar());
 		values.put(UserDAO.ALLGRAMMAR, u.getNumberOfGrammarInLevel());
 		values.put(UserDAO.LEARNEDAUDIO, u.getLearnedAudio());
-		values.put(UserDAO.ALLAUDIO, u.getNumberOfAudioInLevel());		
+		values.put(UserDAO.ALLAUDIO, u.getNumberOfAudioInLevel());
 		values.put(UserDAO.LEARNEDGIONGO, u.getLearnedGiongo());
 		values.put(UserDAO.ALLGIONGO, u.getNumberOfGiongoInLevel());
 		values.put(UserDAO.LEARNEDCWORDS, u.getLearnedCounterWords());
@@ -26,7 +27,9 @@ public class UserService {
 		values.put(UserDAO.REPETATIONNUM,
 				u.getNumberOfRepeatationsForLearning());
 		values.put(UserDAO.TESTAVG, u.getTestAveragePercentage());
-		values.put(UserDAO.ISLEVELLAUNCHEDFIRSTTIME, u.getIsLevelLaunchedFirstTime());
+		values.put(UserDAO.ISLEVELLAUNCHEDFIRSTTIME,
+				u.getIsLevelLaunchedFirstTime());
+		values.put(UserDAO.ISCURRENTLEVEL, u.getIsCurrentLevel());
 		cr.insert(UserDAO.CONTENT_URI, values);
 	}
 
@@ -38,7 +41,7 @@ public class UserService {
 		values.put(UserDAO.LEARNEDGRAMMAR, u.getLearnedGrammar());
 		values.put(UserDAO.ALLGRAMMAR, u.getNumberOfGrammarInLevel());
 		values.put(UserDAO.LEARNEDAUDIO, u.getLearnedAudio());
-		values.put(UserDAO.ALLAUDIO, u.getNumberOfAudioInLevel());		
+		values.put(UserDAO.ALLAUDIO, u.getNumberOfAudioInLevel());
 		values.put(UserDAO.LEARNEDGIONGO, u.getLearnedGiongo());
 		values.put(UserDAO.ALLGIONGO, u.getNumberOfGiongoInLevel());
 		values.put(UserDAO.LEARNEDCWORDS, u.getLearnedCounterWords());
@@ -47,7 +50,9 @@ public class UserService {
 		values.put(UserDAO.REPETATIONNUM,
 				u.getNumberOfRepeatationsForLearning());
 		values.put(UserDAO.TESTAVG, u.getTestAveragePercentage());
-		values.put(UserDAO.ISLEVELLAUNCHEDFIRSTTIME, u.getIsLevelLaunchedFirstTime());
+		values.put(UserDAO.ISLEVELLAUNCHEDFIRSTTIME,
+				u.getIsLevelLaunchedFirstTime());
+		values.put(UserDAO.ISCURRENTLEVEL, u.getIsCurrentLevel());
 		cr.update(UserDAO.CONTENT_URI, values, "_ID=" + u.getId(), null);
 	}
 
@@ -56,43 +61,38 @@ public class UserService {
 	}
 
 	public void createTable() {
-		SQLiteDatabase db= UserDAO.getDb();
-		db.execSQL(
-				"CREATE TABLE " + UserDAO.TABLE_NAME
-						+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-						+ UserDAO.LEVEL+ " INTEGER, " 
-						+ UserDAO.LEARNEDVOC + " INTEGER, "
-						+ UserDAO.ALLVOC + " INTEGER, "
-						+ UserDAO.LEARNEDGRAMMAR + " INTEGER, "
-						+ UserDAO.ALLGRAMMAR + " INTEGER, "
-						+ UserDAO.LEARNEDAUDIO + " INTEGER, "
-						+ UserDAO.ALLAUDIO + " INTEGER, "
-						+ UserDAO.LEARNEDGIONGO + " INTEGER,"
-						+ UserDAO.ALLGIONGO + " INTEGER, "
-						+ UserDAO.LEARNEDCWORDS + " INTEGER,"
-						+ UserDAO.ALLCWORDS + " INTEGER," 
-						+ UserDAO.CURDICTSIZE + " INTEGER," 
-						+ UserDAO.REPETATIONNUM + " INTEGER,"
-						+ UserDAO.TESTAVG + " REAL,"
-						+ UserDAO.ISLEVELLAUNCHEDFIRSTTIME+" INTEGER);");
+		SQLiteDatabase db = UserDAO.getDb();
+		db.execSQL("CREATE TABLE " + UserDAO.TABLE_NAME
+				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " + UserDAO.LEVEL
+				+ " INTEGER, " + UserDAO.LEARNEDVOC + " INTEGER, "
+				+ UserDAO.ALLVOC + " INTEGER, " + UserDAO.LEARNEDGRAMMAR
+				+ " INTEGER, " + UserDAO.ALLGRAMMAR + " INTEGER, "
+				+ UserDAO.LEARNEDAUDIO + " INTEGER, " + UserDAO.ALLAUDIO
+				+ " INTEGER, " + UserDAO.LEARNEDGIONGO + " INTEGER,"
+				+ UserDAO.ALLGIONGO + " INTEGER, " + UserDAO.LEARNEDCWORDS
+				+ " INTEGER," + UserDAO.ALLCWORDS + " INTEGER,"
+				+ UserDAO.CURDICTSIZE + " INTEGER," + UserDAO.REPETATIONNUM
+				+ " INTEGER," + UserDAO.TESTAVG + " REAL,"
+				+ UserDAO.ISLEVELLAUNCHEDFIRSTTIME + " INTEGER,"
+				+ UserDAO.ISCURRENTLEVEL + " INTEGER);");
 	}
 
 	public void dropTable() {
 		UserDAO.getDb().execSQL("DROP TABLE " + UserDAO.TABLE_NAME + ";");
 	}
 
-	public User selectUser(ContentResolver cr,int id) {
+	public User selectUser(ContentResolver cr, int level) {
 		String[] selectionArgs = { UserDAO.ID, UserDAO.LEVEL,
 				UserDAO.LEARNEDVOC, UserDAO.ALLVOC, UserDAO.LEARNEDGRAMMAR,
-				UserDAO.ALLGRAMMAR, UserDAO.LEARNEDAUDIO,UserDAO.ALLAUDIO,
-				UserDAO.LEARNEDGIONGO,UserDAO.ALLGIONGO, UserDAO.LEARNEDCWORDS,
-				UserDAO.ALLCWORDS, UserDAO.CURDICTSIZE, UserDAO.REPETATIONNUM,
-				UserDAO.TESTAVG, UserDAO.ISLEVELLAUNCHEDFIRSTTIME};
-		
-		Cursor c = cr.query(UserDAO.CONTENT_URI, selectionArgs, "_ID=" + id, null,
-				null, null);
+				UserDAO.ALLGRAMMAR, UserDAO.LEARNEDAUDIO, UserDAO.ALLAUDIO,
+				UserDAO.LEARNEDGIONGO, UserDAO.ALLGIONGO,
+				UserDAO.LEARNEDCWORDS, UserDAO.ALLCWORDS, UserDAO.CURDICTSIZE,
+				UserDAO.REPETATIONNUM, UserDAO.TESTAVG,
+				UserDAO.ISLEVELLAUNCHEDFIRSTTIME, UserDAO.ISCURRENTLEVEL };
 
-		int userLevel = -1;
+		Cursor c = cr.query(UserDAO.CONTENT_URI, selectionArgs, UserDAO.LEVEL
+				+ "=" + level, null, null, null);
+		int id = 0;
 		int learnedVocabulary = 0;
 		int numberOfVocabularyInLevel = 0;
 		int learnedGrammar = 0;
@@ -107,12 +107,12 @@ public class UserService {
 		int numberOfRepeatationsForLearning = 0;
 		double testAveragePercentage = 0;
 		int isLevelLaunchedFirstTime = 1;
-		
+		int isCurrentLevel = 1;
 		c.moveToFirst();
-		
+		boolean isNotNull = false;
 		while (!c.isAfterLast()) {
+			isNotNull = true;
 			id = c.getInt(0);
-			userLevel = c.getInt(1);
 			learnedVocabulary = c.getInt(2);
 			numberOfVocabularyInLevel = c.getInt(3);
 			learnedGrammar = c.getInt(4);
@@ -120,22 +120,102 @@ public class UserService {
 			learnedAudio = c.getInt(6);
 			numberOfAudioInLevel = c.getInt(7);
 			learnedGiongo = c.getInt(8);
-			numberOfGiongoInLevel = c.getInt(9 );
+			numberOfGiongoInLevel = c.getInt(9);
 			learnedCounterWords = c.getInt(10);
 			numberOfCounterWordsInLevel = c.getInt(11);
 			numberOfEntriesInCurrentDict = c.getInt(12);
 			numberOfRepeatationsForLearning = c.getInt(13);
 			testAveragePercentage = c.getDouble(14);
 			isLevelLaunchedFirstTime = c.getInt(15);
+			isCurrentLevel = c.getInt(16);
 			c.moveToNext();
 		}
 		c.close();
-		User u = new User(id, userLevel, learnedVocabulary,
-				numberOfVocabularyInLevel, learnedGrammar,
-				numberOfGrammarInLevel, learnedAudio, numberOfAudioInLevel,
-				learnedGiongo, numberOfGiongoInLevel, learnedCounterWords,
-				numberOfCounterWordsInLevel, numberOfEntriesInCurrentDict,
-				numberOfRepeatationsForLearning, testAveragePercentage, isLevelLaunchedFirstTime);
-		return u;
+		if (isNotNull) {
+			User u = new User(id, level, learnedVocabulary,
+					numberOfVocabularyInLevel, learnedGrammar,
+					numberOfGrammarInLevel, learnedAudio, numberOfAudioInLevel,
+					learnedGiongo, numberOfGiongoInLevel, learnedCounterWords,
+					numberOfCounterWordsInLevel, numberOfEntriesInCurrentDict,
+					numberOfRepeatationsForLearning, testAveragePercentage,
+					isLevelLaunchedFirstTime, isCurrentLevel);
+			return u;
+		} else
+			return null;
+	}
+
+	public int getNumberOfUsers(ContentResolver cr) {
+		Cursor countCursor = cr.query(UserDAO.CONTENT_URI,
+				new String[] { "count(*) AS count" }, null, null, null);
+
+		countCursor.moveToFirst();
+		int count = countCursor.getInt(0);
+		countCursor.close();
+		return count;
+	}
+
+	public User getUserWithCurrentLevel(ContentResolver cr) {
+		String[] selectionArgs = { UserDAO.ID, UserDAO.LEVEL,
+				UserDAO.LEARNEDVOC, UserDAO.ALLVOC, UserDAO.LEARNEDGRAMMAR,
+				UserDAO.ALLGRAMMAR, UserDAO.LEARNEDAUDIO, UserDAO.ALLAUDIO,
+				UserDAO.LEARNEDGIONGO, UserDAO.ALLGIONGO,
+				UserDAO.LEARNEDCWORDS, UserDAO.ALLCWORDS, UserDAO.CURDICTSIZE,
+				UserDAO.REPETATIONNUM, UserDAO.TESTAVG,
+				UserDAO.ISLEVELLAUNCHEDFIRSTTIME, UserDAO.ISCURRENTLEVEL };
+
+		Cursor c = cr.query(UserDAO.CONTENT_URI, selectionArgs,
+				UserDAO.ISCURRENTLEVEL + "=" + 1, null, null, null);
+		int id = 0;
+		int level = 0;
+		int learnedVocabulary = 0;
+		int numberOfVocabularyInLevel = 0;
+		int learnedGrammar = 0;
+		int numberOfGrammarInLevel = 0;
+		int learnedAudio = 0;
+		int numberOfAudioInLevel = 0;
+		int learnedGiongo = 0;
+		int numberOfGiongoInLevel = 0;
+		int learnedCounterWords = 0;
+		int numberOfCounterWordsInLevel = 0;
+		int numberOfEntriesInCurrentDict = 0;
+		int numberOfRepeatationsForLearning = 0;
+		double testAveragePercentage = 0;
+		int isLevelLaunchedFirstTime = 1;
+		int isCurrentLevel = 1;
+		c.moveToFirst();
+		boolean isUserExists = false;
+		while (!c.isAfterLast()) {
+			isUserExists = true;
+			id = c.getInt(0);
+			level = c.getInt(1);
+			learnedVocabulary = c.getInt(2);
+			numberOfVocabularyInLevel = c.getInt(3);
+			learnedGrammar = c.getInt(4);
+			numberOfGrammarInLevel = c.getInt(5);
+			learnedAudio = c.getInt(6);
+			numberOfAudioInLevel = c.getInt(7);
+			learnedGiongo = c.getInt(8);
+			numberOfGiongoInLevel = c.getInt(9);
+			learnedCounterWords = c.getInt(10);
+			numberOfCounterWordsInLevel = c.getInt(11);
+			numberOfEntriesInCurrentDict = c.getInt(12);
+			numberOfRepeatationsForLearning = c.getInt(13);
+			testAveragePercentage = c.getDouble(14);
+			isLevelLaunchedFirstTime = c.getInt(15);
+			isCurrentLevel = c.getInt(16);
+			c.moveToNext();
+		}
+		c.close();
+		if (isUserExists) {
+			User u = new User(id, level, learnedVocabulary,
+					numberOfVocabularyInLevel, learnedGrammar,
+					numberOfGrammarInLevel, learnedAudio, numberOfAudioInLevel,
+					learnedGiongo, numberOfGiongoInLevel, learnedCounterWords,
+					numberOfCounterWordsInLevel, numberOfEntriesInCurrentDict,
+					numberOfRepeatationsForLearning, testAveragePercentage,
+					isLevelLaunchedFirstTime, isCurrentLevel);
+			return u;
+		} else
+			return null;
 	}
 }

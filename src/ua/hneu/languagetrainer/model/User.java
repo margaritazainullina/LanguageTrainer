@@ -31,6 +31,7 @@ public class User {
 	// if user created - VocabularyService.all hasn't been created
 	// 1-true, 0-false for storing in db
 	public int isLevelLaunchedFirstTime = 1;
+	public int isCurrentLevel = 1;
 
 	public User(int id, int userLevel, int learnedVocabulary,
 			int numberOfVocabularyInLevel, int learnedGrammar,
@@ -39,7 +40,7 @@ public class User {
 			int numberOfGiongoInLevel, int learnedCounterWords,
 			int numberOfCounterWordsInLevel, int numberOfEntriesInCurrentDict,
 			int numberOfRepeatationsForLearning, double testAveragePercentage,
-			int isLevelLaunchedFirstTime) {
+			int isLevelLaunchedFirstTime, int isCurrentLevel) {
 		super();
 		this.id = id;
 		this.userLevel = userLevel;
@@ -57,6 +58,15 @@ public class User {
 		this.numberOfRepeatationsForLearning = numberOfRepeatationsForLearning;
 		this.testAveragePercentage = testAveragePercentage;
 		this.isLevelLaunchedFirstTime = isLevelLaunchedFirstTime;
+		this.isCurrentLevel = isCurrentLevel;
+	}
+
+	public int getIsCurrentLevel() {
+		return isCurrentLevel;
+	}
+
+	public void setIsCurrentLevel(int isCurrentLevel) {
+		this.isCurrentLevel = isCurrentLevel;
 	}
 
 	public int getId() {
