@@ -63,15 +63,20 @@ public class App extends Application {
 		cr = getContentResolver();
 		VocabularyService vs = new VocabularyService();
 
+<<<<<<< HEAD
 		/*
 		 //vocabulary
 		vs.dropTable();
+=======
+		/*vs.dropTable();
+>>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 		vs.createTable();
 		vs.bulkInsertFromCSV("N5.txt", getAssets(), 5, getContentResolver());
 		vs.bulkInsertFromCSV("N4.txt", getAssets(), 4, getContentResolver());
 		vs.bulkInsertFromCSV("N3.txt", getAssets(), 3, getContentResolver());
 		vs.bulkInsertFromCSV("N3.txt", getAssets(), 2, getContentResolver());
 		vs.bulkInsertFromCSV("N1.txt", getAssets(), 1, getContentResolver());
+<<<<<<< HEAD
 		//user
 		us.dropTable();
 		us.createTable();
@@ -87,6 +92,10 @@ public class App extends Application {
 		qs.createTable();
 		as.createTable();		
 		ts.insertFromXml("level_def_test.xml", getAssets(), getContentResolver());*/
+=======
+		us.dropTable();
+		us.createTable();*/
+>>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 
 		// if it isn't first time when launching app - user exists in db
 		User currentUser = us.getUserWithCurrentLevel(cr);
