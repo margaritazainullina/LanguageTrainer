@@ -3,6 +3,9 @@ package ua.hneu.languagetrainer.pages;
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.masterdetailflow.ItemListActivity;
+import ua.hneu.languagetrainer.service.AnswerService;
+import ua.hneu.languagetrainer.service.QuestionService;
+import ua.hneu.languagetrainer.service.TestService;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,7 +23,7 @@ public class GreetingActivity extends Activity {
 		setContentView(R.layout.activity_greeting);
 		buttonTakeTest = (Button) findViewById(R.id.buttonTakeTest);
 		buttonStart = (Button) findViewById(R.id.buttonStart);
-
+		
 	}
 
 	public void buttonTakeTestOnClick(View v) {

@@ -1,4 +1,5 @@
 package ua.hneu.languagetrainer.db.dao;
+
 import java.util.HashMap;
 
 import ua.hneu.languagetrainer.db.DictionaryDbHelper;
@@ -13,32 +14,24 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.text.TextUtils;
 
-public class VocabularyDAO extends ContentProvider {
+public class TestDAO extends ContentProvider {
 
-	public static String TABLE_NAME = "vocabulary";
+	public static String TABLE_NAME = "test";
 	public static final String ID = "_id";
-	public static final String KANJI = "kanji";
 	public static final String LEVEL = "level";
-	public static final String TRANSCRIPTION = "transcription";
-	public static final String ROMAJI = "romaji";
-	public static final String TRANSLATIONS = "translations";
-	public static final String TRANSLATIONS_RUS = "translations_rus";
-	public static final String EXAMPLES = "examples";
-	public static final String PERCENTAGE = "percentage";
-	public static final String SHOWNTIMES = "showntimes";
-	public static final String LASTVIEW = "lastview";
-	public static final String COLOR = "color";
+	public static final String TYPE = "learnedVocabulary";
 
 	public static final Uri CONTENT_URI = Uri
-			.parse("content://ua.edu.hneu.languagetrainer.db.vocabularyprovider/dictionary");
+			.parse("content://ua.edu.hneu.languagetrainer.db.testprovider/dictionary");
+	
 	public static final int URI_CODE = 1;
 	public static final int URI_CODE_ID = 2;
-
+	
 	private static final UriMatcher mUriMatcher;
 
 	private static HashMap<String, String> mContactMap;
 
-	static SQLiteDatabase db;
+	private static SQLiteDatabase db;
 
 	static {
 		mUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -48,18 +41,9 @@ public class VocabularyDAO extends ContentProvider {
 
 		mContactMap = new HashMap<String, String>();
 		mContactMap.put(DictionaryDbHelper._ID, DictionaryDbHelper._ID);
-		mContactMap.put(KANJI, KANJI);
 		mContactMap.put(LEVEL, LEVEL);
-		mContactMap.put(TRANSCRIPTION, TRANSCRIPTION);
-		mContactMap.put(ROMAJI, ROMAJI);
-		mContactMap.put(TRANSLATIONS, TRANSLATIONS);
-		mContactMap.put(TRANSLATIONS_RUS, TRANSLATIONS_RUS);
-		mContactMap.put(EXAMPLES, EXAMPLES);
-		mContactMap.put(PERCENTAGE, PERCENTAGE);
-		mContactMap.put(LASTVIEW, LASTVIEW);
-		mContactMap.put(SHOWNTIMES, SHOWNTIMES);
-		mContactMap.put(COLOR, COLOR);
-	}
+		mContactMap.put(TYPE, TYPE);
+		}
 
 	public String getDbName() {
 		return (DictionaryDbHelper.DB_NAME);
@@ -74,14 +58,14 @@ public class VocabularyDAO extends ContentProvider {
 		db = (new DictionaryDbHelper(getContext())).getWritableDatabase();
 		return (db == null) ? false : true;
 	}
-	
+
 	@Override
 	public Cursor query(Uri url, String[] projection, String selection,
 			String[] selectionArgs, String sort) {
 
 		String orderBy;
 		if (TextUtils.isEmpty(sort)) {
-			orderBy = ID;
+			orderBy = LEVEL;
 		} else {
 			orderBy = sort;
 		}
@@ -97,7 +81,7 @@ public class VocabularyDAO extends ContentProvider {
 
 		ContentValues values = new ContentValues(inValues);
 
-		long rowId = db.insert(TABLE_NAME, KANJI, values);
+		long rowId = db.insert(TABLE_NAME, LEVEL, values);
 		if (rowId > 0) {
 			Uri uri = ContentUris.withAppendedId(CONTENT_URI, rowId);
 			getContext().getContentResolver().notifyChange(uri, null);

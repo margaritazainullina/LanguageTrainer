@@ -1,22 +1,20 @@
 package ua.hneu.languagetrainer;
 
-import java.util.ArrayList;
 import java.util.Locale;
 
 import ua.hneu.edu.languagetrainer.R;
-import ua.hneu.languagetrainer.masterdetailflow.ItemDetailActivity;
 import ua.hneu.languagetrainer.masterdetailflow.MainMenuValues;
 import ua.hneu.languagetrainer.model.User;
-import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
 import ua.hneu.languagetrainer.model.vocabulary.WordDictionary;
-import ua.hneu.languagetrainer.pages.GreetingActivity;
 import ua.hneu.languagetrainer.passing.VocabularyPassing;
+import ua.hneu.languagetrainer.service.AnswerService;
+import ua.hneu.languagetrainer.service.QuestionService;
+import ua.hneu.languagetrainer.service.TestService;
 import ua.hneu.languagetrainer.service.UserService;
 import ua.hneu.languagetrainer.service.VocabularyService;
 import android.app.Application;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.Intent;
 
 public class App extends Application {
 
@@ -41,6 +39,7 @@ public class App extends Application {
 
 	@Override
 	public void onCreate() {
+		
 		// get current location
 		if (Locale.getDefault().getDisplayLanguage().equals("русский"))
 			lang = Languages.RUS;
@@ -64,15 +63,30 @@ public class App extends Application {
 		cr = getContentResolver();
 		VocabularyService vs = new VocabularyService();
 
-		/*vs.dropTable();
+		/*
+		 //vocabulary
+		vs.dropTable();
 		vs.createTable();
 		vs.bulkInsertFromCSV("N5.txt", getAssets(), 5, getContentResolver());
 		vs.bulkInsertFromCSV("N4.txt", getAssets(), 4, getContentResolver());
 		vs.bulkInsertFromCSV("N3.txt", getAssets(), 3, getContentResolver());
 		vs.bulkInsertFromCSV("N3.txt", getAssets(), 2, getContentResolver());
 		vs.bulkInsertFromCSV("N1.txt", getAssets(), 1, getContentResolver());
+		//user
 		us.dropTable();
-		us.createTable();*/
+		us.createTable();
+		//test	
+		TestService ts= new TestService();
+		QuestionService qs= new QuestionService();
+		QuestionService.startCounting(getContentResolver());
+		AnswerService as= new AnswerService();
+		ts.dropTable();
+		qs.dropTable();
+		as.dropTable();
+		ts.createTable();
+		qs.createTable();
+		as.createTable();		
+		ts.insertFromXml("level_def_test.xml", getAssets(), getContentResolver());*/
 
 		// if it isn't first time when launching app - user exists in db
 		User currentUser = us.getUserWithCurrentLevel(cr);

@@ -1,10 +1,13 @@
 package ua.hneu.languagetrainer.model.tests;
 
+import java.util.ArrayList;
+
 public class Question {
 	private int id;
 	private String title;
 	private String text;
 	private double weight;
+	private ArrayList<Answer> answers;
 
 	public int getId() {
 		return id;
@@ -38,11 +41,22 @@ public class Question {
 		this.weight = weight;
 	}
 
-	public Question(int id, String title, String text, double weight) {
+	public ArrayList<Answer> getAnswers() {
+		return answers;
+	}
+
+	public void setAnswers(ArrayList<Answer> answers) {
+		this.answers = answers;
+	}
+
+	public Question(int id, String title, String text, double weight,
+			ArrayList<Answer> answers) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.text = text;
 		this.weight = weight;
+		this.answers = answers;
 	}
+
 }

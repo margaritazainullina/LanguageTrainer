@@ -3,11 +3,21 @@ package ua.hneu.languagetrainer.model.tests;
 import java.util.ArrayList;
 
 public class Test {
+	private int id;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	private ArrayList<Question> questions;
 	private int level;
-	private Type testType; 
+	private Type testType;
 
-	private enum Type {
+	public enum Type {
 		LEVEL_DEF, MOCK_TEST
 	}
 
@@ -27,10 +37,6 @@ public class Test {
 		this.level = level;
 	}
 
-	public Type getTestType() {
-		return testType;
-	}
-
 	public void setTestType(Type testType) {
 		this.testType = testType;
 	}
@@ -41,5 +47,16 @@ public class Test {
 		this.level = level;
 		this.testType = testType;
 	}
-	
+
+	public Test() {
+		questions=new ArrayList<Question>();
+	}
+
+	public void addQuestion(Question q) {
+		this.questions.add(q);
+	}
+
+	public String getTestType() {
+		return testType.toString();
+	}
 }

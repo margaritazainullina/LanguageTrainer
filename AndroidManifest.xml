@@ -21,12 +21,23 @@
         <provider 
             android:name="ua.hneu.languagetrainer.db.dao.VocabularyDAO"
             android:authorities="ua.edu.hneu.languagetrainer.db.vocabularyprovider">   
-        </provider> 
-        
+        </provider>         
          <provider 
             android:name="ua.hneu.languagetrainer.db.dao.UserDAO"
             android:authorities="ua.edu.hneu.languagetrainer.db.userprovider">   
         </provider>   
+        <provider 
+            android:name="ua.hneu.languagetrainer.db.dao.TestDAO"
+            android:authorities="ua.edu.hneu.languagetrainer.db.testprovider">   
+        </provider> 
+        <provider 
+            android:name="ua.hneu.languagetrainer.db.dao.QuestionDAO"
+            android:authorities="ua.edu.hneu.languagetrainer.db.questionprovider">   
+        </provider> 
+        <provider 
+            android:name="ua.hneu.languagetrainer.db.dao.AnswerDAO"
+            android:authorities="ua.edu.hneu.languagetrainer.db.answerprovider">   
+        </provider> 
           <activity
             android:name="ua.hneu.languagetrainer.masterdetailflow.ItemListActivity"
             android:label="@string/app_name" >

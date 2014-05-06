@@ -13,24 +13,16 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.text.TextUtils;
 
-public class VocabularyDAO extends ContentProvider {
+public class AnswerDAO extends ContentProvider {
 
-	public static String TABLE_NAME = "vocabulary";
+	public static String TABLE_NAME = "answer";
 	public static final String ID = "_id";
-	public static final String KANJI = "kanji";
-	public static final String LEVEL = "level";
-	public static final String TRANSCRIPTION = "transcription";
-	public static final String ROMAJI = "romaji";
-	public static final String TRANSLATIONS = "translations";
-	public static final String TRANSLATIONS_RUS = "translations_rus";
-	public static final String EXAMPLES = "examples";
-	public static final String PERCENTAGE = "percentage";
-	public static final String SHOWNTIMES = "showntimes";
-	public static final String LASTVIEW = "lastview";
-	public static final String COLOR = "color";
+	public static final String Q_ID = "question_id";
+	public static final String TEXT = "text";
+	public static final String ISCORRECT = "isCorrect";
 
 	public static final Uri CONTENT_URI = Uri
-			.parse("content://ua.edu.hneu.languagetrainer.db.vocabularyprovider/dictionary");
+			.parse("content://ua.edu.hneu.languagetrainer.db.answerprovider/dictionary");
 	public static final int URI_CODE = 1;
 	public static final int URI_CODE_ID = 2;
 
@@ -48,17 +40,9 @@ public class VocabularyDAO extends ContentProvider {
 
 		mContactMap = new HashMap<String, String>();
 		mContactMap.put(DictionaryDbHelper._ID, DictionaryDbHelper._ID);
-		mContactMap.put(KANJI, KANJI);
-		mContactMap.put(LEVEL, LEVEL);
-		mContactMap.put(TRANSCRIPTION, TRANSCRIPTION);
-		mContactMap.put(ROMAJI, ROMAJI);
-		mContactMap.put(TRANSLATIONS, TRANSLATIONS);
-		mContactMap.put(TRANSLATIONS_RUS, TRANSLATIONS_RUS);
-		mContactMap.put(EXAMPLES, EXAMPLES);
-		mContactMap.put(PERCENTAGE, PERCENTAGE);
-		mContactMap.put(LASTVIEW, LASTVIEW);
-		mContactMap.put(SHOWNTIMES, SHOWNTIMES);
-		mContactMap.put(COLOR, COLOR);
+		mContactMap.put(ISCORRECT, ISCORRECT);
+		mContactMap.put(Q_ID, Q_ID);
+		mContactMap.put(TEXT, TEXT);
 	}
 
 	public String getDbName() {
@@ -97,7 +81,7 @@ public class VocabularyDAO extends ContentProvider {
 
 		ContentValues values = new ContentValues(inValues);
 
-		long rowId = db.insert(TABLE_NAME, KANJI, values);
+		long rowId = db.insert(TABLE_NAME, ISCORRECT, values);
 		if (rowId > 0) {
 			Uri uri = ContentUris.withAppendedId(CONTENT_URI, rowId);
 			getContext().getContentResolver().notifyChange(uri, null);
