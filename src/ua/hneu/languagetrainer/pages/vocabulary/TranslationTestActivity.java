@@ -65,8 +65,9 @@ public class TranslationTestActivity extends Activity {
 	public void nextWord() {
 		// move pointer to next word
 		currentWordNumber++;
-		if (currentWordNumber >= App.currentDictionary.size() - 1) endTesting();
-		
+		if (currentWordNumber >= App.currentDictionary.size() - 1)
+			endTesting();
+
 		// set randomly direction
 		if (Math.random() < 0.5)
 			isFromJapanese = false;
@@ -117,6 +118,9 @@ public class TranslationTestActivity extends Activity {
 		transcriptionTextView.setTextColor(color);
 		romajiTextView.setTextColor(color);
 		isRight.setText("");
+		// set this word shown
+		rightAnswer.setLastView();
+		App.vs.update(rightAnswer, getContentResolver());
 	}
 
 	@Override
@@ -134,8 +138,6 @@ public class TranslationTestActivity extends Activity {
 			DictionaryEntry selected = randomDictionaryList.get(position);
 			// comparing correct and selected answer
 			if (selected == rightAnswer) {
-				// set lastView also when user answered correctly
-				rightAnswer.setLastView();
 				App.vp.incrementNumberOfCorrectAnswersInTranslation();
 				// increment percentage
 				if (!ifWasWrong)
@@ -144,7 +146,8 @@ public class TranslationTestActivity extends Activity {
 							+ App.userInfo.getPercentageIncrement());
 
 				if (rightAnswer.getLearnedPercentage() == 1) {
-					App.vp.makeWordLearned(rightAnswer, getContentResolver(),false);
+					App.vp.makeWordLearned(rightAnswer, getContentResolver(),
+							false);
 				}
 				App.vs.update(rightAnswer, getContentResolver());
 				// change color to green and fade out
@@ -223,7 +226,7 @@ public class TranslationTestActivity extends Activity {
 	}
 
 	public void buttonIAlrKnow(View v) {
-		App.vp.makeWordLearned(rightAnswer, getContentResolver(),false);
+		App.vp.makeWordLearned(rightAnswer, getContentResolver(), false);
 		nextWord();
 	}
 }

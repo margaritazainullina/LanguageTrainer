@@ -43,6 +43,7 @@
     <!-- Result activity -->
     <string name="you_havent_learned_any_word">Вы не выучили ни одного слова :(</string>
     <string name="by_now_youve_learned">Всего выучено слов </string>
+    <string name="out_of">из </string>
     <string name="percentage_of_voc"> % от всех слов</string>
     <string name="pay_attention_to_words">Обратите вниание на слова:</string>
     <string name="great">Отлично! </string>
