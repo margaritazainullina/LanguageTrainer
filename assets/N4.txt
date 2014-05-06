@@ -46,8 +46,8 @@
 祈る	いのる	inoru	to pray	молиться; желать (в поздравлении)
 	いらっしゃる	irassharu	(respectful) to be;to come or to go	(уважительно) быть; приходить
 	いっていらっしゃい (いってらっしゃい)	itteirasshai	(often in response to いってきます) have a good day; take care; see you	(часто в ответ на いっ て き ます) хорошего дня
-	いってまいります	ittemairimasu	good bye; I'm off; see you later	до свидания, я ухожу; увидимся позже
-植える	うえる	ueru	to plant;to grow	посадить ; вырастить
+	いってまいります	ittemairimasu	good bye; I'm off; see you later	до свидания; я ухожу; увидимся позже
+植える	うえる	ueru	to plant;to grow	посадить; вырастить
 	うかがう	ukagau	to visit	посещать
 受付	うけつけ	uketsuke	receipt	квитанция
 受ける	うける	ukeru	to take a lesson or test	проходить урок или тест
@@ -68,7 +68,7 @@
 運転手	うんてんしゅ	untenshu	driver	водитель
 運動	うんどう・する	undou suru	to exercise	движение; физические упражнения
 	エスカレーター	esukareetaa	escalator	эскалатор
-枝	えだ	eda	branch; twig	филиал ; ветка
+枝	えだ	eda	branch; twig	филиал; ветка
 選ぶ	えらぶ	erabu	to choose	выбрать
 遠慮	えんりょ・する	enryo suru	to be reserved; to be restrained	предусмотрительность; скромность
 	おいでになる	oideninaru	(respectful) to be	(уважительно) быть
@@ -83,7 +83,7 @@
 遅れる	おくれる	okureru	to be late	опаздывать
 起す	おこす	okosu	to wake	будить
 行う	おこなう	okonau	to do	делать; исполнять
-怒る	おこる	okoru	to get angry;to be angry	сердиться ; злиться
+怒る	おこる	okoru	to get angry;to be angry	сердиться; злиться
 押し入れ	おしいれ	oshiire	closet	стенной шкаф
 お嬢さん	おじょうさん	ojousan	young lady	девушка;барышня
 お宅	おたく	otaku	(polite) your house	(вежливо) ваш дом
@@ -91,7 +91,7 @@
 	おっしゃる	ossharu	(respectful) to say	(уважительно) говорить
 夫	おっと	otto	husband	муж
 	おつり	otsuri	change from purchase; balance	сдача
-音	おと	oto	sound;note	звук ; нота
+音	おと	oto	sound;note	звук; нота
 落す	おとす	otosu	to drop	падать
 踊り	おどり	odori	a dance	танец
 踊る	おどる	odoru	to dance	танцевать
@@ -100,7 +100,7 @@
 お見舞い	おみまい	omimai	calling on someone who is ill;enquiry	навещать больных
 お土産	おみやげ	omiyage	souvenir	сувенир
 思い出す	おもいだす	omoidasu	to remember	помнить
-思う	おもう	omou	to think;to feel	думать ; чувствовать
+思う	おもう	omou	to think;to feel	думать; чувствовать
 	おもちゃ	omocha	toy	игрушка
 表	おもて	omote	the front	передняя сторона
 親	おや	oya	parents	родители
@@ -133,7 +133,7 @@
 	かっこう	kakkou	appearance	форма; очертания
 家内	かない	kanai	housewife	домохозяйка; жена
 悲しい	かなしい	kanashii	sad	печальный
-必ず	かならず	kanarazu	certainly;necessarily	конечно ; обязательно
+必ず	かならず	kanarazu	certainly;necessarily	конечно; обязательно
 お・金持ち	かねもち/おかねもち	kanemochi/okanemochi	rich man	богач
 彼女	かのじょ	kanojo	she;girlfriend	она
 壁	かべ	kabe	wall	стена
@@ -151,12 +151,12 @@
 関係	かんけい	kankei	relationship	связь; отношение
 看護婦	かんごふ	kangofu	female nurse	медсестра; сиделка
 簡単	かんたん	kantan	simple	простой
-気	き	ki	spirit;mood	дух ; настроение
+気	き	ki	spirit;mood	дух; настроение
 機会	きかい	kikai	opportunity	возможность; шанс
 危険	きけん	kiken	danger	опасность
 聞こえる	きこえる	kikoeru	to be heard	быть слышным; звучать
 汽車	きしゃ	kisha	steam train	паровоз
-技術	ぎじゅつ	gijutsu	art;technology;skill	искусство; технология ; мастерство
+技術	ぎじゅつ	gijutsu	art;technology;skill	искусство; технология; мастерство
 季節	きせつ	kisetsu	season	сезон
 規則	きそく	kisoku	regulations	правила
 	きっと	kitto	surely	точно; обязательно
@@ -166,9 +166,9 @@
 決る	きまる	kimaru	to be decided	быть определенным
 君	きみ	kimi	(informal) You (used by men towards women)	(неофициально) Вы (используется мужчинами по отношению к женщинам)
 決める	きめる	kimeru	to decide	решать
-気持ち	きもち	kimochi	feeling;mood	чувство ; настроение
+気持ち	きもち	kimochi	feeling;mood	чувство; настроение
 着物	きもの	kimono	kimono	кимоно
-客	きゃく	kyaku	guest;customer	гость ; клиент
+客	きゃく	kyaku	guest;customer	гость; клиент
 急	きゅう	kyuu	urgent; steep	срочно
 急行	きゅうこう	kyuukou	speedy; express	экспресс
 教育	きょういく	kyouiku	education	образование
@@ -176,7 +176,7 @@
 競争	きょうそう	kyousou	competition	конкуренция
 興味	きょうみ	kyoumi	an interest	интерес
 近所	きんじょ	kinjo	neighbourhood	окрестности
-具合	ぐあい	guai	condition;health	состояние ; здоровье
+具合	ぐあい	guai	condition;health	состояние; здоровье
 空気	くうき	kuuki	air;atmosphere	воздух; атмосфера
 空港	くうこう	kuukou	airport	аэропорт
 草	くさ	kusa	grass	трава
@@ -184,7 +184,7 @@
 首	くび	kubi	neck	шея
 雲	くも	kumo	cloud	облако
 比べる	くらべる	kuraberu	to compare	сравнить
-	くれる	kureru	to give	давать, дарить (о 2-м и 3-м лице)
+	くれる	kureru	to give	давать; дарить (о 2-м и 3-м лице)
 暮れる	くれる	kureru	to get dark;to come to an end	темнеть; чтобы прийти к концу
 君	くん	kun	suffix for familiar young male	именной суффикс (используется по отношению к молодым мужчинам)
 毛	け	ke	hair or fur	шерсть; мех
@@ -194,12 +194,12 @@
 警察	けいさつ	keisatsu	police	полиция
 	ケーキ	keeki	cake	торт
 	けが・する	kega suru	to injure	ранить
-景色	けしき	keshiki	scene;landscape	сцена ; пейзаж
+景色	けしき	keshiki	scene;landscape	сцена; пейзаж
 消しゴム	けしゴム	keshigomu	eraser	ластик
 下宿	げしゅく	geshuku	lodging	жилье
 決して	けっして	kesshite	never	никогда (с отрицанием)
 	けれど/けれども	keredo/keredomo	however	однако
-原因	げんいん	genin	cause;source	причина ; источник
+原因	げんいん	genin	cause;source	причина; источник
 	けんか・する	kenka suru	to quarrel	ссориться
 研究	けんきゅう	kenkyuu	research	исследование
 研究室	けんきゅうしつ	kenkyuushitsu	study room;laboratory	кабинет; лаборатория
@@ -213,7 +213,7 @@
 高校生	こうこうせい	koukousei	high school student	учащийся средней школы
 工場	こうじょう	koujou	factory	завод
 校長	こうちょう	kouchou	headmaster	директор
-交通	こうつう	koutsuu	traffic;transportation	трафик ; транспорт
+交通	こうつう	koutsuu	traffic;transportation	трафик; транспорт
 講堂	こうどう	koudou	auditorium	аудитория
 高等学校	こうとうがっこう	koutougakkou	high school	средняя школа
 公務員	こうむいん	koumuin	government worker	политик
@@ -224,9 +224,9 @@
 ご存じ	ごぞんじ	gozonji	knowing;acquaintance	вы знаете; вам известно
 答	こたえ	kotae	response	ответ
 	ごちそう	gochisou	a feast	угощение
-	こと	koto	thing;matter	вещь ; факт; случай
+	こと	koto	thing;matter	вещь; факт; случай
 小鳥	ことり	kotori	small bird	маленькая птичка
-	このあいだ	konoaida	the other day;recently	На днях ; в последнее время
+	このあいだ	konoaida	the other day;recently	На днях; в последнее время
 	このごろ	konogoro	these days;nowadays	в настоящее время
 細かい	こまかい	komakai	small; fine	мелкий; тщательный
 	ごみ	gomi	rubbish	мусор
@@ -238,7 +238,7 @@
 壊す	こわす	kowasu	to break	ломать
 壊れる	こわれる	kowareru	to be broken	быть поломанным
 	コンサート	konsaato	concert	концерт
-今度	こんど	kondo	now;next time	теперь ; в этот раз
+今度	こんど	kondo	now;next time	теперь; в этот раз
 	コンピュータ/コンピューター	konpyuuta/konpyuutaa	computer	компьютер
 今夜	こんや	konya	tonight	сегодня вечером
 最近	さいきん	saikin	latest;nowadays	последнее время
@@ -249,7 +249,7 @@
 下る	さがる	sagaru	to get down;to descend	спускаться
 盛ん	さかん	sakan	popularity;prosperous	процветающий
 下げる	さげる	sageru	to hang;to lower;to move back	вешать; спускать
-差し上げる	さしあげる	sashiageru	(polite) to give	(вежливо) давать, поднимать
+差し上げる	さしあげる	sashiageru	(polite) to give	(вежливо) давать; поднимать
 	さっき	sakki	some time ago	некоторое время назад
 寂しい	さびしい	sabishii	lonely	одинокий
 さ来月	さらいげつ	saraigetsu	the month after next	через месяц
@@ -262,7 +262,7 @@
 	サンドイッチ	sandoicchi	sandwich	бутерброд
 残念	ざんねん	zannen	disappointment	разочарование
 市	し	shi	city	город
-死	し	shi	death, decease	смерть
+死	し	shi	death; decease	смерть
 字	じ	ji	character	знак; иероглиф
 試合	しあい	shiai	match;game	матч; игра
 仕方	しかた	shikata	method	метод
@@ -273,7 +273,7 @@
 時代	じだい	jidai	era	эпоха
 下着	したぎ	shitagi	underwear	нижнее белье
 支度	したく・する	shitaku suru	to prepare	подготовка; сборы
-	しっかり	shikkari	firmly;steadily	твердо ; неуклонно
+	しっかり	shikkari	firmly;steadily	твердо; неуклонно
 失敗	しっぱい	shippai	failure;mistake	неудача; ошибка
 辞典	じてん	jiten	dictionary	словарь
 品物	しなもの	shinamono	goods	товары
@@ -287,7 +287,7 @@
 	ジャム	jamu	jam	варенье
 自由	じゆう	jiyuu	freedom	свобода
 習慣	しゅうかん	shuukan	custom;manners	обычай; нравы
-住所	じゅうしょ	juusho	an address;a residence	адрес ; место жительства
+住所	じゅうしょ	juusho	an address;a residence	адрес; место жительства
 柔道	じゅうどう	juudou	judo	дзюдо
 十分	じゅうぶん	juubun	enough	достаточно
 出席	しゅっせき・する	shusseki suru	to attend	учавствовать; присутствовать
@@ -328,7 +328,7 @@
 	ステレオ	sutereo	stereo	стерео
 砂	すな	suna	sand	песок
 	すばらしい	subarashii	wonderful	замечательный
-滑る	すべる	suberu	to slide;to slip	скользить ; скользить
+滑る	すべる	suberu	to slide;to slip	скользить; скользить
 隅	すみ	sumi	corner;nook	угол (внешний)
 済む	すむ	sumu	to finish	заканчивать
 	すり	suri	pickpocket	карманник
@@ -359,17 +359,17 @@
 	それほど	sorehodo	to that extent	настолько; так
 	そろそろ	sorosoro	gradually;soon	постепенно; в ближайшее время
 	そんな	sonna	that sort of	такого рода
-	そんなに	sonnani	so much;like that	так много; как ; что
+	そんなに	sonnani	so much;like that	так много; как; что
 退院	たいいん・する	taiin suru	to leave hospital	выписываться из больницы
 大学生	だいがくせい	daigakusei	university student	студент университета
-大事	だいじ	daiji	important;valuable;serious matter	важно ; ценно; серьезное дело
+大事	だいじ	daiji	important;valuable;serious matter	важно; ценно; серьезное дело
 大体	だいたい	daitai	generally	обычно
 	たいてい	taitei	usually	обычно
-	タイプ	taipu	type;style	тип ; стиль
+	タイプ	taipu	type;style	тип; стиль
 大分	だいぶ	daibu	greatly	значительно
 台風	たいふう	taifuu	typhoon	тайфун
 倒れる	たおれる	taoreru	to break down	падать; валиться
-	だから	dakara	so;therefore	так ; поэтому
+	だから	dakara	so;therefore	так; поэтому
 確か	たしか	tashika	definite	определенный
 足す	たす	tasu	to add a number	складывать (о числах)
 訪ねる	たずねる	tazuneru	to visit	посещать
@@ -402,7 +402,7 @@
 	つき	tsuki	moon	луна
 付く	つく	tsuku	to be attached	приклеивать; пислонять
 漬ける	つける	tsukeru	to soak;to pickle	вымачивать; мариновать
-都合	つごう	tsugou	circumstances;convenience	обстоятельства ; положение
+都合	つごう	tsugou	circumstances;convenience	обстоятельства; положение
 伝える	つたえる	tsutaeru	to report	сообщать
 続く	つづく	tsuzuku	to be continued	продолжать
 続ける	つづける	tsuzukeru	to continue	продолжаться; следовать
@@ -426,23 +426,23 @@
 電報	でんぽう	denpou	telegram	телеграмма
 展覧会	てんらんかい	tenrankai	exhibition	выставка
 都	と	to	metropolitan	столица
-道具	どうぐ	dougu	tool;means	инструмент ; средства
-	とうとう	toutou	finally; after all	наконец ; в конце концов
+道具	どうぐ	dougu	tool;means	инструмент; средства
+	とうとう	toutou	finally; after all	наконец; в конце концов
 動物園	どうぶつえん	doubutsuen	zoo	зоопарк
 遠く	とおく	tooku	distant	далеко
 通る	とおる	tooru	to go through	проходить
-特に	とくに	tokuni	particularly;especially	в частности ; особенно
+特に	とくに	tokuni	particularly;especially	в частности; особенно
 特別	とくべつ	tokubetsu	special	специальный
 	とこや	tokoya	barber	парикмахер
 途中	とちゅう	tochuu	on the way	в пути
-特急	とっきゅう	tokkyuu	limited express train (faster than an express train)	специальный экспресс (быстрее, чем поезд-экспресс)
+特急	とっきゅう	tokkyuu	limited express train (faster than an express train)	специальный экспресс (быстрее; чем поезд-экспресс)
 届ける	とどける	todokeru	to reach	достигать
 泊まる	とまる	tomaru	to lodge at	останавливаться на ночь; ночевать
 止める	とめる	tomeru	to stop something	останавливать
 取り替える	とりかえる	torikaeru	to exchange	обменивать
 泥棒	どろぼう	dorobou	thief	вор
 	どんどん	dondon	more and more	все более и более
-直す	なおす	naosu	to fix;to repair	исправлять ; чинить
+直す	なおす	naosu	to fix;to repair	исправлять; чинить
 直る	なおる	naoru	to be fixed;to be repaired	быть исправленным; выздоравливать
 治る	なおる	naoru	to be cured;to heal	лечить; чинить
 中々	なかなか	nakanaka	considerably	очень; весьма
@@ -463,19 +463,19 @@
 入院	にゅういん・する	nyuuin suru	to hospitalise	госпитализировать
 入学	にゅうがく・する	nyuugaku suru	to enter school or university	поступать в школу или университет
 似る	にる	niru	to be similar	быть похожим
-人形	にんぎょう	ningyou	doll; figure	кукла ; фигура
+人形	にんぎょう	ningyou	doll; figure	кукла; фигура
 盗む	ぬすむ	nusumu	to steal	красть
 塗る	ぬる	nuru	to paint;to plaster	рисовать; покрывать лаком
 	ぬれる	nureru	to get wet	промокать
 	ねだん	nedan	price	цена
 熱	ねつ	netsu	fever	жар; температуа
 	ねっしん	nesshin	enthusiasm	энтузиазм
-寝坊	ねぼう	nebou	sleeping in late	человек, который спит допоздна
+寝坊	ねぼう	nebou	sleeping in late	человек; который спит допоздна
 眠い	ねむい	nemui	sleepy	сонный
 眠る	ねむる	nemuru	to sleep	спать
 残る	のこる	nokoru	to remain	оставаться
 	のど	nodo	throat	горло
-乗り換える	のりかえる	norikaeru	to change between buses or trains	менять транспорт, пересаживаться
+乗り換える	のりかえる	norikaeru	to change between buses or trains	менять транспорт; пересаживаться
 乗り物	のりもの	norimono	vehicle	автомобиль
 葉	は	ha	leaf	лист (дерева)
 場合	ばあい	baai	situation	ситуация
@@ -502,7 +502,7 @@
 	ピアノ	piano	piano	пианино
 冷える	ひえる	hieru	to grow cold	охлаждаться
 光	ひかり	hikari	light	свет
-光る	ひかる	hikaru	to shine;to glitter	сиять ; блестеть
+光る	ひかる	hikaru	to shine;to glitter	сиять; блестеть
 引き出し	ひきだし	hikidashi	drawer;drawing out	выдвижной ящик
 引き出す	ひきだす	hikidasu	to withdraw	отозывать
 	ひげ	hige	beard	борода
@@ -516,7 +516,7 @@
 	ひどい	hidoi	awful	ужасный
 開く	ひらく	hiraku	to open an event	открывать
 	ビル	biru	building or bill	здание
-昼間	ひるま	hiruma	daytime;during the day	день ; в течение дня
+昼間	ひるま	hiruma	daytime;during the day	день; в течение дня
 昼休み	ひるやすみ	hiruyasumi	noon break	полуденный перерыв
 拾う	ひろう	hirou	to pick up;to gather	подобирать; собирать
 	ファックス	fakkusu	fax	факс
@@ -563,14 +563,14 @@
 真中	まんなか	mannaka	middle	самая середина
 見える	みえる	mieru	to be in sight	быть на виду
 湖	みずうみ	mizuumi	lake	озеро
-味噌	みそ	miso	bean paste	мисо, паста из соевых бобов
+味噌	みそ	miso	bean paste	мисо; паста из соевых бобов
 見つかる	みつかる	mitsukaru	to be discovered	быть обнаруженным
 見つける	みつける	mitsukeru	to discover	обнаружить
 皆	みな	mina	everybody	все
 港	みなと	minato	harbour	гавань
 向かう	むかう	mukau	to face	к лицу
 迎える	むかえる	mukaeru	to go out to meet	пойти навстречу
-昔	むかし	mukashi	olden days; former	старину ; бывший
+昔	むかし	mukashi	olden days; former	старину; бывший
 虫	むし	mushi	insect	насекомое
 息子	むすこ	musuko	(humble) son	(скромно) сын
 娘	むすめ	musume	(humble) daughter	(скромно) дочь
@@ -587,14 +587,14 @@
 木綿	もめん	momen	cotton	хлопок
 	もらう	morau	to receive	получать
 森	もり	mori	forest	лес
-焼く	やく	yaku	to bake;to grill	печь ; жарить
+焼く	やく	yaku	to bake;to grill	печь; жарить
 約束	やくそく	yakusoku	promise	обещание
 役に立つ	やくにたつ	yakunitatsu	to be helpful	быть полезным
 焼ける	やける	yakeru	to burn;to be roasted	быть поджаренным; подгореым
 優しい	やさしい	yasashii	kind	нежный; добый
 痩せる	やせる	yaseru	to become thin	худеть
 	やっと	yatto	at last	наконец
-	やはり/やっぱり	yahari/yappari	as I thought;absolutely	как я думал ; абсолютно
+	やはり/やっぱり	yahari/yappari	as I thought;absolutely	как я думал; абсолютно
 止む	やむ	yamu	to stop	останавливаться
 止める	やめる	yameru	to stop	останавливать
 柔らかい	やわらかい	yawarakai	soft	мягкий
@@ -632,6 +632,6 @@
 訳	わけ	wake	meaning;reason	смысл; причина
 忘れ物	わすれもの	wasuremono	lost article	потерянная вещь
 笑う	わらう	warau	to laugh;to smile	смеяться; улыбаться
-割合	わりあい	wariai	rate;ratio;percentage	ставка; коэффициент ; процент
+割合	わりあい	wariai	rate;ratio;percentage	ставка; коэффициент; процент
 割れる	われる	wareru	to break	ломать
 泳ぎ方	およぎかた	oyogikata	way of swimming	стиль плавания

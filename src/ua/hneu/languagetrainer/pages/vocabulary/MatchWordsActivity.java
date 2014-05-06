@@ -207,6 +207,7 @@ public class MatchWordsActivity extends Activity {
 				}
 			// set lastView also when user answered correctly
 			currentEntry.setLastView();
+			App.vs.update(currentEntry, getContentResolver());
 			isCorrectTextView.setText("Correct!");
 			isCorrectTextView.setTextColor(Color.parseColor("#669900"));
 			// fade correct selected answers

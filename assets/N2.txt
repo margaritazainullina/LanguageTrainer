@@ -1,7 +1,7 @@
 	あいかわらず	aikawarazu	as ever; as usual; the same	как всегда; как обычно; то же самое
 	アイデア/アイディア	aidea/aidia	idea	идея
 	あいまい	aimai	vague; ambiguous	расплывчато; неоднозначно
-遭う	あう	au	to meet; to encounter (undesirable nuance)	встретиться, столкнуться (обычно с ч-л нежелательным)
+遭う	あう	au	to meet; to encounter (undesirable nuance)	встретиться; столкнуться (обычно с ч-л нежелательным)
 扇ぐ	あおぐ	aogu	to fan; to flap	раздуть; махать
 青白い	あおじろい	aojiroi	pale; pallid	бледный
 	あかんぼう	akanbou	baby	ребенок
@@ -97,7 +97,7 @@
 植木	うえき	ueki	garden shrubs; trees; potted plant	сад кустарники; деревья; растение в горшке
 飢える	うえる	ueru	to starve	голодать
 浮ぶ	うかぶ	ukabu	to float; to rise to surface; to come to mind	плавать; подняться на поверхность; приходить на ум
-浮かべる	うかべる	ukaberu	to float; to express; to look (sad; glad)	спускать на воду; показывать (улыбку, слёзы); вызывать (в памяти, в мыслях)
+浮かべる	うかべる	ukaberu	to float; to express; to look (sad; glad)	спускать на воду; показывать (улыбку; слёзы); вызывать (в памяти; в мыслях)
 浮く	うく	uku	to float; to become merry; to become loose	плавать; всплывать; поддниматься
 承る	うけたまわる	uketamawaru	(hum) to hear; to be told; to know	вежл. слушать; слышать; узнавать
 受取	うけとり	uketori	receipt	квитанция
@@ -113,7 +113,7 @@
 映る	うつる	utsuru	to be reflected; to harmonize with; to come out (photo)	отражать; бросать (тень)
 	うどん	udon	noodles (Japanese)	лапша (японские)
 有無	うむ	umu	yes or no; existence; flag indicator (comp); presence or absence marker	да или нет; существование; указатель срабатывания (компрессор); наличие или отсутствие маркера
-埋める	うめる	umeru	to bury; to fill up; to fill (a seat; a vacant position)	похоронить; заполнить (место , должность)
+埋める	うめる	umeru	to bury; to fill up; to fill (a seat; a vacant position)	похоронить; заполнить (место ; должность)
 敬う	うやまう	uyamau	to show respect; to honour	уважать
 裏返す	うらがえす	uragaesu	to turn inside out; to turn (something) over	вывернуть наизнанку; чтобы включить (что-то) над
 裏口	うらぐち	uraguchi	backdoor; rear entrance	бэкдор; задний вход
@@ -200,9 +200,9 @@
 伯母さん/叔母さん	おばさん	obasan	(hon) aunt; middle-aged lady	(вежливо) тетя; женщина средних лет
 	おはよう	ohayou	(abbr) Good morning	(сокр) доброе утро
 お参り	おまいり	omairi	worship; shrine visit	поклонение; визит
-	おまたせしました	omataseshimashita	Sorry to have kept you waiting	извините, что заставили вас ждать
-	おまちください	omachikudasai	Please wait a moment	пожалуйста, подождите
-	おまちどおさま	omachidoosama	Sorry to have kept you waiting	извините, что заставили вас ждать
+	おまたせしました	omataseshimashita	Sorry to have kept you waiting	извините; что заставили вас ждать
+	おまちください	omachikudasai	Please wait a moment	пожалуйста; подождите
+	おまちどおさま	omachidoosama	Sorry to have kept you waiting	извините; что заставили вас ждать
 	おめでたい	omedetai	happy event; matter for congratulation; auspicious event; pregnancy	радостное событие
 思い掛けない	おもいがけない	omoigakenai	unexpected; casual	неожиданно; случайно
 思い込む	おもいこむ	omoikomu	to be under impression that; to be convinced that	быть под впечатлением
@@ -336,7 +336,7 @@
 渇く	かわく	kawaku	to be thirsty	хотеть пить
 為替	かわせ	kawase	money order; exchange	денежный перевод; обмен
 瓦	かわら	kawara	roof tile	черепица
-代る	かわる	kawaru	(v5r; vi) to take the place of; to relieve; to be substituted for	заменять, замещать; сменять; приходить на смену
+代る	かわる	kawaru	(v5r; vi) to take the place of; to relieve; to be substituted for	заменять; замещать; сменять; приходить на смену
 間隔	かんかく	kankaku	space; interval; SPC	пространство; интервал
 換気	かんき	kanki	ventilation	вентиляция
 感激	かんげき	kangeki	deep emotion; impression; inspiration	глубокие эмоции; впечатления; вдохновение
@@ -353,7 +353,7 @@
 缶詰	かんづめ	kanzume	packing (in cans); canning; canned goods; tin can	консервы; консервная банка
 乾電池	かんでんち	kandenchi	dry cell; battery	сухой элемент; аккумулятор
 関東	かんとう	kantou	eastern half of Japan; including Tokyo	Восточная половина Японии; в том числе Токио
-観念	かんねん	kannen	(1) idea; notion; conception; (2) sense (e.g. of duty)	идея; понятие; концепция; чувство (например, долга)
+観念	かんねん	kannen	(1) idea; notion; conception; (2) sense (e.g. of duty)	идея; понятие; концепция; чувство (например; долга)
 乾杯	かんぱい	kanpai	toast (drink)	тост
 看板	かんばん	kanban	sign; signboard; doorplate; poster	знак; вывеска; плакат
 看病	かんびょう	kanbyou	nursing (a patient)	выписка (пациента)
@@ -391,7 +391,7 @@
 強化	きょうか	kyouka	strengthen; intensify; reinforce; solidify	усилить; активизировать; укрепить
 境界	きょうかい	kyoukai	boundary	граница
 行事	ぎょうじ	gyouji	event; function	мероприятие; функция
-恐縮	きょうしゅく	kyoushuku	shame; very kind of you; sorry to trouble	быть смущённым (тронутым, благодарным)
+恐縮	きょうしゅく	kyoushuku	shame; very kind of you; sorry to trouble	быть смущённым (тронутым; благодарным)
 教養	きょうよう	kyouyou	culture; education; refinement; cultivation	культура; образование; воспитание
 行列	ぎょうれつ	gyouretsu	(1) line; procession; (2) matrix (math)	линия; шествие; матрица (математика)
 漁業	ぎょぎょう	gyogyou	fishing (industry)	рыболовля (промышленность)
@@ -432,12 +432,12 @@
 組合せ	くみあわせ	kumiawase	combination	сочетание
 組み立てる	くみたてる	kumitateru	to assemble; to set up; to construct	собрать; установить; построить
 汲む	くむ	kumu	(1) to draw (water); to dip; to scoop; to pump	черпать; вычерпывать; выкачивать
-酌む	くむ	kumu	to serve sake	пить с кем-л.; понимать, входить в положение
+酌む	くむ	kumu	to serve sake	пить с кем-л.; понимать; входить в положение
 悔しい	くやしい	kuyashii	regrettable; mortifying; vexing	досадный; прискорбный; обиднй
-悔やむ	くやむ	kuyamu	to mourn	сожалеть, раскаиваться
+悔やむ	くやむ	kuyamu	to mourn	сожалеть; раскаиваться
 	クリーニング	kuriiningu	cleaning; dry cleaning; laundry service	уборка; химчистка; прачечная
 	くるむ	kurumu	to be engulfed in; to be enveloped by; to wrap up	くるむ
-	くれぐれも	kureguremo	repeatedly; sincerely; earnestly	повторно, снова и снова; искренне
+	くれぐれも	kureguremo	repeatedly; sincerely; earnestly	повторно; снова и снова; искренне
 	くわえる	kuwaeru	hold in one’s mouth	держать в зубах (во рту)
 郡	ぐん	gun	country; district	уезд
 稽古	けいこ	keiko	practice; training; study	практика; обучение; исследование
@@ -460,7 +460,7 @@
 下旬	げじゅん	gejun	month (last third of)	последняя треть месяца
 下水	げすい	gesui	drainage; sewage; ditch; gutter; sewerage	дренаж; канава; желоб; канализация
 削る	けずる	kezuru	to cut down little by little; to take a percentage	сокращать; строгать; скоблить; срезать
-桁	けた	keta	column; beam; digit	брус, балка; столбец
+桁	けた	keta	column; beam; digit	брус; балка; столбец
 下駄	げた	geta	geta (Japanese footwear); wooden clogs	гэта (японская обувь); деревянные башмаки
 血圧	けつあつ	ketsuatsu	blood pressure	кровяное давление
 血液	けつえき	ketsueki	blood	кровь
@@ -548,7 +548,7 @@
 	こしらえる	koshiraeru	to make; to manufacture	делать; изготовить
 超す	こす	kosu	to cross; to pass; to tide over	пересечь; пройти; преодолеть
 擦る	こする	kosuru	to rub; to chafe; to file; to frost (glass); to strike (match)	тереть; растирать
-	ごぞんじですか	gozonjidesuka	(hon) do you know that	(вежливо) а знаете, что
+	ごぞんじですか	gozonjidesuka	(hon) do you know that	(вежливо) а знаете; что
 個体	こたい	kotai	an individual	индивидуальный
 御馳走	ごちそう	gochisou	feast; treating (someone)	праздник; угощение
 	ごちそうさま	gochisousama	feast	праздник; угощение
@@ -873,7 +873,7 @@
 姓	せい	sei	surname; family name	фамилия
 税関	ぜいかん	zeikan	customs house	таможня
 製作	せいさく	seisaku	manufacture; production	изготовление; производство
-制作	せいさく	seisaku	work (film; book)	работа (фильм, книга)
+制作	せいさく	seisaku	work (film; book)	работа (фильм; книга)
 性質	せいしつ	seishitsu	nature; property; disposition	природа; характер
 清書	せいしょ	seisho	clean copy	чистовик
 青少年	せいしょうねん	seishounen	youth; young person	молодежь; молодой человек
@@ -917,7 +917,7 @@
 先々週	せんせんしゅう	sensenshuu	week before last	позапрошлая неделя
 先祖	せんぞ	senzo	ancestor	предок
 先端	せんたん	sentan	pointed end; tip; fine point	заостренный конец; наконечник; тонкий момент
-	センチ	senchi	centimeter; centi-; 10^-2	см; санти -; 0,1
+	センチ	senchi	centimeter; centi-; 10^-2	см; санти -; 0;1
 宣伝	せんでん	senden	propaganda; publicity	пропаганда; реклама
 先頭	せんとう	sentou	head; lead; vanguard; first	главенство; лидерство
 全般	ぜんぱん	zenpan	(the) whole; universal; wholly; general	универсальный; полностью; вообще
@@ -957,9 +957,9 @@
 	そのほか	sonohoka	otherwise	в противном случае
 蕎麦	そば	soba	soba (buckwheat noodles)	соба (гречневая лапша)
 剃る	そる	soru	to shave	брить
-	それなのに	sorenanoni	but	но; не смотря на то, что
+	それなのに	sorenanoni	but	но; не смотря на то; что
 逸れる	それる	soreru	to stray (turn) from subject; to get lost; to go astray	отклоняться; заблудиться; сбиться с пути
-揃う	そろう	sorou	to become complete; to be equal; to be all present; to gather	стать полным, равным
+揃う	そろう	sorou	to become complete; to be equal; to be all present; to gather	стать полным; равным
 揃える	そろえる	soroeru	to put things in order; to arrange; to make uniform; to get something ready	наводить порядок; организовать; сформировать
 算盤	そろばん	soroban	abacus	счеты
 存じる/存ずる	ぞんじる/ぞんずる	zonjiru/ zonzuru	(hum) to know	(вежливо) знать
@@ -1030,14 +1030,14 @@
 単数	たんすう	tansuu	singular (number)	единственное число
 団地	だんち	danchi	multi-unit apartments	многоквартирных квартиры
 断定	だんてい	dantei	conclusion; decision	вывод; решение
-短編	たんぺん	tanpen	short (e.g. story; film)	короткий (например история, фильм)
-誓う	ちかう	chikau	to swear; to vow; to take an oath; to pledge	клясться, давать слово
+短編	たんぺん	tanpen	short (e.g. story; film)	короткий (например история; фильм)
+誓う	ちかう	chikau	to swear; to vow; to take an oath; to pledge	клясться; давать слово
 地下水	ちかすい	chikasui	underground water	подземная вода
 近々	ちかぢか	chikajika	nearness; before long	близость; в скором времени
 近付ける	ちかづける	chikazukeru	to bring near; to put close; to let come near; to associate with	приблизиться
 近寄る	ちかよる	chikayoru	to approach; to draw near	подходить; приближаться
 力強い	ちからづよい	chikarazuyoi	reassuring; emboldened	обнадеживать
-	ちぎる	chigiru	to cut up fine; to pick (fruit)	клясться, обещать
+	ちぎる	chigiru	to cut up fine; to pick (fruit)	клясться; обещать
 地質	ちしつ	chishitsu	geological features	геологические особенности
 知人	ちじん	chijin	friend; acquaintance	друг; знакомый
 地帯	ちたい	chitai	area; zone	область; зона
@@ -1064,7 +1064,7 @@
 調整	ちょうせい	chousei	regulation; adjustment; tuning	регулирование; наладка; настройка
 調節	ちょうせつ	chousetsu	regulation; adjustment; control	регулирование; наладка; контроль
 長短	ちょうたん	choutan	length; long and short; +-	длина; длинные и короткие; +/ -
-頂点	ちょうてん	chouten	top; summit	высшая точка, вершина
+頂点	ちょうてん	chouten	top; summit	высшая точка; вершина
 長男	ちょうなん	chounan	eldest son	старший сын
 長方形	ちょうほうけい	chouhoukei	rectangle; oblong	прямоугольник
 調味料	ちょうみりょう	choumiryou	condiment; seasoning	приправа
@@ -1113,7 +1113,7 @@
 粒	つぶ	tsubu	grain	зерно
 潰す	つぶす	tsubusu	to smash; to waste	разбивать; ломать; тратить
 潰れる	つぶれる	tsubureru	to be smashed; to go bankrupt	ломаться; разрушаться
-	つまずく	tsumazuku	to stumble; to trip	споткнуться, оступиться; сделать неверный шаг
+	つまずく	tsumazuku	to stumble; to trip	споткнуться; оступиться; сделать неверный шаг
 詰まる	つまる	tsumaru	to be blocked; to be packed	быть заблокированым; быть упакованым
 積む	つむ	tsumu	to pile up; to stack	нагромождать; наваливать
 爪	つめ	tsume	fingernail or toenail; claw; talon; hoof	ногти; копыта
@@ -1136,7 +1136,7 @@
 手入れ	ていれ	teire	repairs; maintenance	ремонт; техническое обслуживание
 	テーマ	teema	(n) theme; project; topic (de: Thema)	тема
 出掛ける	でかける	dekakeru	to depart; to set out; to start; to be going out	выходить; отправляться
-出来上がり	できあがり	dekiagari	be finished; ready; made for; cut out	завершение, окончание (работы); качество работы
+出来上がり	できあがり	dekiagari	be finished; ready; made for; cut out	завершение; окончание (работы); качество работы
 出来上がる	できあがる	dekiagaru	(1) to be finished; to be ready; by definition; (2) to be very drunk	быть законченным; быть готовым; быть созданным для чего-л. (о врождённых качествах)
 的確/適確	てきかく	tekikaku	precise; accurate	точный; четкий
 手首	てくび	tekubi	wrist	запястье
@@ -1222,7 +1222,7 @@
 取り入れる	とりいれる	toriireru	to harvest; to take in; to adopt	класть; убирать во что-л.; снимать урожай
 取り消す	とりけす	torikesu	to cancel	отменить
 取り出す	とりだす	toridasu	to take out; to produce; to pick out	вынуть; выбрать
-採る	とる	toru	(1) to adopt (measure; proposal); (2) to pick (fruit)	принять (меры , предложение); собирать (плоды)
+採る	とる	toru	(1) to adopt (measure; proposal); (2) to pick (fruit)	принять (меры ; предложение); собирать (плоды)
 捕る	とる	toru	to take; to catch (fish); to capture	хватать; ловить (рыбу); захватывать
 	トレーニング	toreeningu	training	обучение
 丼	どんぶり	donburi	porcelain bowl; bowl of rice with food on top	чаша; миска
@@ -1247,7 +1247,7 @@
 斜め	ななめ	naname	obliqueness	диагональ; косая черта
 	なにしろ	nanishiro	at any rate; anyhow; anyway; in any case	во всяком случае; так или иначе; во всяком случае; в любом случае
 何々	なになに	naninani	such and such; What?	что-что?
-何分	なにぶん	nanibun	what minute?; how many minutes?	сколько минут ?
+何分	なにぶん	nanibun	what minute?; how many minutes?	сколько минут?
 生意気	なまいき	namaiki	impertinent; saucy; cheeky; conceit; audacious; brazen	дерзкий; дерзкий; нахальный; наглый
 並木	なみき	namiki	roadside tree; row of trees	ряд деревьев
 倣う	ならう	narau	to imitate; to follow; to emulate	подражать; следовать
@@ -1310,7 +1310,7 @@
 呑気	のんき	nonki	carefree; optimistic; careless; reckless; heedless	беззаботность; небрежность; безрассудность
 灰色	はいいろ	haiiro	grey; gray; ashen	серый; пепельный
 俳句	はいく	haiku	haiku poetry	поэзия хайку
-拝見	はいけん	haiken	(hum) (pol) seeing; look at	(скромно) смотреть, видеть
+拝見	はいけん	haiken	(hum) (pol) seeing; look at	(скромно) смотреть; видеть
 売店	ばいてん	baiten	shop; stand	магазин; стенд
 	バイバイ	baibai	bye-bye	bye-bye
 売買	ばいばい	baibai	trade; buying and selling	торговля; покупка и продажа
@@ -1357,7 +1357,7 @@
 跳ねる	はねる	haneru	to jump; to leap	прыгать
 破片	はへん	hahen	fragment; splinter; broken piece	фрагмент; осколок; обломок
 歯磨き	はみがき	hamigaki	dentifrice; toothpaste	зубная паста
-	はめる	hameru	(col) to get in; to insert; to put on; to make love	надевать (перчатки, перстень и т.п.); вставлять, вкладывать; бросать (напр. в яму); наполнять
+	はめる	hameru	(col) to get in; to insert; to put on; to make love	надевать (перчатки; перстень и т.п.); вставлять; вкладывать; бросать (напр. в яму); наполнять
 早口	はやくち	hayakuchi	fast-talking	быстро говорить
 流行る	はやる	hayaru	to flourish; to thrive; to be popular; to come into fashion	процветать; процветать; быть популярным; прийти в моду
 払い込む	はらいこむ	haraikomu	to deposit; to pay in	сдать на хранение; платить
@@ -1413,7 +1413,7 @@
 	ビニール	biniiru	vinyl	винил
 皮肉	ひにく	hiniku	cynicism; sarcasm	цинизм; сарказм
 日日	ひにち	hinichi	every day; daily; day after day	каждый день; ежедневно; день за днем
-捻る	ひねる	hineru	to turn (a switch) on or off; to twist; to puzzle over	крутить, вертеть; закручивать
+捻る	ひねる	hineru	to turn (a switch) on or off; to twist; to puzzle over	крутить; вертеть; закручивать
 日の入り	ひのいり	hinoiri	sunset	закат
 日の出	ひので	hinode	sunrise	восход
 響き	ひびき	hibiki	echo; sound; reverberation; noise	эхо; звук; звучание
@@ -1422,7 +1422,7 @@
 冷やす	ひやす	hiyasu	to cool; to refrigerate	остыть; быть охлажденным
 	ひゃっかじてん	hyakkajiten	encyclopedia	энциклопедия
 美容	びよう	biyou	beauty of figure or form	красота
-表紙	ひょうし	hyoushi	front cover; binding	обложка, переплёт
+表紙	ひょうし	hyoushi	front cover; binding	обложка; переплёт
 標識	ひょうしき	hyoushiki	sign; mark	знак
 標準	ひょうじゅん	hyoujun	standard; level	стандарт; уровень
 標本	ひょうほん	hyouhon	example; specimen	образец
@@ -1468,7 +1468,7 @@
 蓋	ふた	futa	cover; lid; cap	крышка; колпачок
 不通	ふつう	futsuu	suspension; interruption; stoppage; tie-up; cessation	перерыв сообщения
 	ぶつかる	butsukaru	to strike; to collide with	столкнуться; врезаться
-	ぶつける	butsukeru	to knock; to run into; to nail on; to strike hard; to hit and attack	швырять; ударять,
+	ぶつける	butsukeru	to knock; to run into; to nail on; to strike hard; to hit and attack	швырять; ударять;
 物騒	ぶっそう	bussou	dangerous; disturbed; insecure	опасно
 	ぶつぶつ	butsubutsu	grumbling; complaining in a small voice	ворчать; жаловаться
 船便	ふなびん	funabin	surface mail (ship)	морская почта
@@ -1485,7 +1485,7 @@
 	プラスチック	purasuchikku	plastic	пластик
 	プラットホーム	purattohoomu	platform	платформа
 	フリー	furii	free	бесплатно
-振り仮名	ふりがな	furigana	; pronunciation key	фуригана (кана рядом с иероглифом, обозначающая чтение)
+振り仮名	ふりがな	furigana	; pronunciation key	фуригана (кана рядом с иероглифом; обозначающая чтение)
 	プリント	purinto	print; handout	печать; раздаточный материал
 振舞う	ふるまう	furumau	to behave; to conduct oneself; to entertain (vt)	манеры; поведение
 	ブローチ	buroochi	brooch	брошь
@@ -1545,7 +1545,7 @@
 牧場	ぼくじょう	bokujou	(1) farm (livestock); (2) pasture land; meadow; grazing land	пастбище; скотоводческая ферма
 牧畜	ぼくちく	bokuchiku	stock-farming	скотоводство
 保健	ほけん	hoken	health preservation; hygiene; sanitation	сохранение здоровья; гигиена; санитария
-募集	ぼしゅう	boshuu	recruiting; taking applications	вербовка, призыв
+募集	ぼしゅう	boshuu	recruiting; taking applications	вербовка; призыв
 干す	ほす	hosu	to air; to dry; to desiccate; to drain (off); to drink up	сушить; осушать
 	ポスター	posutaa	poster	плакат
 北極	ほっきょく	hokkyoku	North Pole	Северный полюс
@@ -1643,7 +1643,7 @@
 名所	めいしょ	meisho	famous place	известное место
 命ずる	めいずる	meizuru	to command; to appoint	командовать; назначить
 迷信	めいしん	meishin	superstition	суеверие
-名物	めいぶつ	meibutsu	famous product; special product; speciality	то, чем славится местность; достопримечательность
+名物	めいぶつ	meibutsu	famous product; special product; speciality	то; чем славится местность; достопримечательность
 銘々	めいめい	meimei	each; individual	каждый; индивидуальный
 目上	めうえ	meue	superior(s); senior	превосходить; старший
 	メーター	meetaa	meter (clock)	метр
@@ -1798,13 +1798,13 @@
 分る	わかる	wakaru	to be understood	быть понятным
 分かれる	わかれる	wakareru	to branch off; to diverge from; to fork; to split; to dispense; to scatter; to divide into	ответвляться; расходиться с; быть расделенным
 若々しい	わかわかしい	wakawakashii	youthful; young	молодой;
-湧く	わく	waku	to boil; to grow hot; to get excited; to gush forth	бить (об источнике, фонтане); возникать, внезапно появляться
+湧く	わく	waku	to boil; to grow hot; to get excited; to gush forth	бить (об источнике; фонтане); возникать; внезапно появляться
 詫びる	わびる	wabiru	to apologize	извиняться
 和服	わふく	wafuku	Japanese clothes	японская одежда
 	わりあいに	wariaini	comparatively	сравнительно
 割算	わりざん	warizan	division (math)	деление (математика)
 割と	わりと	warito	relatively; comparitively	относительно
 割引	わりびき	waribiki	discount; reduction; rebate	скидка; снижение
-椀	わん	wan	Japanese soup bowl; wooden bowl	чашка, пиала (деревянная или лаковая)
+椀	わん	wan	Japanese soup bowl; wooden bowl	чашка; пиала (деревянная или лаковая)
 碗	わん	wan	bowl	чаша
 	ワンピース	wanpiisu	one-piece dress	цельное платье (в западном стиле)

@@ -49,7 +49,9 @@ public class TranscriptionTestActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_translation_transcription_test);
-		App.currentDictionary.addEntriesToDictionaryAndGetOnlyWithKanji(App.userInfo.getNumberOfEntriesInCurrentDict());
+		App.currentDictionary
+				.addEntriesToDictionaryAndGetOnlyWithKanji(App.userInfo
+						.getNumberOfEntriesInCurrentDict());
 
 		// Initialize
 		wordTextView = (TextView) findViewById(R.id.wordTextView);
@@ -66,8 +68,9 @@ public class TranscriptionTestActivity extends Activity {
 		// move pointer to next word
 		// if word does't have a kanji, skip it
 		currentWordNumber++;
-		if (currentWordNumber >= App.currentDictionary.size() - 1) endTesting();
-		
+		if (currentWordNumber >= App.currentDictionary.size() - 1)
+			endTesting();
+
 		DictionaryEntry currentEntry = App.currentDictionary
 				.get(currentWordNumber);
 		while (currentEntry.getKanji().isEmpty()) {
@@ -107,7 +110,8 @@ public class TranscriptionTestActivity extends Activity {
 		// randomDictionary
 		randomDictionaryList = new WordDictionary();
 		randomDictionaryList.getEntries().addAll(randomDictionary);
-		randomDictionaryList.addEntriesToDictionaryAndGetOnlyWithKanji(answersNumber);
+		randomDictionaryList
+				.addEntriesToDictionaryAndGetOnlyWithKanji(answersNumber);
 		// shuffle list
 		Collections.shuffle(randomDictionaryList.getEntries());
 
@@ -129,6 +133,9 @@ public class TranscriptionTestActivity extends Activity {
 		transcriptionTextView.setTextColor(color);
 		romajiTextView.setTextColor(color);
 		isRight.setText("");
+		// set this word shown
+		rightAnswer.setLastView();
+		App.vs.update(rightAnswer, getContentResolver());
 	}
 
 	@Override
@@ -145,9 +152,7 @@ public class TranscriptionTestActivity extends Activity {
 				final int position, final long itemID) {
 			DictionaryEntry selected = randomDictionaryList.get(position);
 			// comparing correct and selected answer
-			if (selected == rightAnswer) {
-				//set lastView also when user answered correctly
-				rightAnswer.setLastView();
+			if (selected == rightAnswer) {				
 				App.vp.incrementNumberOfCorrectAnswersInTranslation();
 				// increment percentage
 				if (!ifWasWrong)
@@ -156,7 +161,8 @@ public class TranscriptionTestActivity extends Activity {
 							+ App.userInfo.getPercentageIncrement());
 
 				if (rightAnswer.getLearnedPercentage() == 1) {
-					App.vp.makeWordLearned(rightAnswer, getContentResolver(),true);
+					App.vp.makeWordLearned(rightAnswer, getContentResolver(),
+							true);
 				}
 				App.vs.update(rightAnswer, getContentResolver());
 				// change color to green and fade out
@@ -234,7 +240,7 @@ public class TranscriptionTestActivity extends Activity {
 	}
 
 	public void buttonIAlrKnow(View v) {
-		App.vp.makeWordLearned(rightAnswer, getContentResolver(),true);
+		App.vp.makeWordLearned(rightAnswer, getContentResolver(), true);
 		nextWord();
 	}
 }

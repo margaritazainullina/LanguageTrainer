@@ -76,26 +76,13 @@ public class VocabularyActivityFragment extends Fragment {
 
 			int learnedPersentage = (int) Math
 					.round(((double) learned / (double) all) * 100);
-			String info = this.getString(R.string.you_have_learned) + " "
-					+ learned + " ";
-			if (App.lang == Languages.RUS) {
-				if (learned % 10 == 1)
-					info += "слово из";
-				else if (learned % 10 >= 1 && learned % 10 < 5)
-					info += "слова из";
-				else
-					info += "слов из";
-			} else {
-				if (learned > 1)
-					info += "words of";
-				else
-					info += "word of";
-			}
-			info += " " + all + "\n" + learnedPersentage + "%";
+			String info = this.getString(R.string.youve_learned) + ": "
+					+ learned + " " + this.getString(R.string.out_of) + " "
+					+ all + " - " + learnedPersentage + "%";
 
 			infoTextView.setText(info);
 			progressBar.setProgress(learnedPersentage);
 		}
 		return rootView;
-	}	
+	}
 }

@@ -118,7 +118,7 @@ public class ResultActivity extends Activity {
 
 		// cautions
 		int num = App.vp.getNumberOfPassingsInARow();
-		if (num > 5)
+		if (num > 3)
 			cautionTextView.setText(this.getString(R.string.enough));
 
 		// clear information about passing
@@ -130,6 +130,7 @@ public class ResultActivity extends Activity {
 		Intent matchWordsIntent = new Intent(this,
 				WordIntroductionActivity.class);
 		startActivity(matchWordsIntent);
+		App.vp.incrementNumberOfPassingsInARow();
 	}
 
 	public void buttonToMainMenuOnClick(View v) {

@@ -63,18 +63,19 @@ public class App extends Application {
 
 		cr = getContentResolver();
 		VocabularyService vs = new VocabularyService();
-		/*
-		 * vs.dropTable(); vs.createTable(); vs.bulkInsertFromCSV("N5.txt",
-		 * getAssets(), 5, getContentResolver()); vs.bulkInsertFromCSV("N4.txt",
-		 * getAssets(), 4, getContentResolver()); vs.bulkInsertFromCSV("N3.txt",
-		 * getAssets(), 3, getContentResolver()); vs.bulkInsertFromCSV("N3.txt",
-		 * getAssets(), 2, getContentResolver()); vs.bulkInsertFromCSV("N1.txt",
-		 * getAssets(), 1, getContentResolver()); us.dropTable();
-		 * us.createTable();
-		 */
+
+		/*vs.dropTable();
+		vs.createTable();
+		vs.bulkInsertFromCSV("N5.txt", getAssets(), 5, getContentResolver());
+		vs.bulkInsertFromCSV("N4.txt", getAssets(), 4, getContentResolver());
+		vs.bulkInsertFromCSV("N3.txt", getAssets(), 3, getContentResolver());
+		vs.bulkInsertFromCSV("N3.txt", getAssets(), 2, getContentResolver());
+		vs.bulkInsertFromCSV("N1.txt", getAssets(), 1, getContentResolver());
+		us.dropTable();
+		us.createTable();*/
 
 		// if it isn't first time when launching app - user exists in db
-		User currentUser =us.getUserWithCurrentLevel(cr);
+		User currentUser = us.getUserWithCurrentLevel(cr);
 		if (currentUser != null) {
 			// fetch user data from db
 			userInfo = currentUser;
