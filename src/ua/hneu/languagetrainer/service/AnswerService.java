@@ -1,9 +1,12 @@
 package ua.hneu.languagetrainer.service;
 
+import java.util.ArrayList;
+
 import ua.hneu.languagetrainer.db.dao.AnswerDAO;
 import ua.hneu.languagetrainer.db.dao.QuestionDAO;
 import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
 import ua.hneu.languagetrainer.model.tests.Answer;
+import ua.hneu.languagetrainer.model.tests.Question;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -35,5 +38,23 @@ public class AnswerService {
 
 	public void dropTable() {
 		AnswerDAO.getDb().execSQL("DROP TABLE " + AnswerDAO.TABLE_NAME + ";");
+	}
+
+	public ArrayList<Answer> getAswersByQuestionId(int questionId,
+			ContentResolver cr) {
+		String[] col = { AnswerDAO.Q_ID, AnswerDAO.TEXT, AnswerDAO.ISCORRECT };
+		Cursor c = cr.query(AnswerDAO.CONTENT_URI, col, AnswerDAO.Q_ID + "="
+				+ questionId, null, null, null);
+		c.moveToFirst();
+		String text = "";
+		boolean isCorrect = false;
+		ArrayList<Answer> a = new ArrayList<Answer>();
+		while (!c.isAfterLast()) {
+			text = c.getString(1);
+			isCorrect = c.getInt(2) == 1;
+			a.add(new Answer(text, isCorrect));
+			c.moveToNext();
+		}
+		return a;
 	}
 }

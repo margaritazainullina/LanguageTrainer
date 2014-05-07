@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -19,6 +21,7 @@ import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
 import ua.hneu.languagetrainer.model.tests.Answer;
 import ua.hneu.languagetrainer.model.tests.Question;
 import ua.hneu.languagetrainer.model.tests.Test;
+import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.res.AssetManager;
@@ -36,14 +39,14 @@ public class TestService {
 		}
 
 		ContentValues values = new ContentValues();
-		values.put(TestDAO.TYPE, t.getTestType().toString());
+		values.put(TestDAO.NAME, t.getTestName().toString());
 		values.put(TestDAO.LEVEL, t.getLevel());
 		cr.insert(TestDAO.CONTENT_URI, values);
 	}
 
 	public void update(Test t, ContentResolver cr) {
 		ContentValues values = new ContentValues();
-		values.put(TestDAO.TYPE, t.getTestType().toString());
+		values.put(TestDAO.NAME, t.getTestName().toString());
 		values.put(TestDAO.LEVEL, t.getLevel());
 		cr.update(TestDAO.CONTENT_URI, values, "_ID=" + t.getId(), null);
 	}
@@ -56,7 +59,7 @@ public class TestService {
 		SQLiteDatabase db = TestDAO.getDb();
 		db.execSQL("CREATE TABLE " + TestDAO.TABLE_NAME
 				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " + TestDAO.LEVEL
-				+ " INTEGER, " + TestDAO.TYPE + " TEXT);");
+				+ " INTEGER, " + TestDAO.NAME + " TEXT);");
 	}
 
 	public void dropTable() {
@@ -95,13 +98,10 @@ public class TestService {
 			doc.getDocumentElement().normalize();
 
 			Element test = doc.getDocumentElement();
-			String type = test.getAttribute("type");
+			String testName = test.getAttribute("name");
 			int level = Integer.parseInt(test.getAttribute("level"));
 			Test t = new Test();
-			if (type == Test.Type.LEVEL_DEF.toString())
-				t.setTestType(Test.Type.LEVEL_DEF);
-			else
-				t.setTestType(Test.Type.MOCK_TEST);
+			t.setName(testName);
 			t.setLevel(level);
 
 			NodeList questions = test.getElementsByTagName("question");
@@ -120,7 +120,7 @@ public class TestService {
 							.equals("1");
 					answersList.add(new Answer(answerText, isCorrect));
 				}
-				t.addQuestion(new Question(qs.getNumberOfQuestions(cr), title,
+				t.addQuestion(new Question(QuestionService.getNumberOfQuestions(cr), title,
 						questionText, weight, answersList));
 			}
 			// Inserting in db
@@ -139,5 +139,24 @@ public class TestService {
 		int count = countCursor.getInt(0);
 		countCursor.close();
 		return count;
+	}
+
+	public Test getTestByName(String name, ContentResolver cr) {
+		String[] col = { TestDAO.ID, TestDAO.LEVEL, TestDAO.NAME };
+		Cursor c = cr.query(TestDAO.CONTENT_URI, col, TestDAO.NAME+"=\""+ name+"\"",
+				null, null, null);
+		c.moveToFirst();
+		int id = 0;
+		int level = 0;
+		ArrayList<Question> q;
+		Test t = null;
+		while (!c.isAfterLast()) {
+			id = c.getInt(0);
+			level = c.getInt(1);
+			q = qs.getQuestionsByTestId(id, cr);
+			t = new Test(q, level, name);
+			c.moveToNext();
+		}
+		return t;
 	}
 }

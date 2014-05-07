@@ -8,8 +8,19 @@
     <string name="start_learning">Start learning</string>
     <string name="level">Level:</string>
     <string name="title_greeting">Greeting</string>
-    <!-- Level defining -->
-    <string name="title_level_def_test_activity">Test</string>
+    <!-- Level definition -->
+    <string name="title_level_def_test_activity">Level definition test</string>
+    <string name="desc">Choose correct answer from list</string>
+    <string name="question">Question</string>
+    <string name="choose_answer_for">Choose correct answer for:</string>
+    <string name="correct">Correct!</string>
+    <string name="wrong">Wrong!</string>
+    <string name="dont_know">I don\'t know</string>
+    <string name="end_test">End test</string>
+    <!-- Test results -->
+    <string name="title_lev_def_test_result">Recommendations</string>
+    <string name="recommendation">Рекомендуется выбрать уровень</string>
+    <string name="percentage">Правильных ответов:</string>
     <!--  -->
     <string name="app_name">JLPT Trainer</string>
     <string name="title">JLPT Trainer</string>

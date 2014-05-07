@@ -1,19 +1,13 @@
 package ua.hneu.languagetrainer.model.tests;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
 
-=======
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 public class Question {
 	private int id;
 	private String title;
 	private String text;
 	private double weight;
-<<<<<<< HEAD
 	private ArrayList<Answer> answers;
-=======
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 
 	public int getId() {
 		return id;
@@ -47,7 +41,6 @@ public class Question {
 		this.weight = weight;
 	}
 
-<<<<<<< HEAD
 	public ArrayList<Answer> getAnswers() {
 		return answers;
 	}
@@ -58,19 +51,26 @@ public class Question {
 
 	public Question(int id, String title, String text, double weight,
 			ArrayList<Answer> answers) {
-=======
-	public Question(int id, String title, String text, double weight) {
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 		super();
 		this.id = id;
 		this.title = title;
 		this.text = text;
 		this.weight = weight;
-<<<<<<< HEAD
 		this.answers = answers;
 	}
 
-=======
+	public Answer getRightAnswer() {
+		for (Answer a : this.getAnswers()) {
+			if (a.isCorrect())
+				return a;
+		}
+		return null;
 	}
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
+	public ArrayList<String> getAllAnswers(){
+		ArrayList<String> answers = new ArrayList<String>();
+		for (Answer a : this.answers) {
+			answers.add(a.getText());
+		}
+		return answers;
+	}
 }

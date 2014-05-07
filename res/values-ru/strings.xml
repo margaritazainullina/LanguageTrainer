@@ -3,13 +3,23 @@
 
     <!-- Greeting activity -->
     <string name="greeting">Добро пожаловать в программу JLPT trainer.</string>
-    <string name="info">Вы можете пройти небольшой тест на определение уровня или выбрать уровень самостоятельно, если вы уверены. Уровнь можно поменять в настройках в любой момент и вернуться к нему с сохранением всей информации о прохождении. </string>
+    <string name="info">Вы можете пройти небольшой тест на определение уровня или выбрать уровень самостоятельно, если вы уверены. Уровнь можно поменять в настройках в любой момент и вернуться к нему с сохранением всей информации о прохождении. </string>
     <string name="take_test">Пройти тест</string>
     <string name="start_learning">Начать изучение</string>
     <string name="level">Уровень:</string>
     <string name="title_greeting">Приветствие</string>
-    <!-- Level defining -->
-    <string name="title_level_def_test_activity">Тест</string>
+    <!-- Level definition -->
+    <string name="title_level_def_test_activity">Тест на определения уровня</string>
+    <string name="desc">Выберите правильный вариант ответа из списка</string>
+    <string name="choose_answer_for">Выберите вариант ответа для:</string>
+    <string name="correct">Правильно!</string>
+    <string name="wrong">Неправильно!</string>
+    <string name="dont_know">Я не знаю</string>
+    <string name="end_test">Закончить тест</string>
+    <!-- Test results -->
+    <string name="title_lev_def_test_result">Совет</string>
+    <string name="recommendation">It\'s recommended to choose level</string>
+    <string name="percentage">Correct answers:</string>
     <!--  -->
     <string name="app_name">JLPT Trainer</string>
     <string name="title">JLPT Trainer</string>

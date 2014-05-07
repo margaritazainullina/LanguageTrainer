@@ -1,402 +1,239 @@
-<test level="-1" type="level_def">
-<<<<<<< HEAD
+<test level="-1" name="level_def">
 <question weight="1" title="車の中に男の子が何人いますか。" text="車">
-=======
-<question weigh="1" title="車の中に男の子が何人いますか。" text="車">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">しゃ</answer>
 <answer isCorrect="1">くるま</answer>
 <answer isCorrect="0">ちゃ</answer>
 <answer isCorrect="0">くろま</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1" title="車の中に男の子が何人いますか。" text="中">
-=======
-<question weigh="1" title="車の中に男の子が何人いますか。" text="中">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="1">なか</answer>
 <answer isCorrect="0">なっか</answer>
 <answer isCorrect="0">ちゅう</answer>
 <answer isCorrect="0">ちゅん</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1" title="車の中に男の子が何人いますか。" text="男の子">
-=======
-<question weigh="1" title="車の中に男の子が何人いますか。" text="男の子">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">おんなのこ</answer>
 <answer isCorrect="1">おとこのこ</answer>
 <answer isCorrect="0">おどこのこ</answer>
 <answer isCorrect="0">おうなのこ</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1" title="車の中に男の子が何人いますか。" text="何人">
-=======
-<question weigh="1" title="車の中に男の子が何人いますか。" text="何人">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">なにひと</answer>
 <answer isCorrect="0">なんじん</answer>
 <answer isCorrect="0">なにじん</answer>
 <answer isCorrect="1">なんにん</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1" title="この テストは ＿＿＿。" text="">
-=======
-<question weigh="1" title="この テストは ＿＿＿。" text="">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">むずかしい ないです</answer>
 <answer isCorrect="0">むずかしいでは ないです</answer>
 <answer isCorrect="1">むずかしく ないで</answer>
 <answer isCorrect="0">むずかしく なくです</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1" title="きょうは ともだちは ＿＿＿＿ 来ませんでした。" text="">
-=======
-</question>
-<question weigh="1" title="きょうは ともだちは ＿＿＿＿ 来ませんでした。" text="">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">どんな</answer>
 <answer isCorrect="0">いくつ</answer>
 <answer isCorrect="1">だれも</answer>
 <answer isCorrect="0">いつも</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1" title="Ａ「あ、山田さん、いい セーターを きて いますねえ。」 Ｂ「＿＿＿＿。」" text="">
-=======
-</question>
-<question weigh="1" title="Ａ「あ、山田さん、いい セーターを きて いますねえ。」 Ｂ「＿＿＿＿。」" text="">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="1">はい、そう しましょう </answer>
 <answer isCorrect="0">ええ、セーターです</answer>
 <answer isCorrect="0">あ、きのう かったんです</answer>
 <answer isCorrect="0">いいえ、きて います</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1" title="きのう、本を かって、よる ３時間ぐらい 読みました。２５０ページの 本ですが、まだ１００ページぐらい あります。" text="この 人は、何ページ 読みましたか。">
-=======
-</question>
-<question weigh="1" title="きのう、本を かって、よる ３時間ぐらい 読みました。２５０ページの 本ですが、まだ１００ページぐらい あります。" text="この 人は、何ページ 読みましたか。">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">５０ページぐらい </answer>
 <answer isCorrect="1">１５０ページぐらい</answer>
 <answer isCorrect="0">２００ページぐらい</answer>
 <answer isCorrect="0">２５０ページぐらい</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1.3" title="駅の 南に おおきい 川が あります。" text="駅">
-=======
-<question weigh="1.3" title="駅の 南に おおきい 川が あります。" text="駅">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">はし</answer>
 <answer isCorrect="0">いえ</answer>
 <answer isCorrect="0">まち</answer>
 <answer isCorrect="1">えき</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1.3" title="駅の 南に おおきい 川が あります。" text="南">
-=======
-<question weigh="1.3" title="駅の 南に おおきい 川が あります。" text="南">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="1">みなみ</answer>
 <answer isCorrect="0">ひがし</answer>
 <answer isCorrect="0">きた</answer>
 <answer isCorrect="0">にし</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1.3" title="駅の 南に おおきい 川が あります。" text="川">
-=======
-<question weigh="1.3" title="駅の 南に おおきい 川が あります。" text="川">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">いけ</answer>
 <answer isCorrect="1">かわ</answer>
 <answer isCorrect="0">うみ</answer>
 <answer isCorrect="0">みず</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1.3" title="いそがないで、_______やってください。" text="">
-=======
-<question weigh="1.3" title="いそがないで、_______やってください。" text="">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">はっきり</answer>
 <answer isCorrect="0">うっかり</answer>
 <answer isCorrect="1">ゆっくり</answer>
 <answer isCorrect="0">すっかり</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1.3" title="その学生は毎日地下鉄で大学に通っています。" text="地下鉄">
-=======
-<question weigh="1.3" title="その学生は毎日地下鉄で大学に通っています。" text="地下鉄">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">じげてつ</answer>
 <answer isCorrect="0">じかてつ</answer>
 <answer isCorrect="0">ちげてつ</answer>
 <answer isCorrect="1">ちかてつ</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1.3" title="その学生は毎日地下鉄で大学に通っています。" text="通って">
-=======
-<question weigh="1.3" title="その学生は毎日地下鉄で大学に通っています。" text="通って">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="1">とおって</answer>
 <answer isCorrect="0">かよって</answer>
 <answer isCorrect="0">かえって </answer>
 <answer isCorrect="0">いって</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1.3" title="先生「これは 田中さんのですか。」	田中「いいえ、＿＿＿＿。」" text="">
-=======
-<question weigh="1.3" title="先生「これは 田中さんのですか。」	田中「いいえ、＿＿＿＿。」" text="">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">ありません</answer>
 <answer isCorrect="1">ちがいます</answer>
 <answer isCorrect="0">わかりません</answer>
 <answer isCorrect="0">そうです</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1.3" title="わたしはやまださんににもつをもって_______。" text="">
-=======
-<question weigh="1.3" title="わたしはやまださんににもつをもって_______。" text="">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">あげました</answer>
 <answer isCorrect="1">もらいました</answer>
 <answer isCorrect="0">くれました</answer>
 <answer isCorrect="0">やりました</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1.5" title="こんな社会では市民は安心できない。" text="社会">
-=======
-<question weigh="1.5" title="こんな社会では市民は安心できない。" text="社会">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">かいしゃ</answer>
 <answer isCorrect="0">がいしゃ</answer>
 <answer isCorrect="1">しゃかい</answer>
 <answer isCorrect="0">しゃがい</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1.5" title="こんな社会では市民は安心できない。" text="市民">
-=======
-<question weigh="1.5" title="こんな社会では市民は安心できない。" text="市民">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">じみん</answer>
 <answer isCorrect="0">じみ</answer>
 <answer isCorrect="1">しみん</answer>
 <answer isCorrect="0">しみ</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1.5" title="こんな社会では市民は安心できない。" text="は安心">
-=======
-<question weigh="1.5" title="こんな社会では市民は安心できない。" text="は安心">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">あんじん</answer>
 <answer isCorrect="1">あんしん</answer>
 <answer isCorrect="0">あんでい</answer>
 <answer isCorrect="0">あんてい</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1.5" title="こんやおもしろいてれびの＿＿はありますか。" text="">
-=======
-<question weigh="1.5" title="こんやおもしろいてれびの＿＿はありますか。" text="">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">よやく</answer>
 <answer isCorrect="1">ばんぐみ</answer>
 <answer isCorrect="0">タイブ</answer>
 <answer isCorrect="0">スクリーン</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1.5" title="しごとをきめるとき、父と母に＿＿。" text="">
-=======
-<question weigh="1.5" title="しごとをきめるとき、父と母に＿＿。" text="">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">いけんしました</answer>
 <answer isCorrect="0">おこないました</answer>
 <answer isCorrect="0">くらべました</answer>
 <answer isCorrect="1">そうだんしました</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1.5" title="ここはすべりやすいので気を付けてください。" text="">
-=======
-<question weigh="1.5" title="ここはすべりやすいので気を付けてください。" text="">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="1">ここはあるきにくいです</answer>
 <answer isCorrect="0">ここはきこえにくいです</answer>
 <answer isCorrect="0">ここはゆれにくいです</answer>
 <answer isCorrect="0">ここはみえにくいです</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1.5" title="しめる" text="">
-=======
-<question weigh="1.5" title="しめる" text="">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">きようかしょうをしめてください。</answer>
 <answer isCorrect="0">めをしめてください</answer>
 <answer isCorrect="0">ラジオをしめてください</answer>
 <answer isCorrect="1">ドアをしめてください</answer>
 </question>
-<<<<<<< HEAD
 <question weight="1.5" title="きおうおじをたずねました" text="">
-=======
-<question weigh="1.5" title="きおうおじをたずねました" text="">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="1">おじのうちにいきました</answer>
 <answer isCorrect="0">おじのうちをききました</answer>
 <answer isCorrect="0">おじのうちをしつもんしました</answer>
 <answer isCorrect="0">おじのうちをしつもんしました</answer>
 </question>
-<<<<<<< HEAD
 <question weight="2" title="ひとりで悩んでいないで、だれかに相談したらどうですか?" text="悩んで">
-=======
-<question weigh="2" title="ひとりで悩んでいないで、だれかに相談したらどうですか?" text="悩んで">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">うらんで</answer>
 <answer isCorrect="0">にらんで</answer>
 <answer isCorrect="0">くやんで</answer>
 <answer isCorrect="1">なやんで</answer>
 </question>
-<<<<<<< HEAD
 <question weight="2" title="ひとりで悩んでいないで、だれかに相談したらどうですか?" text="相談">
-=======
-<question weigh="2" title="ひとりで悩んでいないで、だれかに相談したらどうですか?" text="相談">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">しょうだん</answer>
 <answer isCorrect="1">そうだん</answer>
 <answer isCorrect="0">ざつだん</answer>
 <answer isCorrect="0">しんだん</answer>
 </question>
-<<<<<<< HEAD
 <question weight="2" title="彼は絶対に約束を破らない人だ?" text="絶対">
-=======
-<question weigh="2" title="彼は絶対に約束を破らない人だ?" text="絶対">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">ぜつだい</answer>
 <answer isCorrect="0">ぜつたい</answer>
 <answer isCorrect="1">ぜっだい</answer>
 <answer isCorrect="0">ぜったい</answer>
 </question>
-<<<<<<< HEAD
 <question weight="2" title="彼は絶対に約束を破らない人だ?" text="約束">
-=======
-<question weigh="2" title="彼は絶対に約束を破らない人だ?" text="約束">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="1">やくそく</answer>
 <answer isCorrect="0">やくぞく</answer>
 <answer isCorrect="0">やっそく</answer>
 <answer isCorrect="0">やっぞく</answer>
 </question>
-<<<<<<< HEAD
 <question weight="2" title="彼は絶対に約束を破らない人だ?" text="破らない">
-=======
-<question weigh="2" title="彼は絶対に約束を破らない人だ?" text="破らない">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">まもらない</answer>
 <answer isCorrect="0">はからない</answer>
 <answer isCorrect="1">やぶらない</answer>
 <answer isCorrect="0">かぎらない	</answer>
 </question>
-<<<<<<< HEAD
 <question weight="2" title="年をとった＿＿＿、朝早く目が覚めてしまいます。" text="">
-=======
-<question weigh="2" title="年をとった＿＿＿、朝早く目が覚めてしまいます。" text="">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">最中</answer>
 <answer isCorrect="1">せいか</answer>
 <answer isCorrect="0">うえで</answer>
 <answer isCorrect="0">すえに</answer>
 </question>
-<<<<<<< HEAD
 <question weight="2" title="たとえ＿＿＿、親子いっしょにくらせるのがいちばんだ。" text="">
-=======
-<question weigh="2" title="たとえ＿＿＿、親子いっしょにくらせるのがいちばんだ。" text="">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="1">貧しくても</answer>
 <answer isCorrect="0">貧しいなら</answer>
 <answer isCorrect="0">貧しければ</answer>
 <answer isCorrect="0">貧しいのに</answer>
 </question>
-<<<<<<< HEAD
 <question weight="2" title="話し方から＿＿＿、彼は、東京の人ではないようだ。" text="">
-=======
-<question weigh="2" title="話し方から＿＿＿、彼は、東京の人ではないようだ。" text="">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">いると</answer>
 <answer isCorrect="1">すると</answer>
 <answer isCorrect="0">あると</answer>
 <answer isCorrect="0">ると</answer>
 </question>
-<<<<<<< HEAD
 <question weight="2.7" title="車を運転する人の①高齢化が進み、②視力、③反射④神経の⑤衰えから事故を起こす件数が増えているという。" text="高齢化 ">
-=======
-<question weigh="2.7" title="車を運転する人の①高齢化が進み、②視力、③反射④神経の⑤衰えから事故を起こす件数が増えているという。" text="高齢化 ">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">こうろうか</answer>
 <answer isCorrect="1">こうれいか</answer>
 <answer isCorrect="0">こうりんか</answer>
 <answer isCorrect="0">こうれきか</answer>
 </question>
-<<<<<<< HEAD
 <question weight="2.7" title="車を運転する人の①高齢化が進み、②視力、③反射④神経の⑤衰えから事故を起こす件数が増えているという。" text="視力">
-=======
-<question weigh="2.7" title="車を運転する人の①高齢化が進み、②視力、③反射④神経の⑤衰えから事故を起こす件数が増えているという。" text="視力">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="1">しりょく</answer>
 <answer isCorrect="0">けんりょく</answer>
 <answer isCorrect="0">しりき</answer>
 <answer isCorrect="0">けんりき</answer>
 </question>
-<<<<<<< HEAD
 <question weight="2.7" title="車を運転する人の①高齢化が進み、②視力、③反射④神経の⑤衰えから事故を起こす件数が増えているという。" text="反射">
-=======
-<question weigh="2.7" title="車を運転する人の①高齢化が進み、②視力、③反射④神経の⑤衰えから事故を起こす件数が増えているという。" text="反射">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="1">はんしゃ</answer>
 <answer isCorrect="0">はんたい</answer>
 <answer isCorrect="0">はんのう</answer>
 <answer isCorrect="0">はんこう</answer>
 </question>
-<<<<<<< HEAD
 <question weight="2.7" title="車を運転する人の①高齢化が進み、②視力、③反射④神経の⑤衰えから事故を起こす件数が増えているという。" text="神経">
-=======
-<question weigh="2.7" title="車を運転する人の①高齢化が進み、②視力、③反射④神経の⑤衰えから事故を起こす件数が増えているという。" text="神経">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">しんきょう</answer>
 <answer isCorrect="0">じんきょう</answer>
 <answer isCorrect="1">しんけい</answer>
 <answer isCorrect="0">じんけい</answer>
 </question>
-<<<<<<< HEAD
 <question weight="2.7" title="車を運転する人の①高齢化が進み、②視力、③反射④神経の⑤衰えから事故を起こす件数が増えているという。" text="衰え">
-=======
-<question weigh="2.7" title="車を運転する人の①高齢化が進み、②視力、③反射④神経の⑤衰えから事故を起こす件数が増えているという。" text="衰え">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">つかえ</answer>
 <answer isCorrect="0">うろたえ</answer>
 <answer isCorrect="0">おびえ</answer>
 <answer isCorrect="1">おとろえ</answer>
 </question>
-<<<<<<< HEAD
 <question weight="2.7" title="今度の計画の趣旨を説明してください。" text="">
-=======
-<question weigh="2.7" title="今度の計画の趣旨を説明してください。" text="">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="1">種子</answer>
 <answer isCorrect="0">数字</answer>
 <answer isCorrect="0">収支</answer>
 <answer isCorrect="0">図示</answer>
 </question>
-<<<<<<< HEAD
 <question weight="2.7" title="人間は_______、心ならずも悪事を行ってしまう場合がある。" text="">
-=======
-<question weigh="2.7" title="人間は_______、心ならずも悪事を行ってしまう場合がある。" text="">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">生きぬがために</answer>
 <answer isCorrect="1">生きんがために</answer>
 <answer isCorrect="0">生きまいがために</answer>
 <answer isCorrect="0">生きないがた</answer>
 </question>
-<<<<<<< HEAD
 <question weight="2.7" title="もし、私の言ったことに何か失礼があった_______、深くおわびします。" text="">
-=======
-<question weigh="2.7" title="もし、私の言ったことに何か失礼があった_______、深くおわびします。" text="">
->>>>>>> 247717119c4fb90211ef54b2a05b0d7cc885b4ec
 <answer isCorrect="0">につけ</answer>
 <answer isCorrect="1">としたら</answer>
 <answer isCorrect="0">にせよ</answer>

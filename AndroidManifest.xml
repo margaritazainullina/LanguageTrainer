@@ -57,7 +57,7 @@
             android:label="@string/title_greeting" >
         </activity>
          <activity
-            android:name="ua.hneu.languagetrainer.pages.LevelDefinitionTestActivity"
+            android:name="ua.hneu.languagetrainer.pages.test.LevelDefinitionTestActivity"
             android:label="@string/title_level_def_test_activity" >
         </activity>
         <activity
@@ -71,6 +71,10 @@
         <activity
             android:name="ua.hneu.languagetrainer.pages.vocabulary.ResultActivity"
             android:label="@string/title_activity_word_practice_result" >
+        </activity>
+         <activity
+            android:name="ua.hneu.languagetrainer.pages.test.TestResultActivity"
+            android:label="@string/title_lev_def_test_result" >
         </activity>
         <activity
             android:name="ua.hneu.languagetrainer.pages.vocabulary.MatchWordsActivity"

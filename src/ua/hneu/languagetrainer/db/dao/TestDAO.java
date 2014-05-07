@@ -19,7 +19,7 @@ public class TestDAO extends ContentProvider {
 	public static String TABLE_NAME = "test";
 	public static final String ID = "_id";
 	public static final String LEVEL = "level";
-	public static final String TYPE = "learnedVocabulary";
+	public static final String NAME = "name";
 
 	public static final Uri CONTENT_URI = Uri
 			.parse("content://ua.edu.hneu.languagetrainer.db.testprovider/dictionary");
@@ -42,7 +42,7 @@ public class TestDAO extends ContentProvider {
 		mContactMap = new HashMap<String, String>();
 		mContactMap.put(DictionaryDbHelper._ID, DictionaryDbHelper._ID);
 		mContactMap.put(LEVEL, LEVEL);
-		mContactMap.put(TYPE, TYPE);
+		mContactMap.put(NAME, NAME);
 		}
 
 	public String getDbName() {

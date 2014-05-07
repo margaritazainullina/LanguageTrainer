@@ -1,10 +1,13 @@
 package ua.hneu.languagetrainer.service;
 
+import java.util.ArrayList;
+
 import ua.hneu.languagetrainer.db.dao.QuestionDAO;
 import ua.hneu.languagetrainer.db.dao.TestDAO;
 import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
 import ua.hneu.languagetrainer.model.tests.Answer;
 import ua.hneu.languagetrainer.model.tests.Question;
+import ua.hneu.languagetrainer.model.tests.Test;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -65,6 +68,32 @@ public class QuestionService {
 	}
 
 	public static void startCounting(ContentResolver contentResolver) {
-		numberOfEnteries = getNumberOfQuestions(contentResolver)+1;
+		numberOfEnteries = getNumberOfQuestions(contentResolver) + 1;
+	}
+
+	public ArrayList<Question> getQuestionsByTestId(int testId,
+			ContentResolver cr) {
+		String[] col = { QuestionDAO.ID, QuestionDAO.T_ID, QuestionDAO.TEXT,
+				QuestionDAO.TITLE, QuestionDAO.WEIGHT };
+		Cursor c = cr.query(QuestionDAO.CONTENT_URI, col, QuestionDAO.T_ID
+				+"="+ testId, null, null, null);
+		c.moveToFirst();
+		int id = 0;
+		int tId = 0;
+		String title = "";
+		String text = "";
+		double weight = 0;
+		ArrayList<Question> q = new ArrayList<Question>();
+		while (!c.isAfterLast()) {
+			id = c.getInt(0);
+			tId = c.getInt(1);
+			title = c.getString(2);
+			text = c.getString(3);
+			weight = c.getDouble(4);
+			ArrayList<Answer> a = as.getAswersByQuestionId(id, cr);
+			q.add(new Question(id, title, text, weight, a));
+			c.moveToNext();
+		}
+		return q;
 	}
 }
