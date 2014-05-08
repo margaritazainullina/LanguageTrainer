@@ -62,7 +62,8 @@ public class App extends Application {
 
 		cr = getContentResolver();
 		VocabularyService vs = new VocabularyService();
-		
+		us.dropTable();
+		us.createTable();
 		 //vocabulary
 		/*vs.dropTable();
 		vs.createTable();

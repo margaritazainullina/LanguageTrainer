@@ -173,16 +173,14 @@ public class LevelDefinitionTestActivity extends Activity {
 	}
 
 	public void buttonEndTestOnClick(View v) {
+		 endTesting();
+	}
+
+	public void endTesting() {
 		Intent intent = new Intent(getBaseContext(), TestResultActivity.class);
 		intent.putExtra("score", score);
 		intent.putExtra("numberOfCorrectAnswers", numberOfCorrectAnswers);
 		intent.putExtra("numberOfAnswers", t.getQuestions().size());
 		startActivity(intent);
-	}
-
-	public void endTesting() {
-		// go to TranscriptionActivity
-		Intent nextActivity = new Intent(this, LevelRecomendationActivity.class);
-		startActivity(nextActivity);
 	}
 }

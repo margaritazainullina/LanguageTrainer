@@ -107,7 +107,7 @@
 <answer isCorrect="1">しみん</answer>
 <answer isCorrect="0">しみ</answer>
 </question>
-<question weight="1.5" title="こんな社会では市民は安心できない。" text="は安心">
+<question weight="1.5" title="こんな社会では市民は安心できない。" text="安心">
 <answer isCorrect="0">あんじん</answer>
 <answer isCorrect="1">あんしん</answer>
 <answer isCorrect="0">あんでい</answer>
@@ -158,8 +158,8 @@
 <question weight="2" title="彼は絶対に約束を破らない人だ?" text="絶対">
 <answer isCorrect="0">ぜつだい</answer>
 <answer isCorrect="0">ぜつたい</answer>
-<answer isCorrect="1">ぜっだい</answer>
-<answer isCorrect="0">ぜったい</answer>
+<answer isCorrect="0">ぜっだい</answer>
+<answer isCorrect="1">ぜったい</answer>
 </question>
 <question weight="2" title="彼は絶対に約束を破らない人だ?" text="約束">
 <answer isCorrect="1">やくそく</answer>
