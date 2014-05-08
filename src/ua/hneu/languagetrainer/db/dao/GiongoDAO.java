@@ -14,20 +14,18 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.text.TextUtils;
 
-public class CounterWordsDAO extends ContentProvider {
+public class GiongoDAO extends ContentProvider {
 
-	public static String TABLE_NAME = "counter_words";
+	public static String TABLE_NAME = "giongo";
 	public static final String ID = "_id";
-	public static final String SECTION = "section";
-	public static final String WORD = "rule_id";
-	public static final String HIRAGANA = "hiragana";
+	public static final String WORD = "word";
 	public static final String ROMAJI = "romaji";
 	public static final String TRANSLATION_ENG = "translation_eng";
-	public static final String TRANSLATION_RUS = "translation_eng";
+	public static final String TRANSLATION_RUS = "translation_rus";
 	public static final String COLOR = "color";
 
 	public static final Uri CONTENT_URI = Uri
-			.parse("content://ua.edu.hneu.languagetrainer.db.counterwordsprovider/dictionary");
+			.parse("content://ua.edu.hneu.languagetrainer.db.giongoprovider/dictionary");
 	
 	public static final int URI_CODE = 1;
 	public static final int URI_CODE_ID = 2;
@@ -46,9 +44,7 @@ public class CounterWordsDAO extends ContentProvider {
 
 		mContactMap = new HashMap<String, String>();
 		mContactMap.put(DictionaryDbHelper._ID, DictionaryDbHelper._ID);
-		mContactMap.put(SECTION, SECTION);
 		mContactMap.put(WORD, WORD);
-		mContactMap.put(HIRAGANA, HIRAGANA);
 		mContactMap.put(ROMAJI, ROMAJI);
 		mContactMap.put(TRANSLATION_ENG, TRANSLATION_ENG);
 		mContactMap.put(TRANSLATION_RUS, TRANSLATION_RUS);
@@ -75,7 +71,7 @@ public class CounterWordsDAO extends ContentProvider {
 
 		String orderBy;
 		if (TextUtils.isEmpty(sort)) {
-			orderBy = ID;
+			orderBy = WORD;
 		} else {
 			orderBy = sort;
 		}

@@ -25,7 +25,7 @@ public class GrammarExamplesDAO extends ContentProvider {
 	public static final String TRANSLATION_RUS = "translation_eng";
 
 	public static final Uri CONTENT_URI = Uri
-			.parse("content://ua.edu.hneu.languagetrainer.db.questionprovider/dictionary");
+			.parse("content://ua.edu.hneu.languagetrainer.db.grammarexamplesprovider/dictionary");
 	
 	public static final int URI_CODE = 1;
 	public static final int URI_CODE_ID = 2;

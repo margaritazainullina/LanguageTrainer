@@ -7,6 +7,10 @@ encoding//src/ua/hneu/languagetrainer/pages/vocabulary/TranscriptionTestActivity
 encoding//src/ua/hneu/languagetrainer/pages/vocabulary/TranslationTestActivity.java=UTF-8
 encoding//src/ua/hneu/languagetrainer/service=UTF-8
 encoding//src/ua/hneu/languagetrainer/service/AnswerService.java=UTF-8
+encoding//src/ua/hneu/languagetrainer/service/CounterWordsService.java=UTF-8
+encoding//src/ua/hneu/languagetrainer/service/GiongoExampleService.java=UTF-8
+encoding//src/ua/hneu/languagetrainer/service/GiongoService.java=UTF-8
+encoding//src/ua/hneu/languagetrainer/service/GrammarExampleService.java=UTF-8
 encoding//src/ua/hneu/languagetrainer/service/GrammarService.java=UTF-8
 encoding//src/ua/hneu/languagetrainer/service/QuestionService.java=UTF-8
 encoding//src/ua/hneu/languagetrainer/service/TestService.java=UTF-8

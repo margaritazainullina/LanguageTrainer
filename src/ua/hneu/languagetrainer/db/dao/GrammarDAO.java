@@ -22,6 +22,7 @@ public class GrammarDAO extends ContentProvider {
 	public static final String LEVEL = "level";
 	public static final String DESC_ENG = "desc_eng";
 	public static final String DESC_RUS = "desc_rus";
+	public static final String COLOR = "color";
 
 	public static final Uri CONTENT_URI = Uri
 			.parse("content://ua.edu.hneu.languagetrainer.db.grammarprovider/dictionary");
@@ -47,6 +48,7 @@ public class GrammarDAO extends ContentProvider {
 		mContactMap.put(LEVEL, LEVEL);
 		mContactMap.put(DESC_ENG, DESC_ENG);
 		mContactMap.put(DESC_RUS, DESC_RUS);
+		mContactMap.put(COLOR, COLOR);
 		}
 
 	public String getDbName() {

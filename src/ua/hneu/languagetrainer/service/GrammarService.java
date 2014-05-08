@@ -2,11 +2,10 @@ package ua.hneu.languagetrainer.service;
 
 import java.util.ArrayList;
 
-import ua.hneu.languagetrainer.db.dao.AnswerDAO;
-import ua.hneu.languagetrainer.db.dao.QuestionDAO;
-import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
-import ua.hneu.languagetrainer.model.tests.Answer;
-import ua.hneu.languagetrainer.model.tests.Question;
+import ua.hneu.languagetrainer.db.dao.GrammarDAO;
+import ua.hneu.languagetrainer.db.dao.GrammarExamplesDAO;
+import ua.hneu.languagetrainer.model.grammar.GrammarExample;
+import ua.hneu.languagetrainer.model.grammar.GrammarRule;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -14,47 +13,58 @@ import android.database.sqlite.SQLiteDatabase;
 
 public class GrammarService {
 
-	public void insert(Answer a, int questionId, ContentResolver cr) {
+	public void insert(GrammarRule g, ContentResolver cr) {
 		ContentValues values = new ContentValues();
-		values.put(AnswerDAO.RULE, a.isCorrect());
-		values.put(AnswerDAO.DESC_ENG, a.getText());
-		values.put(AnswerDAO.DESC_RUS, questionId);
-		cr.insert(AnswerDAO.CONTENT_URI, values);
+		values.put(GrammarDAO.RULE, g.getRule());
+		values.put(GrammarDAO.DESC_ENG, g.getDescEng());
+		values.put(GrammarDAO.DESC_RUS, g.getDescEng());
+		values.put(GrammarDAO.COLOR, g.getColor());
+		cr.insert(GrammarDAO.CONTENT_URI, values);
 	}
 
 	public void emptyTable() {
-		AnswerDAO.getDb().execSQL("delete from " + AnswerDAO.TABLE_NAME);
+		GrammarDAO.getDb().execSQL("delete from " + GrammarDAO.TABLE_NAME);
 	}
 
 	public void createTable() {
-		SQLiteDatabase db = AnswerDAO.getDb();
-		db.execSQL("CREATE TABLE " + AnswerDAO.TABLE_NAME
+		SQLiteDatabase db = GrammarDAO.getDb();
+		db.execSQL("CREATE TABLE " + GrammarDAO.TABLE_NAME
 				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-				+ AnswerDAO.ISCORRECT + " INTEGER, " + AnswerDAO.Q_ID
-				+ " INTEGER, " + AnswerDAO.TEXT + " TEXT, " + "FOREIGN KEY("
-				+ AnswerDAO.Q_ID + ") REFERENCES " + QuestionDAO.TABLE_NAME
-				+ "(" + QuestionDAO.ID + "));");
+				+ GrammarDAO.LEVEL + " INTEGER, " + GrammarDAO.RULE + " TEXT, "
+				+ GrammarDAO.DESC_ENG + " TEXT, " + GrammarDAO.DESC_RUS+ GrammarDAO.COLOR
+				+ " TEXT); ");
 	}
 
 	public void dropTable() {
-		AnswerDAO.getDb().execSQL("DROP TABLE " + AnswerDAO.TABLE_NAME + ";");
+		GrammarDAO.getDb().execSQL("DROP TABLE " + GrammarDAO.TABLE_NAME + ";");
 	}
 
-	public ArrayList<Answer> getAswersByQuestionId(int questionId,
+	public ArrayList<GrammarRule> getRulesByLevel(int level,
 			ContentResolver cr) {
-		String[] col = { AnswerDAO.Q_ID, AnswerDAO.TEXT, AnswerDAO.ISCORRECT };
-		Cursor c = cr.query(AnswerDAO.CONTENT_URI, col, AnswerDAO.Q_ID + "="
-				+ questionId, null, null, null);
+		String[] col = { GrammarDAO.ID, 
+				GrammarDAO.LEVEL, GrammarDAO.RULE,GrammarDAO.DESC_ENG,
+				GrammarDAO.DESC_RUS,  GrammarDAO.COLOR };
+		Cursor c = cr.query(GrammarDAO.CONTENT_URI, col, GrammarDAO.LEVEL + "="
+				+ level, null, null, null);
 		c.moveToFirst();
-		String text = "";
-		boolean isCorrect = false;
-		ArrayList<Answer> a = new ArrayList<Answer>();
+		int id=0;
+		String rule = "";
+		String descEng = "";
+		String descRus = "";
+		String color = "";
+		GrammarExampleService ges = new GrammarExampleService();
+		ArrayList<GrammarRule> gr = new ArrayList<GrammarRule>();
 		while (!c.isAfterLast()) {
-			text = c.getString(1);
-			isCorrect = c.getInt(2) == 1;
-			a.add(new Answer(text, isCorrect));
+			id = c.getInt(0);
+			rule = c.getString(2);
+			descEng = c.getString(3);
+			descRus = c.getString(4);
+			color = c.getString(5);
+			ArrayList<GrammarExample> ge = new ArrayList<GrammarExample>();
+			ge = ges.getExamplesByRuleId(id, cr);
+			gr.add(new GrammarRule(rule, level, descEng, descRus, ge,color));
 			c.moveToNext();
 		}
-		return a;
+		return gr;
 	}
 }

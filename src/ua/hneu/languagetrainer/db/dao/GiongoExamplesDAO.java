@@ -14,20 +14,18 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.text.TextUtils;
 
-public class CounterWordsDAO extends ContentProvider {
+public class GiongoExamplesDAO extends ContentProvider {
 
-	public static String TABLE_NAME = "counter_words";
+	public static String TABLE_NAME = "giongo_examples";
 	public static final String ID = "_id";
-	public static final String SECTION = "section";
-	public static final String WORD = "rule_id";
-	public static final String HIRAGANA = "hiragana";
+	public static final String GIONGO_ID = "rule_id";
+	public static final String TEXT = "text";
 	public static final String ROMAJI = "romaji";
 	public static final String TRANSLATION_ENG = "translation_eng";
 	public static final String TRANSLATION_RUS = "translation_eng";
-	public static final String COLOR = "color";
 
 	public static final Uri CONTENT_URI = Uri
-			.parse("content://ua.edu.hneu.languagetrainer.db.counterwordsprovider/dictionary");
+			.parse("content://ua.edu.hneu.languagetrainer.db.giongoexamplesprovider/dictionary");
 	
 	public static final int URI_CODE = 1;
 	public static final int URI_CODE_ID = 2;
@@ -46,13 +44,11 @@ public class CounterWordsDAO extends ContentProvider {
 
 		mContactMap = new HashMap<String, String>();
 		mContactMap.put(DictionaryDbHelper._ID, DictionaryDbHelper._ID);
-		mContactMap.put(SECTION, SECTION);
-		mContactMap.put(WORD, WORD);
-		mContactMap.put(HIRAGANA, HIRAGANA);
+		mContactMap.put(GIONGO_ID, GIONGO_ID);
+		mContactMap.put(TEXT, TEXT);
 		mContactMap.put(ROMAJI, ROMAJI);
 		mContactMap.put(TRANSLATION_ENG, TRANSLATION_ENG);
 		mContactMap.put(TRANSLATION_RUS, TRANSLATION_RUS);
-		mContactMap.put(COLOR, COLOR);
 		}
 
 	public String getDbName() {
@@ -91,7 +87,7 @@ public class CounterWordsDAO extends ContentProvider {
 
 		ContentValues values = new ContentValues(inValues);
 
-		long rowId = db.insert(TABLE_NAME, WORD, values);
+		long rowId = db.insert(TABLE_NAME, TEXT, values);
 		if (rowId > 0) {
 			Uri uri = ContentUris.withAppendedId(CONTENT_URI, rowId);
 			getContext().getContentResolver().notifyChange(uri, null);
