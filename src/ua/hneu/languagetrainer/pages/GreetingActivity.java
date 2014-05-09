@@ -1,13 +1,18 @@
 package ua.hneu.languagetrainer.pages;
 
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.masterdetailflow.ItemListActivity;
 import ua.hneu.languagetrainer.pages.test.LevelDefinitionTestActivity;
 import ua.hneu.languagetrainer.service.AnswerService;
+import ua.hneu.languagetrainer.service.GiongoService;
 import ua.hneu.languagetrainer.service.QuestionService;
 import ua.hneu.languagetrainer.service.TestService;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +29,19 @@ public class GreetingActivity extends Activity {
 		setContentView(R.layout.activity_greeting);
 		buttonTakeTest = (Button) findViewById(R.id.buttonTakeTest);
 		buttonStart = (Button) findViewById(R.id.buttonStart);
-		
+
+		GiongoService gs = new GiongoService();
+		String s = gs.bulkInsertFromCSV("giongo.txt", getAssets(),
+				getContentResolver());
+		try {
+			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
+					openFileOutput("4.txt", Context.MODE_PRIVATE));
+			outputStreamWriter.write(s);
+			outputStreamWriter.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void buttonTakeTestOnClick(View v) {

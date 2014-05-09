@@ -8,6 +8,7 @@ import ua.hneu.languagetrainer.model.User;
 import ua.hneu.languagetrainer.model.vocabulary.WordDictionary;
 import ua.hneu.languagetrainer.passing.VocabularyPassing;
 import ua.hneu.languagetrainer.service.AnswerService;
+import ua.hneu.languagetrainer.service.GiongoService;
 import ua.hneu.languagetrainer.service.QuestionService;
 import ua.hneu.languagetrainer.service.TestService;
 import ua.hneu.languagetrainer.service.UserService;
@@ -62,8 +63,8 @@ public class App extends Application {
 
 		cr = getContentResolver();
 		VocabularyService vs = new VocabularyService();
-		us.dropTable();
-		us.createTable();
+		//us.dropTable();
+		//us.createTable();
 		 //vocabulary
 		/*vs.dropTable();
 		vs.createTable();
@@ -88,7 +89,9 @@ public class App extends Application {
 		as.createTable();		
 		ts.insertFromXml("level_def_test.xml", getAssets(), getContentResolver());*/
 		// if it isn't first time when launching app - user exists in db
-		User currentUser = us.getUserWithCurrentLevel(cr);
+		
+		
+		/*User currentUser = us.getUserWithCurrentLevel(cr);
 		if (currentUser != null) {
 			// fetch user data from db
 			userInfo = currentUser;
@@ -105,7 +108,7 @@ public class App extends Application {
 
 		}
 		App.context = getApplicationContext();
-		super.onCreate();
+		super.onCreate();*/
 	}
 
 	public static void updateUserData() {
