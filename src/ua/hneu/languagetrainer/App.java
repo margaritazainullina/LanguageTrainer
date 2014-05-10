@@ -39,8 +39,7 @@ public class App extends Application {
 	};
 
 	@Override
-	public void onCreate() {
-		
+	public void onCreate() {		
 		// get current location
 		if (Locale.getDefault().getDisplayLanguage().equals("русский"))
 			lang = Languages.RUS;
@@ -106,9 +105,9 @@ public class App extends Application {
 					userInfo.getLevel(),
 					userInfo.getNumberOfEntriesInCurrentDict(), cr);
 
-		}
+		}*/
 		App.context = getApplicationContext();
-		super.onCreate();*/
+		super.onCreate();
 	}
 
 	public static void updateUserData() {
@@ -122,7 +121,7 @@ public class App extends Application {
 		if (currentUser == null) {
 			int id = us.getNumberOfUsers(cr) + 1;
 			userInfo = new User(id, level, 0,
-					vs.getNumberOfWordsInLevel(5, cr), 0, 0, 0, 0, 0, 0, 0, 0,
+					vs.getNumberOfWordsInLevel(5, cr), 0, 0, 0, 0, 0, 0,
 					10, 10, 0, 1, 1);
 			us.insert(userInfo, cr);
 			// load dictionary

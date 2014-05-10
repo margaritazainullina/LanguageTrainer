@@ -2,12 +2,15 @@ package ua.hneu.languagetrainer.pages;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.masterdetailflow.ItemListActivity;
+import ua.hneu.languagetrainer.model.other.Giongo;
 import ua.hneu.languagetrainer.pages.test.LevelDefinitionTestActivity;
 import ua.hneu.languagetrainer.service.AnswerService;
+import ua.hneu.languagetrainer.service.GiongoExampleService;
 import ua.hneu.languagetrainer.service.GiongoService;
 import ua.hneu.languagetrainer.service.QuestionService;
 import ua.hneu.languagetrainer.service.TestService;
@@ -31,17 +34,14 @@ public class GreetingActivity extends Activity {
 		buttonStart = (Button) findViewById(R.id.buttonStart);
 
 		GiongoService gs = new GiongoService();
-		String s = gs.bulkInsertFromCSV("giongo.txt", getAssets(),
+		GiongoExampleService ges = new GiongoExampleService();
+		gs.dropTable();
+		gs.createTable();
+		ges.dropTable();
+		GiongoService.startCounting(getContentResolver());
+		ges.createTable();
+		gs.bulkInsertFromCSV("giongo.txt", getAssets(),
 				getContentResolver());
-		try {
-			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
-					openFileOutput("4.txt", Context.MODE_PRIVATE));
-			outputStreamWriter.write(s);
-			outputStreamWriter.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 	public void buttonTakeTestOnClick(View v) {

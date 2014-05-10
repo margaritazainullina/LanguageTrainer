@@ -12,8 +12,9 @@ import android.database.sqlite.SQLiteDatabase;
 
 public class GiongoExampleService {
 
-	public void insert(GiongoExample g, ContentResolver cr) {
+	public void insert(GiongoExample g, int giongoId, ContentResolver cr) {
 		ContentValues values = new ContentValues();
+		values.put(GiongoExamplesDAO.GIONGO_ID, giongoId);
 		values.put(GiongoExamplesDAO.TEXT, g.getText());
 		values.put(GiongoExamplesDAO.ROMAJI, g.getRomaji());
 		values.put(GiongoExamplesDAO.TRANSLATION_ENG, g.getTranslationEng());
@@ -22,29 +23,32 @@ public class GiongoExampleService {
 	}
 
 	public void emptyTable() {
-		GiongoExamplesDAO.getDb().execSQL("delete from " + GiongoExamplesDAO.TABLE_NAME);
+		GiongoExamplesDAO.getDb().execSQL(
+				"delete from " + GiongoExamplesDAO.TABLE_NAME);
 	}
 
 	public void createTable() {
 		SQLiteDatabase db = GiongoExamplesDAO.getDb();
 		db.execSQL("CREATE TABLE " + GiongoExamplesDAO.TABLE_NAME
 				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-				+ GiongoExamplesDAO.TEXT + " TEXT, " + GiongoExamplesDAO.ROMAJI + " TEXT, "
-				+ GiongoExamplesDAO.TRANSLATION_ENG + " TEXT, " + GiongoExamplesDAO.TRANSLATION_RUS
-				+ " TEXT); ");
+				+ GiongoExamplesDAO.GIONGO_ID + " TEXT, "
+				+ GiongoExamplesDAO.TEXT + " TEXT, " + GiongoExamplesDAO.ROMAJI
+				+ " TEXT, " + GiongoExamplesDAO.TRANSLATION_ENG + " TEXT, "
+				+ GiongoExamplesDAO.TRANSLATION_RUS + " TEXT); ");
 	}
 
 	public void dropTable() {
-		GiongoExamplesDAO.getDb().execSQL("DROP TABLE " + GiongoExamplesDAO.TABLE_NAME + ";");
+		GiongoExamplesDAO.getDb().execSQL(
+				"DROP TABLE " + GiongoExamplesDAO.TABLE_NAME + ";");
 	}
 
 	public ArrayList<GiongoExample> getExamplesByGiongoId(int giongoId,
 			ContentResolver cr) {
-		String[] col = { GiongoExamplesDAO.GIONGO_ID, 
-				GiongoExamplesDAO.TEXT, GiongoExamplesDAO.ROMAJI,GiongoExamplesDAO.TRANSLATION_ENG,
+		String[] col = { GiongoExamplesDAO.GIONGO_ID, GiongoExamplesDAO.TEXT,
+				GiongoExamplesDAO.ROMAJI, GiongoExamplesDAO.TRANSLATION_ENG,
 				GiongoExamplesDAO.TRANSLATION_RUS };
-		Cursor c = cr.query(GiongoExamplesDAO.CONTENT_URI, col, GiongoExamplesDAO.GIONGO_ID + "="
-				+ giongoId, null, null, null);
+		Cursor c = cr.query(GiongoExamplesDAO.CONTENT_URI, col,
+				GiongoExamplesDAO.GIONGO_ID + "=" + giongoId, null, null, null);
 		c.moveToFirst();
 		String text = "";
 		String romaji = "";

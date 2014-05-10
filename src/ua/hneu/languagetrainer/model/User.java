@@ -14,10 +14,7 @@ public class User {
 	private int numberOfVocabularyInLevel = 0;
 	// Grammar
 	private int learnedGrammar = 0;
-	private int numberOfGrammarInLevel = 0;
-	// Audio
-	private int learnedAudio = 0;
-	private int numberOfAudioInLevel = 0;
+	private int numberOfGrammarInLevel = 0;	
 	// Other (depending on the level)
 	private int learnedGiongo = 0;
 	private int numberOfGiongoInLevel = 0;
@@ -35,8 +32,7 @@ public class User {
 
 	public User(int id, int userLevel, int learnedVocabulary,
 			int numberOfVocabularyInLevel, int learnedGrammar,
-			int numberOfGrammarInLevel, int learnedAudio,
-			int numberOfAudioInLevel, int learnedGiongo,
+			int numberOfGrammarInLevel,  int learnedGiongo,
 			int numberOfGiongoInLevel, int learnedCounterWords,
 			int numberOfCounterWordsInLevel, int numberOfEntriesInCurrentDict,
 			int numberOfRepeatationsForLearning, double testAveragePercentage,
@@ -48,8 +44,6 @@ public class User {
 		this.numberOfVocabularyInLevel = numberOfVocabularyInLevel;
 		this.learnedGrammar = learnedGrammar;
 		this.numberOfGrammarInLevel = numberOfGrammarInLevel;
-		this.learnedAudio = learnedAudio;
-		this.numberOfAudioInLevel = numberOfAudioInLevel;
 		this.learnedGiongo = learnedGiongo;
 		this.numberOfGiongoInLevel = numberOfGiongoInLevel;
 		this.learnedCounterWords = learnedCounterWords;
@@ -91,14 +85,6 @@ public class User {
 
 	public int getNumberOfGrammarInLevel() {
 		return numberOfGrammarInLevel;
-	}
-
-	public int getLearnedAudio() {
-		return learnedAudio;
-	}
-
-	public int getNumberOfAudioInLevel() {
-		return numberOfAudioInLevel;
 	}
 
 	public int getLearnedGiongo() {
@@ -158,14 +144,6 @@ public class User {
 
 	public void setNumberOfGrammarInLevel(int numberOfGrammarInLevel) {
 		this.numberOfGrammarInLevel = numberOfGrammarInLevel;
-	}
-
-	public void setLearnedAudio(int learnedAudio) {
-		this.learnedAudio = learnedAudio;
-	}
-
-	public void setNumberOfAudioInLevel(int numberOfAudioInLevel) {
-		this.numberOfAudioInLevel = numberOfAudioInLevel;
 	}
 
 	public void setLearnedGiongo(int learnedGiongo) {

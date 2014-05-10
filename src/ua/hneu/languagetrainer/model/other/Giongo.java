@@ -8,11 +8,11 @@ public class Giongo {
 	private String translEng;
 	private String translRus;
 	private String color;
-	private ArrayList<GiongoExample> examples = new ArrayList<GiongoExample>();
+	public ArrayList<GiongoExample> examples = new ArrayList<GiongoExample>();
 
 	public Giongo(String word, String romaji, String translEng,
 			String translRus, String color, ArrayList<GiongoExample> examples) {
-		super();
+		examples = new ArrayList<GiongoExample>();
 		this.word = word;
 		this.romaji = romaji;
 		this.translEng = translEng;
@@ -20,7 +20,10 @@ public class Giongo {
 		this.color = color;
 		this.examples = examples;
 	}
-
+	public Giongo() {
+		examples = new ArrayList<GiongoExample>();
+	}
+	
 	public String getWord() {
 		return word;
 	}

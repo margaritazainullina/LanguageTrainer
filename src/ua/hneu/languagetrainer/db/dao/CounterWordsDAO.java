@@ -19,7 +19,7 @@ public class CounterWordsDAO extends ContentProvider {
 	public static String TABLE_NAME = "counter_words";
 	public static final String ID = "_id";
 	public static final String SECTION = "section";
-	public static final String WORD = "rule_id";
+	public static final String WORD = "word";
 	public static final String HIRAGANA = "hiragana";
 	public static final String ROMAJI = "romaji";
 	public static final String TRANSLATION_ENG = "translation_eng";

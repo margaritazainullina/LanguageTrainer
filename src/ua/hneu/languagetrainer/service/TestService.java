@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -17,11 +15,9 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 import ua.hneu.languagetrainer.db.dao.TestDAO;
-import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
 import ua.hneu.languagetrainer.model.tests.Answer;
 import ua.hneu.languagetrainer.model.tests.Question;
 import ua.hneu.languagetrainer.model.tests.Test;
-import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.res.AssetManager;
@@ -133,7 +129,7 @@ public class TestService {
 	}
 
 	public int getNumberOfTests(ContentResolver contentResolver) {
-		Cursor countCursor = contentResolver.query(VocabularyDAO.CONTENT_URI,
+		Cursor countCursor = contentResolver.query(TestDAO.CONTENT_URI,
 				new String[] { "count(*) AS count" }, null + "", null, null);
 		countCursor.moveToFirst();
 		int count = countCursor.getInt(0);

@@ -8,7 +8,6 @@ public class GiongoExample {
 
 	public GiongoExample(String text, String romaji, String translationEng,
 			String translationRus) {
-		super();
 		this.text = text;
 		this.romaji = romaji;
 		this.translationEng = translationEng;

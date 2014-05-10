@@ -13,10 +13,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import ua.hneu.languagetrainer.db.dao.GiongoDAO;
+import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
 import ua.hneu.languagetrainer.model.grammar.GrammarExample;
 import ua.hneu.languagetrainer.model.grammar.GrammarRule;
 import ua.hneu.languagetrainer.model.other.Giongo;
 import ua.hneu.languagetrainer.model.other.GiongoExample;
+import ua.hneu.languagetrainer.model.tests.Question;
 import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -27,8 +29,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 public class GiongoService {
+	GiongoExampleService ges = new GiongoExampleService();
+	static int numberOfEnteries = 0;
 
 	public void insert(Giongo g, ContentResolver cr) {
+		int n = getNumberOfGiongo(cr) + 1;
+		for (GiongoExample ge : g.getExamples()) {
+			ges.insert(ge, n, cr);
+		}
+		numberOfEnteries++;
 		ContentValues values = new ContentValues();
 		values.put(GiongoDAO.WORD, g.getWord());
 		values.put(GiongoDAO.ROMAJI, g.getRomaji());
@@ -36,6 +45,19 @@ public class GiongoService {
 		values.put(GiongoDAO.TRANSLATION_RUS, g.getTranslRus());
 		values.put(GiongoDAO.COLOR, g.getColor());
 		cr.insert(GiongoDAO.CONTENT_URI, values);
+	}
+
+	public static void startCounting(ContentResolver contentResolver) {
+		numberOfEnteries = getNumberOfGiongo(contentResolver) + 1;
+	}
+
+	private static int getNumberOfGiongo(ContentResolver cr) {
+		Cursor countCursor = cr.query(GiongoDAO.CONTENT_URI,
+				new String[] { "count(*) AS count" }, null + "", null, null);
+		countCursor.moveToFirst();
+		int count = countCursor.getInt(0);
+		countCursor.close();
+		return count;
 	}
 
 	public void emptyTable() {
@@ -48,7 +70,7 @@ public class GiongoService {
 				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " + GiongoDAO.WORD
 				+ " TEXT, " + GiongoDAO.ROMAJI + " TEXT, "
 				+ GiongoDAO.TRANSLATION_ENG + " TEXT, "
-				+ GiongoDAO.TRANSLATION_RUS + GiongoDAO.COLOR + " TEXT, "
+				+ GiongoDAO.TRANSLATION_RUS + " TEXT, " + GiongoDAO.COLOR
 				+ " TEXT); ");
 	}
 
@@ -56,7 +78,7 @@ public class GiongoService {
 		GiongoDAO.getDb().execSQL("DROP TABLE " + GiongoDAO.TABLE_NAME + ";");
 	}
 
-	public ArrayList<Giongo> getAllGiongo(int level, ContentResolver cr) {
+	public ArrayList<Giongo> getAllGiongo(ContentResolver cr) {
 		String[] col = { GiongoDAO.ID, GiongoDAO.WORD, GiongoDAO.ROMAJI,
 				GiongoDAO.TRANSLATION_ENG, GiongoDAO.TRANSLATION_RUS,
 				GiongoDAO.COLOR };
@@ -86,68 +108,102 @@ public class GiongoService {
 		return g;
 	}
 
-	public String bulkInsertFromCSV(String filepath, AssetManager assetManager,
+	public void bulkInsertFromCSV(String filepath, AssetManager assetManager,
 			ContentResolver cr) {
-
-		ArrayList<String> entries = new ArrayList<String>();
-		ArrayList<String> entries1 = new ArrayList<String>();
 		BufferedReader reader = null;
-
 		try {
 			reader = new BufferedReader(new InputStreamReader(
-					assetManager.open("2.txt")));
+					assetManager.open("giongo.txt")));
 			// do reading, usually loop until end of file reading
 			String mLine;
-			while ((mLine = reader.readLine()) != null) {
-				entries.add(mLine);
-			}
-		} catch (IOException e) {
-			Log.e("VocabularyService", e.getMessage() + " " + e.getCause());
-		}
-		try {
-			reader = new BufferedReader(new InputStreamReader(
-					assetManager.open("1.txt")));
-			// do reading, usually loop until end of file reading
-			String mLine;
-			while ((mLine = reader.readLine()) != null) {
-				entries1.add(mLine);
-			}
-		} catch (IOException e) {
-			Log.e("VocabularyService", e.getMessage() + " " + e.getCause());
-		}
-		StringBuilder x = new StringBuilder();
-		try {
-			reader = new BufferedReader(new InputStreamReader(
-					assetManager.open(filepath)));
-			// do reading, usually loop until end of file reading
-			String mLine;
-			int i = 0;
-			while ((mLine = reader.readLine()) != null) {
-				if (mLine != null) {
-					// String[] parts = mLine.split("\t");
+			boolean isFirst = true;
+			Giongo g = new Giongo();
+			// setting random colors
+			Random r = new Random();
+			int r1 = r.nextInt(5);
+			String color = "";
 
-					if (!mLine.isEmpty()) {
-						// System.out.println(mLine + "\t" + entries.get(i));
-
-						Pattern pattern = Pattern
-								.compile("([\\p{Hiragana}\\p{Katakana}\\p{Han}\\t]*+)([a-zA-Z ]*)");
-						Matcher matcher = pattern.matcher(mLine);
-						String string = "";
-						while (matcher.find()) {
-							if (!matcher.group(0).isEmpty()) {
-								string = matcher.group(1)+"\t" + entries.get(i)+ "\t"+ matcher.group(2)+"\t"+entries1.get(i);
-								break;
-							}
+			while ((mLine = reader.readLine()) != null) {
+				if (!mLine.isEmpty()) {
+					if (isFirst) {
+						String[] s = mLine.split("\\t");
+						r = new Random();
+						r1 = r.nextInt(5);
+						switch (r1) {
+						case 0: {
+							color = "138,213,240";
+							break;
 						}
-						i++;
-						x.append(string + "\r\n");						
+						case 1: {
+							color = "214,173,235";
+							break;
+						}
+						case 2: {
+							color = "197,226,109";
+							break;
+						}
+
+						case 3: {
+							color = "255,217,128";
+							break;
+						}
+						case 4: {
+							color = "255,148,148";
+							break;
+						}
+						}
+						g = new Giongo(s[0], s[1], s[2], s[3], color, null);
+						isFirst = false;
+					} else {
+						String[] s = mLine.split("\\t");
+						GiongoExample ge = new GiongoExample(s[0] + "\\t"
+								+ s[1] + "\\t" + s[2], s[3], s[4], s[5]);
+						g.examples.add(ge);
 					}
+				} else {
+					this.insert(g, cr);
+					g = new Giongo();
+					g.setExamples(new ArrayList<GiongoExample>());
+					isFirst = true;
+
 				}
 			}
 		} catch (IOException e) {
 			Log.e("VocabularyService", e.getMessage() + " " + e.getCause());
+
 		}
-		return x.toString();
 	}
 
+	/*
+	 * public String aaa(String filepath, AssetManager assetManager,
+	 * ContentResolver cr) { ArrayList<String> entries = new
+	 * ArrayList<String>(); ArrayList<String> entries1 = new
+	 * ArrayList<String>(); BufferedReader reader = null;
+	 * 
+	 * try { reader = new BufferedReader(new InputStreamReader(
+	 * assetManager.open("2.txt"))); String mLine; while ((mLine =
+	 * reader.readLine()) != null) { entries.add(mLine); } } catch (IOException
+	 * e) { Log.e("VocabularyService", e.getMessage() + " " + e.getCause()); }
+	 * try { reader = new BufferedReader(new InputStreamReader(
+	 * assetManager.open("1.txt"))); String mLine; while ((mLine =
+	 * reader.readLine()) != null) { entries1.add(mLine); } } catch (IOException
+	 * e) { Log.e("VocabularyService", e.getMessage() + " " + e.getCause()); }
+	 * StringBuilder x = new StringBuilder(); try { reader = new
+	 * BufferedReader(new InputStreamReader( assetManager.open(filepath)));
+	 * 
+	 * String mLine; int i = 0; while ((mLine = reader.readLine()) != null) { if
+	 * (mLine != null) { // String[] parts = mLine.split("\t");
+	 * 
+	 * if (!mLine.isEmpty()) { // System.out.println(mLine + "\t" + //
+	 * entries.get(i));
+	 * 
+	 * Pattern pattern = Pattern
+	 * .compile("([\\p{Hiragana}\\p{Katakana}\\p{Han}\\t]*+)([a-zA-Z ]*)");
+	 * Matcher matcher = pattern.matcher(mLine); String string = ""; while
+	 * (matcher.find()) { if (!matcher.group(0).isEmpty()) { string =
+	 * matcher.group(1) + "\t" + entries.get(i) + "\t" + matcher.group(2) + "\t"
+	 * + entries1.get(i); break; } } i++; x.append(string + "\r\n"); } } } }
+	 * catch (IOException e) { Log.e("VocabularyService", e.getMessage() + " " +
+	 * e.getCause()); } return x.toString(); }
+	 */
 }

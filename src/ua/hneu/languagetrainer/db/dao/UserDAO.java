@@ -23,8 +23,6 @@ public class UserDAO extends ContentProvider {
 	public static final String ALLVOC = "numberOfVocabularyInLevel";
 	public static final String LEARNEDGRAMMAR = "learnedGrammar";
 	public static final String ALLGRAMMAR = "numberOfGrammarInLevel";
-	public static final String LEARNEDAUDIO = "learnedAudio";
-	public static final String ALLAUDIO = "numberOfAudioInLevel";
 	public static final String LEARNEDGIONGO = "learnedGiongo";
 	public static final String ALLGIONGO = "numberOfGiongoInLevel";
 	public static final String LEARNEDCWORDS = "learnedCounterWords";
@@ -60,8 +58,6 @@ public class UserDAO extends ContentProvider {
 		mContactMap.put(ALLVOC, ALLVOC);
 		mContactMap.put(LEARNEDGRAMMAR, LEARNEDGRAMMAR);
 		mContactMap.put(ALLGRAMMAR, ALLGRAMMAR);
-		mContactMap.put(LEARNEDAUDIO, LEARNEDAUDIO);
-		mContactMap.put(ALLAUDIO, ALLAUDIO);
 		mContactMap.put(LEARNEDGIONGO, LEARNEDGIONGO);
 		mContactMap.put(ALLGIONGO, ALLGIONGO);
 		mContactMap.put(LEARNEDCWORDS, LEARNEDCWORDS);

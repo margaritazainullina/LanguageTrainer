@@ -38,6 +38,26 @@
             android:name="ua.hneu.languagetrainer.db.dao.AnswerDAO"
             android:authorities="ua.edu.hneu.languagetrainer.db.answerprovider">   
         </provider> 
+          <provider 
+            android:name="ua.hneu.languagetrainer.db.dao.CounterWordsDAO"
+            android:authorities="ua.edu.hneu.languagetrainer.db.counterwordsprovider">   
+        </provider>         
+         <provider 
+            android:name="ua.hneu.languagetrainer.db.dao.GiongoDAO"
+            android:authorities="ua.edu.hneu.languagetrainer.db.giongoprovider">   
+        </provider>   
+        <provider 
+            android:name="ua.hneu.languagetrainer.db.dao.GiongoExamplesDAO"
+            android:authorities="ua.edu.hneu.languagetrainer.db.giongoexamplesprovider">   
+        </provider> 
+        <provider 
+            android:name="ua.hneu.languagetrainer.db.dao.GrammarDAO"
+            android:authorities="ua.edu.hneu.languagetrainer.db.grammarprovider">   
+        </provider> 
+        <provider 
+            android:name="ua.hneu.languagetrainer.db.dao.GrammarExamplesDAO"
+            android:authorities="ua.edu.hneu.languagetrainer.db.grammarexamplesprovider">   
+        </provider>
           <activity
             android:name="ua.hneu.languagetrainer.masterdetailflow.ItemListActivity"
             android:label="@string/app_name" >

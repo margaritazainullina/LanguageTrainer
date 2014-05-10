@@ -18,11 +18,11 @@ public class GiongoExamplesDAO extends ContentProvider {
 
 	public static String TABLE_NAME = "giongo_examples";
 	public static final String ID = "_id";
-	public static final String GIONGO_ID = "rule_id";
+	public static final String GIONGO_ID = "giongo_id";
 	public static final String TEXT = "text";
 	public static final String ROMAJI = "romaji";
 	public static final String TRANSLATION_ENG = "translation_eng";
-	public static final String TRANSLATION_RUS = "translation_eng";
+	public static final String TRANSLATION_RUS = "translation_rus";
 
 	public static final Uri CONTENT_URI = Uri
 			.parse("content://ua.edu.hneu.languagetrainer.db.giongoexamplesprovider/dictionary");
