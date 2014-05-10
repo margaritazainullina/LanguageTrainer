@@ -23,7 +23,7 @@ public class CounterWordsDAO extends ContentProvider {
 	public static final String HIRAGANA = "hiragana";
 	public static final String ROMAJI = "romaji";
 	public static final String TRANSLATION_ENG = "translation_eng";
-	public static final String TRANSLATION_RUS = "translation_eng";
+	public static final String TRANSLATION_RUS = "translation_rus";
 	public static final String COLOR = "color";
 
 	public static final Uri CONTENT_URI = Uri

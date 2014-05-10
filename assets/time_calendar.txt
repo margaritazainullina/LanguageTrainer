@@ -1,3 +1,4 @@
+Time and calendar
 秒	びょう	byō	Seconds	Секунды
 分	ふん	fun, ぷん pun	Minutes	Минуты
 月	がつ	gatsu, also つき tsuki	Months of the year. Month-long periods when read つき	Месяцы года. Для период в месяцах, используется чтение つき 
@@ -5,8 +6,8 @@
 時	じ	ji	Hours of the day	Часы дня
 時間	じかん	jikan	Hour-long periods	Периоды, измеряемые в часах
 日	か	ka	Day of the month	День месяца
-ヶ月, 箇月	かげつ	kagetsu	Month-long periods. 箇 is normally abbreviated using a small katakana ヶ in modern Japanese. Alternatively 個, hiragana か, small katakana ヵ and full-size katakana カ & ケ can also be seen, although only か is similarly frequent. Период в месяцах. 箇 обычно сокращается до ヶ в современном японском языке. В качестве альтернативы 个, хирагана か, маленький и большие занки знак катаканы ヵ и カ,  также ケ. 
+ヶ月, 箇月	かげつ	kagetsu	Month-long periods. 箇 is normally abbreviated using a small katakana ヶ in modern Japanese. Alternatively 個, hiragana か, small katakana ヵ and full-size katakana カ & ケ can also be seen, although only か is similarly frequent.	Период в месяцах. 箇 обычно сокращается до ヶ в современном японском языке. В качестве альтернативы 个, хирагана か, маленький и большие занки знак катаканы ヵ и カ,  также ケ. 
 年	ねん	nen	Years, school years (grades); not years of age	Годы, школьные года (классы), не используется для возраста
 日	にち	nichi	Days of the month	Дни месяца
-歳/才	さい sai	Years of age (才 is used informally as a shorthand)	Года (才 неофициально используется как сокращение)
-週	しゅう shū	Weeks	Недели
+歳/才	さい	sai	Years of age (才 is used informally as a shorthand)	Года (才 неофициально используется как сокращение)
+週	しゅう	shū	Weeks	Недели

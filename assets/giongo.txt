@@ -39,7 +39,7 @@
 
 ぎゅうぎゅう	gyuugyuu 	packed in tightly	Плотно упакованый, полный, набитый битком
 	ぎゅうぎゅう	鳴る	gyuugyuu naru 	creak	Скрип
-	ぎゅうぎゅう		詰めの電車	gyuugyuu	tsume no densha 	a jam-packed car.	Битком набитый поезд.
+	ぎゅうぎゅう	詰めの電車	gyuugyuu	tsume no densha	a jam-packed car.	Битком набитый поезд.
 
 ぐずぐず	guzuguzu 	 slowly	Медленно, нерешительно
 	ぐずぐず	せずに	guzuguzu se zu ni 	without hesitation 	Без колебаний / с ходу.
@@ -55,7 +55,7 @@
 ぐるぐる	guruguru 	going around in circles	Ходить по кругу
 池の周りを	ぐるぐる	回る	ike no mawari o guruguru mawaru 	go round the pond	Объехать пруд
 東京中を	ぐるぐる	引っ張り回す	toukyou chuu o guruguru hipparimawasu 	take somebody all over Tokyo	Водить по всему Токио.
-ロ-プを	ぐるぐる	と	輪に巻く		rōpu o guruguru to wa ni maku	wind up a rope in a coil.	Наматывать веревку на катушку
+ロ-プを	ぐるぐる	と輪に巻く	rōpu o guruguru to wa ni maku	wind up a rope in a coil.	Наматывать веревку на катушку
 
 ぐちゃぐちゃ	guchagucha 	pulpy	Слишком мягкий
 大雨の後でグラウンドは	ぐちゃぐちゃ	だった	ooame no nochi de guraundo ha guchagucha datta.	The ground was soggy after the heavy rain.	Земля была сырая после сильного дождя.
@@ -81,7 +81,7 @@
 
 すみずみ	sumi zumi 	all the corners	По всем углам, искать везде
 この家は	すみずみ	まで掃除がゆき届いている	kono ie ha sumi zumi made souji ga yukitodoi te iru. 	Every corner of this house has been thoroughly cleaned [is spotlessly clean].	Каждый уголок этого дома был безупречно чистый
-	すみずみ	まで捜した	sumi zumi made sagashi ta 	I have looked in every nook and corner		I have looked in every nook and corner.	Я посмотрел в каждом уголке.
+	すみずみ	まで捜した	sumi zumi made sagashi ta 	I have looked in every nook and corner	Я посмотрел в каждом уголке.
 
 すれすれ	suresure 	 close to	Близко, едва
 船が岬を	すれすれ	にまわる	fune ga misaki o suresure ni mawaru 	The ship passes close to the cape	Корабль проходит вблизи мыса - почти касется его.
@@ -165,7 +165,7 @@
 あの魚屋では	ぴんぴん	生きている魚を売っている	ano sakanaya de ha pinpin iki te iru sakana o utte iru.	They sell live fish at the fish store.	Они продают живую рыбу в рыбном магазине.
 
 ぴょんぴょん	pyonpyon 	bouncing	Подпрыгивать
-小鳥が	ぴょんぴょん	跳ぶ	kotori ga pyonpyon tobu 	Little birds hop	Дети любят прыгать на диване
+小鳥が	ぴょんぴょん	跳ぶ	kotori ga pyonpyon tobu	Little birds hop	Маленькие птицы подпрыгивает
 
 ぶかぶか	bukabuka 	loose and baggy	Свободый, мешковатый
 彼は	ぶかぶか	の靴を履いている	kare ha bukabuka no kutsu o hai te iru	He is wearing loose shoes	Он носит свободную обувь
@@ -244,7 +244,7 @@
 
 ぴりぴり	piripiri 	tingling	Покалывание, жжение, чувствительность
 社員は皆彼の前では	ぴりぴり	している	shain ha mina kare no mae de ha piripiri shi te iru.	All his employees are scared [on their toes] in his presence.	Все его сотрудники в напряжении в его присутствии.
-日に焼けて背中が	ぴりぴり	する	hi ni yake te senaka ga piripiri suru.	日に焼けて背中が	ぴりぴり	する.	Моя спина покалывает от загара.
+日に焼けて背中が	ぴりぴり	する	hi ni yake te senaka ga piripiri suru.	My back hurts from a sunburn	Моя спина покалывает от загара.
 
 うとうと	utouto 	drifting off	Уснуть, задремать
 	うとうと	しながら	utouto shi nagara , ressha ga ugokidasu no o kanji ta. 	Half asleep, I felt the train start moving.	Почти заснув, я чувствовал, что поезд трогается.

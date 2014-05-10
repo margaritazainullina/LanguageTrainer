@@ -1,13 +1,21 @@
 package ua.hneu.languagetrainer.service;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Random;
 
 import ua.hneu.languagetrainer.db.dao.CounterWordsDAO;
 import ua.hneu.languagetrainer.model.other.CounterWords;
+import ua.hneu.languagetrainer.model.other.Giongo;
+import ua.hneu.languagetrainer.model.other.GiongoExample;
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class CounterWordsService {
 
@@ -36,7 +44,7 @@ public class CounterWordsService {
 				+ " TEXT, " + CounterWordsDAO.HIRAGANA + " TEXT, "
 				+ CounterWordsDAO.ROMAJI + " TEXT, "
 				+ CounterWordsDAO.TRANSLATION_ENG + " TEXT, "
-				+ CounterWordsDAO.TRANSLATION_ENG + " TEXT, "
+				+ CounterWordsDAO.TRANSLATION_RUS + " TEXT, "
 				+ CounterWordsDAO.COLOR + " TEXT); ");
 	}
 
@@ -74,5 +82,67 @@ public class CounterWordsService {
 			c.moveToNext();
 		}
 		return cw;
+	}
+
+	public void bulkInsertFromCSV(String filepath, AssetManager assetManager,
+			ContentResolver cr) {
+		BufferedReader reader = null;
+		try {
+			reader = new BufferedReader(new InputStreamReader(
+					assetManager.open(filepath)));
+			// do reading, usually loop until end of file reading
+			String mLine;
+			// setting random colors
+			Random r = new Random();
+			int r1 = r.nextInt(5);
+			String section = "";
+			String color = "";
+			int i = 0;
+			while ((mLine = reader.readLine()) != null) {
+				// first line contains only caption
+				// others - values separated by tabs
+				if (i == 0) {
+					section = mLine;
+					i++;
+				} else {
+					String[] s = mLine.split("\\t");
+					r = new Random();
+					r1 = r.nextInt(5);
+					switch (r1) {
+					case 0: {
+						color = "138,213,240";
+						break;
+					}
+					case 1: {
+						color = "214,173,235";
+						break;
+					}
+					case 2: {
+						color = "197,226,109";
+						break;
+					}
+
+					case 3: {
+						color = "255,217,128";
+						break;
+					}
+					case 4: {
+						color = "255,148,148";
+						break;
+					}
+					}
+					if (!section.equals("Numbers"))
+						insert(new CounterWords(section, s[0], s[1], s[2],
+								s[3], s[4], color), cr);
+					else
+						insert(new CounterWords(section, s[0], s[1], s[2],
+								s[3], s[3], color), cr);
+
+				}
+			}
+		} catch (IOException e) {
+			Log.e("VocabularyService", e.getMessage() + " " + e.getCause());
+
+		}
 	}
 }

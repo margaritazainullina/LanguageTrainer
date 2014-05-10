@@ -33,9 +33,8 @@ public class GiongoService {
 	static int numberOfEnteries = 0;
 
 	public void insert(Giongo g, ContentResolver cr) {
-		int n = getNumberOfGiongo(cr) + 1;
 		for (GiongoExample ge : g.getExamples()) {
-			ges.insert(ge, n, cr);
+			ges.insert(ge, numberOfEnteries, cr);
 		}
 		numberOfEnteries++;
 		ContentValues values = new ContentValues();
@@ -113,7 +112,7 @@ public class GiongoService {
 		BufferedReader reader = null;
 		try {
 			reader = new BufferedReader(new InputStreamReader(
-					assetManager.open("giongo.txt")));
+					assetManager.open(filepath)));
 			// do reading, usually loop until end of file reading
 			String mLine;
 			boolean isFirst = true;

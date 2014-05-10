@@ -1,5 +1,9 @@
 eclipse.preferences.version=1
+encoding//assets/extent_freq.txt=UTF-8
 encoding//assets/giongo.txt=UTF-8
+encoding//assets/numbers.txt=UTF-8
+encoding//assets/people_and_things.txt=UTF-8
+encoding//assets/time_calendar.txt=UTF-8
 encoding//src/ua/hneu/languagetrainer/App.java=UTF-8
 encoding//src/ua/hneu/languagetrainer/ListViewAdapter.java=UTF-8
 encoding//src/ua/hneu/languagetrainer/masterdetailflow/VocabularyActivityFragment.java=UTF-8

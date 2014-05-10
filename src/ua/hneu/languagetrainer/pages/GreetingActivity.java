@@ -10,6 +10,7 @@ import ua.hneu.languagetrainer.masterdetailflow.ItemListActivity;
 import ua.hneu.languagetrainer.model.other.Giongo;
 import ua.hneu.languagetrainer.pages.test.LevelDefinitionTestActivity;
 import ua.hneu.languagetrainer.service.AnswerService;
+import ua.hneu.languagetrainer.service.CounterWordsService;
 import ua.hneu.languagetrainer.service.GiongoExampleService;
 import ua.hneu.languagetrainer.service.GiongoService;
 import ua.hneu.languagetrainer.service.QuestionService;
@@ -33,7 +34,7 @@ public class GreetingActivity extends Activity {
 		buttonTakeTest = (Button) findViewById(R.id.buttonTakeTest);
 		buttonStart = (Button) findViewById(R.id.buttonStart);
 
-		GiongoService gs = new GiongoService();
+		/*GiongoService gs = new GiongoService();
 		GiongoExampleService ges = new GiongoExampleService();
 		gs.dropTable();
 		gs.createTable();
@@ -41,7 +42,17 @@ public class GreetingActivity extends Activity {
 		GiongoService.startCounting(getContentResolver());
 		ges.createTable();
 		gs.bulkInsertFromCSV("giongo.txt", getAssets(),
-				getContentResolver());
+				getContentResolver());*/
+		
+		CounterWordsService cws = new CounterWordsService();
+		cws.dropTable();
+		cws.createTable();
+		cws.bulkInsertFromCSV("numbers.txt", getAssets(),getContentResolver());
+		cws.bulkInsertFromCSV("people_and_things.txt", getAssets(),getContentResolver());
+		cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),getContentResolver());
+		cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),getContentResolver());
+		cws.bulkInsertFromCSV("extent_freq.txt", getAssets(),getContentResolver());
+		
 	}
 
 	public void buttonTakeTestOnClick(View v) {
