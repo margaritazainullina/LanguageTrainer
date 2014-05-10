@@ -173,36 +173,36 @@ public class GiongoService {
 		}
 	}
 
-	/*
-	 * public String aaa(String filepath, AssetManager assetManager,
-	 * ContentResolver cr) { ArrayList<String> entries = new
-	 * ArrayList<String>(); ArrayList<String> entries1 = new
-	 * ArrayList<String>(); BufferedReader reader = null;
-	 * 
-	 * try { reader = new BufferedReader(new InputStreamReader(
-	 * assetManager.open("2.txt"))); String mLine; while ((mLine =
-	 * reader.readLine()) != null) { entries.add(mLine); } } catch (IOException
-	 * e) { Log.e("VocabularyService", e.getMessage() + " " + e.getCause()); }
-	 * try { reader = new BufferedReader(new InputStreamReader(
-	 * assetManager.open("1.txt"))); String mLine; while ((mLine =
-	 * reader.readLine()) != null) { entries1.add(mLine); } } catch (IOException
-	 * e) { Log.e("VocabularyService", e.getMessage() + " " + e.getCause()); }
-	 * StringBuilder x = new StringBuilder(); try { reader = new
-	 * BufferedReader(new InputStreamReader( assetManager.open(filepath)));
-	 * 
-	 * String mLine; int i = 0; while ((mLine = reader.readLine()) != null) { if
-	 * (mLine != null) { // String[] parts = mLine.split("\t");
-	 * 
-	 * if (!mLine.isEmpty()) { // System.out.println(mLine + "\t" + //
-	 * entries.get(i));
-	 * 
-	 * Pattern pattern = Pattern
-	 * .compile("([\\p{Hiragana}\\p{Katakana}\\p{Han}\\t]*+)([a-zA-Z ]*)");
-	 * Matcher matcher = pattern.matcher(mLine); String string = ""; while
-	 * (matcher.find()) { if (!matcher.group(0).isEmpty()) { string =
-	 * matcher.group(1) + "\t" + entries.get(i) + "\t" + matcher.group(2) + "\t"
-	 * + entries1.get(i); break; } } i++; x.append(string + "\r\n"); } } } }
-	 * catch (IOException e) { Log.e("VocabularyService", e.getMessage() + " " +
-	 * e.getCause()); } return x.toString(); }
-	 */
+	
+//	  public String aaa(String filepath, AssetManager assetManager,
+//	  ContentResolver cr) { ArrayList<String> entries = new
+//	  ArrayList<String>(); ArrayList<String> entries1 = new
+//	  ArrayList<String>(); BufferedReader reader = null;
+//	  
+//	  try { reader = new BufferedReader(new InputStreamReader(
+//	  assetManager.open("2.txt"))); String mLine; while ((mLine =
+//	  reader.readLine()) != null) { entries.add(mLine); } } catch (IOException
+//	  e) { Log.e("VocabularyService", e.getMessage() + " " + e.getCause()); }
+//	  try { reader = new BufferedReader(new InputStreamReader(
+//	  assetManager.open("1.txt"))); String mLine; while ((mLine =
+//	  reader.readLine()) != null) { entries1.add(mLine); } } catch (IOException
+//	  e) { Log.e("VocabularyService", e.getMessage() + " " + e.getCause()); }
+//	  StringBuilder x = new StringBuilder(); try { reader = new
+//	  BufferedReader(new InputStreamReader( assetManager.open(filepath)));
+//	  
+//	  String mLine; int i = 0; while ((mLine = reader.readLine()) != null) { if
+//	  (mLine != null) { // String[] parts = mLine.split("\t");
+//	  
+//	  if (!mLine.isEmpty()) { // System.out.println(mLine + "\t" + //
+//	  entries.get(i));
+//	  
+//	  Pattern pattern = Pattern
+//	  .compile("([\\p{Hiragana}\\p{Katakana}\\p{Han}\\t]*+)([a-zA-Z ]*)");
+//	  Matcher matcher = pattern.matcher(mLine); String string = ""; while
+//	  (matcher.find()) { if (!matcher.group(0).isEmpty()) { string =
+//	  matcher.group(1) + "\t" + entries.get(i) + "\t" + matcher.group(2) + "\t"
+//	  + entries1.get(i); break; } } i++; x.append(string + "\r\n"); } } } }
+//	 catch (IOException e) { Log.e("VocabularyService", e.getMessage() + " " +
+//	  e.getCause()); } return x.toString(); }
+	 
 }

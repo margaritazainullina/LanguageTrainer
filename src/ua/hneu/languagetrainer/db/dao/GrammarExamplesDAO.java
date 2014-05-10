@@ -22,7 +22,7 @@ public class GrammarExamplesDAO extends ContentProvider {
 	public static final String TEXT = "text";
 	public static final String ROMAJI = "romaji";
 	public static final String TRANSLATION_ENG = "translation_eng";
-	public static final String TRANSLATION_RUS = "translation_eng";
+	public static final String TRANSLATION_RUS = "translation_rus";
 
 	public static final Uri CONTENT_URI = Uri
 			.parse("content://ua.edu.hneu.languagetrainer.db.grammarexamplesprovider/dictionary");

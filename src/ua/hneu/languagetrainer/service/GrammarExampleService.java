@@ -13,8 +13,9 @@ import android.database.sqlite.SQLiteDatabase;
 
 public class GrammarExampleService {
 
-	public void insert(GrammarExample g, ContentResolver cr) {
+	public void insert(GrammarExample g, int ruleId, ContentResolver cr) {
 		ContentValues values = new ContentValues();
+		values.put(GrammarExamplesDAO.RULE_ID, ruleId);
 		values.put(GrammarExamplesDAO.TEXT, g.getText());
 		values.put(GrammarExamplesDAO.ROMAJI, g.getRomaji());
 		values.put(GrammarExamplesDAO.TRANSLATION_ENG, g.getTranslationEng());
@@ -31,14 +32,14 @@ public class GrammarExampleService {
 	public void createTable() {
 		SQLiteDatabase db = GrammarDAO.getDb();
 		db.execSQL("CREATE TABLE " + GrammarExamplesDAO.TABLE_NAME
-				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "+ GrammarExamplesDAO.RULE_ID + " INTEGER, "
 				+ GrammarExamplesDAO.TEXT + " TEXT, " + GrammarExamplesDAO.ROMAJI + " TEXT, "
 				+ GrammarExamplesDAO.TRANSLATION_ENG + " TEXT, " + GrammarExamplesDAO.TRANSLATION_RUS
 				+ " TEXT); ");
 	}
 
 	public void dropTable() {
-		GrammarDAO.getDb().execSQL("DROP TABLE " + GrammarDAO.TABLE_NAME + ";");
+		GrammarDAO.getDb().execSQL("DROP TABLE " + GrammarExamplesDAO.TABLE_NAME + ";");
 	}
 
 	public ArrayList<GrammarExample> getExamplesByRuleId(int ruleId,

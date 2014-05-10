@@ -1,22 +1,13 @@
 package ua.hneu.languagetrainer.pages;
 
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.masterdetailflow.ItemListActivity;
-import ua.hneu.languagetrainer.model.other.Giongo;
 import ua.hneu.languagetrainer.pages.test.LevelDefinitionTestActivity;
-import ua.hneu.languagetrainer.service.AnswerService;
 import ua.hneu.languagetrainer.service.CounterWordsService;
-import ua.hneu.languagetrainer.service.GiongoExampleService;
-import ua.hneu.languagetrainer.service.GiongoService;
-import ua.hneu.languagetrainer.service.QuestionService;
-import ua.hneu.languagetrainer.service.TestService;
+import ua.hneu.languagetrainer.service.GrammarExampleService;
+import ua.hneu.languagetrainer.service.GrammarService;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -44,14 +35,23 @@ public class GreetingActivity extends Activity {
 		gs.bulkInsertFromCSV("giongo.txt", getAssets(),
 				getContentResolver());*/
 		
-		CounterWordsService cws = new CounterWordsService();
+		/*CounterWordsService cws = new CounterWordsService();
 		cws.dropTable();
 		cws.createTable();
 		cws.bulkInsertFromCSV("numbers.txt", getAssets(),getContentResolver());
 		cws.bulkInsertFromCSV("people_and_things.txt", getAssets(),getContentResolver());
 		cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),getContentResolver());
 		cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),getContentResolver());
-		cws.bulkInsertFromCSV("extent_freq.txt", getAssets(),getContentResolver());
+		cws.bulkInsertFromCSV("extent_freq.txt", getAssets(),getContentResolver());*/
+		
+		GrammarService grs = new GrammarService();
+		GrammarExampleService gres = new GrammarExampleService();
+		grs.dropTable();
+		grs.createTable();
+		GrammarService.startCounting(getContentResolver());
+		gres.dropTable();
+		gres.createTable();		
+		grs.bulkInsertFromCSV("grammar_n5.txt", 5, getAssets(), getContentResolver());
 		
 	}
 

@@ -8,7 +8,7 @@ public class GrammarRule {
 	private String descEng;
 	private String descRus;
 	private String color;
-	private ArrayList<GrammarExample> examples = new ArrayList<GrammarExample>();
+	public ArrayList<GrammarExample> examples = new ArrayList<GrammarExample>();
 
 	public GrammarRule(String rule, int level, String descEng, String descRus,
 			ArrayList<GrammarExample> examples, String color) {
@@ -19,6 +19,9 @@ public class GrammarRule {
 		this.descRus = descRus;
 		this.examples = examples;
 		this.color = color;
+	}
+
+	public GrammarRule() {
 	}
 
 	public ArrayList<GrammarExample> getExamples() {
