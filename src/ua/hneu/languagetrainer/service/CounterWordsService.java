@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import ua.hneu.languagetrainer.db.dao.CounterWordsDAO;
+import ua.hneu.languagetrainer.db.dao.GrammarDAO;
 import ua.hneu.languagetrainer.model.other.CounterWords;
 import ua.hneu.languagetrainer.model.other.Giongo;
 import ua.hneu.languagetrainer.model.other.GiongoExample;
@@ -45,6 +46,8 @@ public class CounterWordsService {
 				+ CounterWordsDAO.ROMAJI + " TEXT, "
 				+ CounterWordsDAO.TRANSLATION_ENG + " TEXT, "
 				+ CounterWordsDAO.TRANSLATION_RUS + " TEXT, "
+				+ GrammarDAO.PERCENTAGE + " REAL, " + GrammarDAO.LASTVIEW
+				+ " DATETIME," + GrammarDAO.SHOWNTIMES + " INTEGER, "
 				+ CounterWordsDAO.COLOR + " TEXT); ");
 	}
 
@@ -68,6 +71,9 @@ public class CounterWordsService {
 		String romaji = "";
 		String translationEng = "";
 		String translationRus = "";
+		double percentage = 0;
+		String lastview = "";
+		int showntimes = 0;
 		String color = "";
 		GrammarExampleService ges = new GrammarExampleService();
 		ArrayList<CounterWords> cw = new ArrayList<CounterWords>();
@@ -76,9 +82,14 @@ public class CounterWordsService {
 			hiragana = c.getString(2);
 			translationEng = c.getString(3);
 			translationRus = c.getString(4);
-			color = c.getString(5);
+			percentage = c.getDouble(5);
+			lastview = c.getString(6);
+			showntimes = c.getInt(7);
+			color = c.getString(8);
+
 			cw.add(new CounterWords(section, word, hiragana, romaji,
-					translationEng, translationRus, color));
+					translationEng, translationRus, percentage, showntimes,
+					lastview, color));
 			c.moveToNext();
 		}
 		return cw;
@@ -133,10 +144,10 @@ public class CounterWordsService {
 					}
 					if (!section.equals("Numbers"))
 						insert(new CounterWords(section, s[0], s[1], s[2],
-								s[3], s[4], color), cr);
+								s[3], s[4], 0, 0, "", color), cr);
 					else
 						insert(new CounterWords(section, s[0], s[1], s[2],
-								s[3], s[3], color), cr);
+								s[3], s[3], 0, 0, "", color), cr);
 
 				}
 			}

@@ -24,6 +24,9 @@ public class CounterWordsDAO extends ContentProvider {
 	public static final String ROMAJI = "romaji";
 	public static final String TRANSLATION_ENG = "translation_eng";
 	public static final String TRANSLATION_RUS = "translation_rus";
+	public static final String PERCENTAGE = "percentage";
+	public static final String SHOWNTIMES = "showntimes";
+	public static final String LASTVIEW = "lastview";
 	public static final String COLOR = "color";
 
 	public static final Uri CONTENT_URI = Uri
@@ -52,6 +55,9 @@ public class CounterWordsDAO extends ContentProvider {
 		mContactMap.put(ROMAJI, ROMAJI);
 		mContactMap.put(TRANSLATION_ENG, TRANSLATION_ENG);
 		mContactMap.put(TRANSLATION_RUS, TRANSLATION_RUS);
+		mContactMap.put(PERCENTAGE, PERCENTAGE);
+		mContactMap.put(LASTVIEW, LASTVIEW);
+		mContactMap.put(SHOWNTIMES, SHOWNTIMES);
 		mContactMap.put(COLOR, COLOR);
 		}
 

@@ -22,7 +22,7 @@
     <string name="recommendation">Рекомендуется выбрать уровень</string>
     <string name="results_desc">Нажмите \"Я согласен\", чтобы последовать рекомендации или \"Выбрать уровень\", если хотите выбрать другой уровень.</string>
     <string name="percentage">Правильных ответов:</string>
-    <string name="i_agree">Я согласен</string>    
+    <string name="i_agree">Я согласен</string>
     <string name="choose_level">Выбрать уровень</string>
     <!--  -->
     <string name="app_name">JLPT Trainer</string>
@@ -66,5 +66,8 @@
     <string name="enough">It\'s enough vocabulary for today. </string>
     <string name="youve_learned">Words learned </string>
     <string name="to_main_menu">Return to main menu </string>
+    <!-- Grammar activity fragment -->
+    <string name="practice_grammar">Practice grammar</string>
+    <string name="grammar_learned">Grammar learned </string>
 
 </resources>

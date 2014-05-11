@@ -23,7 +23,6 @@ public class VocabularyDAO extends ContentProvider {
 	public static final String ROMAJI = "romaji";
 	public static final String TRANSLATIONS = "translations";
 	public static final String TRANSLATIONS_RUS = "translations_rus";
-	public static final String EXAMPLES = "examples";
 	public static final String PERCENTAGE = "percentage";
 	public static final String SHOWNTIMES = "showntimes";
 	public static final String LASTVIEW = "lastview";
@@ -54,7 +53,6 @@ public class VocabularyDAO extends ContentProvider {
 		mContactMap.put(ROMAJI, ROMAJI);
 		mContactMap.put(TRANSLATIONS, TRANSLATIONS);
 		mContactMap.put(TRANSLATIONS_RUS, TRANSLATIONS_RUS);
-		mContactMap.put(EXAMPLES, EXAMPLES);
 		mContactMap.put(PERCENTAGE, PERCENTAGE);
 		mContactMap.put(LASTVIEW, LASTVIEW);
 		mContactMap.put(SHOWNTIMES, SHOWNTIMES);

@@ -23,6 +23,9 @@ public class GrammarDAO extends ContentProvider {
 	public static final String DESC_ENG = "desc_eng";
 	public static final String DESC_RUS = "desc_rus";
 	public static final String COLOR = "color";
+	public static final String PERCENTAGE = "percentage";
+	public static final String SHOWNTIMES = "showntimes";
+	public static final String LASTVIEW = "lastview";
 
 	public static final Uri CONTENT_URI = Uri
 			.parse("content://ua.edu.hneu.languagetrainer.db.grammarprovider/dictionary");
@@ -48,6 +51,9 @@ public class GrammarDAO extends ContentProvider {
 		mContactMap.put(LEVEL, LEVEL);
 		mContactMap.put(DESC_ENG, DESC_ENG);
 		mContactMap.put(DESC_RUS, DESC_RUS);
+		mContactMap.put(PERCENTAGE, PERCENTAGE);
+		mContactMap.put(LASTVIEW, LASTVIEW);
+		mContactMap.put(SHOWNTIMES, SHOWNTIMES);
 		mContactMap.put(COLOR, COLOR);
 		}
 

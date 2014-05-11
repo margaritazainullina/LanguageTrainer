@@ -68,7 +68,7 @@ public class MatchWordsActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_match_words);
 		// current dictionary with words for current session
-		curDictionary = App.currentDictionary;
+		curDictionary = App.vocabularyDictionary;
 
 		// Initialize views
 		kanjiListView = (ListView) findViewById(R.id.kanjiListView);

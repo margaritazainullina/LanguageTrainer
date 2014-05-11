@@ -34,7 +34,7 @@ public class WordIntroductionActivity extends Activity {
 		// sort - entries shown less times will be first shown
 		// else it makes no sense, all is sorted initially
 		if (App.userInfo.isLevelLaunchedFirstTime == 0)
-			App.currentDictionary.sortByTimesShown();
+			App.vocabularyDictionary.sortByTimesShown();
 		// change this value
 		App.userInfo.isLevelLaunchedFirstTime = 0;
 		App.userInfo.updateUserData(getContentResolver());
@@ -52,7 +52,7 @@ public class WordIntroductionActivity extends Activity {
 		prevButton = (Button) findViewById(R.id.buttonPrevious);
 
 		// show first entry
-		curEntry = App.currentDictionary.get(0);
+		curEntry = App.vocabularyDictionary.get(0);
 		idx = 0;
 		showEntry(curEntry);
 		prevButton.setEnabled(false);
@@ -69,11 +69,11 @@ public class WordIntroductionActivity extends Activity {
 		idx++;
 		// if Next button was disabled
 		prevButton.setEnabled(true);
-		if (idx >= App.userInfo.getNumberOfEntriesInCurrentDict()) {
+		if (idx >= App.userInfo.getNumberOfVocabularyInCurrentDict()) {
 			// if all words have been showed go to next activity
 			goToNextPassingActivity();
 		} else {
-			showEntry(App.currentDictionary.get(idx));
+			showEntry(App.vocabularyDictionary.get(idx));
 		}
 	}
 
@@ -101,7 +101,7 @@ public class WordIntroductionActivity extends Activity {
 		translationTextView.setText(currentEntry.translationsToString());
 
 		// set color of entry
-		int color = App.currentDictionary.get(idx).getIntColor();
+		int color = App.vocabularyDictionary.get(idx).getIntColor();
 		wordTextView.setTextColor(color);
 		transcriptionTextView.setTextColor(color);
 		romajiTextView.setTextColor(color);
@@ -115,7 +115,7 @@ public class WordIntroductionActivity extends Activity {
 	public void buttonPreviousOnClick(View v) {
 		if (idx > 0) {
 			idx--;
-			curEntry = App.currentDictionary.get(idx);
+			curEntry = App.vocabularyDictionary.get(idx);
 			showEntry(curEntry);
 		} else {
 			prevButton.setEnabled(false);

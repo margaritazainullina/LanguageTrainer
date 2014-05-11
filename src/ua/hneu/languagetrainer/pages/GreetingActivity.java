@@ -25,33 +25,7 @@ public class GreetingActivity extends Activity {
 		buttonTakeTest = (Button) findViewById(R.id.buttonTakeTest);
 		buttonStart = (Button) findViewById(R.id.buttonStart);
 
-		/*GiongoService gs = new GiongoService();
-		GiongoExampleService ges = new GiongoExampleService();
-		gs.dropTable();
-		gs.createTable();
-		ges.dropTable();
-		GiongoService.startCounting(getContentResolver());
-		ges.createTable();
-		gs.bulkInsertFromCSV("giongo.txt", getAssets(),
-				getContentResolver());*/
 		
-		/*CounterWordsService cws = new CounterWordsService();
-		cws.dropTable();
-		cws.createTable();
-		cws.bulkInsertFromCSV("numbers.txt", getAssets(),getContentResolver());
-		cws.bulkInsertFromCSV("people_and_things.txt", getAssets(),getContentResolver());
-		cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),getContentResolver());
-		cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),getContentResolver());
-		cws.bulkInsertFromCSV("extent_freq.txt", getAssets(),getContentResolver());*/
-		
-		GrammarService grs = new GrammarService();
-		GrammarExampleService gres = new GrammarExampleService();
-		grs.dropTable();
-		grs.createTable();
-		GrammarService.startCounting(getContentResolver());
-		gres.dropTable();
-		gres.createTable();		
-		grs.bulkInsertFromCSV("grammar_n5.txt", 5, getAssets(), getContentResolver());
 		
 	}
 

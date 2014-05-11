@@ -65,7 +65,7 @@ public class TranslationTestActivity extends Activity {
 	public void nextWord() {
 		// move pointer to next word
 		currentWordNumber++;
-		if (currentWordNumber >= App.currentDictionary.size() - 1)
+		if (currentWordNumber >= App.vocabularyDictionary.size() - 1)
 			endTesting();
 
 		// set randomly direction
@@ -75,7 +75,7 @@ public class TranslationTestActivity extends Activity {
 			isFromJapanese = true;
 
 		// show word, reading and translations - set text to all TextViews
-		DictionaryEntry currentEntry = App.currentDictionary
+		DictionaryEntry currentEntry = App.vocabularyDictionary
 				.get(currentWordNumber);
 		if (isFromJapanese) {
 			wordTextView.setText(currentEntry.getKanji());
@@ -89,10 +89,10 @@ public class TranslationTestActivity extends Activity {
 		}
 
 		// get dictionary with random entries, add current one and shuffle
-		randomDictionary = App.currentDictionary.getRandomEntries(
+		randomDictionary = App.vocabularyDictionary.getRandomEntries(
 				answersNumber - 1, false);
-		randomDictionary.add(App.currentDictionary.get(currentWordNumber));
-		rightAnswer = App.currentDictionary.get(currentWordNumber);
+		randomDictionary.add(App.vocabularyDictionary.get(currentWordNumber));
+		rightAnswer = App.vocabularyDictionary.get(currentWordNumber);
 
 		// create List randomDictionaryList for ArrayAdapter from set
 		// randomDictionary
@@ -176,7 +176,7 @@ public class TranslationTestActivity extends Activity {
 								// when previous information faded out
 								// show next word and possible answers or go to
 								// next exercise
-								if (currentWordNumber < App.currentDictionary
+								if (currentWordNumber < App.vocabularyDictionary
 										.size() - 1) {
 									nextWord();
 								} else {
@@ -200,7 +200,7 @@ public class TranslationTestActivity extends Activity {
 				ifWasWrong = true;
 				// set information about wrong answer in VocabularyPassing
 				App.vp.incrementNumberOfIncorrectAnswersInTranslation();
-				App.vp.addProblemWord(App.currentDictionary
+				App.vp.addProblemWord(App.vocabularyDictionary
 						.get(currentWordNumber));
 			}
 		}

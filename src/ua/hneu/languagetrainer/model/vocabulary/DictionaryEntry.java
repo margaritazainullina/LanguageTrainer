@@ -18,7 +18,6 @@ public class DictionaryEntry {
 	private int id;
 	private String kanji;
 	private int level;
-	private String examples;
 	private String lastview;
 	private int shownTimes;
 	private double learnedPercentage;
@@ -28,7 +27,7 @@ public class DictionaryEntry {
 
 	public DictionaryEntry(int id, String kanji, int level,
 			String transcription, String romaji, List<String> translations,
-			List<String> translationsRus, String examples, double percentage,
+			List<String> translationsRus, double percentage,
 			String lastview, int showntimes, String color) {
 
 		WordMeaning meaning = new WordMeaning(transcription, romaji,
@@ -38,7 +37,6 @@ public class DictionaryEntry {
 		this.id = id;
 		this.kanji = kanji;
 		this.level = level;
-		this.examples = examples;
 		this.lastview = lastview;
 		this.shownTimes = showntimes;
 		this.learnedPercentage = percentage;
@@ -78,10 +76,6 @@ public class DictionaryEntry {
 		return level;
 	}
 
-	public String getExamples() {
-		return examples;
-	}
-
 	public String getLastview() {
 		return lastview;
 	}
@@ -115,10 +109,6 @@ public class DictionaryEntry {
 
 	public void setLevel(int level) {
 		this.level = level;
-	}
-
-	public void setExamples(String examples) {
-		this.examples = examples;
 	}
 
 	// sets to current time

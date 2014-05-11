@@ -7,18 +7,49 @@ public class GrammarRule {
 	private int level;
 	private String descEng;
 	private String descRus;
+	private double learnedPercentage;
+	private String lastview;
+	private int shownTimes;
 	private String color;
 	public ArrayList<GrammarExample> examples = new ArrayList<GrammarExample>();
 
 	public GrammarRule(String rule, int level, String descEng, String descRus,
-			ArrayList<GrammarExample> examples, String color) {
+			double learnedPercentage, String lastview, int shownTimes,
+			String color, ArrayList<GrammarExample> examples) {
 		super();
 		this.rule = rule;
 		this.level = level;
 		this.descEng = descEng;
 		this.descRus = descRus;
-		this.examples = examples;
+		this.learnedPercentage = learnedPercentage;
+		this.lastview = lastview;
+		this.shownTimes = shownTimes;
 		this.color = color;
+		this.examples = examples;
+	}
+
+	public String getLastview() {
+		return lastview;
+	}
+
+	public int getShownTimes() {
+		return shownTimes;
+	}
+
+	public double getLearnedPercentage() {
+		return learnedPercentage;
+	}
+
+	public void setLastview(String lastview) {
+		this.lastview = lastview;
+	}
+
+	public void setShownTimes(int shownTimes) {
+		this.shownTimes = shownTimes;
+	}
+
+	public void setLearnedPercentage(double learnedPercentage) {
+		this.learnedPercentage = learnedPercentage;
 	}
 
 	public GrammarRule() {
@@ -70,5 +101,5 @@ public class GrammarRule {
 
 	public void setColor(String color) {
 		this.color = color;
-	}	
+	}
 }

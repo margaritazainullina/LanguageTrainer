@@ -102,13 +102,13 @@ public class VocabularyPassing {
 		de.setLearnedPercentage(1);
 		learnedWords.add(de);
 		incrementNumberOfCorrectAnswersInMatching();
-		App.currentDictionary.remove(de);
+		App.vocabularyDictionary.remove(de);
 		// add entries to current dictionary to match target size
 		if(!isKanjiNeeded)
-		App.currentDictionary.addEntriesToDictionaryAndGet(
-				App.userInfo.getNumberOfEntriesInCurrentDict());
-		else App.currentDictionary.addEntriesToDictionaryAndGetOnlyWithKanji(
-				App.userInfo.getNumberOfEntriesInCurrentDict());
+		App.vocabularyDictionary.addEntriesToDictionaryAndGet(
+				App.userInfo.getNumberOfVocabularyInCurrentDict());
+		else App.vocabularyDictionary.addEntriesToDictionaryAndGetOnlyWithKanji(
+				App.userInfo.getNumberOfVocabularyInCurrentDict());
 		// update info in vocabulary table
 		App.vs.update(de, cr);
 

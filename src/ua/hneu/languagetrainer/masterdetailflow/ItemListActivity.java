@@ -4,6 +4,7 @@ import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.pages.GreetingActivity;
 import ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity;
+import ua.hneu.languagetrainer.service.VocabularyService;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -116,7 +117,7 @@ public class ItemListActivity extends FragmentActivity implements
 						.commit();
 			}
 			// if selected Grammar
-			else {
+			if (id == "grammar") {
 				getSupportFragmentManager().beginTransaction()
 						.replace(R.id.item_detail_container, grammarFragment)
 						.commit();
@@ -139,11 +140,28 @@ public class ItemListActivity extends FragmentActivity implements
 						VocabularyActivityFragment.class);
 				startActivity(detailIntent);
 			}
+			if (id == "2") {
+				Intent detailIntent = new Intent(this,
+						GrammarActivityFragment.class);
+				startActivity(detailIntent);
+			}
 		}
 	}
 
 	public void onClickPracticeVocabulary(View v) {
+		// load vocabulary
+		App.vocabularyDictionary = VocabularyService.createCurrentDictionary(
+				App.userInfo.getLevel(),
+				App.userInfo.getNumberOfVocabularyInCurrentDict(), App.cr);
 		Intent intent = new Intent(this, WordIntroductionActivity.class);
 		startActivity(intent);
+	}
+	public void onClickPracticeGrammar(View v) {
+		// load grammar
+		/*App.grammarDictionary = VocabularyService.createCurrentDictionary(
+				App.userInfo.getLevel(),
+				App.userInfo.getNumberOfVocabularyInCurrentDict(), App.cr);
+		Intent intent = new Intent(this, WordIntroductionActivity.class);
+		startActivity(intent);*/
 	}
 }

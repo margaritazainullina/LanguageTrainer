@@ -7,10 +7,14 @@ public class CounterWords {
 	private String romaji;
 	private String translationEng;
 	private String translationRus;
+	private double learnedPercentage;
+	private int shownTimes;
+	private String lastview;
 	private String color;
 
 	public CounterWords(String section, String word, String hiragana,
 			String romaji, String translationEng, String translationRus,
+			double learnedPercentage, int shownTimes, String lastview,
 			String color) {
 		super();
 		this.section = section;
@@ -19,7 +23,34 @@ public class CounterWords {
 		this.romaji = romaji;
 		this.translationEng = translationEng;
 		this.translationRus = translationRus;
+		this.learnedPercentage = learnedPercentage;
+		this.shownTimes = shownTimes;
+		this.lastview = lastview;
 		this.color = color;
+	}
+
+	public double getLearnedPercentage() {
+		return learnedPercentage;
+	}
+
+	public void setLearnedPercentage(double learnedPercentage) {
+		this.learnedPercentage = learnedPercentage;
+	}
+
+	public int getShownTimes() {
+		return shownTimes;
+	}
+
+	public String getLastview() {
+		return lastview;
+	}
+
+	public void setShownTimes(int shownTimes) {
+		this.shownTimes = shownTimes;
+	}
+
+	public void setLastview(String lastview) {
+		this.lastview = lastview;
 	}
 
 	public String getSection() {
