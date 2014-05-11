@@ -11,8 +11,8 @@ import java.util.Random;
 
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
-import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
-import ua.hneu.languagetrainer.model.vocabulary.WordDictionary;
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.res.AssetManager;
@@ -21,10 +21,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 public class VocabularyService {
-	public static WordDictionary all;
+	public static VocabularyDictionary all;
 	boolean isFirstTimeCreated;
 
-	public static DictionaryEntry getEntryById(int id, ContentResolver cr) {
+	public static VocabularyEntry getEntryById(int id, ContentResolver cr) {
 		String[] col = { "KANJI", "LEVEL", "TRANSCRIPTION", "ROMAJI",
 				"TRANSLATIONS", "TRANSLATIONS_RUS", "PERCENTAGE",
 				"LASTVIEW", "SHOWNTIMES", "COLOR" };
@@ -32,7 +32,7 @@ public class VocabularyService {
 				null, null);
 		c.moveToFirst();
 
-		DictionaryEntry de;
+		VocabularyEntry de;
 
 		String kanji = "";
 		int level = 0;
@@ -65,13 +65,13 @@ public class VocabularyService {
 		List<String> translations2 = new ArrayList<String>(
 				Arrays.asList(translationsRus.split(";")));
 
-		de = new DictionaryEntry(id, kanji, level, transcription, romaji,
+		de = new VocabularyEntry(id, kanji, level, transcription, romaji,
 				translations1, translations2, percentage, lastview,
 				showntimes, color);
 		return de;
 	}
 
-	public void insert(DictionaryEntry de, ContentResolver cr) {
+	public void insert(VocabularyEntry de, ContentResolver cr) {
 		ContentValues values = new ContentValues();
 		values.put(VocabularyDAO.KANJI, de.getKanji());
 		values.put(VocabularyDAO.LEVEL, de.getLevel());
@@ -86,7 +86,7 @@ public class VocabularyService {
 		cr.insert(VocabularyDAO.CONTENT_URI, values);
 	}
 
-	public void update(DictionaryEntry de, ContentResolver cr) {
+	public void update(VocabularyEntry de, ContentResolver cr) {
 		ContentValues values = new ContentValues();
 		values.put(VocabularyDAO.ID, de.getId());
 		values.put(VocabularyDAO.KANJI, de.getKanji());
@@ -188,7 +188,7 @@ public class VocabularyService {
 			}
 			}
 
-			DictionaryEntry de = new DictionaryEntry(0, kanji, level,
+			VocabularyEntry de = new VocabularyEntry(0, kanji, level,
 					transcription, romaji, translations, translationsRus,
 					0, "", 0, color);
 			this.insert(de, cr);
@@ -196,16 +196,16 @@ public class VocabularyService {
 		}
 	}
 
-	public static WordDictionary createCurrentDictionary(int level,
+	public static VocabularyDictionary createCurrentDictionary(int level,
 			int countWordsInCurrentDict, ContentResolver contentResolver) {
-		all = new WordDictionary();
+		all = new VocabularyDictionary();
 		all = selectAllEntriesOflevel(level, contentResolver);
-		WordDictionary current = new WordDictionary();
+		VocabularyDictionary current = new VocabularyDictionary();
 		// if words have never been showed - set entries randomly
 		if (App.userInfo.isLevelLaunchedFirstTime == 1) {
 			all.sortRandomly();
-			for (int i = 0; i < App.userInfo.getNumberOfVocabularyInCurrentDict(); i++) {
-				DictionaryEntry e = all.get(i);
+			for (int i = 0; i < App.userInfo.getNumberOfEntriesInCurrentDict(); i++) {
+				VocabularyEntry e = all.get(i);
 				if (e.getLearnedPercentage() != 1)
 					current.add(e);
 			}
@@ -215,8 +215,8 @@ public class VocabularyService {
 			all.sortByLastViewedTime();
 			int i = all.size() - 1;
 			while (current.size() < App.userInfo
-					.getNumberOfVocabularyInCurrentDict()) {
-				DictionaryEntry e = all.get(i);
+					.getNumberOfEntriesInCurrentDict()) {
+				VocabularyEntry e = all.get(i);
 				if (e.getLearnedPercentage() != 1)
 					current.add(e);
 				i--;
@@ -226,9 +226,9 @@ public class VocabularyService {
 		return current;
 	}
 
-	public static WordDictionary selectAllEntriesOflevel(int level,
+	public static VocabularyDictionary selectAllEntriesOflevel(int level,
 			ContentResolver contentResolver) {
-		WordDictionary wd = new WordDictionary();
+		VocabularyDictionary wd = new VocabularyDictionary();
 
 		String[] selectionArgs = { VocabularyDAO.ID, VocabularyDAO.KANJI,
 				VocabularyDAO.LEVEL, VocabularyDAO.TRANSCRIPTION,
@@ -245,7 +245,6 @@ public class VocabularyService {
 		String romaji = "";
 		String translations = "";
 		String translationsRus = "";
-		String examples = "";
 		double percentage = 0;
 		String lastview = "";
 		int showntimes = 0;
@@ -258,11 +257,10 @@ public class VocabularyService {
 			romaji = c.getString(4);
 			translations = c.getString(5);
 			translationsRus = c.getString(6);
-			examples = c.getString(7);
-			percentage = c.getDouble(8);
-			lastview = c.getString(9);
-			showntimes = c.getInt(10);
-			color = c.getString(11);
+			percentage = c.getDouble(7);
+			lastview = c.getString(8);
+			showntimes = c.getInt(9);
+			color = c.getString(10);
 			c.moveToNext();
 
 			List<String> translations1 = new ArrayList<String>(
@@ -271,7 +269,7 @@ public class VocabularyService {
 			List<String> translations2 = new ArrayList<String>(
 					Arrays.asList(translationsRus.split(";")));
 
-			DictionaryEntry de = new DictionaryEntry(id, kanji, level,
+			VocabularyEntry de = new VocabularyEntry(id, kanji, level,
 					transcription, romaji, translations1, translations2,
 					percentage, lastview, showntimes, color);
 			wd.add(de);

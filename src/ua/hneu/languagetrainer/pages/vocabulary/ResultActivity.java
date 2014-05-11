@@ -4,7 +4,7 @@ import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.masterdetailflow.ItemListActivity;
 import ua.hneu.languagetrainer.model.User;
-import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -35,7 +35,7 @@ public class ResultActivity extends Activity {
 		// information about learned words
 		int numberOfLearnedWords = 0;
 		StringBuffer sb = new StringBuffer();
-		for (DictionaryEntry entry : App.vp.getLearnedWords().getEntries()) {
+		for (VocabularyEntry entry : App.vp.getLearnedWords().getEntries()) {
 			if (entry.getLearnedPercentage() >= 1) {
 				numberOfLearnedWords++;
 				if (!entry.getKanji().isEmpty())
@@ -78,7 +78,7 @@ public class ResultActivity extends Activity {
 		StringBuffer sb2 = new StringBuffer();
 		sb2.append(this.getString(R.string.pay_attention_to_words) + " ");
 		int numberOfProblemWords = 0;
-		for (DictionaryEntry entry : App.vp.getProblemWords().keySet()) {
+		for (VocabularyEntry entry : App.vp.getProblemWords().keySet()) {
 			if (App.vp.getProblemWords().get(entry) >= 2) {
 				if (!entry.getKanji().isEmpty())
 					sb2.append(entry.getKanji());

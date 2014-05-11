@@ -7,16 +7,10 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import ua.hneu.languagetrainer.App;
-import ua.hneu.languagetrainer.db.dao.GiongoDAO;
 import ua.hneu.languagetrainer.db.dao.GrammarDAO;
-import ua.hneu.languagetrainer.db.dao.GrammarExamplesDAO;
-import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
+import ua.hneu.languagetrainer.model.grammar.GrammarDictionary;
 import ua.hneu.languagetrainer.model.grammar.GrammarExample;
 import ua.hneu.languagetrainer.model.grammar.GrammarRule;
-import ua.hneu.languagetrainer.model.other.Giongo;
-import ua.hneu.languagetrainer.model.other.GiongoExample;
-import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
-import ua.hneu.languagetrainer.model.vocabulary.WordDictionary;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.res.AssetManager;
@@ -25,9 +19,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 public class GrammarService {
-	public static WordDictionary all;
+	public static GrammarDictionary all;
 	boolean isFirstTimeCreated;
-	GrammarExampleService ges = new GrammarExampleService();
+	static GrammarExampleService ges = new GrammarExampleService();
 	static int numberOfEnteries = 0;
 
 	public void insert(GrammarRule g, ContentResolver cr) {
@@ -45,6 +39,75 @@ public class GrammarService {
 		values.put(GrammarDAO.SHOWNTIMES, g.getShownTimes());
 		values.put(GrammarDAO.COLOR, g.getColor());
 		cr.insert(GrammarDAO.CONTENT_URI, values);
+	}
+
+	public static GrammarDictionary selectAllEntriesOflevel(int level,
+			ContentResolver contentResolver) {
+		GrammarDictionary gd = new GrammarDictionary();
+
+		String[] selectionArgs = { GrammarDAO.ID, GrammarDAO.RULE,
+				GrammarDAO.LEVEL, GrammarDAO.DESC_ENG, GrammarDAO.DESC_RUS,
+				GrammarDAO.PERCENTAGE, GrammarDAO.LASTVIEW,
+				GrammarDAO.SHOWNTIMES, GrammarDAO.COLOR };
+		Cursor c = contentResolver.query(GrammarDAO.CONTENT_URI,
+				selectionArgs, "level=" + level, null, null);
+		c.moveToFirst();
+		int id=0;
+		String rule = "";
+		String eng = "";
+		String rus = "";
+		double percentage = 0;
+		String lastview = "";
+		int shownTimes = 0;
+		String color = "";
+		while (!c.isAfterLast()) {
+			id=c.getInt(0);
+			rule = c.getString(1);
+			eng = c.getString(2);
+			rus = c.getString(3);
+			percentage = c.getDouble(4);
+			lastview = c.getString(5);
+			shownTimes = c.getInt(6);
+			color = c.getString(7);
+			c.moveToNext();			
+
+			GrammarRule gr = new GrammarRule(rule, level, eng, rus, percentage,
+					lastview, shownTimes, color, ges.getExamplesByRuleId(id, contentResolver));
+			gd.add(gr);
+		}
+		c.close();
+		return gd;
+	}
+
+	public static GrammarDictionary createCurrentDictionary(int level,
+			int numberOfWordsInCurrentDict, ContentResolver contentResolver) {
+		all = new GrammarDictionary();
+		all = selectAllEntriesOflevel(level, contentResolver);
+		GrammarDictionary current = new GrammarDictionary();
+		// if words have never been showed - set entries randomly
+		if (App.userInfo.isLevelLaunchedFirstTime == 1) {
+			all.sortRandomly();
+			for (int i = 0; i < App.userInfo
+					.getNumberOfEntriesInCurrentDict(); i++) {
+				GrammarRule e = all.get(i);
+				if (e.getLearnedPercentage() != 1)
+					current.add(e);
+			}
+		} else {
+			// sorting descending
+			// get last elements
+			all.sortByLastViewedTime();
+			int i = all.size() - 1;
+			while (current.size() < App.userInfo
+					.getNumberOfEntriesInCurrentDict()) {
+				GrammarRule e = all.get(i);
+				if (e.getLearnedPercentage() != 1)
+					current.add(e);
+				i--;
+				Log.i("createCurrentDictionary", all.get(i).toString());
+			}
+		}
+		return current;
 	}
 
 	public void emptyTable() {
@@ -124,8 +187,8 @@ public class GrammarService {
 			ArrayList<GrammarExample> ge = new ArrayList<GrammarExample>();
 			ge = ges.getExamplesByRuleId(id, cr);
 
-			gr.add(new GrammarRule(rule, level, descEng, descRus, percentage, lastview, showntimes,
-					color, ge));
+			gr.add(new GrammarRule(rule, level, descEng, descRus, percentage,
+					lastview, showntimes, color, ge));
 
 			c.moveToNext();
 		}
@@ -192,7 +255,7 @@ public class GrammarService {
 				}
 			}
 		} catch (IOException e) {
-			Log.e("VocabularyService", e.getMessage() + " " + e.getCause());
+			Log.e("GrammarService", e.getMessage() + " " + e.getCause());
 
 		}
 	}

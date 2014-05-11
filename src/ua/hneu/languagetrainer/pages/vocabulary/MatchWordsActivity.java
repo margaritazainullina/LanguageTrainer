@@ -6,8 +6,8 @@ import java.util.Collections;
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.ListViewAdapter;
-import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
-import ua.hneu.languagetrainer.model.vocabulary.WordDictionary;
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -23,7 +23,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class MatchWordsActivity extends Activity {
-	WordDictionary curDictionary;
+	VocabularyDictionary curDictionary;
 
 	int entriesForMatchingNumber = 5;
 	int translationsNumber;
@@ -42,8 +42,8 @@ public class MatchWordsActivity extends Activity {
 	ArrayList<Integer> readingIndices = new ArrayList<Integer>();
 	ArrayList<Integer> translationIndices = new ArrayList<Integer>();
 	// dictionary with words with wrong answers
-	WordDictionary wrongAnswers = new WordDictionary();
-	WordDictionary learnedWords = new WordDictionary();
+	VocabularyDictionary wrongAnswers = new VocabularyDictionary();
+	VocabularyDictionary learnedWords = new VocabularyDictionary();
 
 	ArrayList<String> kanji = new ArrayList<String>();
 	ArrayList<String> readings = new ArrayList<String>();
@@ -167,7 +167,7 @@ public class MatchWordsActivity extends Activity {
 			return;
 		}
 
-		DictionaryEntry currentEntry = curDictionary
+		VocabularyEntry currentEntry = curDictionary
 				.getEntryById(currentAnswer[1]);
 		boolean ifWordWithoutKanji = (currentEntry.getKanji().isEmpty());
 

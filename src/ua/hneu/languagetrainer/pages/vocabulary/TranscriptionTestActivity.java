@@ -6,8 +6,8 @@ import java.util.Set;
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.ListViewAdapter;
-import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
-import ua.hneu.languagetrainer.model.vocabulary.WordDictionary;
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -23,15 +23,15 @@ import android.widget.TextView;
 
 public class TranscriptionTestActivity extends Activity {
 	// dictionary with random words for possible answers
-	Set<DictionaryEntry> randomDictionary;
-	WordDictionary randomDictionaryList;
+	Set<VocabularyEntry> randomDictionary;
+	VocabularyDictionary randomDictionaryList;
 	// activity elements
 	ListView answersListView;
 	TextView wordTextView;
 	TextView transcriptionTextView;
 	TextView romajiTextView;
 	TextView isRight;
-	DictionaryEntry rightAnswer;
+	VocabularyEntry rightAnswer;
 	int answersNumber = 5;
 	int currentWordNumber = -1;
 
@@ -51,7 +51,7 @@ public class TranscriptionTestActivity extends Activity {
 		setContentView(R.layout.activity_translation_transcription_test);
 		App.vocabularyDictionary
 				.addEntriesToDictionaryAndGetOnlyWithKanji(App.userInfo
-						.getNumberOfVocabularyInCurrentDict());
+						.getNumberOfEntriesInCurrentDict());
 
 		// Initialize
 		wordTextView = (TextView) findViewById(R.id.wordTextView);
@@ -71,7 +71,7 @@ public class TranscriptionTestActivity extends Activity {
 		if (currentWordNumber >= App.vocabularyDictionary.size() - 1)
 			endTesting();
 
-		DictionaryEntry currentEntry = App.vocabularyDictionary
+		VocabularyEntry currentEntry = App.vocabularyDictionary
 				.get(currentWordNumber);
 		while (currentEntry.getKanji().isEmpty()) {
 			currentWordNumber++;
@@ -108,7 +108,7 @@ public class TranscriptionTestActivity extends Activity {
 
 		// create List randomDictionaryList for ArrayAdapter from set
 		// randomDictionary
-		randomDictionaryList = new WordDictionary();
+		randomDictionaryList = new VocabularyDictionary();
 		randomDictionaryList.getEntries().addAll(randomDictionary);
 		randomDictionaryList
 				.addEntriesToDictionaryAndGetOnlyWithKanji(answersNumber);
@@ -150,7 +150,7 @@ public class TranscriptionTestActivity extends Activity {
 		@Override
 		public void onItemClick(final AdapterView<?> parent, final View view,
 				final int position, final long itemID) {
-			DictionaryEntry selected = randomDictionaryList.get(position);
+			VocabularyEntry selected = randomDictionaryList.get(position);
 			// comparing correct and selected answer
 			if (selected == rightAnswer) {				
 				App.vp.incrementNumberOfCorrectAnswersInTranslation();

@@ -4,13 +4,16 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
+import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.App.Languages;
 import ua.hneu.languagetrainer.db.dao.CounterWordsDAO;
-import ua.hneu.languagetrainer.db.dao.GrammarDAO;
-import ua.hneu.languagetrainer.model.other.CounterWords;
-import ua.hneu.languagetrainer.model.other.Giongo;
-import ua.hneu.languagetrainer.model.other.GiongoExample;
+import ua.hneu.languagetrainer.model.other.CounterWord;
+import ua.hneu.languagetrainer.model.other.CounterWordsDictionary;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.res.AssetManager;
@@ -19,15 +22,20 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 public class CounterWordsService {
+	public static CounterWordsDictionary all;
 
-	public void insert(CounterWords cw, ContentResolver cr) {
+	public void insert(CounterWord cw, ContentResolver cr) {
 		ContentValues values = new ContentValues();
-		values.put(CounterWordsDAO.SECTION, cw.getSection());
+		values.put(CounterWordsDAO.SECTION_ENG, cw.getSectionEng());
+		values.put(CounterWordsDAO.SECTION_RUS, cw.getSectionRus());
 		values.put(CounterWordsDAO.WORD, cw.getWord());
 		values.put(CounterWordsDAO.HIRAGANA, cw.getHiragana());
 		values.put(CounterWordsDAO.ROMAJI, cw.getRomaji());
 		values.put(CounterWordsDAO.TRANSLATION_ENG, cw.getTranslationEng());
 		values.put(CounterWordsDAO.TRANSLATION_RUS, cw.getTranslationRus());
+		values.put(CounterWordsDAO.PERCENTAGE, cw.getTranslationRus());
+		values.put(CounterWordsDAO.LASTVIEW, cw.getLastview());
+		values.put(CounterWordsDAO.SHOWNTIMES, cw.getShownTimes());
 		values.put(CounterWordsDAO.COLOR, cw.getColor());
 		cr.insert(CounterWordsDAO.CONTENT_URI, values);
 	}
@@ -41,13 +49,15 @@ public class CounterWordsService {
 		SQLiteDatabase db = CounterWordsDAO.getDb();
 		db.execSQL("CREATE TABLE " + CounterWordsDAO.TABLE_NAME
 				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-				+ CounterWordsDAO.SECTION + " TEXT, " + CounterWordsDAO.WORD
-				+ " TEXT, " + CounterWordsDAO.HIRAGANA + " TEXT, "
-				+ CounterWordsDAO.ROMAJI + " TEXT, "
+				+ CounterWordsDAO.SECTION_ENG + " TEXT, "
+				+ CounterWordsDAO.SECTION_RUS + " TEXT, "
+				+ CounterWordsDAO.WORD + " TEXT, " + CounterWordsDAO.HIRAGANA
+				+ " TEXT, " + CounterWordsDAO.ROMAJI + " TEXT, "
 				+ CounterWordsDAO.TRANSLATION_ENG + " TEXT, "
 				+ CounterWordsDAO.TRANSLATION_RUS + " TEXT, "
-				+ GrammarDAO.PERCENTAGE + " REAL, " + GrammarDAO.LASTVIEW
-				+ " DATETIME," + GrammarDAO.SHOWNTIMES + " INTEGER, "
+				+ CounterWordsDAO.PERCENTAGE + " REAL, "
+				+ CounterWordsDAO.LASTVIEW + " DATETIME,"
+				+ CounterWordsDAO.SHOWNTIMES + " INTEGER, "
 				+ CounterWordsDAO.COLOR + " TEXT); ");
 	}
 
@@ -56,16 +66,28 @@ public class CounterWordsService {
 				"DROP TABLE " + CounterWordsDAO.TABLE_NAME + ";");
 	}
 
-	public ArrayList<CounterWords> getCounterwordsBySection(String section,
+	public CounterWordsDictionary getCounterwordsBySection(String section,
 			ContentResolver cr) {
-		String[] col = { CounterWordsDAO.SECTION, CounterWordsDAO.WORD,
+		String[] col = { CounterWordsDAO.SECTION_ENG,
+				CounterWordsDAO.SECTION_RUS, CounterWordsDAO.WORD,
 				CounterWordsDAO.HIRAGANA, CounterWordsDAO.ROMAJI,
 				CounterWordsDAO.TRANSLATION_ENG,
-				CounterWordsDAO.TRANSLATION_RUS, CounterWordsDAO.COLOR };
-		Cursor c = cr.query(CounterWordsDAO.CONTENT_URI, col,
-				CounterWordsDAO.SECTION + "=\"" + section + "\"", null, null,
-				null);
+				CounterWordsDAO.TRANSLATION_RUS, CounterWordsDAO.PERCENTAGE,
+				CounterWordsDAO.LASTVIEW, CounterWordsDAO.SHOWNTIMES,
+				CounterWordsDAO.COLOR };
+		Cursor c;
+		if (App.lang.equals("RUS"))
+			c = cr.query(CounterWordsDAO.CONTENT_URI, col,
+					CounterWordsDAO.SECTION_RUS + "=\"" + section + "\"", null,
+					null, null);
+		else
+			c = cr.query(CounterWordsDAO.CONTENT_URI, col,
+					CounterWordsDAO.SECTION_ENG + "=\"" + section + "\"", null,
+					null, null);
+
 		c.moveToFirst();
+		String sectionEng = "";
+		String sectionRus = "";
 		String word = "";
 		String hiragana = "";
 		String romaji = "";
@@ -75,21 +97,22 @@ public class CounterWordsService {
 		String lastview = "";
 		int showntimes = 0;
 		String color = "";
-		GrammarExampleService ges = new GrammarExampleService();
-		ArrayList<CounterWords> cw = new ArrayList<CounterWords>();
+		CounterWordsDictionary cw = new CounterWordsDictionary();
 		while (!c.isAfterLast()) {
-			word = c.getString(1);
-			hiragana = c.getString(2);
-			translationEng = c.getString(3);
-			translationRus = c.getString(4);
-			percentage = c.getDouble(5);
-			lastview = c.getString(6);
-			showntimes = c.getInt(7);
-			color = c.getString(8);
+			sectionEng = c.getString(0);
+			sectionRus = c.getString(1);
+			word = c.getString(2);
+			hiragana = c.getString(3);
+			translationEng = c.getString(4);
+			translationRus = c.getString(5);
+			percentage = c.getDouble(6);
+			lastview = c.getString(7);
+			showntimes = c.getInt(8);
+			color = c.getString(9);
 
-			cw.add(new CounterWords(section, word, hiragana, romaji,
-					translationEng, translationRus, percentage, showntimes,
-					lastview, color));
+			cw.add(new CounterWord(sectionEng, sectionRus, word, hiragana,
+					romaji, translationEng, translationRus, percentage,
+					showntimes, lastview, color));
 			c.moveToNext();
 		}
 		return cw;
@@ -106,14 +129,17 @@ public class CounterWordsService {
 			// setting random colors
 			Random r = new Random();
 			int r1 = r.nextInt(5);
-			String section = "";
+			String sectionEng = "";
+			String sectionRus = "";
 			String color = "";
 			int i = 0;
 			while ((mLine = reader.readLine()) != null) {
 				// first line contains only caption
 				// others - values separated by tabs
 				if (i == 0) {
-					section = mLine;
+					String[] section = mLine.split("\\t");
+					sectionEng = section[0];
+					sectionRus = section[1];
 					i++;
 				} else {
 					String[] s = mLine.split("\\t");
@@ -142,12 +168,12 @@ public class CounterWordsService {
 						break;
 					}
 					}
-					if (!section.equals("Numbers"))
-						insert(new CounterWords(section, s[0], s[1], s[2],
-								s[3], s[4], 0, 0, "", color), cr);
+					if (!sectionEng.equals("Numbers"))
+						insert(new CounterWord(sectionEng, sectionRus, s[0],
+								s[1], s[2], s[3], s[4], 0, 0, "", color), cr);
 					else
-						insert(new CounterWords(section, s[0], s[1], s[2],
-								s[3], s[3], 0, 0, "", color), cr);
+						insert(new CounterWord(sectionEng, sectionRus, s[0],
+								s[1], s[2], s[3], s[3], 0, 0, "", color), cr);
 
 				}
 			}
@@ -155,5 +181,83 @@ public class CounterWordsService {
 			Log.e("VocabularyService", e.getMessage() + " " + e.getCause());
 
 		}
+	}
+
+	// returns section name, number of all words and number of learned words
+	public HashMap<String, int[]> getAllSectionsWithProgress(ContentResolver cr) {
+		HashMap<String, int[]> info = new HashMap<String, int[]>();
+		Cursor c;
+		if (App.lang==Languages.ENG)
+			c = CounterWordsDAO.db
+					.rawQuery(
+							"SELECT Section_eng, count(_id) FROM counter_words group by Section_eng",
+							null);
+		else
+			c = CounterWordsDAO.db
+					.rawQuery(
+							"SELECT Section_rus, count(_id) FROM counter_words group by Section_rus",
+							null);
+		c.moveToFirst();
+		String section = "";
+		int number = 0;
+
+		while (!c.isAfterLast()) {
+			section = c.getString(0);
+			number = c.getInt(1);
+			info.put(section, new int[] { number, 0 });
+			c.moveToNext();
+		}
+		Cursor c1;
+		if (App.lang==Languages.ENG)
+			c1 = CounterWordsDAO.db
+					.rawQuery(
+							"SELECT Section_eng, count(_id) FROM counter_words where percentage=1 group by Section_eng",
+							null);
+		else
+			c1 = CounterWordsDAO.db
+					.rawQuery(
+							"SELECT Section_rus, count(_id) FROM counter_words where percentage=1 group by Section_rus",
+							null);
+		c1.moveToFirst();
+		while (!c.isAfterLast()) {
+			section = c1.getString(0);
+			number = c1.getInt(1);
+			int a = info.get(section)[0];
+			info.remove(section);
+			info.put(section, new int[] { a, number });
+			c.moveToNext();
+		}
+
+		return info;
+	}
+
+	public CounterWordsDictionary createCurrentDictionary(String section,
+			int countWordsInCurrentDict, ContentResolver contentResolver) {
+		all = new CounterWordsDictionary();
+		all = getCounterwordsBySection(section, contentResolver);
+		CounterWordsDictionary current = new CounterWordsDictionary();
+		// if words have never been showed - set entries randomly
+		if (App.userInfo.isLevelLaunchedFirstTime == 1) {
+			all.sortRandomly();
+			for (int i = 0; i < App.userInfo.getNumberOfEntriesInCurrentDict(); i++) {
+				CounterWord e = all.get(i);
+				if (e.getLearnedPercentage() != 1)
+					current.add(e);
+			}
+		} else {
+			// sorting descending
+			// get last elements
+			all.sortByLastViewedTime();
+			int i = all.size() - 1;
+			while (current.size() < App.userInfo
+					.getNumberOfEntriesInCurrentDict()) {
+				CounterWord e = all.get(i);
+				if (e.getLearnedPercentage() != 1)
+					current.add(e);
+				i--;
+				Log.i("createCurrentDictionary", all.get(i).toString());
+			}
+		}
+		return current;
 	}
 }

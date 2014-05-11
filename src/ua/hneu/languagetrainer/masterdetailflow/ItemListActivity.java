@@ -4,12 +4,15 @@ import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.pages.GreetingActivity;
 import ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity;
+import ua.hneu.languagetrainer.service.CounterWordsService;
+import ua.hneu.languagetrainer.service.GrammarService;
 import ua.hneu.languagetrainer.service.VocabularyService;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -38,6 +41,7 @@ public class ItemListActivity extends FragmentActivity implements
 	private boolean mTwoPane;
 	TextView textViewUserInfo;
 	RatingBar ratingBar;
+	ListView sectionsListView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,12 +70,14 @@ public class ItemListActivity extends FragmentActivity implements
 			((ItemListFragment) getSupportFragmentManager().findFragmentById(
 					R.id.item_list)).setActivateOnItemClick(true);
 
-			// set userlevel on main activity
+			// set userlevel on vocabulary fragment
 			textViewUserInfo = (TextView) findViewById(R.id.textViewUserInfo);
 			textViewUserInfo.setText(this.getString(R.string.your_level)
 					+ App.userInfo.getLevel());
 			ratingBar = (RatingBar) findViewById(R.id.levelRatingBar);
 			ratingBar.setRating(6 - App.userInfo.getLevel());
+
+			sectionsListView = (ListView) findViewById(R.id.sectionsListView);
 
 		} else {
 			mTwoPane = false;
@@ -106,6 +112,7 @@ public class ItemListActivity extends FragmentActivity implements
 			arguments.putString(VocabularyActivityFragment.ARG_ITEM_ID, id);
 			VocabularyActivityFragment vocabularyFragment = new VocabularyActivityFragment();
 			GrammarActivityFragment grammarFragment = new GrammarActivityFragment();
+			CounterWordsFragment counterWordsFragment = new CounterWordsFragment();
 			vocabularyFragment.setArguments(arguments);
 			grammarFragment.setArguments(arguments);
 			// Loading fragments accordingly to selected menu items
@@ -121,6 +128,13 @@ public class ItemListActivity extends FragmentActivity implements
 				getSupportFragmentManager().beginTransaction()
 						.replace(R.id.item_detail_container, grammarFragment)
 						.commit();
+			}
+			// if selected counter words
+			if (id == "counter_words") {
+				getSupportFragmentManager()
+						.beginTransaction()
+						.replace(R.id.item_detail_container,
+								counterWordsFragment).commit();
 			}
 
 		} else {
@@ -152,16 +166,28 @@ public class ItemListActivity extends FragmentActivity implements
 		// load vocabulary
 		App.vocabularyDictionary = VocabularyService.createCurrentDictionary(
 				App.userInfo.getLevel(),
-				App.userInfo.getNumberOfVocabularyInCurrentDict(), App.cr);
+				App.userInfo.getNumberOfEntriesInCurrentDict(), App.cr);
 		Intent intent = new Intent(this, WordIntroductionActivity.class);
 		startActivity(intent);
 	}
+
 	public void onClickPracticeGrammar(View v) {
 		// load grammar
-		/*App.grammarDictionary = VocabularyService.createCurrentDictionary(
+		App.grammarDictionary = GrammarService.createCurrentDictionary(
 				App.userInfo.getLevel(),
-				App.userInfo.getNumberOfVocabularyInCurrentDict(), App.cr);
-		Intent intent = new Intent(this, WordIntroductionActivity.class);
+				App.userInfo.getNumberOfEntriesInCurrentDict(), App.cr);
+		//TODO
+		/*Intent intent = new Intent(this, WordIntroductionActivity.class);
+		startActivity(intent);*/
+	}
+
+	public void onClickPracticeCounterWords(View v) {
+		// load counter words
+		CounterWordsService cws = new CounterWordsService();
+		App.counterWordsDictionary = cws.createCurrentDictionary(
+				CounterWordsFragment.selectedSection,
+				App.userInfo.getNumberOfEntriesInCurrentDict(), App.cr);
+		/*Intent intent = new Intent(this, WordIntroductionActivity.class);
 		startActivity(intent);*/
 	}
 }

@@ -6,8 +6,8 @@ import java.util.Set;
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.ListViewAdapter;
-import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
-import ua.hneu.languagetrainer.model.vocabulary.WordDictionary;
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -23,8 +23,8 @@ import android.widget.TextView;
 
 public class TranslationTestActivity extends Activity {
 	// dictionary with random words for possible answers
-	Set<DictionaryEntry> randomDictionary;
-	WordDictionary randomDictionaryList;
+	Set<VocabularyEntry> randomDictionary;
+	VocabularyDictionary randomDictionaryList;
 	// activity elements
 	ListView answersListView;
 	TextView wordTextView;
@@ -32,7 +32,7 @@ public class TranslationTestActivity extends Activity {
 	TextView romajiTextView;
 	TextView translationTextView;
 	TextView isRight;
-	DictionaryEntry rightAnswer;
+	VocabularyEntry rightAnswer;
 	int answersNumber = 5;
 	int currentWordNumber = -1;
 
@@ -75,7 +75,7 @@ public class TranslationTestActivity extends Activity {
 			isFromJapanese = true;
 
 		// show word, reading and translations - set text to all TextViews
-		DictionaryEntry currentEntry = App.vocabularyDictionary
+		VocabularyEntry currentEntry = App.vocabularyDictionary
 				.get(currentWordNumber);
 		if (isFromJapanese) {
 			wordTextView.setText(currentEntry.getKanji());
@@ -96,7 +96,7 @@ public class TranslationTestActivity extends Activity {
 
 		// create List randomDictionaryList for ArrayAdapter from set
 		// randomDictionary
-		randomDictionaryList = new WordDictionary();
+		randomDictionaryList = new VocabularyDictionary();
 		randomDictionaryList.getEntries().addAll(randomDictionary);
 		// shuffle list
 		Collections.shuffle(randomDictionaryList.getEntries());
@@ -135,7 +135,7 @@ public class TranslationTestActivity extends Activity {
 		@Override
 		public void onItemClick(final AdapterView<?> parent, final View view,
 				final int position, final long itemID) {
-			DictionaryEntry selected = randomDictionaryList.get(position);
+			VocabularyEntry selected = randomDictionaryList.get(position);
 			// comparing correct and selected answer
 			if (selected == rightAnswer) {
 				App.vp.incrementNumberOfCorrectAnswersInTranslation();

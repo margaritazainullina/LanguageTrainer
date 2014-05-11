@@ -6,8 +6,8 @@ import android.content.ContentResolver;
 
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.model.User;
-import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
-import ua.hneu.languagetrainer.model.vocabulary.WordDictionary;
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
 import ua.hneu.languagetrainer.service.UserService;
 
 public class VocabularyPassing {
@@ -20,9 +20,9 @@ public class VocabularyPassing {
 	private int numberOfPassingsInARow = 0;
 
 	// learned words while passing
-	private WordDictionary learnedWords = new WordDictionary();
+	private VocabularyDictionary learnedWords = new VocabularyDictionary();
 	// words and number of incorrect answers
-	private Hashtable<DictionaryEntry, Integer> problemWords = new Hashtable<DictionaryEntry, Integer>();
+	private Hashtable<VocabularyEntry, Integer> problemWords = new Hashtable<VocabularyEntry, Integer>();
 
 	public int getNumberOfCorrectAnswersInMatching() {
 		return numberOfCorrectAnswersInMatching;
@@ -84,15 +84,15 @@ public class VocabularyPassing {
 		this.numberOfPassingsInARow++;
 	}
 
-	public WordDictionary getLearnedWords() {
+	public VocabularyDictionary getLearnedWords() {
 		return learnedWords;
 	}
 
-	public Hashtable<DictionaryEntry, Integer> getProblemWords() {
+	public Hashtable<VocabularyEntry, Integer> getProblemWords() {
 		return problemWords;
 	}
 
-	public void makeWordLearned(DictionaryEntry de, ContentResolver cr, boolean isKanjiNeeded) {
+	public void makeWordLearned(VocabularyEntry de, ContentResolver cr, boolean isKanjiNeeded) {
 		// update info in user table
 		User u = App.userInfo;
 		u.setLearnedVocabulary(u.getLearnedVocabulary() + 1);
@@ -106,15 +106,15 @@ public class VocabularyPassing {
 		// add entries to current dictionary to match target size
 		if(!isKanjiNeeded)
 		App.vocabularyDictionary.addEntriesToDictionaryAndGet(
-				App.userInfo.getNumberOfVocabularyInCurrentDict());
+				App.userInfo.getNumberOfEntriesInCurrentDict());
 		else App.vocabularyDictionary.addEntriesToDictionaryAndGetOnlyWithKanji(
-				App.userInfo.getNumberOfVocabularyInCurrentDict());
+				App.userInfo.getNumberOfEntriesInCurrentDict());
 		// update info in vocabulary table
 		App.vs.update(de, cr);
 
 	}
 
-	public void addProblemWord(DictionaryEntry de) {
+	public void addProblemWord(VocabularyEntry de) {
 		if (problemWords.containsKey(de)) {
 			problemWords.put(de, problemWords.get(de) + 1);
 		} else

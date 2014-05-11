@@ -1,4 +1,4 @@
-package ua.hneu.languagetrainer.pages.vocabulary;
+package ua.hneu.languagetrainer.pages.grammar;
 
 import java.util.List;
 
@@ -14,8 +14,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class WordIntroductionActivity extends Activity {
-
+public class GrammarIntroductionActivity extends Activity {
+/*
 	public static List<Integer> shownIndexes;
 	public boolean isLast = true;
 	public static VocabularyEntry curEntry;
@@ -120,6 +120,6 @@ public class WordIntroductionActivity extends Activity {
 		} else {
 			prevButton.setEnabled(false);
 		}
-	}
+	}*/
 
 }

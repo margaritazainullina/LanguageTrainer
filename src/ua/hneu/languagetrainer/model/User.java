@@ -103,7 +103,7 @@ public class User {
 		return numberOfCounterWordsInLevel;
 	}
 
-	public int getNumberOfVocabularyInCurrentDict() {
+	public int getNumberOfEntriesInCurrentDict() {
 		return numberOfEntriesInCurrentDict;
 	}
 

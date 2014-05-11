@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/label"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:gravity="center"
         android:text="@+id/label"
         android:textSize="20sp" >

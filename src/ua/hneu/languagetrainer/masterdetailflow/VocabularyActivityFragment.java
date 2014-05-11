@@ -48,7 +48,6 @@ public class VocabularyActivityFragment extends Fragment {
 		Log.i("VocabularyActivityFragment",
 				"VocabularyActivityFragment.onCreateView()");
 
-		// Show the dummy content as text in a TextView.
 		if (mItem != null) {
 			int learned = App.userInfo.getLearnedVocabulary();
 			int all = App.userInfo.getNumberOfVocabularyInLevel();

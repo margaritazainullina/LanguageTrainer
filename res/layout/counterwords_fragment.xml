@@ -7,29 +7,34 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ua.hneu.languagetrainer.masterdetailflow.GrammarActivityFragment" >
- 
+    tools:context="ua.hneu.languagetrainer.masterdetailflow.VocabularyActivityFragment" >
+
     <TextView
-        android:id="@+id/grammarInfoTextView"
+        android:id="@+id/infoTextView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="154dp"
         android:padding="16dp"
+        android:scrollbars="vertical"
+        android:text="@string/counter_words_info"
+        android:textAppearance="?android:attr/textAppearanceSmall"
         android:textIsSelectable="true"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         tools:context=".VocabularyActivityFragment" />
 
-    <ProgressBar
-        android:id="@+id/grammarProgressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
+    <ListView
+        android:id="@+id/sectionsListView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:listSelector="@drawable/list"
+        android:visibility="visible" >
+
+    </ListView>
 
     <Button
-        android:id="@+id/practiceGrammar"
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:onClick="onClickPracticeGrammar"
-        android:text="@string/practice_grammar" />
+        android:onClick="onClickPracticeCounterWords"
+        android:text="@string/practice_words" />
 
 </LinearLayout>

@@ -8,7 +8,7 @@ import java.util.Set;
 
 import android.util.Log;
 
-import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import ua.hneu.languagetrainer.service.VocabularyService;
 
 public class GrammarDictionary {
@@ -21,13 +21,13 @@ public class GrammarDictionary {
 				return entry;
 		}
 		return null;
-	}
+	}*/
 
 	// all entries with kanji, transcription, romaji and translation
-	public ArrayList<DictionaryEntry> getEntries() {
+	public ArrayList<GrammarRule> getEntries() {
 		return entries;
 	}
-
+/*
 	// returns ArrayList of all kanji in dictionary (without empty ones)
 	public ArrayList<String> getAllKanji() {
 		ArrayList<String> kanji = new ArrayList<String>();
@@ -156,17 +156,17 @@ public class GrammarDictionary {
 
 	public void setEntries(ArrayList<DictionaryEntry> entries) {
 		this.entries = entries;
-	}
+	}*/
 
 	public GrammarDictionary() {
-		this.entries = new ArrayList<DictionaryEntry>();
+		this.entries = new ArrayList<GrammarRule>();
 	}
 
-	public void add(DictionaryEntry e) {
+	public void add(GrammarRule e) {
 		entries.add(e);
 	}
 
-	public void remove(DictionaryEntry e) {
+	public void remove(GrammarRule e) {
 		entries.remove(e);
 	}
 
@@ -174,27 +174,27 @@ public class GrammarDictionary {
 		return entries.size();
 	}
 
-	public DictionaryEntry get(int idx) {
+	public GrammarRule get(int idx) {
 		return entries.get(idx);
 	}
 
-	public DictionaryEntry fetchRandom() {
+	public GrammarRule fetchRandom() {
 		int a = new Random().nextInt(entries.size() - 1);
 		return entries.get(a);
 	}
-
+/*
 	public ArrayList<String> getAllKanjiWithReadings() {
 		ArrayList<String> readings = new ArrayList<String>();
 		for (DictionaryEntry e : entries) {
 			readings.add(e.readingsToString());
 		}
 		return readings;
-	}
+	}*/
 
 	public void sortByLastViewedTime() {
 		try {
 			Collections.sort(this.entries,
-					DictionaryEntry.DictionaryEntryComparator.LAST_VIEWED);
+					GrammarRule.GrammarRuleComparator.LAST_VIEWED);
 		} catch (Exception e) {
 			Log.e("sortByLastViewedTime",
 					e.getMessage() + " Caused:" + e.getCause());
@@ -205,7 +205,7 @@ public class GrammarDictionary {
 		try {
 			Collections
 					.sort(this.entries,
-							DictionaryEntry.DictionaryEntryComparator.LEARNED_PERCENTAGE);
+							GrammarRule.GrammarRuleComparator.LEARNED_PERCENTAGE);
 		} catch (Exception e) {
 			Log.e("sortByPercentage",
 					e.getMessage() + " Caused:" + e.getCause());
@@ -215,7 +215,7 @@ public class GrammarDictionary {
 	public void sortByTimesShown() {
 		try {
 			Collections.sort(this.entries,
-					DictionaryEntry.DictionaryEntryComparator.TIMES_SHOWN);
+					GrammarRule.GrammarRuleComparator.TIMES_SHOWN);
 		} catch (Exception e) {
 			Log.e("sortByTimesShown",
 					e.getMessage() + " Caused:" + e.getCause());
@@ -225,10 +225,11 @@ public class GrammarDictionary {
 	public void sortRandomly() {
 		try {
 			Collections.sort(this.entries,
-					DictionaryEntry.DictionaryEntryComparator.RANDOM);
+					GrammarRule.GrammarRuleComparator.RANDOM);
 		} catch (Exception e) {
 			Log.e("sortRandomly", e.getMessage() + " Caused:" + e.getCause());
 		}
-	}*/
+	}
+
 
 }

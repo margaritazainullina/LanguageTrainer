@@ -18,7 +18,8 @@ public class CounterWordsDAO extends ContentProvider {
 
 	public static String TABLE_NAME = "counter_words";
 	public static final String ID = "_id";
-	public static final String SECTION = "section";
+	public static final String SECTION_ENG = "section_eng";
+	public static final String SECTION_RUS = "section_rus";
 	public static final String WORD = "word";
 	public static final String HIRAGANA = "hiragana";
 	public static final String ROMAJI = "romaji";
@@ -39,7 +40,7 @@ public class CounterWordsDAO extends ContentProvider {
 
 	private static HashMap<String, String> mContactMap;
 
-	private static SQLiteDatabase db;
+	public static SQLiteDatabase db;
 
 	static {
 		mUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -49,7 +50,8 @@ public class CounterWordsDAO extends ContentProvider {
 
 		mContactMap = new HashMap<String, String>();
 		mContactMap.put(DictionaryDbHelper._ID, DictionaryDbHelper._ID);
-		mContactMap.put(SECTION, SECTION);
+		mContactMap.put(SECTION_ENG, SECTION_ENG);
+		mContactMap.put(SECTION_RUS, SECTION_RUS);
 		mContactMap.put(WORD, WORD);
 		mContactMap.put(HIRAGANA, HIRAGANA);
 		mContactMap.put(ROMAJI, ROMAJI);

@@ -1,4 +1,4 @@
-Numbers
+Numbers	Числа
 零	zero/rei	ゼロ/れい	0
 一	いち	ichi	1
 二	に	ni	2

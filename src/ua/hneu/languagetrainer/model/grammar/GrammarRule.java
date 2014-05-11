@@ -1,6 +1,14 @@
 package ua.hneu.languagetrainer.model.grammar;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Date;
+
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
+import android.annotation.SuppressLint;
+import android.util.Log;
 
 public class GrammarRule {
 	private String rule;
@@ -101,5 +109,61 @@ public class GrammarRule {
 
 	public void setColor(String color) {
 		this.color = color;
+	}
+
+	enum GrammarRuleComparator implements Comparator<GrammarRule> {
+		LAST_VIEWED {
+			public int compare(GrammarRule de1, GrammarRule de2) {
+				SimpleDateFormat dateFormat = new SimpleDateFormat(
+						"yyyy-MM-dd HH:mm:ss.SSS");
+				boolean isAfter = false;
+				try {
+					if (de1.getLastview().isEmpty()
+							|| de2.getLastview().isEmpty()) {
+						// gets randomly - entries wont' be in a row
+						isAfter = (Math.random() < 0.5);
+					} else {
+						Log.i("DictionaryEntryComparator",
+								"compared: " + de1.getLastview() + " and "
+										+ de2.getLastview());
+						Date date1 = dateFormat.parse(de1.getLastview());
+						Date date2 = dateFormat.parse(de2.getLastview());
+						isAfter = (date1.after(date2));
+					}
+				} catch (ParseException e) {
+					Log.e("GrammarRuleComparator", "error in comparison: "
+							+ de1.getLastview() + " and " + de2.getLastview());
+					return 1;
+				}
+				if (isAfter)
+					return -1;
+				else
+					return 1;
+			}
+		},
+		LEARNED_PERCENTAGE {
+			public int compare(GrammarRule de1, GrammarRule de2) {
+				if (de1.getLearnedPercentage() > de2.getLearnedPercentage())
+					return 1;
+				else
+					return -1;
+			}
+		},
+		TIMES_SHOWN {
+			public int compare(GrammarRule de1, GrammarRule de2) {
+				if (de1.getShownTimes() > de2.getShownTimes())
+					return 1;
+				else
+					return -1;
+			}
+		},
+		RANDOM {
+			public int compare(GrammarRule de1, GrammarRule de2) {
+				if (Math.random() < 0.5)
+					return -1;
+				else
+					return 1;
+			}
+		};
 	}
 }

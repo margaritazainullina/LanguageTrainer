@@ -20,7 +20,7 @@ import ua.hneu.languagetrainer.model.grammar.GrammarRule;
 import ua.hneu.languagetrainer.model.other.Giongo;
 import ua.hneu.languagetrainer.model.other.GiongoExample;
 import ua.hneu.languagetrainer.model.tests.Question;
-import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;

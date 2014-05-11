@@ -69,5 +69,10 @@
     <!-- Grammar activity fragment -->
     <string name="practice_grammar">Practice grammar</string>
     <string name="grammar_learned">Grammar learned </string>
+    
+     <string name="giongo">Giongo and gitaigo </string>     
+     <string name="giongo_info">******</string>
+     <string name="counter_words">Counter words </string>
+     <string name="counter_words_info">In Japanese, numerals cannot quantify nouns by themselves (except, in certain cases, for the numbers from one to ten). For example, to express the idea "two dogs" in Japanese one must say 二匹の犬 ni hiki no inu. Here 犬 inu means "dog", 二 ni is the number 2, "の" "no" is a possessive particle, and 匹 hiki is the counter for small animals. These counters are not independent words and always appear with a number (or question word) before them. If the number is unknown, a question word is used, most often 何 nan, as in 何名様 nan-mei-sama "how many guests", or sometimes 幾 iku as in 幾晩 iku-ban "how many nights?".</string>
 
 </resources>

@@ -4,7 +4,7 @@ import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.masterdetailflow.ItemListActivity;
 import ua.hneu.languagetrainer.model.User;
-import ua.hneu.languagetrainer.model.vocabulary.DictionaryEntry;
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

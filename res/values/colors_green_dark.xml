@@ -6,6 +6,7 @@
     <color name="selection_orange">#fb3</color>
     <color name="red">#c00</color>
     <color name="light_gray">#eaeaea</color>
+    <color name="dark_gray">#222222</color>
     <color name="gray">#474747</color>
     <color name="transparent">#00000000</color>
 

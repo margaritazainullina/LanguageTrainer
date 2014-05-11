@@ -2,19 +2,19 @@ package ua.hneu.languagetrainer.model.vocabulary;
 
 import java.util.List;
 
-public class WordMeaning {
+public class VocabularyMeaning {
 
 	String hiragana;
 	String romaji;
 	List<String> translations;
 
-	WordMeaning(String transcription, String romaji, List<String> translations) {
+	VocabularyMeaning(String transcription, String romaji, List<String> translations) {
 		this.hiragana = transcription;
 		this.romaji = romaji;
 		this.translations = translations;
 	}
 
-	WordMeaning() {
+	VocabularyMeaning() {
 	}
 	
 	public String translationsToString() {

@@ -1,4 +1,4 @@
-Time and calendar
+Time and calendar	Время и дата
 秒	びょう	byō	Seconds	Секунды
 分	ふん	fun, ぷん pun	Minutes	Минуты
 月	がつ	gatsu, also つき tsuki	Months of the year. Month-long periods when read つき	Месяцы года. Для период в месяцах, используется чтение つき 

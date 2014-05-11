@@ -10,12 +10,12 @@ import android.util.Log;
 
 import ua.hneu.languagetrainer.service.VocabularyService;
 
-public class WordDictionary {
+public class VocabularyDictionary {
 
-	private ArrayList<DictionaryEntry> entries;
+	private ArrayList<VocabularyEntry> entries;
 
-	public DictionaryEntry getEntryById(int id) {
-		for (DictionaryEntry entry : entries) {
+	public VocabularyEntry getEntryById(int id) {
+		for (VocabularyEntry entry : entries) {
 			if (entry.getId() == id)
 				return entry;
 		}
@@ -23,14 +23,14 @@ public class WordDictionary {
 	}
 
 	// all entries with kanji, transcription, romaji and translation
-	public ArrayList<DictionaryEntry> getEntries() {
+	public ArrayList<VocabularyEntry> getEntries() {
 		return entries;
 	}
 
 	// returns ArrayList of all kanji in dictionary (without empty ones)
 	public ArrayList<String> getAllKanji() {
 		ArrayList<String> kanji = new ArrayList<String>();
-		for (DictionaryEntry e : entries) {
+		for (VocabularyEntry e : entries) {
 			if (e.getKanji() != "")
 				kanji.add(e.getKanji());
 		}
@@ -40,7 +40,7 @@ public class WordDictionary {
 	// returns ArrayList of all ids in dictionary (without empty ones)
 	public ArrayList<Integer> getAllIds() {
 		ArrayList<Integer> ids = new ArrayList<Integer>();
-		for (DictionaryEntry e : entries) {
+		for (VocabularyEntry e : entries) {
 			if (e.getKanji() != "")
 				ids.add(e.getId());
 		}
@@ -50,7 +50,7 @@ public class WordDictionary {
 	// returns ArrayList of transcription and romaji in dictionary
 	public ArrayList<String> getAllReadings() {
 		ArrayList<String> readings = new ArrayList<String>();
-		for (DictionaryEntry e : entries) {
+		for (VocabularyEntry e : entries) {
 			readings.add(e.readingsToString());
 		}
 		return readings;
@@ -59,7 +59,7 @@ public class WordDictionary {
 	// returns ArrayList of all translations in dictionary
 	public ArrayList<String> getAllTranslations() {
 		ArrayList<String> translation = new ArrayList<String>();
-		for (DictionaryEntry e : entries) {
+		for (VocabularyEntry e : entries) {
 			translation.add(e.translationsToString() + "");
 		}
 		return translation;
@@ -70,7 +70,7 @@ public class WordDictionary {
 		Random rn = new Random();
 		// remove word without kanji to match target size
 		int wordsWithKanji = 0;
-		for (DictionaryEntry dictionaryEntry : this.entries) {
+		for (VocabularyEntry dictionaryEntry : this.entries) {
 			if (!dictionaryEntry.getKanji().isEmpty())
 				wordsWithKanji++;
 		}
@@ -81,7 +81,7 @@ public class WordDictionary {
 				// delete entries without kanji
 				if (this.entries.get(i).getKanji().isEmpty()) {
 					int j = rn.nextInt(VocabularyService.all.size());
-					DictionaryEntry e = VocabularyService.all.get(j);
+					VocabularyEntry e = VocabularyService.all.get(j);
 					if (e.getLearnedPercentage() != 1
 							&& (!e.getKanji().isEmpty()))
 						this.entries.set(i, e);
@@ -91,7 +91,7 @@ public class WordDictionary {
 		}
 		while (wordsWithKanji < size) {
 			int i = rn.nextInt(VocabularyService.all.size());
-			DictionaryEntry e = VocabularyService.all.get(i);
+			VocabularyEntry e = VocabularyService.all.get(i);
 			// if the word is not learned
 			if (e.getLearnedPercentage() != 1) {
 				this.entries.add(e);
@@ -101,31 +101,31 @@ public class WordDictionary {
 	}
 
 	public void addEntriesToDictionaryAndGet(int size) {
-		Set<DictionaryEntry> de = new HashSet<DictionaryEntry>();
+		Set<VocabularyEntry> de = new HashSet<VocabularyEntry>();
 		de.addAll(this.entries);
 		Random rn = new Random();
 		while (de.size() < size) {
 			int i = rn.nextInt(VocabularyService.all.size());
-			DictionaryEntry e = VocabularyService.all.get(i);
+			VocabularyEntry e = VocabularyService.all.get(i);
 			// if the word is not learned
 			if (e.getLearnedPercentage() != 1)
 				de.add(e);
 		}
 
-		ArrayList<DictionaryEntry> l = new ArrayList<DictionaryEntry>();
+		ArrayList<VocabularyEntry> l = new ArrayList<VocabularyEntry>();
 		l.addAll(de);
 		this.entries = l;
 	}
 
 	// returns Set with stated size of unique random entries from current
 	// dictionary
-	public Set<DictionaryEntry> getRandomEntries(int size,
+	public Set<VocabularyEntry> getRandomEntries(int size,
 			boolean kanjiIsNessesary) {
-		Set<DictionaryEntry> random = new HashSet<DictionaryEntry>();
+		Set<VocabularyEntry> random = new HashSet<VocabularyEntry>();
 		Random rn = new Random();
 
 		int numberOfEntriesWithKanji = 0;
-		for (DictionaryEntry entry : entries) {
+		for (VocabularyEntry entry : entries) {
 			if (!entry.getKanji().isEmpty())
 				numberOfEntriesWithKanji++;
 		}
@@ -153,19 +153,19 @@ public class WordDictionary {
 		return random;
 	}
 
-	public void setEntries(ArrayList<DictionaryEntry> entries) {
+	public void setEntries(ArrayList<VocabularyEntry> entries) {
 		this.entries = entries;
 	}
 
-	public WordDictionary() {
-		this.entries = new ArrayList<DictionaryEntry>();
+	public VocabularyDictionary() {
+		this.entries = new ArrayList<VocabularyEntry>();
 	}
 
-	public void add(DictionaryEntry e) {
+	public void add(VocabularyEntry e) {
 		entries.add(e);
 	}
 
-	public void remove(DictionaryEntry e) {
+	public void remove(VocabularyEntry e) {
 		entries.remove(e);
 	}
 
@@ -173,18 +173,18 @@ public class WordDictionary {
 		return entries.size();
 	}
 
-	public DictionaryEntry get(int idx) {
+	public VocabularyEntry get(int idx) {
 		return entries.get(idx);
 	}
 
-	public DictionaryEntry fetchRandom() {
+	public VocabularyEntry fetchRandom() {
 		int a = new Random().nextInt(entries.size() - 1);
 		return entries.get(a);
 	}
 
 	public ArrayList<String> getAllKanjiWithReadings() {
 		ArrayList<String> readings = new ArrayList<String>();
-		for (DictionaryEntry e : entries) {
+		for (VocabularyEntry e : entries) {
 			readings.add(e.readingsToString());
 		}
 		return readings;
@@ -193,7 +193,7 @@ public class WordDictionary {
 	public void sortByLastViewedTime() {
 		try {
 			Collections.sort(this.entries,
-					DictionaryEntry.DictionaryEntryComparator.LAST_VIEWED);
+					VocabularyEntry.DictionaryEntryComparator.LAST_VIEWED);
 		} catch (Exception e) {
 			Log.e("sortByLastViewedTime",
 					e.getMessage() + " Caused:" + e.getCause());
@@ -204,7 +204,7 @@ public class WordDictionary {
 		try {
 			Collections
 					.sort(this.entries,
-							DictionaryEntry.DictionaryEntryComparator.LEARNED_PERCENTAGE);
+							VocabularyEntry.DictionaryEntryComparator.LEARNED_PERCENTAGE);
 		} catch (Exception e) {
 			Log.e("sortByPercentage",
 					e.getMessage() + " Caused:" + e.getCause());
@@ -214,7 +214,7 @@ public class WordDictionary {
 	public void sortByTimesShown() {
 		try {
 			Collections.sort(this.entries,
-					DictionaryEntry.DictionaryEntryComparator.TIMES_SHOWN);
+					VocabularyEntry.DictionaryEntryComparator.TIMES_SHOWN);
 		} catch (Exception e) {
 			Log.e("sortByTimesShown",
 					e.getMessage() + " Caused:" + e.getCause());
@@ -224,7 +224,7 @@ public class WordDictionary {
 	public void sortRandomly() {
 		try {
 			Collections.sort(this.entries,
-					DictionaryEntry.DictionaryEntryComparator.RANDOM);
+					VocabularyEntry.DictionaryEntryComparator.RANDOM);
 		} catch (Exception e) {
 			Log.e("sortRandomly", e.getMessage() + " Caused:" + e.getCause());
 		}

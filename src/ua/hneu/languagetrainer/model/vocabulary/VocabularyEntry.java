@@ -13,7 +13,7 @@ import android.util.Log;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.App.Languages;
 
-public class DictionaryEntry {
+public class VocabularyEntry {
 
 	private int id;
 	private String kanji;
@@ -21,18 +21,18 @@ public class DictionaryEntry {
 	private String lastview;
 	private int shownTimes;
 	private double learnedPercentage;
-	private WordMeaning meaningEng;
-	private WordMeaning meaningRus;
+	private VocabularyMeaning meaningEng;
+	private VocabularyMeaning meaningRus;
 	private String color;
 
-	public DictionaryEntry(int id, String kanji, int level,
+	public VocabularyEntry(int id, String kanji, int level,
 			String transcription, String romaji, List<String> translations,
 			List<String> translationsRus, double percentage,
 			String lastview, int showntimes, String color) {
 
-		WordMeaning meaning = new WordMeaning(transcription, romaji,
+		VocabularyMeaning meaning = new VocabularyMeaning(transcription, romaji,
 				translations);
-		WordMeaning meaningRus = new WordMeaning(transcription, romaji,
+		VocabularyMeaning meaningRus = new VocabularyMeaning(transcription, romaji,
 				translationsRus);
 		this.id = id;
 		this.kanji = kanji;
@@ -84,7 +84,7 @@ public class DictionaryEntry {
 		return shownTimes;
 	}
 
-	public WordMeaning getMeaningEng() {
+	public VocabularyMeaning getMeaningEng() {
 		return meaningEng;
 	}
 
@@ -127,11 +127,11 @@ public class DictionaryEntry {
 		this.shownTimes++;
 	}
 
-	public void setMeaning(WordMeaning meaning) {
+	public void setMeaning(VocabularyMeaning meaning) {
 		this.meaningEng = meaning;
 	}
 
-	public WordMeaning getMeanings() {
+	public VocabularyMeaning getMeanings() {
 		return meaningEng;
 	}
 
@@ -165,7 +165,7 @@ public class DictionaryEntry {
 		return this.meaningEng.romaji;
 	}
 
-	public void setMeanings(WordMeaning meaning) {
+	public void setMeanings(VocabularyMeaning meaning) {
 		this.meaningEng = meaning;
 	}
 
@@ -193,10 +193,10 @@ public class DictionaryEntry {
 		this.learnedPercentage = learnedPercentage;
 	}
 
-	enum DictionaryEntryComparator implements Comparator<DictionaryEntry> {
+	enum DictionaryEntryComparator implements Comparator<VocabularyEntry> {
 		LAST_VIEWED {
 			@SuppressLint("SimpleDateFormat")
-			public int compare(DictionaryEntry de1, DictionaryEntry de2) {
+			public int compare(VocabularyEntry de1, VocabularyEntry de2) {
 				SimpleDateFormat dateFormat = new SimpleDateFormat(
 						"yyyy-MM-dd HH:mm:ss.SSS");
 				boolean isAfter = false;
@@ -229,7 +229,7 @@ public class DictionaryEntry {
 			}
 		},
 		LEARNED_PERCENTAGE {
-			public int compare(DictionaryEntry de1, DictionaryEntry de2) {
+			public int compare(VocabularyEntry de1, VocabularyEntry de2) {
 				if (de1.getLearnedPercentage() > de2.getLearnedPercentage())
 					return 1;
 				else
@@ -237,7 +237,7 @@ public class DictionaryEntry {
 			}
 		},
 		TIMES_SHOWN {
-			public int compare(DictionaryEntry de1, DictionaryEntry de2) {
+			public int compare(VocabularyEntry de1, VocabularyEntry de2) {
 				if (de1.getShownTimes() > de2.getShownTimes())
 					return 1;
 				else
@@ -245,7 +245,7 @@ public class DictionaryEntry {
 			}
 		},
 		RANDOM {
-			public int compare(DictionaryEntry de1, DictionaryEntry de2) {
+			public int compare(VocabularyEntry de1, VocabularyEntry de2) {
 				if (Math.random() < 0.5)
 					return -1;
 				else

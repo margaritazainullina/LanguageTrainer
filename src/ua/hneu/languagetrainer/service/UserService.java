@@ -21,7 +21,7 @@ public class UserService {
 		values.put(UserDAO.ALLGIONGO, u.getNumberOfGiongoInLevel());
 		values.put(UserDAO.LEARNEDCWORDS, u.getLearnedCounterWords());
 		values.put(UserDAO.ALLCWORDS, u.getNumberOfCounterWordsInLevel());
-		values.put(UserDAO.CURDICTSIZE, u.getNumberOfVocabularyInCurrentDict());
+		values.put(UserDAO.CURDICTSIZE, u.getNumberOfEntriesInCurrentDict());
 		values.put(UserDAO.REPETATIONNUM,
 				u.getNumberOfRepeatationsForLearning());
 		values.put(UserDAO.TESTAVG, u.getTestAveragePercentage());
@@ -42,7 +42,7 @@ public class UserService {
 		values.put(UserDAO.ALLGIONGO, u.getNumberOfGiongoInLevel());
 		values.put(UserDAO.LEARNEDCWORDS, u.getLearnedCounterWords());
 		values.put(UserDAO.ALLCWORDS, u.getNumberOfCounterWordsInLevel());
-		values.put(UserDAO.CURDICTSIZE, u.getNumberOfVocabularyInCurrentDict());
+		values.put(UserDAO.CURDICTSIZE, u.getNumberOfEntriesInCurrentDict());
 		values.put(UserDAO.REPETATIONNUM,
 				u.getNumberOfRepeatationsForLearning());
 		values.put(UserDAO.TESTAVG, u.getTestAveragePercentage());

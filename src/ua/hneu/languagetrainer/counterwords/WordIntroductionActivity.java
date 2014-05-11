@@ -1,4 +1,4 @@
-package ua.hneu.languagetrainer.pages.vocabulary;
+package ua.hneu.languagetrainer.counterwords;
 
 import java.util.List;
 
@@ -82,8 +82,8 @@ public class WordIntroductionActivity extends Activity {
 	}
 
 	public void goToNextPassingActivity() {
-		Intent matchWordsIntent = new Intent(this, MatchWordsActivity.class);
-		startActivity(matchWordsIntent);
+		/*Intent matchWordsIntent = new Intent(this, MatchWordsActivity.class);
+		startActivity(matchWordsIntent);*/
 	}
 
 	@SuppressLint("SimpleDateFormat")
