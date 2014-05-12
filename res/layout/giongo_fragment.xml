@@ -7,8 +7,19 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ua.hneu.languagetrainer.masterdetailflow.GrammarActivityFragment" >
+    tools:context="ua.hneu.languagetrainer.masterdetailflow.GioingoActivityFragment" >
  
+     <TextView
+        android:id="@+id/infoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="154dp"
+        android:padding="16dp"
+        android:scrollbars="vertical"
+        android:text="@string/giongo_info"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textIsSelectable="true"
+        tools:context=".VocabularyActivityFragment" />
+     
     <TextView
         android:id="@+id/grammarInfoTextView"
         android:layout_width="wrap_content"

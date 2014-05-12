@@ -1,6 +1,13 @@
 package ua.hneu.languagetrainer.model.other;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Date;
+
+import android.annotation.SuppressLint;
+import android.util.Log;
 
 public class Giongo {
 	private String word;
@@ -118,5 +125,65 @@ public class Giongo {
 
 	public void setDescRus(String descRus) {
 		this.translRus = descRus;
+	}
+	enum GiongoComparator implements Comparator<Giongo> {
+		LAST_VIEWED {
+			@SuppressLint("SimpleDateFormat")
+			public int compare(Giongo de1, Giongo de2) {
+				SimpleDateFormat dateFormat = new SimpleDateFormat(
+						"yyyy-MM-dd HH:mm:ss.SSS");
+				boolean isAfter = false;
+				try {
+					if (de1.getLastview().isEmpty()
+							|| de2.getLastview().isEmpty()) {
+						// gets randomly - entries wont' be in a row
+						isAfter = (Math.random() < 0.5);
+					} else {
+						Log.i("DictionaryEntryComparator",
+								"compared: " + de1.getLastview() + " and "
+										+ de2.getLastview());
+						Date date1 = dateFormat.parse(de1.getLastview());
+						Date date2 = dateFormat.parse(de2.getLastview());
+						isAfter = (date1.after(date2));
+						/*
+						 * Log.i("DictionaryEntryComparator", "compared: " +
+						 * de1.getLastview() + " and " + de2.getLastview());
+						 */
+					}
+				} catch (ParseException e) {
+					Log.e("DictionaryEntryComparator", "error in comparison: "
+							+ de1.getLastview() + " and " + de2.getLastview());
+					return 1;
+				}
+				if (isAfter)
+					return -1;
+				else
+					return 1;
+			}
+		},
+		LEARNED_PERCENTAGE {
+			public int compare(Giongo de1, Giongo de2) {
+				if (de1.getLearnedPercentage() > de2.getLearnedPercentage())
+					return 1;
+				else
+					return -1;
+			}
+		},
+		TIMES_SHOWN {
+			public int compare(Giongo de1, Giongo de2) {
+				if (de1.getShownTimes() > de2.getShownTimes())
+					return 1;
+				else
+					return -1;
+			}
+		},
+		RANDOM {
+			public int compare(Giongo de1, Giongo de2) {
+				if (Math.random() < 0.5)
+					return -1;
+				else
+					return 1;
+			}
+		};
 	}
 }

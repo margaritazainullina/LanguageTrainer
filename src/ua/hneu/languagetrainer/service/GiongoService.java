@@ -12,15 +12,13 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.db.dao.GiongoDAO;
-import ua.hneu.languagetrainer.db.dao.GrammarDAO;
 import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
-import ua.hneu.languagetrainer.model.grammar.GrammarExample;
-import ua.hneu.languagetrainer.model.grammar.GrammarRule;
 import ua.hneu.languagetrainer.model.other.Giongo;
+import ua.hneu.languagetrainer.model.other.GiongoDictionary;
 import ua.hneu.languagetrainer.model.other.GiongoExample;
-import ua.hneu.languagetrainer.model.tests.Question;
-import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
+import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
@@ -31,6 +29,7 @@ import android.util.Log;
 
 public class GiongoService {
 	GiongoExampleService ges = new GiongoExampleService();
+	public static GiongoDictionary all;
 	static int numberOfEnteries = 0;
 
 	public void insert(Giongo g, ContentResolver cr) {
@@ -43,9 +42,9 @@ public class GiongoService {
 		values.put(GiongoDAO.ROMAJI, g.getRomaji());
 		values.put(GiongoDAO.TRANSLATION_ENG, g.getTranslEng());
 		values.put(GiongoDAO.TRANSLATION_RUS, g.getTranslRus());
-		values.put(GrammarDAO.PERCENTAGE, g.getLearnedPercentage());
-		values.put(GrammarDAO.LASTVIEW, g.getLastview());
-		values.put(GrammarDAO.SHOWNTIMES, g.getShownTimes());
+		values.put(GiongoDAO.PERCENTAGE, g.getLearnedPercentage());
+		values.put(GiongoDAO.LASTVIEW, g.getLastview());
+		values.put(GiongoDAO.SHOWNTIMES, g.getShownTimes());
 		values.put(GiongoDAO.COLOR, g.getColor());
 		cr.insert(GiongoDAO.CONTENT_URI, values);
 	}
@@ -73,9 +72,9 @@ public class GiongoService {
 				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " + GiongoDAO.WORD
 				+ " TEXT, " + GiongoDAO.ROMAJI + " TEXT, "
 				+ GiongoDAO.TRANSLATION_ENG + " TEXT, "
-				+ GiongoDAO.TRANSLATION_RUS + " TEXT, " + GrammarDAO.PERCENTAGE
-				+ " REAL, " + GrammarDAO.LASTVIEW + " DATETIME,"
-				+ GrammarDAO.SHOWNTIMES + " INTEGER, " + GiongoDAO.COLOR
+				+ GiongoDAO.TRANSLATION_RUS + " TEXT, " + GiongoDAO.PERCENTAGE
+				+ " REAL, " + GiongoDAO.LASTVIEW + " DATETIME,"
+				+ GiongoDAO.SHOWNTIMES + " INTEGER, " + GiongoDAO.COLOR
 				+ " TEXT); ");
 	}
 
@@ -83,7 +82,8 @@ public class GiongoService {
 		GiongoDAO.getDb().execSQL("DROP TABLE " + GiongoDAO.TABLE_NAME + ";");
 	}
 
-	public ArrayList<Giongo> getAllGiongo(ContentResolver cr) {
+	@SuppressLint("NewApi")
+	public GiongoDictionary getAllGiongo(ContentResolver cr) {
 		String[] col = { GiongoDAO.ID, GiongoDAO.WORD, GiongoDAO.ROMAJI,
 				GiongoDAO.TRANSLATION_ENG, GiongoDAO.TRANSLATION_RUS,
 				GiongoDAO.COLOR };
@@ -100,7 +100,7 @@ public class GiongoService {
 		String color;
 
 		GiongoExampleService ges = new GiongoExampleService();
-		ArrayList<Giongo> g = new ArrayList<Giongo>();
+		GiongoDictionary g = new GiongoDictionary();
 		while (!c.isAfterLast()) {
 			id = c.getInt(0);
 			word = c.getString(1);
@@ -187,6 +187,37 @@ public class GiongoService {
 		}
 	}
 
+	public GiongoDictionary createCurrentDictionary(
+			int numberOfEntriesInCurrentDict, ContentResolver cr) {
+		all = new GiongoDictionary();
+		all = getAllGiongo(cr);
+		GiongoDictionary current = new GiongoDictionary();
+		// if words have never been showed - set entries randomly
+		if (App.userInfo.isLevelLaunchedFirstTime == 1) {
+			all.sortRandomly();
+			for (int i = 0; i < App.userInfo.getNumberOfEntriesInCurrentDict(); i++) {
+				Giongo e = all.get(i);
+				if (e.getLearnedPercentage() != 1)
+					current.add(e);
+			}
+		} else {
+			// sorting descending
+			// get last elements
+			all.sortByLastViewedTime();
+			int i = all.size() - 1;
+			while (current.size() < App.userInfo
+					.getNumberOfEntriesInCurrentDict()) {
+				Giongo e = all.get(i);
+				if (e.getLearnedPercentage() != 1)
+					current.add(e);
+				i--;
+				Log.i("createCurrentDictionary", all.get(i).toString());
+			}
+		}
+		return current;
+	}
+	}
+
 	// public String aaa(String filepath, AssetManager assetManager,
 	// ContentResolver cr) { ArrayList<String> entries = new
 	// ArrayList<String>(); ArrayList<String> entries1 = new
@@ -218,4 +249,3 @@ public class GiongoService {
 	// catch (IOException e) { Log.e("VocabularyService", e.getMessage() + " " +
 	// e.getCause()); } return x.toString(); }
 
-}

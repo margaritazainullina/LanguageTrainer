@@ -5,6 +5,7 @@ import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.pages.GreetingActivity;
 import ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity;
 import ua.hneu.languagetrainer.service.CounterWordsService;
+import ua.hneu.languagetrainer.service.GiongoService;
 import ua.hneu.languagetrainer.service.GrammarService;
 import ua.hneu.languagetrainer.service.VocabularyService;
 import android.content.Intent;
@@ -186,6 +187,14 @@ public class ItemListActivity extends FragmentActivity implements
 		CounterWordsService cws = new CounterWordsService();
 		App.counterWordsDictionary = cws.createCurrentDictionary(
 				CounterWordsFragment.selectedSection,
+				App.userInfo.getNumberOfEntriesInCurrentDict(), App.cr);
+		/*Intent intent = new Intent(this, WordIntroductionActivity.class);
+		startActivity(intent);*/
+	}
+	public void onClickPracticeGiongo(View v) {
+		// load counter words
+		GiongoService gs = new GiongoService();
+		App.giongoWordsDictionary = gs.createCurrentDictionary(
 				App.userInfo.getNumberOfEntriesInCurrentDict(), App.cr);
 		/*Intent intent = new Intent(this, WordIntroductionActivity.class);
 		startActivity(intent);*/

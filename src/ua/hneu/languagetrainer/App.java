@@ -9,7 +9,7 @@ import ua.hneu.languagetrainer.model.User;
 import ua.hneu.languagetrainer.model.grammar.GrammarDictionary;
 import ua.hneu.languagetrainer.model.grammar.GrammarRule;
 import ua.hneu.languagetrainer.model.other.CounterWordsDictionary;
-import ua.hneu.languagetrainer.model.other.GiongoDicionary;
+import ua.hneu.languagetrainer.model.other.GiongoDictionary;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
 import ua.hneu.languagetrainer.service.GiongoExampleService;
 import ua.hneu.languagetrainer.passing.VocabularyPassing;
@@ -33,7 +33,7 @@ public class App extends Application {
 	// grammar for session
 	public static GrammarDictionary grammarDictionary;
 	// giongo for session
-	public static GiongoDicionary giongoWordsDictionary;
+	public static GiongoDictionary giongoWordsDictionary;
 	// counter words for session
 	public static CounterWordsDictionary counterWordsDictionary;
 
