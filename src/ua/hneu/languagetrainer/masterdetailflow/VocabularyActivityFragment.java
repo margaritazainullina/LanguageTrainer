@@ -1,5 +1,7 @@
 package ua.hneu.languagetrainer.masterdetailflow;
 
+import ua.hneu.edu.languagetrainer.R;
+import ua.hneu.languagetrainer.App;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,10 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import ua.hneu.edu.languagetrainer.R;
-import ua.hneu.languagetrainer.App;
-import ua.hneu.languagetrainer.model.User;
-import ua.hneu.languagetrainer.service.VocabularyService;
 
 public class VocabularyActivityFragment extends Fragment {
 	TextView infoTextView;

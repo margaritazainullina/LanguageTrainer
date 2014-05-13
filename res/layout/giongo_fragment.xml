@@ -21,7 +21,7 @@
         tools:context=".VocabularyActivityFragment" />
      
     <TextView
-        android:id="@+id/grammarInfoTextView"
+        android:id="@+id/giongoInfoTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp"
@@ -30,7 +30,7 @@
         tools:context=".GrammarActivityFragment" />
 
     <ProgressBar
-        android:id="@+id/grammarProgressBar"
+        android:id="@+id/giongoProgressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="20dp" />
@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:onClick="onClickpracticeGiongo"
+        android:onClick="onClickPracticeGiongo"
         android:text="@string/practice_words" />
 
 </LinearLayout>

@@ -1,60 +1,60 @@
-です	"is", "am", or "are" (depending on the situation), though the meaning in English is a lot broader than in Japanese. Some other words (「いる」 and 「ある」) also mean "is", depending on the situation.	"есть", "существует", обычно не переводится. Некоторые другие слова ( 「いる」 и 「ある」 ) также означает «есть», в зависимости от ситуации.
+です	'is', 'am', or 'are' (depending on the situation), though the meaning in English is a lot broader than in Japanese. Some other words (「いる」 and 「ある」) also mean 'is', depending on the situation.	'есть', 'существует', обычно не переводится. Некоторые другие слова ( 「いる」 и 「ある」 ) также означает «есть», в зависимости от ситуации.
 わたしはマイク	です	。	Watashi ha maiku desu. 	I am Mike.	Я Майк.
 これはペン	です	。	kore ha pen desu. 	This is a pen.	Это ручка.
 
-も	"too", "and", or "also". 	"слишком ", "и ", " также ". 
+も	'too', 'and', or 'also'. 	'слишком ', 'и ', ' также '. 
 かれはサッカーがすきです。わたし	も	サッカーがすきです。	kare ha sakkā ga suki desu. Watashi mo sakkā ga suki desu.	He likes soccer. I like soccer, too. Он любит футбол.	Мне нравится футбол тоже.
 けんはケーキ	も	クッキーもたべました。	ken ha kēki mo kukkī mo tabe mashi ta.  	Ken ate both cake and cookies.	Кен съел и торт и печенье.
 
-で	"at" or "in", and is used when specifying where something happens. 	" на " или " в ", и используется при определении места происхождения  какого-либо действия.
+で	'at' or 'in', and is used when specifying where something happens. 	' на ' или ' в ', и используется при определении места происхождения  какого-либо действия.
 かれは学校	で	すう学をべんきょうします。	Kare ha gakkou de suu gaku o be n kyou shi masu.	 He studies math at school.	Он изучает математику в школе.
 
-に/へ	"to", and is used when describing a destination. 	"до", "к", и используется при описании направления.
+に/へ	'to', and is used when describing a destination. 	'до', 'к', и используется при описании направления.
 リエ子はローマ	に	いきました。	rieko ha rōma ni iki mashi ta. 	Rieko went to Rome.	Риеко уехала в Рим.
 
-に	This is a general use preposition. It can mean "in", "at", "to", "for", and other general prepositional phrases, depending on the context. 	Может означать "в", " к ", " для ", в зависимости от контекста, чаще всего соответствует дательному падежу.
+に	This is a general use preposition. It can mean 'in', 'at', 'to', 'for', and other general prepositional phrases, depending on the context. 	Может означать 'в', ' к ', ' для ', в зависимости от контекста, чаще всего соответствует дательному падежу.
 あの人	に	本を与えてください。	ano hito ni hon o atae te kudasai. 	Please give the book to that person.	Пожалуйста, дайте книгу этому человеку.
 冬	に	、雪が降ります。	fuyu ni, yuki ga ori masu. 	In winter, it snows.	Зимой идет снег.
 
 を	This denotes the object of an action. 	Обозначает объект действия (винительный падеж).
 あの猫が魚	を	食べた。	ano neko ga sakana o tabe ta. 	That cat ate the fish.	Эта кошка съела рыбу.
 
-～ませんか	"Won't you ~ ?" or "Shall we ~ ?". It's an invitation. "	Давайте ~ ? ", " Пойдемте ~ ? ». Обозначает приглашение.
+～ませんか	'Won't you ~ ?' or 'Shall we ~ ?'. It's an invitation. '	Давайте ~ ? ', ' Пойдемте ~ ? ». Обозначает приглашение.
 ケーキをたべ	ませんか	？	kēki o tabe mase n ka? 	Won't you have some cake?	Не хотите ли пирог ?
 えいがをみ	ませんか	？	e iga o mi mase n ka? 	Won't you (shall we) watch a movie?	Не хотите посмотреть фильм ?
 
 は	This denotes a topic. 	Обозначает тему предложения (именительный падеж).
 彼女	は	嬉しいです。	kanojo ha ureshii desu. 	She is happy.	Она счастлива.
 
-～があります	"there is". It is used for non-living things (use 「がいます」 for living things). 	" существует ". Используется для неодушевленных предметов ( для одушевленных используется 「がいます」).
+～があります	'there is'. It is used for non-living things (use 「がいます」 for living things). 	' существует '. Используется для неодушевленных предметов ( для одушевленных используется 「がいます」).
 つくえの上にボール	があります	。	tsuku e no ue ni bōru ga ari masu. 	There is a ball on the desk.	На столе мяч.
 はこの中にプレゼント	があります	か。	ha kono naka ni purezento ga ari masu ka. 	Is there a present in the box?	Находится ли подарок в коробке?
 
-～がいます	"there is" or "is" and is used for living things. 	" существует "  используется для одушевленных предметов.
+～がいます	'there is' or 'is' and is used for living things. 	' существует '  используется для одушевленных предметов.
 あそこの木の下に、子ども二人	がいます	。	asoko no konoshita ni, kodomo ni nin ga i masu. 	There are two children under the tree over there.	Там, под деревом двое детей.
-きょうしつに田中先生	がいます	か。	kyoushi tsu ni tanaka sensei ga i masu ka. 	Is Mr. Tanaka in the classroom?"	Танака в классе? "
+きょうしつに田中先生	がいます	か。	kyoushi tsu ni tanaka sensei ga i masu ka. 	Is Mr. Tanaka in the classroom?'	Танака в классе? '
 
 と	This is a particle used to link nouns in a complete list. 	Это частица используется для связи существительных пpи полном перечислении.
 サラダはレタス	と	にんじんとラディッシュからしました。	sarada ha retasu to ninjin to radisshu kara shi mashi ta. 	The salad was made from lettuce, carrot, and radish.	Салат сделан из салата, моркови, и редиса.
 
-～ましょう(か)	This is a polite volitional phrase, meaning "I'll" or "let's". 	Вежливая фраза  " давайте что-либо сделаем".
+～ましょう(か)	This is a polite volitional phrase, meaning 'I'll' or 'let's'. 	Вежливая фраза  ' давайте что-либо сделаем'.
 食べ	ましょう	。tabe masho u. 		Let's eat!	Давайте поедим !
 食べ	ましょうか	。	tabe masho u ka.	How about we eat?	Как насчет того, чтобы поесть ?
 
-～てください	This is used to link verb copulas, ending in "て" or "で", to "ください", making it into a request. 	Вежливая просьба. К глаголу  в форме на "て" или "で" добавляется "ください".
+～てください	This is used to link verb copulas, ending in 'て' or 'で', to 'ください', making it into a request. 	Вежливая просьба. К глаголу  в форме на 'て' или 'で' добавляется 'ください'.
 日本語ではなし	てください	。	nihongo de hanashi te kudasai. 	Please speak in Japanese.	Пожалуйста, говорите на японском.
 彼といっ	てください	。	kare to itte kudasai. 	Please go with him.	Пожалуйста, пойдите с ним.
 
-～てもいいです	This is used to link verb copulas to "もいいです" meaning "it's enough" or "it's good". It can be used as a request for permission. 	К глаголу  в форме на "て" или "で" добавляется  "も いい です", что означает " это достаточно " или " это хорошо ". Это может быть использовано в качестве вопроса на получение разрешения.
+～てもいいです	This is used to link verb copulas to 'もいいです' meaning 'it's enough' or 'it's good'. It can be used as a request for permission. 	К глаголу  в форме на 'て' или 'で' добавляется  'も いい です', что означает ' это достаточно ' или ' это хорошо '. Это может быть использовано в качестве вопроса на получение разрешения.
 料理して	もいいです	。	ryouri shi te mo ii desu. 	Can I cook?	Могу ли я приготовить?
 
-～てはいけません	This is used to link copulas to "はいけません", meaning "it's not good". It is used to scold or otherwise disapprove. 	К форме глагола на последний звук "い" добавляется  "は いけ ませ ん", что означает " это не хорошо ". Он используется для неодобрения и т.д.
+～てはいけません	This is used to link copulas to 'はいけません', meaning 'it's not good'. It is used to scold or otherwise disapprove. 	К форме глагола на последний звук 'い' добавляется  'は いけ ませ ん', что означает ' это не хорошо '. Он используется для неодобрения и т.д.
 あまりお金を使いすぎ	てはいけません	。	amari okane o tsukaisugi te ha ike mase n. 	Don't spend too much money.	Не тратьте так много денег
 
-～から	Phrase meaning "from".	Означает « от ».
+～から	Phrase meaning 'from'.	Означает « от ».
 この電車はサンホせ	から	サンフランシスコにいきます。	kono densha ha sanho se kara sanfuranshisuko ni iki masu. 	This train goes from San Jose to San Francisco.	Этот поезд идет из Сан-Хосе до Сан-Франциско.
 
-～ている	いる, when used after the て form of a verb, indicates that an action is ongoing (progressive tense, marked in English by "ing",) or in a certain state.	いる, при использовании глагола  в форме на "て" или "で", указывает, что действие продолжается или находится в определенном состоянии.
+～ている	いる, when used after the て form of a verb, indicates that an action is ongoing (progressive tense, marked in English by 'ing',) or in a certain state.	いる, при использовании глагола  в форме на 'て' или 'で', указывает, что действие продолжается или находится в определенном состоянии.
 私は 読んで	います	。	watashi ha yon de i masu. 	I am reading.	Я читаю.
 ドアが開いて	います	。	doa ga hirai te i masu. 	The door is open.	Дверь открыта.
 僕は結婚して	います	。	boku ha kekkon shi te i masu. 	I am married.	Я женат.
@@ -64,7 +64,7 @@
 彼は勉強	に行った	。	kare ha benkyou ni itta.	He went to study.	Он пошел учиться.
 彼女は東京	に行く	。	kanojo ha toukyou ni iku.	She's going to Tokyo.	Она собирается в Токио.
 
-ないでください	"please don't do", used in place of a "-てください" form of a verb. 	" пожалуйста, не делайте ", имеет противоположный смысл к форме " -てください" .
+ないでください	'please don't do', used in place of a '-てください' form of a verb. 	' пожалуйста, не делайте ', имеет противоположный смысл к форме ' -てください' .
 このりんごを食べ	ないでください	。	kono ringo o tabe nai de kudasai.	Please don't eat this apple.	Пожалуйста, не ешьте это яблоко.
 その本を読ま	ないでください	。	sono hon o yoma nai de kudasai.	please don't read that book	Пожалуйста, не читайте эту книгу
 
@@ -77,7 +77,7 @@
 あなたは泳ぐ	のが上手です	か?	anata ha oyogu no ga jouzu desu ka ? 	Are you good at swimming?	Вы хорошо плавать ?
 
 ～のがへたです	It means to be bad at something. 	Быть неумелым, плохо разбираться в чем-то.
-私は踊る	のがへたです	。	watashi ha odoru no ga heta desu. 	I'm bad at dancing. 	Я плохо танцую.
+私は踊る	のがへたです	。	watashi wa odoru no ga heta desu. 	I'm bad at dancing. 	Я плохо танцую.
 彼は勉強する	のが下手です	。	kare ha benkyou suru no ga heta desu. 	He's bad at studying.	Он плохо учится.
 
 まだ～ていません	It means that someone hasn't done something yet. 	Означает, что кто-то еще что-то не сделал.
@@ -96,14 +96,14 @@
 私は映画を見に行く	つもりです	。	watashi ha eiga o mi ni iku tsumori desu. 	I'm going to go see a movie.	Я собираюсь пойти в кино.
 あなたは何を勉強する	つもりです	か?	anata ha nani o benkyou suru tsumori desu ka ? 	What are you going to study?	Что вы собираетесь учиться?
 
-～く/ ～になる	It means to become (smart/tall/etc.). If used with -な adjectives it's adj+になる, for -い adjectives it's adj+くなる. 	Это значит стать (наречие). При использовании с прилагательных, оканчивающихся на -な, добавляется "に なる", прилагательных, оканчивающихся на い добавляется "くなる".
+～く/ ～になる	It means to become (smart/tall/etc.). If used with -な adjectives it's adj+になる, for -い adjectives it's adj+くなる. 	Это значит стать (наречие). При использовании с прилагательных, оканчивающихся на -な, добавляется 'に なる', прилагательных, оканчивающихся на い добавляется 'くなる'.
 あの女性はきれい	になった	。	ano josei ha kirei ni natta. 	That woman became beautiful.	Эта женщина стала красивой.
 この自転車は古	くなった	。	kono jitensha ha furuku natta. 	This bicycle became old.	Этот велосипед стал старым.
 
-～ たいです 	Creates the polite 'want to do' form of a verb	Вежливое " хотят сделать "
+～ たいです 	Creates the polite 'want to do' form of a verb	Вежливое ' хотят сделать '
 僕はケーキを食べ	たいです	。	boku ha kēki o tabe tai desu. 	I want to eat some cake 	я хочу поесть торта
 
-～たり …～たり	It makes a list of activities or attributes. It means something like "this and that/sometimes this and sometimes that/in some parts this in other parts that". With nouns or -な adjectives it becomes "～だったり …～だったりする".	Обозначает перечень действий. "Это, иногда и это и иногда / частично так, частично так". С существительнми или -な превращается в " ~だっ たり... ~だっ たり する".
+～たり …～たり	It makes a list of activities or attributes. It means something like 'this and that/sometimes this and sometimes that/in some parts this in other parts that'. With nouns or -な adjectives it becomes '～だったり …～だったりする'.	Обозначает перечень действий. 'Это, иногда и это и иногда / частично так, частично так'. С существительнми или -な превращается в ' ~だっ たり... ~だっ たり する'.
 昨日私は本を読ん	たり	お菓子を食べたりした。	kinou watashi ha hon o yon tari okashi o tabe tari shi ta. 	Yesterday I was reading a book and eating sweets.	Вчера я читал книгу и ел сладости.
 あの映画は面白かっ	たり	つまらなかっ	たり	する。	ano eiga ha omoshirokattari tsumaranakattari suru. 	That movie is interesting in some parts and boring in other parts.	Этот фильм частично итересный, частично скучный.
 彼女は親切だっ	たり	きれいだっ	たり	する。	kanojo ha shinsetsu dattari kirei dattari suru. 	She's nice and beautiful.	Она милая и ​​красивая.
@@ -115,20 +115,20 @@
 や	This is a particle used to link nouns in an incomplete list. 	Используется для связи существительных при неполном перечислении.
 猫	や	犬や猿が動物園にいます。	neko ya inu ya saru ga doubutsu en ni i masu. 	There are cats and dogs and monkeys (among other things) at the zoo.	В зоопарке есть кошки, собаки и обезьяны ( среди прочего) .
 
-～んです	It accents the sentence's content or softens a request or an order. It may be also said as "~のです". With -な adjectives and nouns it becomes "~なのです".	Делает акцент на содержании или смягчает вопрос/приказ. С прилагательными на -な  и существительными становится " ~な の です".
+～んです	It accents the sentence's content or softens a request or an order. It may be also said as '~のです'. With -な adjectives and nouns it becomes '~なのです'.	Делает акцент на содержании или смягчает вопрос/приказ. С прилагательными на -な  и существительными становится ' ~な の です'.
 私は今忙しい	んです	。	watashi ha ima isogashii n desu. 	I'm busy right now.	Я занят сейчас.
 テニスはする	んですか	？	tenisu ha suru n desu ka? 	Do you play tennis? (at all, not right now)	Вы играете в теннис ? ( вообще, не сейчас )
 
-～すぎる	It means "too much" or "too (big/small/expensive/etc.)".	Слишком
+～すぎる	It means 'too much' or 'too (big/small/expensive/etc.)'.	Слишком
 山田さんは食べ	すぎる	。	yamada san ha tabesugiru.	Mr. Yamada eats too much.	Ямада ест слишком много.
 私は食べ物を買い	すぎる	。	watashi ha tabemono o kaisugi ta. 	I buy too much food.	Я покупаю слишком много еды.
 このシャツは大き	すぎる	。	kono shatsu wa ookisugiru	This shirt is too big.	Эта рубашка слишком большая.
 
-～ほうがいい	It means "it's better" or "it would be better", it may be also used to say that something should (or shouldn't) be done.	Лучше бы, также используется в контексте что-либо (не)должно быть сделано
+～ほうがいい	It means 'it's better' or 'it would be better', it may be also used to say that something should (or shouldn't) be done.	Лучше бы, также используется в контексте что-либо (не)должно быть сделано
 あなたはこの本を買う	ほうがいい	。	anata ha kono hon o kau hou ga ii.	You should buy this book.	Вы должны купить эту книгу.
 私はあのケーキを食べなかった	ほうがいい	。	watashi ha ano kēki o tabe nakatta hou ga ii. 	I shouldn't eat that cake.	Я не должен есть этот пирог 
 
-ので	It means "because" or "so". The cause is more impartial (like because a building is red or tall) than with "から" or "だから" where it's more subjective (like because you think an apple tastes good). With nouns and -na adjectives it becomes "なので". 	Означает " лучше " или " было бы лучше ", может быть также использовано, чтобы сказать, что что-то (не)должно быть сделано. Более независимая причина, чем в случае  с "から" или "だから", где причины больше субъективные. С существительными и -な прилагательные становится "なので".
+ので	It means 'because' or 'so'. The cause is more impartial (like because a building is red or tall) than with 'から' or 'だから' where it's more subjective (like because you think an apple tastes good). With nouns and -na adjectives it becomes 'なので'. 	Означает ' лучше ' или ' было бы лучше ', может быть также использовано, чтобы сказать, что что-то (не)должно быть сделано. Более независимая причина, чем в случае  с 'から' или 'だから', где причины больше субъективные. С существительными и -な прилагательные становится 'なので'.
 この本は高い	ので	買わない。	kono hon ha takai node kawa nai. 	I'm not buying this book, because it's expensive.	Я не покупаю эту книгу, потому что это дорого.
 あの映画を見た	ので	他の映画を見よう。	ano eiga o mi ta node ta no eiga o miyo u. 	I've seen this movie so let's watch a different one. 	Я уже видел этот фильм так что давайте смотреть другой.
 彼女は病気な	ので	来ない。	kanojo ha byouki na node ko nai. 	She isn't coming because she's sick.	Она не придет, потому что она больна.
@@ -136,11 +136,11 @@
 ～なくちゃいけない	It means that something has to be done (lit: it's bad not to do it). 	Что что-то должно быть сделано (букв.  плохо не делать этого ).
 あなたは宿題を終わら	なくちゃいけない	。	anata ha shukudai o owara naku cha ike nai. 	You have to finish your homework. (It's not good for you to not finish your homework.)	Вы должны закончить свою домашнюю работу.
 
-でしょう	It means something like "isn't it/aren't you/aren't I/etc." or "right?". It's used when the speaker isn't sure about something or in rhetorical questions. 	" Не так ли? ". Используется, когда говорящий не уверен или в риторических вопросов.
+でしょう	It means something like 'isn't it/aren't you/aren't I/etc.' or 'right?'. It's used when the speaker isn't sure about something or in rhetorical questions. 	' Не так ли? '. Используется, когда говорящий не уверен или в риторических вопросов.
 あなたは七時まで帰る	でしょ	？	anata ha nana ji made kaeru desho? 	You'll come back before 7 o'clock, right?	Ты вернешься до 7:00, не так ли?
 これは本	でしょ	?	kore ha hon desho ? 	It's a book, isn't it?	Это книга, не так ли?
 
-～まえに	It means "before doing (something)" or "ago" (like 3 days ago). 	"Прежде чем", "тому назад ".
+～まえに	It means 'before doing (something)' or 'ago' (like 3 days ago). 	'Прежде чем', 'тому назад '.
 食べる	前に	手を洗って下さい。	taberu mae ni te o aratte kudasai. 	Please wash your hands before eating.	Пожалуйста, мыть руки перед едой.
 私は一時	前に	帰った。	watashi ha ichiji mae ni kaetta. 	I came back an hour ago.	Я вернулся час назад.
 

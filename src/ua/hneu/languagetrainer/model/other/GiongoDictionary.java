@@ -7,8 +7,8 @@ import android.util.Log;
 
 
 public class GiongoDictionary {
-	private ArrayList<Giongo> entries;
-
+	private ArrayList<Giongo> entries = new ArrayList<Giongo>();	
+	
 	public void add(Giongo giongo) {
 		entries.add(giongo);
 	}	

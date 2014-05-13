@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import ua.hneu.languagetrainer.db.dao.GrammarDAO;
 import ua.hneu.languagetrainer.db.dao.GrammarExamplesDAO;
+import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
 import ua.hneu.languagetrainer.model.grammar.GrammarDictionary;
 import ua.hneu.languagetrainer.model.grammar.GrammarExample;
 import ua.hneu.languagetrainer.model.grammar.GrammarRule;
@@ -32,7 +33,7 @@ public class GrammarExampleService {
 
 	public void createTable() {
 		SQLiteDatabase db = GrammarDAO.getDb();
-		db.execSQL("CREATE TABLE " + GrammarExamplesDAO.TABLE_NAME
+		db.execSQL("CREATE TABLE if not exists " + GrammarExamplesDAO.TABLE_NAME
 				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "+ GrammarExamplesDAO.RULE_ID + " INTEGER, "
 				+ GrammarExamplesDAO.TEXT + " TEXT, " + GrammarExamplesDAO.ROMAJI + " TEXT, "
 				+ GrammarExamplesDAO.TRANSLATION_ENG + " TEXT, " + GrammarExamplesDAO.TRANSLATION_RUS
@@ -40,7 +41,7 @@ public class GrammarExampleService {
 	}
 
 	public void dropTable() {
-		GrammarDAO.getDb().execSQL("DROP TABLE " + GrammarExamplesDAO.TABLE_NAME + ";");
+		GrammarDAO.getDb().execSQL("DROP TABLE if exists " + GrammarExamplesDAO.TABLE_NAME + ";");
 	}
 
 	public ArrayList<GrammarExample> getExamplesByRuleId(int ruleId,
@@ -65,5 +66,6 @@ public class GrammarExampleService {
 			c.moveToNext();
 		}
 		return ge;
-	}	
+	}
+
 }

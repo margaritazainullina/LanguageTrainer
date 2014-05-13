@@ -69,7 +69,7 @@
     <!-- Grammar activity fragment -->
     <string name="practice_grammar">Учить грамматику</string>
     <string name="grammar_learned">Выучено грамматики </string>
-    
+     <string name="title_activity_grammar_practice">Грамматика </string>    
      <string name="giongo">Гионго и гитайго</string>     
      <string name="giongo_info">******</string>
      <string name="counter_words">Счетные слова</string>

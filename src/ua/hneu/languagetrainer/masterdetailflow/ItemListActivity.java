@@ -3,6 +3,7 @@ package ua.hneu.languagetrainer.masterdetailflow;
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.pages.GreetingActivity;
+import ua.hneu.languagetrainer.pages.grammar.GrammarIntroductionActivity;
 import ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity;
 import ua.hneu.languagetrainer.service.CounterWordsService;
 import ua.hneu.languagetrainer.service.GiongoService;
@@ -114,6 +115,7 @@ public class ItemListActivity extends FragmentActivity implements
 			VocabularyActivityFragment vocabularyFragment = new VocabularyActivityFragment();
 			GrammarActivityFragment grammarFragment = new GrammarActivityFragment();
 			CounterWordsFragment counterWordsFragment = new CounterWordsFragment();
+			GiongoActivityFragment giongoFragment = new GiongoActivityFragment();
 			vocabularyFragment.setArguments(arguments);
 			grammarFragment.setArguments(arguments);
 			// Loading fragments accordingly to selected menu items
@@ -136,6 +138,12 @@ public class ItemListActivity extends FragmentActivity implements
 						.beginTransaction()
 						.replace(R.id.item_detail_container,
 								counterWordsFragment).commit();
+			}
+			// if selected counter words
+			if (id == "giongo") {
+				getSupportFragmentManager().beginTransaction()
+						.replace(R.id.item_detail_container, giongoFragment)
+						.commit();
 			}
 
 		} else {
@@ -177,9 +185,9 @@ public class ItemListActivity extends FragmentActivity implements
 		App.grammarDictionary = GrammarService.createCurrentDictionary(
 				App.userInfo.getLevel(),
 				App.userInfo.getNumberOfEntriesInCurrentDict(), App.cr);
-		//TODO
-		/*Intent intent = new Intent(this, WordIntroductionActivity.class);
-		startActivity(intent);*/
+		Intent intent = new Intent(this, GrammarIntroductionActivity.class);
+		startActivity(intent);
+
 	}
 
 	public void onClickPracticeCounterWords(View v) {
@@ -188,15 +196,20 @@ public class ItemListActivity extends FragmentActivity implements
 		App.counterWordsDictionary = cws.createCurrentDictionary(
 				CounterWordsFragment.selectedSection,
 				App.userInfo.getNumberOfEntriesInCurrentDict(), App.cr);
-		/*Intent intent = new Intent(this, WordIntroductionActivity.class);
-		startActivity(intent);*/
+		/*
+		 * Intent intent = new Intent(this, WordIntroductionActivity.class);
+		 * startActivity(intent);
+		 */
 	}
+
 	public void onClickPracticeGiongo(View v) {
 		// load counter words
 		GiongoService gs = new GiongoService();
 		App.giongoWordsDictionary = gs.createCurrentDictionary(
 				App.userInfo.getNumberOfEntriesInCurrentDict(), App.cr);
-		/*Intent intent = new Intent(this, WordIntroductionActivity.class);
-		startActivity(intent);*/
+		/*
+		 * Intent intent = new Intent(this, WordIntroductionActivity.class);
+		 * startActivity(intent);
+		 */
 	}
 }

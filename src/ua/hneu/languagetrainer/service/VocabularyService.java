@@ -13,6 +13,7 @@ import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
+import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.res.AssetManager;
@@ -24,6 +25,7 @@ public class VocabularyService {
 	public static VocabularyDictionary all;
 	boolean isFirstTimeCreated;
 
+	@SuppressLint("NewApi")
 	public static VocabularyEntry getEntryById(int id, ContentResolver cr) {
 		String[] col = { "KANJI", "LEVEL", "TRANSCRIPTION", "ROMAJI",
 				"TRANSLATIONS", "TRANSLATIONS_RUS", "PERCENTAGE",
@@ -109,7 +111,7 @@ public class VocabularyService {
 
 	public void createTable() {
 		SQLiteDatabase db = VocabularyDAO.getDb();
-		db.execSQL("CREATE TABLE " + VocabularyDAO.TABLE_NAME
+		db.execSQL("CREATE TABLE  if not exists " + VocabularyDAO.TABLE_NAME
 				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
 				+ VocabularyDAO.KANJI + " TEXT, " + VocabularyDAO.LEVEL
 				+ " TEXT, " + VocabularyDAO.TRANSCRIPTION + " TEXT, "
@@ -123,7 +125,7 @@ public class VocabularyService {
 
 	public void dropTable() {
 		VocabularyDAO.getDb().execSQL(
-				"DROP TABLE " + VocabularyDAO.TABLE_NAME + ";");
+				"DROP TABLE if exists " + VocabularyDAO.TABLE_NAME + ";");
 	}
 
 	public void bulkInsertFromCSV(String filepath, AssetManager assetManager,

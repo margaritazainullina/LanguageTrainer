@@ -53,13 +53,13 @@ public class TestService {
 
 	public void createTable() {
 		SQLiteDatabase db = TestDAO.getDb();
-		db.execSQL("CREATE TABLE " + TestDAO.TABLE_NAME
+		db.execSQL("CREATE TABLE if not exists " + TestDAO.TABLE_NAME
 				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " + TestDAO.LEVEL
 				+ " INTEGER, " + TestDAO.NAME + " TEXT);");
 	}
 
 	public void dropTable() {
-		TestDAO.getDb().execSQL("DROP TABLE " + TestDAO.TABLE_NAME + ";");
+		TestDAO.getDb().execSQL("DROP TABLE if exists " + TestDAO.TABLE_NAME + ";");
 	}
 
 	public void insertFromXml(String filepath, AssetManager assetManager,

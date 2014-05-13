@@ -8,9 +8,11 @@ import java.util.Random;
 
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.db.dao.GrammarDAO;
+import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
 import ua.hneu.languagetrainer.model.grammar.GrammarDictionary;
 import ua.hneu.languagetrainer.model.grammar.GrammarExample;
 import ua.hneu.languagetrainer.model.grammar.GrammarRule;
+import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.res.AssetManager;
@@ -33,12 +35,27 @@ public class GrammarService {
 		values.put(GrammarDAO.RULE, g.getRule());
 		values.put(GrammarDAO.LEVEL, g.getLevel());
 		values.put(GrammarDAO.DESC_ENG, g.getDescEng());
-		values.put(GrammarDAO.DESC_RUS, g.getDescEng());
+		values.put(GrammarDAO.DESC_RUS, g.getDescRus());
 		values.put(GrammarDAO.PERCENTAGE, g.getLearnedPercentage());
 		values.put(GrammarDAO.LASTVIEW, g.getLastview());
 		values.put(GrammarDAO.SHOWNTIMES, g.getShownTimes());
 		values.put(GrammarDAO.COLOR, g.getColor());
 		cr.insert(GrammarDAO.CONTENT_URI, values);
+	}
+
+	public void update(GrammarRule g, ContentResolver cr) {
+		numberOfEnteries++;
+		ContentValues values = new ContentValues();
+		values.put(GrammarDAO.RULE, g.getRule());
+		values.put(GrammarDAO.LEVEL, g.getLevel());
+		values.put(GrammarDAO.DESC_ENG, g.getDescEng());
+		values.put(GrammarDAO.DESC_RUS, g.getDescEng());
+		values.put(GrammarDAO.PERCENTAGE, g.getLearnedPercentage());
+		values.put(GrammarDAO.LASTVIEW, g.getLastview());
+		values.put(GrammarDAO.SHOWNTIMES, g.getShownTimes());
+		values.put(GrammarDAO.COLOR, g.getColor());
+		String s = GrammarDAO.DESC_ENG + " =\"" + g.getDescEng() + "\" ";
+		cr.update(GrammarDAO.CONTENT_URI, values, s, null);
 	}
 
 	public static GrammarDictionary selectAllEntriesOflevel(int level,
@@ -49,10 +66,10 @@ public class GrammarService {
 				GrammarDAO.LEVEL, GrammarDAO.DESC_ENG, GrammarDAO.DESC_RUS,
 				GrammarDAO.PERCENTAGE, GrammarDAO.LASTVIEW,
 				GrammarDAO.SHOWNTIMES, GrammarDAO.COLOR };
-		Cursor c = contentResolver.query(GrammarDAO.CONTENT_URI,
-				selectionArgs, "level=" + level, null, null);
+		Cursor c = contentResolver.query(GrammarDAO.CONTENT_URI, selectionArgs,
+				"level=" + level, null, null);
 		c.moveToFirst();
-		int id=0;
+		int id = 0;
 		String rule = "";
 		String eng = "";
 		String rus = "";
@@ -61,18 +78,19 @@ public class GrammarService {
 		int shownTimes = 0;
 		String color = "";
 		while (!c.isAfterLast()) {
-			id=c.getInt(0);
+			id = c.getInt(0);
 			rule = c.getString(1);
-			eng = c.getString(2);
-			rus = c.getString(3);
-			percentage = c.getDouble(4);
-			lastview = c.getString(5);
-			shownTimes = c.getInt(6);
-			color = c.getString(7);
-			c.moveToNext();			
+			eng = c.getString(3);
+			rus = c.getString(4);
+			percentage = c.getDouble(5);
+			lastview = c.getString(6);
+			shownTimes = c.getInt(7);
+			color = c.getString(8);
+			c.moveToNext();
 
 			GrammarRule gr = new GrammarRule(rule, level, eng, rus, percentage,
-					lastview, shownTimes, color, ges.getExamplesByRuleId(id, contentResolver));
+					lastview, shownTimes, color, ges.getExamplesByRuleId(id,
+							contentResolver));
 			gd.add(gr);
 		}
 		c.close();
@@ -87,8 +105,7 @@ public class GrammarService {
 		// if words have never been showed - set entries randomly
 		if (App.userInfo.isLevelLaunchedFirstTime == 1) {
 			all.sortRandomly();
-			for (int i = 0; i < App.userInfo
-					.getNumberOfEntriesInCurrentDict(); i++) {
+			for (int i = 0; i < App.userInfo.getNumberOfEntriesInCurrentDict(); i++) {
 				GrammarRule e = all.get(i);
 				if (e.getLearnedPercentage() != 1)
 					current.add(e);
@@ -129,7 +146,7 @@ public class GrammarService {
 
 	public void createTable() {
 		SQLiteDatabase db = GrammarDAO.getDb();
-		db.execSQL("CREATE TABLE " + GrammarDAO.TABLE_NAME
+		db.execSQL("CREATE TABLE if not exists " + GrammarDAO.TABLE_NAME
 				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
 				+ GrammarDAO.LEVEL + " INTEGER, " + GrammarDAO.RULE + " TEXT, "
 				+ GrammarDAO.DESC_ENG + " TEXT, " + GrammarDAO.DESC_RUS
@@ -139,7 +156,7 @@ public class GrammarService {
 	}
 
 	public void dropTable() {
-		GrammarDAO.getDb().execSQL("DROP TABLE " + GrammarDAO.TABLE_NAME + ";");
+		GrammarDAO.getDb().execSQL("DROP TABLE if exists " + GrammarDAO.TABLE_NAME + ";");
 	}
 
 	/*
@@ -159,6 +176,7 @@ public class GrammarService {
 	 * current; }
 	 */
 
+	@SuppressLint("NewApi")
 	public ArrayList<GrammarRule> getRulesByLevel(int level, ContentResolver cr) {
 		String[] col = { GrammarDAO.ID, GrammarDAO.LEVEL, GrammarDAO.RULE,
 				GrammarDAO.DESC_ENG, GrammarDAO.DESC_RUS, GrammarDAO.COLOR };
@@ -192,6 +210,7 @@ public class GrammarService {
 
 			c.moveToNext();
 		}
+		c.close();
 		return gr;
 	}
 

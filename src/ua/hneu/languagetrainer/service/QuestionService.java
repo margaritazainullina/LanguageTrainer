@@ -44,7 +44,7 @@ public class QuestionService {
 
 	public void createTable() {
 		SQLiteDatabase db = QuestionDAO.getDb();
-		db.execSQL("CREATE TABLE " + QuestionDAO.TABLE_NAME
+		db.execSQL("CREATE TABLE if not exists " + QuestionDAO.TABLE_NAME
 				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
 				+ QuestionDAO.TITLE + " TEXT, " + QuestionDAO.TEXT + " TEXT, "
 				+ QuestionDAO.WEIGHT + " DOUBLE," + QuestionDAO.T_ID
@@ -55,7 +55,7 @@ public class QuestionService {
 
 	public void dropTable() {
 		QuestionDAO.getDb().execSQL(
-				"DROP TABLE " + QuestionDAO.TABLE_NAME + ";");
+				"DROP TABLE if exists " + QuestionDAO.TABLE_NAME + ";");
 	}
 
 	public static int getNumberOfQuestions(ContentResolver contentResolver) {

@@ -29,7 +29,7 @@ public class GiongoExampleService {
 
 	public void createTable() {
 		SQLiteDatabase db = GiongoExamplesDAO.getDb();
-		db.execSQL("CREATE TABLE " + GiongoExamplesDAO.TABLE_NAME
+		db.execSQL("CREATE TABLE if not exists " + GiongoExamplesDAO.TABLE_NAME
 				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
 				+ GiongoExamplesDAO.GIONGO_ID + " TEXT, "
 				+ GiongoExamplesDAO.TEXT + " TEXT, " + GiongoExamplesDAO.ROMAJI
@@ -39,7 +39,7 @@ public class GiongoExampleService {
 
 	public void dropTable() {
 		GiongoExamplesDAO.getDb().execSQL(
-				"DROP TABLE " + GiongoExamplesDAO.TABLE_NAME + ";");
+				"DROP TABLE if exists " + GiongoExamplesDAO.TABLE_NAME + ";");
 	}
 
 	public ArrayList<GiongoExample> getExamplesByGiongoId(int giongoId,

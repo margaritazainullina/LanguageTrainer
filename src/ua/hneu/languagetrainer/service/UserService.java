@@ -58,7 +58,7 @@ public class UserService {
 
 	public void createTable() {
 		SQLiteDatabase db = UserDAO.getDb();
-		db.execSQL("CREATE TABLE " + UserDAO.TABLE_NAME
+		db.execSQL("CREATE TABLE if not exists " + UserDAO.TABLE_NAME
 				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " + UserDAO.LEVEL
 				+ " INTEGER, " + UserDAO.LEARNEDVOC + " INTEGER, "
 				+ UserDAO.ALLVOC + " INTEGER, " + UserDAO.LEARNEDGRAMMAR
@@ -72,7 +72,7 @@ public class UserService {
 	}
 
 	public void dropTable() {
-		UserDAO.getDb().execSQL("DROP TABLE " + UserDAO.TABLE_NAME + ";");
+		UserDAO.getDb().execSQL("DROP TABLE  if exists " + UserDAO.TABLE_NAME + ";");
 	}
 
 	public User selectUser(ContentResolver cr, int level) {

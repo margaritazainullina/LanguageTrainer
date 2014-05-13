@@ -1,20 +1,18 @@
 package ua.hneu.languagetrainer;
 
-import java.util.ArrayList;
 import java.util.Locale;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.masterdetailflow.MainMenuValues;
 import ua.hneu.languagetrainer.model.User;
 import ua.hneu.languagetrainer.model.grammar.GrammarDictionary;
-import ua.hneu.languagetrainer.model.grammar.GrammarRule;
 import ua.hneu.languagetrainer.model.other.CounterWordsDictionary;
 import ua.hneu.languagetrainer.model.other.GiongoDictionary;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
-import ua.hneu.languagetrainer.service.GiongoExampleService;
 import ua.hneu.languagetrainer.passing.VocabularyPassing;
 import ua.hneu.languagetrainer.service.AnswerService;
 import ua.hneu.languagetrainer.service.CounterWordsService;
+import ua.hneu.languagetrainer.service.GiongoExampleService;
 import ua.hneu.languagetrainer.service.GiongoService;
 import ua.hneu.languagetrainer.service.GrammarExampleService;
 import ua.hneu.languagetrainer.service.GrammarService;
@@ -46,6 +44,15 @@ public class App extends Application {
 	// contentResolver for database
 	public static ContentResolver cr;
 	public static VocabularyService vs = new VocabularyService();
+	public static TestService ts = new TestService();
+	public static QuestionService qs = new QuestionService();
+	public static AnswerService as = new AnswerService();
+	public static GiongoService gs = new GiongoService();
+	public static GiongoExampleService ges = new GiongoExampleService();
+	public static GrammarService grs = new GrammarService();
+	public static GrammarExampleService gres = new GrammarExampleService();
+	public static CounterWordsService cws = new CounterWordsService();
+
 	public static Context context;
 	public static Languages lang;
 	public static boolean isShowRomaji;
@@ -78,38 +85,35 @@ public class App extends Application {
 
 		cr = getContentResolver();
 		// creating and inserting into whole database
-
-		VocabularyService vs = new VocabularyService();
 		// vocabulary
-		// vs.dropTable();
-		/*
-		 * vs.createTable(); vs.bulkInsertFromCSV("N5.txt", getAssets(), 5,
-		 * getContentResolver()); vs.bulkInsertFromCSV("N4.txt", getAssets(), 4,
-		 * getContentResolver()); vs.bulkInsertFromCSV("N3.txt", getAssets(), 3,
-		 * getContentResolver()); vs.bulkInsertFromCSV("N3.txt", getAssets(), 2,
-		 * getContentResolver()); vs.bulkInsertFromCSV("N1.txt", getAssets(), 1,
-		 * getContentResolver());
-		 */
+		/*vs.dropTable();
+		vs.createTable();
+		vs.bulkInsertFromCSV("N5.txt", getAssets(), 5, getContentResolver());
+		vs.bulkInsertFromCSV("N4.txt", getAssets(), 4, getContentResolver());
+		vs.bulkInsertFromCSV("N3.txt", getAssets(), 3, getContentResolver());
+		vs.bulkInsertFromCSV("N3.txt", getAssets(), 2, getContentResolver());
+		vs.bulkInsertFromCSV("N1.txt", getAssets(), 1, getContentResolver());
+
 		// user
-		// us.dropTable();
-		// us.createTable();
+		us.dropTable();
+		us.createTable();
 		// test
-		/*
-		 * TestService ts = new TestService(); QuestionService qs = new
-		 * QuestionService(); AnswerService as = new AnswerService();
-		 * //ts.dropTable(); //qs.dropTable(); //as.dropTable();
-		 * ts.createTable(); qs.createTable();
-		 * QuestionService.startCounting(getContentResolver());
-		 * as.createTable(); ts.insertFromXml("level_def_test.xml", getAssets(),
-		 * getContentResolver());
-		 * 
-		 * GiongoService gs = new GiongoService(); GiongoExampleService ges =
-		 * new GiongoExampleService(); //gs.dropTable(); gs.createTable();
-		 * //ges.dropTable(); GiongoService.startCounting(getContentResolver());
-		 * ges.createTable(); gs.bulkInsertFromCSV("giongo.txt", getAssets(),
-		 * getContentResolver());
-		 */
-		/*CounterWordsService cws = new CounterWordsService();
+
+		// ts.dropTable(); //qs.dropTable(); //as.dropTable();
+		ts.createTable();
+		qs.createTable();
+		QuestionService.startCounting(getContentResolver());
+		as.createTable();
+		ts.insertFromXml("level_def_test.xml", getAssets(),
+				getContentResolver());
+
+		GiongoService gs = new GiongoService();
+		gs.dropTable();
+		gs.createTable();
+		ges.dropTable();
+		GiongoService.startCounting(getContentResolver());
+		ges.createTable();
+		gs.bulkInsertFromCSV("giongo.txt", getAssets(), getContentResolver());
 
 		cws.dropTable();
 		cws.createTable();
@@ -121,16 +125,15 @@ public class App extends Application {
 		cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),
 				getContentResolver());
 		cws.bulkInsertFromCSV("extent_freq.txt", getAssets(),
-				getContentResolver());*/
+				getContentResolver());
 
-		/*
-		 * GrammarService grs = new GrammarService(); GrammarExampleService gres
-		 * = new GrammarExampleService(); //grs.dropTable(); grs.createTable();
-		 * GrammarService.startCounting(getContentResolver());
-		 * //gres.dropTable(); gres.createTable();
-		 * grs.bulkInsertFromCSV("grammar_n5.txt", 5, getAssets(),
-		 * getContentResolver());
-		 */
+		grs.dropTable();
+		grs.createTable();
+		GrammarService.startCounting(getContentResolver());
+		gres.dropTable();
+		gres.createTable();
+		grs.bulkInsertFromCSV("grammar_n5.txt", 5, getAssets(),
+				getContentResolver());*/
 
 		// if it isn't first time when launching app - user exists in db
 		User currentUser = us.getUserWithCurrentLevel(App.cr);

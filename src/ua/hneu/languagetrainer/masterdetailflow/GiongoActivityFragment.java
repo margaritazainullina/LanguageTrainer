@@ -19,46 +19,44 @@ public class GiongoActivityFragment extends Fragment {
 	public static final String ARG_ITEM_ID = "item_id";
 
 	private MainMenuValues.MenuItem mItem;
-	
+
 	public GiongoActivityFragment() {
 	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		if (getArguments().containsKey(ARG_ITEM_ID)) {
-			mItem = MainMenuValues.ITEM_MAP.get(getArguments().getString(
-					ARG_ITEM_ID));
-		}
+		/*
+		 * if (getArguments().containsKey(ARG_ITEM_ID)) { mItem =
+		 * MainMenuValues.ITEM_MAP.get(getArguments().getString( ARG_ITEM_ID));
+		 * }
+		 */
 	}
 
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1)
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.grammar_fragment,
-				container, false);
+		View rootView = inflater.inflate(R.layout.giongo_fragment, container,
+				false);
 
-		infoTextView = (TextView) rootView.findViewById(R.id.grammarInfoTextView);
-		progressBar = (ProgressBar) rootView.findViewById(R.id.grammarProgressBar);
+		infoTextView = (TextView) rootView
+				.findViewById(R.id.giongoInfoTextView);
+		progressBar = (ProgressBar) rootView
+				.findViewById(R.id.giongoProgressBar);
 
-		Log.i("GrammarActivityFragment",
-				"GrammarActivityFragment.onCreateView()");
+		int learned = App.userInfo.getLearnedGiongo();
+		int all = App.userInfo.getNumberOfGiongoInLevel();
 
-		// Show the dummy content as text in a TextView.
-		if (mItem != null) {
-			int learned = App.userInfo.getLearnedGrammar();
-			int all = App.userInfo.getNumberOfGrammarInLevel();
+		int learnedPersentage = (int) Math
+				.round(((double) learned / (double) all) * 100);
+		String info = this.getString(R.string.youve_learned) + ": " + learned
+				+ " " + this.getString(R.string.out_of) + " " + all + " - "
+				+ learnedPersentage + "%";
 
-			int learnedPersentage = (int) Math
-					.round(((double) learned / (double) all) * 100);
-			String info = this.getString(R.string.grammar_learned) + ": "
-					+ learned + " " + this.getString(R.string.out_of) + " "
-					+ all + " - " + learnedPersentage + "%";
+		infoTextView.setText(info);
+		progressBar.setProgress(learnedPersentage);
 
-			infoTextView.setText(info);
-			progressBar.setProgress(learnedPersentage);
-		}
 		return rootView;
 	}
 }

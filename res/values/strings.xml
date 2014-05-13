@@ -70,6 +70,7 @@
     <string name="practice_grammar">Practice grammar</string>
     <string name="grammar_learned">Grammar learned </string>
     
+     <string name="title_activity_grammar_practice">Grammar </string>    
      <string name="giongo">Giongo and gitaigo </string>     
      <string name="giongo_info">******</string>
      <string name="counter_words">Counter words </string>

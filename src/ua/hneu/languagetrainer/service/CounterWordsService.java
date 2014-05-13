@@ -33,7 +33,7 @@ public class CounterWordsService {
 		values.put(CounterWordsDAO.ROMAJI, cw.getRomaji());
 		values.put(CounterWordsDAO.TRANSLATION_ENG, cw.getTranslationEng());
 		values.put(CounterWordsDAO.TRANSLATION_RUS, cw.getTranslationRus());
-		values.put(CounterWordsDAO.PERCENTAGE, cw.getTranslationRus());
+		values.put(CounterWordsDAO.PERCENTAGE, cw.getLearnedPercentage());
 		values.put(CounterWordsDAO.LASTVIEW, cw.getLastview());
 		values.put(CounterWordsDAO.SHOWNTIMES, cw.getShownTimes());
 		values.put(CounterWordsDAO.COLOR, cw.getColor());
@@ -47,7 +47,7 @@ public class CounterWordsService {
 
 	public void createTable() {
 		SQLiteDatabase db = CounterWordsDAO.getDb();
-		db.execSQL("CREATE TABLE " + CounterWordsDAO.TABLE_NAME
+		db.execSQL("CREATE TABLE if not exists " + CounterWordsDAO.TABLE_NAME
 				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
 				+ CounterWordsDAO.SECTION_ENG + " TEXT, "
 				+ CounterWordsDAO.SECTION_RUS + " TEXT, "
@@ -63,7 +63,7 @@ public class CounterWordsService {
 
 	public void dropTable() {
 		CounterWordsDAO.getDb().execSQL(
-				"DROP TABLE " + CounterWordsDAO.TABLE_NAME + ";");
+				"DROP TABLE if exists " + CounterWordsDAO.TABLE_NAME + ";");
 	}
 
 	public CounterWordsDictionary getCounterwordsBySection(String section,

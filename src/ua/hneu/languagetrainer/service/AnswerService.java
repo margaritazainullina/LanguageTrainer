@@ -7,11 +7,13 @@ import ua.hneu.languagetrainer.db.dao.QuestionDAO;
 import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
 import ua.hneu.languagetrainer.model.tests.Answer;
 import ua.hneu.languagetrainer.model.tests.Question;
+import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+@SuppressLint("NewApi")
 public class AnswerService {
 
 	public void insert(Answer a, int questionId, ContentResolver cr) {
@@ -28,7 +30,7 @@ public class AnswerService {
 
 	public void createTable() {
 		SQLiteDatabase db = AnswerDAO.getDb();
-		db.execSQL("CREATE TABLE " + AnswerDAO.TABLE_NAME
+		db.execSQL("CREATE TABLE if not exists " + AnswerDAO.TABLE_NAME
 				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
 				+ AnswerDAO.ISCORRECT + " INTEGER, " + AnswerDAO.Q_ID
 				+ " INTEGER, " + AnswerDAO.TEXT + " TEXT, " + "FOREIGN KEY("
@@ -37,7 +39,7 @@ public class AnswerService {
 	}
 
 	public void dropTable() {
-		AnswerDAO.getDb().execSQL("DROP TABLE " + AnswerDAO.TABLE_NAME + ";");
+		AnswerDAO.getDb().execSQL("DROP TABLE if exists " + AnswerDAO.TABLE_NAME + ";");
 	}
 
 	public ArrayList<Answer> getAswersByQuestionId(int questionId,

@@ -4,7 +4,9 @@ import java.util.List;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
-import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
+import ua.hneu.languagetrainer.CounterWordsListViewAdapter;
+import ua.hneu.languagetrainer.ExamplesListViewAdapter;
+import ua.hneu.languagetrainer.model.grammar.GrammarRule;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -12,19 +14,19 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class GrammarIntroductionActivity extends Activity {
-/*
+	ExamplesListViewAdapter adapter;
 	public static List<Integer> shownIndexes;
 	public boolean isLast = true;
-	public static VocabularyEntry curEntry;
+	public static GrammarRule curRule;
 	public static int idx = -1;
 
-	TextView wordTextView;
-	TextView transcriptionTextView;
-	TextView romajiTextView;
-	TextView translationTextView;
+	TextView ruleTextView;
+	TextView descriptionTextView;
+	ListView grammarExamplesListView;
 	Button prevButton;
 
 	@Override
@@ -34,27 +36,26 @@ public class GrammarIntroductionActivity extends Activity {
 		// sort - entries shown less times will be first shown
 		// else it makes no sense, all is sorted initially
 		if (App.userInfo.isLevelLaunchedFirstTime == 0)
-			App.vocabularyDictionary.sortByTimesShown();
+			App.grammarDictionary.sortByTimesShown();
 		// change this value
 		App.userInfo.isLevelLaunchedFirstTime = 0;
 		App.userInfo.updateUserData(getContentResolver());
 
 		// Initialize views
-		wordTextView = (TextView) findViewById(R.id.wordTextView);
-		transcriptionTextView = (TextView) findViewById(R.id.transcriptionTextView);
-		romajiTextView = (TextView) findViewById(R.id.romajiTextView);
-		translationTextView = (TextView) findViewById(R.id.translationTextView);
+		ruleTextView = (TextView) findViewById(R.id.ruleTextView);
+		descriptionTextView = (TextView) findViewById(R.id.transcriptionTextView);
+		grammarExamplesListView = (ListView) findViewById(R.id.grammarExamplesListView);
 
 		// increment number of
 		App.vp.incrementNumberOfPassingsInARow();
 
-		setContentView(R.layout.activity_word_introduction);
+		setContentView(R.layout.activity_grammar_introduction);
 		prevButton = (Button) findViewById(R.id.buttonPrevious);
 
 		// show first entry
-		curEntry = App.vocabularyDictionary.get(0);
+		curRule = App.grammarDictionary.get(0);
 		idx = 0;
-		showEntry(curEntry);
+		showEntry(curRule);
 		prevButton.setEnabled(false);
 	}
 
@@ -73,7 +74,8 @@ public class GrammarIntroductionActivity extends Activity {
 			// if all words have been showed go to next activity
 			goToNextPassingActivity();
 		} else {
-			showEntry(App.vocabularyDictionary.get(idx));
+			curRule = App.grammarDictionary.get(idx);
+			showEntry(curRule);
 		}
 	}
 
@@ -82,44 +84,44 @@ public class GrammarIntroductionActivity extends Activity {
 	}
 
 	public void goToNextPassingActivity() {
-		Intent matchWordsIntent = new Intent(this, MatchWordsActivity.class);
-		startActivity(matchWordsIntent);
+		/*
+		 * Intent matchWordsIntent = new Intent(this, MatchWordsActivity.class);
+		 * startActivity(matchWordsIntent);
+		 */
 	}
 
 	@SuppressLint("SimpleDateFormat")
-	private void showEntry(VocabularyEntry currentEntry) {
-		wordTextView = (TextView) findViewById(R.id.wordTextView);
-		transcriptionTextView = (TextView) findViewById(R.id.transcriptionTextView);
-		romajiTextView = (TextView) findViewById(R.id.romajiTextView);
-		translationTextView = (TextView) findViewById(R.id.translationTextView);
-
-		// set word info to the texViews
-		wordTextView.setText(currentEntry.getKanji());
-		transcriptionTextView.setText(currentEntry.getTranscription());
-		if (App.isShowRomaji)
-			romajiTextView.setText(currentEntry.getRomaji());
-		translationTextView.setText(currentEntry.translationsToString());
+	private void showEntry(GrammarRule currentRule) {
+		ruleTextView = (TextView) findViewById(R.id.ruleTextView);
+		descriptionTextView = (TextView) findViewById(R.id.descriptionTextView);
+		grammarExamplesListView = (ListView) findViewById(R.id.grammarExamplesListView);
+		// set grammar info to the texViews
+		ruleTextView.setText(currentRule.getRule());
+		descriptionTextView.setText(currentRule.getDescription());
 
 		// set color of entry
-		int color = App.vocabularyDictionary.get(idx).getIntColor();
-		wordTextView.setTextColor(color);
-		transcriptionTextView.setTextColor(color);
-		romajiTextView.setTextColor(color);
+		int color = curRule.getIntColor();
+		ruleTextView.setTextColor(color);
 
 		// and write information to db
-		currentEntry.setLastView();
-		currentEntry.incrementShowntimes();
-		App.vs.update(currentEntry, getContentResolver());
+		currentRule.setLastView();
+		currentRule.incrementShowntimes();
+		//App.grs.update(currentRule, getContentResolver());
+
+		adapter = new ExamplesListViewAdapter(this,
+				curRule.getAllExamplesText(), curRule.getAllExamplesRomaji(),
+				curRule.getAllTranslations(), curRule.getIntColor());
+		grammarExamplesListView.setAdapter(adapter);
 	}
 
 	public void buttonPreviousOnClick(View v) {
 		if (idx > 0) {
 			idx--;
-			curEntry = App.vocabularyDictionary.get(idx);
-			showEntry(curEntry);
+			curRule = App.grammarDictionary.get(idx);
+			showEntry(curRule);
 		} else {
 			prevButton.setEnabled(false);
 		}
-	}*/
+	}
 
 }

@@ -256,7 +256,7 @@
 	ざあざあ	流れる	zaazaa nagareru 	flow with a rushing	Течь с журчащими, булькающими звуками
 
 すいすい	suisui 	smoothly	Плавно
- 気持ちよく		すいすい	飛ぶ	kimochiyoku suisui tobu	to fly gracefully	Грациозно летать
+ 気持ちよく	すいすい	飛ぶ	kimochiyoku suisui tobu	to fly gracefully	Грациозно летать
 
 どきどき	dokidoki 	throb	Биться
 それを見て胸が	どきどき	した	sore o mi te mune ga dokidoki shi ta. 	My heart beat quickly at the sight.	Мое сердце быстро бьется при одном взгляде.

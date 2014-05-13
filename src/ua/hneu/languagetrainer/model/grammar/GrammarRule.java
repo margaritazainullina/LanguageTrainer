@@ -6,8 +6,11 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 
+import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.App.Languages;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.util.Log;
 
 public class GrammarRule {
@@ -34,6 +37,34 @@ public class GrammarRule {
 		this.shownTimes = shownTimes;
 		this.color = color;
 		this.examples = examples;
+	}
+
+	public ArrayList<String> getAllExamplesText() {
+		ArrayList<String> text = new ArrayList<String>();
+		for (GrammarExample ge : examples) {
+			text.add(ge.getText());
+		}
+		return text;
+	}
+
+	public ArrayList<String> getAllExamplesRomaji() {
+		ArrayList<String> text = new ArrayList<String>();
+		for (GrammarExample ge : examples) {
+			text.add(ge.getRomaji());
+		}
+		return text;
+	}
+
+	public ArrayList<String> getAllTranslations() {
+		ArrayList<String> text = new ArrayList<String>();
+		boolean isEng = App.lang == Languages.ENG;
+		for (GrammarExample ge : examples) {
+			if (isEng)
+				text.add(ge.getTranslationEng());
+			else
+				text.add(ge.getTranslationRus());
+		}
+		return text;
 	}
 
 	public String getLastview() {
@@ -165,5 +196,32 @@ public class GrammarRule {
 					return 1;
 			}
 		};
+	}
+
+	public CharSequence getDescription() {
+		if (App.lang == Languages.ENG)
+			return descEng;
+		else
+			return descRus;
+	}
+
+	public int getIntColor() {
+		String[] rgb = this.color.split(",");
+		int color = Color.rgb(Integer.parseInt(rgb[0]),
+				Integer.parseInt(rgb[1]), Integer.parseInt(rgb[2]));
+		return color;
+	}
+
+	public void incrementShowntimes() {
+		shownTimes++;
+
+	}
+
+	// sets current time
+	public void setLastView() {
+		SimpleDateFormat dateFormat = new SimpleDateFormat(
+				"yyyy-MM-dd HH:mm:ss.SS");
+		String now = dateFormat.format(new Date());
+		this.lastview = now;
 	}
 }
