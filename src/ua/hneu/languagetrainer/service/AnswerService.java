@@ -4,9 +4,7 @@ import java.util.ArrayList;
 
 import ua.hneu.languagetrainer.db.dao.AnswerDAO;
 import ua.hneu.languagetrainer.db.dao.QuestionDAO;
-import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
 import ua.hneu.languagetrainer.model.tests.Answer;
-import ua.hneu.languagetrainer.model.tests.Question;
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -57,6 +55,7 @@ public class AnswerService {
 			a.add(new Answer(text, isCorrect));
 			c.moveToNext();
 		}
+		c.close();
 		return a;
 	}
 }

@@ -84,56 +84,47 @@ public class App extends Application {
 				.getString(R.string.settings)));
 
 		cr = getContentResolver();
+		//us.createTable();
+
 		// creating and inserting into whole database
 		// vocabulary
-		/*vs.dropTable();
-		vs.createTable();
-		vs.bulkInsertFromCSV("N5.txt", getAssets(), 5, getContentResolver());
-		vs.bulkInsertFromCSV("N4.txt", getAssets(), 4, getContentResolver());
-		vs.bulkInsertFromCSV("N3.txt", getAssets(), 3, getContentResolver());
-		vs.bulkInsertFromCSV("N3.txt", getAssets(), 2, getContentResolver());
-		vs.bulkInsertFromCSV("N1.txt", getAssets(), 1, getContentResolver());
-
-		// user
-		us.dropTable();
-		us.createTable();
-		// test
-
-		// ts.dropTable(); //qs.dropTable(); //as.dropTable();
-		ts.createTable();
-		qs.createTable();
-		QuestionService.startCounting(getContentResolver());
-		as.createTable();
-		ts.insertFromXml("level_def_test.xml", getAssets(),
-				getContentResolver());
-
-		GiongoService gs = new GiongoService();
-		gs.dropTable();
-		gs.createTable();
-		ges.dropTable();
-		GiongoService.startCounting(getContentResolver());
-		ges.createTable();
-		gs.bulkInsertFromCSV("giongo.txt", getAssets(), getContentResolver());
-
-		cws.dropTable();
-		cws.createTable();
-		cws.bulkInsertFromCSV("numbers.txt", getAssets(), getContentResolver());
-		cws.bulkInsertFromCSV("people_and_things.txt", getAssets(),
-				getContentResolver());
-		cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),
-				getContentResolver());
-		cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),
-				getContentResolver());
-		cws.bulkInsertFromCSV("extent_freq.txt", getAssets(),
-				getContentResolver());
-
-		grs.dropTable();
-		grs.createTable();
-		GrammarService.startCounting(getContentResolver());
-		gres.dropTable();
-		gres.createTable();
-		grs.bulkInsertFromCSV("grammar_n5.txt", 5, getAssets(),
-				getContentResolver());*/
+		/*
+		 * vs.dropTable(); vs.createTable(); vs.bulkInsertFromCSV("N5.txt",
+		 * getAssets(), 5, getContentResolver()); vs.bulkInsertFromCSV("N4.txt",
+		 * getAssets(), 4, getContentResolver()); vs.bulkInsertFromCSV("N3.txt",
+		 * getAssets(), 3, getContentResolver()); vs.bulkInsertFromCSV("N3.txt",
+		 * getAssets(), 2, getContentResolver()); vs.bulkInsertFromCSV("N1.txt",
+		 * getAssets(), 1, getContentResolver());
+		 * 
+		 * // user us.dropTable(); us.createTable(); // test
+		 * 
+		 * // ts.dropTable(); //qs.dropTable(); //as.dropTable();
+		 * ts.createTable(); qs.createTable();
+		 * QuestionService.startCounting(getContentResolver());
+		 * as.createTable(); ts.insertFromXml("level_def_test.xml", getAssets(),
+		 * getContentResolver());
+		 * 
+		 * GiongoService gs = new GiongoService(); gs.dropTable();
+		 * gs.createTable(); ges.dropTable();
+		 * GiongoService.startCounting(getContentResolver()); ges.createTable();
+		 * gs.bulkInsertFromCSV("giongo.txt", getAssets(),
+		 * getContentResolver());
+		 * 
+		 * cws.dropTable(); cws.createTable();
+		 * cws.bulkInsertFromCSV("numbers.txt", getAssets(),
+		 * getContentResolver()); cws.bulkInsertFromCSV("people_and_things.txt",
+		 * getAssets(), getContentResolver());
+		 * cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),
+		 * getContentResolver()); cws.bulkInsertFromCSV("time_calendar.txt",
+		 * getAssets(), getContentResolver());
+		 * cws.bulkInsertFromCSV("extent_freq.txt", getAssets(),
+		 * getContentResolver());
+		 * 
+		 * grs.dropTable(); grs.createTable();
+		 * GrammarService.startCounting(getContentResolver()); gres.dropTable();
+		 * gres.createTable(); grs.bulkInsertFromCSV("grammar_n5.txt", 5,
+		 * getAssets(), getContentResolver());
+		 */
 
 		// if it isn't first time when launching app - user exists in db
 		User currentUser = us.getUserWithCurrentLevel(App.cr);
@@ -158,12 +149,15 @@ public class App extends Application {
 	public static void goToLevel(int level) {
 		// if user with this level doesn't exist - create new user with new
 		// level
-		User currentUser = us.selectUser(cr, level);
+		User currentUser = us.selectUser(level, cr);
+		int numOfVoc = vs.getNumberOfWordsInLevel(level, cr);
+		int numOfGrammar = grs.getNumberOfGrammarInLevel(level, cr);
+		int numOfGiongo = gs.getNumberOfGiongo(level, cr);
+		int numOfCounterWords = cws.getNumberOfCounterWords(cr);
 		if (currentUser == null) {
 			int id = us.getNumberOfUsers(cr) + 1;
-			userInfo = new User(id, level, 0,
-					vs.getNumberOfWordsInLevel(5, cr), 0, 0, 0, 0, 0, 0, 10,
-					10, 0, 1, 1);
+			userInfo = new User(id, level, 0, numOfVoc, 0, numOfGrammar, 0,
+					numOfGiongo, 0, numOfCounterWords, 10, 10, 0, 1, 1);
 			us.insert(userInfo, cr);
 			// load dictionary
 			vocabularyDictionary = VocabularyService.createCurrentDictionary(

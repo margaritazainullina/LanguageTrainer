@@ -182,10 +182,14 @@ public class GrammarRule {
 		},
 		TIMES_SHOWN {
 			public int compare(GrammarRule de1, GrammarRule de2) {
-				if (de1.getShownTimes() > de2.getShownTimes())
-					return 1;
-				else
+				try {
+					if (de1.getShownTimes() > de2.getShownTimes())
+						return 1;
+					else
+						return -1;
+				} catch (Exception e) {
 					return -1;
+				}
 			}
 		},
 		RANDOM {
@@ -198,7 +202,7 @@ public class GrammarRule {
 		};
 	}
 
-	public CharSequence getDescription() {
+	public String getDescription() {
 		if (App.lang == Languages.ENG)
 			return descEng;
 		else

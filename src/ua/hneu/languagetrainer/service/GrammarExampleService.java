@@ -4,10 +4,7 @@ import java.util.ArrayList;
 
 import ua.hneu.languagetrainer.db.dao.GrammarDAO;
 import ua.hneu.languagetrainer.db.dao.GrammarExamplesDAO;
-import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
-import ua.hneu.languagetrainer.model.grammar.GrammarDictionary;
 import ua.hneu.languagetrainer.model.grammar.GrammarExample;
-import ua.hneu.languagetrainer.model.grammar.GrammarRule;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -65,6 +62,7 @@ public class GrammarExampleService {
 			ge.add(new GrammarExample(text, romaji, eng, rus));
 			c.moveToNext();
 		}
+		c.close();
 		return ge;
 	}
 

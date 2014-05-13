@@ -6,7 +6,13 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 
+import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.App.Languages;
+import ua.hneu.languagetrainer.model.grammar.GrammarExample;
+import ua.hneu.languagetrainer.model.grammar.GrammarRule;
+
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.util.Log;
 
 public class Giongo {
@@ -19,7 +25,7 @@ public class Giongo {
 	private String lastview;
 	private String color;
 	public ArrayList<GiongoExample> examples = new ArrayList<GiongoExample>();
-	
+
 	public Giongo(String word, String romaji, String translEng,
 			String translRus, double learnedPercentage, int shownTimes,
 			String lastview, String color, ArrayList<GiongoExample> examples) {
@@ -33,6 +39,34 @@ public class Giongo {
 		this.lastview = lastview;
 		this.color = color;
 		this.examples = examples;
+	}
+
+	public ArrayList<String> getAllExamplesText() {
+		ArrayList<String> text = new ArrayList<String>();
+		for (GiongoExample ge : examples) {
+			text.add(ge.getText());
+		}
+		return text;
+	}
+
+	public ArrayList<String> getAllExamplesRomaji() {
+		ArrayList<String> text = new ArrayList<String>();
+		for (GiongoExample ge : examples) {
+			text.add(ge.getRomaji());
+		}
+		return text;
+	}
+
+	public ArrayList<String> getAllTranslations() {
+		ArrayList<String> text = new ArrayList<String>();
+		boolean isEng = App.lang == Languages.ENG;
+		for (GiongoExample ge : examples) {
+			if (isEng)
+				text.add(ge.getTranslationEng());
+			else
+				text.add(ge.getTranslationRus());
+		}
+		return text;
 	}
 
 	public String getLastview() {
@@ -126,6 +160,7 @@ public class Giongo {
 	public void setDescRus(String descRus) {
 		this.translRus = descRus;
 	}
+
 	enum GiongoComparator implements Comparator<Giongo> {
 		LAST_VIEWED {
 			@SuppressLint("SimpleDateFormat")
@@ -185,5 +220,32 @@ public class Giongo {
 					return 1;
 			}
 		};
+	}
+
+	public String getTranslation() {
+		if (App.lang == Languages.ENG)
+			return translEng;
+		else
+			return translRus;
+	}
+
+	public int getIntColor() {
+		String[] rgb = this.color.split(",");
+		int color = Color.rgb(Integer.parseInt(rgb[0]),
+				Integer.parseInt(rgb[1]), Integer.parseInt(rgb[2]));
+		return color;
+	}
+
+	public void incrementShowntimes() {
+		shownTimes++;
+
+	}
+
+	// sets current time
+	public void setLastView() {
+		SimpleDateFormat dateFormat = new SimpleDateFormat(
+				"yyyy-MM-dd HH:mm:ss.SS");
+		String now = dateFormat.format(new Date());
+		this.lastview = now;
 	}
 }

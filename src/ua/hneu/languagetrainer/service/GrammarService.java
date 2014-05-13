@@ -54,7 +54,7 @@ public class GrammarService {
 		values.put(GrammarDAO.LASTVIEW, g.getLastview());
 		values.put(GrammarDAO.SHOWNTIMES, g.getShownTimes());
 		values.put(GrammarDAO.COLOR, g.getColor());
-		String s = GrammarDAO.DESC_ENG + " =\"" + g.getDescEng() + "\" ";
+		String s = GrammarDAO.RULE + " =\"" + g.getRule() + "\" ";
 		cr.update(GrammarDAO.CONTENT_URI, values, s, null);
 	}
 
@@ -156,7 +156,8 @@ public class GrammarService {
 	}
 
 	public void dropTable() {
-		GrammarDAO.getDb().execSQL("DROP TABLE if exists " + GrammarDAO.TABLE_NAME + ";");
+		GrammarDAO.getDb().execSQL(
+				"DROP TABLE if exists " + GrammarDAO.TABLE_NAME + ";");
 	}
 
 	/*
@@ -277,5 +278,16 @@ public class GrammarService {
 			Log.e("GrammarService", e.getMessage() + " " + e.getCause());
 
 		}
+	}
+
+	public int getNumberOfGrammarInLevel(int level,
+			ContentResolver contentResolver) {
+		Cursor countCursor = contentResolver.query(GrammarDAO.CONTENT_URI,
+				new String[] { "count(*) AS count" }, GrammarDAO.LEVEL + "="
+						+ level + "", null, null);
+		countCursor.moveToFirst();
+		int count = countCursor.getInt(0);
+		countCursor.close();
+		return count;
 	}
 }

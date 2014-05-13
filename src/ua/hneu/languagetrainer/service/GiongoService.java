@@ -1,19 +1,15 @@
 package ua.hneu.languagetrainer.service;
 
 import java.io.BufferedReader;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.db.dao.CounterWordsDAO;
 import ua.hneu.languagetrainer.db.dao.GiongoDAO;
+import ua.hneu.languagetrainer.db.dao.GrammarDAO;
 import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
 import ua.hneu.languagetrainer.model.other.Giongo;
 import ua.hneu.languagetrainer.model.other.GiongoDictionary;
@@ -21,7 +17,6 @@ import ua.hneu.languagetrainer.model.other.GiongoExample;
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -47,6 +42,22 @@ public class GiongoService {
 		values.put(GiongoDAO.SHOWNTIMES, g.getShownTimes());
 		values.put(GiongoDAO.COLOR, g.getColor());
 		cr.insert(GiongoDAO.CONTENT_URI, values);
+	}
+
+	public void update(Giongo g, ContentResolver contentResolver) {
+		ContentValues values = new ContentValues();
+		values.put(GiongoDAO.WORD, g.getWord());
+		values.put(GiongoDAO.ROMAJI, g.getRomaji());
+		values.put(GiongoDAO.TRANSLATION_ENG, g.getTranslEng());
+		values.put(GiongoDAO.TRANSLATION_RUS, g.getTranslRus());
+		values.put(GiongoDAO.PERCENTAGE, g.getLearnedPercentage());
+		values.put(GiongoDAO.LASTVIEW, g.getLastview());
+		values.put(GiongoDAO.SHOWNTIMES, g.getShownTimes());
+		values.put(GiongoDAO.COLOR, g.getColor());
+		contentResolver.insert(GiongoDAO.CONTENT_URI, values);
+		String s = CounterWordsDAO.WORD + " =\"" + g.getWord() + "\" ";
+		contentResolver.update(GiongoDAO.CONTENT_URI, values, s, null);
+
 	}
 
 	public static void startCounting(ContentResolver contentResolver) {
@@ -79,7 +90,8 @@ public class GiongoService {
 	}
 
 	public void dropTable() {
-		GiongoDAO.getDb().execSQL("DROP TABLE if exists " + GiongoDAO.TABLE_NAME + ";");
+		GiongoDAO.getDb().execSQL(
+				"DROP TABLE if exists " + GiongoDAO.TABLE_NAME + ";");
 	}
 
 	@SuppressLint("NewApi")
@@ -118,6 +130,7 @@ public class GiongoService {
 					showntimes, lastview, color, ge));
 			c.moveToNext();
 		}
+		c.close();
 		return g;
 	}
 
@@ -217,6 +230,16 @@ public class GiongoService {
 		}
 		return current;
 	}
+
+	public int getNumberOfGiongo(int level, ContentResolver contentResolver) {
+		Cursor countCursor = contentResolver.query(GiongoDAO.CONTENT_URI,
+				new String[] { "count(*) AS count" }, null, null, null);
+		countCursor.moveToFirst();
+		int count = countCursor.getInt(0);
+		countCursor.close();
+		return count;
+	}
+
 }
 
 // public String aaa(String filepath, AssetManager assetManager,

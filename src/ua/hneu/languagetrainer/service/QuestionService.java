@@ -4,10 +4,8 @@ import java.util.ArrayList;
 
 import ua.hneu.languagetrainer.db.dao.QuestionDAO;
 import ua.hneu.languagetrainer.db.dao.TestDAO;
-import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
 import ua.hneu.languagetrainer.model.tests.Answer;
 import ua.hneu.languagetrainer.model.tests.Question;
-import ua.hneu.languagetrainer.model.tests.Test;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -79,14 +77,12 @@ public class QuestionService {
 				+"="+ testId, null, null, null);
 		c.moveToFirst();
 		int id = 0;
-		int tId = 0;
 		String title = "";
 		String text = "";
 		double weight = 0;
 		ArrayList<Question> q = new ArrayList<Question>();
 		while (!c.isAfterLast()) {
 			id = c.getInt(0);
-			tId = c.getInt(1);
 			title = c.getString(2);
 			text = c.getString(3);
 			weight = c.getDouble(4);

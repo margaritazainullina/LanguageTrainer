@@ -1,7 +1,6 @@
 package ua.hneu.languagetrainer.service;
 
 import ua.hneu.languagetrainer.db.dao.UserDAO;
-import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
 import ua.hneu.languagetrainer.model.User;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -72,10 +71,10 @@ public class UserService {
 	}
 
 	public void dropTable() {
-		UserDAO.getDb().execSQL("DROP TABLE  if exists " + UserDAO.TABLE_NAME + ";");
+		UserDAO.getDb().execSQL("DROP TABLE if exists " + UserDAO.TABLE_NAME + ";");
 	}
 
-	public User selectUser(ContentResolver cr, int level) {
+	public User selectUser(int level,ContentResolver cr) {
 		String[] selectionArgs = { UserDAO.ID, UserDAO.LEVEL,
 				UserDAO.LEARNEDVOC, UserDAO.ALLVOC, UserDAO.LEARNEDGRAMMAR,
 				UserDAO.ALLGRAMMAR, UserDAO.LEARNEDGIONGO, UserDAO.ALLGIONGO,

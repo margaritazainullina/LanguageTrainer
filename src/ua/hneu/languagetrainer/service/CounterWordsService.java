@@ -3,17 +3,16 @@ package ua.hneu.languagetrainer.service;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Random;
 
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.App.Languages;
 import ua.hneu.languagetrainer.db.dao.CounterWordsDAO;
+import ua.hneu.languagetrainer.db.dao.GrammarDAO;
 import ua.hneu.languagetrainer.model.other.CounterWord;
 import ua.hneu.languagetrainer.model.other.CounterWordsDictionary;
+import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.res.AssetManager;
@@ -21,6 +20,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+@SuppressLint("NewApi")
 public class CounterWordsService {
 	public static CounterWordsDictionary all;
 
@@ -40,6 +40,22 @@ public class CounterWordsService {
 		cr.insert(CounterWordsDAO.CONTENT_URI, values);
 	}
 
+	public void update(CounterWord cw, ContentResolver contentResolver) {
+		ContentValues values = new ContentValues();
+		values.put(CounterWordsDAO.SECTION_ENG, cw.getSectionEng());
+		values.put(CounterWordsDAO.SECTION_RUS, cw.getSectionRus());
+		values.put(CounterWordsDAO.WORD, cw.getWord());
+		values.put(CounterWordsDAO.HIRAGANA, cw.getHiragana());
+		values.put(CounterWordsDAO.ROMAJI, cw.getRomaji());
+		values.put(CounterWordsDAO.TRANSLATION_ENG, cw.getTranslationEng());
+		values.put(CounterWordsDAO.TRANSLATION_RUS, cw.getTranslationRus());
+		values.put(CounterWordsDAO.PERCENTAGE, cw.getLearnedPercentage());
+		values.put(CounterWordsDAO.LASTVIEW, cw.getLastview());
+		values.put(CounterWordsDAO.SHOWNTIMES, cw.getShownTimes());
+		values.put(CounterWordsDAO.COLOR, cw.getColor());
+		String s = CounterWordsDAO.WORD + " =\"" + cw.getWord() + "\" ";
+		contentResolver.update(CounterWordsDAO.CONTENT_URI, values, s, null);		
+	}
 	public void emptyTable() {
 		CounterWordsDAO.getDb().execSQL(
 				"delete from " + CounterWordsDAO.TABLE_NAME);
@@ -76,7 +92,7 @@ public class CounterWordsService {
 				CounterWordsDAO.LASTVIEW, CounterWordsDAO.SHOWNTIMES,
 				CounterWordsDAO.COLOR };
 		Cursor c;
-		if (App.lang.equals("RUS"))
+		if (App.lang == Languages.RUS)
 			c = cr.query(CounterWordsDAO.CONTENT_URI, col,
 					CounterWordsDAO.SECTION_RUS + "=\"" + section + "\"", null,
 					null, null);
@@ -103,18 +119,20 @@ public class CounterWordsService {
 			sectionRus = c.getString(1);
 			word = c.getString(2);
 			hiragana = c.getString(3);
-			translationEng = c.getString(4);
-			translationRus = c.getString(5);
-			percentage = c.getDouble(6);
-			lastview = c.getString(7);
-			showntimes = c.getInt(8);
-			color = c.getString(9);
+			romaji = c.getString(4);
+			translationEng = c.getString(5);
+			translationRus = c.getString(6);
+			percentage = c.getDouble(7);
+			lastview = c.getString(8);
+			showntimes = c.getInt(9);
+			color = c.getString(10);
 
 			cw.add(new CounterWord(sectionEng, sectionRus, word, hiragana,
 					romaji, translationEng, translationRus, percentage,
 					showntimes, lastview, color));
 			c.moveToNext();
 		}
+		c.close();
 		return cw;
 	}
 
@@ -187,7 +205,7 @@ public class CounterWordsService {
 	public HashMap<String, int[]> getAllSectionsWithProgress(ContentResolver cr) {
 		HashMap<String, int[]> info = new HashMap<String, int[]>();
 		Cursor c;
-		if (App.lang==Languages.ENG)
+		if (App.lang == Languages.ENG)
 			c = CounterWordsDAO.db
 					.rawQuery(
 							"SELECT Section_eng, count(_id) FROM counter_words group by Section_eng",
@@ -208,7 +226,7 @@ public class CounterWordsService {
 			c.moveToNext();
 		}
 		Cursor c1;
-		if (App.lang==Languages.ENG)
+		if (App.lang == Languages.ENG)
 			c1 = CounterWordsDAO.db
 					.rawQuery(
 							"SELECT Section_eng, count(_id) FROM counter_words where percentage=1 group by Section_eng",
@@ -227,7 +245,7 @@ public class CounterWordsService {
 			info.put(section, new int[] { a, number });
 			c.moveToNext();
 		}
-
+		c.close();
 		return info;
 	}
 
@@ -260,4 +278,14 @@ public class CounterWordsService {
 		}
 		return current;
 	}
+
+	public int getNumberOfCounterWords(ContentResolver contentResolver) {
+		Cursor countCursor = contentResolver.query(CounterWordsDAO.CONTENT_URI,
+				new String[] { "count(*) AS count" }, null, null, null);
+		countCursor.moveToFirst();
+		int count = countCursor.getInt(0);
+		countCursor.close();
+		return count;
+	}
+
 }

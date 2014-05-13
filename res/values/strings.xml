@@ -68,12 +68,13 @@
     <string name="to_main_menu">Return to main menu </string>
     <!-- Grammar activity fragment -->
     <string name="practice_grammar">Practice grammar</string>
-    <string name="grammar_learned">Grammar learned </string>
+    <string name="grammar_learned">Grammar rules learned </string>
     
-     <string name="title_activity_grammar_practice">Grammar </string>    
-     <string name="giongo">Giongo and gitaigo </string>     
-     <string name="giongo_info">******</string>
-     <string name="counter_words">Counter words </string>
-     <string name="counter_words_info">In Japanese, numerals cannot quantify nouns by themselves (except, in certain cases, for the numbers from one to ten). For example, to express the idea "two dogs" in Japanese one must say 二匹の犬 ni hiki no inu. Here 犬 inu means "dog", 二 ni is the number 2, "の" "no" is a possessive particle, and 匹 hiki is the counter for small animals. These counters are not independent words and always appear with a number (or question word) before them. If the number is unknown, a question word is used, most often 何 nan, as in 何名様 nan-mei-sama "how many guests", or sometimes 幾 iku as in 幾晩 iku-ban "how many nights?".</string>
+    <string name="title_activity_giongo_practice">Giongo</string>
+    <string name="title_activity_grammar_practice">Grammar </string>
+    <string name="giongo">Giongo and gitaigo </string>
+    <string name="giongo_info">Sound symbolic words are found in written as well as spoken Japanese. Known popularly as onomatopoeia, these words are not just imitative of sounds but cover a much wider range of meanings indeed, many sound-symbolic words in Japanese are for things that don\'t make any noise originally. Sound symbolic words function as adverbs, they are often introduced by a quotative complementizer と (to).</string>
+    <string name="counter_words">Counter words </string>
+    <string name="counter_words_info">In Japanese, numerals cannot quantify nouns by themselves (except, in certain cases, for the numbers from one to ten). For example, to express the idea "two dogs" in Japanese one must say 二匹の犬 ni hiki no inu. Here 犬 inu means "dog", 二 ni is the number 2, "の" "no" is a possessive particle, and 匹 hiki is the counter for small animals. These counters are not independent words and always appear with a number (or question word) before them. If the number is unknown, a question word is used, most often 何 nan, as in 何名様 nan-mei-sama "how many guests", or sometimes 幾 iku as in 幾晩 iku-ban "how many nights?".</string>
 
 </resources>

@@ -5,7 +5,11 @@ import java.text.SimpleDateFormat;
 import java.util.Comparator;
 import java.util.Date;
 
+import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.App.Languages;
+
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.util.Log;
 
 public class CounterWord {
@@ -186,5 +190,31 @@ public class CounterWord {
 					return 1;
 			}
 		};
+	}
+	public String getTranslation() {
+		if (App.lang == Languages.ENG)
+			return translationEng;
+		else
+			return translationRus;
+	}
+
+	public int getIntColor() {
+		String[] rgb = this.color.split(",");
+		int color = Color.rgb(Integer.parseInt(rgb[0]),
+				Integer.parseInt(rgb[1]), Integer.parseInt(rgb[2]));
+		return color;
+	}
+
+	public void incrementShowntimes() {
+		shownTimes++;
+
+	}
+
+	// sets current time
+	public void setLastView() {
+		SimpleDateFormat dateFormat = new SimpleDateFormat(
+				"yyyy-MM-dd HH:mm:ss.SS");
+		String now = dateFormat.format(new Date());
+		this.lastview = now;
 	}
 }
