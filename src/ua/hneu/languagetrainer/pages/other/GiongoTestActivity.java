@@ -1,4 +1,4 @@
-package ua.hneu.languagetrainer.pages.grammar;
+package ua.hneu.languagetrainer.pages.other;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,8 +12,8 @@ import java.util.Set;
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.ListViewAdapter;
-import ua.hneu.languagetrainer.model.grammar.GrammarExample;
-import ua.hneu.languagetrainer.model.grammar.GrammarRule;
+import ua.hneu.languagetrainer.model.other.Giongo;
+import ua.hneu.languagetrainer.model.other.GiongoExample;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -26,11 +26,11 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class GrammarTestActivity extends Activity {
+public class GiongoTestActivity extends Activity {
 	// dictionary with random words for possible answers
-	Hashtable<GrammarExample, GrammarRule> randomExamplesDictionary;
-	GrammarExample rightAnswer;
-	GrammarRule rightRule;
+	Hashtable<GiongoExample, Giongo> randomExamplesDictionary;
+	GiongoExample rightAnswer;
+	Giongo rightWord;
 	ArrayList<String> answers = new ArrayList<String>();
 	// activity elements
 	ListView answersListView;
@@ -64,31 +64,31 @@ public class GrammarTestActivity extends Activity {
 	public void nextWord() {
 		// move pointer to next word
 		currentWordNumber++;
-		if (currentWordNumber >= App.grammarDictionary.size() - 1)
+		if (currentWordNumber >= App.giongoWordsDictionary.size() - 1)
 			endTesting();
 		//create random dictionary again for every show
-		randomExamplesDictionary = App.grammarDictionary
-				.getRandomExamplesWithRule(App.userInfo
+		randomExamplesDictionary = App.giongoWordsDictionary
+				.getRandomExamplesWithWord(App.userInfo
 						.getNumberOfEntriesInCurrentDict());
 		// iterator for looping over dictionary with random entries
-		Set<Entry<GrammarExample, GrammarRule>> set = randomExamplesDictionary
+		Set<Entry<GiongoExample, Giongo>> set = randomExamplesDictionary
 				.entrySet();
-		Iterator<Entry<GrammarExample, GrammarRule>> it = set.iterator();
+		Iterator<Entry<GiongoExample, Giongo>> it = set.iterator();
 
 		answers = new ArrayList<String>();
 		// rightAnswer answer - the first entry
-		// rightRule is stored for fetching color and incrementing of learned
+		// rightWord is stored for fetching color and incrementing of learned
 		// percentage
 		Random r = new Random();
 		int idx = r.nextInt(answersNumber);
 		int i=0;
 		while (it.hasNext() && answers.size() < answersNumber) {
-			Map.Entry<GrammarExample, GrammarRule> entry = (Map.Entry<GrammarExample, GrammarRule>) it
+			Map.Entry<GiongoExample, Giongo> entry = (Map.Entry<GiongoExample, Giongo>) it
 					.next();
 			if (i==idx) {
 				// string with right answer
 				rightAnswer = entry.getKey();
-				rightRule = entry.getValue();
+				rightWord = entry.getValue();
 				color = entry.getValue().getIntColor();
 			}
 			answers.add(entry.getKey().getPart2());
@@ -122,19 +122,19 @@ public class GrammarTestActivity extends Activity {
 			String selected = answers.get(position);
 			// comparing correct and selected answer
 			if (selected.equals(rightAnswer.getPart2())) {
-				App.grp.incrementNumberOfCorrectAnswers();
+				App.gp.incrementNumberOfCorrectAnswers();
 				// increment percentage of right answers if wrong answer wasn't
 				// given
 				if (!ifWasWrong)
-					rightRule.setLearnedPercentage(rightRule
+					rightWord.setLearnedPercentage(rightWord
 							.getLearnedPercentage()
 							+ App.userInfo.getPercentageIncrement());
 
-				if (rightRule.getLearnedPercentage() == 1) {
-					App.grp.makeWordLearned(rightRule, getContentResolver());
+				if (rightWord.getLearnedPercentage() == 1) {
+					App.gp.makeWordLearned(rightWord, getContentResolver());
 				}
 
-				App.grs.update(rightRule, getContentResolver());
+				App.gs.update(rightWord, getContentResolver());
 				// change color to green and fade out
 				isRight.setText("Correct!");
 				adapter.changeColor(view, Color.parseColor("#669900"));
@@ -159,7 +159,7 @@ public class GrammarTestActivity extends Activity {
 								// when previous information faded out
 								// show next word and possible answers or go to
 								// next exercise
-								if (currentWordNumber < App.grammarDictionary
+								if (currentWordNumber < App.giongoWordsDictionary
 										.size() - 1) {
 									nextWord();
 								} else {
@@ -181,9 +181,9 @@ public class GrammarTestActivity extends Activity {
 				adapter.changeColor(view, Color.parseColor("#CC0000"));
 				isRight.setText("Wrong");
 				ifWasWrong = true;
-				// set information about wrong answer in GrammarPassing
-				App.grp.incrementNumberOfIncorrectAnswers();
-				App.grp.addProblemRule(rightRule);
+				// set information about wrong answer in GPassing
+				App.gp.incrementNumberOfIncorrectAnswers();
+				App.gp.addProblemWord(rightWord);
 
 			}
 		}
@@ -212,7 +212,7 @@ public class GrammarTestActivity extends Activity {
 	}
 
 	public void buttonIAlrKnow(View v) {
-		App.grp.makeWordLearned(rightRule, getContentResolver());
+		App.gp.makeWordLearned(rightWord, getContentResolver());
 		nextWord();
 
 	}

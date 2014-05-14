@@ -8,6 +8,7 @@ import ua.hneu.languagetrainer.ExamplesListViewAdapter;
 import ua.hneu.languagetrainer.model.other.Giongo;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -82,10 +83,8 @@ public class GiongoIntroductionActivity extends Activity {
 	}
 
 	public void goToNextPassingActivity() {
-		/*
-		 * Intent matchWordsIntent = new Intent(this, MatchWordsActivity.class);
-		 * startActivity(matchWordsIntent);
-		 */
+		Intent matchWordsIntent = new Intent(this, GiongoTestActivity.class);
+		startActivity(matchWordsIntent);
 	}
 
 	@SuppressLint("SimpleDateFormat")

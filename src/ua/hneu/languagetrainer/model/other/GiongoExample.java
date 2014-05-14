@@ -45,4 +45,19 @@ public class GiongoExample {
 	public void setTranslationRus(String translationRus) {
 		this.translationRus = translationRus;
 	}
+
+	public String getPart1() {
+		String[] parts = text.split("\\\\t");
+		return parts[0];
+	}
+
+	public String getPart2() {
+		String[] parts = text.split("\\\\t");
+		return parts[1];
+	}
+
+	public String getPart3() {
+		String[] parts = text.split("\\\\t");
+		return parts[2];
+	}
 }
