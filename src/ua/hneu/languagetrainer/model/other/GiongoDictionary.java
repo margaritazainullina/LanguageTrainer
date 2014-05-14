@@ -87,4 +87,8 @@ public class GiongoDictionary {
 		}
 		return random;
 	}
+
+	public ArrayList<Giongo> getEntries() {
+		return entries;
+	}
 }

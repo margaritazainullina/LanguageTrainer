@@ -13,6 +13,7 @@ import ua.hneu.languagetrainer.service.UserService;
 public class GiongoPassing {
 	private int numberOfCorrectAnswers = 0;
 	private int numberOfIncorrectAnswers = 0;
+	private int numberOfPassingsInARow = 0;
 
 	private GiongoDictionary learnedWords = new GiongoDictionary();
 	private Hashtable<Giongo, Integer> problemWords = new Hashtable<Giongo, Integer>();
@@ -33,6 +34,10 @@ public class GiongoPassing {
 		return numberOfIncorrectAnswers;
 	}
 
+	public int getNumberOfPassingsInARow() {
+		return numberOfPassingsInARow;
+	}
+
 	public GiongoDictionary getLearnedWords() {
 		return learnedWords;
 	}
@@ -45,10 +50,10 @@ public class GiongoPassing {
 		this.learnedWords = learnedWords;
 	}
 
-	public void setProblemWords(
-			Hashtable<Giongo, Integer> problemWords) {
+	public void setProblemWords(Hashtable<Giongo, Integer> problemWords) {
 		this.problemWords = problemWords;
 	}
+
 	public void makeWordLearned(Giongo g, ContentResolver cr) {
 		// update info in user table
 		User u = App.userInfo;
@@ -60,9 +65,9 @@ public class GiongoPassing {
 		learnedWords.add(g);
 		incrementNumberOfCorrectAnswers();
 		App.giongoWordsDictionary.remove(g);
-		// add entries to current dictionary to match target size		
-		App.grammarDictionary.addEntriesToDictionaryAndGet(
-				App.userInfo.getNumberOfEntriesInCurrentDict());
+		// add entries to current dictionary to match target size
+		App.grammarDictionary.addEntriesToDictionaryAndGet(App.userInfo
+				.getNumberOfEntriesInCurrentDict());
 		// update info in vocabulary table
 		App.gs.update(g, cr);
 
@@ -78,9 +83,14 @@ public class GiongoPassing {
 	public void clearInfo() {
 		// reset all values except for numberOfPassingsInARow for analyzing of
 		// how many times user passed tests in a row
-		//TODO: add number of passing in a row for all
+		// TODO: add number of passing in a row for all
 		this.learnedWords = null;
 		this.numberOfCorrectAnswers = 0;
 		this.numberOfIncorrectAnswers = 0;
+	}
+
+	public void incrementNumberOfPassingsInARow() {
+		// TODO Auto-generated method stub
+
 	}
 }

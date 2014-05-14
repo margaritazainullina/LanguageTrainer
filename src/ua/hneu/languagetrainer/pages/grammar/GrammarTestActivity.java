@@ -15,6 +15,7 @@ import ua.hneu.languagetrainer.ListViewAdapter;
 import ua.hneu.languagetrainer.model.grammar.GrammarExample;
 import ua.hneu.languagetrainer.model.grammar.GrammarRule;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
@@ -56,7 +57,7 @@ public class GrammarTestActivity extends Activity {
 		part2TextView = (TextView) findViewById(R.id.part2TextView);
 		part3TextView = (TextView) findViewById(R.id.part3TextView);
 		answersListView = (ListView) findViewById(R.id.answersListView);
-		isRight = (TextView) findViewById(R.id.isCorrectTextView);		
+		isRight = (TextView) findViewById(R.id.isCorrectTextView);
 		// at first show word and possible answers
 		nextWord();
 	}
@@ -66,7 +67,7 @@ public class GrammarTestActivity extends Activity {
 		currentWordNumber++;
 		if (currentWordNumber >= App.grammarDictionary.size() - 1)
 			endTesting();
-		//create random dictionary again for every show
+		// create random dictionary again for every show
 		randomExamplesDictionary = App.grammarDictionary
 				.getRandomExamplesWithRule(App.userInfo
 						.getNumberOfEntriesInCurrentDict());
@@ -81,11 +82,11 @@ public class GrammarTestActivity extends Activity {
 		// percentage
 		Random r = new Random();
 		int idx = r.nextInt(answersNumber);
-		int i=0;
+		int i = 0;
 		while (it.hasNext() && answers.size() < answersNumber) {
 			Map.Entry<GrammarExample, GrammarRule> entry = (Map.Entry<GrammarExample, GrammarRule>) it
 					.next();
-			if (i==idx) {
+			if (i == idx) {
 				// string with right answer
 				rightAnswer = entry.getKey();
 				rightRule = entry.getValue();
@@ -197,18 +198,13 @@ public class GrammarTestActivity extends Activity {
 	}
 
 	public void endTesting() {
-		// go to TranscriptionActivity
-		/*
-		 * Intent nextActivity = new Intent(this,
-		 * TranscriptionTestActivity.class); startActivity(nextActivity);
-		 */
+		// go to ResultActivity
+		Intent nextActivity = new Intent(this, GrammarResultActivity.class);
+		startActivity(nextActivity);
 	}
 
 	public void buttonSkipSelectOnClick(View v) {
-		/*
-		 * Intent matchWordsIntent = new Intent(this,
-		 * TranscriptionTestActivity.class); startActivity(matchWordsIntent);
-		 */
+		endTesting();
 	}
 
 	public void buttonIAlrKnow(View v) {

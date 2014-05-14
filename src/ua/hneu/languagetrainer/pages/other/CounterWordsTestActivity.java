@@ -195,9 +195,9 @@ public class CounterWordsTestActivity extends Activity {
 	}
 
 	public void endTesting() {
-		// go to TranscriptionActivity
-		/*Intent nextActivity = new Intent(this, TranscriptionTestActivity.class);
-		startActivity(nextActivity);*/
+		 //go to ResultActivity
+		Intent nextActivity = new Intent(this, CounterWordsResultActivity.class);
+		startActivity(nextActivity);
 	}
 
 	public void buttonSkipSelectOnClick(View v) {

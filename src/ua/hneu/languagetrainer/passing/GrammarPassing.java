@@ -13,6 +13,7 @@ import ua.hneu.languagetrainer.service.UserService;
 public class GrammarPassing {
 	private int numberOfCorrectAnswers = 0;
 	private int numberOfIncorrectAnswers = 0;
+	private int numberOfPassingsInARow = 0;
 
 	private GrammarDictionary learnedRules = new GrammarDictionary();
 	private Hashtable<GrammarRule, Integer> problemRules = new Hashtable<GrammarRule, Integer>();
@@ -33,6 +34,10 @@ public class GrammarPassing {
 		return numberOfIncorrectAnswers;
 	}
 
+	public int getNumberOfPassingsInARow() {
+		return numberOfPassingsInARow;
+	}
+
 	public GrammarDictionary getLearnedRules() {
 		return learnedRules;
 	}
@@ -45,10 +50,10 @@ public class GrammarPassing {
 		this.learnedRules = learnedRules;
 	}
 
-	public void setProblemRules(
-			Hashtable<GrammarRule, Integer> problemRules) {
+	public void setProblemRules(Hashtable<GrammarRule, Integer> problemRules) {
 		this.problemRules = problemRules;
 	}
+
 	public void makeWordLearned(GrammarRule gr, ContentResolver cr) {
 		// update info in user table
 		User u = App.userInfo;
@@ -60,9 +65,9 @@ public class GrammarPassing {
 		learnedRules.add(gr);
 		incrementNumberOfCorrectAnswers();
 		App.grammarDictionary.remove(gr);
-		// add entries to current dictionary to match target size		
-		App.grammarDictionary.addEntriesToDictionaryAndGet(
-				App.userInfo.getNumberOfEntriesInCurrentDict());
+		// add entries to current dictionary to match target size
+		App.grammarDictionary.addEntriesToDictionaryAndGet(App.userInfo
+				.getNumberOfEntriesInCurrentDict());
 		// update info in vocabulary table
 		App.grs.update(gr, cr);
 
@@ -81,5 +86,9 @@ public class GrammarPassing {
 		this.learnedRules = null;
 		this.numberOfCorrectAnswers = 0;
 		this.numberOfIncorrectAnswers = 0;
+	}
+
+	public void incrementNumberOfPassingsInARow() {
+		numberOfPassingsInARow++;
 	}
 }

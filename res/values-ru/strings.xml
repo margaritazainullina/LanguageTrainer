@@ -55,17 +55,20 @@
     <string name="you_have_learned">Вы выучили </string>
     <!-- Result activity -->
     <string name="you_havent_learned_any_word">Вы не выучили ни одного слова :(</string>
+     <string name="you_havent_learned_any_rule">Вы не выучили ни одного правила :(</string>
     <string name="by_now_youve_learned">Всего выучено слов </string>
     <string name="out_of">из </string>
     <string name="percentage_of_voc"> % от всех слов</string>
-    <string name="pay_attention_to_words">Обратите вниание на слова:</string>
+    <string name="pay_attention_to">Обратите вниание на:</string>
     <string name="great">Отлично! </string>
     <string name="good">Хорошо! </string>
     <string name="more_atentive">Будьте внимательнее! </string>
     <string name="correct_answer_rate">Ваш процент правильных ответов состаляет </string>
     <string name="enough">Достаточно прохождения на сегодня. </string>
-    <string name="youve_learned">Выучено слов </string>
+    <string name="words_learned">Выучено слов </string>    
+    <string name="rules_learned">Выучено правил </string>
     <string name="to_main_menu">Вернуться в главное меню</string>
+    <string name="results">Результаты </string>
     <!-- Grammar activity fragment -->
     <string name="practice_grammar">Учить грамматику</string>
     <string name="grammar_learned">Выучено правил </string>

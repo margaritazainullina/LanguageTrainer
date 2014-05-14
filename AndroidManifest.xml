@@ -101,7 +101,7 @@
             android:label="@string/counter_words" >
         </activity>
         <activity
-            android:name="ua.hneu.languagetrainer.pages.vocabulary.ResultActivity"
+            android:name="ua.hneu.languagetrainer.pages.vocabulary.VocabularyResultActivity"
             android:label="@string/title_activity_word_practice_result" >
         </activity>
          <activity
@@ -131,6 +131,18 @@
         <activity
             android:name="ua.hneu.languagetrainer.pages.other.CounterWordsTestActivity"
             android:label="@string/counter_words" >
+        </activity>
+         <activity
+            android:name="ua.hneu.languagetrainer.pages.other.CounterWordsResultActivity"
+            android:label="@string/results" >
+        </activity>
+         <activity
+            android:name="ua.hneu.languagetrainer.pages.other.GiongoResultActivity"
+            android:label="@string/results" >
+        </activity>
+         <activity
+            android:name="ua.hneu.languagetrainer.pages.grammar.GrammarResultActivity"
+            android:label="@string/results" >
         </activity>
     </application>
 

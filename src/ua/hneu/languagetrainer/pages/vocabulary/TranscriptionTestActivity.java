@@ -230,12 +230,12 @@ public class TranscriptionTestActivity extends Activity {
 
 	public void endTesting() {
 		// go to resultActivity to show result of all vocabulary training
-		Intent resultActivity = new Intent(this, ResultActivity.class);
+		Intent resultActivity = new Intent(this, VocabularyResultActivity.class);
 		startActivity(resultActivity);
 	}
 
 	public void buttonSkipSelectOnClick(View v) {
-		Intent matchWordsIntent = new Intent(this, ResultActivity.class);
+		Intent matchWordsIntent = new Intent(this, VocabularyResultActivity.class);
 		startActivity(matchWordsIntent);
 	}
 

@@ -52,7 +52,7 @@ public class VocabularyActivityFragment extends Fragment {
 
 			int learnedPersentage = (int) Math
 					.round(((double) learned / (double) all) * 100);
-			String info = this.getString(R.string.youve_learned) + ": "
+			String info = this.getString(R.string.words_learned) + ": "
 					+ learned + " " + this.getString(R.string.out_of) + " "
 					+ all + " - " + learnedPersentage + "%";
 

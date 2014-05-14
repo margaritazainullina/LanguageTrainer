@@ -1,10 +1,10 @@
-package ua.hneu.languagetrainer.pages.vocabulary;
+package ua.hneu.languagetrainer.pages.grammar;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.masterdetailflow.ItemListActivity;
 import ua.hneu.languagetrainer.model.User;
-import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
+import ua.hneu.languagetrainer.model.grammar.GrammarRule;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
-public class ResultActivity extends Activity {
+public class GrammarResultActivity extends Activity {
 	TextView learnedWordsTextView;
 	TextView recommendationsTextView;
 	TextView sessionPercentageTextView;
@@ -23,7 +23,7 @@ public class ResultActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_vocabulary_result);
+		setContentView(R.layout.activity_learning_result);
 
 		learnedWordsTextView = (TextView) findViewById(R.id.learnedWordsTextView);
 		totalPercentageTextView = (TextView) findViewById(R.id.totalPercentageTextView);
@@ -35,13 +35,10 @@ public class ResultActivity extends Activity {
 		// information about learned words
 		int numberOfLearnedWords = 0;
 		StringBuffer sb = new StringBuffer();
-		for (VocabularyEntry entry : App.vp.getLearnedWords().getEntries()) {
+		for (GrammarRule entry : App.grp.getLearnedRules().getEntries()) {
 			if (entry.getLearnedPercentage() >= 1) {
 				numberOfLearnedWords++;
-				if (!entry.getKanji().isEmpty())
-					sb.append(entry.getKanji());
-				else
-					sb.append(entry.getTranscription());
+				sb.append(entry.getRule());
 				sb.append(", ");
 			}
 		}
@@ -49,9 +46,9 @@ public class ResultActivity extends Activity {
 			sb.delete(sb.length() - 3, sb.length() - 1);
 		StringBuffer sb1 = new StringBuffer();
 		if (numberOfLearnedWords == 0)
-			sb1.append(this.getString(R.string.you_havent_learned_any_word));
+			sb1.append(this.getString(R.string.you_havent_learned_any_rule));
 		else {
-			sb1.append(this.getString(R.string.youve_learned) + " ");
+			sb1.append(this.getString(R.string.words_learned) + " ");
 			sb1.append(numberOfLearnedWords + ": ");
 		}
 		sb1.append(sb);
@@ -76,14 +73,11 @@ public class ResultActivity extends Activity {
 
 		// mistakes
 		StringBuffer sb2 = new StringBuffer();
-		sb2.append(this.getString(R.string.pay_attention_to_words) + " ");
+		sb2.append(this.getString(R.string.pay_attention_to) + " ");
 		int numberOfProblemWords = 0;
-		for (VocabularyEntry entry : App.vp.getProblemWords().keySet()) {
-			if (App.vp.getProblemWords().get(entry) >= 2) {
-				if (!entry.getKanji().isEmpty())
-					sb2.append(entry.getKanji());
-				else
-					sb2.append(entry.getTranscription());
+		for (GrammarRule entry : App.grp.getProblemRules().keySet()) {
+			if (App.grp.getProblemRules().get(entry) >= 2) {
+				sb2.append(entry.getRule());
 				sb2.append(", ");
 				numberOfProblemWords++;
 			}
@@ -93,12 +87,8 @@ public class ResultActivity extends Activity {
 			mistakesTextView.setText(sb2);
 
 		// information about session result
-		int correct = App.vp.getNumberOfCorrectAnswersInMatching()
-				+ App.vp.getNumberOfCorrectAnswersInTranslation()
-				+ App.vp.getNumberOfCorrectAnswersInTranscription();
-		int incorrect = App.vp.getNumberOfIncorrectAnswersInMatching()
-				+ App.vp.getNumberOfIncorrectAnswersInTranslation()
-				+ App.vp.getNumberOfIncorrectAnswersInTranscription();
+		int correct = App.grp.getNumberOfCorrectAnswers();
+		int incorrect = App.grp.getNumberOfIncorrectAnswers();
 		int success = (int) Math.round(((double) (correct - incorrect)
 				/ (correct + incorrect) * 100));
 		if (success < 0)
@@ -117,20 +107,20 @@ public class ResultActivity extends Activity {
 				.getString(R.string.correct_answer_rate) + " " + success + "%");
 
 		// cautions
-		int num = App.vp.getNumberOfPassingsInARow();
+		int num = App.grp.getNumberOfPassingsInARow();
 		if (num > 3)
 			cautionTextView.setText(this.getString(R.string.enough));
 
 		// clear information about passing
-		App.vp.clearInfo();
+		App.grp.clearInfo();
 	}
 
 	public void buttonRepeatTrainingOnClick(View v) {
 		// go to introduction again
 		Intent matchWordsIntent = new Intent(this,
-				WordIntroductionActivity.class);
+				GrammarIntroductionActivity.class);
 		startActivity(matchWordsIntent);
-		App.vp.incrementNumberOfPassingsInARow();
+		App.grp.incrementNumberOfPassingsInARow();
 	}
 
 	public void buttonToMainMenuOnClick(View v) {

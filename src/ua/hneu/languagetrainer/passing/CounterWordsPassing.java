@@ -13,6 +13,7 @@ import ua.hneu.languagetrainer.service.UserService;
 public class CounterWordsPassing {
 	private int numberOfCorrectAnswers = 0;
 	private int numberOfIncorrectAnswers = 0;
+	private int numberOfPassingsInARow = 0;
 
 	private CounterWordsDictionary learnedWords = new CounterWordsDictionary();
 	private Hashtable<CounterWord, Integer> problemWords = new Hashtable<CounterWord, Integer>();
@@ -33,6 +34,14 @@ public class CounterWordsPassing {
 		return numberOfIncorrectAnswers;
 	}
 
+	public int getNumberOfPassingsInARow() {
+		return numberOfPassingsInARow;
+	}
+
+	public void incrementNumberOfPassingsInARow() {
+		this.numberOfPassingsInARow++;
+	}
+
 	public CounterWordsDictionary getLearnedWords() {
 		return learnedWords;
 	}
@@ -45,10 +54,10 @@ public class CounterWordsPassing {
 		this.learnedWords = learnedWords;
 	}
 
-	public void setProblemWords(
-			Hashtable<CounterWord, Integer> problemWords) {
+	public void setProblemWords(Hashtable<CounterWord, Integer> problemWords) {
 		this.problemWords = problemWords;
 	}
+
 	public void makeWordLearned(CounterWord g, ContentResolver cr) {
 		// update info in user table
 		User u = App.userInfo;
@@ -60,9 +69,9 @@ public class CounterWordsPassing {
 		learnedWords.add(g);
 		incrementNumberOfCorrectAnswers();
 		App.counterWordsDictionary.remove(g);
-		// add entries to current dictionary to match target size		
-		App.grammarDictionary.addEntriesToDictionaryAndGet(
-				App.userInfo.getNumberOfEntriesInCurrentDict());
+		// add entries to current dictionary to match target size
+		App.grammarDictionary.addEntriesToDictionaryAndGet(App.userInfo
+				.getNumberOfEntriesInCurrentDict());
 		// update info in vocabulary table
 		App.cws.update(g, cr);
 
@@ -78,7 +87,7 @@ public class CounterWordsPassing {
 	public void clearInfo() {
 		// reset all values except for numberOfPassingsInARow for analyzing of
 		// how many times user passed tests in a row
-		//TODO: add number of passing in a row for all
+		// TODO: add number of passing in a row for all
 		this.learnedWords = null;
 		this.numberOfCorrectAnswers = 0;
 		this.numberOfIncorrectAnswers = 0;

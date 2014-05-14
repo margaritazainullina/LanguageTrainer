@@ -15,6 +15,7 @@ import ua.hneu.languagetrainer.ListViewAdapter;
 import ua.hneu.languagetrainer.model.other.Giongo;
 import ua.hneu.languagetrainer.model.other.GiongoExample;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
@@ -197,18 +198,13 @@ public class GiongoTestActivity extends Activity {
 	}
 
 	public void endTesting() {
-		// go to TranscriptionActivity
-		/*
-		 * Intent nextActivity = new Intent(this,
-		 * TranscriptionTestActivity.class); startActivity(nextActivity);
-		 */
+		// go to ResultActivity		
+		  Intent nextActivity = new Intent(this,
+		  GiongoResultActivity.class); startActivity(nextActivity);		 
 	}
 
 	public void buttonSkipSelectOnClick(View v) {
-		/*
-		 * Intent matchWordsIntent = new Intent(this,
-		 * TranscriptionTestActivity.class); startActivity(matchWordsIntent);
-		 */
+		endTesting();
 	}
 
 	public void buttonIAlrKnow(View v) {

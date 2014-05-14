@@ -55,21 +55,23 @@
     <string name="you_have_learned">You have learned </string>
     <!-- Result activity -->
     <string name="you_havent_learned_any_word">You haven\t learned any word :(</string>
+     <string name="you_havent_learned_any_rule">You haven\t learned any rule :(</string>
     <string name="by_now_youve_learned">By now you have learned </string>
     <string name="out_of"> out of </string>
     <string name="percentage_of_voc"> % of vocabulary</string>
-    <string name="pay_attention_to_words">Pay attention to words:</string>
+    <string name="pay_attention_to">Pay attention to:</string>
     <string name="great">Great! </string>
     <string name="good">Good! </string>
     <string name="more_atentive">You should be more attentive! </string>
     <string name="correct_answer_rate">Your correct answer rate is </string>
     <string name="enough">It\'s enough vocabulary for today. </string>
-    <string name="youve_learned">Words learned </string>
+    <string name="words_learned">Words learned </string> 
+    <string name="rules_learned">Rules learned </string>
     <string name="to_main_menu">Return to main menu </string>
+    <string name="results">Results </string>
     <!-- Grammar activity fragment -->
     <string name="practice_grammar">Practice grammar</string>
-    <string name="grammar_learned">Grammar rules learned </string>
-    
+    <string name="grammar_learned">Grammar rules learned </string>    
     <string name="title_activity_giongo_practice">Giongo</string>
     <string name="title_activity_grammar_practice">Grammar </string>
     <string name="giongo">Giongo and gitaigo </string>
