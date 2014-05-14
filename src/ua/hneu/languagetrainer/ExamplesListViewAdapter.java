@@ -4,13 +4,10 @@ import java.util.ArrayList;
 
 import ua.hneu.edu.languagetrainer.R;
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 public class ExamplesListViewAdapter extends ArrayAdapter<String> {

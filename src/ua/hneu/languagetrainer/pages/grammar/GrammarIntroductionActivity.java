@@ -4,7 +4,6 @@ import java.util.List;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
-import ua.hneu.languagetrainer.CounterWordsListViewAdapter;
 import ua.hneu.languagetrainer.ExamplesListViewAdapter;
 import ua.hneu.languagetrainer.model.grammar.GrammarRule;
 import android.annotation.SuppressLint;
@@ -84,10 +83,9 @@ public class GrammarIntroductionActivity extends Activity {
 	}
 
 	public void goToNextPassingActivity() {
-		/*
-		 * Intent matchWordsIntent = new Intent(this, MatchWordsActivity.class);
-		 * startActivity(matchWordsIntent);
-		 */
+
+		Intent grammarTestActivity = new Intent(this, GrammarTestActivity.class);
+		startActivity(grammarTestActivity);
 	}
 
 	@SuppressLint("SimpleDateFormat")

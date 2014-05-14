@@ -9,8 +9,6 @@ import java.util.Random;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.db.dao.CounterWordsDAO;
 import ua.hneu.languagetrainer.db.dao.GiongoDAO;
-import ua.hneu.languagetrainer.db.dao.GrammarDAO;
-import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
 import ua.hneu.languagetrainer.model.other.Giongo;
 import ua.hneu.languagetrainer.model.other.GiongoDictionary;
 import ua.hneu.languagetrainer.model.other.GiongoExample;

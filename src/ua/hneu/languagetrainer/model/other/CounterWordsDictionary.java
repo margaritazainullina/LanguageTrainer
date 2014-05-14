@@ -3,7 +3,6 @@ package ua.hneu.languagetrainer.model.other;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import android.util.Log;
 
 public class CounterWordsDictionary {

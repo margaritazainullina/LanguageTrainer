@@ -9,7 +9,6 @@ import java.util.Random;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.App.Languages;
 import ua.hneu.languagetrainer.db.dao.CounterWordsDAO;
-import ua.hneu.languagetrainer.db.dao.GrammarDAO;
 import ua.hneu.languagetrainer.model.other.CounterWord;
 import ua.hneu.languagetrainer.model.other.CounterWordsDictionary;
 import android.annotation.SuppressLint;

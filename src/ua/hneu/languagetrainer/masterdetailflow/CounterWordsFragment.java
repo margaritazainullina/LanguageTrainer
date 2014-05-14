@@ -2,36 +2,26 @@ package ua.hneu.languagetrainer.masterdetailflow;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
+import ua.hneu.edu.languagetrainer.R;
+import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.CounterWordsListViewAdapter;
+import ua.hneu.languagetrainer.service.CounterWordsService;
 import android.annotation.TargetApi;
-import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
-import ua.hneu.edu.languagetrainer.R;
-import ua.hneu.languagetrainer.App;
-import ua.hneu.languagetrainer.CounterWordsListViewAdapter;
-import ua.hneu.languagetrainer.ListViewAdapter;
-import ua.hneu.languagetrainer.model.User;
-import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
-import ua.hneu.languagetrainer.service.CounterWordsService;
-import ua.hneu.languagetrainer.service.VocabularyService;
+import android.widget.ListView;
+import android.widget.TextView;
 
 public class CounterWordsFragment extends Fragment {
 	TextView infoTextView;

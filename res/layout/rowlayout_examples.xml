@@ -14,7 +14,6 @@
             android:id="@+id/textPart1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="textPart1"
             android:textAppearance="?android:attr/textAppearanceMedium"/>
 
         <TextView
@@ -22,7 +21,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="textPart2"
             android:layout_toRightOf="@+id/textPart1"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -31,7 +29,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/textPart2"
-            android:text="textPart3"
             android:textAppearance="?android:attr/textAppearanceMedium" />
     </RelativeLayout>
 
@@ -46,7 +43,6 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="romaji"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
@@ -55,7 +51,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/romaji"
             android:gravity="center"
-            android:text="translation"
             android:textAppearance="?android:attr/textAppearanceMedium" />
     </RelativeLayout>
 

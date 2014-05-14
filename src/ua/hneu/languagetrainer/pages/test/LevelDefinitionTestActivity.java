@@ -3,12 +3,10 @@ package ua.hneu.languagetrainer.pages.test;
 import java.util.ArrayList;
 
 import ua.hneu.edu.languagetrainer.R;
-import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.ListViewAdapter;
 import ua.hneu.languagetrainer.model.tests.Answer;
 import ua.hneu.languagetrainer.model.tests.Question;
 import ua.hneu.languagetrainer.model.tests.Test;
-import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import ua.hneu.languagetrainer.service.AnswerService;
 import ua.hneu.languagetrainer.service.QuestionService;
 import ua.hneu.languagetrainer.service.TestService;

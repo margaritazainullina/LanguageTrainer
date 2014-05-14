@@ -8,8 +8,6 @@ import java.util.Date;
 
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.App.Languages;
-import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
-import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.util.Log;
 

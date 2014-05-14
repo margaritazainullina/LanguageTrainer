@@ -120,6 +120,10 @@
             android:name="ua.hneu.languagetrainer.pages.vocabulary.TranscriptionTestActivity"
             android:label="@string/title_transcription_test_activity" >
         </activity>
+         <activity
+            android:name="ua.hneu.languagetrainer.pages.grammar.GrammarTestActivity"
+            android:label="@string/title_activity_grammar" >
+        </activity>
     </application>
 
 </manifest>

@@ -38,7 +38,7 @@
 サラダはレタス	と	にんじんとラディッシュからしました。	sarada ha retasu to ninjin to radisshu kara shi mashi ta. 	The salad was made from lettuce, carrot, and radish.	Салат сделан из салата, моркови, и редиса.
 
 ～ましょう(か)	This is a polite volitional phrase, meaning 'I'll' or 'let's'. 	Вежливая фраза  ' давайте что-либо сделаем'.
-食べ	ましょう	。tabe masho u. 		Let's eat!	Давайте поедим !
+食べ	ましょう	。	tabe masho u. 	Let's eat!	Давайте поедим !
 食べ	ましょうか	。	tabe masho u ka.	How about we eat?	Как насчет того, чтобы поесть ?
 
 ～てください	This is used to link verb copulas, ending in 'て' or 'で', to 'ください', making it into a request. 	Вежливая просьба. К глаголу  в форме на 'て' или 'で' добавляется 'ください'.

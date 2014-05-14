@@ -8,9 +8,6 @@ import java.util.Date;
 
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.App.Languages;
-import ua.hneu.languagetrainer.model.grammar.GrammarExample;
-import ua.hneu.languagetrainer.model.grammar.GrammarRule;
-
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.util.Log;
