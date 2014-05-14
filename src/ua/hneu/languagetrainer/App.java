@@ -9,6 +9,7 @@ import ua.hneu.languagetrainer.model.grammar.GrammarDictionary;
 import ua.hneu.languagetrainer.model.other.CounterWordsDictionary;
 import ua.hneu.languagetrainer.model.other.GiongoDictionary;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
+import ua.hneu.languagetrainer.passing.CounterWordsPassing;
 import ua.hneu.languagetrainer.passing.GiongoPassing;
 import ua.hneu.languagetrainer.passing.GrammarPassing;
 import ua.hneu.languagetrainer.passing.VocabularyPassing;
@@ -47,6 +48,8 @@ public class App extends Application {
 	public static GrammarPassing grp = new GrammarPassing();
 	// Object for saving information about current giongo passing;
 	public static GiongoPassing gp = new GiongoPassing();
+	// Object for saving information about current counter words passing;
+	public static CounterWordsPassing cwp = new CounterWordsPassing();
 	// contentResolver for database
 	public static ContentResolver cr;
 	public static VocabularyService vs = new VocabularyService();

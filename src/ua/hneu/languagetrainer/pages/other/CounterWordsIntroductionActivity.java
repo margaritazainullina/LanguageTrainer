@@ -7,6 +7,7 @@ import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.model.other.CounterWord;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -79,10 +80,9 @@ public class CounterWordsIntroductionActivity extends Activity {
 	}
 
 	public void goToNextPassingActivity() {
-		/*
-		 * Intent matchWordsIntent = new Intent(this, MatchWordsActivity.class);
-		 * startActivity(matchWordsIntent);
-		 */
+		Intent CounterWordsTestActivity = new Intent(this,
+				CounterWordsTestActivity.class);
+		startActivity(CounterWordsTestActivity);
 	}
 
 	@SuppressLint("SimpleDateFormat")
@@ -92,7 +92,7 @@ public class CounterWordsIntroductionActivity extends Activity {
 		hiraganaTextView.setText(currentWord.getHiragana());
 		romajiTextView.setText(currentWord.getRomaji());
 		translationTextView.setText(currentWord.getTranslation());
-		
+
 		// set color of entry
 		int color = curWord.getIntColor();
 		wordTextView.setTextColor(color);

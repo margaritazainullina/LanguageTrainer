@@ -176,13 +176,13 @@ public class GiongoService {
 							break;
 						}
 						}
-						g = new Giongo(s[0], s[1], s[2], s[3], 0, 0, "", color,
+						g = new Giongo(s[0].trim(), s[1].trim(), s[2].trim(), s[3].trim(), 0, 0, "", color.trim(),
 								new ArrayList<GiongoExample>());
 						isFirst = false;
 					} else {
 						String[] s = mLine.split("\\t");
-						GiongoExample ge = new GiongoExample(s[0] + "\\t"
-								+ s[1] + "\\t" + s[2], s[3], s[4], s[5]);
+						GiongoExample ge = new GiongoExample(s[0].trim() + "\\t"
+								+ s[1].trim() + "\\t" + s[2].trim(), s[3].trim(), s[4].trim(), s[5].trim());
 						g.examples.add(ge);
 					}
 				} else {

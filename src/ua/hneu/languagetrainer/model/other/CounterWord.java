@@ -191,6 +191,7 @@ public class CounterWord {
 			}
 		};
 	}
+
 	public String getTranslation() {
 		if (App.lang == Languages.ENG)
 			return translationEng;
@@ -216,5 +217,12 @@ public class CounterWord {
 				"yyyy-MM-dd HH:mm:ss.SS");
 		String now = dateFormat.format(new Date());
 		this.lastview = now;
+	}
+
+	public String getTranscription() {
+		if (App.isShowRomaji)
+			return hiragana + " " + romaji;
+		else
+			return hiragana;
 	}
 }

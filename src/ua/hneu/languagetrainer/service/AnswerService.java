@@ -50,7 +50,7 @@ public class AnswerService {
 		boolean isCorrect = false;
 		ArrayList<Answer> a = new ArrayList<Answer>();
 		while (!c.isAfterLast()) {
-			text = c.getString(1);
+			text = c.getString(1).trim();
 			isCorrect = c.getInt(2) == 1;
 			a.add(new Answer(text, isCorrect));
 			c.moveToNext();

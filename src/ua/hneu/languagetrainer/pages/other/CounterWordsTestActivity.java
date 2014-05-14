@@ -1,4 +1,4 @@
-package ua.hneu.languagetrainer.pages.vocabulary;
+package ua.hneu.languagetrainer.pages.other;
 
 import java.util.Collections;
 import java.util.Set;
@@ -6,8 +6,8 @@ import java.util.Set;
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.ListViewAdapter;
-import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
-import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
+import ua.hneu.languagetrainer.model.other.CounterWord;
+import ua.hneu.languagetrainer.model.other.CounterWordsDictionary;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -21,10 +21,10 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class TranslationTestActivity extends Activity {
+public class CounterWordsTestActivity extends Activity {
 	// dictionary with random words for possible answers
-	Set<VocabularyEntry> randomDictionary;
-	VocabularyDictionary randomDictionaryList;
+	Set<CounterWord> randomDictionary;
+	CounterWordsDictionary randomDictionaryList;
 	// activity elements
 	ListView answersListView;
 	TextView wordTextView;
@@ -32,18 +32,13 @@ public class TranslationTestActivity extends Activity {
 	TextView romajiTextView;
 	TextView translationTextView;
 	TextView isRight;
-	VocabularyEntry rightAnswer;
+	CounterWord rightAnswer;
 	int answersNumber = 5;
 	int currentWordNumber = -1;
 
 	// custom adapter for ListView
 	ListViewAdapter adapter;
 	boolean ifWasWrong = false;
-
-	// sets direction of translation
-	// true - question in Japanese, false - answers in Japanese
-	// sets randomly for every question
-	boolean isFromJapanese;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,55 +55,42 @@ public class TranslationTestActivity extends Activity {
 
 		// at first show word and possible answers
 		nextWord();
+		
 	}
 
 	public void nextWord() {
 		// move pointer to next word
 		currentWordNumber++;
-		if (currentWordNumber >= App.vocabularyDictionary.size() - 1)
+		if (currentWordNumber >= App.counterWordsDictionary.size() - 1)
 			endTesting();
 
-		// set randomly direction
-		if (Math.random() < 0.5)
-			isFromJapanese = false;
-		else
-			isFromJapanese = true;
-
 		// show word, reading and translations - set text to all TextViews
-		VocabularyEntry currentEntry = App.vocabularyDictionary
+		CounterWord currentEntry = App.counterWordsDictionary
 				.get(currentWordNumber);
-		if (isFromJapanese) {
-			wordTextView.setText(currentEntry.getKanji());
+			wordTextView.setText(currentEntry.getWord());
 			transcriptionTextView.setText(currentEntry.getTranscription());
 			if (App.isShowRomaji)
 				romajiTextView.setText(currentEntry.getRomaji());
-		} else {
-			transcriptionTextView.setText("");
-			romajiTextView.setText("");
-			wordTextView.setText(currentEntry.translationsToString());
-		}
+		
 
 		// get dictionary with random entries, add current one and shuffle
-		randomDictionary = App.vocabularyDictionary.getRandomEntries(
-				answersNumber - 1, false);
-		randomDictionary.add(App.vocabularyDictionary.get(currentWordNumber));
-		rightAnswer = App.vocabularyDictionary.get(currentWordNumber);
+		randomDictionary = App.counterWordsDictionary.getRandomEntries(
+				answersNumber - 1);
+		randomDictionary.add(App.counterWordsDictionary.get(currentWordNumber));
+		rightAnswer = App.counterWordsDictionary.get(currentWordNumber);
 
 		// create List randomDictionaryList for ArrayAdapter from set
 		// randomDictionary
-		randomDictionaryList = new VocabularyDictionary();
+		randomDictionaryList = new CounterWordsDictionary();
 		randomDictionaryList.getEntries().addAll(randomDictionary);
 		// shuffle list
 		Collections.shuffle(randomDictionaryList.getEntries());
 
 		// creating adapter for ListView with possible answers
-		if (isFromJapanese) {
+		
 			adapter = new ListViewAdapter(this,
 					randomDictionaryList.getAllTranslations());
-		} else {
-			adapter = new ListViewAdapter(this,
-					randomDictionaryList.getAllKanjiWithReadings());
-		}
+		
 		// bindings adapter to ListView
 		answersListView.setAdapter(adapter);
 		answersListView.setOnItemClickListener(answersListViewClickListener);
@@ -120,7 +102,7 @@ public class TranslationTestActivity extends Activity {
 		isRight.setText("");
 		// set this word shown
 		rightAnswer.setLastView();
-		App.vs.update(rightAnswer, getContentResolver());
+		App.cws.update(rightAnswer, getContentResolver());
 	}
 
 	@Override
@@ -135,10 +117,10 @@ public class TranslationTestActivity extends Activity {
 		@Override
 		public void onItemClick(final AdapterView<?> parent, final View view,
 				final int position, final long itemID) {
-			VocabularyEntry selected = randomDictionaryList.get(position);
+			CounterWord selected = randomDictionaryList.get(position);
 			// comparing correct and selected answer
 			if (selected == rightAnswer) {
-				App.vp.incrementNumberOfCorrectAnswersInTranslation();
+				App.cwp.incrementNumberOfCorrectAnswers();
 				// increment percentage
 				if (!ifWasWrong)
 					rightAnswer.setLearnedPercentage(rightAnswer
@@ -146,10 +128,9 @@ public class TranslationTestActivity extends Activity {
 							+ App.userInfo.getPercentageIncrement());
 
 				if (rightAnswer.getLearnedPercentage() == 1) {
-					App.vp.makeWordLearned(rightAnswer, getContentResolver(),
-							false);
+					App.cwp.makeWordLearned(rightAnswer, getContentResolver());
 				}
-				App.vs.update(rightAnswer, getContentResolver());
+				App.cws.update(rightAnswer, getContentResolver());
 				// change color to green and fade out
 				isRight.setText("Correct!");
 				adapter.changeColor(view, Color.parseColor("#669900"));
@@ -176,7 +157,7 @@ public class TranslationTestActivity extends Activity {
 								// when previous information faded out
 								// show next word and possible answers or go to
 								// next exercise
-								if (currentWordNumber < App.vocabularyDictionary
+								if (currentWordNumber < App.counterWordsDictionary
 										.size() - 1) {
 									nextWord();
 								} else {
@@ -198,9 +179,9 @@ public class TranslationTestActivity extends Activity {
 				adapter.changeColor(view, Color.parseColor("#CC0000"));
 				isRight.setText("Wrong");
 				ifWasWrong = true;
-				// set information about wrong answer in VocabularyPassing
-				App.vp.incrementNumberOfIncorrectAnswersInTranslation();
-				App.vp.addProblemWord(App.vocabularyDictionary
+				// set information about wrong answer in counter words passing
+				App.cwp.incrementNumberOfIncorrectAnswers();
+				App.cwp.addProblemWord(App.counterWordsDictionary
 						.get(currentWordNumber));
 			}
 		}
@@ -215,18 +196,16 @@ public class TranslationTestActivity extends Activity {
 
 	public void endTesting() {
 		// go to TranscriptionActivity
-		Intent nextActivity = new Intent(this, TranscriptionTestActivity.class);
-		startActivity(nextActivity);
+		/*Intent nextActivity = new Intent(this, TranscriptionTestActivity.class);
+		startActivity(nextActivity);*/
 	}
 
 	public void buttonSkipSelectOnClick(View v) {
-		Intent matchWordsIntent = new Intent(this,
-				TranscriptionTestActivity.class);
-		startActivity(matchWordsIntent);
+		endTesting();
 	}
 
 	public void buttonIAlrKnow(View v) {
-		App.vp.makeWordLearned(rightAnswer, getContentResolver(), false);
+		App.cwp.makeWordLearned(rightAnswer, getContentResolver());
 		nextWord();
 	}
 }

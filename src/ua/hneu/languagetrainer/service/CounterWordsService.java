@@ -155,8 +155,8 @@ public class CounterWordsService {
 				// others - values separated by tabs
 				if (i == 0) {
 					String[] section = mLine.split("\\t");
-					sectionEng = section[0];
-					sectionRus = section[1];
+					sectionEng = section[0].trim();;
+					sectionRus = section[1].trim();;
 					i++;
 				} else {
 					String[] s = mLine.split("\\t");
@@ -187,10 +187,10 @@ public class CounterWordsService {
 					}
 					if (!sectionEng.equals("Numbers"))
 						insert(new CounterWord(sectionEng, sectionRus, s[0],
-								s[1], s[2], s[3], s[4], 0, 0, "", color), cr);
+								s[1].trim(), s[2].trim(), s[3].trim(), s[4].trim(), 0, 0, "", color), cr);
 					else
-						insert(new CounterWord(sectionEng, sectionRus, s[0],
-								s[1], s[2], s[3], s[3], 0, 0, "", color), cr);
+						insert(new CounterWord(sectionEng, sectionRus, s[0].trim(),
+								s[1].trim(), s[2].trim(), s[3].trim(), s[3].trim(), 0, 0, "", color), cr);
 
 				}
 			}

@@ -128,6 +128,10 @@
             android:name="ua.hneu.languagetrainer.pages.other.GiongoTestActivity"
             android:label="@string/giongo" >
         </activity>
+        <activity
+            android:name="ua.hneu.languagetrainer.pages.other.CounterWordsTestActivity"
+            android:label="@string/counter_words" >
+        </activity>
     </application>
 
 </manifest>

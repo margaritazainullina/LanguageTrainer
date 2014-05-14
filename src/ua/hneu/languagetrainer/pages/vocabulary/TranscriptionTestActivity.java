@@ -48,7 +48,7 @@ public class TranscriptionTestActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_translation_transcription_test);
+		setContentView(R.layout.activity_translation_transcription_cw_test);
 		App.vocabularyDictionary
 				.addEntriesToDictionaryAndGetOnlyWithKanji(App.userInfo
 						.getNumberOfEntriesInCurrentDict());

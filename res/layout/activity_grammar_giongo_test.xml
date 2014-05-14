@@ -24,7 +24,7 @@
         <TextView
             android:id="@+id/part2TextView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_cсontent"
+            android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/part1TextView"
             android:gravity="center"
             android:paddingLeft="@dimen/activity_horizontal_margin"

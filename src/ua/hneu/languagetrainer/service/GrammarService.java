@@ -258,13 +258,13 @@ public class GrammarService {
 							break;
 						}
 						}
-						g = new GrammarRule(s[0], level, s[1], s[2], 0, "", 0,
-								color, new ArrayList<GrammarExample>());
+						g = new GrammarRule(s[0].trim(), level, s[1].trim(), s[2].trim(), 0, "", 0,
+								color.trim(), new ArrayList<GrammarExample>());
 						isFirst = false;
 					} else {
 						String[] s = mLine.split("\\t");
-						GrammarExample ge = new GrammarExample(s[0] + "\\t"
-								+ s[1] + "\\t" + s[2], s[3], s[4], s[5]);
+						GrammarExample ge = new GrammarExample(s[0].trim() + "\\t"
+								+ s[1].trim() + "\\t" + s[2].trim(), s[3].trim(), s[4].trim(), s[5].trim());
 						g.examples.add(ge);
 					}
 				} else {

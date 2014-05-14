@@ -83,8 +83,8 @@ public class QuestionService {
 		ArrayList<Question> q = new ArrayList<Question>();
 		while (!c.isAfterLast()) {
 			id = c.getInt(0);
-			title = c.getString(2);
-			text = c.getString(3);
+			title = c.getString(2).trim();
+			text = c.getString(3).trim();
 			weight = c.getDouble(4);
 			ArrayList<Answer> a = as.getAswersByQuestionId(id, cr);
 			q.add(new Question(id, title, text, weight, a));

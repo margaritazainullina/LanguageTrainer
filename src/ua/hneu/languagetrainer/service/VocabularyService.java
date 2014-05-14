@@ -48,16 +48,16 @@ public class VocabularyService {
 
 		while (!c.isAfterLast()) {
 			id = c.getInt(0);
-			kanji = c.getString(1);
+			kanji = c.getString(1).trim();
 			level = c.getInt(2);
-			transcription = c.getString(3);
-			romaji = c.getString(4);
-			translations = c.getString(5);
-			translationsRus = c.getString(6);
+			transcription = c.getString(3).trim();
+			romaji = c.getString(4).trim();
+			translations = c.getString(5).trim();
+			translationsRus = c.getString(6).trim();
 			percentage = c.getInt(7);
-			lastview = c.getString(8);
+			lastview = c.getString(8).trim();
 			showntimes = c.getInt(9);
-			color = c.getString(10);
+			color = c.getString(10).trim();
 			c.moveToNext();
 		}
 

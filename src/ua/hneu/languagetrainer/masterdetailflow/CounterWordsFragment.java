@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import ua.hneu.edu.languagetrainer.R;
@@ -53,8 +54,8 @@ public class CounterWordsFragment extends Fragment {
 		infoList = new ArrayList<String>();
 		sectionsListView = (ListView) rootView
 				.findViewById(R.id.sectionsListView);
-		Set set = info.entrySet();
-		Iterator it = set.iterator();
+		Set<Entry<String, int[]>> set = info.entrySet();
+		Iterator<Entry<String, int[]>> it = set.iterator();
 		while (it.hasNext()) {
 			Map.Entry<String, int[]> entry = (Map.Entry<String, int[]>) it
 					.next();
