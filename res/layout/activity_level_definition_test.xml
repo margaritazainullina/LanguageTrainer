@@ -21,36 +21,34 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/titleTextView"
+            android:id="@+id/sectionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="sectionTextView"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="25sp" />
+
+          <TextView
+            android:id="@+id/taskTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/sectionTextView"       
+            android:text="taskTextView"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+         <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"            
+            android:layout_below="@+id/taskTextView"
             android:gravity="center"
             android:text="titleTextView"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textSize="25sp" />
-
-        <TextView
-            android:id="@+id/textTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/titleTextView"
-            android:layout_toRightOf="@+id/descTextView"
-            android:gravity="center"
-            android:text="textTextView"
-            android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-        <TextView
-            android:id="@+id/descTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textTextView"
-            android:layout_alignBottom="@+id/textTextView"
-            android:layout_alignParentLeft="true"
-            android:gravity="left"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:text="@string/choose_answer_for"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+       
 
     </RelativeLayout>
 

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Question {
 	private int id;
+	private String section;
+	private String task;
 	private String title;
 	private String text;
 	private double weight;
@@ -48,11 +50,13 @@ public class Question {
 	public void setAnswers(ArrayList<Answer> answers) {
 		this.answers = answers;
 	}
-
-	public Question(int id, String title, String text, double weight,
-			ArrayList<Answer> answers) {
+	
+	public Question(int id, String section, String task, String title,
+			String text, double weight, ArrayList<Answer> answers) {
 		super();
 		this.id = id;
+		this.section = section;
+		this.task = task;
 		this.title = title;
 		this.text = text;
 		this.weight = weight;
@@ -73,4 +77,21 @@ public class Question {
 		}
 		return answers;
 	}
+
+	public String getSection() {
+		return section;
+	}
+
+	public String getTask() {
+		return task;
+	}
+
+	public void setSection(String section) {
+		this.section = section;
+	}
+
+	public void setTask(String task) {
+		this.task = task;
+	}
+	
 }

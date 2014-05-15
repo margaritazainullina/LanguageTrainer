@@ -18,6 +18,7 @@ import ua.hneu.languagetrainer.db.dao.TestDAO;
 import ua.hneu.languagetrainer.model.tests.Answer;
 import ua.hneu.languagetrainer.model.tests.Question;
 import ua.hneu.languagetrainer.model.tests.Test;
+import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.res.AssetManager;
@@ -59,7 +60,8 @@ public class TestService {
 	}
 
 	public void dropTable() {
-		TestDAO.getDb().execSQL("DROP TABLE if exists " + TestDAO.TABLE_NAME + ";");
+		TestDAO.getDb().execSQL(
+				"DROP TABLE if exists " + TestDAO.TABLE_NAME + ";");
 	}
 
 	public void insertFromXml(String filepath, AssetManager assetManager,
@@ -76,6 +78,7 @@ public class TestService {
 			while ((mLine = reader.readLine()) != null) {
 				if (mLine != null) {
 					xml.append(mLine);
+					System.out.println(mLine);
 				}
 			}
 		} catch (IOException e) {
@@ -99,25 +102,36 @@ public class TestService {
 			Test t = new Test();
 			t.setName(testName);
 			t.setLevel(level);
-
-			NodeList questions = test.getElementsByTagName("question");
-			for (int i = 0; i < questions.getLength(); i++) {
-				Element question = (Element) questions.item(i);
-				String title = question.getAttribute("title");
-				String questionText = question.getAttribute("text");
-				double weight = Double.parseDouble(question
-						.getAttribute("weight"));
-				NodeList answers = question.getChildNodes();
-				ArrayList<Answer> answersList = new ArrayList<Answer>();
-				for (int j = 0; j < answers.getLength(); j++) {
-					Element answer = (Element) answers.item(j);
-					String answerText = answer.getTextContent();
-					boolean isCorrect = answer.getAttribute("isCorrect")
-							.equals("1");
-					answersList.add(new Answer(answerText, isCorrect));
+			NodeList sections = test.getElementsByTagName("section");
+			for (int k = 0; k < sections.getLength(); k++) {
+				Element section = (Element) sections.item(k);
+				String sectionName = section.getAttribute("name");
+				NodeList tasks = section.getElementsByTagName("task");
+				for (int w = 0; w < tasks.getLength(); w++) {
+					Element task = (Element) tasks.item(w);
+					String taskCaption = task.getAttribute("caption");
+					NodeList questions = test.getElementsByTagName("question");
+					for (int i = 0; i < questions.getLength(); i++) {
+						Element question = (Element) questions.item(i);
+						String title = question.getAttribute("title");
+						String questionText = question.getAttribute("text");
+						double weight = Double.parseDouble(question
+								.getAttribute("weight"));
+						NodeList answers = question.getChildNodes();
+						ArrayList<Answer> answersList = new ArrayList<Answer>();
+						for (int j = 0; j < answers.getLength(); j++) {
+							Element answer = (Element) answers.item(j);
+							String answerText = answer.getTextContent();
+							boolean isCorrect = answer
+									.getAttribute("isCorrect").equals("1");
+							answersList.add(new Answer(answerText, isCorrect));
+						}
+						t.addQuestion(new Question(QuestionService
+								.getNumberOfQuestions(cr),sectionName,taskCaption,title,questionText,
+								weight, answersList));
+						
+					}
 				}
-				t.addQuestion(new Question(QuestionService.getNumberOfQuestions(cr), title,
-						questionText, weight, answersList));
 			}
 			// Inserting in db
 			insert(t, cr);
@@ -137,10 +151,11 @@ public class TestService {
 		return count;
 	}
 
+	@SuppressLint("NewApi")
 	public Test getTestByName(String name, ContentResolver cr) {
 		String[] col = { TestDAO.ID, TestDAO.LEVEL, TestDAO.NAME };
-		Cursor c = cr.query(TestDAO.CONTENT_URI, col, TestDAO.NAME+"=\""+ name+"\"",
-				null, null, null);
+		Cursor c = cr.query(TestDAO.CONTENT_URI, col, TestDAO.NAME + "=\""
+				+ name + "\"", null, null, null);
 		c.moveToFirst();
 		int id = 0;
 		int level = 0;

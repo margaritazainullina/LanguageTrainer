@@ -18,7 +18,10 @@ public class QuestionDAO extends ContentProvider {
 
 	public static String TABLE_NAME = "question";
 	public static final String ID = "_id";
+	public static final String SECTION = "section";
+	public static final String TASK = "task";
 	public static final String TITLE = "level";
+	public static final String LEVEL = "level";
 	public static final String TEXT = "text";
 	public static final String WEIGHT = "weight";
 	public static final String T_ID = "test_id";
@@ -43,6 +46,8 @@ public class QuestionDAO extends ContentProvider {
 
 		mContactMap = new HashMap<String, String>();
 		mContactMap.put(DictionaryDbHelper._ID, DictionaryDbHelper._ID);
+		mContactMap.put(SECTION, SECTION);
+		mContactMap.put(TASK, TASK);
 		mContactMap.put(TITLE, TITLE);
 		mContactMap.put(TEXT, TEXT);
 		mContactMap.put(WEIGHT, WEIGHT);

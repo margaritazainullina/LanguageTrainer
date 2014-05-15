@@ -104,15 +104,19 @@ public class App extends Application {
 		// vs.bulkInsertFromCSV("N3.txt", getAssets(), 2, getContentResolver());
 		// vs.bulkInsertFromCSV("N1.txt", getAssets(), 1, getContentResolver());
 		//
-		// // user us.dropTable(); us.createTable(); // test
-		//
-		// // ts.dropTable(); //qs.dropTable(); //as.dropTable();
-		// ts.createTable();
-		// qs.createTable();
-		// QuestionService.startCounting(getContentResolver());
-		// as.createTable();
-		// ts.insertFromXml("level_def_test.xml", getAssets(),
-		// getContentResolver());
+		// // user us.dropTable(); us.createTable();
+		// test
+		ts.dropTable();
+		qs.dropTable();
+		as.dropTable();
+		ts.createTable();
+		qs.createTable();
+		QuestionService.startCounting(getContentResolver());
+		as.createTable();
+		ts.insertFromXml("level_def_test.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("mock_test_n5.xml", getAssets(),
+				getContentResolver());
 		//
 		// GiongoService gs = new GiongoService();
 		// gs.dropTable();

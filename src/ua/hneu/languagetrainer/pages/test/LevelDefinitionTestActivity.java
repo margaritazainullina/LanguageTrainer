@@ -26,7 +26,8 @@ import android.widget.TextView;
 public class LevelDefinitionTestActivity extends Activity {
 	ListView answersListView;
 	TextView titleTextView;
-	TextView descTextView;
+	TextView sectionTextView;
+	TextView taskTextView;
 	TextView textTextView;
 	ProgressBar progressBar;
 	TextView isRight;
@@ -48,10 +49,11 @@ public class LevelDefinitionTestActivity extends Activity {
 		setContentView(R.layout.activity_level_definition_test);
 
 		// Initialize
+		sectionTextView = (TextView) findViewById(R.id.sectionTextView);
+		taskTextView = (TextView) findViewById(R.id.taskTextView);
 		titleTextView = (TextView) findViewById(R.id.titleTextView);
-		textTextView = (TextView) findViewById(R.id.textTextView);
+		textTextView = (TextView) findViewById(R.id.taskTextView);
 		answersListView = (ListView) findViewById(R.id.answersListView);
-		descTextView = (TextView) findViewById(R.id.descTextView);
 		progressBar = (ProgressBar) findViewById(R.id.testProgressBar);
 		isRight = (TextView) findViewById(R.id.isCorrectTextView);
 
@@ -85,11 +87,8 @@ public class LevelDefinitionTestActivity extends Activity {
 		answers = q.getAnswers();
 		titleTextView.setText(q.getText());
 		textTextView.setText(q.getTitle());
-		// hide caption if it isn't needed
-		if (q.getText().isEmpty())
-			descTextView.setAlpha(0);
-		else
-			descTextView.setAlpha(1);
+		taskTextView.setText(q.getTask());
+		sectionTextView.setText(q.getSection());
 		adapter = new ListViewAdapter(this, q.getAllAnswers());
 		answersListView.setAdapter(adapter);
 		answersListView.setOnItemClickListener(answersListViewClickListener);
@@ -112,9 +111,10 @@ public class LevelDefinitionTestActivity extends Activity {
 				isRight.setText("Correct!");
 				adapter.changeColor(view, Color.parseColor("#669900"));
 				// fading out textboxes
+				fadeOut(sectionTextView, 750);
+				fadeOut(taskTextView, 750);
 				fadeOut(titleTextView, 750);
 				fadeOut(textTextView, 750);
-				fadeOut(descTextView, 750);
 				fadeOut(isRight, 750);
 
 				// fading out listview

@@ -1,4 +1,6 @@
 <test level="-1" name="level_def">
+<section name="">
+<task caption="___の ことばは どう よみますか。1234から いちばん いい ものを えらびなさい。">
 <question weight="1" title="車の中に男の子が何人いますか。" text="車">
 <answer isCorrect="0">しゃ</answer>
 <answer isCorrect="1">くるま</answer>
@@ -239,4 +241,6 @@
 <answer isCorrect="0">にせよ</answer>
 <answer isCorrect="0">としても</answer>
 </question>
+</task>
+</section>
 </test>
