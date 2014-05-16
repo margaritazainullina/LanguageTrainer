@@ -3,13 +3,15 @@ package ua.hneu.languagetrainer.masterdetailflow;
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.pages.GreetingActivity;
+import ua.hneu.languagetrainer.pages.counterwords.CounterWordsIntroductionActivity;
+import ua.hneu.languagetrainer.pages.giongo.GiongoIntroductionActivity;
 import ua.hneu.languagetrainer.pages.grammar.GrammarIntroductionActivity;
-import ua.hneu.languagetrainer.pages.other.CounterWordsIntroductionActivity;
-import ua.hneu.languagetrainer.pages.other.GiongoIntroductionActivity;
+import ua.hneu.languagetrainer.pages.test.TestActivity;
 import ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity;
 import ua.hneu.languagetrainer.service.CounterWordsService;
 import ua.hneu.languagetrainer.service.GiongoService;
 import ua.hneu.languagetrainer.service.GrammarService;
+import ua.hneu.languagetrainer.service.TestService;
 import ua.hneu.languagetrainer.service.VocabularyService;
 import android.content.Intent;
 import android.os.Bundle;
@@ -116,7 +118,8 @@ public class ItemListActivity extends FragmentActivity implements
 			arguments.putString(VocabularyActivityFragment.ARG_ITEM_ID, id);
 			VocabularyActivityFragment vocabularyFragment = new VocabularyActivityFragment();
 			GrammarActivityFragment grammarFragment = new GrammarActivityFragment();
-			CounterWordsFragment counterWordsFragment = new CounterWordsFragment();
+			TestActivityFragment testFragment = new TestActivityFragment();
+			CounterWordsActivityFragment counterWordsFragment = new CounterWordsActivityFragment();
 			GiongoActivityFragment giongoFragment = new GiongoActivityFragment();
 			vocabularyFragment.setArguments(arguments);
 			grammarFragment.setArguments(arguments);
@@ -134,6 +137,12 @@ public class ItemListActivity extends FragmentActivity implements
 						.replace(R.id.item_detail_container, grammarFragment)
 						.commit();
 			}
+			// if selected Tests
+			if (id == "mock_tests") {
+							getSupportFragmentManager().beginTransaction()
+									.replace(R.id.item_detail_container, testFragment)
+									.commit();
+						}
 			// if selected counter words
 			if (id == "counter_words") {
 				getSupportFragmentManager()
@@ -196,7 +205,7 @@ public class ItemListActivity extends FragmentActivity implements
 		// load counter words
 		CounterWordsService cws = new CounterWordsService();
 		App.counterWordsDictionary = cws.createCurrentDictionary(
-				CounterWordsFragment.selectedSection,
+				CounterWordsActivityFragment.selectedSection,
 				App.userInfo.getNumberOfEntriesInCurrentDict(), App.cr);
 		
 		  Intent intent = new Intent(this, CounterWordsIntroductionActivity.class);
@@ -205,13 +214,21 @@ public class ItemListActivity extends FragmentActivity implements
 	}
 
 	public void onClickPracticeGiongo(View v) {
-		// load counter words
+		// load giongo
 		GiongoService gs = new GiongoService();
 		App.giongoWordsDictionary = gs.createCurrentDictionary(
 				App.userInfo.getNumberOfEntriesInCurrentDict(), App.cr);
 		
 		Intent intent = new Intent(this, GiongoIntroductionActivity.class);
 		  startActivity(intent);
+		 
+	}
+	
+	public void onClickPassTest(View v) {
+		// load test
+		Intent intent = new Intent(this, TestActivity.class);
+		intent.putExtra("testName", TestActivityFragment.testName);
+		startActivity(intent);
 		 
 	}
 }

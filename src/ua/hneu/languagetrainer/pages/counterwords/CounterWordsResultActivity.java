@@ -1,4 +1,4 @@
-package ua.hneu.languagetrainer.pages.other;
+package ua.hneu.languagetrainer.pages.counterwords;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;

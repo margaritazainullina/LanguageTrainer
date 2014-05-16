@@ -47,7 +47,6 @@
     <string name="your_level">Ваш уровень: N</string>
     <string name="vocabulary">Слова</string>
     <string name="grammar">Грамматика</string>
-    <string name="listening">Аудирование</string>
     <string name="mock_tests">Тесты</string>
     <string name="other">Дополнительно</string>
     <string name="settings">Настройки</string>
@@ -55,7 +54,7 @@
     <string name="you_have_learned">Вы выучили </string>
     <!-- Result activity -->
     <string name="you_havent_learned_any_word">Вы не выучили ни одного слова :(</string>
-     <string name="you_havent_learned_any_rule">Вы не выучили ни одного правила :(</string>
+    <string name="you_havent_learned_any_rule">Вы не выучили ни одного правила :(</string>
     <string name="by_now_youve_learned">Всего выучено слов </string>
     <string name="out_of">из </string>
     <string name="percentage_of_voc"> % от всех слов</string>
@@ -65,16 +64,23 @@
     <string name="more_atentive">Будьте внимательнее! </string>
     <string name="correct_answer_rate">Ваш процент правильных ответов состаляет </string>
     <string name="enough">Достаточно прохождения на сегодня. </string>
-    <string name="words_learned">Выучено слов </string>    
+    <string name="words_learned">Выучено слов </string>
     <string name="rules_learned">Выучено правил </string>
     <string name="to_main_menu">Вернуться в главное меню</string>
     <string name="results">Результаты </string>
     <!-- Grammar activity fragment -->
     <string name="practice_grammar">Учить грамматику</string>
     <string name="grammar_learned">Выучено правил </string>
-     <string name="title_activity_grammar_practice">Грамматика </string>    
-     <string name="giongo">Гионго и гитайго</string>     
-     <string name="giongo_info">Звукоподражательные слова в японском встречаются и в письменной, и в устной речи. Также называемые ономатопеей, эти слова не просто передают звук, но и охватывают более широкий диапазон значений, многие такие слова в японском обозначают понятия не связанные со звуком. Звукоподражательные слова грамматически являются наречиями, к ним часто добаляется частица と (to).</string>
-     <string name="counter_words">Счетные слова</string>
-     <string name="counter_words_info">В японском языке, числительные не могут существовать сами по себе (за исключением, в некоторых случаях, для чисел от одного до десяти). Например, "две собаки" на японском будет звучать как 二匹の犬 ni hiki no inu. Здесь 犬 inu означает "собака", 二 ni - число 2, "の" "no" является притяжательной частицей, и 匹 hiki это счетное слово для мелких животных. Эти ссчетные слова не являются самостоятельными и используются с существительными. В вопросительном предложении, чаще всего вместо счетного слова используется 何 nan, как, например, 何名様 nan-mei-sama ", сколько гостей", или иногда 幾 iku как в 幾晩 iku-ban "сколько ночей?".</string>
+    <string name="title_activity_grammar_practice">Грамматика </string>
+    <string name="giongo">Гионго и гитайго</string>
+    <string name="giongo_info">Звукоподражательные слова в японском встречаются и в письменной, и в устной речи. Также называемые ономатопеей, эти слова не просто передают звук, но и охватывают более широкий диапазон значений, многие такие слова в японском обозначают понятия не связанные со звуком. Звукоподражательные слова грамматически являются наречиями, к ним часто добаляется частица と (to).</string>
+    <string name="counter_words">Счетные слова</string>
+    <string name="counter_words_info">В японском языке, числительные не могут существовать сами по себе (за исключением, в некоторых случаях, для чисел от одного до десяти). Например, "две собаки" на японском будет звучать как 二匹の犬 ni hiki no inu. Здесь 犬 inu означает "собака", 二 ni - число 2, "の" "no" является притяжательной частицей, и 匹 hiki это счетное слово для мелких животных. Эти ссчетные слова не являются самостоятельными и используются с существительными. В вопросительном предложении, чаще всего вместо счетного слова используется 何 nan, как, например, 何名様 nan-mei-sama ", сколько гостей", или иногда 幾 iku как в 幾晩 iku-ban "сколько ночей?".</string>
+    <string name="start_test">Начать тест</string>
+    <string name="test">Tест</string>
+    <string name="test_name">Тест №</string>
+    <string name="voc_gr">Слова/Граматика</string>
+    <string name="reading">Чтение</string>
+    <string name="listening">Аудирование</string>
+
 </resources>

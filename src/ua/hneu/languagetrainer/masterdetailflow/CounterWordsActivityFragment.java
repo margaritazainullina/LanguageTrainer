@@ -24,7 +24,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class CounterWordsFragment extends Fragment {
+public class CounterWordsActivityFragment extends Fragment {
 	TextView infoTextView;
 	ListView sectionsListView;
 	ArrayList<String> sectionNames = new ArrayList<String>();
@@ -34,7 +34,7 @@ public class CounterWordsFragment extends Fragment {
 	CounterWordsService cvs = new CounterWordsService();
 	public static String selectedSection;
 
-	public CounterWordsFragment() {
+	public CounterWordsActivityFragment() {
 	}
 
 	@Override

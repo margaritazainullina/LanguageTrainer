@@ -77,7 +77,7 @@
             android:label="@string/title_greeting" >
         </activity>
          <activity
-            android:name="ua.hneu.languagetrainer.pages.test.LevelDefinitionTestActivity"
+            android:name="ua.hneu.languagetrainer.pages.test.TestActivity"
             android:label="@string/title_level_def_test_activity" >
         </activity>
         <activity
@@ -93,11 +93,11 @@
             android:label="@string/title_activity_grammar_practice" >
         </activity>
         <activity
-            android:name="ua.hneu.languagetrainer.pages.other.GiongoIntroductionActivity"
+            android:name="ua.hneu.languagetrainer.pages.giongo.GiongoIntroductionActivity"
             android:label="@string/giongo" >
         </activity>
          <activity
-            android:name="ua.hneu.languagetrainer.pages.other.CounterWordsIntroductionActivity"
+            android:name="ua.hneu.languagetrainer.pages.counterwords.CounterWordsIntroductionActivity"
             android:label="@string/counter_words" >
         </activity>
         <activity
@@ -105,7 +105,7 @@
             android:label="@string/title_activity_word_practice_result" >
         </activity>
          <activity
-            android:name="ua.hneu.languagetrainer.pages.test.TestResultActivity"
+            android:name="ua.hneu.languagetrainer.pages.test.LevelDefTestResultActivity"
             android:label="@string/title_lev_def_test_result" >
         </activity>
         <activity
@@ -125,19 +125,19 @@
             android:label="@string/title_activity_grammar" >
         </activity> 
         <activity
-            android:name="ua.hneu.languagetrainer.pages.other.GiongoTestActivity"
+            android:name="ua.hneu.languagetrainer.pages.giongo.GiongoTestActivity"
             android:label="@string/giongo" >
         </activity>
         <activity
-            android:name="ua.hneu.languagetrainer.pages.other.CounterWordsTestActivity"
+            android:name="ua.hneu.languagetrainer.pages.counterwords.CounterWordsTestActivity"
             android:label="@string/counter_words" >
         </activity>
          <activity
-            android:name="ua.hneu.languagetrainer.pages.other.CounterWordsResultActivity"
+            android:name="ua.hneu.languagetrainer.pages.counterwords.CounterWordsResultActivity"
             android:label="@string/results" >
         </activity>
          <activity
-            android:name="ua.hneu.languagetrainer.pages.other.GiongoResultActivity"
+            android:name="ua.hneu.languagetrainer.pages.giongo.GiongoResultActivity"
             android:label="@string/results" >
         </activity>
          <activity

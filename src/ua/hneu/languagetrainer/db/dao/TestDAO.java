@@ -20,6 +20,9 @@ public class TestDAO extends ContentProvider {
 	public static final String ID = "_id";
 	public static final String LEVEL = "level";
 	public static final String NAME = "name";
+	public static final String POINTS1 = "points_part1";
+	public static final String POINTS2 = "points_part2";
+	public static final String POINTS3 = "points_part3";
 
 	public static final Uri CONTENT_URI = Uri
 			.parse("content://ua.edu.hneu.languagetrainer.db.testprovider/dictionary");

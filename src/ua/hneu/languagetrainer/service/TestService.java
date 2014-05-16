@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -14,6 +15,11 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
+import ua.hneu.edu.languagetrainer.R;
+import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.App.Languages;
+import ua.hneu.languagetrainer.db.dao.CounterWordsDAO;
+import ua.hneu.languagetrainer.db.dao.QuestionDAO;
 import ua.hneu.languagetrainer.db.dao.TestDAO;
 import ua.hneu.languagetrainer.model.tests.Answer;
 import ua.hneu.languagetrainer.model.tests.Question;
@@ -28,16 +34,19 @@ import android.util.Log;
 
 public class TestService {
 	QuestionService qs = new QuestionService();
+	static int numberOfEnteries = 0;
 
 	public void insert(Test t, ContentResolver cr) {
-		int n = getNumberOfTests(cr) + 1;
 		for (Question q : t.getQuestions()) {
-			qs.insert(q, n, cr);
+			qs.insert(q, numberOfEnteries, cr);
 		}
-
+		numberOfEnteries++;
 		ContentValues values = new ContentValues();
 		values.put(TestDAO.NAME, t.getTestName().toString());
 		values.put(TestDAO.LEVEL, t.getLevel());
+		values.put(TestDAO.POINTS1, 0);
+		values.put(TestDAO.POINTS2, 0);
+		values.put(TestDAO.POINTS3, 0);
 		cr.insert(TestDAO.CONTENT_URI, values);
 	}
 
@@ -45,6 +54,9 @@ public class TestService {
 		ContentValues values = new ContentValues();
 		values.put(TestDAO.NAME, t.getTestName().toString());
 		values.put(TestDAO.LEVEL, t.getLevel());
+		values.put(TestDAO.POINTS1, t.getPointsPart1());
+		values.put(TestDAO.POINTS2, t.getPointsPart2());
+		values.put(TestDAO.POINTS3, t.getPointsPart3());
 		cr.update(TestDAO.CONTENT_URI, values, "_ID=" + t.getId(), null);
 	}
 
@@ -52,11 +64,26 @@ public class TestService {
 		TestDAO.getDb().execSQL("delete from " + TestDAO.TABLE_NAME);
 	}
 
+	public static int getNumberOfQuestions(ContentResolver contentResolver) {
+		Cursor countCursor = contentResolver.query(TestDAO.CONTENT_URI,
+				new String[] { "count(*) AS count" }, null + "", null, null);
+		countCursor.moveToFirst();
+		int count = countCursor.getInt(0);
+		countCursor.close();
+		return count;
+	}
+
+	public static void startCounting(ContentResolver contentResolver) {
+		numberOfEnteries = getNumberOfQuestions(contentResolver) + 1;
+	}
+
 	public void createTable() {
 		SQLiteDatabase db = TestDAO.getDb();
 		db.execSQL("CREATE TABLE if not exists " + TestDAO.TABLE_NAME
 				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " + TestDAO.LEVEL
-				+ " INTEGER, " + TestDAO.NAME + " TEXT);");
+				+ " INTEGER, " + TestDAO.NAME + " TEXT, " + TestDAO.POINTS1
+				+ " INTEGER, " + TestDAO.POINTS2 + " INTEGER, "
+				+ TestDAO.POINTS3 + " INTEGER);");
 	}
 
 	public void dropTable() {
@@ -113,7 +140,7 @@ public class TestService {
 					Element task = (Element) tasks.item(w);
 					String taskCaption = task.getAttribute("caption");
 					// parse question element
-					NodeList questions = test.getElementsByTagName("question");
+					NodeList questions = task.getElementsByTagName("question");
 					for (int i = 0; i < questions.getLength(); i++) {
 						Element question = (Element) questions.item(i);
 						String title = question.getAttribute("title");
@@ -175,5 +202,30 @@ public class TestService {
 			c.moveToNext();
 		}
 		return t;
+	}
+
+	@SuppressLint("NewApi")
+	public HashMap<String, int[]> getTestNamesAndPoints(ContentResolver cr,
+			int level) {
+		HashMap<String, int[]> hm = new HashMap<String, int[]>();
+		String[] col = { TestDAO.NAME, TestDAO.LEVEL, TestDAO.POINTS1,
+				TestDAO.POINTS2, TestDAO.POINTS3 };
+		Cursor c = cr.query(TestDAO.CONTENT_URI, col, TestDAO.LEVEL + "="
+				+ level, null, null, null);
+		c.moveToFirst();
+		String name;
+		int p1;
+		int p2;
+		int p3;
+		while (!c.isAfterLast()) {
+			// TODO: from xml
+			name = c.getString(0);
+			p1 = c.getInt(2);
+			p2 = c.getInt(3);
+			p3 = c.getInt(4);
+			hm.put(name, new int[] { p1, p2, p3 });
+			c.moveToNext();
+		}
+		return hm;
 	}
 }

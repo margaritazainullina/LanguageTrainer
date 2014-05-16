@@ -4,7 +4,13 @@ import java.util.ArrayList;
 
 public class Test {
 	private int id;
-
+	private ArrayList<Question> questions;
+	private int level;
+	private String name;
+	private int pointsPart1;
+	private int pointsPart2;
+	private int pointsPart3;
+	
 	public int getId() {
 		return id;
 	}
@@ -12,10 +18,6 @@ public class Test {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	private ArrayList<Question> questions;
-	private int level;
-	private String name;
 
 	public ArrayList<Question> getQuestions() {
 		return questions;
@@ -55,4 +57,32 @@ public class Test {
 	public String getTestName() {
 		return name;
 	}
+
+	public int getPointsPart1() {
+		return pointsPart1;
+	}
+
+	public void setPointsPart1(int pointsPart1) {
+		this.pointsPart1 = pointsPart1;
+	}
+
+	public int getPointsPart2() {
+		return pointsPart2;
+	}
+
+	public void setPointsPart2(int pointsPart2) {
+		this.pointsPart2 = pointsPart2;
+	}
+
+	public int getPointsPart3() {
+		return pointsPart3;
+	}
+
+	public void setPointsPart3(int pointsPart3) {
+		this.pointsPart3 = pointsPart3;
+	}
+
+	public String getName() {
+		return name;
+	}	
 }

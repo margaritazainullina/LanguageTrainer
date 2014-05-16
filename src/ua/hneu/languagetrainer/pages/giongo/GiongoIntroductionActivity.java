@@ -1,4 +1,4 @@
-package ua.hneu.languagetrainer.pages.other;
+package ua.hneu.languagetrainer.pages.giongo;
 
 import java.util.List;
 
