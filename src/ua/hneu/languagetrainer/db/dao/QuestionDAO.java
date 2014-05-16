@@ -20,8 +20,7 @@ public class QuestionDAO extends ContentProvider {
 	public static final String ID = "_id";
 	public static final String SECTION = "section";
 	public static final String TASK = "task";
-	public static final String TITLE = "level";
-	public static final String LEVEL = "level";
+	public static final String TITLE = "title";
 	public static final String TEXT = "text";
 	public static final String WEIGHT = "weight";
 	public static final String T_ID = "test_id";

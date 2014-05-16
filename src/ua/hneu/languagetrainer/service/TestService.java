@@ -78,14 +78,14 @@ public class TestService {
 			while ((mLine = reader.readLine()) != null) {
 				if (mLine != null) {
 					xml.append(mLine);
-					System.out.println(mLine);
+					// System.out.println(mLine);
 				}
 			}
+			// System.out.println(xml.toString());
 		} catch (IOException e) {
 			Log.e("TestService", e.getMessage() + " " + e.getCause());
 		}
 		// parsing xml
-
 		try {
 			// make a document from string
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory
@@ -102,14 +102,17 @@ public class TestService {
 			Test t = new Test();
 			t.setName(testName);
 			t.setLevel(level);
+			// parse sections element
 			NodeList sections = test.getElementsByTagName("section");
 			for (int k = 0; k < sections.getLength(); k++) {
 				Element section = (Element) sections.item(k);
 				String sectionName = section.getAttribute("name");
+				// parse tasks element
 				NodeList tasks = section.getElementsByTagName("task");
 				for (int w = 0; w < tasks.getLength(); w++) {
 					Element task = (Element) tasks.item(w);
 					String taskCaption = task.getAttribute("caption");
+					// parse question element
 					NodeList questions = test.getElementsByTagName("question");
 					for (int i = 0; i < questions.getLength(); i++) {
 						Element question = (Element) questions.item(i);
@@ -117,6 +120,7 @@ public class TestService {
 						String questionText = question.getAttribute("text");
 						double weight = Double.parseDouble(question
 								.getAttribute("weight"));
+						// parse answers element
 						NodeList answers = question.getChildNodes();
 						ArrayList<Answer> answersList = new ArrayList<Answer>();
 						for (int j = 0; j < answers.getLength(); j++) {
@@ -126,10 +130,12 @@ public class TestService {
 									.getAttribute("isCorrect").equals("1");
 							answersList.add(new Answer(answerText, isCorrect));
 						}
+						// creating Test instance with all questions and answers
 						t.addQuestion(new Question(QuestionService
-								.getNumberOfQuestions(cr),sectionName,taskCaption,title,questionText,
-								weight, answersList));
-						
+								.getNumberOfQuestions(cr), sectionName,
+								taskCaption, title, questionText, weight,
+								answersList));
+
 					}
 				}
 			}

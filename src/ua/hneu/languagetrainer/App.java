@@ -95,17 +95,17 @@ public class App extends Application {
 
 		// creating and inserting into whole database
 		// vocabulary
-		//
-		// vs.dropTable();
-		// vs.createTable();
-		// vs.bulkInsertFromCSV("N5.txt", getAssets(), 5, getContentResolver());
-		// vs.bulkInsertFromCSV("N4.txt", getAssets(), 4, getContentResolver());
-		// vs.bulkInsertFromCSV("N3.txt", getAssets(), 3, getContentResolver());
-		// vs.bulkInsertFromCSV("N3.txt", getAssets(), 2, getContentResolver());
-		// vs.bulkInsertFromCSV("N1.txt", getAssets(), 1, getContentResolver());
-		//
-		// // user us.dropTable(); us.createTable();
-		// test
+		/*vs.dropTable();
+		vs.createTable();
+		vs.bulkInsertFromCSV("N5.txt", getAssets(), 5, getContentResolver());
+		vs.bulkInsertFromCSV("N4.txt", getAssets(), 4, getContentResolver());
+		vs.bulkInsertFromCSV("N3.txt", getAssets(), 3, getContentResolver());
+		vs.bulkInsertFromCSV("N3.txt", getAssets(), 2, getContentResolver());
+		vs.bulkInsertFromCSV("N1.txt", getAssets(), 1, getContentResolver());
+
+		// user us.dropTable();
+		us.createTable();
+		// test*/
 		ts.dropTable();
 		qs.dropTable();
 		as.dropTable();
@@ -115,39 +115,38 @@ public class App extends Application {
 		as.createTable();
 		ts.insertFromXml("level_def_test.xml", getAssets(),
 				getContentResolver());
-		ts.insertFromXml("mock_test_n5.xml", getAssets(),
-				getContentResolver());
-		//
-		// GiongoService gs = new GiongoService();
+		ts.insertFromXml("mock_test_n5.xml", getAssets(), getContentResolver());
+/*
+		GiongoService gs = new GiongoService();
 		// gs.dropTable();
-		// gs.createTable();
+		gs.createTable();
 		// ges.dropTable();
-		// GiongoService.startCounting(getContentResolver());
-		// ges.createTable();
-		// gs.bulkInsertFromCSV("giongo.txt", getAssets(),
-		// getContentResolver());
-		//
+		GiongoService.startCounting(getContentResolver());
+		ges.createTable();
+		gs.bulkInsertFromCSV("giongo.txt", getAssets(), getContentResolver());
+
 		// cws.dropTable();
-		// cws.createTable();
-		// cws.bulkInsertFromCSV("numbers.txt", getAssets(),
-		// getContentResolver());
-		// cws.bulkInsertFromCSV("people_and_things.txt", getAssets(),
-		// getContentResolver());
-		// cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),
-		// getContentResolver());
-		// cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),
-		// getContentResolver());
-		// cws.bulkInsertFromCSV("extent_freq.txt", getAssets(),
-		// getContentResolver());
-		//
-		// grs.dropTable();
-		// grs.createTable();
-		// GrammarService.startCounting(getContentResolver());
-		// gres.dropTable();
-		// gres.createTable();
-		// grs.bulkInsertFromCSV("grammar_n5.txt", 5, getAssets(),
-		// getContentResolver());
-		// us.createTable();
+		cws.createTable();
+		cws.bulkInsertFromCSV("numbers.txt", getAssets(), getContentResolver());
+		cws.bulkInsertFromCSV("people_and_things.txt", getAssets(),
+				getContentResolver());
+		cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),
+				getContentResolver());
+		cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),
+				getContentResolver());
+		cws.bulkInsertFromCSV("extent_freq.txt", getAssets(),
+				getContentResolver());
+
+		grs.dropTable();
+		grs.createTable();
+		GrammarService.startCounting(getContentResolver());
+		gres.dropTable();
+		gres.createTable();
+		grs.bulkInsertFromCSV("grammar_n5.txt", 5, getAssets(),
+				getContentResolver());
+		us.dropTable();
+		us.createTable();*/
+
 		// if it isn't first time when launching app - user exists in db
 		User currentUser = us.getUserWithCurrentLevel(App.cr);
 		if (currentUser != null) {

@@ -26,7 +26,6 @@ public class QuestionService {
 		values.put(QuestionDAO.SECTION, q.getSection());
 		values.put(QuestionDAO.TASK, q.getTask());
 		values.put(QuestionDAO.TITLE, q.getTitle());
-		values.put(QuestionDAO.TITLE, q.getTitle());
 		values.put(QuestionDAO.TEXT, q.getText());
 		values.put(QuestionDAO.WEIGHT, q.getWeight());
 		values.put(QuestionDAO.T_ID, testId);
