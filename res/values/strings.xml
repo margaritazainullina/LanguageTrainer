@@ -83,5 +83,12 @@
     <string name="voc_gr">Vocabulary/Grammar</string>
     <string name="reading">Reading</string>
     <string name="listening">Listening</string>
+    <string name="test_results">Test results</string>
+    <string name="total">Total</string>
+    <string name="skip_section">Skip section</string>
+    <string name="skip_section_confirmation">Do you really want to skip section?</string>
+    <string name="end_test_confirmation">Do you really want to end test?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
 </resources>

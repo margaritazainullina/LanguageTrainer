@@ -15,14 +15,13 @@ public class LevelDefTestResultActivity extends Activity {
 	TextView percentageTextView;
 	int choosedLevel = -1;
 	int recommendedLevel = -1;
-	TestPassing tp = new TestPassing();
+	TestPassing tp = App.tp;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_test_result);
+		setContentView(R.layout.activity_level_def_test_result);
 		int numberOfCorrectAnswers = 0;
-		int numberOfAnswers = 0;
 		double score = 0;
 		numberOfCorrectAnswers = tp.getNumberOfCorrectAnswers();
 		score = tp.getScoreInVocGr();
@@ -45,10 +44,8 @@ public class LevelDefTestResultActivity extends Activity {
 		recommendationsTextView.setText(sb1.toString());
 
 		StringBuilder sb2 = new StringBuilder();
-		sb1.append(this.getString(R.string.percentage) + " ");
-		sb1.append(numberOfCorrectAnswers + " ");
-		sb1.append(this.getString(R.string.out_of) + " ");
-		sb1.append(numberOfAnswers);
+		sb2.append(this.getString(R.string.percentage) + " ");
+		sb2.append(numberOfCorrectAnswers + " ");
 		percentageTextView.setText(sb2.toString());
 	}
 

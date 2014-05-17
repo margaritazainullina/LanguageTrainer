@@ -14,7 +14,7 @@ public class User {
 	private int numberOfVocabularyInLevel = 0;
 	// Grammar
 	private int learnedGrammar = 0;
-	private int numberOfGrammarInLevel = 0;	
+	private int numberOfGrammarInLevel = 0;
 	// Other (depending on the level)
 	private int learnedGiongo = 0;
 	private int numberOfGiongoInLevel = 0;
@@ -22,9 +22,6 @@ public class User {
 	private int numberOfCounterWordsInLevel = 0;
 	private int numberOfEntriesInCurrentDict = 0;
 	private int numberOfRepeatationsForLearning = 0;
-	// Information about tests is in table Tests
-	// just statistics for quick access
-	private double testAveragePercentage = 0;
 	// if user created - VocabularyService.all hasn't been created
 	// 1-true, 0-false for storing in db
 	public int isLevelLaunchedFirstTime = 1;
@@ -32,11 +29,11 @@ public class User {
 
 	public User(int id, int userLevel, int learnedVocabulary,
 			int numberOfVocabularyInLevel, int learnedGrammar,
-			int numberOfGrammarInLevel,  int learnedGiongo,
+			int numberOfGrammarInLevel, int learnedGiongo,
 			int numberOfGiongoInLevel, int learnedCounterWords,
 			int numberOfCounterWordsInLevel, int numberOfEntriesInCurrentDict,
-			int numberOfRepeatationsForLearning, double testAveragePercentage,
-			int isLevelLaunchedFirstTime, int isCurrentLevel) {
+			int numberOfRepeatationsForLearning, int isLevelLaunchedFirstTime,
+			int isCurrentLevel) {
 		super();
 		this.id = id;
 		this.userLevel = userLevel;
@@ -50,7 +47,6 @@ public class User {
 		this.numberOfCounterWordsInLevel = numberOfCounterWordsInLevel;
 		this.numberOfEntriesInCurrentDict = numberOfEntriesInCurrentDict;
 		this.numberOfRepeatationsForLearning = numberOfRepeatationsForLearning;
-		this.testAveragePercentage = testAveragePercentage;
 		this.isLevelLaunchedFirstTime = isLevelLaunchedFirstTime;
 		this.isCurrentLevel = isCurrentLevel;
 	}
@@ -111,10 +107,6 @@ public class User {
 		return numberOfRepeatationsForLearning;
 	}
 
-	public double getTestAveragePercentage() {
-		return testAveragePercentage;
-	}
-
 	public int getIsLevelLaunchedFirstTime() {
 		return isLevelLaunchedFirstTime;
 	}
@@ -169,10 +161,6 @@ public class User {
 	public void setNumberOfRepeatationsForLearning(
 			int numberOfRepeatationsForLearning) {
 		this.numberOfRepeatationsForLearning = numberOfRepeatationsForLearning;
-	}
-
-	public void setTestAveragePercentage(double testAveragePercentage) {
-		this.testAveragePercentage = testAveragePercentage;
 	}
 
 	public void setIsLevelLaunchedFirstTime(int isLevelLaunchedFirstTime) {

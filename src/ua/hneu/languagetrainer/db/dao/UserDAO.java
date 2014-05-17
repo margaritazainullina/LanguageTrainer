@@ -29,7 +29,6 @@ public class UserDAO extends ContentProvider {
 	public static final String ALLCWORDS = "numberOfCounterWordsInLevel";
 	public static final String CURDICTSIZE = "numberOfentriesInCurrentDict";	
 	public static final String REPETATIONNUM = "numberOfRepeatationsForLearning";
-	public static final String TESTAVG = "testAveragePercentage";
 	public static final String ISLEVELLAUNCHEDFIRSTTIME = "isLevelLaunchedFirstTime";	
 	public static final String ISCURRENTLEVEL = "isCurrentLevel";	
 
@@ -64,7 +63,6 @@ public class UserDAO extends ContentProvider {
 		mContactMap.put(ALLCWORDS, ALLCWORDS);
 		mContactMap.put(CURDICTSIZE, CURDICTSIZE);
 		mContactMap.put(REPETATIONNUM, REPETATIONNUM);
-		mContactMap.put(TESTAVG, TESTAVG);
 		mContactMap.put(ISLEVELLAUNCHEDFIRSTTIME, ISLEVELLAUNCHEDFIRSTTIME);
 		mContactMap.put(ISCURRENTLEVEL, ISCURRENTLEVEL);
 	}

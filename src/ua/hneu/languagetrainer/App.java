@@ -12,6 +12,7 @@ import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
 import ua.hneu.languagetrainer.passing.CounterWordsPassing;
 import ua.hneu.languagetrainer.passing.GiongoPassing;
 import ua.hneu.languagetrainer.passing.GrammarPassing;
+import ua.hneu.languagetrainer.passing.TestPassing;
 import ua.hneu.languagetrainer.passing.VocabularyPassing;
 import ua.hneu.languagetrainer.service.AnswerService;
 import ua.hneu.languagetrainer.service.CounterWordsService;
@@ -50,6 +51,8 @@ public class App extends Application {
 	public static GiongoPassing gp = new GiongoPassing();
 	// Object for saving information about current counter words passing;
 	public static CounterWordsPassing cwp = new CounterWordsPassing();
+	// Object for saving information about test passing;
+	public static TestPassing tp = new TestPassing();
 	// contentResolver for database
 	public static ContentResolver cr;
 	public static VocabularyService vs = new VocabularyService();
@@ -104,7 +107,7 @@ public class App extends Application {
 		vs.bulkInsertFromCSV("N1.txt", getAssets(), 1, getContentResolver());
 
 		// user us.dropTable();
-		us.createTable();*/
+		us.createTable();
 		// test
 		ts.dropTable();
 		qs.dropTable();
@@ -146,8 +149,8 @@ public class App extends Application {
 		grs.bulkInsertFromCSV("grammar_n5.txt", 5, getAssets(),
 				getContentResolver());
 		us.dropTable();
-		us.createTable();
-*/
+		us.createTable();*/
+
 		// if it isn't first time when launching app - user exists in db
 		User currentUser = us.getUserWithCurrentLevel(App.cr);
 		if (currentUser != null) {
@@ -179,7 +182,7 @@ public class App extends Application {
 		if (currentUser == null) {
 			int id = us.getNumberOfUsers(cr) + 1;
 			userInfo = new User(id, level, 0, numOfVoc, 0, numOfGrammar, 0,
-					numOfGiongo, 0, numOfCounterWords, 10, 10, 0, 1, 1);
+					numOfGiongo, 0, numOfCounterWords, 10, 10, 1, 1);
 			us.insert(userInfo, cr);
 			// load dictionary
 			vocabularyDictionary = VocabularyService.createCurrentDictionary(

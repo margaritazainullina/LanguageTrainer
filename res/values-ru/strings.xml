@@ -82,5 +82,12 @@
     <string name="voc_gr">Слова/Граматика</string>
     <string name="reading">Чтение</string>
     <string name="listening">Аудирование</string>
+    <string name="test_results">Результаты теста</string>
+    <string name="total">Всего</string>
+    <string name="skip_section">Пропустить раздел</string>
+    <string name="skip_section_confirmation">Вы действительно хотите пропустить раздел?</string>
+    <string name="end_test_confirmation">Вы действительно хотите закончить тест?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
 
 </resources>

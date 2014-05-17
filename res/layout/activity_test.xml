@@ -16,6 +16,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chronometer" />
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
@@ -34,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/sectionTextView"            
+            android:layout_below="@+id/sectionTextView"
             android:text="taskTextView"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -87,6 +93,15 @@
             android:gravity="center"
             android:onClick="buttonIDontKnowOnClick"
             android:text="@string/dont_know" />
+
+        <Button
+            android:id="@+id/buttonSkipSection"
+            style="?android:attr/buttonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:onClick="skipSectionOnClick"
+            android:text="@string/skip_section" />
 
         <Button
             android:id="@+id/buttonEndTest"

@@ -15,11 +15,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
-import ua.hneu.edu.languagetrainer.R;
-import ua.hneu.languagetrainer.App;
-import ua.hneu.languagetrainer.App.Languages;
-import ua.hneu.languagetrainer.db.dao.CounterWordsDAO;
-import ua.hneu.languagetrainer.db.dao.QuestionDAO;
 import ua.hneu.languagetrainer.db.dao.TestDAO;
 import ua.hneu.languagetrainer.model.tests.Answer;
 import ua.hneu.languagetrainer.model.tests.Question;
@@ -57,7 +52,8 @@ public class TestService {
 		values.put(TestDAO.POINTS1, t.getPointsPart1());
 		values.put(TestDAO.POINTS2, t.getPointsPart2());
 		values.put(TestDAO.POINTS3, t.getPointsPart3());
-		cr.update(TestDAO.CONTENT_URI, values, "_ID=" + t.getId(), null);
+		cr.update(TestDAO.CONTENT_URI, values, "NAME=" + "\"" + t.getName()
+				+ "\"", null);
 	}
 
 	public void emptyTable() {
