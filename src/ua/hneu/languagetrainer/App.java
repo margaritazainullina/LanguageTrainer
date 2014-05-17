@@ -98,58 +98,43 @@ public class App extends Application {
 
 		// creating and inserting into whole database
 		// vocabulary
-		/*vs.dropTable();
-		vs.createTable();
-		vs.bulkInsertFromCSV("N5.txt", getAssets(), 5, getContentResolver());
-		vs.bulkInsertFromCSV("N4.txt", getAssets(), 4, getContentResolver());
-		vs.bulkInsertFromCSV("N3.txt", getAssets(), 3, getContentResolver());
-		vs.bulkInsertFromCSV("N3.txt", getAssets(), 2, getContentResolver());
-		vs.bulkInsertFromCSV("N1.txt", getAssets(), 1, getContentResolver());
-
-		// user us.dropTable();
-		us.createTable();
-		// test
-		ts.dropTable();
-		qs.dropTable();
-		as.dropTable();
-		ts.createTable();
-		TestService.startCounting(getContentResolver());
-		qs.createTable();
-		QuestionService.startCounting(getContentResolver());
-		as.createTable();
-		ts.insertFromXml("level_def_test.xml", getAssets(),
-				getContentResolver());
-		ts.insertFromXml("mock_test_n5.xml", getAssets(), getContentResolver());
-
-		/*GiongoService gs = new GiongoService();
-		// gs.dropTable();
-		gs.createTable();
-		// ges.dropTable();
-		GiongoService.startCounting(getContentResolver());
-		ges.createTable();
-		gs.bulkInsertFromCSV("giongo.txt", getAssets(), getContentResolver());
-
-		// cws.dropTable();
-		cws.createTable();
-		cws.bulkInsertFromCSV("numbers.txt", getAssets(), getContentResolver());
-		cws.bulkInsertFromCSV("people_and_things.txt", getAssets(),
-				getContentResolver());
-		cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),
-				getContentResolver());
-		cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),
-				getContentResolver());
-		cws.bulkInsertFromCSV("extent_freq.txt", getAssets(),
-				getContentResolver());
-
-		grs.dropTable();
-		grs.createTable();
-		GrammarService.startCounting(getContentResolver());
-		gres.dropTable();
-		gres.createTable();
-		grs.bulkInsertFromCSV("grammar_n5.txt", 5, getAssets(),
-				getContentResolver());
-		us.dropTable();
-		us.createTable();*/
+		/*
+		 * vs.dropTable(); vs.createTable(); vs.bulkInsertFromCSV("N5.txt",
+		 * getAssets(), 5, getContentResolver()); vs.bulkInsertFromCSV("N4.txt",
+		 * getAssets(), 4, getContentResolver()); vs.bulkInsertFromCSV("N3.txt",
+		 * getAssets(), 3, getContentResolver()); vs.bulkInsertFromCSV("N3.txt",
+		 * getAssets(), 2, getContentResolver()); vs.bulkInsertFromCSV("N1.txt",
+		 * getAssets(), 1, getContentResolver());
+		 * 
+		 * // user us.dropTable(); us.createTable(); // test ts.dropTable();
+		 * qs.dropTable(); as.dropTable(); ts.createTable();
+		 * TestService.startCounting(getContentResolver()); qs.createTable();
+		 * QuestionService.startCounting(getContentResolver());
+		 * as.createTable(); ts.insertFromXml("level_def_test.xml", getAssets(),
+		 * getContentResolver()); ts.insertFromXml("mock_test_n5.xml",
+		 * getAssets(), getContentResolver());
+		 * 
+		 * /*GiongoService gs = new GiongoService(); // gs.dropTable();
+		 * gs.createTable(); // ges.dropTable();
+		 * GiongoService.startCounting(getContentResolver()); ges.createTable();
+		 * gs.bulkInsertFromCSV("giongo.txt", getAssets(),
+		 * getContentResolver());
+		 * 
+		 * // cws.dropTable(); cws.createTable();
+		 * cws.bulkInsertFromCSV("numbers.txt", getAssets(),
+		 * getContentResolver()); cws.bulkInsertFromCSV("people_and_things.txt",
+		 * getAssets(), getContentResolver());
+		 * cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),
+		 * getContentResolver()); cws.bulkInsertFromCSV("time_calendar.txt",
+		 * getAssets(), getContentResolver());
+		 * cws.bulkInsertFromCSV("extent_freq.txt", getAssets(),
+		 * getContentResolver());
+		 * 
+		 * grs.dropTable(); grs.createTable();
+		 * GrammarService.startCounting(getContentResolver()); gres.dropTable();
+		 * gres.createTable(); grs.bulkInsertFromCSV("grammar_n5.txt", 5,
+		 * getAssets(), getContentResolver()); us.dropTable(); us.createTable();
+		 */
 
 		// if it isn't first time when launching app - user exists in db
 		User currentUser = us.getUserWithCurrentLevel(App.cr);
@@ -192,7 +177,35 @@ public class App extends Application {
 			userInfo = currentUser;
 			us.update(userInfo, cr);
 		}
-
 	}
 
+	public static long[] getTimeTestLimits() {
+		long timeLimit1 = 0;
+		long timeLimit2= 0;
+		long timeLimit3= 0;
+		switch (userInfo.getIsCurrentLevel()) {
+		// in milliseconds
+		case 1:
+			timeLimit1 = 110 * 60 * 1000;
+			timeLimit2 = 0;
+			timeLimit3 = 60 * 60 * 1000;
+		case 2:
+			timeLimit1 = 105 * 60 * 1000;
+			timeLimit2 = 0;
+			timeLimit3 = 50 * 60 * 1000;
+		case 3:
+			timeLimit1 = 30 * 60 * 1000;
+			timeLimit2 = 70 * 60 * 1000;
+			timeLimit3 = 40 * 60 * 1000;
+		case 4:
+			timeLimit1 = 30 * 60 * 1000;
+			timeLimit2 = 60 * 60 * 1000;
+			timeLimit3 = 35 * 60 * 1000;
+		case 5:
+			timeLimit1 = 25 * 60 * 1000;
+			timeLimit2 = 50 * 60 * 1000;
+			timeLimit3 = 30 * 60 * 1000;
+		}
+		return new long[] { timeLimit1, timeLimit2, timeLimit3 };
+	}
 }

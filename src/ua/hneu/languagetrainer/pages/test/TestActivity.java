@@ -16,6 +16,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -23,9 +24,11 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.Chronometer.OnChronometerTickListener;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class TestActivity extends Activity {
 	ListView answersListView;
@@ -37,7 +40,7 @@ public class TestActivity extends Activity {
 	TextView isRight;
 	Button skipSection;
 	Chronometer chronometer;
-	
+
 	// custom adapter for ListView
 	ListViewAdapter adapter;
 	int answersNumber = 5;
@@ -49,6 +52,9 @@ public class TestActivity extends Activity {
 	Answer rightAnswer;
 	String testName = null;
 	TestPassing tp = App.tp;
+	// time limits for each section
+	long timeLimits[] = App.getTimeTestLimits();
+	int currentSection = 1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +75,48 @@ public class TestActivity extends Activity {
 		chronometer = (Chronometer) findViewById(R.id.chronometer);
 
 		chronometer.start();
-		//chronometer.set
+		chronometer
+				.setOnChronometerTickListener(new OnChronometerTickListener() {
+
+					@Override
+					public void onChronometerTick(Chronometer chronometer) {
+						boolean isElapsed = false;
+						long elapsedMillis = SystemClock.elapsedRealtime()
+								- chronometer.getBase()/1000;
+						if (App.userInfo.getLevel() == 1
+								|| App.userInfo.getLevel() == 2) {
+							// if it is 1 or 2 section and time is elapsed
+							if ((currentSection == 1 || currentSection == 2)
+									&& elapsedMillis <= timeLimits[0])
+								isElapsed = true;
+							// if it is 3 section and time is elapsed
+							if (currentSection == 3
+									&& elapsedMillis <= timeLimits[2])
+								isElapsed = true;
+						} else {
+							// if it is 1 section and time is elapsed
+							if (currentSection == 1
+									&& elapsedMillis <= timeLimits[0])
+								isElapsed = true;
+							// if it is 2 section and time is elapsed
+							if (currentSection == 2
+									&& elapsedMillis <= timeLimits[0])
+								isElapsed = true;
+							// if it is 3 section and time is elapsed
+							if (currentSection == 3
+									&& elapsedMillis <= timeLimits[2])
+								isElapsed = true;
+						}
+						if (isElapsed) {
+							// show toast, clear timer and go to next section
+							timeIsOver();
+							chronometer.setBase(SystemClock.elapsedRealtime());
+							chronometer.start();
+							toТextSection();
+						}
+					}
+				});
+
 		TestService ts = new TestService();
 		// getting and loading test by name
 		Bundle extras = getIntent().getExtras();
@@ -86,6 +133,10 @@ public class TestActivity extends Activity {
 		nextWord();
 	}
 
+	public void timeIsOver() {
+		Toast.makeText(this, getString(R.string.your_time_is_over), 300).show();
+	}
+
 	public void nextWord() {
 		// move pointer to next word
 		currentWordNumber++;
@@ -94,7 +145,15 @@ public class TestActivity extends Activity {
 		progressBar.setProgress((int) progress);
 		if (currentWordNumber >= t.getQuestions().size())
 			endTesting();
+
 		q = t.getQuestions().get(currentWordNumber);
+		// setting sections variable - vocabulary, reading and listening
+		if (q.getSection().equals("文字・語彙"))
+			currentSection = 1;
+		else if (q.getSection().equals("読解・文法"))
+			currentSection = 2;
+		else
+			currentSection = 3;
 		answers = q.getAnswers();
 		titleTextView.setText(q.getText());
 		titleTextView.setText(q.getTitle());
@@ -120,9 +179,9 @@ public class TestActivity extends Activity {
 				if (isLevelDef) {
 					tp.incrementScoreInVocGr(q.getWeight());
 				} else {
-					if (q.getSection().equals("文字・語彙"))
+					if (currentSection == 1)
 						tp.incrementScoreInVocGr(q.getWeight());
-					else if (q.getSection().equals("読解・文法"))
+					else if (currentSection == 2)
 						tp.incrementScoreInReading(q.getWeight());
 					else
 						tp.incrementScoreInListening(q.getWeight());
@@ -231,6 +290,22 @@ public class TestActivity extends Activity {
 
 	}
 
+	public void toТextSection() {
+		String section = q.getSection();
+		if (currentSection == 3)
+			endTesting();
+		else
+			while (true) {
+				String s = t.getQuestions().get(currentWordNumber).getSection();
+				if (!section.equals(s))
+					break;
+				else
+					currentWordNumber++;
+			}
+		currentWordNumber++;
+		nextWord();
+	}
+
 	public void skipSectionOnClick(View v) {
 		// dialog yes/no
 		DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
@@ -240,25 +315,8 @@ public class TestActivity extends Activity {
 				case DialogInterface.BUTTON_POSITIVE:
 					// Yes button clicked - increment currentWordNumber until
 					// question of next section
-					String section = q.getSection();
-					if (!q.getSection().equals("文字・語彙")
-							&& !q.getSection().equals("読解・文法"))
-						endTesting();
-					else
-						while (true) {
-							String s = t.getQuestions().get(currentWordNumber)
-									.getSection();
-							if (!section.equals(s))
-								break;
-							else
-								;
-							currentWordNumber++;
-						}
-					currentWordNumber++;
-					nextWord();
-
+					toТextSection();
 					break;
-
 				case DialogInterface.BUTTON_NEGATIVE:
 					// No button clicked - do nothing
 					break;

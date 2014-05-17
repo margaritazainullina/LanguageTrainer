@@ -16,12 +16,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <Chronometer
-        android:id="@+id/chronometer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Chronometer" />
-
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
@@ -32,27 +26,37 @@
             android:layout_height="wrap_content"
             android:gravity="left"
             android:text="sectionTextView"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="25sp" />
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView
-            android:id="@+id/taskTextView"
+        <Chronometer
+            android:id="@+id/chronometer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/sectionTextView"
-            android:text="taskTextView"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:gravity="right"
+            android:layout_toRightOf="@+id/sectionTextView" />
+    </RelativeLayout>
 
-        <TextView
-            android:id="@+id/titleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/taskTextView"
-            android:gravity="center"
-            android:text="titleTextView"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textSize="25sp" />
+    <TextView
+        android:id="@+id/taskTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/sectionTextView"
+        android:text="taskTextView"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/taskTextView"
+        android:gravity="center"
+        android:text="titleTextView"
+        android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
     </RelativeLayout>
 
     <TextView
@@ -61,8 +65,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="textTextView"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textSize="25sp" />
+        android:textAppearance="?android:attr/textAppearanceSmall"/>
 
     <ListView
         android:id="@+id/answersListView"

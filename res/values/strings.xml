@@ -90,5 +90,6 @@
     <string name="end_test_confirmation">Do you really want to end test?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="your_time_is_over">Your time is over!</string>
 
 </resources>

@@ -10,8 +10,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class TestResultActivity extends Activity {
 	TextView vocTextView;
@@ -110,5 +112,8 @@ public class TestResultActivity extends Activity {
 		Intent intent = new Intent(this, ItemListActivity.class);
 		startActivity(intent);
 	}
+	
 
+  
 }
+

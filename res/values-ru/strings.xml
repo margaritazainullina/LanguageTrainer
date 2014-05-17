@@ -89,5 +89,6 @@
     <string name="end_test_confirmation">Вы действительно хотите закончить тест?</string>
     <string name="yes">Да</string>
     <string name="no">Нет</string>
+    <string name="your_time_is_over">Время кончилось!</string>
 
 </resources>
