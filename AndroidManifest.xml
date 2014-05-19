@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="10"
+        android:minSdkVersion="11"
         android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -15,68 +15,68 @@
         android:name="ua.hneu.languagetrainer.App"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name" 
-        android:theme="@style/Green_dark">
-        
-        <provider 
+        android:label="@string/app_name"
+        android:theme="@style/Green_dark" >
+        <provider
             android:name="ua.hneu.languagetrainer.db.dao.VocabularyDAO"
-            android:authorities="ua.edu.hneu.languagetrainer.db.vocabularyprovider">   
-        </provider>         
-         <provider 
-            android:name="ua.hneu.languagetrainer.db.dao.UserDAO"
-            android:authorities="ua.edu.hneu.languagetrainer.db.userprovider">   
-        </provider>   
-        <provider 
-            android:name="ua.hneu.languagetrainer.db.dao.TestDAO"
-            android:authorities="ua.edu.hneu.languagetrainer.db.testprovider">   
-        </provider> 
-        <provider 
-            android:name="ua.hneu.languagetrainer.db.dao.QuestionDAO"
-            android:authorities="ua.edu.hneu.languagetrainer.db.questionprovider">   
-        </provider> 
-        <provider 
-            android:name="ua.hneu.languagetrainer.db.dao.AnswerDAO"
-            android:authorities="ua.edu.hneu.languagetrainer.db.answerprovider">   
-        </provider> 
-          <provider 
-            android:name="ua.hneu.languagetrainer.db.dao.CounterWordsDAO"
-            android:authorities="ua.edu.hneu.languagetrainer.db.counterwordsprovider">   
-        </provider>         
-         <provider 
-            android:name="ua.hneu.languagetrainer.db.dao.GiongoDAO"
-            android:authorities="ua.edu.hneu.languagetrainer.db.giongoprovider">   
-        </provider>   
-        <provider 
-            android:name="ua.hneu.languagetrainer.db.dao.GiongoExamplesDAO"
-            android:authorities="ua.edu.hneu.languagetrainer.db.giongoexamplesprovider">   
-        </provider> 
-        <provider 
-            android:name="ua.hneu.languagetrainer.db.dao.GrammarDAO"
-            android:authorities="ua.edu.hneu.languagetrainer.db.grammarprovider">   
-        </provider> 
-        <provider 
-            android:name="ua.hneu.languagetrainer.db.dao.GrammarExamplesDAO"
-            android:authorities="ua.edu.hneu.languagetrainer.db.grammarexamplesprovider">   
+            android:authorities="ua.edu.hneu.languagetrainer.db.vocabularyprovider" >
         </provider>
-          <activity
+        <provider
+            android:name="ua.hneu.languagetrainer.db.dao.UserDAO"
+            android:authorities="ua.edu.hneu.languagetrainer.db.userprovider" >
+        </provider>
+        <provider
+            android:name="ua.hneu.languagetrainer.db.dao.TestDAO"
+            android:authorities="ua.edu.hneu.languagetrainer.db.testprovider" >
+        </provider>
+        <provider
+            android:name="ua.hneu.languagetrainer.db.dao.QuestionDAO"
+            android:authorities="ua.edu.hneu.languagetrainer.db.questionprovider" >
+        </provider>
+        <provider
+            android:name="ua.hneu.languagetrainer.db.dao.AnswerDAO"
+            android:authorities="ua.edu.hneu.languagetrainer.db.answerprovider" >
+        </provider>
+        <provider
+            android:name="ua.hneu.languagetrainer.db.dao.CounterWordsDAO"
+            android:authorities="ua.edu.hneu.languagetrainer.db.counterwordsprovider" >
+        </provider>
+        <provider
+            android:name="ua.hneu.languagetrainer.db.dao.GiongoDAO"
+            android:authorities="ua.edu.hneu.languagetrainer.db.giongoprovider" >
+        </provider>
+        <provider
+            android:name="ua.hneu.languagetrainer.db.dao.GiongoExamplesDAO"
+            android:authorities="ua.edu.hneu.languagetrainer.db.giongoexamplesprovider" >
+        </provider>
+        <provider
+            android:name="ua.hneu.languagetrainer.db.dao.GrammarDAO"
+            android:authorities="ua.edu.hneu.languagetrainer.db.grammarprovider" >
+        </provider>
+        <provider
+            android:name="ua.hneu.languagetrainer.db.dao.GrammarExamplesDAO"
+            android:authorities="ua.edu.hneu.languagetrainer.db.grammarexamplesprovider" >
+        </provider>
+
+        <activity
             android:name="ua.hneu.languagetrainer.masterdetailflow.ItemListActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="ua.hneu.languagetrainer.masterdetailflow.ItemDetailActivity">
+        <activity android:name="ua.hneu.languagetrainer.masterdetailflow.ItemDetailActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ItemListActivity" />
         </activity>
-         <activity
+        <activity
             android:name="ua.hneu.languagetrainer.pages.GreetingActivity"
             android:label="@string/title_greeting" >
         </activity>
-         <activity
+        <activity
             android:name="ua.hneu.languagetrainer.pages.test.TestActivity"
             android:label="@string/title_level_def_test_activity" >
         </activity>
@@ -96,7 +96,7 @@
             android:name="ua.hneu.languagetrainer.pages.giongo.GiongoIntroductionActivity"
             android:label="@string/giongo" >
         </activity>
-         <activity
+        <activity
             android:name="ua.hneu.languagetrainer.pages.counterwords.CounterWordsIntroductionActivity"
             android:label="@string/counter_words" >
         </activity>
@@ -104,11 +104,11 @@
             android:name="ua.hneu.languagetrainer.pages.vocabulary.VocabularyResultActivity"
             android:label="@string/title_activity_word_practice_result" >
         </activity>
-         <activity
+        <activity
             android:name="ua.hneu.languagetrainer.pages.test.LevelDefTestResultActivity"
             android:label="@string/title_lev_def_test_result" >
         </activity>
-         <activity
+        <activity
             android:name="ua.hneu.languagetrainer.pages.test.TestResultActivity"
             android:label="@string/test_results" >
         </activity>
@@ -124,10 +124,10 @@
             android:name="ua.hneu.languagetrainer.pages.vocabulary.TranscriptionTestActivity"
             android:label="@string/title_transcription_test_activity" >
         </activity>
-         <activity
+        <activity
             android:name="ua.hneu.languagetrainer.pages.grammar.GrammarTestActivity"
             android:label="@string/title_activity_grammar" >
-        </activity> 
+        </activity>
         <activity
             android:name="ua.hneu.languagetrainer.pages.giongo.GiongoTestActivity"
             android:label="@string/giongo" >
@@ -136,18 +136,19 @@
             android:name="ua.hneu.languagetrainer.pages.counterwords.CounterWordsTestActivity"
             android:label="@string/counter_words" >
         </activity>
-         <activity
+        <activity
             android:name="ua.hneu.languagetrainer.pages.counterwords.CounterWordsResultActivity"
             android:label="@string/results" >
         </activity>
-         <activity
+        <activity
             android:name="ua.hneu.languagetrainer.pages.giongo.GiongoResultActivity"
             android:label="@string/results" >
         </activity>
-         <activity
+        <activity
             android:name="ua.hneu.languagetrainer.pages.grammar.GrammarResultActivity"
             android:label="@string/results" >
         </activity>
+          
     </application>
 
 </manifest>

@@ -37,7 +37,6 @@ public class TestActivityFragment extends Fragment {
 	public static final String ARG_ITEM_ID = "item_id";
 	TestService ts = new TestService();
 	public static String testName;
-	
 
 	public TestActivityFragment() {
 	}
@@ -80,7 +79,8 @@ public class TestActivityFragment extends Fragment {
 			if (App.userInfo.getLevel() == 4 || App.userInfo.getLevel() == 5) {
 				// if 4 or 5 level - Language Knowledge+Reading 120 points,
 				// listening 60
-				resultsPart1.add(entry.getValue()[0] + "/" + 120);
+				resultsPart1.add(entry.getValue()[0] + entry.getValue()[1]
+						+ "/" + 120);
 				resultsPart2.add("");
 				resultsPart3.add(entry.getValue()[2] + "/" + 60);
 			} else {

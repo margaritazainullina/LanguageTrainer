@@ -11,8 +11,8 @@ import ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity;
 import ua.hneu.languagetrainer.service.CounterWordsService;
 import ua.hneu.languagetrainer.service.GiongoService;
 import ua.hneu.languagetrainer.service.GrammarService;
-import ua.hneu.languagetrainer.service.TestService;
 import ua.hneu.languagetrainer.service.VocabularyService;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -139,10 +139,10 @@ public class ItemListActivity extends FragmentActivity implements
 			}
 			// if selected Tests
 			if (id == "mock_tests") {
-							getSupportFragmentManager().beginTransaction()
-									.replace(R.id.item_detail_container, testFragment)
-									.commit();
-						}
+				getSupportFragmentManager().beginTransaction()
+						.replace(R.id.item_detail_container, testFragment)
+						.commit();
+			}
 			// if selected counter words
 			if (id == "counter_words") {
 				getSupportFragmentManager()
@@ -155,6 +155,13 @@ public class ItemListActivity extends FragmentActivity implements
 				getSupportFragmentManager().beginTransaction()
 						.replace(R.id.item_detail_container, giongoFragment)
 						.commit();
+			}
+			// if selected settings
+			if (id == "settings") {
+				 getFragmentManager().beginTransaction().replace(R.id.item_detail_container,
+			                new SettingsFragment()).commit();
+				/*Intent detailIntent = new Intent(this, SettingsFragment.class);
+				startActivity(detailIntent);*/
 			}
 
 		} else {
@@ -207,10 +214,10 @@ public class ItemListActivity extends FragmentActivity implements
 		App.counterWordsDictionary = cws.createCurrentDictionary(
 				CounterWordsActivityFragment.selectedSection,
 				App.userInfo.getNumberOfEntriesInCurrentDict(), App.cr);
-		
-		  Intent intent = new Intent(this, CounterWordsIntroductionActivity.class);
-		  startActivity(intent);
-		 
+
+		Intent intent = new Intent(this, CounterWordsIntroductionActivity.class);
+		startActivity(intent);
+
 	}
 
 	public void onClickPracticeGiongo(View v) {
@@ -218,17 +225,17 @@ public class ItemListActivity extends FragmentActivity implements
 		GiongoService gs = new GiongoService();
 		App.giongoWordsDictionary = gs.createCurrentDictionary(
 				App.userInfo.getNumberOfEntriesInCurrentDict(), App.cr);
-		
+
 		Intent intent = new Intent(this, GiongoIntroductionActivity.class);
-		  startActivity(intent);
-		 
+		startActivity(intent);
+
 	}
-	
+
 	public void onClickPassTest(View v) {
 		// load test
 		Intent intent = new Intent(this, TestActivity.class);
 		intent.putExtra("testName", TestActivityFragment.testName);
 		startActivity(intent);
-		 
+
 	}
 }

@@ -87,24 +87,24 @@ public class TestActivity extends Activity {
 								|| App.userInfo.getLevel() == 2) {
 							// if it is 1 or 2 section and time is elapsed
 							if ((currentSection == 1 || currentSection == 2)
-									&& elapsedMillis <= timeLimits[0])
+									&& elapsedMillis >= timeLimits[0])
 								isElapsed = true;
 							// if it is 3 section and time is elapsed
 							if (currentSection == 3
-									&& elapsedMillis <= timeLimits[2])
+									&& elapsedMillis >= timeLimits[2])
 								isElapsed = true;
 						} else {
 							// if it is 1 section and time is elapsed
 							if (currentSection == 1
-									&& elapsedMillis <= timeLimits[0])
+									&& elapsedMillis >= timeLimits[0])
 								isElapsed = true;
 							// if it is 2 section and time is elapsed
 							if (currentSection == 2
-									&& elapsedMillis <= timeLimits[0])
+									&& elapsedMillis >= timeLimits[0])
 								isElapsed = true;
 							// if it is 3 section and time is elapsed
 							if (currentSection == 3
-									&& elapsedMillis <= timeLimits[2])
+									&& elapsedMillis >= timeLimits[2])
 								isElapsed = true;
 						}
 						if (isElapsed) {

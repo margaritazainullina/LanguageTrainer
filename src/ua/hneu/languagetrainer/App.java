@@ -27,6 +27,8 @@ import ua.hneu.languagetrainer.service.VocabularyService;
 import android.app.Application;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 
 public class App extends Application {
 
@@ -80,6 +82,12 @@ public class App extends Application {
 		else
 			lang = Languages.ENG;
 
+		//set values in settings
+		/*SharedPreferences settings = getSharedPreferences("settings", MODE_PRIVATE);
+		Editor editor = settings.edit();
+		editor.putInt("numOfEntries", 9);
+		editor.apply();*/
+		
 		// set localized menu elements
 		MainMenuValues.addItem(new MainMenuValues.MenuItem("vocabulary", this
 				.getString(R.string.vocabulary)));
@@ -140,12 +148,7 @@ public class App extends Application {
 		User currentUser = us.getUserWithCurrentLevel(App.cr);
 		if (currentUser != null) {
 			// fetch user data from db
-			userInfo = currentUser;
-			// if level is 5 or 4 - show romaji in tests
-			if (userInfo.getLevel() == 4 || userInfo.getLevel() == 5)
-				isShowRomaji = true;
-			else
-				isShowRomaji = false;
+			userInfo = currentUser;			
 
 		}
 		App.context = getApplicationContext();
@@ -202,7 +205,8 @@ public class App extends Application {
 			timeLimit2 = 60 * 60 * 1000;
 			timeLimit3 = 35 * 60 * 1000;
 		case 5:
-			timeLimit1 = 25 * 60 * 1000;
+			timeLimit1 = 2 * 60 * 1000;
+			//timeLimit1 = 25 * 60 * 1000;
 			timeLimit2 = 50 * 60 * 1000;
 			timeLimit3 = 30 * 60 * 1000;
 		}

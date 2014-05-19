@@ -91,5 +91,19 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="your_time_is_over">Your time is over!</string>
+    <!-- Settings -->
+    <string name="general">General</string>
+    <string name="level_settings">Level settings</string>
+    <string name="level_settings_desc">JLPT level N5-N1</string>
+    <string name="transcription_settings">Transcription settings</string>
+    <string name="transcription_settings_desc">Show/hide transcription</string>
+    <string name="learning_settings">Learning settings</string>
+    <string name="learning_settings_desc">Number of entries and repetations</string>
+    <string name="show_romaji">Show romaji</string>
+    <string name="always">Always</string>
+    <string name="only_4_5">Only for levels N4 and N5</string>
+    <string name="never">Never (except for phrases without hiragana)</string>
+    <string name="num_of_entries">Number of entries in exercise iteration</string>
+    <string name="num_of_repetations">Number of repetation of entry, after which entry is considered to be learned</string>
 
 </resources>

@@ -90,5 +90,19 @@
     <string name="yes">Да</string>
     <string name="no">Нет</string>
     <string name="your_time_is_over">Время кончилось!</string>
+    <!-- Settings -->
+    <string name="general">Общие</string>
+    <string name="level_settings">Уровень</string>
+    <string name="level_settings_desc">Уровень JLPT: N5-N1</string>
+    <string name="transcription_settings">Транскрипция</string>
+    <string name="transcription_settings_desc">Показать/скрыть транскрипцию</string>
+    <string name="learning_settings">Настройки изучения</string>
+    <string name="learning_settings_desc">Количество записей и повторений</string>
+    <string name="show_romaji">Показывать ромадзи</string>
+    <string name="always">Всегда</string>
+    <string name="only_4_5">Только для уровней N4 и N5</string>
+    <string name="never">Никогда (за исключнием фраз, без транскрипции хираганой)</string>
+    <string name="num_of_entries">Количество записей в итерации заданий</string>
+    <string name="num_of_repetations">Количество повторений слова, после которого оно считается выученным</string>
 
 </resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+      <string-array name="level">
+        <item name="1">N1</item>
+        <item name="2">N2</item>
+        <item name="3">N3</item>
+        <item name="4">N4</item>
+        <item name="5">N5</item>
+    </string-array>
+     <string-array name="levelValues">
+        <item name="1">N1</item>
+        <item name="2">N2</item>
+        <item name="3">N3</item>
+        <item name="4">N4</item>
+        <item name="5">N5</item>
+    </string-array>
+     <string-array name="showRomaji">
+        <item name="always">Always</item>
+        <item name="only_4_5">Only for levels N4 and N5</item>
+        <item name="never">Never (except for phrases without hiragana)</item>
+    </string-array>
+     <string-array name="showRomajiValues">
+        <item name="always">Always</item>
+        <item name="only_4_5">Only for levels N4 and N5</item>
+        <item name="never">Never (except for phrases without hiragana)</item>
+    </string-array>
+    
+</resources>

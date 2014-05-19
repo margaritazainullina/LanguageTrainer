@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/general" >
+        <ListPreference
+            android:entries="@array/level"
+            android:entryValues="@array/levelValues"
+            android:key="level"
+            android:summary="@string/level_settings_desc"
+            android:title="Level" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/show_romaji" >
+        <ListPreference
+            android:entries="@array/showRomaji"
+            android:entryValues="@array/showRomajiValues"
+            android:key="showRomaji"
+            android:summary="@string/transcription_settings_desc"
+            android:title="Show romaji" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:summary="@string/learning_settings_desc"
+        android:title="@string/learning_settings" >
+        <EditTextPreference
+            android:inputType="number"
+            android:key="numOfEntries"
+            android:title="@string/num_of_entries" />
+         <EditTextPreference
+            android:inputType="number"
+            android:key="numOfRepetations"
+            android:title="@string/num_of_repetations" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
