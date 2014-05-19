@@ -125,7 +125,7 @@ public class CounterWordsTestActivity extends Activity {
 				if (!ifWasWrong)
 					rightAnswer.setLearnedPercentage(rightAnswer
 							.getLearnedPercentage()
-							+ App.userInfo.getPercentageIncrement());
+							+ App.getPercentageIncrement());
 
 				if (rightAnswer.getLearnedPercentage() == 1) {
 					App.cwp.makeWordLearned(rightAnswer, getContentResolver());

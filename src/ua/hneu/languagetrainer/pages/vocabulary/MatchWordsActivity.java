@@ -188,7 +188,7 @@ public class MatchWordsActivity extends Activity {
 				// increment percentage
 				currentEntry.setLearnedPercentage(currentEntry
 						.getLearnedPercentage()
-						+ App.userInfo.getPercentageIncrement());
+						+ App.getPercentageIncrement());
 				// increment number of correct answers in current session
 				App.vp.incrementNumberOfCorrectAnswersInMatching();
 				// if word becomes learned,

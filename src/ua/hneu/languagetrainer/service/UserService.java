@@ -21,9 +21,6 @@ public class UserService {
 		values.put(UserDAO.ALLGIONGO, u.getNumberOfGiongoInLevel());
 		values.put(UserDAO.LEARNEDCWORDS, u.getLearnedCounterWords());
 		values.put(UserDAO.ALLCWORDS, u.getNumberOfCounterWordsInLevel());
-		values.put(UserDAO.CURDICTSIZE, u.getNumberOfEntriesInCurrentDict());
-		values.put(UserDAO.REPETATIONNUM,
-				u.getNumberOfRepeatationsForLearning());
 		values.put(UserDAO.ISLEVELLAUNCHEDFIRSTTIME,
 				u.getIsLevelLaunchedFirstTime());
 		values.put(UserDAO.ISCURRENTLEVEL, u.getIsCurrentLevel());
@@ -41,9 +38,6 @@ public class UserService {
 		values.put(UserDAO.ALLGIONGO, u.getNumberOfGiongoInLevel());
 		values.put(UserDAO.LEARNEDCWORDS, u.getLearnedCounterWords());
 		values.put(UserDAO.ALLCWORDS, u.getNumberOfCounterWordsInLevel());
-		values.put(UserDAO.CURDICTSIZE, u.getNumberOfEntriesInCurrentDict());
-		values.put(UserDAO.REPETATIONNUM,
-				u.getNumberOfRepeatationsForLearning());
 		values.put(UserDAO.ISLEVELLAUNCHEDFIRSTTIME,
 				u.getIsLevelLaunchedFirstTime());
 		values.put(UserDAO.ISCURRENTLEVEL, u.getIsCurrentLevel());
@@ -63,8 +57,7 @@ public class UserService {
 				+ " INTEGER, " + UserDAO.ALLGRAMMAR + " INTEGER, "
 				+ UserDAO.LEARNEDGIONGO + " INTEGER," + UserDAO.ALLGIONGO
 				+ " INTEGER, " + UserDAO.LEARNEDCWORDS + " INTEGER,"
-				+ UserDAO.ALLCWORDS + " INTEGER," + UserDAO.CURDICTSIZE
-				+ " INTEGER," + UserDAO.REPETATIONNUM + " INTEGER,"
+				+ UserDAO.ALLCWORDS + " INTEGER,"
 				+ UserDAO.ISLEVELLAUNCHEDFIRSTTIME + " INTEGER,"
 				+ UserDAO.ISCURRENTLEVEL + " INTEGER);");
 	}
@@ -79,9 +72,8 @@ public class UserService {
 		String[] selectionArgs = { UserDAO.ID, UserDAO.LEVEL,
 				UserDAO.LEARNEDVOC, UserDAO.ALLVOC, UserDAO.LEARNEDGRAMMAR,
 				UserDAO.ALLGRAMMAR, UserDAO.LEARNEDGIONGO, UserDAO.ALLGIONGO,
-				UserDAO.LEARNEDCWORDS, UserDAO.ALLCWORDS, UserDAO.CURDICTSIZE,
-				UserDAO.REPETATIONNUM, UserDAO.ISLEVELLAUNCHEDFIRSTTIME,
-				UserDAO.ISCURRENTLEVEL };
+				UserDAO.LEARNEDCWORDS, UserDAO.ALLCWORDS,
+				UserDAO.ISLEVELLAUNCHEDFIRSTTIME, UserDAO.ISCURRENTLEVEL };
 
 		Cursor c = cr.query(UserDAO.CONTENT_URI, selectionArgs, UserDAO.LEVEL
 				+ "=" + level, null, null, null);
@@ -94,8 +86,6 @@ public class UserService {
 		int numberOfGiongoInLevel = 0;
 		int learnedCounterWords = 0;
 		int numberOfCounterWordsInLevel = 0;
-		int numberOfEntriesInCurrentDict = 0;
-		int numberOfRepeatationsForLearning = 0;
 		int isLevelLaunchedFirstTime = 1;
 		int isCurrentLevel = 1;
 		c.moveToFirst();
@@ -111,10 +101,8 @@ public class UserService {
 			numberOfGiongoInLevel = c.getInt(7);
 			learnedCounterWords = c.getInt(8);
 			numberOfCounterWordsInLevel = c.getInt(9);
-			numberOfEntriesInCurrentDict = c.getInt(10);
-			numberOfRepeatationsForLearning = c.getInt(11);
-			isLevelLaunchedFirstTime = c.getInt(12);
-			isCurrentLevel = c.getInt(13);
+			isLevelLaunchedFirstTime = c.getInt(10);
+			isCurrentLevel = c.getInt(11);
 			c.moveToNext();
 		}
 		c.close();
@@ -123,8 +111,7 @@ public class UserService {
 					numberOfVocabularyInLevel, learnedGrammar,
 					numberOfGrammarInLevel, learnedGiongo,
 					numberOfGiongoInLevel, learnedCounterWords,
-					numberOfCounterWordsInLevel, numberOfEntriesInCurrentDict,
-					numberOfRepeatationsForLearning, isLevelLaunchedFirstTime,
+					numberOfCounterWordsInLevel, isLevelLaunchedFirstTime,
 					isCurrentLevel);
 			return u;
 		} else
@@ -146,9 +133,8 @@ public class UserService {
 		String[] selectionArgs = { UserDAO.ID, UserDAO.LEVEL,
 				UserDAO.LEARNEDVOC, UserDAO.ALLVOC, UserDAO.LEARNEDGRAMMAR,
 				UserDAO.ALLGRAMMAR, UserDAO.LEARNEDGIONGO, UserDAO.ALLGIONGO,
-				UserDAO.LEARNEDCWORDS, UserDAO.ALLCWORDS, UserDAO.CURDICTSIZE,
-				UserDAO.REPETATIONNUM, UserDAO.ISLEVELLAUNCHEDFIRSTTIME,
-				UserDAO.ISCURRENTLEVEL };
+				UserDAO.LEARNEDCWORDS, UserDAO.ALLCWORDS,
+				UserDAO.ISLEVELLAUNCHEDFIRSTTIME, UserDAO.ISCURRENTLEVEL };
 
 		Cursor c = cr.query(UserDAO.CONTENT_URI, selectionArgs,
 				UserDAO.ISCURRENTLEVEL + "=" + 1, null, null, null);
@@ -162,8 +148,6 @@ public class UserService {
 		int numberOfGiongoInLevel = 0;
 		int learnedCounterWords = 0;
 		int numberOfCounterWordsInLevel = 0;
-		int numberOfEntriesInCurrentDict = 0;
-		int numberOfRepeatationsForLearning = 0;
 		int isLevelLaunchedFirstTime = 1;
 		int isCurrentLevel = 1;
 		c.moveToFirst();
@@ -180,10 +164,8 @@ public class UserService {
 			numberOfGiongoInLevel = c.getInt(7);
 			learnedCounterWords = c.getInt(8);
 			numberOfCounterWordsInLevel = c.getInt(9);
-			numberOfEntriesInCurrentDict = c.getInt(10);
-			numberOfRepeatationsForLearning = c.getInt(11);
-			isLevelLaunchedFirstTime = c.getInt(12);
-			isCurrentLevel = c.getInt(13);
+			isLevelLaunchedFirstTime = c.getInt(10);
+			isCurrentLevel = c.getInt(11);
 			c.moveToNext();
 		}
 		c.close();
@@ -192,11 +174,23 @@ public class UserService {
 					numberOfVocabularyInLevel, learnedGrammar,
 					numberOfGrammarInLevel, learnedAudio,
 					numberOfGiongoInLevel, learnedCounterWords,
-					numberOfCounterWordsInLevel, numberOfEntriesInCurrentDict,
-					numberOfRepeatationsForLearning, isLevelLaunchedFirstTime,
+					numberOfCounterWordsInLevel, isLevelLaunchedFirstTime,
 					isCurrentLevel);
 			return u;
 		} else
 			return null;
+	}
+
+	public void setAsInactiveOtherLevels(int level, ContentResolver cr) {
+		for (int i = 1; i < 6; i++) {
+			User u = selectUser(i, cr);
+			if (u != null && i != level) {
+				u.setIsCurrentLevel(0);
+				update(u, cr);
+			}
+		}
+		User u = selectUser(level, cr);
+		u.setIsCurrentLevel(1);
+		update(u, cr);
 	}
 }

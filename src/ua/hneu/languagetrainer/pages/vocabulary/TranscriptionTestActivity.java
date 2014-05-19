@@ -50,8 +50,7 @@ public class TranscriptionTestActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_translation_transcription_cw_test);
 		App.vocabularyDictionary
-				.addEntriesToDictionaryAndGetOnlyWithKanji(App.userInfo
-						.getNumberOfEntriesInCurrentDict());
+				.addEntriesToDictionaryAndGetOnlyWithKanji(App.numberOfEntriesInCurrentDict);
 
 		// Initialize
 		wordTextView = (TextView) findViewById(R.id.wordTextView);
@@ -158,7 +157,7 @@ public class TranscriptionTestActivity extends Activity {
 				if (!ifWasWrong)
 					rightAnswer.setLearnedPercentage(rightAnswer
 							.getLearnedPercentage()
-							+ App.userInfo.getPercentageIncrement());
+							+ App.getPercentageIncrement());
 
 				if (rightAnswer.getLearnedPercentage() == 1) {
 					App.vp.makeWordLearned(rightAnswer, getContentResolver(),

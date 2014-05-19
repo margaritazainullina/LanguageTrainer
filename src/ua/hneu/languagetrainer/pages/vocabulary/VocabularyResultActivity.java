@@ -5,12 +5,14 @@ import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.masterdetailflow.ItemListActivity;
 import ua.hneu.languagetrainer.model.User;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class VocabularyResultActivity extends Activity {
 	TextView learnedWordsTextView;
@@ -20,6 +22,7 @@ public class VocabularyResultActivity extends Activity {
 	TextView cautionTextView;
 	TextView mistakesTextView;
 
+	@SuppressLint("ShowToast")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -123,6 +126,9 @@ public class VocabularyResultActivity extends Activity {
 
 		// clear information about passing
 		App.vp.clearInfo();
+		if(App.isAllLearned())
+			Toast.makeText(this, this.getString(R.string.congratulations), 500);
+		
 	}
 
 	public void buttonRepeatTrainingOnClick(View v) {

@@ -148,7 +148,10 @@
             android:name="ua.hneu.languagetrainer.pages.grammar.GrammarResultActivity"
             android:label="@string/results" >
         </activity>
-          
+          <activity
+            android:name="ua.hneu.languagetrainer.pages.SettingsActivity"
+            android:label="@string/settings" >
+        </activity>
     </application>
 
 </manifest>

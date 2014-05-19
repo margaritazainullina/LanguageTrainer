@@ -143,7 +143,7 @@ public class TranslationTestActivity extends Activity {
 				if (!ifWasWrong)
 					rightAnswer.setLearnedPercentage(rightAnswer
 							.getLearnedPercentage()
-							+ App.userInfo.getPercentageIncrement());
+							+ App.getPercentageIncrement());
 
 				if (rightAnswer.getLearnedPercentage() == 1) {
 					App.vp.makeWordLearned(rightAnswer, getContentResolver(),

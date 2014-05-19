@@ -1,14 +1,15 @@
-package ua.hneu.languagetrainer.masterdetailflow;
+package ua.hneu.languagetrainer.pages;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
-import android.preference.Preference;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 
-public class SettingsFragment extends PreferenceFragment implements
+public class SettingsActivity extends PreferenceActivity implements
 		OnSharedPreferenceChangeListener {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -20,15 +21,22 @@ public class SettingsFragment extends PreferenceFragment implements
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
 			String key) {
-
+		SharedPreferences settings = getSharedPreferences("appSettings",
+				MODE_PRIVATE);
+		Editor editor = settings.edit();
 		if (key.equals("level")) {
-			int level = sharedPreferences.getInt(key, 5);
-			App.goToLevel(level);
+			String levelStr = sharedPreferences.getString(key, "N5");
+			levelStr = levelStr.replace("N", "");
+			int level = Integer.parseInt(levelStr);
+			if (level != App.userInfo.getLevel())
+				App.goToLevel(level);
+			editor.putInt("level", level);
 		}
 		if (key.equals("showRomaji")) {
 			String value = sharedPreferences.getString(key, "only_4_5");
 			if (value.equals("always")) {
 				App.isShowRomaji = true;
+				editor.putString("showRomaji", value);
 			} else if (value.equals("only_4_5")) {
 				if (App.userInfo.getLevel() == 4
 						|| App.userInfo.getLevel() == 5)
@@ -42,13 +50,16 @@ public class SettingsFragment extends PreferenceFragment implements
 		if (key.equals("numOfEntries")) {
 			String s = sharedPreferences.getString(key, "7");
 			int num = Integer.parseInt(s);
-			App.userInfo.setNumberOfEntriesInCurrentDict(num);
+			editor.putInt("numOfEntries", num);
+			App.numberOfEntriesInCurrentDict = num;
 		}
 		if (key.equals("numOfRepetations")) {
 			String s = sharedPreferences.getString(key, "7");
 			int num = Integer.parseInt(s);
-			App.userInfo.setNumberOfRepeatationsForLearning(num);
+			editor.putInt("numOfRepetations", num);
+			App.numberOfRepeatationsForLearning = num;
 		}
+		editor.apply();
 	}
 
 	@Override

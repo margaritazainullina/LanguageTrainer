@@ -66,8 +66,7 @@ public class GiongoPassing {
 		incrementNumberOfCorrectAnswers();
 		App.giongoWordsDictionary.remove(g);
 		// add entries to current dictionary to match target size
-		App.grammarDictionary.addEntriesToDictionaryAndGet(App.userInfo
-				.getNumberOfEntriesInCurrentDict());
+		App.grammarDictionary.addEntriesToDictionaryAndGet(App.numberOfEntriesInCurrentDict);
 		// update info in vocabulary table
 		App.gs.update(g, cr);
 

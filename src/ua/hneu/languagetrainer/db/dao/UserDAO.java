@@ -27,8 +27,6 @@ public class UserDAO extends ContentProvider {
 	public static final String ALLGIONGO = "numberOfGiongoInLevel";
 	public static final String LEARNEDCWORDS = "learnedCounterWords";
 	public static final String ALLCWORDS = "numberOfCounterWordsInLevel";
-	public static final String CURDICTSIZE = "numberOfentriesInCurrentDict";	
-	public static final String REPETATIONNUM = "numberOfRepeatationsForLearning";
 	public static final String ISLEVELLAUNCHEDFIRSTTIME = "isLevelLaunchedFirstTime";	
 	public static final String ISCURRENTLEVEL = "isCurrentLevel";	
 
@@ -61,8 +59,6 @@ public class UserDAO extends ContentProvider {
 		mContactMap.put(ALLGIONGO, ALLGIONGO);
 		mContactMap.put(LEARNEDCWORDS, LEARNEDCWORDS);
 		mContactMap.put(ALLCWORDS, ALLCWORDS);
-		mContactMap.put(CURDICTSIZE, CURDICTSIZE);
-		mContactMap.put(REPETATIONNUM, REPETATIONNUM);
 		mContactMap.put(ISLEVELLAUNCHEDFIRSTTIME, ISLEVELLAUNCHEDFIRSTTIME);
 		mContactMap.put(ISCURRENTLEVEL, ISCURRENTLEVEL);
 	}

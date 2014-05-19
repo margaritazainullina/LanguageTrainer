@@ -25,11 +25,7 @@ public class GrammarActivityFragment extends Fragment {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		if (getArguments().containsKey(ARG_ITEM_ID)) {
-			mItem = MainMenuValues.ITEM_MAP.get(getArguments().getString(
-					ARG_ITEM_ID));
-		}
+		super.onCreate(savedInstanceState);		
 	}
 
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1)
@@ -46,7 +42,6 @@ public class GrammarActivityFragment extends Fragment {
 				"GrammarActivityFragment.onCreateView()");
 
 		// Show the dummy content as text in a TextView.
-		if (mItem != null) {
 			int learned = App.userInfo.getLearnedGrammar();
 			int all = App.userInfo.getNumberOfGrammarInLevel();
 
@@ -58,7 +53,6 @@ public class GrammarActivityFragment extends Fragment {
 
 			infoTextView.setText(info);
 			progressBar.setProgress(learnedPersentage);
-		}
 		return rootView;
 	}
 }

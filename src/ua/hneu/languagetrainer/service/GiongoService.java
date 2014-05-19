@@ -62,7 +62,7 @@ public class GiongoService {
 		numberOfEnteries = getNumberOfGiongo(contentResolver) + 1;
 	}
 
-	private static int getNumberOfGiongo(ContentResolver cr) {
+	public static int getNumberOfGiongo(ContentResolver cr) {
 		Cursor countCursor = cr.query(GiongoDAO.CONTENT_URI,
 				new String[] { "count(*) AS count" }, null + "", null, null);
 		countCursor.moveToFirst();
@@ -207,7 +207,7 @@ public class GiongoService {
 		// if words have never been showed - set entries randomly
 		if (App.userInfo.isLevelLaunchedFirstTime == 1) {
 			all.sortRandomly();
-			for (int i = 0; i < App.userInfo.getNumberOfEntriesInCurrentDict(); i++) {
+			for (int i = 0; i < App.numberOfEntriesInCurrentDict; i++) {
 				Giongo e = all.get(i);
 				if (e.getLearnedPercentage() != 1)
 					current.add(e);
@@ -217,8 +217,7 @@ public class GiongoService {
 			// get last elements
 			all.sortByLastViewedTime();
 			int i = all.size() - 1;
-			while (current.size() < App.userInfo
-					.getNumberOfEntriesInCurrentDict()) {
+			while (current.size() < App.numberOfEntriesInCurrentDict) {
 				Giongo e = all.get(i);
 				if (e.getLearnedPercentage() != 1)
 					current.add(e);
@@ -228,15 +227,7 @@ public class GiongoService {
 		}
 		return current;
 	}
-
-	public int getNumberOfGiongo(int level, ContentResolver contentResolver) {
-		Cursor countCursor = contentResolver.query(GiongoDAO.CONTENT_URI,
-				new String[] { "count(*) AS count" }, null, null, null);
-		countCursor.moveToFirst();
-		int count = countCursor.getInt(0);
-		countCursor.close();
-		return count;
-	}
+	
 
 }
 

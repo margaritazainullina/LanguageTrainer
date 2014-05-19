@@ -6,6 +6,11 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Random;
+import java.util.Set;
+import java.util.Map.Entry;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -16,6 +21,8 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 import ua.hneu.languagetrainer.db.dao.TestDAO;
+import ua.hneu.languagetrainer.model.other.Giongo;
+import ua.hneu.languagetrainer.model.other.GiongoExample;
 import ua.hneu.languagetrainer.model.tests.Answer;
 import ua.hneu.languagetrainer.model.tests.Question;
 import ua.hneu.languagetrainer.model.tests.Test;
@@ -198,6 +205,34 @@ public class TestService {
 			c.moveToNext();
 		}
 		return t;
+	}
+
+	public boolean isAllTestsPassed(ContentResolver cr, int level) {
+		ArrayList<Test> tests = getTestsByLevel(level, cr);
+		for (Test test : tests) {
+			if (!test.isPassed())
+				return false;
+		}
+		return true;
+	}
+
+	private ArrayList<Test> getTestsByLevel(int level, ContentResolver cr) {
+		ArrayList<Test> tests = new ArrayList<Test>();
+		String[] col = { TestDAO.ID, TestDAO.LEVEL, TestDAO.NAME };
+		Cursor c = cr.query(TestDAO.CONTENT_URI, col, TestDAO.LEVEL + "="
+				+ level, null, null, null);
+		c.moveToFirst();
+		int id = 0;
+		String name = "";
+		ArrayList<Question> q;
+		while (!c.isAfterLast()) {
+			id = c.getInt(0);
+			name = c.getString(3);
+			q = qs.getQuestionsByTestId(id, cr);
+			tests.add(new Test(q, level, name));
+			c.moveToNext();
+		}
+		return tests;
 	}
 
 	@SuppressLint("NewApi")

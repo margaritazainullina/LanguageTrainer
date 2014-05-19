@@ -194,7 +194,6 @@ public class VocabularyService {
 					transcription, romaji, translations, translationsRus,
 					0, "", 0, color);
 			this.insert(de, cr);
-			Log.i("BulkInsertFromCSV", "insetred: " + de);
 		}
 	}
 
@@ -206,7 +205,7 @@ public class VocabularyService {
 		// if words have never been showed - set entries randomly
 		if (App.userInfo.isLevelLaunchedFirstTime == 1) {
 			all.sortRandomly();
-			for (int i = 0; i < App.userInfo.getNumberOfEntriesInCurrentDict(); i++) {
+			for (int i = 0; i < App.numberOfEntriesInCurrentDict; i++) {
 				VocabularyEntry e = all.get(i);
 				if (e.getLearnedPercentage() != 1)
 					current.add(e);
@@ -216,8 +215,7 @@ public class VocabularyService {
 			// get last elements
 			all.sortByLastViewedTime();
 			int i = all.size() - 1;
-			while (current.size() < App.userInfo
-					.getNumberOfEntriesInCurrentDict()) {
+			while (current.size() < App.numberOfEntriesInCurrentDict) {
 				VocabularyEntry e = all.get(i);
 				if (e.getLearnedPercentage() != 1)
 					current.add(e);

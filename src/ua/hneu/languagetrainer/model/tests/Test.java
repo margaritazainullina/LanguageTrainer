@@ -2,6 +2,10 @@ package ua.hneu.languagetrainer.model.tests;
 
 import java.util.ArrayList;
 
+import ua.hneu.edu.languagetrainer.R;
+import ua.hneu.languagetrainer.App;
+import android.view.View;
+
 public class Test {
 	private int id;
 	private ArrayList<Question> questions;
@@ -10,7 +14,7 @@ public class Test {
 	private int pointsPart1;
 	private int pointsPart2;
 	private int pointsPart3;
-	
+
 	public int getId() {
 		return id;
 	}
@@ -47,7 +51,7 @@ public class Test {
 	}
 
 	public Test() {
-		questions=new ArrayList<Question>();
+		questions = new ArrayList<Question>();
 	}
 
 	public void addQuestion(Question q) {
@@ -84,5 +88,38 @@ public class Test {
 
 	public String getName() {
 		return name;
-	}	
+	}
+
+	public boolean isPassed() {
+		boolean passed = true;
+		if (level == 4 || level == 5) {
+			if (pointsPart1 + pointsPart2 < 38)
+				passed = false;
+			if (pointsPart3 < 19)
+				passed = false;
+			if (App.userInfo.getLevel() == 4)
+				if (pointsPart1 + pointsPart2 + pointsPart3 < 90)
+					passed = false;
+			if (App.userInfo.getLevel() == 5)
+				if (pointsPart1 + pointsPart2 + pointsPart3 < 80)
+					passed = false;
+		} else {
+			if (pointsPart1 < 19)
+				passed = false;
+			if (pointsPart2 < 19)
+				passed = false;
+			if (pointsPart3 < 19)
+				passed = false;
+			if (App.userInfo.getLevel() == 3)
+				if (pointsPart1 + pointsPart2 + pointsPart3 < 95)
+					passed = false;
+			if (App.userInfo.getLevel() == 2)
+				if (pointsPart1 + pointsPart2 + pointsPart3 < 90)
+					passed = false;
+			if (App.userInfo.getLevel() == 1)
+				if (pointsPart1 + pointsPart2 + pointsPart3 < 100)
+					passed = false;
+		}
+		return passed;
+	}
 }

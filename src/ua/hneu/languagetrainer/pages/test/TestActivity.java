@@ -53,15 +53,12 @@ public class TestActivity extends Activity {
 	String testName = null;
 	TestPassing tp = App.tp;
 	// time limits for each section
-	long timeLimits[] = App.getTimeTestLimits();
+	long timeLimits[];
 	int currentSection = 1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// clear test passing instance to clear previous results
-		tp.clearInfo();
-
 		setContentView(R.layout.activity_test);
 		// Initialize
 		sectionTextView = (TextView) findViewById(R.id.sectionTextView);
@@ -73,56 +70,68 @@ public class TestActivity extends Activity {
 		isRight = (TextView) findViewById(R.id.isCorrectTextView);
 		skipSection = (Button) findViewById(R.id.buttonSkipSection);
 		chronometer = (Chronometer) findViewById(R.id.chronometer);
-
-		chronometer.start();
-		chronometer
-				.setOnChronometerTickListener(new OnChronometerTickListener() {
-
-					@Override
-					public void onChronometerTick(Chronometer chronometer) {
-						boolean isElapsed = false;
-						long elapsedMillis = SystemClock.elapsedRealtime()
-								- chronometer.getBase()/1000;
-						if (App.userInfo.getLevel() == 1
-								|| App.userInfo.getLevel() == 2) {
-							// if it is 1 or 2 section and time is elapsed
-							if ((currentSection == 1 || currentSection == 2)
-									&& elapsedMillis >= timeLimits[0])
-								isElapsed = true;
-							// if it is 3 section and time is elapsed
-							if (currentSection == 3
-									&& elapsedMillis >= timeLimits[2])
-								isElapsed = true;
-						} else {
-							// if it is 1 section and time is elapsed
-							if (currentSection == 1
-									&& elapsedMillis >= timeLimits[0])
-								isElapsed = true;
-							// if it is 2 section and time is elapsed
-							if (currentSection == 2
-									&& elapsedMillis >= timeLimits[0])
-								isElapsed = true;
-							// if it is 3 section and time is elapsed
-							if (currentSection == 3
-									&& elapsedMillis >= timeLimits[2])
-								isElapsed = true;
-						}
-						if (isElapsed) {
-							// show toast, clear timer and go to next section
-							timeIsOver();
-							chronometer.setBase(SystemClock.elapsedRealtime());
-							chronometer.start();
-							toТextSection();
-						}
-					}
-				});
-
-		TestService ts = new TestService();
-		// getting and loading test by name
+		// clear test passing instance to clear previous results
+		tp.clearInfo();
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
 			testName = extras.getString("testName");
 		}
+		// if it's a level definition test hide chronometer
+		// else start count and set time limits
+		if (!testName.equals("level_def")) {
+			timeLimits = App.getTimeTestLimits();
+			chronometer.start();
+			chronometer
+					.setOnChronometerTickListener(new OnChronometerTickListener() {
+
+						@Override
+						public void onChronometerTick(Chronometer chronometer) {
+							boolean isElapsed = false;
+							long elapsedMillis = SystemClock.elapsedRealtime()
+									- chronometer.getBase() / 1000;
+							if (App.userInfo.getLevel() == 1
+									|| App.userInfo.getLevel() == 2) {
+								// if it is 1 or 2 section and time is elapsed
+								if ((currentSection == 1 || currentSection == 2)
+										&& elapsedMillis >= timeLimits[0])
+									isElapsed = true;
+								// if it is 3 section and time is elapsed
+								if (currentSection == 3
+										&& elapsedMillis >= timeLimits[2])
+									isElapsed = true;
+							} else {
+								// if it is 1 section and time is elapsed
+								if (currentSection == 1
+										&& elapsedMillis >= timeLimits[0])
+									isElapsed = true;
+								// if it is 2 section and time is elapsed
+								if (currentSection == 2
+										&& elapsedMillis >= timeLimits[0])
+									isElapsed = true;
+								// if it is 3 section and time is elapsed
+								if (currentSection == 3
+										&& elapsedMillis >= timeLimits[2])
+									isElapsed = true;
+							}
+							if (isElapsed) {
+								// show toast, clear timer and go to next
+								// section
+								timeIsOver();
+								chronometer.setBase(SystemClock
+										.elapsedRealtime());
+								chronometer.start();
+								toТextSection();
+
+							}
+						}
+					});
+		} else {
+			chronometer.setVisibility(View.INVISIBLE);
+		}
+
+		TestService ts = new TestService();
+		// getting and loading test by name
+
 		t = ts.getTestByName(testName, getContentResolver());
 		isLevelDef = (t.getName().equals("level_def"));
 		// if level defining test - hide skippSection button, because it has no

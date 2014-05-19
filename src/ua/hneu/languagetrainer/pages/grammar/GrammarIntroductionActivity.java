@@ -69,7 +69,7 @@ public class GrammarIntroductionActivity extends Activity {
 		idx++;
 		// if Next button was disabled
 		prevButton.setEnabled(true);
-		if (idx >= App.userInfo.getNumberOfEntriesInCurrentDict()) {
+		if (idx >= App.numberOfEntriesInCurrentDict) {
 			// if all words have been showed go to next activity
 			goToNextPassingActivity();
 		} else {

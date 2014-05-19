@@ -69,6 +69,10 @@ public class App extends Application {
 	public static Context context;
 	public static Languages lang;
 	public static boolean isShowRomaji;
+	public static int numberOfEntriesInCurrentDict = 0;
+	public static int numberOfRepeatationsForLearning = 0;
+	static SharedPreferences settings;
+	public static Editor editor;
 
 	public enum Languages {
 		ENG, RUS
@@ -81,13 +85,10 @@ public class App extends Application {
 			lang = Languages.RUS;
 		else
 			lang = Languages.ENG;
+		// preferences from storage
+		settings = getSharedPreferences("appSettings", MODE_PRIVATE);
+		editor = settings.edit();
 
-		//set values in settings
-		/*SharedPreferences settings = getSharedPreferences("settings", MODE_PRIVATE);
-		Editor editor = settings.edit();
-		editor.putInt("numOfEntries", 9);
-		editor.apply();*/
-		
 		// set localized menu elements
 		MainMenuValues.addItem(new MainMenuValues.MenuItem("vocabulary", this
 				.getString(R.string.vocabulary)));
@@ -113,16 +114,22 @@ public class App extends Application {
 		 * getAssets(), 3, getContentResolver()); vs.bulkInsertFromCSV("N3.txt",
 		 * getAssets(), 2, getContentResolver()); vs.bulkInsertFromCSV("N1.txt",
 		 * getAssets(), 1, getContentResolver());
-		 * 
-		 * // user us.dropTable(); us.createTable(); // test ts.dropTable();
-		 * qs.dropTable(); as.dropTable(); ts.createTable();
-		 * TestService.startCounting(getContentResolver()); qs.createTable();
-		 * QuestionService.startCounting(getContentResolver());
-		 * as.createTable(); ts.insertFromXml("level_def_test.xml", getAssets(),
-		 * getContentResolver()); ts.insertFromXml("mock_test_n5.xml",
-		 * getAssets(), getContentResolver());
-		 * 
-		 * /*GiongoService gs = new GiongoService(); // gs.dropTable();
+		 
+		// test
+		ts.dropTable();
+		qs.dropTable();
+		as.dropTable();
+		ts.createTable();
+		TestService.startCounting(getContentResolver());
+		qs.createTable();
+		QuestionService.startCounting(getContentResolver());
+		as.createTable();
+		ts.insertFromXml("level_def_test.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("mock_test_n5.xml", getAssets(), getContentResolver());
+
+		
+		 * GiongoService gs = new GiongoService(); // gs.dropTable();
 		 * gs.createTable(); // ges.dropTable();
 		 * GiongoService.startCounting(getContentResolver()); ges.createTable();
 		 * gs.bulkInsertFromCSV("giongo.txt", getAssets(),
@@ -141,15 +148,16 @@ public class App extends Application {
 		 * grs.dropTable(); grs.createTable();
 		 * GrammarService.startCounting(getContentResolver()); gres.dropTable();
 		 * gres.createTable(); grs.bulkInsertFromCSV("grammar_n5.txt", 5,
-		 * getAssets(), getContentResolver()); us.dropTable(); us.createTable();
-		 */
+		 * getAssets(), getContentResolver());
+		 
+		us.dropTable();
+		us.createTable();*/
 
 		// if it isn't first time when launching app - user exists in db
 		User currentUser = us.getUserWithCurrentLevel(App.cr);
 		if (currentUser != null) {
 			// fetch user data from db
-			userInfo = currentUser;			
-
+			userInfo = currentUser;
 		}
 		App.context = getApplicationContext();
 		super.onCreate();
@@ -165,27 +173,30 @@ public class App extends Application {
 		User currentUser = us.selectUser(level, cr);
 		int numOfVoc = vs.getNumberOfWordsInLevel(level, cr);
 		int numOfGrammar = grs.getNumberOfGrammarInLevel(level, cr);
-		int numOfGiongo = gs.getNumberOfGiongo(level, cr);
+		int numOfGiongo = gs.getNumberOfGiongo(cr);
 		int numOfCounterWords = cws.getNumberOfCounterWords(cr);
 		if (currentUser == null) {
 			int id = us.getNumberOfUsers(cr) + 1;
 			userInfo = new User(id, level, 0, numOfVoc, 0, numOfGrammar, 0,
-					numOfGiongo, 0, numOfCounterWords, 10, 10, 1, 1);
+					numOfGiongo, 0, numOfCounterWords, 1, 1);
+			//set all other users as not current
 			us.insert(userInfo, cr);
 			// load dictionary
 			vocabularyDictionary = VocabularyService.createCurrentDictionary(
-					userInfo.getLevel(),
-					userInfo.getNumberOfEntriesInCurrentDict(), cr);
+					userInfo.getLevel(), numberOfEntriesInCurrentDict, cr);
 		} else {
 			userInfo = currentUser;
 			us.update(userInfo, cr);
 		}
+		us.setAsInactiveOtherLevels(level, cr);
+		editor.putInt("level", level);
+		editor.apply();
 	}
 
 	public static long[] getTimeTestLimits() {
 		long timeLimit1 = 0;
-		long timeLimit2= 0;
-		long timeLimit3= 0;
+		long timeLimit2 = 0;
+		long timeLimit3 = 0;
 		switch (userInfo.getIsCurrentLevel()) {
 		// in milliseconds
 		case 1:
@@ -205,11 +216,49 @@ public class App extends Application {
 			timeLimit2 = 60 * 60 * 1000;
 			timeLimit3 = 35 * 60 * 1000;
 		case 5:
-			timeLimit1 = 2 * 60 * 1000;
-			//timeLimit1 = 25 * 60 * 1000;
+			// timeLimit1 = 2 * 60 * 1000;
+			timeLimit1 = 25 * 60 * 1000;
 			timeLimit2 = 50 * 60 * 1000;
 			timeLimit3 = 30 * 60 * 1000;
 		}
 		return new long[] { timeLimit1, timeLimit2, timeLimit3 };
+	}
+
+	// increment for percentage of learned element when responding correctly
+	public static double getPercentageIncrement() {
+		return 1.0 / numberOfRepeatationsForLearning;
+	}
+
+	public static boolean isVocabularyLearned() {
+		return (userInfo.getNumberOfVocabularyInLevel() == userInfo
+				.getLearnedVocabulary());
+	}
+
+	public static boolean isGrammarLearned() {
+		return (userInfo.getNumberOfGrammarInLevel() == userInfo
+				.getLearnedGrammar());
+	}
+
+	public static boolean isGiongoLearned() {
+		return (userInfo.getNumberOfGiongoInLevel() == userInfo
+				.getLearnedGiongo());
+	}
+
+	public static boolean isCounterWordsLearned() {
+		return (userInfo.getNumberOfCounterWordsInLevel() == userInfo
+				.getLearnedCounterWords());
+	}
+
+	public static boolean isAllTestsPassed() {
+		return ts.isAllTestsPassed(cr, userInfo.getLevel());
+	}
+
+	public static boolean isAllLearned() {
+		if (isVocabularyLearned() && isGrammarLearned() && isGiongoLearned()
+				&& isCounterWordsLearned() && isAllTestsPassed()) {
+			goToLevel(userInfo.getLevel() + 1);
+			return true;
+		}
+		return false;
 	}
 }

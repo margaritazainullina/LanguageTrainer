@@ -103,6 +103,6 @@
     <string name="only_4_5">Только для уровней N4 и N5</string>
     <string name="never">Никогда (за исключнием фраз, без транскрипции хираганой)</string>
     <string name="num_of_entries">Количество записей в итерации заданий</string>
-    <string name="num_of_repetations">Количество повторений слова, после которого оно считается выученным</string>
+    <string name="num_of_repetations">Количество повторений слова, после которого оно считается выученным</string><string name="congratulations">Поздравляем, вы выучили все на этом уровне! Теперь ваш уровень</string>
 
 </resources>

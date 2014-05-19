@@ -105,5 +105,6 @@
     <string name="never">Never (except for phrases without hiragana)</string>
     <string name="num_of_entries">Number of entries in exercise iteration</string>
     <string name="num_of_repetations">Number of repetation of entry, after which entry is considered to be learned</string>
+    <string name="congratulations">Congratulations! You\'ve learned all in this level. Now your level is</string>
 
 </resources>

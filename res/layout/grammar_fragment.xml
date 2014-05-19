@@ -30,6 +30,6 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:onClick="onClickPracticeGrammar"
-        android:text="@string/practice_words" />
+        android:text="@string/practice_grammar" />
 
 </LinearLayout>

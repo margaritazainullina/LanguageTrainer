@@ -69,8 +69,7 @@ public class GiongoTestActivity extends Activity {
 			endTesting();
 		//create random dictionary again for every show
 		randomExamplesDictionary = App.giongoWordsDictionary
-				.getRandomExamplesWithWord(App.userInfo
-						.getNumberOfEntriesInCurrentDict());
+				.getRandomExamplesWithWord(App.numberOfEntriesInCurrentDict);
 		// iterator for looping over dictionary with random entries
 		Set<Entry<GiongoExample, Giongo>> set = randomExamplesDictionary
 				.entrySet();
@@ -129,7 +128,7 @@ public class GiongoTestActivity extends Activity {
 				if (!ifWasWrong)
 					rightWord.setLearnedPercentage(rightWord
 							.getLearnedPercentage()
-							+ App.userInfo.getPercentageIncrement());
+							+ App.getPercentageIncrement());
 
 				if (rightWord.getLearnedPercentage() == 1) {
 					App.gp.makeWordLearned(rightWord, getContentResolver());

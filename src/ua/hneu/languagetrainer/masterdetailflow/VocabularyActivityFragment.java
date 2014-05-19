@@ -26,11 +26,6 @@ public class VocabularyActivityFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		if (getArguments().containsKey(ARG_ITEM_ID)) {
-			mItem = MainMenuValues.ITEM_MAP.get(getArguments().getString(
-					ARG_ITEM_ID));
-		}		
-
 	}
 
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1)
@@ -46,19 +41,17 @@ public class VocabularyActivityFragment extends Fragment {
 		Log.i("VocabularyActivityFragment",
 				"VocabularyActivityFragment.onCreateView()");
 
-		if (mItem != null) {
-			int learned = App.userInfo.getLearnedVocabulary();
-			int all = App.userInfo.getNumberOfVocabularyInLevel();
+		int learned = App.userInfo.getLearnedVocabulary();
+		int all = App.userInfo.getNumberOfVocabularyInLevel();
 
-			int learnedPersentage = (int) Math
-					.round(((double) learned / (double) all) * 100);
-			String info = this.getString(R.string.words_learned) + ": "
-					+ learned + " " + this.getString(R.string.out_of) + " "
-					+ all + " - " + learnedPersentage + "%";
+		int learnedPersentage = (int) Math
+				.round(((double) learned / (double) all) * 100);
+		String info = this.getString(R.string.words_learned) + ": " + learned
+				+ " " + this.getString(R.string.out_of) + " " + all + " - "
+				+ learnedPersentage + "%";
 
-			infoTextView.setText(info);
-			progressBar.setProgress(learnedPersentage);
-		}
+		infoTextView.setText(info);
+		progressBar.setProgress(learnedPersentage);
 		return rootView;
 	}
 }

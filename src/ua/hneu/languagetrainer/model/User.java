@@ -20,8 +20,6 @@ public class User {
 	private int numberOfGiongoInLevel = 0;
 	private int learnedCounterWords = 0;
 	private int numberOfCounterWordsInLevel = 0;
-	private int numberOfEntriesInCurrentDict = 0;
-	private int numberOfRepeatationsForLearning = 0;
 	// if user created - VocabularyService.all hasn't been created
 	// 1-true, 0-false for storing in db
 	public int isLevelLaunchedFirstTime = 1;
@@ -31,8 +29,7 @@ public class User {
 			int numberOfVocabularyInLevel, int learnedGrammar,
 			int numberOfGrammarInLevel, int learnedGiongo,
 			int numberOfGiongoInLevel, int learnedCounterWords,
-			int numberOfCounterWordsInLevel, int numberOfEntriesInCurrentDict,
-			int numberOfRepeatationsForLearning, int isLevelLaunchedFirstTime,
+			int numberOfCounterWordsInLevel,  int isLevelLaunchedFirstTime,
 			int isCurrentLevel) {
 		super();
 		this.id = id;
@@ -45,8 +42,6 @@ public class User {
 		this.numberOfGiongoInLevel = numberOfGiongoInLevel;
 		this.learnedCounterWords = learnedCounterWords;
 		this.numberOfCounterWordsInLevel = numberOfCounterWordsInLevel;
-		this.numberOfEntriesInCurrentDict = numberOfEntriesInCurrentDict;
-		this.numberOfRepeatationsForLearning = numberOfRepeatationsForLearning;
 		this.isLevelLaunchedFirstTime = isLevelLaunchedFirstTime;
 		this.isCurrentLevel = isCurrentLevel;
 	}
@@ -99,14 +94,6 @@ public class User {
 		return numberOfCounterWordsInLevel;
 	}
 
-	public int getNumberOfEntriesInCurrentDict() {
-		return numberOfEntriesInCurrentDict;
-	}
-
-	public int getNumberOfRepeatationsForLearning() {
-		return numberOfRepeatationsForLearning;
-	}
-
 	public int getIsLevelLaunchedFirstTime() {
 		return isLevelLaunchedFirstTime;
 	}
@@ -154,22 +141,9 @@ public class User {
 		this.numberOfCounterWordsInLevel = numberOfCounterWordsInLevel;
 	}
 
-	public void setNumberOfEntriesInCurrentDict(int numberOfEntriesInCurrentDict) {
-		this.numberOfEntriesInCurrentDict = numberOfEntriesInCurrentDict;
-	}
-
-	public void setNumberOfRepeatationsForLearning(
-			int numberOfRepeatationsForLearning) {
-		this.numberOfRepeatationsForLearning = numberOfRepeatationsForLearning;
-	}
 
 	public void setIsLevelLaunchedFirstTime(int isLevelLaunchedFirstTime) {
 		this.isLevelLaunchedFirstTime = isLevelLaunchedFirstTime;
-	}
-
-	// increment for percentage of learned element when responding correctly
-	public double getPercentageIncrement() {
-		return 1.0 / numberOfRepeatationsForLearning;
 	}
 
 	public void updateUserData(ContentResolver cr) {

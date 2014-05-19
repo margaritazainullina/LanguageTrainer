@@ -3,6 +3,7 @@ package ua.hneu.languagetrainer.masterdetailflow;
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.pages.GreetingActivity;
+import ua.hneu.languagetrainer.pages.SettingsActivity;
 import ua.hneu.languagetrainer.pages.counterwords.CounterWordsIntroductionActivity;
 import ua.hneu.languagetrainer.pages.giongo.GiongoIntroductionActivity;
 import ua.hneu.languagetrainer.pages.grammar.GrammarIntroductionActivity;
@@ -12,9 +13,11 @@ import ua.hneu.languagetrainer.service.CounterWordsService;
 import ua.hneu.languagetrainer.service.GiongoService;
 import ua.hneu.languagetrainer.service.GrammarService;
 import ua.hneu.languagetrainer.service.VocabularyService;
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceFragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
@@ -37,6 +40,7 @@ import android.widget.TextView;
  * This activity also implements the required {@link ItemListFragment.Callbacks}
  * interface to listen for item selections.
  */
+@SuppressLint("CommitTransaction")
 public class ItemListActivity extends FragmentActivity implements
 		ItemListFragment.Callbacks {
 
@@ -52,9 +56,7 @@ public class ItemListActivity extends FragmentActivity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		setContentView(R.layout.activity_item_list);
-
 		Log.i("ItemListActivity", "ItemListActivity.onCreate()");
 
 		// if it isn't first launch of app - start greeting activity
@@ -62,37 +64,28 @@ public class ItemListActivity extends FragmentActivity implements
 			Intent greetingIntent = new Intent(this, GreetingActivity.class);
 			startActivity(greetingIntent);
 			return;
+		} else {
+			// for first time when app is launched - set default preferences
+			App.editor.putString("showRomaji", "only_4_5");
+			App.editor.putInt("numOfRepetations", 7);
+			App.editor.putInt("numOfEntries", 7);
+			App.editor.apply();
 		}
 
 		if (findViewById(R.id.item_detail_container) != null) {
-			// The detail container view will be present only in the
-			// large-screen layouts (res/values-large and
-			// res/values-sw600dp). If this view is present, then the
-			// activity should be in two-pane mode.
 			mTwoPane = true;
 
-			// In two-pane mode, list items should be given the
-			// 'activated' state when touched.
 			((ItemListFragment) getSupportFragmentManager().findFragmentById(
 					R.id.item_list)).setActivateOnItemClick(true);
 
-			// set userlevel on vocabulary fragment
-			textViewUserInfo = (TextView) findViewById(R.id.textViewUserInfo);
-			textViewUserInfo.setText(this.getString(R.string.your_level)
-					+ App.userInfo.getLevel());
-			ratingBar = (RatingBar) findViewById(R.id.levelRatingBar);
-			ratingBar.setRating(6 - App.userInfo.getLevel());
-
-			sectionsListView = (ListView) findViewById(R.id.sectionsListView);
+			setUserInfo();
 
 		} else {
 			mTwoPane = false;
-			// In two-pane mode, list items should be given the
-			// 'activated' state when touched.
 			((ItemListFragment) getSupportFragmentManager().findFragmentById(
 					R.id.item_list)).setActivateOnItemClick(true);
 
-			// set userlevel on main activity
+			// set user level on main activity
 			textViewUserInfo = (TextView) findViewById(R.id.textViewUserInfo);
 			textViewUserInfo.setText(this.getString(R.string.your_level)
 					+ App.userInfo.getLevel());
@@ -102,10 +95,25 @@ public class ItemListActivity extends FragmentActivity implements
 		Log.i("mTwoPane", "mTwoPane - " + mTwoPane);
 	}
 
-	/**
-	 * Callback method from {@link ItemListFragment.Callbacks} indicating that
-	 * the item with the given ID was selected.
-	 */
+	public void setUserInfo() {
+		// set user level on vocabulary fragment
+		textViewUserInfo = (TextView) findViewById(R.id.textViewUserInfo);
+		textViewUserInfo.setText(this.getString(R.string.your_level)
+				+ App.userInfo.getLevel());
+		ratingBar = (RatingBar) findViewById(R.id.levelRatingBar);
+		ratingBar.setRating(6 - App.userInfo.getLevel());
+
+		sectionsListView = (ListView) findViewById(R.id.sectionsListView);
+	}
+
+	@Override
+	protected void onResume() {
+		if (App.userInfo != null) {
+			setUserInfo();
+		}
+			super.onResume();
+	}
+
 	@Override
 	public void onItemSelected(String id) {
 		Log.i("ItemListActivity", "ItemDetailActivity.onItemSelected()");
@@ -114,15 +122,12 @@ public class ItemListActivity extends FragmentActivity implements
 			// In two-pane mode, show the detail view in this activity by
 			// adding or replacing the detail fragment using a
 			// fragment transaction.
-			Bundle arguments = new Bundle();
-			arguments.putString(VocabularyActivityFragment.ARG_ITEM_ID, id);
 			VocabularyActivityFragment vocabularyFragment = new VocabularyActivityFragment();
 			GrammarActivityFragment grammarFragment = new GrammarActivityFragment();
 			TestActivityFragment testFragment = new TestActivityFragment();
 			CounterWordsActivityFragment counterWordsFragment = new CounterWordsActivityFragment();
 			GiongoActivityFragment giongoFragment = new GiongoActivityFragment();
-			vocabularyFragment.setArguments(arguments);
-			grammarFragment.setArguments(arguments);
+
 			// Loading fragments accordingly to selected menu items
 			// if selected Vocabulary
 			if (id == "vocabulary") {
@@ -157,11 +162,10 @@ public class ItemListActivity extends FragmentActivity implements
 						.commit();
 			}
 			// if selected settings
+
 			if (id == "settings") {
-				 getFragmentManager().beginTransaction().replace(R.id.item_detail_container,
-			                new SettingsFragment()).commit();
-				/*Intent detailIntent = new Intent(this, SettingsFragment.class);
-				startActivity(detailIntent);*/
+				Intent settings = new Intent(this, SettingsActivity.class);
+				startActivity(settings);
 			}
 
 		} else {
@@ -192,8 +196,8 @@ public class ItemListActivity extends FragmentActivity implements
 	public void onClickPracticeVocabulary(View v) {
 		// load vocabulary
 		App.vocabularyDictionary = VocabularyService.createCurrentDictionary(
-				App.userInfo.getLevel(),
-				App.userInfo.getNumberOfEntriesInCurrentDict(), App.cr);
+				App.userInfo.getLevel(), App.numberOfEntriesInCurrentDict,
+				App.cr);
 		Intent intent = new Intent(this, WordIntroductionActivity.class);
 		startActivity(intent);
 	}
@@ -201,8 +205,8 @@ public class ItemListActivity extends FragmentActivity implements
 	public void onClickPracticeGrammar(View v) {
 		// load grammar
 		App.grammarDictionary = GrammarService.createCurrentDictionary(
-				App.userInfo.getLevel(),
-				App.userInfo.getNumberOfEntriesInCurrentDict(), App.cr);
+				App.userInfo.getLevel(), App.numberOfEntriesInCurrentDict,
+				App.cr);
 		Intent intent = new Intent(this, GrammarIntroductionActivity.class);
 		startActivity(intent);
 
@@ -213,7 +217,7 @@ public class ItemListActivity extends FragmentActivity implements
 		CounterWordsService cws = new CounterWordsService();
 		App.counterWordsDictionary = cws.createCurrentDictionary(
 				CounterWordsActivityFragment.selectedSection,
-				App.userInfo.getNumberOfEntriesInCurrentDict(), App.cr);
+				App.numberOfEntriesInCurrentDict, App.cr);
 
 		Intent intent = new Intent(this, CounterWordsIntroductionActivity.class);
 		startActivity(intent);
@@ -224,7 +228,7 @@ public class ItemListActivity extends FragmentActivity implements
 		// load giongo
 		GiongoService gs = new GiongoService();
 		App.giongoWordsDictionary = gs.createCurrentDictionary(
-				App.userInfo.getNumberOfEntriesInCurrentDict(), App.cr);
+				App.numberOfEntriesInCurrentDict, App.cr);
 
 		Intent intent = new Intent(this, GiongoIntroductionActivity.class);
 		startActivity(intent);

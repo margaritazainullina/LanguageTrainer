@@ -70,8 +70,7 @@ public class CounterWordsPassing {
 		incrementNumberOfCorrectAnswers();
 		App.counterWordsDictionary.remove(g);
 		// add entries to current dictionary to match target size
-		App.grammarDictionary.addEntriesToDictionaryAndGet(App.userInfo
-				.getNumberOfEntriesInCurrentDict());
+		App.grammarDictionary.addEntriesToDictionaryAndGet(App.numberOfEntriesInCurrentDict);
 		// update info in vocabulary table
 		App.cws.update(g, cr);
 

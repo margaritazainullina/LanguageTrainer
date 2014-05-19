@@ -69,8 +69,7 @@ public class GrammarTestActivity extends Activity {
 			endTesting();
 		// create random dictionary again for every show
 		randomExamplesDictionary = App.grammarDictionary
-				.getRandomExamplesWithRule(App.userInfo
-						.getNumberOfEntriesInCurrentDict());
+				.getRandomExamplesWithRule(App.numberOfEntriesInCurrentDict);
 		// iterator for looping over dictionary with random entries
 		Set<Entry<GrammarExample, GrammarRule>> set = randomExamplesDictionary
 				.entrySet();
@@ -129,7 +128,7 @@ public class GrammarTestActivity extends Activity {
 				if (!ifWasWrong)
 					rightRule.setLearnedPercentage(rightRule
 							.getLearnedPercentage()
-							+ App.userInfo.getPercentageIncrement());
+							+ App.getPercentageIncrement());
 
 				if (rightRule.getLearnedPercentage() == 1) {
 					App.grp.makeWordLearned(rightRule, getContentResolver());

@@ -74,12 +74,8 @@ public class TestResultActivity extends Activity {
 				readingIcon.setImageResource(R.drawable.wrong);
 			if (scoreListening < 19)
 				listeningIcon.setImageResource(R.drawable.wrong);
-			if (App.userInfo.getLevel() == 4)
-				if (total < 90)
-					totalIcon.setImageResource(R.drawable.wrong);
-			if (App.userInfo.getLevel() == 5)
-				if (total < 80)
-					totalIcon.setImageResource(R.drawable.wrong);
+			if (!t.isPassed())
+				totalIcon.setImageResource(R.drawable.wrong);
 		} else {
 			vocResultTextView.setText(scoreVoc + " / 60");
 			readingResultTextView.setText(scoreReading + " / 60");
@@ -92,15 +88,8 @@ public class TestResultActivity extends Activity {
 				readingIcon.setImageResource(R.drawable.wrong);
 			if (scoreListening < 19)
 				listeningIcon.setImageResource(R.drawable.wrong);
-			if (App.userInfo.getLevel() == 3)
-				if (total < 95)
-					totalIcon.setImageResource(R.drawable.wrong);
-			if (App.userInfo.getLevel() == 2)
-				if (total < 90)
-					totalIcon.setImageResource(R.drawable.wrong);
-			if (App.userInfo.getLevel() == 1)
-				if (total < 100)
-					totalIcon.setImageResource(R.drawable.wrong);
+			if (!t.isPassed())
+				totalIcon.setImageResource(R.drawable.wrong);
 		}
 		t.setPointsPart1(scoreVoc);
 		t.setPointsPart2(scoreReading);
@@ -112,8 +101,5 @@ public class TestResultActivity extends Activity {
 		Intent intent = new Intent(this, ItemListActivity.class);
 		startActivity(intent);
 	}
-	
 
-  
 }
-
