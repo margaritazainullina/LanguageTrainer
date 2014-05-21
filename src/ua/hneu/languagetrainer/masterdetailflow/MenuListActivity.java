@@ -7,7 +7,6 @@ import ua.hneu.languagetrainer.pages.SettingsActivity;
 import ua.hneu.languagetrainer.pages.counterwords.CounterWordsIntroductionActivity;
 import ua.hneu.languagetrainer.pages.giongo.GiongoIntroductionActivity;
 import ua.hneu.languagetrainer.pages.grammar.GrammarIntroductionActivity;
-import ua.hneu.languagetrainer.pages.test.TestActivity;
 import ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity;
 import ua.hneu.languagetrainer.service.CounterWordsService;
 import ua.hneu.languagetrainer.service.GiongoService;

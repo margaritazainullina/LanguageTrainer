@@ -98,8 +98,8 @@ public class App extends Application {
 				.getString(R.string.mock_tests)));
 		MenuElements.addItem(new MenuElements.MenuItem("giongo", this
 				.getString(R.string.giongo)));
-		MenuElements.addItem(new MenuElements.MenuItem("counter_words",
-				this.getString(R.string.counter_words)));
+		MenuElements.addItem(new MenuElements.MenuItem("counter_words", this
+				.getString(R.string.counter_words)));
 		MenuElements.addItem(new MenuElements.MenuItem("settings", this
 				.getString(R.string.settings)));
 
@@ -107,22 +107,27 @@ public class App extends Application {
 
 		// creating and inserting into whole database
 		// vocabulary
-		/*
-		 * vs.dropTable(); vs.createTable(); vs.bulkInsertFromCSV("N5.txt",
-		 * getAssets(), 5, getContentResolver()); vs.bulkInsertFromCSV("N4.txt",
-		 * getAssets(), 4, getContentResolver()); vs.bulkInsertFromCSV("N3.txt",
-		 * getAssets(), 3, getContentResolver()); vs.bulkInsertFromCSV("N3.txt",
-		 * getAssets(), 2, getContentResolver()); vs.bulkInsertFromCSV("N1.txt",
-		 * getAssets(), 1, getContentResolver());
-		 * 
-		 * // test ts.dropTable(); qs.dropTable(); as.dropTable();
-		 * ts.createTable(); TestService.startCounting(getContentResolver());
-		 * qs.createTable();
-		 * QuestionService.startCounting(getContentResolver());
-		 * as.createTable(); ts.insertFromXml("level_def_test.xml", getAssets(),
-		 * getContentResolver()); ts.insertFromXml("mock_test_n5.xml",
-		 * getAssets(), getContentResolver());
-		 *
+
+		/*vs.dropTable();
+		vs.createTable();
+		vs.bulkInsertFromCSV("N5.txt", getAssets(), 5, getContentResolver());
+		vs.bulkInsertFromCSV("N4.txt", getAssets(), 4, getContentResolver());
+		vs.bulkInsertFromCSV("N3.txt", getAssets(), 3, getContentResolver());
+		vs.bulkInsertFromCSV("N3.txt", getAssets(), 2, getContentResolver());
+		vs.bulkInsertFromCSV("N1.txt", getAssets(), 1, getContentResolver());
+
+		// test
+		ts.dropTable();
+		qs.dropTable();
+		as.dropTable();
+		ts.createTable();
+		TestService.startCounting(getContentResolver());
+		qs.createTable();
+		QuestionService.startCounting(getContentResolver());
+		as.createTable();
+		ts.insertFromXml("level_def_test.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("mock_test_n5.xml", getAssets(), getContentResolver());
 
 		GiongoService gs = new GiongoService();
 		gs.dropTable();
@@ -132,24 +137,28 @@ public class App extends Application {
 		ges.createTable();
 		gs.bulkInsertFromCSV("giongo.txt", getAssets(), getContentResolver());
 
-		/*
-		 * // cws.dropTable(); cws.createTable();
-		 * cws.bulkInsertFromCSV("numbers.txt", getAssets(),
-		 * getContentResolver()); cws.bulkInsertFromCSV("people_and_things.txt",
-		 * getAssets(), getContentResolver());
-		 * cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),
-		 * getContentResolver()); cws.bulkInsertFromCSV("time_calendar.txt",
-		 * getAssets(), getContentResolver());
-		 * cws.bulkInsertFromCSV("extent_freq.txt", getAssets(),
-		 * getContentResolver());
-		 * 
-		 * grs.dropTable(); grs.createTable();
-		 * GrammarService.startCounting(getContentResolver()); gres.dropTable();
-		 * gres.createTable(); grs.bulkInsertFromCSV("grammar_n5.txt", 5,
-		 * getAssets(), getContentResolver());
-		 * 
-		 * */us.dropTable(); us.createTable();
-		 
+		cws.dropTable();
+		cws.createTable();
+		cws.bulkInsertFromCSV("numbers.txt", getAssets(), getContentResolver());
+		cws.bulkInsertFromCSV("people_and_things.txt", getAssets(),
+				getContentResolver());
+		cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),
+				getContentResolver());
+		cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),
+				getContentResolver());
+		cws.bulkInsertFromCSV("extent_freq.txt", getAssets(),
+				getContentResolver());
+
+		grs.dropTable();
+		grs.createTable();
+		GrammarService.startCounting(getContentResolver());
+		gres.dropTable();
+		gres.createTable();
+		grs.bulkInsertFromCSV("grammar_n5.txt", 5, getAssets(),
+				getContentResolver());
+
+		us.dropTable();
+		us.createTable();*/
 
 		// if it isn't first time when launching app - user exists in db
 		User currentUser = us.getUserWithCurrentLevel(App.cr);
@@ -214,8 +223,10 @@ public class App extends Application {
 			App.isShowRomaji = true;
 			editor.putString("showRomaji", value);
 		} else if (value.equals("only_4_5")) {
-			if(App.userInfo==null) App.isShowRomaji = true;
-			else if (App.userInfo.getLevel() == 4 || App.userInfo.getLevel() == 5)
+			if (App.userInfo == null)
+				App.isShowRomaji = true;
+			else if (App.userInfo.getLevel() == 4
+					|| App.userInfo.getLevel() == 5)
 				App.isShowRomaji = true;
 			else
 				App.isShowRomaji = false;
@@ -247,8 +258,8 @@ public class App extends Application {
 			timeLimit2 = 60 * 60 * 1000;
 			timeLimit3 = 35 * 60 * 1000;
 		case 5:
-			timeLimit1 = 20 * 1000;
-			// timeLimit1 = 25 * 60 * 1000;
+			//timeLimit1 = 20 * 1000;
+			timeLimit1 = 25 * 60 * 1000;
 			timeLimit2 = 50 * 60 * 1000;
 			timeLimit3 = 30 * 60 * 1000;
 		}

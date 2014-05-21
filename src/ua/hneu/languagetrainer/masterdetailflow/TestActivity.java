@@ -10,8 +10,11 @@ import java.util.Set;
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.TestInfoListViewAdapter;
+import ua.hneu.languagetrainer.pages.test.MockTestActivity;
 import ua.hneu.languagetrainer.service.TestService;
 import android.annotation.TargetApi;
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,7 +27,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class TestActivityFragment extends Fragment {
+public class TestActivity extends Activity {
 	TextView infoTextView;
 	ListView infoListView;
 	ArrayList<String> testNames = new ArrayList<String>();
@@ -39,19 +42,12 @@ public class TestActivityFragment extends Fragment {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+
+		setContentView(R.layout.mock_test_fragment);
 		super.onCreate(savedInstanceState);
-	}
-
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1)
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.mock_test_fragment,
-				container, false);
-
 		HashMap<String, int[]> info = ts.getTestNamesAndPoints(App.cr,
 				App.userInfo.getLevel());
-		infoListView = (ListView) rootView.findViewById(R.id.infoListView);
+		infoListView = (ListView) findViewById(R.id.infoListView);
 
 		testNames.add(this.getString(R.string.test));
 		if (App.userInfo.getLevel() == 4 || App.userInfo.getLevel() == 5) {
@@ -89,11 +85,19 @@ public class TestActivityFragment extends Fragment {
 			i++;
 		}
 
-		adapter = new TestInfoListViewAdapter(getActivity(), testNames,
-				resultsPart1, resultsPart2, resultsPart3);
+		adapter = new TestInfoListViewAdapter(this, testNames, resultsPart1,
+				resultsPart2, resultsPart3);
 		infoListView.setAdapter(adapter);
 		infoListView.setOnItemClickListener(sectionsListViewClickListener);
-		return rootView;
+
+	}
+
+	public void onClickPassTest(View v) {
+		// load test
+		Intent intent = new Intent(this, MockTestActivity.class);
+		intent.putExtra("testName", testName);
+		startActivity(intent);
+
 	}
 
 	final private transient OnItemClickListener sectionsListViewClickListener = new OnItemClickListener() {

@@ -1,12 +1,16 @@
 package ua.hneu.languagetrainer.masterdetailflow;
 
 import ua.hneu.edu.languagetrainer.R;
+import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.pages.giongo.GiongoIntroductionActivity;
+import ua.hneu.languagetrainer.service.GiongoService;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 
 public class GiongoActivity extends FragmentActivity {
 
@@ -20,15 +24,24 @@ public class GiongoActivity extends FragmentActivity {
 
 		if (savedInstanceState == null) {
 			Bundle arguments = new Bundle();
-			arguments.putString(
-					GiongoActivityFragment.ARG_ITEM_ID,
-					getIntent().getStringExtra(
-							GiongoActivityFragment.ARG_ITEM_ID));
+			arguments.putString(GiongoActivityFragment.ARG_ITEM_ID, getIntent()
+					.getStringExtra(GiongoActivityFragment.ARG_ITEM_ID));
 			GiongoActivityFragment fragment = new GiongoActivityFragment();
 			fragment.setArguments(arguments);
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.item_detail_container, fragment).commit();
 		}
+	}
+
+	public void onClickPracticeGiongo(View v) {
+		// load giongo
+		GiongoService gs = new GiongoService();
+		App.giongoWordsDictionary = gs.createCurrentDictionary(
+				App.numberOfEntriesInCurrentDict, App.cr);
+
+		Intent intent = new Intent(this, GiongoIntroductionActivity.class);
+		startActivity(intent);
+
 	}
 
 	@Override

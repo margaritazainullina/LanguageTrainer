@@ -30,7 +30,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class TestActivity extends Activity {
+public class MockTestActivity extends Activity {
 	ListView answersListView;
 	TextView titleTextView;
 	TextView sectionTextView;
@@ -90,7 +90,7 @@ public class TestActivity extends Activity {
 						public void onChronometerTick(Chronometer chronometer) {
 							boolean isElapsed = false;
 							long elapsedMillis = SystemClock.elapsedRealtime()
-									- chronometer.getBase() / 1000;
+									- chronometer.getBase();
 							if (App.userInfo.getLevel() == 1
 									|| App.userInfo.getLevel() == 2) {
 								// if it is 1 or 2 section and time is elapsed

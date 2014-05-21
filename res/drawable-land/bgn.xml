@@ -1,6 +1,6 @@
 <bitmap
 xmlns:android="http://schemas.android.com/apk/res/android"
 android:src="@drawable/background_lanscape"
-android:tileMode="clamp"
+android:tileMode="mirror"
 android:antialias="true"
 android:dither="true" />

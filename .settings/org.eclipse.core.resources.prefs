@@ -15,7 +15,7 @@ encoding//src/ua/hneu/languagetrainer/masterdetailflow/VocabularyActivityFragmen
 encoding//src/ua/hneu/languagetrainer/pages/counterwords/CounterWordsTestActivity.java=UTF-8
 encoding//src/ua/hneu/languagetrainer/pages/giongo/GiongoTestActivity.java=UTF-8
 encoding//src/ua/hneu/languagetrainer/pages/grammar/GrammarTestActivity.java=UTF-8
-encoding//src/ua/hneu/languagetrainer/pages/test/TestActivity.java=UTF-8
+encoding//src/ua/hneu/languagetrainer/pages/test/MockTestActivity.java=UTF-8
 encoding//src/ua/hneu/languagetrainer/pages/vocabulary/MatchWordsActivity.java=UTF-8
 encoding//src/ua/hneu/languagetrainer/pages/vocabulary/TranscriptionTestActivity.java=UTF-8
 encoding//src/ua/hneu/languagetrainer/pages/vocabulary/TranslationTestActivity.java=UTF-8

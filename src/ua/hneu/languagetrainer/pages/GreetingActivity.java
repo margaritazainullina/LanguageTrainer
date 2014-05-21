@@ -3,7 +3,7 @@ package ua.hneu.languagetrainer.pages;
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.masterdetailflow.MenuListActivity;
-import ua.hneu.languagetrainer.pages.test.TestActivity;
+import ua.hneu.languagetrainer.pages.test.MockTestActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,7 +26,7 @@ public class GreetingActivity extends Activity {
 	}
 
 	public void buttonTakeTestOnClick(View v) {
-		Intent intent = new Intent(this, TestActivity.class);
+		Intent intent = new Intent(this, MockTestActivity.class);
 		intent.putExtra("testName", "level_def");
 		startActivity(intent);
 	}
