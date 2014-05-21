@@ -114,27 +114,25 @@ public class App extends Application {
 		 * getAssets(), 3, getContentResolver()); vs.bulkInsertFromCSV("N3.txt",
 		 * getAssets(), 2, getContentResolver()); vs.bulkInsertFromCSV("N1.txt",
 		 * getAssets(), 1, getContentResolver());
-		 
-		// test
-		ts.dropTable();
-		qs.dropTable();
-		as.dropTable();
-		ts.createTable();
-		TestService.startCounting(getContentResolver());
-		qs.createTable();
-		QuestionService.startCounting(getContentResolver());
-		as.createTable();
-		ts.insertFromXml("level_def_test.xml", getAssets(),
-				getContentResolver());
-		ts.insertFromXml("mock_test_n5.xml", getAssets(), getContentResolver());
-
-		
-		 * GiongoService gs = new GiongoService(); // gs.dropTable();
-		 * gs.createTable(); // ges.dropTable();
-		 * GiongoService.startCounting(getContentResolver()); ges.createTable();
-		 * gs.bulkInsertFromCSV("giongo.txt", getAssets(),
-		 * getContentResolver());
 		 * 
+		 * // test ts.dropTable(); qs.dropTable(); as.dropTable();
+		 * ts.createTable(); TestService.startCounting(getContentResolver());
+		 * qs.createTable();
+		 * QuestionService.startCounting(getContentResolver());
+		 * as.createTable(); ts.insertFromXml("level_def_test.xml", getAssets(),
+		 * getContentResolver()); ts.insertFromXml("mock_test_n5.xml",
+		 * getAssets(), getContentResolver());
+		 *
+
+		GiongoService gs = new GiongoService();
+		gs.dropTable();
+		gs.createTable();
+		ges.dropTable();
+		GiongoService.startCounting(getContentResolver());
+		ges.createTable();
+		gs.bulkInsertFromCSV("giongo.txt", getAssets(), getContentResolver());
+
+		/*
 		 * // cws.dropTable(); cws.createTable();
 		 * cws.bulkInsertFromCSV("numbers.txt", getAssets(),
 		 * getContentResolver()); cws.bulkInsertFromCSV("people_and_things.txt",
@@ -149,9 +147,9 @@ public class App extends Application {
 		 * GrammarService.startCounting(getContentResolver()); gres.dropTable();
 		 * gres.createTable(); grs.bulkInsertFromCSV("grammar_n5.txt", 5,
 		 * getAssets(), getContentResolver());
-		 
-		us.dropTable();
-		us.createTable();*/
+		 * 
+		 * us.dropTable(); us.createTable();
+		 */
 
 		// if it isn't first time when launching app - user exists in db
 		User currentUser = us.getUserWithCurrentLevel(App.cr);
@@ -160,6 +158,7 @@ public class App extends Application {
 			userInfo = currentUser;
 		}
 		App.context = getApplicationContext();
+		getSettings();
 		super.onCreate();
 	}
 
@@ -179,18 +178,49 @@ public class App extends Application {
 			int id = us.getNumberOfUsers(cr) + 1;
 			userInfo = new User(id, level, 0, numOfVoc, 0, numOfGrammar, 0,
 					numOfGiongo, 0, numOfCounterWords, 1, 1);
-			//set all other users as not current
+			// set all other users as not current
 			us.insert(userInfo, cr);
 			// load dictionary
 			vocabularyDictionary = VocabularyService.createCurrentDictionary(
 					userInfo.getLevel(), numberOfEntriesInCurrentDict, cr);
+			App.editor.putString("showRomaji", "only_4_5");
+			// default settings when launched first
+			if (level == 4 || level == 5)
+				App.isShowRomaji = true;
+			else
+				App.isShowRomaji = false;
+			editor.putInt("numOfEntries", 7);
+			numberOfEntriesInCurrentDict = 7;
+			editor.putInt("numOfRepetations", 7);
+			numberOfRepeatationsForLearning = 7;
 		} else {
 			userInfo = currentUser;
 			us.update(userInfo, cr);
+			editor.putInt("numOfEntries", 7);
+
+			us.setAsInactiveOtherLevels(level, cr);
+			editor.putInt("level", level);
+			editor.apply();
 		}
-		us.setAsInactiveOtherLevels(level, cr);
-		editor.putInt("level", level);
-		editor.apply();
+		getSettings();
+	}
+
+	public static void getSettings() {
+		numberOfEntriesInCurrentDict = settings.getInt("numOfEntries", 7);
+		numberOfRepeatationsForLearning = settings
+				.getInt("numOfRepetations", 7);
+		String value = settings.getString("showRomaji", "only_4_5");
+		if (value.equals("always")) {
+			App.isShowRomaji = true;
+			editor.putString("showRomaji", value);
+		} else if (value.equals("only_4_5")) {
+			if (App.userInfo.getLevel() == 4 || App.userInfo.getLevel() == 5)
+				App.isShowRomaji = true;
+			else
+				App.isShowRomaji = false;
+		} else {
+			App.isShowRomaji = false;
+		}
 	}
 
 	public static long[] getTimeTestLimits() {
@@ -216,8 +246,8 @@ public class App extends Application {
 			timeLimit2 = 60 * 60 * 1000;
 			timeLimit3 = 35 * 60 * 1000;
 		case 5:
-			// timeLimit1 = 2 * 60 * 1000;
-			timeLimit1 = 25 * 60 * 1000;
+			timeLimit1 = 20 * 1000;
+			// timeLimit1 = 25 * 60 * 1000;
 			timeLimit2 = 50 * 60 * 1000;
 			timeLimit3 = 30 * 60 * 1000;
 		}

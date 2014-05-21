@@ -69,7 +69,7 @@ public class GiongoResultActivity extends Activity {
 				+ " "
 				+ totalPercentage
 				+ " "
-				+ this.getString(R.string.percentage_of_voc));
+				+ this.getString(R.string.percentage_of_giongo));
 
 		// mistakes
 		StringBuffer sb2 = new StringBuffer();

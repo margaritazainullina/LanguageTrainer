@@ -57,7 +57,7 @@ public class GiongoPassing {
 	public void makeWordLearned(Giongo g, ContentResolver cr) {
 		// update info in user table
 		User u = App.userInfo;
-		u.setLearnedGrammar(u.getLearnedGrammar() + 1);
+		u.setLearnedGrammar(u.getLearnedGiongo() + 1);
 		UserService us = new UserService();
 		us.update(u, cr);
 		// update current dictionary
@@ -66,7 +66,7 @@ public class GiongoPassing {
 		incrementNumberOfCorrectAnswers();
 		App.giongoWordsDictionary.remove(g);
 		// add entries to current dictionary to match target size
-		App.grammarDictionary.addEntriesToDictionaryAndGet(App.numberOfEntriesInCurrentDict);
+		App.giongoWordsDictionary.addEntriesToDictionaryAndGet(App.numberOfEntriesInCurrentDict);
 		// update info in vocabulary table
 		App.gs.update(g, cr);
 

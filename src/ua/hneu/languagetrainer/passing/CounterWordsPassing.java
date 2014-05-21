@@ -61,7 +61,7 @@ public class CounterWordsPassing {
 	public void makeWordLearned(CounterWord g, ContentResolver cr) {
 		// update info in user table
 		User u = App.userInfo;
-		u.setLearnedGrammar(u.getLearnedGrammar() + 1);
+		u.setLearnedCounterWords(u.getLearnedCounterWords() + 1);
 		UserService us = new UserService();
 		us.update(u, cr);
 		// update current dictionary
@@ -70,7 +70,7 @@ public class CounterWordsPassing {
 		incrementNumberOfCorrectAnswers();
 		App.counterWordsDictionary.remove(g);
 		// add entries to current dictionary to match target size
-		App.grammarDictionary.addEntriesToDictionaryAndGet(App.numberOfEntriesInCurrentDict);
+		App.counterWordsDictionary.addEntriesToDictionaryAndGet(App.numberOfEntriesInCurrentDict);
 		// update info in vocabulary table
 		App.cws.update(g, cr);
 

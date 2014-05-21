@@ -48,7 +48,7 @@ public class GrammarResultActivity extends Activity {
 		if (numberOfLearnedWords == 0)
 			sb1.append(this.getString(R.string.you_havent_learned_any_rule));
 		else {
-			sb1.append(this.getString(R.string.words_learned) + " ");
+			sb1.append(this.getString(R.string.grammar_learned) + " ");
 			sb1.append(numberOfLearnedWords + ": ");
 		}
 		sb1.append(sb);
@@ -69,7 +69,7 @@ public class GrammarResultActivity extends Activity {
 				+ " "
 				+ totalPercentage
 				+ " "
-				+ this.getString(R.string.percentage_of_voc));
+				+ this.getString(R.string.percentage_of_gr));
 
 		// mistakes
 		StringBuffer sb2 = new StringBuffer();

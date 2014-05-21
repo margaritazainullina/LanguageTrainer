@@ -127,10 +127,10 @@ public class GrammarDictionary {
 		Random rn = new Random();
 
 		while (this.size() < size) {
-			int i = rn.nextInt(VocabularyService.all.size());
+			int i = rn.nextInt(GrammarService.all.size());
 			GrammarRule gr = GrammarService.all.get(i);
 			// if the word is not learned
-			if (gr.getLearnedPercentage() != 1) {
+			if (gr.getLearnedPercentage() < 1) {
 				this.entries.add(gr);
 			}
 		}

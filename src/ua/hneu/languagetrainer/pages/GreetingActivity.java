@@ -20,7 +20,9 @@ public class GreetingActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_greeting);
 		buttonTakeTest = (Button) findViewById(R.id.buttonTakeTest);
-		buttonStart = (Button) findViewById(R.id.buttonStart);		
+		buttonStart = (Button) findViewById(R.id.buttonStart);	
+	
+		
 	}
 
 	public void buttonTakeTestOnClick(View v) {

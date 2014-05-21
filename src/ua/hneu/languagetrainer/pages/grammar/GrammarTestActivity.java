@@ -130,7 +130,7 @@ public class GrammarTestActivity extends Activity {
 							.getLearnedPercentage()
 							+ App.getPercentageIncrement());
 
-				if (rightRule.getLearnedPercentage() == 1) {
+				if (rightRule.getLearnedPercentage() >= 1) {
 					App.grp.makeWordLearned(rightRule, getContentResolver());
 				}
 
@@ -209,6 +209,5 @@ public class GrammarTestActivity extends Activity {
 	public void buttonIAlrKnow(View v) {
 		App.grp.makeWordLearned(rightRule, getContentResolver());
 		nextWord();
-
 	}
 }

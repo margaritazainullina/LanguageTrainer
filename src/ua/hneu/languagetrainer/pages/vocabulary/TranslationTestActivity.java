@@ -145,7 +145,7 @@ public class TranslationTestActivity extends Activity {
 							.getLearnedPercentage()
 							+ App.getPercentageIncrement());
 
-				if (rightAnswer.getLearnedPercentage() == 1) {
+				if (rightAnswer.getLearnedPercentage() >= 1) {
 					App.vp.makeWordLearned(rightAnswer, getContentResolver(),
 							false);
 				}

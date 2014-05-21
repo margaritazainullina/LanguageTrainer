@@ -228,21 +228,21 @@ public class CounterWordsService {
 		if (App.lang == Languages.ENG)
 			c1 = CounterWordsDAO.db
 					.rawQuery(
-							"SELECT Section_eng, count(_id) FROM counter_words where percentage=1 group by Section_eng",
+							"SELECT Section_eng, count(_id) FROM counter_words where percentage>=1 group by Section_eng",
 							null);
 		else
 			c1 = CounterWordsDAO.db
 					.rawQuery(
-							"SELECT Section_rus, count(_id) FROM counter_words where percentage=1 group by Section_rus",
+							"SELECT Section_rus, count(_id) FROM counter_words where percentage>=1 group by Section_rus",
 							null);
 		c1.moveToFirst();
-		while (!c.isAfterLast()) {
+		while (!c1.isAfterLast()) {
 			section = c1.getString(0);
 			number = c1.getInt(1);
 			int a = info.get(section)[0];
 			info.remove(section);
 			info.put(section, new int[] { a, number });
-			c.moveToNext();
+			c1.moveToNext();
 		}
 		c.close();
 		return info;

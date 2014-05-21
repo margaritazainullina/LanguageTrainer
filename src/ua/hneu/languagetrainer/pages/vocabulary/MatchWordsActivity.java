@@ -192,7 +192,7 @@ public class MatchWordsActivity extends Activity {
 				// increment number of correct answers in current session
 				App.vp.incrementNumberOfCorrectAnswersInMatching();
 				// if word becomes learned,
-				if (currentEntry.getLearnedPercentage() == 1) {
+				if (currentEntry.getLearnedPercentage() >= 1) {
 					// remove word from current dictionary for learning
 					learnedWords.add(currentEntry);
 

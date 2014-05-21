@@ -130,7 +130,7 @@ public class GiongoTestActivity extends Activity {
 							.getLearnedPercentage()
 							+ App.getPercentageIncrement());
 
-				if (rightWord.getLearnedPercentage() == 1) {
+				if (rightWord.getLearnedPercentage() >= 1) {
 					App.gp.makeWordLearned(rightWord, getContentResolver());
 				}
 

@@ -27,13 +27,13 @@ public class VocabularyEntry {
 
 	public VocabularyEntry(int id, String kanji, int level,
 			String transcription, String romaji, List<String> translations,
-			List<String> translationsRus, double percentage,
-			String lastview, int showntimes, String color) {
+			List<String> translationsRus, double percentage, String lastview,
+			int showntimes, String color) {
 
-		VocabularyMeaning meaning = new VocabularyMeaning(transcription, romaji,
-				translations);
-		VocabularyMeaning meaningRus = new VocabularyMeaning(transcription, romaji,
-				translationsRus);
+		VocabularyMeaning meaning = new VocabularyMeaning(transcription,
+				romaji, translations);
+		VocabularyMeaning meaningRus = new VocabularyMeaning(transcription,
+				romaji, translationsRus);
 		this.id = id;
 		this.kanji = kanji;
 		this.level = level;
@@ -201,8 +201,9 @@ public class VocabularyEntry {
 						"yyyy-MM-dd HH:mm:ss.SSS");
 				boolean isAfter = false;
 				try {
-					if (de1.getLastview().isEmpty()
-							|| de2.getLastview().isEmpty()) {
+					if ((de1.getLastview().isEmpty() || de2.getLastview()
+							.isEmpty())
+							&& (de1.getLastview() == null || de2.getLastview() == null)) {
 						// gets randomly - entries wont' be in a row
 						isAfter = (Math.random() < 0.5);
 					} else {

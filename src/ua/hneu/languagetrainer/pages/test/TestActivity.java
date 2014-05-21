@@ -80,6 +80,8 @@ public class TestActivity extends Activity {
 		// else start count and set time limits
 		if (!testName.equals("level_def")) {
 			timeLimits = App.getTimeTestLimits();
+			chronometer.setBase(SystemClock
+					.elapsedRealtime());
 			chronometer.start();
 			chronometer
 					.setOnChronometerTickListener(new OnChronometerTickListener() {

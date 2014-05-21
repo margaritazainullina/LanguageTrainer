@@ -5,6 +5,10 @@ import java.util.Collections;
 import java.util.Hashtable;
 import java.util.Random;
 
+import ua.hneu.languagetrainer.model.grammar.GrammarRule;
+import ua.hneu.languagetrainer.service.GiongoService;
+import ua.hneu.languagetrainer.service.GrammarService;
+
 import android.util.Log;
 
 public class GiongoDictionary {
@@ -91,4 +95,17 @@ public class GiongoDictionary {
 	public ArrayList<Giongo> getEntries() {
 		return entries;
 	}
+
+	public void addEntriesToDictionaryAndGet(int size) {
+		Random rn = new Random();
+
+		while (this.size() < size) {
+			int i = rn.nextInt(GiongoService.all.size());
+			Giongo g = GiongoService.all.get(i);
+			// if the word is not learned
+			if (g.getLearnedPercentage() < 1) {
+				this.entries.add(g);
+			}
+		}
+	}	
 }

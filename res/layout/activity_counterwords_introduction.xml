@@ -22,8 +22,10 @@
 
         <TextView
             android:id="@+id/wordTextView"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
             android:gravity="center_horizontal"
             android:textSize="30sp" />
 
@@ -54,7 +56,7 @@
 
             <TextView
                 android:id="@+id/translationTextView"
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/romajiTextView"
                 android:layout_marginBottom="10dp"

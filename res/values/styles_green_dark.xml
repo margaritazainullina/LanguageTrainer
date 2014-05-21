@@ -72,7 +72,7 @@
     </style>
 
     <style name="ToggleGreen_dark" parent="android:Widget.Holo.Button.Toggle">
-        <item name="android:background">@drawable/green_dark_btn_toggle_holo_dark</item>
+        <item name="android:background" >@drawable/green_dark_btn_toggle_holo_dark</item>
     </style>
 
 </resources>

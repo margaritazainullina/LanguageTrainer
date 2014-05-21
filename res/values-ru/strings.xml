@@ -35,7 +35,7 @@
     <string name="title_activity_word_practice_result">Your result</string>
     <string name="previous">Назад</string>
     <string name="next">Далее</string>
-    <string name="i_already_know">Я уже знаю это слово</string>
+    <string name="i_already_know">Я уже знаю это</string>
     <string name="skip">Пропустить упражнение</string>
     <string name="skipIntroduction">Перейти к упражнениям </string>
     <string name="ok">OK</string>
@@ -58,6 +58,9 @@
     <string name="by_now_youve_learned">Всего выучено слов </string>
     <string name="out_of">из </string>
     <string name="percentage_of_voc"> % от всех слов</string>
+    <string name="percentage_of_gr"> % от всех правил</string>
+    <string name="percentage_of_cw"> % от всех счетных слов</string>
+    <string name="percentage_of_giongo"> % от всех гионго/гитайго</string>
     <string name="pay_attention_to">Обратите вниание на:</string>
     <string name="great">Отлично! </string>
     <string name="good">Хорошо! </string>

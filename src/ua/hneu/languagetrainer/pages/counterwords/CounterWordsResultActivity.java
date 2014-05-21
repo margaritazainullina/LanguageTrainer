@@ -69,7 +69,7 @@ public class CounterWordsResultActivity extends Activity {
 				+ " "
 				+ totalPercentage
 				+ " "
-				+ this.getString(R.string.percentage_of_voc));
+				+ this.getString(R.string.percentage_of_cw));
 
 		// mistakes
 		StringBuffer sb2 = new StringBuffer();

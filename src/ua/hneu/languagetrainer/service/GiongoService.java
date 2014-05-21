@@ -190,7 +190,6 @@ public class GiongoService {
 					g = new Giongo();
 					g.setExamples(new ArrayList<GiongoExample>());
 					isFirst = true;
-
 				}
 			}
 		} catch (IOException e) {

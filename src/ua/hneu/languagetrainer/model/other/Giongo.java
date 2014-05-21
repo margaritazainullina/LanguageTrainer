@@ -41,7 +41,7 @@ public class Giongo {
 	public ArrayList<String> getAllExamplesText() {
 		ArrayList<String> text = new ArrayList<String>();
 		for (GiongoExample ge : examples) {
-			text.add(ge.getText());
+			text.add(ge.getText().trim());
 		}
 		return text;
 	}
@@ -49,7 +49,7 @@ public class Giongo {
 	public ArrayList<String> getAllExamplesRomaji() {
 		ArrayList<String> text = new ArrayList<String>();
 		for (GiongoExample ge : examples) {
-			text.add(ge.getRomaji());
+			text.add(ge.getRomaji().trim());
 		}
 		return text;
 	}
@@ -59,9 +59,9 @@ public class Giongo {
 		boolean isEng = App.lang == Languages.ENG;
 		for (GiongoExample ge : examples) {
 			if (isEng)
-				text.add(ge.getTranslationEng());
+				text.add(ge.getTranslationEng().trim());
 			else
-				text.add(ge.getTranslationRus());
+				text.add(ge.getTranslationRus().trim());
 		}
 		return text;
 	}
