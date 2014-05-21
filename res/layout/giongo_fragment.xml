@@ -10,15 +10,15 @@
     tools:context="ua.hneu.languagetrainer.masterdetailflow.GioingoActivityFragment" >
  
      <TextView
-        android:id="@+id/infoTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="154dp"
-        android:padding="16dp"
-        android:scrollbars="vertical"
-        android:text="@string/giongo_info"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textIsSelectable="true"
-        tools:context=".VocabularyActivityFragment" />
+         android:id="@+id/infoTextView"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:padding="16dp"
+         android:scrollbars="vertical"
+         android:text="@string/giongo_info"
+         android:textAppearance="?android:attr/textAppearanceSmall"
+         android:textIsSelectable="true"
+         tools:context=".VocabularyActivityFragment" />
      
     <TextView
         android:id="@+id/giongoInfoTextView"

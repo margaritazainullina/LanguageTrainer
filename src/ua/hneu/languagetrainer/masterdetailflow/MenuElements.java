@@ -5,12 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MainMenuValues {
+public class MenuElements {
 	public static List<MenuItem> ITEMS = new ArrayList<MenuItem>();
 
 	public static Map<String, MenuItem> ITEM_MAP = new HashMap<String, MenuItem>();
 
-	public MainMenuValues(){
+	public MenuElements(){
 		/*addItem(new MenuItem("vocabulary", "vocabulary"));
 		addItem(new MenuItem("grammar", "grammar"));
 		addItem(new MenuItem("listening", "listening"));

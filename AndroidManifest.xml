@@ -59,7 +59,7 @@
         </provider>
 
         <activity
-            android:name="ua.hneu.languagetrainer.masterdetailflow.ItemListActivity"
+            android:name="ua.hneu.languagetrainer.masterdetailflow.MenuListActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -67,7 +67,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="ua.hneu.languagetrainer.masterdetailflow.ItemDetailActivity" >
+        <activity android:name="ua.hneu.languagetrainer.masterdetailflow.VocabularyActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ItemListActivity" />
@@ -148,9 +148,21 @@
             android:name="ua.hneu.languagetrainer.pages.grammar.GrammarResultActivity"
             android:label="@string/results" >
         </activity>
-          <activity
+        <activity
             android:name="ua.hneu.languagetrainer.pages.SettingsActivity"
             android:label="@string/settings" >
+        </activity>
+        <activity
+            android:name="ua.hneu.languagetrainer.masterdetailflow.GrammarActivity"
+            android:label="@string/title_activity_grammar" >
+        </activity>
+        <activity
+            android:name="ua.hneu.languagetrainer.masterdetailflow.CounterWordsActivity"
+            android:label="@string/counter_words" >
+        </activity>
+        <activity
+            android:name="ua.hneu.languagetrainer.masterdetailflow.GiongoActivity"
+            android:label="@string/title_activity_giongo_practice" >
         </activity>
     </application>
 

@@ -12,7 +12,7 @@
     <TextView
         android:id="@+id/infoTextView"
         android:layout_width="wrap_content"
-        android:layout_height="154dp"
+        android:layout_height="wrap_content"
         android:padding="16dp"
         android:scrollbars="vertical"
         android:text="@string/counter_words_info"

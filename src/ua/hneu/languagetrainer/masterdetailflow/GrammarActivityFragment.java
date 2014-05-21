@@ -17,8 +17,6 @@ public class GrammarActivityFragment extends Fragment {
 	TextView infoTextView;
 	ProgressBar progressBar;
 	public static final String ARG_ITEM_ID = "item_id";
-
-	private MainMenuValues.MenuItem mItem;
 	
 	public GrammarActivityFragment() {
 	}

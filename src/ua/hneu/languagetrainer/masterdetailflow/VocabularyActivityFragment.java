@@ -18,8 +18,6 @@ public class VocabularyActivityFragment extends Fragment {
 	ProgressBar progressBar;
 	public static final String ARG_ITEM_ID = "item_id";
 
-	private MainMenuValues.MenuItem mItem;
-
 	public VocabularyActivityFragment() {
 	}
 

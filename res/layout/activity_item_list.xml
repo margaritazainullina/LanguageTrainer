@@ -7,7 +7,7 @@
     android:baselineAligned="false"
     android:orientation="horizontal"
     android:showDividers="middle"
-    tools:context=".ItemListActivity" >
+    tools:context=".MenuListActivity" >
 
     <!-- android:divider="?android:attr/dividerHorizontal" -->
 
@@ -24,7 +24,6 @@
     <!-- left side for small devices -->
 
     <FrameLayout
-        android:id="@+id/item_detail_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/textViewUserInfo"
@@ -54,7 +53,7 @@
 
     <fragment
         android:id="@+id/item_list"
-        android:name="ua.hneu.languagetrainer.masterdetailflow.ItemListFragment"
+        android:name="ua.hneu.languagetrainer.masterdetailflow.MenuListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"

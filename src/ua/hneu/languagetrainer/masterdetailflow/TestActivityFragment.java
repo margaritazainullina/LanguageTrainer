@@ -9,7 +9,6 @@ import java.util.Set;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
-import ua.hneu.languagetrainer.CounterWordsListViewAdapter;
 import ua.hneu.languagetrainer.TestInfoListViewAdapter;
 import ua.hneu.languagetrainer.service.TestService;
 import android.annotation.TargetApi;

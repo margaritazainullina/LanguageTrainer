@@ -2,7 +2,7 @@ package ua.hneu.languagetrainer.pages.counterwords;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
-import ua.hneu.languagetrainer.masterdetailflow.ItemListActivity;
+import ua.hneu.languagetrainer.masterdetailflow.MenuListActivity;
 import ua.hneu.languagetrainer.model.User;
 import ua.hneu.languagetrainer.model.other.CounterWord;
 import android.app.Activity;
@@ -125,7 +125,7 @@ public class CounterWordsResultActivity extends Activity {
 
 	public void buttonToMainMenuOnClick(View v) {
 		// go to master/detail flow
-		Intent main = new Intent(this, ItemListActivity.class);
+		Intent main = new Intent(this, MenuListActivity.class);
 		startActivity(main);
 	}
 

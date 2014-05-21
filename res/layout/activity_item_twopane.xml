@@ -8,7 +8,7 @@
     android:divider="?android:attr/dividerHorizontal"
     android:orientation="horizontal"
     android:showDividers="middle"
-    tools:context=".ItemListActivity" >
+    tools:context=".MenuListActivity" >
 
     <!--
     This layout is a two-pane layout for the Items
@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/item_list"
-        android:name="ua.hneu.languagetrainer.masterdetailflow.ItemListFragment"
+        android:name="ua.hneu.languagetrainer.masterdetailflow.MenuListFragment"
         android:layout_width="150dp"
         android:layout_height="match_parent"
         android:layout_below="@+id/levelRatingBar"

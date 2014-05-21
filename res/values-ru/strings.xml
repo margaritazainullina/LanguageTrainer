@@ -18,11 +18,11 @@
     <string name="end_test">Закончить тест</string>
     <!-- Test results -->
     <string name="title_lev_def_test_result">Совет</string>
-    <string name="recommendation">It\'s recommended to choose level</string>
-    <string name="results_desc">Press \"I agree\", to follow the recommendation or \"Choose level\", if you want to take another level.</string>
-    <string name="choose_level">Choose level</string>
-    <string name="percentage">Correct answers:</string>
-    <string name="i_agree">I agree</string>
+     <string name="recommendation">Рекомендуется выбрать уровень</string>
+    <string name="results_desc">Нажмите \"Я согласен\", чтобы последовать рекомендации или \"Выбрать уровень\", если хотите выбрать другой уровень.</string>
+    <string name="percentage">Правильных ответов:</string>
+    <string name="i_agree">Я согласен</string>
+    <string name="choose_level">Выбрать уровень</string>
     <!--  -->
     <string name="app_name">JLPT Trainer</string>
     <string name="title">JLPT Trainer</string>

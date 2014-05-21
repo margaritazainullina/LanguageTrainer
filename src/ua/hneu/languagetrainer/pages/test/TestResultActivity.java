@@ -2,7 +2,7 @@ package ua.hneu.languagetrainer.pages.test;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
-import ua.hneu.languagetrainer.masterdetailflow.ItemListActivity;
+import ua.hneu.languagetrainer.masterdetailflow.MenuListActivity;
 import ua.hneu.languagetrainer.model.tests.Test;
 import ua.hneu.languagetrainer.passing.TestPassing;
 import ua.hneu.languagetrainer.service.TestService;
@@ -98,7 +98,7 @@ public class TestResultActivity extends Activity {
 	}
 
 	public void buttonReturnOnClick(View v) {
-		Intent intent = new Intent(this, ItemListActivity.class);
+		Intent intent = new Intent(this, MenuListActivity.class);
 		startActivity(intent);
 	}
 

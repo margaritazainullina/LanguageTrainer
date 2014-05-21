@@ -2,7 +2,7 @@ package ua.hneu.languagetrainer.pages;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
-import ua.hneu.languagetrainer.masterdetailflow.ItemListActivity;
+import ua.hneu.languagetrainer.masterdetailflow.MenuListActivity;
 import ua.hneu.languagetrainer.pages.test.TestActivity;
 import android.app.Activity;
 import android.content.Intent;
@@ -34,7 +34,7 @@ public class GreetingActivity extends Activity {
 	public void buttonStartOnClick(View v) {
 		if (level != -1) {
 			App.goToLevel(level);
-			Intent intent = new Intent(this, ItemListActivity.class);
+			Intent intent = new Intent(this, MenuListActivity.class);
 			startActivity(intent);
 		}
 	}

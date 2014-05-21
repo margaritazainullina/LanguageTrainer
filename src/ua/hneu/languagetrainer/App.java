@@ -3,7 +3,7 @@ package ua.hneu.languagetrainer;
 import java.util.Locale;
 
 import ua.hneu.edu.languagetrainer.R;
-import ua.hneu.languagetrainer.masterdetailflow.MainMenuValues;
+import ua.hneu.languagetrainer.masterdetailflow.MenuElements;
 import ua.hneu.languagetrainer.model.User;
 import ua.hneu.languagetrainer.model.grammar.GrammarDictionary;
 import ua.hneu.languagetrainer.model.other.CounterWordsDictionary;
@@ -90,17 +90,17 @@ public class App extends Application {
 		editor = settings.edit();
 
 		// set localized menu elements
-		MainMenuValues.addItem(new MainMenuValues.MenuItem("vocabulary", this
+		MenuElements.addItem(new MenuElements.MenuItem("vocabulary", this
 				.getString(R.string.vocabulary)));
-		MainMenuValues.addItem(new MainMenuValues.MenuItem("grammar", this
+		MenuElements.addItem(new MenuElements.MenuItem("grammar", this
 				.getString(R.string.grammar)));
-		MainMenuValues.addItem(new MainMenuValues.MenuItem("mock_tests", this
+		MenuElements.addItem(new MenuElements.MenuItem("mock_tests", this
 				.getString(R.string.mock_tests)));
-		MainMenuValues.addItem(new MainMenuValues.MenuItem("giongo", this
+		MenuElements.addItem(new MenuElements.MenuItem("giongo", this
 				.getString(R.string.giongo)));
-		MainMenuValues.addItem(new MainMenuValues.MenuItem("counter_words",
+		MenuElements.addItem(new MenuElements.MenuItem("counter_words",
 				this.getString(R.string.counter_words)));
-		MainMenuValues.addItem(new MainMenuValues.MenuItem("settings", this
+		MenuElements.addItem(new MenuElements.MenuItem("settings", this
 				.getString(R.string.settings)));
 
 		cr = getContentResolver();
@@ -148,8 +148,8 @@ public class App extends Application {
 		 * gres.createTable(); grs.bulkInsertFromCSV("grammar_n5.txt", 5,
 		 * getAssets(), getContentResolver());
 		 * 
-		 * us.dropTable(); us.createTable();
-		 */
+		 * */us.dropTable(); us.createTable();
+		 
 
 		// if it isn't first time when launching app - user exists in db
 		User currentUser = us.getUserWithCurrentLevel(App.cr);
@@ -214,7 +214,8 @@ public class App extends Application {
 			App.isShowRomaji = true;
 			editor.putString("showRomaji", value);
 		} else if (value.equals("only_4_5")) {
-			if (App.userInfo.getLevel() == 4 || App.userInfo.getLevel() == 5)
+			if(App.userInfo==null) App.isShowRomaji = true;
+			else if (App.userInfo.getLevel() == 4 || App.userInfo.getLevel() == 5)
 				App.isShowRomaji = true;
 			else
 				App.isShowRomaji = false;

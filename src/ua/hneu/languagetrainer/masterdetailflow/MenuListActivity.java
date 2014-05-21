@@ -13,11 +13,8 @@ import ua.hneu.languagetrainer.service.CounterWordsService;
 import ua.hneu.languagetrainer.service.GiongoService;
 import ua.hneu.languagetrainer.service.GrammarService;
 import ua.hneu.languagetrainer.service.VocabularyService;
-import android.annotation.SuppressLint;
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.PreferenceFragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
@@ -25,8 +22,8 @@ import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-public class ItemListActivity extends FragmentActivity implements
-		ItemListFragment.Callbacks {
+public class MenuListActivity extends FragmentActivity implements
+		MenuListFragment.Callbacks {
 	private boolean mTwoPane;
 	TextView textViewUserInfo;
 	RatingBar ratingBar;
@@ -50,7 +47,7 @@ public class ItemListActivity extends FragmentActivity implements
 		}
 		if (findViewById(R.id.item_detail_container) != null) {
 			mTwoPane = true;
-			((ItemListFragment) getSupportFragmentManager().findFragmentById(
+			((MenuListFragment) getSupportFragmentManager().findFragmentById(
 					R.id.item_list)).setActivateOnItemClick(true);
 			// set user level on main activity
 			textViewUserInfo = (TextView) findViewById(R.id.textViewUserInfo);
@@ -60,7 +57,7 @@ public class ItemListActivity extends FragmentActivity implements
 			ratingBar.setRating(6 - App.userInfo.getLevel());
 		} else {
 			mTwoPane = false;
-			((ItemListFragment) getSupportFragmentManager().findFragmentById(
+			((MenuListFragment) getSupportFragmentManager().findFragmentById(
 					R.id.item_list)).setActivateOnItemClick(true);
 
 			// set user level on main activity
@@ -126,29 +123,27 @@ public class ItemListActivity extends FragmentActivity implements
 		} else {
 			// if selected Vocabulary
 			if (id == "vocabulary") {
-				Intent intent = new Intent(this,
-						VocabularyActivityFragment.class);
+				Intent intent = new Intent(this, VocabularyActivity.class);
 				startActivity(intent);
 			}
 			// if selected Grammar
 			if (id == "grammar") {
-				Intent intent = new Intent(this, GrammarActivityFragment.class);
+				Intent intent = new Intent(this, GrammarActivity.class);
 				startActivity(intent);
 			}
 			// if selected Tests
 			if (id == "mock_tests") {
-				Intent intent = new Intent(this, TestActivityFragment.class);
+				Intent intent = new Intent(this, TestActivity.class);
 				startActivity(intent);
 			}
 			// if selected counter words
 			if (id == "counter_words") {
-				Intent intent = new Intent(this,
-						CounterWordsActivityFragment.class);
+				Intent intent = new Intent(this, CounterWordsActivity.class);
 				startActivity(intent);
 			}
 			// if selected counter words
 			if (id == "giongo") {
-				Intent intent = new Intent(this, GiongoActivityFragment.class);
+				Intent intent = new Intent(this, GiongoActivity.class);
 				startActivity(intent);
 			}
 			// if selected settings
