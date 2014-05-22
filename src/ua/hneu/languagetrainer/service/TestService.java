@@ -150,6 +150,8 @@ public class TestService {
 						String questionText = question.getAttribute("text");
 						double weight = Double.parseDouble(question
 								.getAttribute("weight"));
+						String imgRef = question.getAttribute("imgRef");
+						String audioRef = question.getAttribute("audioRef");
 						// parse answers element
 						NodeList answers = question.getChildNodes();
 						ArrayList<Answer> answersList = new ArrayList<Answer>();
@@ -164,7 +166,7 @@ public class TestService {
 						t.addQuestion(new Question(QuestionService
 								.getNumberOfQuestions(cr), sectionName,
 								taskCaption, title, questionText, weight,
-								answersList));
+								answersList,imgRef,audioRef));
 
 					}
 				}
@@ -216,6 +218,7 @@ public class TestService {
 		return true;
 	}
 
+	@SuppressLint("NewApi")
 	private ArrayList<Test> getTestsByLevel(int level, ContentResolver cr) {
 		ArrayList<Test> tests = new ArrayList<Test>();
 		String[] col = { TestDAO.ID, TestDAO.LEVEL, TestDAO.NAME };

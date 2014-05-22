@@ -23,6 +23,8 @@ public class QuestionDAO extends ContentProvider {
 	public static final String TITLE = "title";
 	public static final String TEXT = "text";
 	public static final String WEIGHT = "weight";
+	public static final String IMG = "image_ref";
+	public static final String AUDIO = "audio_ref";
 	public static final String T_ID = "test_id";
 
 	public static final Uri CONTENT_URI = Uri
@@ -50,6 +52,8 @@ public class QuestionDAO extends ContentProvider {
 		mContactMap.put(TITLE, TITLE);
 		mContactMap.put(TEXT, TEXT);
 		mContactMap.put(WEIGHT, WEIGHT);
+		mContactMap.put(IMG, IMG);
+		mContactMap.put(AUDIO, AUDIO);
 		mContactMap.put(T_ID, T_ID);
 		}
 

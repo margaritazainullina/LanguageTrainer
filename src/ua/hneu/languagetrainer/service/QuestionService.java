@@ -28,6 +28,8 @@ public class QuestionService {
 		values.put(QuestionDAO.TITLE, q.getTitle());
 		values.put(QuestionDAO.TEXT, q.getText());
 		values.put(QuestionDAO.WEIGHT, q.getWeight());
+		values.put(QuestionDAO.IMG, q.getImgRef());
+		values.put(QuestionDAO.AUDIO, q.getAudioRef());
 		values.put(QuestionDAO.T_ID, testId);
 		cr.insert(QuestionDAO.CONTENT_URI, values);
 	}
@@ -50,6 +52,8 @@ public class QuestionService {
 				+ QuestionDAO.SECTION + " TEXT, " + QuestionDAO.TASK
 				+ " TEXT, " + QuestionDAO.TITLE + " TEXT, " + QuestionDAO.TEXT
 				+ " TEXT, " + QuestionDAO.WEIGHT + " DOUBLE,"
+				+ QuestionDAO.IMG + " DOUBLE,"
+				+ QuestionDAO.AUDIO + " DOUBLE,"
 				+ QuestionDAO.T_ID + " INTEGER, " + "FOREIGN KEY("
 				+ QuestionDAO.T_ID + ") REFERENCES " + TestDAO.TABLE_NAME + "("
 				+ TestDAO.ID + "));");
@@ -78,7 +82,7 @@ public class QuestionService {
 			ContentResolver cr) {
 		String[] col = { QuestionDAO.ID, QuestionDAO.T_ID, QuestionDAO.SECTION,
 				QuestionDAO.TASK, QuestionDAO.TITLE, QuestionDAO.TEXT,
-				QuestionDAO.WEIGHT };
+				QuestionDAO.WEIGHT, QuestionDAO.IMG, QuestionDAO.AUDIO };
 		Cursor c = cr.query(QuestionDAO.CONTENT_URI, col, QuestionDAO.T_ID
 				+ "=" + testId, null, null, null);
 		c.moveToFirst();
@@ -88,6 +92,8 @@ public class QuestionService {
 		String title = "";
 		String text = "";
 		double weight = 0;
+		String img = "";
+		String audio = "";
 		ArrayList<Question> q = new ArrayList<Question>();
 		while (!c.isAfterLast()) {
 			id = c.getInt(0);
@@ -96,8 +102,10 @@ public class QuestionService {
 			title = c.getString(4).trim();
 			text = c.getString(5).trim();
 			weight = c.getDouble(6);
+			img = c.getString(7).trim();
+			audio = c.getString(8).trim();
 			ArrayList<Answer> a = as.getAswersByQuestionId(id, cr);
-			q.add(new Question(id, section, task, title, text, weight, a));
+			q.add(new Question(id, section, task, title, text, weight, a, img, audio));
 			c.moveToNext();
 		}
 		return q;

@@ -10,6 +10,8 @@ public class Question {
 	private String text;
 	private double weight;
 	private ArrayList<Answer> answers;
+	private String imgRef;
+	private String audioRef;
 
 	public int getId() {
 		return id;
@@ -51,8 +53,24 @@ public class Question {
 		this.answers = answers;
 	}
 	
+	public String getImgRef() {
+		return imgRef;
+	}
+
+	public void setImgRef(String imgRef) {
+		this.imgRef = imgRef;
+	}
+
+	public String getAudioRef() {
+		return audioRef;
+	}
+
+	public void setAudioRef(String audioRef) {
+		this.audioRef = audioRef;
+	}
+
 	public Question(int id, String section, String task, String title,
-			String text, double weight, ArrayList<Answer> answers) {
+			String text, double weight, ArrayList<Answer> answers, String imgRef, String audioRef) {
 		super();
 		this.id = id;
 		this.section = section;
@@ -61,6 +79,8 @@ public class Question {
 		this.text = text;
 		this.weight = weight;
 		this.answers = answers;
+		this.imgRef = imgRef;
+		this.audioRef = audioRef;
 	}
 
 	public Answer getRightAnswer() {
