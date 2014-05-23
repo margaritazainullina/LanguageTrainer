@@ -115,7 +115,7 @@ public class App extends Application {
 		vs.bulkInsertFromCSV("N3.txt", getAssets(), 3, getContentResolver());
 		vs.bulkInsertFromCSV("N3.txt", getAssets(), 2, getContentResolver());
 		vs.bulkInsertFromCSV("N1.txt", getAssets(), 1, getContentResolver());
-*/
+
 		// test
 		ts.dropTable();
 		qs.dropTable();
@@ -156,9 +156,9 @@ public class App extends Application {
 		gres.createTable();
 		grs.bulkInsertFromCSV("grammar_n5.txt", 5, getAssets(),
 				getContentResolver());
-*/
+
 		us.dropTable();
-		us.createTable();
+		us.createTable();*/
 
 		// if it isn't first time when launching app - user exists in db
 		User currentUser = us.getUserWithCurrentLevel(App.cr);

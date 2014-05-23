@@ -1,5 +1,7 @@
 package ua.hneu.languagetrainer.pages.test;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import ua.hneu.edu.languagetrainer.R;
@@ -14,7 +16,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
@@ -25,6 +31,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.Chronometer.OnChronometerTickListener;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -36,10 +43,13 @@ public class MockTestActivity extends Activity {
 	TextView sectionTextView;
 	TextView taskTextView;
 	TextView textTextView;
+	Button soundButton;
+	ImageView img;
 	ProgressBar progressBar;
 	TextView isRight;
 	Button skipSection;
 	Chronometer chronometer;
+	MediaPlayer player;
 
 	// custom adapter for ListView
 	ListViewAdapter adapter;
@@ -70,6 +80,9 @@ public class MockTestActivity extends Activity {
 		isRight = (TextView) findViewById(R.id.isCorrectTextView);
 		skipSection = (Button) findViewById(R.id.buttonSkipSection);
 		chronometer = (Chronometer) findViewById(R.id.chronometer);
+		img = (ImageView) findViewById(R.id.img);
+		soundButton = (Button) findViewById(R.id.soundButton);
+		player = new MediaPlayer();
 		// clear test passing instance to clear previous results
 		tp.clearInfo();
 		Bundle extras = getIntent().getExtras();
@@ -80,8 +93,7 @@ public class MockTestActivity extends Activity {
 		// else start count and set time limits
 		if (!testName.equals("level_def")) {
 			timeLimits = App.getTimeTestLimits();
-			chronometer.setBase(SystemClock
-					.elapsedRealtime());
+			chronometer.setBase(SystemClock.elapsedRealtime());
 			chronometer.start();
 			chronometer
 					.setOnChronometerTickListener(new OnChronometerTickListener() {
@@ -122,7 +134,7 @@ public class MockTestActivity extends Activity {
 								chronometer.setBase(SystemClock
 										.elapsedRealtime());
 								chronometer.start();
-								toТextSection();
+								toNextSection();
 
 							}
 						}
@@ -159,17 +171,38 @@ public class MockTestActivity extends Activity {
 
 		q = t.getQuestions().get(currentWordNumber);
 		// setting sections variable - vocabulary, reading and listening
-		if (q.getSection().equals("文字・語彙"))
+		if (q.getSection().equals("文字・語彙")) {
+			soundButton.setVisibility(View.INVISIBLE);
 			currentSection = 1;
-		else if (q.getSection().equals("読解・文法"))
+		} else if (q.getSection().equals("読解・文法")) {
+			soundButton.setVisibility(View.INVISIBLE);
 			currentSection = 2;
-		else
+		} else {
+			soundButton.setVisibility(View.VISIBLE);
 			currentSection = 3;
+		}
 		answers = q.getAnswers();
 		titleTextView.setText(q.getText());
 		titleTextView.setText(q.getTitle());
 		taskTextView.setText(q.getTask());
 		textTextView.setText(q.getText());
+		// if image for question exists
+		if (!q.getImgRef().isEmpty()) {
+			InputStream ims;
+			try {
+				ims = getAssets().open("question_img/" + q.getImgRef());
+				// load image as Drawable
+				Drawable d = Drawable.createFromStream(ims, null);
+				// set image to ImageView
+				img.setImageDrawable(d);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}// if audio for question exists
+		if (!q.getAudioRef().isEmpty())
+			playAudio();
+
 		sectionTextView.setText(q.getSection());
 		adapter = new ListViewAdapter(this, q.getAllAnswers());
 		answersListView.setAdapter(adapter);
@@ -266,6 +299,31 @@ public class MockTestActivity extends Activity {
 		endTesting();
 	}
 
+	public void onPlayClick(View v) {
+		playAudio();
+	}
+
+	public void playAudio() {
+		try {
+			if (player.isPlaying()) {
+				player.stop();
+				player.release();
+				player = new MediaPlayer();
+			}
+			AssetFileDescriptor descriptor = getAssets().openFd(
+					"question_audio/" + q.getAudioRef());
+			player.setDataSource(descriptor.getFileDescriptor(),
+					descriptor.getStartOffset(), descriptor.getLength());
+			descriptor.close();
+
+			player.prepare();
+			player.setVolume(1f, 1f);
+			player.setLooping(true);
+			player.start();
+		} catch (Exception e) {
+		}
+	}
+
 	public void endTesting() {
 		DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
 			@Override
@@ -273,6 +331,12 @@ public class MockTestActivity extends Activity {
 				switch (which) {
 				case DialogInterface.BUTTON_POSITIVE:
 					// Yes button clicked
+					// stop playing
+					if (player.isPlaying()) {
+						player.stop();
+						player.release();
+						player = new MediaPlayer();
+					}
 					// show recommendations or results
 					Intent intent;
 					if (testName.equals("level_def")) {
@@ -301,7 +365,7 @@ public class MockTestActivity extends Activity {
 
 	}
 
-	public void toТextSection() {
+	public void toNextSection() {
 		String section = q.getSection();
 		if (currentSection == 3)
 			endTesting();
@@ -313,7 +377,7 @@ public class MockTestActivity extends Activity {
 				else
 					currentWordNumber++;
 			}
-		currentWordNumber++;
+		currentWordNumber--;
 		nextWord();
 	}
 
@@ -326,7 +390,7 @@ public class MockTestActivity extends Activity {
 				case DialogInterface.BUTTON_POSITIVE:
 					// Yes button clicked - increment currentWordNumber until
 					// question of next section
-					toТextSection();
+					toNextSection();
 					break;
 				case DialogInterface.BUTTON_NEGATIVE:
 					// No button clicked - do nothing

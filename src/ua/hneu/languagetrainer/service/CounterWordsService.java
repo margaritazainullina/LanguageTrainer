@@ -20,9 +20,21 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 @SuppressLint("NewApi")
+/**
+ * @author Margarita Zainullina <margarita.zainullina@gmail.com>
+ * @version 1.0
+ */
 public class CounterWordsService {
 	public static CounterWordsDictionary all;
 
+	/**
+	 * Inserts an CounterWord instance to database
+	 * 
+	 * @param cw
+	 *            CounterWord instance to insert
+	 * @param cr
+	 *            content resolver to database
+	 */
 	public void insert(CounterWord cw, ContentResolver cr) {
 		ContentValues values = new ContentValues();
 		values.put(CounterWordsDAO.SECTION_ENG, cw.getSectionEng());
@@ -39,6 +51,14 @@ public class CounterWordsService {
 		cr.insert(CounterWordsDAO.CONTENT_URI, values);
 	}
 
+	/**
+	 * Updates CounterWords table with entry
+	 * 
+	 * @param cw
+	 *            CounterWord instance to insert
+	 * @param cr
+	 *            content resolver to database
+	 */
 	public void update(CounterWord cw, ContentResolver contentResolver) {
 		ContentValues values = new ContentValues();
 		values.put(CounterWordsDAO.SECTION_ENG, cw.getSectionEng());
@@ -53,13 +73,20 @@ public class CounterWordsService {
 		values.put(CounterWordsDAO.SHOWNTIMES, cw.getShownTimes());
 		values.put(CounterWordsDAO.COLOR, cw.getColor());
 		String s = CounterWordsDAO.WORD + " =\"" + cw.getWord() + "\" ";
-		contentResolver.update(CounterWordsDAO.CONTENT_URI, values, s, null);		
+		contentResolver.update(CounterWordsDAO.CONTENT_URI, values, s, null);
 	}
+
+	/**
+	 * Deletes all entries from Answer table
+	 */
 	public void emptyTable() {
 		CounterWordsDAO.getDb().execSQL(
 				"delete from " + CounterWordsDAO.TABLE_NAME);
 	}
 
+	/**
+	 * Creates CounterWords table
+	 */
 	public void createTable() {
 		SQLiteDatabase db = CounterWordsDAO.getDb();
 		db.execSQL("CREATE TABLE if not exists " + CounterWordsDAO.TABLE_NAME
@@ -76,11 +103,24 @@ public class CounterWordsService {
 				+ CounterWordsDAO.COLOR + " TEXT); ");
 	}
 
+	/**
+	 * Drops CounterWords table
+	 */
 	public void dropTable() {
 		CounterWordsDAO.getDb().execSQL(
 				"DROP TABLE if exists " + CounterWordsDAO.TABLE_NAME + ";");
 	}
 
+	/**
+	 * Gets list of answers of a question
+	 * 
+	 * @param section
+	 *            name of section of counter words in English or Russian
+	 *            (depends on locale)
+	 * @param cr
+	 *            content resolver to database
+	 * @return CounterWordsDictionary
+	 */
 	public CounterWordsDictionary getCounterwordsBySection(String section,
 			ContentResolver cr) {
 		String[] col = { CounterWordsDAO.SECTION_ENG,
@@ -135,6 +175,16 @@ public class CounterWordsService {
 		return cw;
 	}
 
+	/**
+	 * Inserts all entries divided by tabs from assets file
+	 * 
+	 * @param filepath
+	 *            path to assets file
+	 * @param assetManager
+	 *            assetManager from activity context
+	 * @param cr
+	 *            content resolver to database
+	 */
 	public void bulkInsertFromCSV(String filepath, AssetManager assetManager,
 			ContentResolver cr) {
 		BufferedReader reader = null;
@@ -155,8 +205,10 @@ public class CounterWordsService {
 				// others - values separated by tabs
 				if (i == 0) {
 					String[] section = mLine.split("\\t");
-					sectionEng = section[0].trim();;
-					sectionRus = section[1].trim();;
+					sectionEng = section[0].trim();
+					;
+					sectionRus = section[1].trim();
+					;
 					i++;
 				} else {
 					String[] s = mLine.split("\\t");
@@ -187,10 +239,12 @@ public class CounterWordsService {
 					}
 					if (!sectionEng.equals("Numbers"))
 						insert(new CounterWord(sectionEng, sectionRus, s[0],
-								s[1].trim(), s[2].trim(), s[3].trim(), s[4].trim(), 0, 0, "", color), cr);
+								s[1].trim(), s[2].trim(), s[3].trim(),
+								s[4].trim(), 0, 0, "", color), cr);
 					else
-						insert(new CounterWord(sectionEng, sectionRus, s[0].trim(),
-								s[1].trim(), s[2].trim(), s[3].trim(), s[3].trim(), 0, 0, "", color), cr);
+						insert(new CounterWord(sectionEng, sectionRus,
+								s[0].trim(), s[1].trim(), s[2].trim(),
+								s[3].trim(), s[3].trim(), 0, 0, "", color), cr);
 
 				}
 			}
@@ -200,7 +254,14 @@ public class CounterWordsService {
 		}
 	}
 
-	// returns section name, number of all words and number of learned words
+	/**
+	 * Returns section name, number of all words and number of learned words
+	 * 
+	 * @param cr
+	 *            content resolver to database
+	 * @return info HashMap with key - section name, value - number of all words
+	 *         and number of learned words by sections
+	 */
 	public HashMap<String, int[]> getAllSectionsWithProgress(ContentResolver cr) {
 		HashMap<String, int[]> info = new HashMap<String, int[]>();
 		Cursor c;
@@ -248,42 +309,61 @@ public class CounterWordsService {
 		return info;
 	}
 
+	/**
+	 * Returns CounterWordsDictionary to store it in App class
+	 * 
+	 * @param section
+	 *            section of counter word
+	 * @param numberEntriesInCurrentDict
+	 *            number of entries to select for learning
+	 * @param cr
+	 *            content resolver to database
+	 * @return currentDict CounterWordsDictionary with CounterWords entries
+	 */
 	public CounterWordsDictionary createCurrentDictionary(String section,
-			int countWordsInCurrentDict, ContentResolver contentResolver) {
+			int numberEntriesInCurrentDict, ContentResolver contentResolver) {
 		all = new CounterWordsDictionary();
 		all = getCounterwordsBySection(section, contentResolver);
-		CounterWordsDictionary current = new CounterWordsDictionary();
+		CounterWordsDictionary currentDict = new CounterWordsDictionary();
 		// if words have never been showed - set entries randomly
 		if (App.userInfo.isLevelLaunchedFirstTime == 1) {
 			all.sortRandomly();
 			for (int i = 0; i < App.numberOfEntriesInCurrentDict; i++) {
 				CounterWord e = all.get(i);
 				if (e.getLearnedPercentage() != 1)
-					current.add(e);
+					currentDict.add(e);
 			}
 		} else {
 			// sorting descending
 			// get last elements
 			all.sortByLastViewedTime();
 			int i = all.size() - 1;
-			while (current.size() < App.numberOfEntriesInCurrentDict) {
+			while (currentDict.size() < App.numberOfEntriesInCurrentDict) {
 				CounterWord e = all.get(i);
 				if (e.getLearnedPercentage() != 1)
-					current.add(e);
+					currentDict.add(e);
 				i--;
 				Log.i("createCurrentDictionary", all.get(i).toString());
 			}
 		}
-		return current;
+		return currentDict;
 	}
 
+	/**
+	 * Returns number of all counter words to get id of last counter word for
+	 * inserting in counterWordsEamples table
+	 * 
+	 * @param cr
+	 *            content resolver to database
+	 * @return num number of all counter words in table
+	 */
 	public int getNumberOfCounterWords(ContentResolver contentResolver) {
 		Cursor countCursor = contentResolver.query(CounterWordsDAO.CONTENT_URI,
 				new String[] { "count(*) AS count" }, null, null, null);
 		countCursor.moveToFirst();
-		int count = countCursor.getInt(0);
+		int num = countCursor.getInt(0);
 		countCursor.close();
-		return count;
+		return num;
 	}
 
 }

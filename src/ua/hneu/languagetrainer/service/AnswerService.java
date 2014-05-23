@@ -11,9 +11,22 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+/**
+ * @author Margarita Zainullina <margarita.zainullina@gmail.com>
+ * @version 1.0
+ */
 @SuppressLint("NewApi")
 public class AnswerService {
-
+	/**
+	 * Inserts an answer to database
+	 * 
+	 * @param a
+	 *            - Answer instance to insert
+	 * @param questionId
+	 *            - id of a question answer belongs to
+	 * @param cr
+	 *            - content resolver to database
+	 */
 	public void insert(Answer a, int questionId, ContentResolver cr) {
 		ContentValues values = new ContentValues();
 		values.put(AnswerDAO.ISCORRECT, a.isCorrect());
@@ -22,10 +35,16 @@ public class AnswerService {
 		cr.insert(AnswerDAO.CONTENT_URI, values);
 	}
 
+	/**
+	 * Deletes all entries from Answer table
+	 */
 	public void emptyTable() {
 		AnswerDAO.getDb().execSQL("delete from " + AnswerDAO.TABLE_NAME);
 	}
 
+	/**
+	 * Creates Answer table
+	 */
 	public void createTable() {
 		SQLiteDatabase db = AnswerDAO.getDb();
 		db.execSQL("CREATE TABLE if not exists " + AnswerDAO.TABLE_NAME
@@ -36,10 +55,23 @@ public class AnswerService {
 				+ "(" + QuestionDAO.ID + "));");
 	}
 
+	/**
+	 * Drops Answer table
+	 */
 	public void dropTable() {
-		AnswerDAO.getDb().execSQL("DROP TABLE if exists " + AnswerDAO.TABLE_NAME + ";");
+		AnswerDAO.getDb().execSQL(
+				"DROP TABLE if exists " + AnswerDAO.TABLE_NAME + ";");
 	}
 
+	/**
+	 * Gets list of answers of a question
+	 * 
+	 * @param questionId
+	 *            id of a question answer belongs to
+	 * @param cr
+	 *            - content resolver to database
+	 * @return answers list of answers
+	 */
 	public ArrayList<Answer> getAswersByQuestionId(int questionId,
 			ContentResolver cr) {
 		String[] col = { AnswerDAO.Q_ID, AnswerDAO.TEXT, AnswerDAO.ISCORRECT };
@@ -48,14 +80,14 @@ public class AnswerService {
 		c.moveToFirst();
 		String text = "";
 		boolean isCorrect = false;
-		ArrayList<Answer> a = new ArrayList<Answer>();
+		ArrayList<Answer> answers = new ArrayList<Answer>();
 		while (!c.isAfterLast()) {
 			text = c.getString(1).trim();
 			isCorrect = c.getInt(2) == 1;
-			a.add(new Answer(text, isCorrect));
+			answers.add(new Answer(text, isCorrect));
 			c.moveToNext();
 		}
 		c.close();
-		return a;
+		return answers;
 	}
 }

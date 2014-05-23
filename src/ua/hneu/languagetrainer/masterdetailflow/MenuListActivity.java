@@ -7,6 +7,7 @@ import ua.hneu.languagetrainer.pages.SettingsActivity;
 import ua.hneu.languagetrainer.pages.counterwords.CounterWordsIntroductionActivity;
 import ua.hneu.languagetrainer.pages.giongo.GiongoIntroductionActivity;
 import ua.hneu.languagetrainer.pages.grammar.GrammarIntroductionActivity;
+import ua.hneu.languagetrainer.pages.test.MockTestActivity;
 import ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity;
 import ua.hneu.languagetrainer.service.CounterWordsService;
 import ua.hneu.languagetrainer.service.GiongoService;
@@ -132,7 +133,7 @@ public class MenuListActivity extends FragmentActivity implements
 			}
 			// if selected Tests
 			if (id == "mock_tests") {
-				Intent intent = new Intent(this, TestActivity.class);
+				Intent intent = new Intent(this, MockTestActivity.class);
 				startActivity(intent);
 			}
 			// if selected counter words
@@ -198,7 +199,7 @@ public class MenuListActivity extends FragmentActivity implements
 
 	public void onClickPassTest(View v) {
 		// load test
-		Intent intent = new Intent(this, TestActivity.class);
+		Intent intent = new Intent(this, MockTestActivity.class);
 		intent.putExtra("testName", TestActivityFragment.testName);
 		startActivity(intent);
 

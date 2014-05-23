@@ -31,7 +31,7 @@
             android:id="@+id/chronometer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/sectionTextView"
+            android:layout_alignParentRight="true"
             android:gravity="right" />
 
     </RelativeLayout>
@@ -56,6 +56,20 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+<Button
+    android:id="@+id/soundButton"
+    android:layout_width="wrap_content"
+    android:layout_height="118dp"
+    android:background="@color/transparent"
+    android:drawableBottom="@drawable/sound"
+    android:gravity="left|center_vertical"
+    android:onClick="onPlayClick" />
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <ListView
         android:id="@+id/answersListView"

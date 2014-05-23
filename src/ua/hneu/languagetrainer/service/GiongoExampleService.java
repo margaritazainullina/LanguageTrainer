@@ -10,23 +10,42 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+/**
+ * @author Margarita Zainullina <margarita.zainullina@gmail.com>
+ * @version 1.0
+ */
 public class GiongoExampleService {
-
-	public void insert(GiongoExample g, int giongoId, ContentResolver cr) {
+	/**
+	 * Inserts a GiongoExample to database
+	 * 
+	 * @param ge
+	 *            - GiongoExample instance to insert
+	 * @param giongoId
+	 *            - id of a Giongo example belongs to
+	 * @param cr
+	 *            - content resolver to database
+	 */
+	public void insert(GiongoExample ge, int giongoId, ContentResolver cr) {
 		ContentValues values = new ContentValues();
 		values.put(GiongoExamplesDAO.GIONGO_ID, giongoId);
-		values.put(GiongoExamplesDAO.TEXT, g.getText());
-		values.put(GiongoExamplesDAO.ROMAJI, g.getRomaji());
-		values.put(GiongoExamplesDAO.TRANSLATION_ENG, g.getTranslationEng());
-		values.put(GiongoExamplesDAO.TRANSLATION_RUS, g.getTranslationRus());
+		values.put(GiongoExamplesDAO.TEXT, ge.getText());
+		values.put(GiongoExamplesDAO.ROMAJI, ge.getRomaji());
+		values.put(GiongoExamplesDAO.TRANSLATION_ENG, ge.getTranslationEng());
+		values.put(GiongoExamplesDAO.TRANSLATION_RUS, ge.getTranslationRus());
 		cr.insert(GiongoExamplesDAO.CONTENT_URI, values);
 	}
 
+	/**
+	 * Deletes all entries from GiongoExamples table
+	 */
 	public void emptyTable() {
 		GiongoExamplesDAO.getDb().execSQL(
 				"delete from " + GiongoExamplesDAO.TABLE_NAME);
 	}
 
+	/**
+	 * Creates GiongoExamples table
+	 */
 	public void createTable() {
 		SQLiteDatabase db = GiongoExamplesDAO.getDb();
 		db.execSQL("CREATE TABLE if not exists " + GiongoExamplesDAO.TABLE_NAME
@@ -37,11 +56,23 @@ public class GiongoExampleService {
 				+ GiongoExamplesDAO.TRANSLATION_RUS + " TEXT); ");
 	}
 
+	/**
+	 * Drops GiongoExamples table
+	 */
 	public void dropTable() {
 		GiongoExamplesDAO.getDb().execSQL(
 				"DROP TABLE if exists " + GiongoExamplesDAO.TABLE_NAME + ";");
 	}
 
+	/**
+	 * Gets list of examples by Giongo entry id
+	 * 
+	 * @param giongoId
+	 *            id of a giongo to which giongo example belongs
+	 * @param cr
+	 *            - content resolver to database
+	 * @return examples list of answers
+	 */
 	public ArrayList<GiongoExample> getExamplesByGiongoId(int giongoId,
 			ContentResolver cr) {
 		String[] col = { GiongoExamplesDAO.GIONGO_ID, GiongoExamplesDAO.TEXT,
@@ -54,15 +85,16 @@ public class GiongoExampleService {
 		String romaji = "";
 		String eng = "";
 		String rus = "";
-		ArrayList<GiongoExample> ge = new ArrayList<GiongoExample>();
+		ArrayList<GiongoExample> examples = new ArrayList<GiongoExample>();
 		while (!c.isAfterLast()) {
 			text = c.getString(1);
 			romaji = c.getString(2);
 			eng = c.getString(3);
 			rus = c.getString(4);
-			ge.add(new GiongoExample(text, romaji, eng, rus));
+			examples.add(new GiongoExample(text, romaji, eng, rus));
 			c.moveToNext();
 		}
-		return ge;
+		c.close();
+		return examples;
 	}
 }
