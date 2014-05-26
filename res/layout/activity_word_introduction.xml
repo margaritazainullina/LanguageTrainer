@@ -10,6 +10,15 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity" >
 
+    <Button
+        android:id="@+id/soundButton"
+        android:layout_width="wrap_content"
+        android:layout_height="118dp"
+        android:background="@color/transparent"
+        android:drawableBottom="@drawable/sound"
+        android:gravity="left|center_vertical"
+        android:onClick="onPlayClick" />
+
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
@@ -34,13 +43,13 @@
             android:id="@+id/romajiTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25sp"/>
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/translationTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25sp"/>
+            android:textSize="25sp" />
     </LinearLayout>
 
     <LinearLayout

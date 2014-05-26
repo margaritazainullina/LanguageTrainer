@@ -15,6 +15,7 @@ import ua.hneu.languagetrainer.service.GrammarService;
 import ua.hneu.languagetrainer.service.VocabularyService;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +25,7 @@ import android.widget.TextView;
 
 public class MenuListActivity extends FragmentActivity implements
 		MenuListFragment.Callbacks {
+	private static final int MY_DATA_CHECK_CODE = 0;
 	private boolean mTwoPane;
 	TextView textViewUserInfo;
 	RatingBar ratingBar;
@@ -123,8 +125,10 @@ public class MenuListActivity extends FragmentActivity implements
 		} else {
 			// if selected Vocabulary
 			if (id == "vocabulary") {
+
 				Intent intent = new Intent(this, VocabularyActivity.class);
-				startActivity(intent);
+				intent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+				startActivityForResult(intent, MY_DATA_CHECK_CODE);
 			}
 			// if selected Grammar
 			if (id == "grammar") {
@@ -154,7 +158,7 @@ public class MenuListActivity extends FragmentActivity implements
 			}
 		}
 	}
-
+//!!!
 	public void onClickPracticeVocabulary(View v) {
 		// load vocabulary
 		App.vocabularyDictionary = VocabularyService.createCurrentDictionary(

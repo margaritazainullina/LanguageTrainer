@@ -24,6 +24,11 @@ public class VocabularyPassing {
 	// words and number of incorrect answers
 	private Hashtable<VocabularyEntry, Integer> problemWords = new Hashtable<VocabularyEntry, Integer>();
 
+	/**
+	 * Methods for getting and incrementing numbers of correct/incorrect answers
+	 * while passing
+	 */
+	
 	public int getNumberOfCorrectAnswersInMatching() {
 		return numberOfCorrectAnswersInMatching;
 	}
@@ -92,7 +97,15 @@ public class VocabularyPassing {
 		return problemWords;
 	}
 
-	public void makeWordLearned(VocabularyEntry de, ContentResolver cr,
+	/**
+	 * Marks word as learned and updates it in db
+	 * 
+	 * @param ve
+	 *            target word
+	 * @param cr
+	 *            content resolver to database
+	 */
+	public void makeWordLearned(VocabularyEntry ve, ContentResolver cr,
 			boolean isKanjiNeeded) {
 		// update info in user table
 		User u = App.userInfo;
@@ -100,10 +113,10 @@ public class VocabularyPassing {
 		UserService us = new UserService();
 		us.update(u, cr);
 		// update current dictionary
-		de.setLearnedPercentage(1);
-		learnedWords.add(de);
+		ve.setLearnedPercentage(1);
+		learnedWords.add(ve);
 		incrementNumberOfCorrectAnswersInMatching();
-		App.vocabularyDictionary.remove(de);
+		App.vocabularyDictionary.remove(ve);
 		// add entries to current dictionary to match target size
 		if (!isKanjiNeeded)
 			App.vocabularyDictionary
@@ -112,20 +125,29 @@ public class VocabularyPassing {
 			App.vocabularyDictionary
 					.addEntriesToDictionaryAndGetOnlyWithKanji(App.numberOfEntriesInCurrentDict);
 		// update info in vocabulary table
-		App.vs.update(de, cr);
+		App.vs.update(ve, cr);
 
 	}
 
-	public void addProblemWord(VocabularyEntry de) {
-		if (problemWords.containsKey(de)) {
-			problemWords.put(de, problemWords.get(de) + 1);
+	/**
+	 * If user many times in a row answered incorrectly, this word should be
+	 * added to a list of problem words
+	 * 
+	 * @param ve
+	 *            target word
+	 */
+	public void addProblemWord(VocabularyEntry ve) {
+		if (problemWords.containsKey(ve)) {
+			problemWords.put(ve, problemWords.get(ve) + 1);
 		} else
-			problemWords.put(de, 1);
+			problemWords.put(ve, 1);
 	}
 
+	/*
+	 * reset all values except for numberOfPassingsInARow for analyzing of how
+	 * many times user passed tests in a row
+	 */
 	public void clearInfo() {
-		// reset all values except for numberOfPassingsInARow for analyzing of
-		// how many times user passed tests in a row
 		this.learnedWords = null;
 		this.numberOfCorrectAnswersInMatching = 0;
 		this.numberOfCorrectAnswersInTranslation = 0;

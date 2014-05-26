@@ -19,12 +19,24 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+/**
+ * @author Margarita Zainullina <margarita.zainullina@gmail.com>
+ * @version 1.0
+ */
 public class GrammarService {
 	public static GrammarDictionary all;
 	boolean isFirstTimeCreated;
 	static GrammarExampleService ges = new GrammarExampleService();
 	static int numberOfEnteries = 0;
 
+	/**
+	 * Inserts a Grammar rule to database
+	 * 
+	 * @param g
+	 *            - GrammarRule instance to insert
+	 * @param cr
+	 *            - content resolver to database
+	 */
 	public void insert(GrammarRule g, ContentResolver cr) {
 		for (GrammarExample ge : g.getExamples()) {
 			ges.insert(ge, numberOfEnteries, cr);
@@ -42,6 +54,14 @@ public class GrammarService {
 		cr.insert(GrammarDAO.CONTENT_URI, values);
 	}
 
+	/**
+	 * Updates a GrammarRule in database
+	 * 
+	 * @param g
+	 *            - GrammarRule instance to upate
+	 * @param cr
+	 *            - content resolver to database
+	 */
 	public void update(GrammarRule g, ContentResolver cr) {
 		numberOfEnteries++;
 		ContentValues values = new ContentValues();
@@ -57,6 +77,15 @@ public class GrammarService {
 		cr.update(GrammarDAO.CONTENT_URI, values, s, null);
 	}
 
+	/**
+	 * Gets GrammarDictionary with all GrammarRule from db with defined level
+	 * 
+	 * @param level
+	 *            - level of GrammarRule to select
+	 * @param cr
+	 *            - content resolver to database
+	 * @return giongoList list of all giongo in the table
+	 */
 	public static GrammarDictionary selectAllEntriesOflevel(int level,
 			ContentResolver contentResolver) {
 		GrammarDictionary gd = new GrammarDictionary();
@@ -96,6 +125,17 @@ public class GrammarService {
 		return gd;
 	}
 
+	/**
+	 * Returns GrammarDictionary to store it in the App class
+	 * 
+	 * @param level
+	 *            level of GrammarRule to select
+	 * @param numberEntriesInCurrentDict
+	 *            number of entries to select for learning
+	 * @param cr
+	 *            content resolver to database
+	 * @return currentDict GiongoDictionary with Giongo entries
+	 */
 	public static GrammarDictionary createCurrentDictionary(int level,
 			int numberOfWordsInCurrentDict, ContentResolver contentResolver) {
 		all = new GrammarDictionary();
@@ -125,14 +165,30 @@ public class GrammarService {
 		return current;
 	}
 
+	/**
+	 * Deletes all entries from Grammar table
+	 */
 	public void emptyTable() {
 		GrammarDAO.getDb().execSQL("delete from " + GrammarDAO.TABLE_NAME);
 	}
 
+	/**
+	 * A stub to find out last id of Grammar rules to insert an example to it
+	 * 
+	 * @param cr
+	 *            content resolver to database
+	 */
 	public static void startCounting(ContentResolver contentResolver) {
 		numberOfEnteries = getNumberOfGrammar(contentResolver) + 1;
 	}
 
+	/**
+	 * Returns number of entries in Grammar table
+	 * 
+	 * @param cr
+	 *            content resolver to database
+	 * @return number of entries
+	 */
 	private static int getNumberOfGrammar(ContentResolver cr) {
 		Cursor countCursor = cr.query(GrammarDAO.CONTENT_URI,
 				new String[] { "count(*) AS count" }, null + "", null, null);
@@ -142,6 +198,9 @@ public class GrammarService {
 		return count;
 	}
 
+	/**
+	 * Creates Grammar table
+	 */
 	public void createTable() {
 		SQLiteDatabase db = GrammarDAO.getDb();
 		db.execSQL("CREATE TABLE if not exists " + GrammarDAO.TABLE_NAME
@@ -153,28 +212,21 @@ public class GrammarService {
 				+ " INTEGER, " + GrammarDAO.COLOR + " TEXT); ");
 	}
 
+	/**
+	 * Drops Grammar table
+	 */
 	public void dropTable() {
 		GrammarDAO.getDb().execSQL(
 				"DROP TABLE if exists " + GrammarDAO.TABLE_NAME + ";");
 	}
 
-	/*
-	 * public static WordDictionary createCurrentDictionary(int level, int
-	 * countWordsInCurrentDict, ContentResolver contentResolver) { all = new
-	 * WordDictionary(); all = selectAllEntriesOflevel(level, contentResolver);
-	 * WordDictionary current = new WordDictionary(); // if words have never
-	 * been showed - set entries randomly if
-	 * (App.userInfo.isLevelLaunchedFirstTime == 1) { all.sortRandomly(); for
-	 * (int i = 0; i < App.userInfo.getNumberOfVocabularyInCurrentDict(); i++) {
-	 * DictionaryEntry e = all.get(i); if (e.getLearnedPercentage() != 1)
-	 * current.add(e); } } else { // sorting descending // get last elements
-	 * all.sortByLastViewedTime(); int i = all.size() - 1; while (current.size()
-	 * < App.userInfo .getNumberOfVocabularyInCurrentDict()) { DictionaryEntry e
-	 * = all.get(i); if (e.getLearnedPercentage() != 1) current.add(e); i--;
-	 * Log.i("createCurrentDictionary", all.get(i).toString()); } } return
-	 * current; }
+	/**
+	 * Gets list of all Grammar in db of target level
+	 * 
+	 * @param cr
+	 *            - content resolver to database
+	 * @return grammarRulesList list of all grammar rules in the table
 	 */
-
 	@SuppressLint("NewApi")
 	public ArrayList<GrammarRule> getRulesByLevel(int level, ContentResolver cr) {
 		String[] col = { GrammarDAO.ID, GrammarDAO.LEVEL, GrammarDAO.RULE,
@@ -191,7 +243,7 @@ public class GrammarService {
 		int showntimes = 0;
 		String color = "";
 		GrammarExampleService ges = new GrammarExampleService();
-		ArrayList<GrammarRule> gr = new ArrayList<GrammarRule>();
+		ArrayList<GrammarRule> grammarRulesList = new ArrayList<GrammarRule>();
 		while (!c.isAfterLast()) {
 			id = c.getInt(0);
 			rule = c.getString(2);
@@ -204,15 +256,27 @@ public class GrammarService {
 			ArrayList<GrammarExample> ge = new ArrayList<GrammarExample>();
 			ge = ges.getExamplesByRuleId(id, cr);
 
-			gr.add(new GrammarRule(rule, level, descEng, descRus, percentage,
-					lastview, showntimes, color, ge));
+			grammarRulesList.add(new GrammarRule(rule, level, descEng, descRus,
+					percentage, lastview, showntimes, color, ge));
 
 			c.moveToNext();
 		}
 		c.close();
-		return gr;
+		return grammarRulesList;
 	}
 
+	/**
+	 * Inserts all entries divided by tabs from assets file
+	 * 
+	 * @param level
+	 *            level of target entries
+	 * @param filepath
+	 *            path to assets file
+	 * @param assetManager
+	 *            assetManager from activity context
+	 * @param cr
+	 *            content resolver to database
+	 */
 	public void bulkInsertFromCSV(String filepath, int level,
 			AssetManager assetManager, ContentResolver cr) {
 		BufferedReader reader = null;
@@ -257,13 +321,15 @@ public class GrammarService {
 							break;
 						}
 						}
-						g = new GrammarRule(s[0].trim(), level, s[1].trim(), s[2].trim(), 0, "", 0,
-								color.trim(), new ArrayList<GrammarExample>());
+						g = new GrammarRule(s[0].trim(), level, s[1].trim(),
+								s[2].trim(), 0, "", 0, color.trim(),
+								new ArrayList<GrammarExample>());
 						isFirst = false;
 					} else {
 						String[] s = mLine.split("\\t");
-						GrammarExample ge = new GrammarExample(s[0].trim() + "\\t"
-								+ s[1].trim() + "\\t" + s[2].trim(), s[3].trim(), s[4].trim(), s[5].trim());
+						GrammarExample ge = new GrammarExample(s[0].trim()
+								+ "\\t" + s[1].trim() + "\\t" + s[2].trim(),
+								s[3].trim(), s[4].trim(), s[5].trim());
 						g.examples.add(ge);
 					}
 				} else {
@@ -277,15 +343,22 @@ public class GrammarService {
 
 		}
 	}
-
+	/**
+	 * Returns number of all grammar rules to get id of last rule for
+	 * inserting in GrammarRulesExamples table
+	 * 
+	 * @param cr
+	 *            content resolver to database
+	 * @return num number of all counter words in table
+	 */
 	public int getNumberOfGrammarInLevel(int level,
 			ContentResolver contentResolver) {
 		Cursor countCursor = contentResolver.query(GrammarDAO.CONTENT_URI,
 				new String[] { "count(*) AS count" }, GrammarDAO.LEVEL + "="
 						+ level + "", null, null);
 		countCursor.moveToFirst();
-		int count = countCursor.getInt(0);
+		int num = countCursor.getInt(0);
 		countCursor.close();
-		return count;
+		return num;
 	}
 }

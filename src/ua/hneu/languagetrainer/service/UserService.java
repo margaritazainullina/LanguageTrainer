@@ -8,8 +8,20 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+/**
+ * @author Margarita Zainullina <margarita.zainullina@gmail.com>
+ * @version 1.0
+ */
 public class UserService {
-
+	/**
+	 * Inserts a level passing information to a table User. A row in table - a
+	 * level of passing
+	 * 
+	 * @param u
+	 *            - User instance to insert
+	 * @param cr
+	 *            - content resolver to database
+	 */
 	public void insert(User u, ContentResolver cr) {
 		ContentValues values = new ContentValues();
 		values.put(UserDAO.LEVEL, u.getLevel());
@@ -27,6 +39,14 @@ public class UserService {
 		cr.insert(UserDAO.CONTENT_URI, values);
 	}
 
+	/**
+	 * Updates a level passing information to a table User.
+	 * 
+	 * @param u
+	 *            - User instance to insert
+	 * @param cr
+	 *            - content resolver to database
+	 */
 	public void update(User u, ContentResolver cr) {
 		ContentValues values = new ContentValues();
 		values.put(UserDAO.LEVEL, u.getLevel());
@@ -44,10 +64,16 @@ public class UserService {
 		cr.update(UserDAO.CONTENT_URI, values, "_ID=" + u.getId(), null);
 	}
 
+	/**
+	 * Deletes all entries from User table
+	 */
 	public void emptyTable() {
 		UserDAO.getDb().execSQL("delete from " + UserDAO.TABLE_NAME);
 	}
 
+	/**
+	 * Creates User table
+	 */
 	public void createTable() {
 		SQLiteDatabase db = UserDAO.getDb();
 		db.execSQL("CREATE TABLE if not exists " + UserDAO.TABLE_NAME
@@ -62,11 +88,22 @@ public class UserService {
 				+ UserDAO.ISCURRENTLEVEL + " INTEGER);");
 	}
 
+	/**
+	 * Drops User table
+	 */
 	public void dropTable() {
 		UserDAO.getDb().execSQL(
 				"DROP TABLE if exists " + UserDAO.TABLE_NAME + ";");
 	}
 
+	/**
+	 * Selects a user with target level. If doesn't exist - returns null.
+	 * 
+	 * @param level
+	 *            - target user level
+	 * @param cr
+	 *            - content resolver to database
+	 */
 	@SuppressLint("NewApi")
 	public User selectUser(int level, ContentResolver cr) {
 		String[] selectionArgs = { UserDAO.ID, UserDAO.LEVEL,
@@ -118,6 +155,13 @@ public class UserService {
 			return null;
 	}
 
+	/**
+	 * Returns number of entries in User table
+	 * 
+	 * @param cr
+	 *            content resolver to database
+	 * @return number of entries
+	 */
 	public int getNumberOfUsers(ContentResolver cr) {
 		Cursor countCursor = cr.query(UserDAO.CONTENT_URI,
 				new String[] { "count(*) AS count" }, null, null, null);
@@ -128,6 +172,13 @@ public class UserService {
 		return count;
 	}
 
+	/**
+	 * Selects current user with current passing level. If doesn't exist -
+	 * returns null.
+	 * 
+	 * @param cr
+	 *            - content resolver to database
+	 */
 	@SuppressLint("NewApi")
 	public User getUserWithCurrentLevel(ContentResolver cr) {
 		String[] selectionArgs = { UserDAO.ID, UserDAO.LEVEL,
@@ -181,6 +232,10 @@ public class UserService {
 			return null;
 	}
 
+	/**
+	 * Sets other users with other levels inactive, and user with target level -
+	 * active
+	 */
 	public void setAsInactiveOtherLevels(int level, ContentResolver cr) {
 		for (int i = 1; i < 6; i++) {
 			User u = selectUser(i, cr);

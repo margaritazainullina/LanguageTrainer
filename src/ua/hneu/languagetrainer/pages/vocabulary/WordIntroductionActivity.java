@@ -4,11 +4,13 @@ import java.util.List;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.TextToVoiceMediaPlayer;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +28,7 @@ public class WordIntroductionActivity extends Activity {
 	TextView romajiTextView;
 	TextView translationTextView;
 	Button prevButton;
+	TextToVoiceMediaPlayer twmp;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +47,7 @@ public class WordIntroductionActivity extends Activity {
 		transcriptionTextView = (TextView) findViewById(R.id.transcriptionTextView);
 		romajiTextView = (TextView) findViewById(R.id.romajiTextView);
 		translationTextView = (TextView) findViewById(R.id.translationTextView);
-
+		twmp = new TextToVoiceMediaPlayer();
 		// increment number of
 		App.vp.incrementNumberOfPassingsInARow();
 
@@ -54,8 +57,16 @@ public class WordIntroductionActivity extends Activity {
 		// show first entry
 		curEntry = App.vocabularyDictionary.get(0);
 		idx = 0;
-		showEntry(curEntry);
+		showEntry();
 		prevButton.setEnabled(false);
+	}
+
+	private void speakOut(final VocabularyEntry entry) {
+		twmp.play(entry.getTranscription());
+	}
+
+	public void onPlayClick(View v) {
+		speakOut(curEntry);
 	}
 
 	@Override
@@ -73,7 +84,8 @@ public class WordIntroductionActivity extends Activity {
 			// if all words have been showed go to next activity
 			goToNextPassingActivity();
 		} else {
-			showEntry(App.vocabularyDictionary.get(idx));
+			curEntry = App.vocabularyDictionary.get(idx);
+			showEntry();
 		}
 	}
 
@@ -87,18 +99,18 @@ public class WordIntroductionActivity extends Activity {
 	}
 
 	@SuppressLint("SimpleDateFormat")
-	private void showEntry(VocabularyEntry currentEntry) {
+	private void showEntry() {
 		wordTextView = (TextView) findViewById(R.id.wordTextView);
 		transcriptionTextView = (TextView) findViewById(R.id.transcriptionTextView);
 		romajiTextView = (TextView) findViewById(R.id.romajiTextView);
 		translationTextView = (TextView) findViewById(R.id.translationTextView);
 
 		// set word info to the texViews
-		wordTextView.setText(currentEntry.getKanji());
-		transcriptionTextView.setText(currentEntry.getTranscription());
+		wordTextView.setText(curEntry.getKanji());
+		transcriptionTextView.setText(curEntry.getTranscription());
 		if (App.isShowRomaji)
-			romajiTextView.setText(currentEntry.getRomaji());
-		translationTextView.setText(currentEntry.translationsToString());
+			romajiTextView.setText(curEntry.getRomaji());
+		translationTextView.setText(curEntry.translationsToString());
 
 		// set color of entry
 		int color = App.vocabularyDictionary.get(idx).getIntColor();
@@ -107,19 +119,23 @@ public class WordIntroductionActivity extends Activity {
 		romajiTextView.setTextColor(color);
 
 		// and write information to db
-		currentEntry.setLastView();
-		currentEntry.incrementShowntimes();
-		App.vs.update(currentEntry, getContentResolver());
+		curEntry.setLastView();
+		curEntry.incrementShowntimes();
+		App.vs.update(curEntry, getContentResolver());
+		try {
+			speakOut(curEntry);
+		} catch (Exception e) {
+			Log.e("Text to speecch error", "Text to speecch error");
+		}
 	}
 
 	public void buttonPreviousOnClick(View v) {
 		if (idx > 0) {
 			idx--;
 			curEntry = App.vocabularyDictionary.get(idx);
-			showEntry(curEntry);
+			showEntry();
 		} else {
 			prevButton.setEnabled(false);
 		}
 	}
-
 }

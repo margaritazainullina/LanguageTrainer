@@ -1,11 +1,19 @@
 package ua.hneu.languagetrainer.passing;
 
+/**
+ * @author Margarita Zainullina <margarita.zainullina@gmail.com>
+ * @version 1.0
+ */
 public class TestPassing {
 	private double scoreInVocGr = 0;
 	private double scoreInReading = 0;
 	private double scoreInListening = 0;
 	private int numberOfCorrectAnswers = 0;
 
+	/**
+	 * Methods for getting and incrementing numbers of correct answers by test
+	 * sections
+	 */
 	public double getScoreInVocGr() {
 		return scoreInVocGr;
 	}
@@ -38,6 +46,10 @@ public class TestPassing {
 		numberOfCorrectAnswers++;
 	}
 
+	/*
+	 * reset all values except for numberOfPassingsInARow for analyzing of how
+	 * many times user passed tests in a row
+	 */
 	public void clearInfo() {
 		scoreInVocGr = 0;
 		scoreInReading = 0;

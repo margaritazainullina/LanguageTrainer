@@ -1,4 +1,4 @@
-package ua.hneu.languagetrainer.counterwords;
+package ua.hneu.languagetrainer.pages.counterwords;
 
 import java.util.List;
 
@@ -7,7 +7,6 @@ import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;

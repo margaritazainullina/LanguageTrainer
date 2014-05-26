@@ -20,20 +20,111 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+/**
+ * @author Margarita Zainullina <margarita.zainullina@gmail.com>
+ * @version 1.0
+ */
 public class VocabularyService {
 	public static VocabularyDictionary all;
 	boolean isFirstTimeCreated;
 
+	/**
+	 * Inserts an VocabularyEntry instance to database
+	 * 
+	 * @param ve
+	 *            VocabularyEntry instance to insert
+	 * @param cr
+	 *            content resolver to database
+	 */
+	public void insert(VocabularyEntry ve, ContentResolver cr) {
+		ContentValues values = new ContentValues();
+		values.put(VocabularyDAO.KANJI, ve.getKanji());
+		values.put(VocabularyDAO.LEVEL, ve.getLevel());
+		values.put(VocabularyDAO.TRANSCRIPTION, ve.getTranscription());
+		values.put(VocabularyDAO.ROMAJI, ve.getRomaji());
+		values.put(VocabularyDAO.TRANSLATIONS, ve.translationsToString());
+		values.put(VocabularyDAO.TRANSLATIONS_RUS, ve.translationsRusToString());
+		values.put(VocabularyDAO.PERCENTAGE, ve.getLearnedPercentage());
+		values.put(VocabularyDAO.LASTVIEW, ve.getLastview());
+		values.put(VocabularyDAO.SHOWNTIMES, ve.getShownTimes());
+		values.put(VocabularyDAO.COLOR, ve.getColor());
+		cr.insert(VocabularyDAO.CONTENT_URI, values);
+	}
+
+	/**
+	 * Updates an VocabularyEntry instance in database
+	 * 
+	 * @param ve
+	 *            VocabularyEntry instance to insert
+	 * @param cr
+	 *            content resolver to database
+	 */
+	public void update(VocabularyEntry ve, ContentResolver cr) {
+		ContentValues values = new ContentValues();
+		values.put(VocabularyDAO.ID, ve.getId());
+		values.put(VocabularyDAO.KANJI, ve.getKanji());
+		values.put(VocabularyDAO.LEVEL, ve.getLevel());
+		values.put(VocabularyDAO.TRANSCRIPTION, ve.getTranscription());
+		values.put(VocabularyDAO.ROMAJI, ve.getRomaji());
+		values.put(VocabularyDAO.TRANSLATIONS, ve.translationsToString());
+		values.put(VocabularyDAO.TRANSLATIONS_RUS, ve.translationsRusToString());
+		values.put(VocabularyDAO.PERCENTAGE, ve.getLearnedPercentage());
+		values.put(VocabularyDAO.LASTVIEW, ve.getLastview());
+		values.put(VocabularyDAO.SHOWNTIMES, ve.getShownTimes());
+		values.put(VocabularyDAO.COLOR, ve.getColor());
+		cr.update(VocabularyDAO.CONTENT_URI, values, "_ID=" + ve.getId(), null);
+	}
+
+	/**
+	 * Deletes all entries from Vocabulary table
+	 */
+	public void emptyTable() {
+		VocabularyDAO.getDb()
+				.execSQL("delete from " + VocabularyDAO.TABLE_NAME);
+	}
+
+	/**
+	 * Creates Vocabulary table
+	 */
+	public void createTable() {
+		SQLiteDatabase db = VocabularyDAO.getDb();
+		db.execSQL("CREATE TABLE  if not exists " + VocabularyDAO.TABLE_NAME
+				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+				+ VocabularyDAO.KANJI + " TEXT, " + VocabularyDAO.LEVEL
+				+ " TEXT, " + VocabularyDAO.TRANSCRIPTION + " TEXT, "
+				+ VocabularyDAO.ROMAJI + " TEXT, " + VocabularyDAO.TRANSLATIONS
+				+ " TEXT, " + VocabularyDAO.TRANSLATIONS_RUS + " TEXT, "
+				+ VocabularyDAO.PERCENTAGE + " REAL, " + VocabularyDAO.LASTVIEW
+				+ " DATETIME," + VocabularyDAO.SHOWNTIMES + " INTEGER, "
+				+ VocabularyDAO.COLOR + " TEXT);");
+	}
+
+	/**
+	 * Drops Vocabulary table
+	 */
+	public void dropTable() {
+		VocabularyDAO.getDb().execSQL(
+				"DROP TABLE if exists " + VocabularyDAO.TABLE_NAME + ";");
+	}
+
+	/**
+	 * Return VocabularyEntry by it's id
+	 * 
+	 * @param id
+	 *            VocabularyEntry id
+	 * @param cr
+	 *            content resolver to database
+	 */
 	@SuppressLint("NewApi")
 	public static VocabularyEntry getEntryById(int id, ContentResolver cr) {
 		String[] col = { "KANJI", "LEVEL", "TRANSCRIPTION", "ROMAJI",
-				"TRANSLATIONS", "TRANSLATIONS_RUS", "PERCENTAGE",
-				"LASTVIEW", "SHOWNTIMES", "COLOR" };
+				"TRANSLATIONS", "TRANSLATIONS_RUS", "PERCENTAGE", "LASTVIEW",
+				"SHOWNTIMES", "COLOR" };
 		Cursor c = cr.query(VocabularyDAO.CONTENT_URI, col, "_ID=" + id, null,
 				null, null);
 		c.moveToFirst();
 
-		VocabularyEntry de;
+		VocabularyEntry ve;
 
 		String kanji = "";
 		int level = 0;
@@ -66,68 +157,25 @@ public class VocabularyService {
 		List<String> translations2 = new ArrayList<String>(
 				Arrays.asList(translationsRus.split(";")));
 
-		de = new VocabularyEntry(id, kanji, level, transcription, romaji,
-				translations1, translations2, percentage, lastview,
-				showntimes, color);
+		ve = new VocabularyEntry(id, kanji, level, transcription, romaji,
+				translations1, translations2, percentage, lastview, showntimes,
+				color);
 		c.close();
-		return de;
+		return ve;
 	}
 
-	public void insert(VocabularyEntry de, ContentResolver cr) {
-		ContentValues values = new ContentValues();
-		values.put(VocabularyDAO.KANJI, de.getKanji());
-		values.put(VocabularyDAO.LEVEL, de.getLevel());
-		values.put(VocabularyDAO.TRANSCRIPTION, de.getTranscription());
-		values.put(VocabularyDAO.ROMAJI, de.getRomaji());
-		values.put(VocabularyDAO.TRANSLATIONS, de.translationsToString());
-		values.put(VocabularyDAO.TRANSLATIONS_RUS, de.translationsRusToString());
-		values.put(VocabularyDAO.PERCENTAGE, de.getLearnedPercentage());
-		values.put(VocabularyDAO.LASTVIEW, de.getLastview());
-		values.put(VocabularyDAO.SHOWNTIMES, de.getShownTimes());
-		values.put(VocabularyDAO.COLOR, de.getColor());
-		cr.insert(VocabularyDAO.CONTENT_URI, values);
-	}
-
-	public void update(VocabularyEntry de, ContentResolver cr) {
-		ContentValues values = new ContentValues();
-		values.put(VocabularyDAO.ID, de.getId());
-		values.put(VocabularyDAO.KANJI, de.getKanji());
-		values.put(VocabularyDAO.LEVEL, de.getLevel());
-		values.put(VocabularyDAO.TRANSCRIPTION, de.getTranscription());
-		values.put(VocabularyDAO.ROMAJI, de.getRomaji());
-		values.put(VocabularyDAO.TRANSLATIONS, de.translationsToString());
-		values.put(VocabularyDAO.TRANSLATIONS_RUS, de.translationsRusToString());
-		values.put(VocabularyDAO.PERCENTAGE, de.getLearnedPercentage());
-		values.put(VocabularyDAO.LASTVIEW, de.getLastview());
-		values.put(VocabularyDAO.SHOWNTIMES, de.getShownTimes());
-		values.put(VocabularyDAO.COLOR, de.getColor());
-		cr.update(VocabularyDAO.CONTENT_URI, values, "_ID=" + de.getId(), null);
-	}
-
-	public void emptyTable() {
-		VocabularyDAO.getDb()
-				.execSQL("delete from " + VocabularyDAO.TABLE_NAME);
-	}
-
-	public void createTable() {
-		SQLiteDatabase db = VocabularyDAO.getDb();
-		db.execSQL("CREATE TABLE  if not exists " + VocabularyDAO.TABLE_NAME
-				+ " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-				+ VocabularyDAO.KANJI + " TEXT, " + VocabularyDAO.LEVEL
-				+ " TEXT, " + VocabularyDAO.TRANSCRIPTION + " TEXT, "
-				+ VocabularyDAO.ROMAJI + " TEXT, " + VocabularyDAO.TRANSLATIONS
-				+ " TEXT, " + VocabularyDAO.TRANSLATIONS_RUS + " TEXT, "
-				+ VocabularyDAO.PERCENTAGE
-				+ " REAL, " + VocabularyDAO.LASTVIEW + " DATETIME,"
-				+ VocabularyDAO.SHOWNTIMES + " INTEGER, " + VocabularyDAO.COLOR
-				+ " TEXT);");
-	}
-
-	public void dropTable() {
-		VocabularyDAO.getDb().execSQL(
-				"DROP TABLE if exists " + VocabularyDAO.TABLE_NAME + ";");
-	}
-
+	/**
+	 * Inserts all entries divided by tabs from assets file
+	 * 
+	 * @param filepath
+	 *            path to assets file
+	 * @param assetManager
+	 *            assetManager from activity context
+	 * @param level
+	 *            target level
+	 * @param cr
+	 *            content resolver to database
+	 */
 	public void bulkInsertFromCSV(String filepath, AssetManager assetManager,
 			int level, ContentResolver cr) {
 
@@ -191,41 +239,61 @@ public class VocabularyService {
 			}
 
 			VocabularyEntry de = new VocabularyEntry(0, kanji, level,
-					transcription, romaji, translations, translationsRus,
-					0, "", 0, color);
+					transcription, romaji, translations, translationsRus, 0,
+					"", 0, color);
 			this.insert(de, cr);
 		}
 	}
 
+	/**
+	 * Returns VocabularyDictionary to store it in the App class
+	 * 
+	 * @param level
+	 *            target level
+	 * @param numberEntriesInCurrentDict
+	 *            number of entries to select for learning
+	 * @param cr
+	 *            content resolver to database
+	 * @return currentDict CounterWordsDictionary with CounterWords entries
+	 */
 	public static VocabularyDictionary createCurrentDictionary(int level,
-			int countWordsInCurrentDict, ContentResolver contentResolver) {
+			int numberWordsInCurrentDict, ContentResolver contentResolver) {
 		all = new VocabularyDictionary();
 		all = selectAllEntriesOflevel(level, contentResolver);
-		VocabularyDictionary current = new VocabularyDictionary();
+		VocabularyDictionary currentDict = new VocabularyDictionary();
 		// if words have never been showed - set entries randomly
 		if (App.userInfo.isLevelLaunchedFirstTime == 1) {
 			all.sortRandomly();
 			for (int i = 0; i < App.numberOfEntriesInCurrentDict; i++) {
 				VocabularyEntry e = all.get(i);
 				if (e.getLearnedPercentage() != 1)
-					current.add(e);
+					currentDict.add(e);
 			}
 		} else {
 			// sorting descending
 			// get last elements
 			all.sortByLastViewedTime();
 			int i = all.size() - 1;
-			while (current.size() < App.numberOfEntriesInCurrentDict) {
+			while (currentDict.size() < App.numberOfEntriesInCurrentDict) {
 				VocabularyEntry e = all.get(i);
 				if (e.getLearnedPercentage() != 1)
-					current.add(e);
+					currentDict.add(e);
 				i--;
 				Log.i("createCurrentDictionary", all.get(i).toString());
 			}
 		}
-		return current;
+		return currentDict;
 	}
 
+	/**
+	 * Selects all words of current level
+	 * 
+	 * @param level
+	 *            target level
+	 * @param cr
+	 *            content resolver to database
+	 * @return currentDict CounterWordsDictionary with CounterWords entries
+	 */
 	public static VocabularyDictionary selectAllEntriesOflevel(int level,
 			ContentResolver contentResolver) {
 		VocabularyDictionary wd = new VocabularyDictionary();
@@ -233,9 +301,9 @@ public class VocabularyService {
 		String[] selectionArgs = { VocabularyDAO.ID, VocabularyDAO.KANJI,
 				VocabularyDAO.LEVEL, VocabularyDAO.TRANSCRIPTION,
 				VocabularyDAO.ROMAJI, VocabularyDAO.TRANSLATIONS,
-				VocabularyDAO.TRANSLATIONS_RUS,
-				VocabularyDAO.PERCENTAGE, VocabularyDAO.LASTVIEW,
-				VocabularyDAO.SHOWNTIMES, VocabularyDAO.COLOR };
+				VocabularyDAO.TRANSLATIONS_RUS, VocabularyDAO.PERCENTAGE,
+				VocabularyDAO.LASTVIEW, VocabularyDAO.SHOWNTIMES,
+				VocabularyDAO.COLOR };
 		Cursor c = contentResolver.query(VocabularyDAO.CONTENT_URI,
 				selectionArgs, "level=" + level, null, null);
 		c.moveToFirst();
@@ -278,6 +346,13 @@ public class VocabularyService {
 		return wd;
 	}
 
+	/**
+	 * Returns number of all words in level
+	 * 
+	 * @param cr
+	 *            content resolver to database
+	 * @return num number of all counter words in table
+	 */
 	public int getNumberOfWordsInLevel(int level,
 			ContentResolver contentResolver) {
 		Cursor countCursor = contentResolver.query(VocabularyDAO.CONTENT_URI,
@@ -285,8 +360,8 @@ public class VocabularyService {
 						+ level + "", null, null);
 
 		countCursor.moveToFirst();
-		int count = countCursor.getInt(0);
+		int num = countCursor.getInt(0);
 		countCursor.close();
-		return count;
+		return num;
 	}
 }

@@ -33,7 +33,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:gravity="right" />
-
     </RelativeLayout>
 
     <TextView
@@ -48,23 +47,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceMedium"/>
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
         android:id="@+id/textTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceMedium"/>
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-<Button
-    android:id="@+id/soundButton"
-    android:layout_width="wrap_content"
-    android:layout_height="118dp"
-    android:background="@color/transparent"
-    android:drawableBottom="@drawable/sound"
-    android:gravity="left|center_vertical"
-    android:onClick="onPlayClick" />
+    <Button
+        android:id="@+id/soundButton"
+        android:layout_width="wrap_content"
+        android:layout_height="118dp"
+        android:background="@color/transparent"
+        android:drawableBottom="@drawable/sound"
+        android:gravity="left|center_vertical"
+        android:onClick="onPlayClick" />
 
     <ImageView
         android:id="@+id/img"
@@ -94,7 +93,7 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/buttonIDontKnow" 
+            android:id="@+id/buttonIDontKnow"
             style="?android:attr/buttonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

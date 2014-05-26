@@ -10,6 +10,10 @@ import ua.hneu.languagetrainer.model.other.CounterWord;
 import ua.hneu.languagetrainer.model.other.CounterWordsDictionary;
 import ua.hneu.languagetrainer.service.UserService;
 
+/**
+ * @author Margarita Zainullina <margarita.zainullina@gmail.com>
+ * @version 1.0
+ */
 public class CounterWordsPassing {
 	private int numberOfCorrectAnswers = 0;
 	private int numberOfIncorrectAnswers = 0;
@@ -18,6 +22,10 @@ public class CounterWordsPassing {
 	private CounterWordsDictionary learnedWords = new CounterWordsDictionary();
 	private Hashtable<CounterWord, Integer> problemWords = new Hashtable<CounterWord, Integer>();
 
+	/**
+	 * Methods for getting and incrementing numbers of correct/incorrect answers while
+	 * passing
+	 */
 	public void incrementNumberOfCorrectAnswers() {
 		this.numberOfCorrectAnswers++;
 	}
@@ -58,34 +66,51 @@ public class CounterWordsPassing {
 		this.problemWords = problemWords;
 	}
 
-	public void makeWordLearned(CounterWord g, ContentResolver cr) {
+	/**
+	 * Marks counter word as learned and updates it in db
+	 * 
+	 * @param cw
+	 *            target word
+	 * @param cr
+	 *            content resolver to database
+	 */
+	public void makeWordLearned(CounterWord cw, ContentResolver cr) {
 		// update info in user table
 		User u = App.userInfo;
 		u.setLearnedCounterWords(u.getLearnedCounterWords() + 1);
 		UserService us = new UserService();
 		us.update(u, cr);
 		// update current dictionary
-		g.setLearnedPercentage(1);
-		learnedWords.add(g);
+		cw.setLearnedPercentage(1);
+		learnedWords.add(cw);
 		incrementNumberOfCorrectAnswers();
-		App.counterWordsDictionary.remove(g);
+		App.counterWordsDictionary.remove(cw);
 		// add entries to current dictionary to match target size
-		App.counterWordsDictionary.addEntriesToDictionaryAndGet(App.numberOfEntriesInCurrentDict);
+		App.counterWordsDictionary
+				.addEntriesToDictionaryAndGet(App.numberOfEntriesInCurrentDict);
 		// update info in vocabulary table
-		App.cws.update(g, cr);
-
+		App.cws.update(cw, cr);
 	}
 
-	public void addProblemWord(CounterWord g) {
-		if (problemWords.containsKey(g)) {
-			problemWords.put(g, problemWords.get(g) + 1);
+	/**
+	 * If user many times in a row answered incorrectly, this word should be
+	 * added to a list of problem words
+	 * 
+	 * @param cw
+	 *            target word
+	 */
+	public void addProblemWord(CounterWord cw) {
+		if (problemWords.containsKey(cw)) {
+			problemWords.put(cw, problemWords.get(cw) + 1);
 		} else
-			problemWords.put(g, 1);
+			problemWords.put(cw, 1);
 	}
 
+	/*
+	 * Resets all values except for numberOfPassingsInARow for analyzing of how
+	 * many times user passed tests in a row
+	 */
 	public void clearInfo() {
-		// reset all values except for numberOfPassingsInARow for analyzing of
-		// how many times user passed tests in a row
 		// TODO: add number of passing in a row for all
 		this.learnedWords = null;
 		this.numberOfCorrectAnswers = 0;

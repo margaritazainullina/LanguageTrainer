@@ -10,6 +10,10 @@ import ua.hneu.languagetrainer.model.other.Giongo;
 import ua.hneu.languagetrainer.model.other.GiongoDictionary;
 import ua.hneu.languagetrainer.service.UserService;
 
+/**
+ * @author Margarita Zainullina <margarita.zainullina@gmail.com>
+ * @version 1.0
+ */
 public class GiongoPassing {
 	private int numberOfCorrectAnswers = 0;
 	private int numberOfIncorrectAnswers = 0;
@@ -18,6 +22,10 @@ public class GiongoPassing {
 	private GiongoDictionary learnedWords = new GiongoDictionary();
 	private Hashtable<Giongo, Integer> problemWords = new Hashtable<Giongo, Integer>();
 
+	/**
+	 * Methods for getting and incrementing numbers of correct/incorrect answers while
+	 * passing
+	 */
 	public void incrementNumberOfCorrectAnswers() {
 		this.numberOfCorrectAnswers++;
 	}
@@ -38,6 +46,10 @@ public class GiongoPassing {
 		return numberOfPassingsInARow;
 	}
 
+	public void incrementNumberOfPassingsInARow() {
+		numberOfPassingsInARow++;
+	}
+
 	public GiongoDictionary getLearnedWords() {
 		return learnedWords;
 	}
@@ -54,6 +66,14 @@ public class GiongoPassing {
 		this.problemWords = problemWords;
 	}
 
+	/**
+	 * Marks giongo as learned and updates it in db
+	 * 
+	 * @param g
+	 *            target word
+	 * @param cr
+	 *            content resolver to database
+	 */
 	public void makeWordLearned(Giongo g, ContentResolver cr) {
 		// update info in user table
 		User u = App.userInfo;
@@ -66,12 +86,20 @@ public class GiongoPassing {
 		incrementNumberOfCorrectAnswers();
 		App.giongoWordsDictionary.remove(g);
 		// add entries to current dictionary to match target size
-		App.giongoWordsDictionary.addEntriesToDictionaryAndGet(App.numberOfEntriesInCurrentDict);
+		App.giongoWordsDictionary
+				.addEntriesToDictionaryAndGet(App.numberOfEntriesInCurrentDict);
 		// update info in vocabulary table
 		App.gs.update(g, cr);
 
 	}
 
+	/**
+	 * If user many times in a row answered incorrectly, this word should be
+	 * added to a list of problem words
+	 * 
+	 * @param g
+	 *            target word
+	 */
 	public void addProblemWord(Giongo g) {
 		if (problemWords.containsKey(g)) {
 			problemWords.put(g, problemWords.get(g) + 1);
@@ -79,17 +107,15 @@ public class GiongoPassing {
 			problemWords.put(g, 1);
 	}
 
+	/*
+	 * reset all values except for numberOfPassingsInARow for analyzing of how
+	 * many times user passed tests in a row
+	 */
 	public void clearInfo() {
-		// reset all values except for numberOfPassingsInARow for analyzing of
-		// how many times user passed tests in a row
 		// TODO: add number of passing in a row for all
 		this.learnedWords = null;
 		this.numberOfCorrectAnswers = 0;
 		this.numberOfIncorrectAnswers = 0;
 	}
 
-	public void incrementNumberOfPassingsInARow() {
-		// TODO Auto-generated method stub
-
-	}
 }

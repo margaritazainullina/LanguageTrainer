@@ -20,7 +20,6 @@ import android.content.res.AssetFileDescriptor;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
@@ -150,8 +149,10 @@ public class MockTestActivity extends Activity {
 		isLevelDef = (t.getName().equals("level_def"));
 		// if level defining test - hide skippSection button, because it has no
 		// sections
-		if (isLevelDef)
+		if (isLevelDef) {
 			skipSection.setVisibility(View.INVISIBLE);
+			soundButton.setVisibility(View.INVISIBLE);
+		}
 		// at first show word and possible answers
 		nextWord();
 	}

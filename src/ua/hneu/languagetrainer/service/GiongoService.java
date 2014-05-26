@@ -20,11 +20,23 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+/**
+ * @author Margarita Zainullina <margarita.zainullina@gmail.com>
+ * @version 1.0
+ */
 public class GiongoService {
 	GiongoExampleService ges = new GiongoExampleService();
 	public static GiongoDictionary all;
 	static int numberOfEnteries = 0;
 
+	/**
+	 * Inserts a Giongo to database
+	 * 
+	 * @param g
+	 *            - Giongo instance to insert
+	 * @param cr
+	 *            - content resolver to database
+	 */
 	public void insert(Giongo g, ContentResolver cr) {
 		for (GiongoExample ge : g.getExamples()) {
 			ges.insert(ge, numberOfEnteries, cr);
@@ -42,6 +54,14 @@ public class GiongoService {
 		cr.insert(GiongoDAO.CONTENT_URI, values);
 	}
 
+	/**
+	 * Updates a Giongo in database
+	 * 
+	 * @param g
+	 *            - Giongo instance to upate
+	 * @param cr
+	 *            - content resolver to database
+	 */
 	public void update(Giongo g, ContentResolver contentResolver) {
 		ContentValues values = new ContentValues();
 		values.put(GiongoDAO.WORD, g.getWord());
@@ -58,23 +78,42 @@ public class GiongoService {
 
 	}
 
+	/**
+	 * A stub to find out last id of giongo to insert an example to it
+	 * 
+	 * @param cr
+	 *            content resolver to database
+	 */
 	public static void startCounting(ContentResolver contentResolver) {
 		numberOfEnteries = getNumberOfGiongo(contentResolver) + 1;
 	}
 
+	/**
+	 * Returns number of entries in Giongo table
+	 * 
+	 * @param cr
+	 *            content resolver to database
+	 * @return number of entries
+	 */
 	public static int getNumberOfGiongo(ContentResolver cr) {
 		Cursor countCursor = cr.query(GiongoDAO.CONTENT_URI,
 				new String[] { "count(*) AS count" }, null + "", null, null);
 		countCursor.moveToFirst();
-		int count = countCursor.getInt(0);
+		int number = countCursor.getInt(0);
 		countCursor.close();
-		return count;
+		return number;
 	}
 
+	/**
+	 * Deletes all entries from Giongo table
+	 */
 	public void emptyTable() {
 		GiongoDAO.getDb().execSQL("delete from " + GiongoDAO.TABLE_NAME);
 	}
 
+	/**
+	 * Creates Giongo table
+	 */
 	public void createTable() {
 		SQLiteDatabase db = GiongoDAO.getDb();
 		db.execSQL("CREATE TABLE if not exists " + GiongoDAO.TABLE_NAME
@@ -87,11 +126,21 @@ public class GiongoService {
 				+ " TEXT); ");
 	}
 
+	/**
+	 * Drops GiongoExamples table
+	 */
 	public void dropTable() {
 		GiongoDAO.getDb().execSQL(
 				"DROP TABLE if exists " + GiongoDAO.TABLE_NAME + ";");
 	}
 
+	/**
+	 * Gets list of all Giongo in db
+	 * 
+	 * @param cr
+	 *            - content resolver to database
+	 * @return giongoList list of all giongo in the table
+	 */
 	@SuppressLint("NewApi")
 	public GiongoDictionary getAllGiongo(ContentResolver cr) {
 		String[] col = { GiongoDAO.ID, GiongoDAO.WORD, GiongoDAO.ROMAJI,
@@ -111,7 +160,7 @@ public class GiongoService {
 		String color;
 
 		GiongoExampleService ges = new GiongoExampleService();
-		GiongoDictionary g = new GiongoDictionary();
+		GiongoDictionary giongoList = new GiongoDictionary();
 		while (!c.isAfterLast()) {
 			id = c.getInt(0);
 			word = c.getString(1);
@@ -124,14 +173,24 @@ public class GiongoService {
 			color = c.getString(8);
 			ArrayList<GiongoExample> ge = new ArrayList<GiongoExample>();
 			ge = ges.getExamplesByGiongoId(id, cr);
-			g.add(new Giongo(word, romaji, translEng, translRus, percentage,
-					showntimes, lastview, color, ge));
+			giongoList.add(new Giongo(word, romaji, translEng, translRus,
+					percentage, showntimes, lastview, color, ge));
 			c.moveToNext();
 		}
 		c.close();
-		return g;
+		return giongoList;
 	}
 
+	/**
+	 * Inserts all entries divided by tabs from assets file
+	 * 
+	 * @param filepath
+	 *            path to assets file
+	 * @param assetManager
+	 *            assetManager from activity context
+	 * @param cr
+	 *            content resolver to database
+	 */
 	public void bulkInsertFromCSV(String filepath, AssetManager assetManager,
 			ContentResolver cr) {
 		BufferedReader reader = null;
@@ -176,13 +235,15 @@ public class GiongoService {
 							break;
 						}
 						}
-						g = new Giongo(s[0].trim(), s[1].trim(), s[2].trim(), s[3].trim(), 0, 0, "", color.trim(),
+						g = new Giongo(s[0].trim(), s[1].trim(), s[2].trim(),
+								s[3].trim(), 0, 0, "", color.trim(),
 								new ArrayList<GiongoExample>());
 						isFirst = false;
 					} else {
 						String[] s = mLine.split("\\t");
-						GiongoExample ge = new GiongoExample(s[0].trim() + "\\t"
-								+ s[1].trim() + "\\t" + s[2].trim(), s[3].trim(), s[4].trim(), s[5].trim());
+						GiongoExample ge = new GiongoExample(s[0].trim()
+								+ "\\t" + s[1].trim() + "\\t" + s[2].trim(),
+								s[3].trim(), s[4].trim(), s[5].trim());
 						g.examples.add(ge);
 					}
 				} else {
@@ -198,6 +259,15 @@ public class GiongoService {
 		}
 	}
 
+	/**
+	 * Returns GiongoDictionary to store it in the App class
+	 * 
+	 * @param numberEntriesInCurrentDict
+	 *            number of entries to select for learning
+	 * @param cr
+	 *            content resolver to database
+	 * @return currentDict GiongoDictionary with Giongo entries
+	 */
 	public GiongoDictionary createCurrentDictionary(
 			int numberOfEntriesInCurrentDict, ContentResolver cr) {
 		all = new GiongoDictionary();
@@ -226,38 +296,4 @@ public class GiongoService {
 		}
 		return current;
 	}
-	
-
 }
-
-// public String aaa(String filepath, AssetManager assetManager,
-// ContentResolver cr) { ArrayList<String> entries = new
-// ArrayList<String>(); ArrayList<String> entries1 = new
-// ArrayList<String>(); BufferedReader reader = null;
-//
-// try { reader = new BufferedReader(new InputStreamReader(
-// assetManager.open("2.txt"))); String mLine; while ((mLine =
-// reader.readLine()) != null) { entries.add(mLine); } } catch (IOException
-// e) { Log.e("VocabularyService", e.getMessage() + " " + e.getCause()); }
-// try { reader = new BufferedReader(new InputStreamReader(
-// assetManager.open("1.txt"))); String mLine; while ((mLine =
-// reader.readLine()) != null) { entries1.add(mLine); } } catch (IOException
-// e) { Log.e("VocabularyService", e.getMessage() + " " + e.getCause()); }
-// StringBuilder x = new StringBuilder(); try { reader = new
-// BufferedReader(new InputStreamReader( assetManager.open(filepath)));
-//
-// String mLine; int i = 0; while ((mLine = reader.readLine()) != null) { if
-// (mLine != null) { // String[] parts = mLine.split("\t");
-//
-// if (!mLine.isEmpty()) { // System.out.println(mLine + "\t" + //
-// entries.get(i));
-//
-// Pattern pattern = Pattern
-// .compile("([\\p{Hiragana}\\p{Katakana}\\p{Han}\\t]*+)([a-zA-Z ]*)");
-// Matcher matcher = pattern.matcher(mLine); String string = ""; while
-// (matcher.find()) { if (!matcher.group(0).isEmpty()) { string =
-// matcher.group(1) + "\t" + entries.get(i) + "\t" + matcher.group(2) + "\t"
-// + entries1.get(i); break; } } i++; x.append(string + "\r\n"); } } } }
-// catch (IOException e) { Log.e("VocabularyService", e.getMessage() + " " +
-// e.getCause()); } return x.toString(); }
-

@@ -11,7 +11,6 @@ import ua.hneu.languagetrainer.App.Languages;
 import ua.hneu.languagetrainer.db.dao.CounterWordsDAO;
 import ua.hneu.languagetrainer.model.other.CounterWord;
 import ua.hneu.languagetrainer.model.other.CounterWordsDictionary;
-import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.res.AssetManager;
@@ -19,7 +18,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-@SuppressLint("NewApi")
 /**
  * @author Margarita Zainullina <margarita.zainullina@gmail.com>
  * @version 1.0
@@ -77,7 +75,7 @@ public class CounterWordsService {
 	}
 
 	/**
-	 * Deletes all entries from Answer table
+	 * Deletes all entries from CounterWords table
 	 */
 	public void emptyTable() {
 		CounterWordsDAO.getDb().execSQL(
@@ -310,7 +308,7 @@ public class CounterWordsService {
 	}
 
 	/**
-	 * Returns CounterWordsDictionary to store it in App class
+	 * Returns CounterWordsDictionary to store it in the App class
 	 * 
 	 * @param section
 	 *            section of counter word
