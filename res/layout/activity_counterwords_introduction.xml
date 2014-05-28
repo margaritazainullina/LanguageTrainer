@@ -33,7 +33,7 @@
             android:id="@+id/linearLayout2"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/wordTextView"
+            android:layout_below="@+id/soundButton"
             android:gravity="center_horizontal" >
 
             <TextView
@@ -63,6 +63,18 @@
                 android:gravity="center_horizontal"
                 android:textSize="25sp" />
         </RelativeLayout>
+
+        <Button
+            android:id="@+id/soundButton"
+            android:layout_width="wrap_content"
+            android:layout_height="118dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/transparent"
+            android:drawableBottom="@drawable/sound"
+            android:gravity="left|center_vertical"
+            android:onClick="onPlayClick" />
+
     </RelativeLayout>
 
     <LinearLayout

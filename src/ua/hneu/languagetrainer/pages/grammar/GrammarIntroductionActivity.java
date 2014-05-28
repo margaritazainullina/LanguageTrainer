@@ -5,6 +5,7 @@ import java.util.List;
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.ExamplesListViewAdapter;
+import ua.hneu.languagetrainer.TextToVoiceMediaPlayer;
 import ua.hneu.languagetrainer.model.grammar.GrammarRule;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -27,6 +28,8 @@ public class GrammarIntroductionActivity extends Activity {
 	TextView descriptionTextView;
 	ListView grammarExamplesListView;
 	Button prevButton;
+	TextToVoiceMediaPlayer twmp;
+	String phrase = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,9 @@ public class GrammarIntroductionActivity extends Activity {
 		// show first entry
 		curRule = App.grammarDictionary.get(0);
 		idx = 0;
+		
+		//media player for playing example
+		twmp = new TextToVoiceMediaPlayer();
 		showEntry(curRule);
 		prevButton.setEnabled(false);
 	}
@@ -110,6 +116,7 @@ public class GrammarIntroductionActivity extends Activity {
 				curRule.getAllExamplesText(), curRule.getAllExamplesRomaji(),
 				curRule.getAllTranslations(), curRule.getIntColor());
 		grammarExamplesListView.setAdapter(adapter);
+
 	}
 
 	public void buttonPreviousOnClick(View v) {
@@ -121,5 +128,10 @@ public class GrammarIntroductionActivity extends Activity {
 			prevButton.setEnabled(false);
 		}
 	}
-
+	public void onPlayClick1(View v) {
+		View v1 = (View) v.getParent();
+		TextView romajiExample = (TextView) v1.findViewById(R.id.romaji);
+		phrase = (String) romajiExample.getText();
+		twmp.play(phrase);
+	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.ExamplesListViewAdapter;
+import ua.hneu.languagetrainer.TextToVoiceMediaPlayer;
 import ua.hneu.languagetrainer.model.other.Giongo;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -27,6 +28,8 @@ public class GiongoIntroductionActivity extends Activity {
 	TextView translationTextView;
 	ListView giongoExamplesListView;
 	Button prevButton;
+	TextToVoiceMediaPlayer twmp;
+	String phrase = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,9 @@ public class GiongoIntroductionActivity extends Activity {
 		// show first entry
 		curWord = App.giongoWordsDictionary.get(0);
 		idx = 0;
+
+		// media player for playing example
+		twmp = new TextToVoiceMediaPlayer();
 		showEntry(curWord);
 		prevButton.setEnabled(false);
 	}
@@ -118,4 +124,10 @@ public class GiongoIntroductionActivity extends Activity {
 		}
 	}
 
+	public void onPlayClick1(View v) {
+		View v1 = (View) v.getParent();
+		TextView romajiExample = (TextView) v1.findViewById(R.id.romaji);
+		phrase = (String) romajiExample.getText();
+		twmp.play(phrase);
+	}
 }

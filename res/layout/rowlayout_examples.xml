@@ -14,14 +14,14 @@
             android:id="@+id/textPart1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"/>
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
             android:id="@+id/textPart2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_toRightOf="@+id/textPart1"
+            android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
@@ -52,6 +52,17 @@
             android:layout_below="@+id/romaji"
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <Button
+            android:id="@+id/soundButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/transparent"
+            android:drawableLeft="@drawable/sound_64x64"
+            android:gravity="left|center_vertical"
+            android:onClick="onPlayClick1" />
     </RelativeLayout>
 
 </LinearLayout>

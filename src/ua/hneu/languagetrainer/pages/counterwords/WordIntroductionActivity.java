@@ -4,10 +4,12 @@ import java.util.List;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.TextToVoiceMediaPlayer;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +27,7 @@ public class WordIntroductionActivity extends Activity {
 	TextView romajiTextView;
 	TextView translationTextView;
 	Button prevButton;
+	TextToVoiceMediaPlayer twmp;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,7 @@ public class WordIntroductionActivity extends Activity {
 		transcriptionTextView = (TextView) findViewById(R.id.transcriptionTextView);
 		romajiTextView = (TextView) findViewById(R.id.romajiTextView);
 		translationTextView = (TextView) findViewById(R.id.translationTextView);
+		twmp = new TextToVoiceMediaPlayer();
 
 		// increment number of
 		App.vp.incrementNumberOfPassingsInARow();
@@ -55,6 +59,14 @@ public class WordIntroductionActivity extends Activity {
 		idx = 0;
 		showEntry(curEntry);
 		prevButton.setEnabled(false);
+	}
+
+	private void speakOut(final VocabularyEntry entry) {
+		twmp.play(entry.getTranscription());
+	}
+
+	public void onPlayClick(View v) {
+		speakOut(curEntry);
 	}
 
 	@Override
@@ -81,8 +93,10 @@ public class WordIntroductionActivity extends Activity {
 	}
 
 	public void goToNextPassingActivity() {
-		/*Intent matchWordsIntent = new Intent(this, MatchWordsActivity.class);
-		startActivity(matchWordsIntent);*/
+		/*
+		 * Intent matchWordsIntent = new Intent(this, MatchWordsActivity.class);
+		 * startActivity(matchWordsIntent);
+		 */
 	}
 
 	@SuppressLint("SimpleDateFormat")
@@ -109,6 +123,11 @@ public class WordIntroductionActivity extends Activity {
 		currentEntry.setLastView();
 		currentEntry.incrementShowntimes();
 		App.vs.update(currentEntry, getContentResolver());
+		try {
+			speakOut(curEntry);
+		} catch (Exception e) {
+			Log.e("Text to speecch error", "Text to speecch error");
+		}
 	}
 
 	public void buttonPreviousOnClick(View v) {

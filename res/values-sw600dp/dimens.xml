@@ -2,7 +2,11 @@
 
     <!--
          Customize dimensions originally defined in res/values/dimens.xml (such as
-         screen margins) for sw600dp devices (e.g. 7" tablets) here.
+         screen margins) for sw600dp devices (e.g. 7" tablets) here.
     -->
+    <dimen name="largeText">28sp</dimen>
+    <dimen name="mediumText">20sp</dimen>
+    <dimen name="smallText">15sp</dimen>
+    <dimen name="margin">7dp</dimen>
 
 </resources>

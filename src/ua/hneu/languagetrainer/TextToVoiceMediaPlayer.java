@@ -21,9 +21,9 @@ public class TextToVoiceMediaPlayer {
 		mediaPlayer.reset();
 		mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 		try {
+			mediaPlayer.setDataSource(url);
 			mediaPlayer.prepare();
 			mediaPlayer.start();
-			mediaPlayer.setDataSource(url);
 		} catch (IllegalArgumentException e) {
 			mediaPlayer.reset();
 			e.printStackTrace();

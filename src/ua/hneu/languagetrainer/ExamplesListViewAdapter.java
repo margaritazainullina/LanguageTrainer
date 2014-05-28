@@ -3,6 +3,7 @@ package ua.hneu.languagetrainer;
 import java.util.ArrayList;
 
 import ua.hneu.edu.languagetrainer.R;
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,12 +22,11 @@ public class ExamplesListViewAdapter extends ArrayAdapter<String> {
 	TextView textPart3;
 	TextView romajiTv;
 	TextView translationTv;
-
 	int color;
 
 	public ExamplesListViewAdapter(Context context, ArrayList<String> text,
 			ArrayList<String> romaji, ArrayList<String> translations, int color) {
-		super(context, R.layout.rowlayout_counter_words_list, text);
+		super(context, R.layout.rowlayout_examples, text);
 		this.context = context;
 		this.text = text;
 		this.romaji = romaji;
@@ -38,8 +38,8 @@ public class ExamplesListViewAdapter extends ArrayAdapter<String> {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		LayoutInflater inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View rowView = inflater.inflate(R.layout.rowlayout_examples,
-				parent, false);
+		View rowView = inflater.inflate(R.layout.rowlayout_examples, parent,
+				false);
 		textPart1 = (TextView) rowView.findViewById(R.id.textPart1);
 		textPart2 = (TextView) rowView.findViewById(R.id.textPart2);
 		textPart3 = (TextView) rowView.findViewById(R.id.textPart3);
@@ -57,7 +57,7 @@ public class ExamplesListViewAdapter extends ArrayAdapter<String> {
 		return rowView;
 	}
 
-	public void changeColor(View rowView, int color) {		
+	public void changeColor(View rowView, int color) {
 		textPart2.setTextColor(color);
 	}
 }
