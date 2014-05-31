@@ -1,5 +1,5 @@
 あつあつ	Atsuatsu 	piping hot	С пылу, с жару
-二人は大	あつあつ	だ	ni nin ha dai atsuatsu da 	They are madly in love	Они по уши влюблены друг в друга.
+二人は大	あつあつ	だ	ni nin wa dai atsuatsu da 	They are madly in love	Они по уши влюблены друг в друга.
 
 いきいき	ikiiki 	fresh and full of life	Свежий, полный жизни
 久多	いきいき	センタ	hisa oo ikiiki sentā 	The Kuta lively center 	Оживленный центр Кута
@@ -7,17 +7,17 @@
 いきいきとし自身のあるる	いきいき	とする	ikiiki to shi jishin no aru	Having a cheerful, lively, and self-confident air	Иметь веселый, живой, и уверенный в себе вид
 
 いちいち	ichiichi 	one by one	Поодиночке
-品物を	いちいち	手に取っては見ない	shinamono o ichiichi te ni totte ha mi nai 	I did not look over the articles one by one	Я не смотрел каждую статью.
+品物を	いちいち	手に取っては見ない	shinamono o ichiichi te ni totte wa mi nai 	I did not look over the articles one by one	Я не смотрел каждую статью.
 
 いやいや	iyaiya 	unwillingly	Нехотя, скрепя сердцем
  彼は、	いやいや	すぐ近くのホテルで飲むことに同意した	kare ha, iyaiya sugu chikaku no hoteru de nomu koto ni doui shi ta	He grudgingly agreed to have a drink in a hotel close by 	Он неохотно согласился выпить в отеле рядом
 
 いらいら	iraira 	annoying	Раздражающий, расстраиваивающий
-彼は気が	いらいら	していた	kare ha ki ga iraira shi te i ta.	He was  on edge.	Он был на грани.
+彼は気が	いらいら	していた	kare wa ki ga iraira shi te i ta.	He was  on edge.	Он был на грани.
 
 うきうき	ukiuki	cheerful	Веселый, беззаботный
-彼は成功して	うきうきし	ている	kare ha seikou shi te ukiuki shi te iru.	He's heady with success.	Он был опьянен успехом.
-春は心が	うきうき	する	haru ha kokoro ga ukiuki suru 	The heart is buoyant in spring	Приподнятое настроение весной.
+彼は成功して	うきうきし	ている	kare wa seikou shi te ukiuki shi te iru.	He's heady with success.	Он был опьянен успехом.
+春は心が	うきうき	する	haru wa kokoro ga ukiuki suru 	The heart is buoyant in spring	Приподнятое настроение весной.
 
 うろうろ	urouro 	to wander	Бродить, слоняться
 	うろうろ	捜し回る	urouro sagashimawaru 	snoop around	шпионить вокруг
@@ -25,17 +25,17 @@
 その辺を	うろうろ	すること	sono atari o urouro suru koto 	hanging around	Слоняться вокруг
 
 かんかん	kankan 	angry	Сердитый
-彼は武夫のことを	かんかん	に怒っていた	kare ha takeo no koto o kankan ni okotte i ta	He was very angry with Takeo.	Он был очень зол на Такео.
+彼は武夫のことを	かんかん	に怒っていた	kare wa takeo no koto o kankan ni okotte i ta	He was very angry with Takeo.	Он был очень зол на Такео.
 
 がくがく	gakugaku 	wobbly	Шаткий
 ひざが	がくがく	する	hiza ga gakugaku suru 	one	Колени трясутся
 歯が	がくがく	する	ha ga gakugaku suru 	a tooth becomes loose	Зуб шатается свободным.
 
 がぶがぶ	gabugabu 	to gulp	Пить напиток большими глотками
-彼は缶からビールを	がぶがぶ	飲んだ。	kare ha kan kara bīru o gabugabu non da.	He guzzled beer from a can	Он пил пиво из банки.
+彼は缶からビールを	がぶがぶ	飲んだ。	kare wa kan kara bīru o gabugabu non da.	He guzzled beer from a can	Он пил пиво из банки.
 
 きらきら	kirakira 	glittering	Сверкающий
-湖は月光で	きらきら	していた	mizuumi ha gekkou de kirakira shiteita	The lake glistened in the moonlight.	Озеро блестело в лунном свете.
+湖は月光で	きらきら	していた	mizuumi wa gekkou de kirakira shiteita	The lake glistened in the moonlight.	Озеро блестело в лунном свете.
 
 ぎゅうぎゅう	gyuugyuu 	packed in tightly	Плотно упакованый, полный, набитый битком
 	ぎゅうぎゅう	鳴る	gyuugyuu naru 	creak	Скрип
@@ -46,11 +46,11 @@
 	ぐずぐず	迷っていないで	guzuguzu mayotte i nai de, hon ka omocha ka, docchi ga ii no ka kimenasai.	Stop shilly‐shallying and decide whether you want the book or the toy!	Хватит сомневаться и реши, хочешь ли ты книгу или игрушку !
 
 くらくら	kurakura 	feel dizzy	Чувствовать головокружение
-私は頭が	くらくら	する	watashi ha atama ga  guragura suru	My head whirls.	Голова кружится.
+私は頭が	くらくら	する	watashi wa atama ga  guragura suru	My head whirls.	Голова кружится.
 
 くるくる	kurukuru 	round and round	Снова и снова
-葉っぱが木から	くるくる	と回りながら落ちてきた	kanojo no kangae ha yoku kurukuru kawaru	Leaves spiraled down from the tree.	Листья падают с дерева кружась.
-彼女の考えはよく	くるくる	変わる	happa ga ki kara kurukuru to mawari nagara ochi te ki ta.	She's always chopping and changing.	Она часто меняет свое мнение
+葉っぱが木から	くるくる	と回りながら落ちてきた	happa ga ki kara kurukuru to mawari nagara ochi te ki ta.	Leaves spiraled down from the tree.	Листья падают с дерева кружась.
+彼女の考えはよく	くるくる	変わる	kanojo no kangae wa yoku kurukuru kawaru	She's always chopping and changing.	Она часто меняет свое мнение
 
 ぐるぐる	guruguru 	going around in circles	Ходить по кругу
 池の周りを	ぐるぐる	回る	ike no mawari o guruguru mawaru 	go round the pond	Объехать пруд
@@ -58,7 +58,7 @@
 ロ-プを	ぐるぐる	と輪に巻く	rōpu o guruguru to wa ni maku	wind up a rope in a coil.	Наматывать веревку на катушку
 
 ぐちゃぐちゃ	guchagucha 	pulpy	Слишком мягкий
-大雨の後でグラウンドは	ぐちゃぐちゃ	だった	ooame no nochi de guraundo ha guchagucha datta.	The ground was soggy after the heavy rain.	Земля была сырая после сильного дождя.
+大雨の後でグラウンドは	ぐちゃぐちゃ	だった	ooame no nochi de guraundo wa guchagucha datta.	The ground was soggy after the heavy rain.	Земля была сырая после сильного дождя.
 
 ごちゃごちゃ	gochagocha 	cluttered	Суматошный
 	ごちゃごちゃ	した絵	gochagocha shi ta e 	a busy painting	Наспех сделанная картина
@@ -80,7 +80,7 @@
 	ずきずき	する痛み	zukizuki suru itami.	A grinding pain	Точечная боль
 
 すみずみ	sumi zumi 	all the corners	По всем углам, искать везде
-この家は	すみずみ	まで掃除がゆき届いている	kono ie ha sumi zumi made souji ga yukitodoi te iru. 	Every corner of this house has been thoroughly cleaned [is spotlessly clean].	Каждый уголок этого дома был безупречно чистый
+この家は	すみずみ	まで掃除がゆき届いている	kono ie wa sumi zumi made souji ga yukitodoi te iru. 	Every corner of this house has been thoroughly cleaned [is spotlessly clean].	Каждый уголок этого дома был безупречно чистый
 	すみずみ	まで捜した	sumi zumi made sagashi ta 	I have looked in every nook and corner	Я посмотрел в каждом уголке.
 
 すれすれ	suresure 	 close to	Близко, едва
@@ -95,8 +95,8 @@
 
 ぞくぞく	zokuzoku 	trembling with excitement	Дрожа от волнения / страха, скоропалительный
 銀行が	ぞくぞく	倒れた	ginkou ga zokuzoku taore ta 	Banks collapsed in rapid succession	Банки быстро потерпели крах друг за другом.
-その歌には	ぞくぞく	する	sono uta ni ha zokuzoku suru.	That song gets me.	Эта песня пробивает меня на дрожь.
-私は彼を見ただけで	ぞくぞく	した	watashi ha kare o mi ta dake de zokuzoku shi ta.	The bare sight of him thrilled me.	Я испугался одного его взгляда
+その歌には	ぞくぞく	する	sono uta ni wa zokuzoku suru.	That song gets me.	Эта песня пробивает меня на дрожь.
+私は彼を見ただけで	ぞくぞく	した	watashi wa kare o mi ta dake de zokuzoku shi ta.	The bare sight of him thrilled me.	Я испугался одного его взгляда
 
 だんだん	dandan 	more and more	Все больше и больше, постепенно
 	だんだん	お世話になりました	dandan osewa ni nari mashi ta 	I thank you for your continued goodness to me	Я благодарю вас за вашу неизменную доброту ко мне.
@@ -135,7 +135,7 @@
 
 のびのび	nobinobi 	at ease	Быть в своей тарелке, быть расслабленным, отложить на другой день
 試験も終ってとても	のびのび	とした気分だ	shiken mo owatte totemo nobinobi to shi ta kibun da	I feel so relieved now that the examination is over.	Я чувствую такое облегчение, теперь, когда экзамен закончился.
-大統領の公式訪問は	のびのび	になっている	daitouryou no koushiki houmon ha nobinobi ni natte iru	The state visit of the President has been postponed for a long time.	Государственный визит Президента был отложен на длительноге время.
+大統領の公式訪問は	のびのび	になっている	daitouryou no koushiki houmon wa nobinobi ni natte iru	The state visit of the President has been postponed for a long time.	Государственный визит Президента был отложен на длительноге время.
 
 はきはき	hakihaki 	clear	Ясно, доступно
 	はきはき	しない男だ	hakihaki shi nai otoko da.	He is dull [slow].	Он медлительный
@@ -161,14 +161,14 @@
 	びしょびしょ	にぬれる	bishobisho ni nureru 	to be sopping wet	Быть мокрым насквозь
 
 ぴんぴん	pinpin 	to be in the best of health	Быть в добром здравии
-彼はまだ	ぴんぴん	している	kare ha mada pinpin shi te iru.	He is still very much alive.	Он еще полон сил.
-あの魚屋では	ぴんぴん	生きている魚を売っている	ano sakanaya de ha pinpin iki te iru sakana o utte iru.	They sell live fish at the fish store.	Они продают живую рыбу в рыбном магазине.
+彼はまだ	ぴんぴん	している	kare wa mada pinpin shi te iru.	He is still very much alive.	Он еще полон сил.
+あの魚屋では	ぴんぴん	生きている魚を売っている	ano sakanaya de wa pinpin iki te iru sakana o utte iru.	They sell live fish at the fish store.	Они продают живую рыбу в рыбном магазине.
 
 ぴょんぴょん	pyonpyon 	bouncing	Подпрыгивать
 小鳥が	ぴょんぴょん	跳ぶ	kotori ga pyonpyon tobu	Little birds hop	Маленькие птицы подпрыгивает
 
 ぶかぶか	bukabuka 	loose and baggy	Свободый, мешковатый
-彼は	ぶかぶか	の靴を履いている	kare ha bukabuka no kutsu o hai te iru	He is wearing loose shoes	Он носит свободную обувь
+彼は	ぶかぶか	の靴を履いている	kare wa bukabuka no kutsu o hai te iru	He is wearing loose shoes	Он носит свободную обувь
 
 ぶつぶつ	butsubutsu 	grumble	Ворчать, шептать
 	ぶつぶつ	ひとり言を言う	butsubutsu hitori gen o iu.	mutter to oneself	Бормотать про себя
@@ -184,7 +184,7 @@
 怖くて	ぶるぶる	震える	kowaku te buruburu furueru 	to tremble for fear	Дрожать от страха
 
 ぷんぷん	punpun 	buzzing	Гудеть, сердиться, издавать сильный запах
-彼はいつも酒のにおいを	ぷんぷん	させている	kare ha itsumo sake no nioi o punpun sase te iru.	He always reeks of sake [ alcohol ].	От него всегда исходит запах алкоголя
+彼はいつも酒のにおいを	ぷんぷん	させている	kare wa itsumo sake no nioi o punpun sase te iru.	He always reeks of sake [ alcohol ].	От него всегда исходит запах алкоголя
 物が	ぷんぷん	におうさま	mono ga punpun niou sama 	having a strong, lingering smell	Имея сильный запах
 
 ぺちゃぺちゃ	pechapecha 	to chatter	Болтать
@@ -193,7 +193,7 @@
 
 ぺらぺら	perapera 	fluent	Беглый
 	ぺらぺら	しゃべる	perapera shaberu 	to talk glibly	Говорить бегло
-私は英語が	ぺらぺら	になりたい	watashi ha eigo ga perapera ni nari tai.	I want to become fluent in English.	Я хочу свободно говорить на английском.
+私は英語が	ぺらぺら	になりたい	watashi wa eigo ga perapera ni nari tai.	I want to become fluent in English.	Я хочу свободно говорить на английском.
 
 ぺろぺろ	peropero 	to lick with one	Облизывать
 舌で	ぺろぺろ	となめるさま	shita de peropero to nameru sama 	of licking something with one	Облизываться
@@ -218,32 +218,32 @@
 	めそめそ	泣くさま	mesomeso naku sama 	while weeping	Рыдать
 
 むしむし	mushimushi 	sultry	Знойный, влажный и жаркий
-今日は	むしむし	する	kyou ha mushimushi suru. 	It is muggy [sultry] today.	Сегодня душно.
+今日は	むしむし	する	kyou wa mushimushi suru. 	It is muggy [sultry] today.	Сегодня душно.
 	むしむし	する日	mushimushi suru hi. 	a sticky day	День с большой влажностью
 
 もじもじ	mojimoji 	to fidget or hesitate	Ерзать, колебаться
-彼は内気で若い女性の前に出ると	もじもじ	して落ち着かない	kare ha uchiki de wakai josei no mae ni deru to mojimoji shi te ochitsuka nai. 	He is shy and becomes nervous in the presence of young girls.	Он застенчив и нервничает в присутствии молодых девушек.
+彼は内気で若い女性の前に出ると	もじもじ	して落ち着かない	kare wa uchiki de wakai josei no mae ni deru to mojimoji shi te ochitsuka nai. 	He is shy and becomes nervous in the presence of young girls.	Он застенчив и нервничает в присутствии молодых девушек.
 	もじもじ	しないで	mojimoji shi nai de.	Don't be shy 	Не стесняйся
 
 ゆうゆう	yuuyuu 	leisurely	Неторопливо, легко и свободно, тихо и спокойно
-彼は何をするにも	ゆうゆう	としている	kare ha nani o suru ni mo yuuyuu to shi te iru 	He works at his leisure	Он работает на досуге
+彼は何をするにも	ゆうゆう	としている	kare wa nani o suru ni mo yuuyuu to shi te iru 	He works at his leisure	Он работает на досуге
 	ゆうゆう	と闊歩する	yuuyuu to kappo suru 	to take leisurely strides	Идти неторопливо
 
 わいわい	waiwai 	noisily	Шумно, громко
 	わいわい	騒ぐ	waiwai sawagu 	make a lot of noise	Сильно шуметь
 
 わくわく	wakuwaku 	nervously excited	Нервный, взволнованный
-私は期待で	わくわく	していた	watashi ha kitai de wakuwaku shi te i ta. 	My heart pounded [beat, throbbed] violently with expectation.	Мое сердце билось быстро в ожидании.
+私は期待で	わくわく	していた	watashi wa kitai de wakuwaku shi te i ta. 	My heart pounded [beat, throbbed] violently with expectation.	Мое сердце билось быстро в ожидании.
 	わくわく	した	wakuwaku shi ta 	Was excited	Был восхищен
 
 わざわざ	wazawaza 	go all the way	Пройти весь путь, специально
-	わざわざ	そんな所へ出かけてゆく人は少なかった	wazawaza sonna tokoro he dekake te yuku hito ha sukunakatta.	Very few people ever bothered [went out of their way] to go there. 	Очень немного людей когда-либо шли туда специально.
+	わざわざ	そんな所へ出かけてゆく人は少なかった	wazawaza sonna tokoro he dekake te yuku hito wa sukunakatta.	Very few people ever bothered [went out of their way] to go there. 	Очень немного людей когда-либо шли туда специально.
 
 へとへと	hetoheto 	exhausted	Исчерпаный, загнаный
 連日徹夜の看護で	へとへと	だ	renjitsu tetsuya no kango de hetoheto da.	I am worn out by consecutive all‐night vigils over the invalid.	Я был измучен посде ночных дежурств над инвалидом.
 
 ぴりぴり	piripiri 	tingling	Покалывание, жжение, чувствительность
-社員は皆彼の前では	ぴりぴり	している	shain ha mina kare no mae de ha piripiri shi te iru.	All his employees are scared [on their toes] in his presence.	Все его сотрудники в напряжении в его присутствии.
+社員は皆彼の前では	ぴりぴり	している	shain wa mina kare no mae de wa piripiri shi te iru.	All his employees are scared [on their toes] in his presence.	Все его сотрудники в напряжении в его присутствии.
 日に焼けて背中が	ぴりぴり	する	hi ni yake te senaka ga piripiri suru.	My back hurts from a sunburn	Моя спина покалывает от загара.
 
 うとうと	utouto 	drifting off	Уснуть, задремать

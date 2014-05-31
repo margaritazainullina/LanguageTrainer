@@ -8,26 +8,30 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ua.hneu.languagetrainer.masterdetailflow.VocabularyActivityFragment" >
- 
+
     <TextView
         android:id="@+id/infoTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="16dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="Words learned 14 out of 667"
         android:textIsSelectable="true"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        tools:context=".VocabularyActivityFragment" />
+        android:textSize="@dimen/buttonTextSize" />
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/vocabularyProgressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/practiceVocabulary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:gravity="center"
         android:onClick="onClickPracticeVocabulary"
         android:text="@string/practice_words" />

@@ -57,8 +57,8 @@ public class GrammarIntroductionActivity extends Activity {
 		// show first entry
 		curRule = App.grammarDictionary.get(0);
 		idx = 0;
-		
-		//media player for playing example
+
+		// media player for playing example
 		twmp = new TextToVoiceMediaPlayer();
 		showEntry(curRule);
 		prevButton.setEnabled(false);
@@ -128,10 +128,15 @@ public class GrammarIntroductionActivity extends Activity {
 			prevButton.setEnabled(false);
 		}
 	}
+
 	public void onPlayClick1(View v) {
+		// getting layout with text
 		View v1 = (View) v.getParent();
-		TextView romajiExample = (TextView) v1.findViewById(R.id.romaji);
-		phrase = (String) romajiExample.getText();
+		TextView textPart1 = (TextView) v1.findViewById(R.id.textPart1);
+		TextView textPart2 = (TextView) v1.findViewById(R.id.textPart2);
+		TextView textPart3 = (TextView) v1.findViewById(R.id.textPart3);
+		phrase = (String) textPart1.getText() + textPart2.getText()
+				+ textPart3.getText();
 		twmp.play(phrase);
 	}
 }

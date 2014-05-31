@@ -121,7 +121,7 @@
 
 ～すぎる	It means 'too much' or 'too (big/small/expensive/etc.)'.	Слишком
 山田さんは食べ	すぎる	。	yamada san ha tabesugiru.	Mr. Yamada eats too much.	Ямада ест слишком много.
-私は食べ物を買い	すぎる	。	watashi ha tabemono o kaisugi ta. 	I buy too much food.	Я покупаю слишком много еды.
+私は食べ物を買い	すぎる	。	watashi ha tabemono o kaisugiru. 	I buy too much food.	Я покупаю слишком много еды.
 このシャツは大き	すぎる	。	kono shatsu wa ookisugiru	This shirt is too big.	Эта рубашка слишком большая.
 
 ～ほうがいい	It means 'it's better' or 'it would be better', it may be also used to say that something should (or shouldn't) be done.	Лучше бы, также используется в контексте что-либо (не)должно быть сделано

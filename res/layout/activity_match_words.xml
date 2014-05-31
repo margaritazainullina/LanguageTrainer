@@ -7,14 +7,14 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:scrollbars="vertical"
     tools:context=".MatchWordsActivity" >
 
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
         android:layout_height="380dp"
-        android:baselineAligned="false"
-        android:gravity="center" >
+        android:baselineAligned="false" >
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -85,10 +85,10 @@
 
         <Button
             android:id="@+id/buttonIAlrKnow"
+            style="?android:attr/buttonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            style="?android:attr/buttonStyle"
             android:onClick="buttonIAlrKnow"
             android:text="@string/i_already_know" />
     </LinearLayout>

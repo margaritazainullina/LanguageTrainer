@@ -1,68 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:gravity="center"
-    android:orientation="vertical" >
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:id="@+id/relativeLayout"
+        android:layout_width="@dimen/rowLayoutWidth"
+        android:layout_height="wrap_content"
+        android:gravity="left" >
 
-        <TextView
-            android:id="@+id/textPart1"
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textPart1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="サラダはレタス"
+                android:textSize="@dimen/mediumText" />
+
+            <TextView
+                android:id="@+id/textPart2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textPart1"
+                android:text="と"
+                android:textSize="@dimen/mediumText" />
+
+            <TextView
+                android:id="@+id/textPart3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textPart2"
+                android:text="にんじんとラディッシュからしました。"
+                android:textSize="@dimen/mediumText" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:layout_below="@+id/relativeLayout1" >
 
-        <TextView
-            android:id="@+id/textPart2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/textPart1"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                android:id="@+id/romaji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="sarada ha retasu to ninjin to radisshu kara shi mashi ta."
+                android:textSize="@dimen/mediumText" />
 
-        <TextView
-            android:id="@+id/textPart3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/textPart2"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                android:id="@+id/translation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/romaji"
+                android:gravity="center"
+                android:text="Салат сделан из салата, моркови, и редиса."
+                android:textSize="@dimen/mediumText" />
+        </RelativeLayout>
     </RelativeLayout>
 
-    <RelativeLayout
+    <Button
+        android:id="@+id/soundButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/romaji"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <TextView
-            android:id="@+id/translation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/romaji"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <Button
-            android:id="@+id/soundButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:background="@color/transparent"
-            android:drawableLeft="@drawable/sound_64x64"
-            android:gravity="left|center_vertical"
-            android:onClick="onPlayClick1" />
-    </RelativeLayout>
-
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:drawableLeft="@drawable/sound"
+        android:gravity="right"
+        android:onClick="onPlayClick1" />
+ </GridLayout>

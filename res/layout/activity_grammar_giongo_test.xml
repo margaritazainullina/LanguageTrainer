@@ -12,14 +12,17 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingTop="@dimen/activity_vertical_margin" >
 
         <TextView
             android:id="@+id/part1TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="品物を"
+            android:textSize="@dimen/buttonTextSize" />
 
         <TextView
             android:id="@+id/part2TextView"
@@ -30,7 +33,7 @@
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:text="______"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textSize="@dimen/buttonTextSize" />
 
         <TextView
             android:id="@+id/part3TextView"
@@ -38,15 +41,16 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/part2TextView"
             android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="手に取っては見ない	"
+            android:textSize="@dimen/buttonTextSize" />
     </RelativeLayout>
 
     <ListView
         android:id="@+id/answersListView"
-        android:layout_width="254dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:visibility="visible" >
+        android:layout_width="wrap_content"
+        android:layout_height="242dp"
+        android:gravity="center">
+
     </ListView>
 
     <TextView
@@ -69,7 +73,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:onClick="buttonIAlrKnow"
-            android:text="@string/i_already_know" />
+            android:text="@string/i_already_know"
+            android:textSize="@dimen/buttonTextSize" />
 
         <Button
             android:id="@+id/buttonSkipSelect"
@@ -78,7 +83,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:onClick="buttonSkipSelectOnClick"
-            android:text="@string/skip" />
+            android:text="@string/skip"
+            android:textSize="@dimen/buttonTextSize" />
     </LinearLayout>
 
 </LinearLayout>

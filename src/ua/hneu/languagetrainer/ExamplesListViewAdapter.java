@@ -3,7 +3,6 @@ package ua.hneu.languagetrainer;
 import java.util.ArrayList;
 
 import ua.hneu.edu.languagetrainer.R;
-import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

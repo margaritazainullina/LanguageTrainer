@@ -7,8 +7,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ua.hneu.languagetrainer.pages.vaocbulary.WordIntroductionActivity" >
+    android:paddingTop="@dimen/activity_vertical_margin" >
 
     <TextView
         android:id="@+id/wordTextView"
@@ -17,23 +16,26 @@
         android:gravity="center"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:textSize="40sp" />
+        android:text="ヶ月, 箇月"
+        android:textSize="@dimen/xlargeText" />
 
     <TextView
         android:id="@+id/transcriptionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:text="かげつ"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="25sp" />
+        android:textSize="@dimen/buttonTextSize" />
 
     <TextView
         android:id="@+id/romajiTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:text="kagetsu"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="25sp" />
+        android:textSize="@dimen/buttonTextSize" />
 
     <ListView
         android:id="@+id/answersListView"
@@ -41,6 +43,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:visibility="visible" >
+
     </ListView>
 
     <TextView

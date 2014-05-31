@@ -1,0 +1,20 @@
+<resources>
+
+     <!--
+         480 portrait
+          5' - 5.5'
+    -->
+    <dimen name="activity_vertical_margin">20dp</dimen>
+    <dimen name="activity_horizontal_margin">20dp</dimen>
+    <dimen name="xlargeText">32sp</dimen>
+    <dimen name="largeText">28sp</dimen>
+    <dimen name="buttonTextSize">21sp</dimen>
+    <dimen name="mediumText">14sp</dimen>
+    <dimen name="smallText">15sp</dimen>
+    <dimen name="margin">7dp</dimen>
+    <dimen name="rowLayoutWidth">360dp</dimen>
+    <dimen name="buttonWidth">300dp</dimen>
+    <dimen name="infoMaxHeight">1000dp</dimen>
+    <dimen name="questionMaxHeight">400dp</dimen>
+
+</resources>

@@ -19,7 +19,7 @@
     <!-- Test results -->
     <string name="title_lev_def_test_result">Совет</string>
      <string name="recommendation">Рекомендуется выбрать уровень</string>
-    <string name="results_desc">Нажмите \"Я согласен\", чтобы последовать рекомендации или \"Выбрать уровень\", если хотите выбрать другой уровень.</string>
+    <string name="results_desc">Нажмите \"Я согласен\", чтобы последовать рекомендации</string>
     <string name="percentage">Правильных ответов:</string>
     <string name="i_agree">Я согласен</string>
     <string name="choose_level">Выбрать уровень</string>
@@ -107,5 +107,6 @@
     <string name="never">Никогда (за исключнием фраз, без транскрипции хираганой)</string>
     <string name="num_of_entries">Количество записей в итерации заданий</string>
     <string name="num_of_repetations">Количество повторений слова, после которого оно считается выученным</string><string name="congratulations">Поздравляем, вы выучили все на этом уровне! Теперь ваш уровень</string>
+    <string name="or">или выберите уровень</string>
 
 </resources>

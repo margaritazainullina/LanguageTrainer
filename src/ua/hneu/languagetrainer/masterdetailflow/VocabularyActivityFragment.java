@@ -34,7 +34,7 @@ public class VocabularyActivityFragment extends Fragment {
 				container, false);
 
 		infoTextView = (TextView) rootView.findViewById(R.id.infoTextView);
-		progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
+		progressBar = (ProgressBar) rootView.findViewById(R.id.vocabularyProgressBar);
 
 		Log.i("VocabularyActivityFragment",
 				"VocabularyActivityFragment.onCreateView()");

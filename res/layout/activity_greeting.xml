@@ -1,8 +1,9 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:scrollbars="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -14,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/greeting"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textSize="@dimen/xlargeText" android:layout_gravity="center_horizontal"/>
 
     <TextView
         android:id="@+id/infoTextView"
@@ -22,87 +23,85 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/greetingTextView"
         android:text="@string/info"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textSize="@dimen/mediumText" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/infoTextView"
-        android:gravity="center"
+    <Button
+        android:id="@+id/buttonTakeTest"
+        style="?android:attr/buttonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="buttonTakeTestOnClick"
+        android:text="@string/take_test"
+        android:textSize="@dimen/buttonTextSize" />
+
+    <TextView
+        android:id="@+id/levelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/or"
+        android:textAlignment="textEnd"
+        android:textSize="@dimen/buttonTextSize" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:layout_gravity="center"
         android:orientation="horizontal" >
 
-        <TextView
-            android:id="@+id/levelTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/radioGroup1"
-            android:layout_alignParentTop="true"
-            android:text="@string/level"
-            android:textAlignment="textEnd"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+    <RadioButton
+        android:id="@+id/radioButtonN5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="radioButtonN5OnClick"
+        android:text="N5"
+        android:textSize="@dimen/mediumText" />
 
-        <RadioGroup
-            android:id="@+id/radioGroup1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/levelTextView" >
+    <RadioButton
+        android:id="@+id/radioButtonN4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="radioButtonN4OnClick"
+        android:text="N4"
+        android:textSize="@dimen/mediumText" />
 
-            <RadioButton
-                android:id="@+id/radioButtonN5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="radioButtonN5OnClick"
-                android:text="N5" />
+    <RadioButton
+        android:id="@+id/radioButtonN3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="radioButtonN3OnClick"
+        android:text="N3"
+        android:textSize="@dimen/mediumText" />
 
-            <RadioButton
-                android:id="@+id/radioButtonN4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="radioButtonN4OnClick"
-                android:text="N4" />
+    <RadioButton
+        android:id="@+id/radioButtonN2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="radioButtonN2OnClick"
+        android:text="N2"
+        android:textSize="@dimen/mediumText" />
 
-            <RadioButton
-                android:id="@+id/radioButtonN3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="radioButtonN3OnClick"
-                android:text="N3" />
+    <RadioButton
+        android:id="@+id/radioButtonN1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="radioButtonN1OnClick"
+        android:text="N1"
+        android:textSize="@dimen/mediumText" />
+    </RadioGroup>
 
-            <RadioButton
-                android:id="@+id/radioButtonN2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="radioButtonN2OnClick"
-                android:text="N2" />
+    <Button
+        android:id="@+id/buttonStart"
+        style="?android:attr/buttonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioGroup1"
+        android:layout_gravity="center"
+        android:layout_toLeftOf="@+id/radioGroup1"
+        android:onClick="buttonStartOnClick"
+        android:text="@string/start_learning"
+        android:textSize="@dimen/buttonTextSize" />
 
-            <RadioButton
-                android:id="@+id/radioButtonN1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="radioButtonN1OnClick"
-                android:text="N1" />
-
-            <Button
-                android:id="@+id/buttonStart"
-                style="?android:attr/buttonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="buttonStartOnClick"
-                android:text="@string/start_learning" />
-        </RadioGroup>
-
-        <Button
-            android:id="@+id/buttonTakeTest"
-            style="?android:attr/buttonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/radioGroup1"
-            android:layout_alignParentLeft="true"
-            android:onClick="buttonTakeTestOnClick"
-            android:text="@string/take_test" />
-    </RelativeLayout>
-
-</RelativeLayout>
+</LinearLayout>

@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    android:scrollbars="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -14,35 +15,35 @@
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:gravity="center"
         android:orientation="vertical" >
 
         <TextView
             android:id="@+id/ruleTextView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp" />
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:text="～たり …～たり"
+            android:textSize="@dimen/xlargeText" />
 
         <TextView
             android:id="@+id/descriptionTextView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginBottom="10dp"
+            android:text="It makes a list of activities or attributes. It means something like &apos;this and that/sometimes this and sometimes that/in some parts this in other parts that&apos;. With nouns or -な adjectives it becomes &apos;～だったり …～だったりする&apos;."
+            android:textSize="@dimen/buttonTextSize" />
 
         <ListView
             android:id="@+id/grammarExamplesListView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
-
         </ListView>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:gravity="center" >
 
         <Button
@@ -51,7 +52,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="buttonPreviousOnClick"
-            android:text="@string/previous" />
+            android:text="@string/previous"
+            android:textSize="@dimen/buttonTextSize" />
 
         <Button
             android:id="@+id/buttonNext"
@@ -59,7 +61,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="buttonNextOnClick"
-            android:text="@string/next" />
+            android:text="@string/next"
+            android:textSize="@dimen/buttonTextSize" />
 
         <Button
             android:id="@+id/buttonSkip"
@@ -67,7 +70,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="buttonSkipOnClick"
-            android:text="@string/skipIntroduction" />
+            android:text="@string/skipIntroduction"
+            android:textSize="@dimen/buttonTextSize" />
     </LinearLayout>
 
 </LinearLayout>

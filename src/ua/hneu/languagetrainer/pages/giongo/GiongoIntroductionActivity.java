@@ -125,9 +125,13 @@ public class GiongoIntroductionActivity extends Activity {
 	}
 
 	public void onPlayClick1(View v) {
-		View v1 = (View) v.getParent();
-		TextView romajiExample = (TextView) v1.findViewById(R.id.romaji);
-		phrase = (String) romajiExample.getText();
-		twmp.play(phrase);
+		// getting layout with text
+				View v1 = (View) v.getParent();
+				TextView textPart1 = (TextView) v1.findViewById(R.id.textPart1);
+				TextView textPart2 = (TextView) v1.findViewById(R.id.textPart2);
+				TextView textPart3 = (TextView) v1.findViewById(R.id.textPart3);
+				phrase = (String) textPart1.getText() + textPart2.getText()
+						+ textPart3.getText();
+				twmp.play(phrase);
 	}
 }

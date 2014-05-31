@@ -7,6 +7,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
+    android:scrollbars="vertical"
     tools:context=".VocabularyActivity"
     tools:ignore="MergeRootFrame" >
 
@@ -14,9 +15,11 @@
         android:id="@+id/testProgressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
         android:layout_height="wrap_content" />
 
     <RelativeLayout
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
@@ -25,7 +28,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="left"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:text="文法"
+            android:textSize="@dimen/buttonTextSize" />
 
         <Chronometer
             android:id="@+id/chronometer"
@@ -39,31 +43,47 @@
         android:id="@+id/taskTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:text="問題Ⅴ つぎの ぶんを 読んで しつもんに こたえなさい。こたえは 1・2・3・4から いちばん いい ものを 一つ えらびなさい。"
+        android:textSize="@dimen/mediumText" />
 
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:maxHeight="@dimen/questionMaxHeight"
+        android:scrollbars="vertical"
+        android:text="学生「すみません。この 本を かりたいです。」 としょかんの人「この 学校の 学生ですか。」 学生「はい。」
+としょかんの人「では、はじめに この かみに 名前と じゅうしょと 電話ばんこうを書いて ぐださい。」
+学生「はい。」
+としょかんの人「書きましたか。」
+学生「はい。」
+としょかんの人「これは じしょですね。じしょかんの 中で つかって ぐださい。」
+学生「はい、わかりました。では、この 7さつを かして ぐださい。」
+としょかんの人「ああ、学生は 4さつまでです。」
+学生「そうですか。では、この 3さつは かりません。」
+としょかんの人「わかりました。では、こちらの 本は 2しゅうかん、ざっしは 1しゅうか
+んで かえして ぐださい。きょうは 15日ですから、[＿＿＿。]
+学生「はい、わかりました。」"
+        android:textSize="@dimen/mediumText" />
+
+    <Button
+        android:id="@+id/soundButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:drawableTop="@drawable/sound"
+        android:gravity="center"
+        android:onClick="onPlayClick" />
 
     <TextView
         android:id="@+id/textTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <Button
-        android:id="@+id/soundButton"
-        android:layout_width="wrap_content"
-        android:layout_height="118dp"
-        android:background="@color/transparent"
-        android:drawableBottom="@drawable/sound"
-        android:gravity="left|center_vertical"
-        android:onClick="onPlayClick" />
+        android:text="[＿＿＿]には 何を 入れますか。"
+        android:textSize="@dimen/buttonTextSize" />
 
     <ImageView
         android:id="@+id/img"
@@ -72,7 +92,7 @@
 
     <ListView
         android:id="@+id/answersListView"
-        android:layout_width="400dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:visibility="visible" >

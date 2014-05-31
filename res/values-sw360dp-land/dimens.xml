@@ -1,0 +1,20 @@
+<resources>
+
+     <!--
+         360 landscape
+           4' - 5'
+    -->
+    <dimen name="activity_vertical_margin">10dp</dimen>
+    <dimen name="activity_horizontal_margin">20dp</dimen>
+    <dimen name="xlargeText">26sp</dimen>
+    <dimen name="largeText">20sp</dimen>
+    <dimen name="buttonTextSize">18sp</dimen>
+    <dimen name="mediumText">12sp</dimen>
+    <dimen name="smallText">9sp</dimen>
+    <dimen name="margin">7dp</dimen>
+    <dimen name="rowLayoutWidth">450dp</dimen>
+    <dimen name="buttonWidth">200dp</dimen>
+    <dimen name="infoMaxHeight">120dp</dimen>
+    <dimen name="questionMaxHeight">100dp</dimen>
+
+</resources>
