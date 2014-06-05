@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:gravity="center"
+                android:gravity="left"
                 android:text="sarada ha retasu to ninjin to radisshu kara shi mashi ta."
                 android:textSize="@dimen/mediumText" />
 
@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/romaji"
-                android:gravity="center"
+                android:gravity="left"
                 android:text="Салат сделан из салата, моркови, и редиса."
                 android:textSize="@dimen/mediumText" />
         </RelativeLayout>

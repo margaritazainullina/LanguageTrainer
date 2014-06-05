@@ -1,0 +1,164 @@
+～し	When you want to list reasons for multiple states or actions you can do so by adding 「し」 to the end of each relative clause. It is very similar to the 「や」 particle except that it lists reasons for verbs and state-of-being.	Вы можете перечислить причины нескольких состояний или действий, добавив 「し」 к каждому подчиненному предложению. Похоже на конструкцию 「や」 за исключением того, что она перечисляет причины действий и состояний.
+優しい	し	、かっこいいし、面白いから。	yasashii shi, kakkoii shi, omoshiroi kara. 	Because he's kind, attractive, and interesting (among other things).	Потому что он добрый, привлекательный, и интересный(среди прочего).
+
+てみる	It means to try do something.	Попытаться что-то сделать.
+彼は彼女と話し	てみる	。	kare wa kanojo to hanashi te miru. 	He'll try to talk to her.	Он попробует поговорить с ней.
+私はあの本を読ん	でみる	。	watashi wa ano hon o yon de miru. 	I'll try to read that book.	Я постараюсь прочитать эту книгу.
+
+なら	Use of なら implies that the verb before なら (nara) succeeds the verb after なら (nara) in time. This is the opposite of the conditional particle たら, which implies that the first verb will precede the second verb.	Использование なら означает, что действие, описанное глаголом перед なら следует за глаголом, который стоит после なら. Это противоположно условной частице たら, которая означает, что первый глагол будет предшествовать второму глаголу.
+友達が来る	なら	、私はピザを注文する。	tomodachi ga kuru nara, watashi wa piza o chūmon suru. 	If our friends come, I will order pizza [first].	Если наши друзья прийдут, я закажу пиццу [сначала].
+
+に	(period)に(frequency)	(период)に(частота)
+一週間	に	一回日本語を勉強します。	ichi shūkan ni ichi kai nihongo o benkyō shi masu. 	I study Japanese once a week.	Я изучаю японскую кухню раз в неделю.
+一年間	に	三回イタリアへ行かなければなりません。	ichi nenkan ni san kai itaria e ika nakere ba nari mase n. 	I have to go to Italy 3 times a year.	Я должен ездить в Италию 3 раза в год.
+
+～がほしい	It means to want something (literally that something is wanted).	Хотеть что-либо( буквально, что что-то хотел).
+私はこの本	がほしい	。	watashi wa kono hon ga hoshii. 	I want this book.	Я хочу эту книгу.
+彼女はお菓子	が欲しい	。	kanojo wa okashi ga hoshii. 	She wants some sweets.	Она хочет конфет.
+
+～たがる	The 「～がる」 grammar is used when you want to make an observation about how someone is feeling. This grammar is also used to observe very frankly on what you think someone other than yourself wants. This involves the adjective 「欲しい」 for things one wants or the 「～たい」 conjugation for actions one wants to do, which is essentially a verb conjugated to an i-adjective.	Выражение 「~がる」 используется, когда вы хотите сделать замечание о чиьих-либо чувствах. Оно также используется для наблюдения очень откровенно о том, что вы думаете, кого, кроме себя хочет. Это связано с прилагательным 「欲しい」 для вещей, хочет или 「~たい」 сопряжения для действий каждый хочет делать, который по существу является глагол конъюгируют с и- прилагательного.
+家に帰ったら、すぐパソコンを使い	たがる	。	ie ni kaettara, sugu pasokon o tsukai ta garu. 	(He) soon acts like wanting to use computer as soon as (he) gets home. 	Он хочет воспользоваться компьютером, как только вернется домой.
+
+～かもしれない	Use of かもしれない or かもしれません indicates possibility (maybe). It is used in a similar way to ~でしょう	Использование かもしれない или かもしれませんуказывает возможность. Используется в аналогии с ~でしょう
+明日は雨が降る	かもしれない	。	ashita wa ame ga furu kamo shire nai. 	It may rain tomorrow (There is a possibility it may rain tomorrow).	Дождь может пойти дождь завтра.
+トムさんは子供のとき意地悪だった	かもしれない	。	tomu san wa kodomo no toki ijiwaru datta kamo shire nai. 	Tom may have been a bully when he was a kid.	Том, возможно, был задирой, когда был ребенком.
+
+～たらどうですか	This construction is used for giving advice or suggesting a particular course of action (Advice…how about…? Why don’t you…?). It is made from the past tense short form of the verb. It should only be used when explicitly being consulted about something, as it can be slightly critical. if someone is seeking your advice on a matter, you can use ～たらどうですか.	Эта конструкция используется для советов или предложения курса действий( совет... как насчет...? Почему бы вам не...?). Формируется из краткой формы глагола прошедшего времени. Она должна использоваться только тогда, когда явно предоставляется совет, т.к. имеет оттенок критики. если кто-то ищет ваш совет по вопросу, можно использовать ~たら どう ですか.
+薬を飲ん	だらどうですか	？	kusuri o non dara dō desu ka? 	How about taking some medicine? (Said to someone who his ill)	Может выпить лекарства?( человеку, который болеет)
+もっと勉強し	たらどうですか	？	motto benkyō shi tara dō desu ka? 	Why don’t you (how about you) study more? (Said to someone who has an exam coming up and is worried about it)	Почему бы вам не учиться больше?( тому у кого экзамен)
+
+も	Number + も as many as	Количество + も столько, сколько
+昨日、電話三回	も	したよ！	kinō, denwa san kai mo shi ta yo! 	I called you like three times yesterday!	Я звонил вам вчера три раза !
+
+しか～ない	only, as few as (takes the verb in the negative form)	только, всего лишь(занимает глагол в отрицательной форме)
+あなた	しか	僕を助けられる人はいないんだ。	anata shika boku o tasuke rareru hito wa i nai n da. 	You're the only one who can help me.	Ты единственный, кто может мне помочь.
+この取り決めは一時的なもので	しか	ない。	kono torikime wa ichiji teki na mono de shika nai. 	This arrangement is only temporary.	Эта договоренность только временная.
+
+～ておく	It means to do something in advance.	Означает сделать что-то заранее.
+この分を覚え	ておく	。	kono bun o oboe te oku. 	I'll memorize this part. (Because it may appear on a test.)	Я запомнил эту часть.( Потому что она может быть в тесте.)
+お茶を冷やし	ておく	。	ocha o hiyashi te oku. 	I'll cool down the tea. (Because I don't want to burn myself.)	Я остуживаю чай.( Потому что я не хочу обжечься.)
+
+～よう	It means "let's do (something)". This form is only used for ichidan verbs, for godan verbs see ～おう.	Означает "давайте сделаем что-либо". Эта форма используется только для глаголов 1 спряжения(ichidan), для глаголов 2 спряжения(godan) см. ~おう.
+このケーキを食べ	よう	。	kono kēki o tabeyo u. 	Let's eat this cake.	Давайте поедим этот торт.
+あの映画を見	よう	。	ano eiga o miyo u. 	Let's watch that movie.	Давайте посмотрим этот фильм.
+
+～おう	It means "let's do (something)". The 「お」 may become any syllable ending with an "o" (e.g. こ、ろ、そ). This form is only used for godan verbs, for ichidan verbs see ～よう.	Означает "давайте сделаем(что-то)". Присоединяется к любому слогу, оканчивающиеся на "о"(например こ,ろ,そ). Эта форма используется только для глаголов 2 спряжения(godan), для глаголов 1 спряжения(ichidan) см. ~よう.
+あそこで遊	ぼう	。	asoko de asobo u. 	Let's play over there.	Давайте там поиграем.
+帰	ろう	。	kaero u. 	Let's go home.	Пойдемте домой.
+
+～てあげる	A は B に verb-て　あげる means "A does something for B" (literally something "gives" the action specified in the verb to B).	A は B に глагол на てあげる означает "А что-то делает для B "(буквально что-то "дает" действие, указанное в глаголе В).
+私は山田さんに本を買っ	てあげました	。	watashi wa yamada san ni hon o katte age mashi ta. 	I bought this book for Yamada-san.	Я купил эту книгу для Ямады.
+
+～てくれる	くれる means "to receive" but can be only referred to the person that is talking. something は 私に verb-て　くれる。    something does something for me. It must not be confused with もらう that can be used talking about everybody. For example these sentences have the same meaning.	くれる означает "получить ", но говроиться только о говорящем. ~は 私 に глагол -てくれる - делает что-то для меня. Не следует путать с もらう, который может использоваться по отношению ко всем. 
+山田さんは私に本を買っ	てくれました	。	yamada san wa watashi ni hon o katte kure mashi ta. 	Yamada-san bought this book for me.	Ямада купил эту книгу для меня.
+私は山田さんに本を買っ	てもらいました	。	watashi wa yamada san ni hon o katte morai mashi ta. 	Yamada-san bought this book for me.	Ямада купил эту книгу для меня.
+
+～てもらう	It means to get someone to do something.	Заставить кого-то что-то сделать.
+彼に宿題を見せ	てもらう	。	kare ni shukudai o mise te morau. 	I'll make him show his homework.	Я заставлю его показать свою домашнюю работу.
+彼女にこの服を買っ	てもらう	。	kanojo ni kono fuku o katte morau. 	I'll make her buy these clothes	Я заставлю ее купить эту одежду
+
+～ていただけませんか / ～といいです / ～てすみません	Use the te-form to describe things you have done that you want to apologize for. When you want to apologize for something you failed to do, you use ～なくて, the short, negative te-form of a verb. To derive this form, first change the verb to the short, negative ～ない, then replace the last い with くて.	Используйте て-форму, чтобы выразить извинение за уже сделанное действие. Если вы хотите, чтобы извиниться за то, что вы не смогли сделать, вы используете ~なく て. Для того, чтобы сделать эту форму, нужно сначала изменить глагол, заменив в ~ない, изменить последний い на くて.
+汚い言葉を使っ	てすみません	でした。	kitanai kotoba o tsukatte sumimasen deshi ta. 	I’m sorry for using bad language (previously).	Я прошу прощения за плохой стиль письма(вступление).
+
+～そうです	This phrase means, literally, "it is so." It is used to show agreement, and is a general filler. When そう is used as a suffix, however, such as after a verb (note: you can only place it after the stem of a verb,) noun, or adjective, it means that something is seeming to be a certain way.	Эта фраза означает, буквально, " это так. ", "кажется что". Используется для подтверждения, и является общей фразой, причем そう используется в качестве суффикса, например, после глагола( можно поместить его только после основы глагола) существительного или прилагательного.
+彼はケーキをたべ	そうです	。	kare wa kēki o tabe sō desu. 	It seems he eats cake.	Кажется, он ест торт.
+彼女は疲れた	そうです	。	kanojo wa tsukare ta sō desu. 	She looks tired.	Она выглядит уставшей.
+
+～させる	It means to let someone do something, or to make someone do it.	Позволить или заставить кого-либо что-то сделать.
+この音が私をいらいら	させる	。	kono oto ga watashi o iraira saseru. 	This sound irritates me. (lit. This sound makes me get irritated.)	Этот звук раздражает меня. 
+私にこのケーキを食べ	させて	ください。	watashi ni kono kēki o tabesase te kudasai. 	Please let me eat this cake.	Пожалуйста, разрешите мне съесть этот торт.
+
+～なさい	It's used for giving orders and commands.	Используется для приказов и команд.
+学校へ行き	なさい	。	gakkō e ikinasai. 	Go to school!	Иди в школу!
+それをやめ	なさい	。	sore o yamenasai. 	Stop that!	Перестань!
+
+～ば/～れば	It means "if (something happened)".	Означает " если( что-то случилось) ".
+この果物を食べ	れば	すぐに元気になる。	kono kudamono o tabere ba sugu ni genki ni naru. 	If you eat this fruit you'll recover soon.	Если вы поешьте этот фрукт вам скоро станет лучше.
+金があ	れば	あの車を買う。	kimu ga are ba ano kuruma o kau. 	If I had money I would buy that car.	Если у меня были деньги, я бы купил эту машину.
+あそこへ行け	ば	分かる。	asoko e ike ba wakaru. 	If you go there you'll know.	Если вы туда пойдете, будете знать.
+
+～ても	By simply using the te-form and the 「も」 particle, you are essentially saying, "even if you do X..."	Просто с помощью て- формы и частицы 「も」, вы, по сути говоря, " даже если вы сделаете что-либо"
+全部食べ	ても	いいよ。	zenbu tabe te mo ii yo. 	You can go ahead and eat it all. (lit: Even if you eat it all, it's good, you know.)	Вы можете даже съесть все это. 
+あめが ふっ	ても	 ゴルフに いきます。	ame ga futte mo gorufu ni iki masu. 	"I'll go to play golf even if it rains."	"Я пойду играть в гольф, даже если пойдет дождь. "
+せんせい	でも	、まちがえます。	sensei de mo, machigae masu. 	"Even the teacher makes mistakes."	" Даже учитель делает ошибки. "
+
+～たら	Used to refer to conditional (if) dependence. If we say something　～たら　B, that means B is valid, contingent to fulfillment of something. The initial た in ～たら comes from the short form past tense ending of predicates	Используется для ссылки на условную(если) зависимость. Если мы говорим, А ~たら В, это означает, что B является действительным, условие к выполнению чего-то. Слог たв ~たら происходит от краткой форме прошедшего времени окончания глагола.
+日本に行っ	たら	、着物を買います。	nippon ni ittara, kimono o kai masu. 	I will buy a kimono if (and when) I go to Japan.	Я куплю кимоно, если(и когда) я приеду в Японию.
+天気が良かっ	たら	、散歩に行きます。	tenki ga yokattara, sanpo ni iki masu. 	If the weather is good, we will go for a walk.	Если погода хорошая, мы пойдем на прогулку.
+日本人だっ	たら	、この言葉を知っているでしょう。	nipponjin dattara, kono kotoba o shitte iru desho u. 	If the person is Japanese, they will probably know this word。	Если человек японец, то он, вероятно, знает это слово.
+
+～なくてもいい	It means something doesn't have to be done. (It's fine not to do it.)	Что-то не должно быть сделано.(Было бы лучше не делать этого.)
+君は今日学校へ行か	なくてもいい	。	kimi wa kyō gakkō e ika naku te mo ii. 	You don't have to go to school today.	Вы не должны идти в школу сегодня.
+これを運ば	なくてもいい	。	kore o hakoba naku te mo ii. 	This doesn't have to be transported.	Это не должно транспортироваться.
+
+～みたい	It means that something seems to be (difficult/deep/etc.).	Что-то, кажется( трудным / глубоким / и т.д..).
+この本は難しい	みたい	。	kono hon wa muzukashii mitai. 	This book seems to be difficult.	Эта книга, кажется, трудная.
+あの湖は深い	みたい	。	ano mizuumi wa fukai mitai. 	That lake seems to be deep.	Это озеро, кажется, глубокая.
+
+～てしまう	It means to end up doing something.	В конечном итоге.
+私はけっきょく学校へ行っ	てしまう	。	watashi wa kekkyo ku gakkō e itte shimau. 	After all I'll end up going to school.	В конце концов я хожу в школу.
+彼はたぶんあのケーキを食べ	てしまう	。	kare wa tabun ano kēki o tabe te shimau. 	He'll probably end up eating that cake.	Он, наверное, доест этот пирог.
+
+～ながら	This form shows that two actions are happening at once, such as "the boy eats coffee cake while he drinks coffee." This form is used with the verb stem of a verb, and simply appended to the end. The emphasis is stronger on the second verb in the series. The second verb in the series is also the verb which determines the tense.	Эта форма показывает, что два действия происходят одновременно, например, "мальчик ест булочку, пока пьет кофе. " Эта форма просто добавляется в конец глагола. Акцент делается сильнее на втором глаголе, который также стоит в целевом времени.
+男の子はケーキを食べ	ながら	コーヒーを飲んだ。	otokonoko wa kēki o tabe nagara kōhī o non da. 	The boy ate cake while he drank coffee (note: here the emphasis is on the fact that he was drinking coffee; the fact that he was eating cake wasn't the topic of interest.)	Мальчик съел торт, пока он пил кофе(акцент делается на том, что он пил кофе)
+
+～ばよかった	This means wish I’d done or should have done. somethingll verbs can regularly be turned into a ばよかった sentence with no exception or irregularity. You form the ば-form based on the present tense short form.	Жаль, что я делаю или делал что-либо. Глаголы могут быть без исключения изменены в форму на ばよかった. ば-форма образуется от сокращенной формы настоящего времени.
+学生のとき、勉強すれ	ば良かった	です。	gakusei no toki, benkyō sure ba yokatta desu. 	I should have studied when I was a student.	Я должен был учиться, когда был студентом.
+薬を飲め	ば良かった	です。	kusuri o nome ba yokatta desu. 	I should have taken medicine.	Я должен был выпить лекарство.
+
+～はずです	It means something like "should be".	Должно быть.
+それは今まで終わった	はずです	。	sore wa ima made owatta hazu desu. 	It should have ended until now.	Оно должно было уже закончиться.
+あのペンはつくえの上にある	はずです	。	ano pen wa tsuku e no ue ni aru hazu desu. 	That pen should be on the desk.	Эта ручка должно быть на столе.
+
+～ないで	It means "don't do (something)". It might also be connected with "ください" to make it more polite.	Это означает, "не делать что-либо ". К нему может добавляться "ください" для вежливости.
+このケーキを食べ	ないで	。	kono kēki o tabe nai de. 	Don't eat this cake.	Не ешьте этот торт.
+この部屋からしばらく出て行か	ないで	。	kono heya kara shibaraku de te ika nai de. 	Don't go out of this room for a while.	Не выходите из этой комнаты некоторое время.
+その本をすて	ないで	ください。	sono hon o sute nai de kudasai. 	Please don't throw away that book.	Пожалуйста, не выбрасывайте эту книгу.
+
+～かどうか	When it's a yes/no question, you can append an optional 「どうか」　to represent the other choice.	Когда это вопрос, на который можно ответить да / нет, вы можете необязательно добавить 「どう か」 чтобы представить альтернаивы.
+田中さんは、明日来る	かどうか	、分かりますか。	tanaka san wa, ashita kuru ka dō ka, wakari masu ka. 	Do (you) know whether Tanaka-san is coming tomorrow or not?	Вы не знаете, идет ли завтра Танака или нет?
+
+～やすい	When used after the [stem], this indicates that an action is easy. somethings an い adjective, [conjugates as an い adjective].	Присоединяется к основе, означает, что действие легко произвести. 
+水を飲み	やすい	です。	mizu o nomi yasui desu. 	Drinking water is easy.	Пить воду легко.
+
+～にくい	If used with after a verb in the infinitive, it means that the verb is easy to do. Basically the opposite of yasui.	При использовании после инфинитива глагола, означает, что что-либо легко сделать. Противоположность Yasui.
+この字は読み	にくい	。	kono ji wa yomi nikui. 	This hand-writing is hard to read.	Это почерк трудно прочесть.
+
+～られる	Passive. Formation: Verb (nai stem) ＋　れる・られる	Пассив. Формирование : Глагол( с основой на nai) +れる или られる
+水が子供に飲ま	れました	。	mizu ga kodomo ni nomare mashi ta. 	The water was drunk by the child.  	Ребенок пьет воду.
+このビルは二年前に建て	られた	。	kono biru wa ni nen mae ni tate rare ta. 	This building was built two years ago.  	Это здание было построено два года назад.
+
+～てある	Usually, this expression is used to explain that something is in a state of completion.	Как правило, это выражение используется для объяснения, что что-то находится в состоянии завершения.
+準備は、もうし	てあるよ	。	junbi wa, mōshi te aru yo. 	The preparations are already done.	Подготовка уже сделана.
+
+～ているあいだに	During something. The phrase that follows 間 is a continuous action that continues during the period/action. This differs from 間に (show below), which shows a single, instantaneous action that occurs before the time frame ends.	Во время чего-либо. Фраза, которая следует за 間 является непрерывным действием, которое продолжается в течение периода / действия. Это отличается от 間 に, который показывает единое, мгновенное действие.
+校長先生が話し	ている間	、その生徒はずっと寝ていました。	kōchō sensei ga hanashi te iru ma, sono seito wa zutto ne te i mashi ta. 	The student slept the entire time the principal was talking.	Студент спал все время, пока глава говорил.
+
+～くする/ ～にする	To make something; To change into something. This displays the changing of the state or condition of something. The change is done by the subject.	Что-либо сделать, изменить. Отображает изменение состояния, которое делается субъектом.
+ああ、気	にする	なよ。	ā, ki ni suru na yo. 	Oh, don't worry about it.	Не беспокойтесь об этом.
+あなたを待つ以外	にする	ことは何も無い。	anata o matsu igai ni suru koto wa nani mo nai. 	I don't have anything else to do but wait for you.	Мне ничего не оставалось как, ждать тебя.
+その風は天気を寒	くする	。	sono kaze wa tenki o samuku suru. 	The wind made the weather cold.	Похолодало из-за ветра.
+
+のに	It means something like "even though/albeit/despite".	Означает " хотя / несмотря ".
+私は宿題を終えた	のに	まだねれない。	watashi wa shukudai o oe ta noni mada nere nai. 	Even though I've finished my homework I can't go to sleep yet.	Хотя я закончил свою домашнюю работу, я не могу пойти еще спать.
+このケーキはまずい	のに	高い。	kono kēki wa mazui no ni takai. 	This cake is expensive despite being unappetizing.	Не смотря на то, что этот торт дорогой, он невкусный.
+彼女はきれいな	のに	モテない。	kanojo wa kirei na noni mote nai. 	Despite being beautiful she's not popular	Несмотря на то, что она красивая, она не пользуется популярностью
+
+～のような	「よう」 means an appearance or manner. We can use this definition to say that something has an appearance or manner of a certain state. This word can be used in many ways to express similarity. 	「よう」 означает вид или манеру. Мы можем использовать это определение, чтобы сказать, что что-то имеет внешний вид или соответствующую манеру. Это слово может быть использовано для многих способов выразить сходство.
+あ	のような	間違いを犯すなんて君も愚かだったね。	ano yō na machigai o okasu nante kimi mo oroka datta ne. 	It was silly of you to make such a mistake.	Это было глупо для вас сделать такую ​​ошибку.
+あ	のような	災害は一生の内に二度とやってこないだろう。	ano yō na saigai wa isshō no uchi ni nidoto yatteko nai daro u. 	Such a disaster won't come again in my time.	Такая катастрофа не придет в свое время.
+あの人は仏	のような	人だ。	ano hito wa futsu no yō na hito da. 	He is a saint of a man.	Он святой.
+
+～のように	In the hopes that something, in order for something. Something is a goal that you are aiming for.	В надежде на что что-то, для чего-то. 
+１月の洪水	のように	寒い。	ichigatsu no kōzui no yō ni samui. 	As cold as a flood in January.	Холодно, как наводнение в январе.
+あなたは、その問題をど	のように	処理したのか。	anata wa, sono mondai o dono yō ni shori shi ta no ka. 	How did you deal with the matter?	Как вы решили этот вопрос?
+あなたは自由な時間をど	のように	過ごしますか。	anata wa jiyū na jikan o dono yō ni sugoshi masu ka. 	How did you spend your free time?	Как вы проводите свое свободное время?
+
+～させられる	Causative Passive. Formation: Remove the る from the end of the verb and add させられる to the end. Special cases: する (to do) is changed to させられる. くる (to come) is changed to こさせられる.	Причинных пассивный. Формирование : убрать окончание глагола る и добавить させられる. Исключения:する( делать) изменяется на させられる, くる( приехать) изменяется на こさせられる.
+彼にはいつもびっくり	させられる	。	kare ni wa itsumo bikkuri saserareru. 	I'm always surprised by him.	Я всегда удивляюсь ему.
+彼には本当にいらいら	させられる	。	kare ni wa hontōni iraira saserareru. 	He really gets across me.	Он действительно получает через меня.
+犬の忠実さには感心	させられる	。	inu no chūjitsu sa ni wa kanshin saserareru. 	Dogs' faithfulness impresses us.	Верность собаки поражает нас.
+
+～ことにする	It means to decide something (similar to 決める).	Что-то решать(по аналогии с 決める).
+彼は勉強する	ことにする	。	kare wa benkyō suru koto ni suru. 	He's deciding to study.	Он решил учиться.
+私は今コンビニへ行く	ことにした	。	watashi wa kon konbini e iku koto ni shi ta. 	I've decided that I'll now go to the convenience store.	Я решил, что я пойду в мини-маркет.

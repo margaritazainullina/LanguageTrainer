@@ -129,7 +129,7 @@ public class App extends Application {
 				getContentResolver());
 		ts.insertFromXml("mock_test_n5.xml", getAssets(), getContentResolver());
 
-		/*GiongoService gs = new GiongoService();
+		GiongoService gs = new GiongoService();
 		gs.dropTable();
 		gs.createTable();
 		ges.dropTable();
@@ -148,7 +148,7 @@ public class App extends Application {
 				getContentResolver());
 		cws.bulkInsertFromCSV("extent_freq.txt", getAssets(),
 				getContentResolver());
-
+*/
 		grs.dropTable();
 		grs.createTable();
 		GrammarService.startCounting(getContentResolver());
@@ -156,10 +156,12 @@ public class App extends Application {
 		gres.createTable();
 		grs.bulkInsertFromCSV("grammar_n5.txt", 5, getAssets(),
 				getContentResolver());
+		grs.bulkInsertFromCSV("grammar_n4.txt", 4, getAssets(),
+				getContentResolver());
 
-		us.dropTable();
+		/*us.dropTable();
 		us.createTable();*/
-
+		
 		// if it isn't first time when launching app - user exists in db
 		User currentUser = us.getUserWithCurrentLevel(App.cr);
 		if (currentUser != null) {

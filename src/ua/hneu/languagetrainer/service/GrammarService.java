@@ -280,18 +280,17 @@ public class GrammarService {
 	public void bulkInsertFromCSV(String filepath, int level,
 			AssetManager assetManager, ContentResolver cr) {
 		BufferedReader reader = null;
+		GrammarRule g = new GrammarRule();
 		try {
 			reader = new BufferedReader(new InputStreamReader(
 					assetManager.open(filepath)));
 			// do reading, usually loop until end of file reading
 			String mLine;
 			boolean isFirst = true;
-			GrammarRule g = new GrammarRule();
 			// setting random colors
 			Random r = new Random();
 			int r1 = r.nextInt(5);
 			String color = "";
-
 			while ((mLine = reader.readLine()) != null) {
 				if (!mLine.isEmpty()) {
 					if (isFirst) {
@@ -331,21 +330,26 @@ public class GrammarService {
 								+ "\\t" + s[1].trim() + "\\t" + s[2].trim(),
 								s[3].trim(), s[4].trim(), s[5].trim());
 						g.examples.add(ge);
+							Log.i("GrammarService bulkInsertFromCSV: ",
+									g.getRule() + " incerted. ");
 					}
 				} else {
 					this.insert(g, cr);
+					Log.i("GrammarService bulkInsertFromCSV: ", g.getRule()
+							+ " incerted. ");
 					g = new GrammarRule();
 					isFirst = true;
 				}
 			}
 		} catch (IOException e) {
 			Log.e("GrammarService", e.getMessage() + " " + e.getCause());
-
 		}
+		this.insert(g, cr);
 	}
+
 	/**
-	 * Returns number of all grammar rules to get id of last rule for
-	 * inserting in GrammarRulesExamples table
+	 * Returns number of all grammar rules to get id of last rule for inserting
+	 * in GrammarRulesExamples table
 	 * 
 	 * @param cr
 	 *            content resolver to database

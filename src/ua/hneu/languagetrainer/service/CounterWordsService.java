@@ -11,6 +11,7 @@ import ua.hneu.languagetrainer.App.Languages;
 import ua.hneu.languagetrainer.db.dao.CounterWordsDAO;
 import ua.hneu.languagetrainer.model.other.CounterWord;
 import ua.hneu.languagetrainer.model.other.CounterWordsDictionary;
+import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.res.AssetManager;
@@ -22,6 +23,7 @@ import android.util.Log;
  * @author Margarita Zainullina <margarita.zainullina@gmail.com>
  * @version 1.0
  */
+@SuppressLint("NewApi")
 public class CounterWordsService {
 	public static CounterWordsDictionary all;
 
@@ -336,12 +338,13 @@ public class CounterWordsService {
 			// get last elements
 			all.sortByLastViewedTime();
 			int i = all.size() - 1;
-			while (currentDict.size() < App.numberOfEntriesInCurrentDict) {
+			while (currentDict.size() < App.numberOfEntriesInCurrentDict
+					&& i >= 0) {
 				CounterWord e = all.get(i);
 				if (e.getLearnedPercentage() != 1)
 					currentDict.add(e);
-				i--;
 				Log.i("createCurrentDictionary", all.get(i).toString());
+				i--;
 			}
 		}
 		return currentDict;

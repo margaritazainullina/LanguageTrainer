@@ -151,6 +151,7 @@ public class MockTestActivity extends Activity {
 		// sections
 		if (isLevelDef) {
 			skipSection.setVisibility(View.INVISIBLE);
+			soundButton.setHeight(0);
 			soundButton.setVisibility(View.INVISIBLE);
 		}
 		// at first show word and possible answers
@@ -178,7 +179,7 @@ public class MockTestActivity extends Activity {
 		} else if (q.getSection().equals("読解・文法")) {
 			soundButton.setVisibility(View.INVISIBLE);
 			currentSection = 2;
-		} else {
+		} else if(!testName.equals("level_def")){
 			soundButton.setVisibility(View.VISIBLE);
 			currentSection = 3;
 		}
@@ -265,7 +266,7 @@ public class MockTestActivity extends Activity {
 							// when previous information faded out
 							// show next word and possible answers or go to
 							// next exercise
-							if (currentWordNumber < t.getQuestions().size()) {
+							if (currentWordNumber <= t.getQuestions().size()) {
 								nextWord();
 							} else {
 								endTesting();
