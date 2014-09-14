@@ -135,7 +135,7 @@ public class TestService {
 	 * @param cr
 	 *            content resolver to database
 	 */
-	void insertFromXml(String filepath, AssetManager assetManager,
+	public void insertFromXml(String filepath, AssetManager assetManager,
 			ContentResolver cr) {
 		StringBuilder xml = new StringBuilder();
 		// reading from assets xml file

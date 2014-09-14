@@ -64,7 +64,7 @@
                 android:background="@color/transparent"
                 android:drawableBottom="@drawable/sound"
                 android:gravity="left|center_vertical"
-                android:onClick="onPlayClick" />
+                android:onClick="onPlayClick3" />
         </LinearLayout>
 
         <TextView

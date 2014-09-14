@@ -108,7 +108,7 @@ public class App extends Application {
 		// creating and inserting into whole database
 		// vocabulary
 
-		/*vs.dropTable();
+		vs.dropTable();
 		vs.createTable();
 		vs.bulkInsertFromCSV("N5.txt", getAssets(), 5, getContentResolver());
 		vs.bulkInsertFromCSV("N4.txt", getAssets(), 4, getContentResolver());
@@ -148,7 +148,7 @@ public class App extends Application {
 				getContentResolver());
 		cws.bulkInsertFromCSV("extent_freq.txt", getAssets(),
 				getContentResolver());
-*/
+
 		grs.dropTable();
 		grs.createTable();
 		GrammarService.startCounting(getContentResolver());
@@ -158,9 +158,11 @@ public class App extends Application {
 				getContentResolver());
 		grs.bulkInsertFromCSV("grammar_n4.txt", 4, getAssets(),
 				getContentResolver());
+		grs.bulkInsertFromCSV("grammar_n3.txt", 3, getAssets(),
+				getContentResolver());
 
-		/*us.dropTable();
-		us.createTable();*/
+		us.dropTable();
+		us.createTable();
 		
 		// if it isn't first time when launching app - user exists in db
 		User currentUser = us.getUserWithCurrentLevel(App.cr);

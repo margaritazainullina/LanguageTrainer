@@ -4,6 +4,7 @@ import java.util.List;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.TextToVoiceMediaPlayer;
 import ua.hneu.languagetrainer.model.other.CounterWord;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -19,6 +20,7 @@ public class CounterWordsIntroductionActivity extends Activity {
 	public boolean isLast = true;
 	public static CounterWord curWord;
 	public static int idx = -1;
+	TextToVoiceMediaPlayer twmp;
 
 	TextView wordTextView;
 	TextView hiraganaTextView;
@@ -112,5 +114,8 @@ public class CounterWordsIntroductionActivity extends Activity {
 			prevButton.setEnabled(false);
 		}
 	}
-
+	public void onPlayClick3(View v) {
+		// getting layout with text				
+				twmp.play(curWord.getHiragana());
+	}
 }

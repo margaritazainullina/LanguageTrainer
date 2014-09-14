@@ -10,7 +10,8 @@
     <string name="title_greeting">Приветствие</string>
     <!-- Level definition -->
     <string name="title_level_def_test_activity">Тест на определения уровня</string>
-    <string name="desc">Выберите правильный вариант ответа из списка</string>
+    <string name="desc">Выберите правильный вариант ответа из списка</string> 
+    <string name="question">Вопрос</string>
     <string name="choose_answer_for">Выберите вариант ответа для:</string>
     <string name="correct">Правильно!</string>
     <string name="wrong">Неправильно!</string>
@@ -41,6 +42,7 @@
     <string name="ok">OK</string>
     <string name="repeatTraining">Пройти еще раз</string>
     <string name="title_translation_test_activity">Выберите правильный вариант перевода из списка</string>
+    <string name="title_activity_giongo_practice">Гионго</string>
     <string name="title_transcription_test_activity">Выберите правильное чтение из списка </string>
     <string name="title_activity_match_the_words">Поставьте в соответствие слово, произношение и перевод</string>
     <!-- Main activity -->
