@@ -160,6 +160,10 @@ public class App extends Application {
 				getContentResolver());
 		grs.bulkInsertFromCSV("grammar_n3.txt", 3, getAssets(),
 				getContentResolver());
+		grs.bulkInsertFromCSV("grammar_n2.txt", 2, getAssets(),
+				getContentResolver());
+		grs.bulkInsertFromCSV("grammar_n1.txt", 1, getAssets(),
+				getContentResolver());
 
 		us.dropTable();
 		us.createTable();
