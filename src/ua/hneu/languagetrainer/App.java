@@ -108,14 +108,14 @@ public class App extends Application {
 		// creating and inserting into whole database
 		// vocabulary
 
-		vs.dropTable();
+		/*vs.dropTable();
 		vs.createTable();
 		vs.bulkInsertFromCSV("N5.txt", getAssets(), 5, getContentResolver());
 		vs.bulkInsertFromCSV("N4.txt", getAssets(), 4, getContentResolver());
 		vs.bulkInsertFromCSV("N3.txt", getAssets(), 3, getContentResolver());
 		vs.bulkInsertFromCSV("N3.txt", getAssets(), 2, getContentResolver());
 		vs.bulkInsertFromCSV("N1.txt", getAssets(), 1, getContentResolver());
-
+*/
 		// test
 		ts.dropTable();
 		qs.dropTable();
@@ -127,9 +127,10 @@ public class App extends Application {
 		as.createTable();
 		ts.insertFromXml("level_def_test.xml", getAssets(),
 				getContentResolver());
-		ts.insertFromXml("mock_test_n5.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("mock_test_n5_#1.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("mock_test_n5_2.xml", getAssets(), getContentResolver());
 
-		GiongoService gs = new GiongoService();
+		/*GiongoService gs = new GiongoService();
 		gs.dropTable();
 		gs.createTable();
 		ges.dropTable();
@@ -173,7 +174,7 @@ public class App extends Application {
 		if (currentUser != null) {
 			// fetch user data from db
 			userInfo = currentUser;
-		}
+		}*/
 		App.context = getApplicationContext();
 		getSettings();
 		super.onCreate();

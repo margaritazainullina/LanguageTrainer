@@ -1,0 +1,855 @@
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+<test level="5" name="Test N5 #4">
+<section name="文字・語彙">
+<task caption="問題Ⅰ ______のところになにをいれますか。１２３４からいちばんいいものをひとつえらびなさい。">
+<question weight="1" title="問（1） りんご_____みかんを 買いました。" text="">
+<answer isCorrect="0">が </answer>
+<answer isCorrect="0">や </answer>
+<answer isCorrect="1">は </answer>
+<answer isCorrect="0">へ</answer>
+</question>
+<question weight="1" title="問（2） 7時に いえ_____出ます。" text="">
+<answer isCorrect="0">と </answer>
+<answer isCorrect="0">が </answer>
+<answer isCorrect="1">を </answer>
+<answer isCorrect="0">に</answer>
+</question>
+<question weight="1" title="問（3） 友だちと 電話_____話しました。" text="">
+<answer isCorrect="0">で </answer>
+<answer isCorrect="0">に </answer>
+<answer isCorrect="0">を </answer>
+<answer isCorrect="1">と</answer>
+</question>
+<question weight="1" title="問（4） パーティーに 中山さん_____よびました。" text="">
+<answer isCorrect="0">へ </answer>
+<answer isCorrect="1">で </answer>
+<answer isCorrect="0">に </answer>
+<answer isCorrect="0">を</answer>
+</question>
+<question weight="1" title="問（5） 9時_____えいがが はじまります。" text="">
+<answer isCorrect="1">まで </answer>
+<answer isCorrect="0">から </answer>
+<answer isCorrect="0">ぐらい </answer>
+<answer isCorrect="0">など</answer>
+</question>
+<question weight="1" title="問（6） あなたの いえは 駅_____どのぐらいですか。" text="">
+<answer isCorrect="0">と </answer>
+<answer isCorrect="0">が </answer>
+<answer isCorrect="0">では </answer>
+<answer isCorrect="1">から</answer>
+</question>
+<question weight="1" title="問（7） 駅で 友どち_____会いました。" text="">
+<answer isCorrect="1">に </answer>
+<answer isCorrect="0">を </answer>
+<answer isCorrect="0">へ </answer>
+<answer isCorrect="0">で</answer>
+</question>
+<question weight="1" title="問（8） きのう、テレビ 見ませんでした。" text="">
+<answer isCorrect="0">へ </answer>
+<answer isCorrect="1">に </answer>
+<answer isCorrect="0">は </answer>
+<answer isCorrect="0">が</answer>
+</question>
+<question weight="1" title="問（9） 小川さん_____おさけを 飲みます。" text="">
+<answer isCorrect="0">を </answer>
+<answer isCorrect="0">しか </answer>
+<answer isCorrect="1">だけ </answer>
+<answer isCorrect="0">に</answer>
+</question>
+<question weight="1" title="問（10） きょうは とても あついです_____。" text="">
+<answer isCorrect="0">や </answer>
+<answer isCorrect="1">は </answer>
+<answer isCorrect="0">と </answer>
+<answer isCorrect="0">ね</answer>
+</question>
+<question weight="1" title="問（11） かぜ_____まどが しまりました。" text="">
+<answer isCorrect="1">と </answer>
+<answer isCorrect="0">で </answer>
+<answer isCorrect="0">に </answer>
+<answer isCorrect="0">から</answer>
+</question>
+<question weight="1" title="問（12） ここ_____タクシーに のります。" text="">
+<answer isCorrect="0">が </answer>
+<answer isCorrect="0">へ </answer>
+<answer isCorrect="1">に </answer>
+<answer isCorrect="0">で</answer>
+</question>
+<question weight="1" title="問（13） 1日_____３かい くすりを のみます。" text="">
+<answer isCorrect="1">が </answer>
+<answer isCorrect="0">に </answer>
+<answer isCorrect="0">へ </answer>
+<answer isCorrect="0">を</answer>
+</question>
+<question weight="1" title="問（14） としょかんへ 本を かえし_____行きます。" text="">
+<answer isCorrect="0">へ </answer>
+<answer isCorrect="1">で </answer>
+<answer isCorrect="0">に </answer>
+<answer isCorrect="0">を</answer>
+</question>
+<question weight="1" title="問（15） 雨が ふっている_____、きょうは 出かけません。" text="">
+<answer isCorrect="0">から </answer>
+<answer isCorrect="0">など </answer>
+<answer isCorrect="0">では </answer>
+<answer isCorrect="1">まで</answer>
+</question>
+</task>
+<task caption="問題Ⅱ ______のところになにをいれますか。１２３４からいちばんいいものをひとつえらびなさい。">
+<question weight="1" title="問（1） わたしの ケーキを______ください。" text="">
+<answer isCorrect="0">食べなくて </answer>
+<answer isCorrect="1">食べないで </answer>
+<answer isCorrect="0">食べません </answer>
+<answer isCorrect="0">食べない</answer>
+</question>
+<question weight="1" title="問（2） くつを______そとに 出ます。" text="">
+<answer isCorrect="0">はく </answer>
+<answer isCorrect="0">はいて </answer>
+<answer isCorrect="1">はかない </answer>
+<answer isCorrect="0">はきます</answer>
+</question>
+<question weight="1" title="問（3） おかしは あまり すき______。" text="">
+<answer isCorrect="1">ではありません </answer>
+<answer isCorrect="0">です </answer>
+<answer isCorrect="0">でした </answer>
+<answer isCorrect="0">くありません</answer>
+</question>
+<question weight="1" title="問（4） わたしが きのう______カメラは どこに ありますか。" text="">
+<answer isCorrect="0">買って </answer>
+<answer isCorrect="0">買う </answer>
+<answer isCorrect="0">買った </answer>
+<answer isCorrect="1">買わない</answer>
+</question>
+<question weight="1" title="問（5） ここは とても しずか______いい ところ です。" text="">
+<answer isCorrect="0">だ </answer>
+<answer isCorrect="1">で </answer>
+<answer isCorrect="0">に </answer>
+<answer isCorrect="0">と</answer>
+</question>
+<question weight="1" title="問（6） おんがくを______ながら、ごはんを つくります。" text="">
+<answer isCorrect="1">聞き </answer>
+<answer isCorrect="0">聞く </answer>
+<answer isCorrect="0">聞かない </answer>
+<answer isCorrect="0">聞いて</answer>
+</question>
+<question weight="1" title="問（7） わたしは いつも______前に はを みがきます。" text="">
+<answer isCorrect="0">ねて </answer>
+<answer isCorrect="0">ねた </answer>
+<answer isCorrect="1">ねる </answer>
+<answer isCorrect="0">ねます</answer>
+</question>
+<question weight="1" title="問（8） しゅくだいを______あとで、てがみを 書きます。" text="">
+<answer isCorrect="0">した </answer>
+<answer isCorrect="0">する </answer>
+<answer isCorrect="0">して </answer>
+<answer isCorrect="1">しない</answer>
+</question>
+<question weight="1" title="問（9） びょうきに______時は、びょういんへ 行きます。" text="">
+<answer isCorrect="1">ならない </answer>
+<answer isCorrect="0">なるの </answer>
+<answer isCorrect="0">なって </answer>
+<answer isCorrect="0">なった</answer>
+</question>
+<question weight="1" title="問（10） くだものが______です。" text="">
+<answer isCorrect="0">食べて </answer>
+<answer isCorrect="0">食べる </answer>
+<answer isCorrect="0">食べない </answer>
+<answer isCorrect="1">食べたい</answer>
+</question>
+<question weight="1" title="問（11） へやを もっと______してください。" text="">
+<answer isCorrect="0">あかるい </answer>
+<answer isCorrect="1">あかるく </answer>
+<answer isCorrect="0">あかるくて </answer>
+<answer isCorrect="0">あかるいに</answer>
+</question>
+<question weight="1" title="問（12） あの 人は たぶん______でしょう。" text="">
+<answer isCorrect="1">学生 </answer>
+<answer isCorrect="0">学生だ </answer>
+<answer isCorrect="0">学生な </answer>
+<answer isCorrect="0">学生で</answer>
+</question>
+<question weight="1" title="問（13） すみませんが、すこし しずか______ください。" text="">
+<answer isCorrect="0">でする </answer>
+<answer isCorrect="0">にする </answer>
+<answer isCorrect="1">でして </answer>
+<answer isCorrect="0">にして</answer>
+</question>
+<question weight="1" title="問（14） 天気が______なりました。" text="">
+<answer isCorrect="1">いいに </answer>
+<answer isCorrect="0">よくに </answer>
+<answer isCorrect="0">よく </answer>
+<answer isCorrect="0">いい</answer>
+</question>
+<question weight="1" title="問（15） きょうは______ねます。" text="">
+<answer isCorrect="0">はやいに </answer>
+<answer isCorrect="0">はやい </answer>
+<answer isCorrect="0">はやくない </answer>
+<answer isCorrect="1">はやく</answer>
+</question>
+</task>
+<task caption="﻿問題Ⅲ ______のところになにをいれますか。１２３４からいちばんいいものをひとつえらびなさい。">
+<question weight="1" title="" text="りんごは______ありますか。">
+<answer isCorrect="0">なに </answer>
+<answer isCorrect="0">いくつ </answer>
+<answer isCorrect="0">どれ </answer>
+<answer isCorrect="1">どの</answer>
+</question>
+<question weight="1" title="" text="きのうは、">
+<answer isCorrect="1">まで </answer>
+<answer isCorrect="0">ごろ </answer>
+<answer isCorrect="0">じゅう </answer>
+<answer isCorrect="0">ぐらい</answer>
+</question>
+<question weight="1" title="" text="先生の へやは______です。">
+<answer isCorrect="0">その </answer>
+<answer isCorrect="0">どんな </answer>
+<answer isCorrect="1">こちら </answer>
+<answer isCorrect="0">どうして</answer>
+</question>
+<question weight="1" title="" text="えんぴつが______あります。">
+<answer isCorrect="0">いっぽん </answer>
+<answer isCorrect="0">いちほん </answer>
+<answer isCorrect="1">いっぼん </answer>
+<answer isCorrect="0">いちぼん</answer>
+</question>
+<question weight="1" title="" text="あなたは いま、お金を______か。">
+<answer isCorrect="0">もってです </answer>
+<answer isCorrect="1">もって あります </answer>
+<answer isCorrect="0">もって います </answer>
+<answer isCorrect="0">もって ください</answer>
+</question>
+</task>
+<task caption="問題Ⅳ どのこたえがいちばんいいですか。１２３４からいちばんいいものをひとつえらびなさい。">
+<question weight="1" title="" text="Ａ 「かぜを ひいて、きのうから あたまが いたいです。」Ｂ 「それは______。」">
+<answer isCorrect="0">１．いたいですね </answer>
+<answer isCorrect="0">２． すみませんね </answer>
+<answer isCorrect="0">３．たいへんですね </answer>
+<answer isCorrect="1">４． わるいですね</answer>
+</question>
+<question weight="1" title="" text="Ａ 「あした いっしょに えいがを 見ませんか。」Ｂ 「あしたは ちょっと______。」">
+<answer isCorrect="0">１．しごとが あります </answer>
+<answer isCorrect="0">２． 時間が いいです </answer>
+<answer isCorrect="1">３．えいがが あります </answer>
+<answer isCorrect="0">４． いっしょにいいです</answer>
+</question>
+<question weight="1" title="" text="Ａ 「田中先生は どの かた ですか。」Ｂ 「______。」">
+<answer isCorrect="0">１．あの めがねの かたです </answer>
+<answer isCorrect="0">２．とても しずかな かたです </answer>
+<answer isCorrect="0">３．日本語を おしえる先生です </answer>
+<answer isCorrect="1">４．あれは 田中先生です</answer>
+</question>
+<question weight="1" title="" text="Ａ 「その へやに 入らないで ください。」Ｂ 「______。」">
+<answer isCorrect="1">１．すみませんが </answer>
+<answer isCorrect="0">２． わかりました </answer>
+<answer isCorrect="0">３．ごめんください </answer>
+<answer isCorrect="0">４． しつれいします</answer>
+</question>
+<question weight="1" title="" text="Ａ 「ちょっと、休みましょう。」Ｂ 「ええ、______。」">
+<answer isCorrect="0">１．休みました </answer>
+<answer isCorrect="1">２． そうでしょう </answer>
+<answer isCorrect="0">３．休みません </answer>
+<answer isCorrect="0">４． そうですね</answer>
+</question>
+</task>
+</section>
+<section name="聴解">
+<task caption="">
+<question weight="1" title="" text="" imgRef="5_4\2002_04_listen_quiz1.jpg" audioRef="5_4\39 Track 39.mp3">
+<answer isCorrect="1">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="5_4\2002_04_listen_quiz2.jpg" audioRef="5_4\40 Track 40.mp3">
+<answer isCorrect="1">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="5_4\2002_04_listen_quiz3.jpg" audioRef="5_4\41 Track 41.mp3">
+<answer isCorrect="1">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="5_4\2002_04_listen_quiz4.jpg" audioRef="5_4\42 Track 42.mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="5_4\2002_04_listen_quiz5.jpg" audioRef="5_4\43 Track 43.mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="5_4\2002_04_listen_quiz6.jpg" audioRef="5_4\44 Track 44.mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="5_4\2002_04_listen_quiz7.jpg" audioRef="5_4\45 Track 45.mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="5_4\2002_04_listen_quiz8.jpg" audioRef="5_4\46 Track 46.mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="1">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="5_4\2002_04_listen_quiz9.jpg" audioRef="5_4\47 Track 47.mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="1">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="5_4\2002_04_listen_quiz10.jpg" audioRef="5_4\48 Track 48.mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="1">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="5_4\52 Track 52.mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="1">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="5_4\53 Track 53.mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="5_4\54 Track 54.mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="1">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="5_4\55 Track 55.mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="5_4\56 Track 56.mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="1">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="5_4\57 Track 57.mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="5_4\58 Track 58.mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="5_4\59 Track 59.mp3">
+<answer isCorrect="1">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="5_4\60 Track 60.mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="1">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="5_4\61 Track 61.mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="1">4</answer>
+</question>
+</task>
+</section>
+<section name="読解・文法">
+<task caption="﻿問題Ⅰ ______のところになにをいれますか。１２３４からいちばんいいものをひとつえらびなさい。">
+<question weight="1" title="" text="としょうかんでは、しずか______あるいてください。">
+<answer isCorrect="0">だ </answer>
+<answer isCorrect="1">を </answer>
+<answer isCorrect="0">に </answer>
+<answer isCorrect="0">で</answer>
+</question>
+<question weight="1" title="" text="まど_______しまっています。">
+<answer isCorrect="0">と </answer>
+<answer isCorrect="0">を </answer>
+<answer isCorrect="1">が </answer>
+<answer isCorrect="0">に</answer>
+</question>
+<question weight="1" title="" text="えき_______むこうにびょういんがあります。">
+<answer isCorrect="1">の </answer>
+<answer isCorrect="0">に </answer>
+<answer isCorrect="0">で </answer>
+<answer isCorrect="0">が</answer>
+</question>
+<question weight="1" title="" text="このかど_______右にまがります。">
+<answer isCorrect="0">へ </answer>
+<answer isCorrect="0">を </answer>
+<answer isCorrect="0">に </answer>
+<answer isCorrect="1">が</answer>
+</question>
+<question weight="1" title="" text="このりょうりはにくとやさい_______つくります。">
+<answer isCorrect="0">と </answer>
+<answer isCorrect="1">を </answer>
+<answer isCorrect="0">が </answer>
+<answer isCorrect="0">で</answer>
+</question>
+<question weight="1" title="" text="へやにはだれ_______いません。">
+<answer isCorrect="0">が </answer>
+<answer isCorrect="0">か </answer>
+<answer isCorrect="0">も </answer>
+<answer isCorrect="1">は</answer>
+</question>
+<question weight="1" title="" text="きょうは、午後ゆうびんきょくへ行きますが、ぎんこう_______へ行きません。">
+<answer isCorrect="1">へは </answer>
+<answer isCorrect="0">へも </answer>
+<answer isCorrect="0">へと </answer>
+<answer isCorrect="0">へに</answer>
+</question>
+<question weight="1" title="" text="大学_______電車で３０分かかります。">
+<answer isCorrect="0">を </answer>
+<answer isCorrect="0">が </answer>
+<answer isCorrect="1">では </answer>
+<answer isCorrect="0">まで</answer>
+</question>
+<question weight="1" title="" text="きょねんのふゆはゆきが">
+<answer isCorrect="0">は </answer>
+<answer isCorrect="0">に </answer>
+<answer isCorrect="1">しか </answer>
+<answer isCorrect="0">だけ</answer>
+</question>
+<question weight="1" title="" text="あたらしいようふく_______ほしいです。">
+<answer isCorrect="0">に </answer>
+<answer isCorrect="0">が </answer>
+<answer isCorrect="0">と </answer>
+<answer isCorrect="1">の</answer>
+</question>
+<question weight="1" title="" text="もしもし、山本です_______、木下さんはいますか。">
+<answer isCorrect="0">が </answer>
+<answer isCorrect="1">と </answer>
+<answer isCorrect="0">て </answer>
+<answer isCorrect="0">で</answer>
+</question>
+<question weight="1" title="" text="このたまごは６こ_______３００円です。">
+<answer isCorrect="0">と </answer>
+<answer isCorrect="0">に </answer>
+<answer isCorrect="0">で </answer>
+<answer isCorrect="1">を</answer>
+</question>
+<question weight="1" title="" text="これは何_______いうスポーツですか。">
+<answer isCorrect="0">と </answer>
+<answer isCorrect="1">に </answer>
+<answer isCorrect="0">で </answer>
+<answer isCorrect="0">の</answer>
+</question>
+<question weight="1" title="" text="どんないろ_______すきですか。">
+<answer isCorrect="0">は </answer>
+<answer isCorrect="0">が </answer>
+<answer isCorrect="1">で </answer>
+<answer isCorrect="0">に</answer>
+</question>
+<question weight="1" title="" text="外国にりょこう_______行きます。">
+<answer isCorrect="1">が </answer>
+<answer isCorrect="0">を </answer>
+<answer isCorrect="0">の </answer>
+<answer isCorrect="0">に</answer>
+</question>
+</task>
+<task caption="問題Ⅱ_______のところに何を入れますか１。１?２?３?４からいちばんいいものを一つえらびなさい。">
+<question weight="1" title="" text="きのうはあたたかかったですが、きょうは_______。">
+<answer isCorrect="0">あたたかかったです </answer>
+<answer isCorrect="1">あたたかいでした </answer>
+<answer isCorrect="0">あたたかくないです </answer>
+<answer isCorrect="0">あたたかくではありません</answer>
+</question>
+<question weight="1" title="" text="あのアパートは_______やすいです。">
+<answer isCorrect="0">きれい </answer>
+<answer isCorrect="1">きれいで </answer>
+<answer isCorrect="0">きれいと </answer>
+<answer isCorrect="0">きれいくて</answer>
+</question>
+<question weight="1" title="" text="あの先生はゆうめい_______。">
+<answer isCorrect="1">のです </answer>
+<answer isCorrect="0">くあります </answer>
+<answer isCorrect="0">くありません </answer>
+<answer isCorrect="0">ではありません</answer>
+</question>
+<question weight="1" title="" text="お金が_______、こまっています。">
+<answer isCorrect="0">なくて </answer>
+<answer isCorrect="0">ないで </answer>
+<answer isCorrect="1">ないて </answer>
+<answer isCorrect="0">なって</answer>
+</question>
+<question weight="1" title="" text="そらが_______なりました。">
+<answer isCorrect="0">くらく </answer>
+<answer isCorrect="1">くらいで </answer>
+<answer isCorrect="0">くらくに </answer>
+<answer isCorrect="0">くらいに</answer>
+</question>
+<question weight="1" title="" text="本を_______前に、このかみ名前を書いてください。">
+<answer isCorrect="1">かりて </answer>
+<answer isCorrect="0">かりる </answer>
+<answer isCorrect="0">かりた </answer>
+<answer isCorrect="0">かりない</answer>
+</question>
+<question weight="1" title="" text="かおを_______あとで、はをみがきます。">
+<answer isCorrect="0">あらう </answer>
+<answer isCorrect="0">あらうの </answer>
+<answer isCorrect="1">あらった </answer>
+<answer isCorrect="0">あらわない</answer>
+</question>
+<question weight="1" title="" text="じしょを_______からかんじを書きます。">
+<answer isCorrect="1">見る </answer>
+<answer isCorrect="0">見て </answer>
+<answer isCorrect="0">見に </answer>
+<answer isCorrect="0">見ない</answer>
+</question>
+<question weight="1" title="" text="_______ながら、話さないでください。">
+<answer isCorrect="0">食べ </answer>
+<answer isCorrect="0">食べる </answer>
+<answer isCorrect="0">食べた </answer>
+<answer isCorrect="1">食べて</answer>
+</question>
+<question weight="1" title="" text="きのうは雨が_______かぜが_______しました。">
+<answer isCorrect="0">ふってD ふいて </answer>
+<answer isCorrect="0">ふりてD ふきて </answer>
+<answer isCorrect="0">ふりたりD ふきたり </answer>
+<answer isCorrect="1">ふったりD ふいたり</answer>
+</question>
+<question weight="1" title="" text="わたしはなつにうみで_______たいです。">
+<answer isCorrect="0">およぐ </answer>
+<answer isCorrect="1">およい </answer>
+<answer isCorrect="0">およが </answer>
+<answer isCorrect="0">およぎ</answer>
+</question>
+<question weight="1" title="" text="からだが_______なりました。">
+<answer isCorrect="1">じょうぶな </answer>
+<answer isCorrect="0">じょうに </answer>
+<answer isCorrect="0">じょうぶく </answer>
+<answer isCorrect="0">じょうぶで</answer>
+</question>
+<question weight="1" title="" text="これは日本語の_______、あれは英語のじしょです。">
+<answer isCorrect="0">じしょや </answer>
+<answer isCorrect="0">じしょと </answer>
+<answer isCorrect="0">じしょで </answer>
+<answer isCorrect="1">じしょが</answer>
+</question>
+<question weight="1" title="" text="このしんぶんは_______からもういりません。">
+<answer isCorrect="0">おとといの </answer>
+<answer isCorrect="0">おとといのだ </answer>
+<answer isCorrect="1">おとといので </answer>
+<answer isCorrect="0">おとといだった</answer>
+</question>
+<question weight="1" title="" text="時間がありません。_______ください。">
+<answer isCorrect="0">はやくして </answer>
+<answer isCorrect="0">はやくなって </answer>
+<answer isCorrect="0">はやいにして </answer>
+<answer isCorrect="1">はやいになって</answer>
+</question>
+</task>
+<task caption="問題Ⅲ______のところになにをいれますか。１・２・３・４からいちばんいいものをひとつえらびなさい。">
+<question weight="1" title="" text="すみません、でぐちは______ですか。">
+<answer isCorrect="0">どの </answer>
+<answer isCorrect="0">なに </answer>
+<answer isCorrect="1">どちら </answer>
+<answer isCorrect="0">なんの</answer>
+</question>
+<question weight="1" title="" text="ジュースはもうありませんが、コーヒーはまだ______。">
+<answer isCorrect="0">あります </answer>
+<answer isCorrect="0">ありません </answer>
+<answer isCorrect="1">ありませんでした </answer>
+<answer isCorrect="0">あっています</answer>
+</question>
+<question weight="1" title="" text="今からあなたのうちへ行きますが、______までどれぐらいかかりますか。">
+<answer isCorrect="1">どこ </answer>
+<answer isCorrect="0">そちら </answer>
+<answer isCorrect="0">こちら </answer>
+<answer isCorrect="0">どちら</answer>
+</question>
+<question weight="1" title="" text="">
+<answer isCorrect="1">から </answer>
+<answer isCorrect="0">ごろ </answer>
+<answer isCorrect="0">まで </answer>
+<answer isCorrect="0">じゅう</answer>
+</question>
+<question weight="1" title="" text="はる休みは______ありますか。">
+<answer isCorrect="0">どれ </answer>
+<answer isCorrect="1">いくら </answer>
+<answer isCorrect="0">どちら </answer>
+<answer isCorrect="0">どのぐらい</answer>
+</question>
+</task>
+<task caption="問題Ⅳ どのこたえがいちばんいいですか。１２３４からいちばんいいものをひとつえらびなさい。">
+<question weight="1" title="" text="Ａ 「かぜを ひいて、きのうから あたまが いたいです。」Ｂ 「それは______。」">
+<answer isCorrect="0">いたいですね </answer>
+<answer isCorrect="0">すみませんね </answer>
+<answer isCorrect="0">たいへんですね </answer>
+<answer isCorrect="1">わるいですね</answer>
+</question>
+<question weight="1" title="" text="Ａ 「あした いっしょに えいがを 見ませんか。」Ｂ 「あしたは ちょっと______。」">
+<answer isCorrect="0">しごとが あります </answer>
+<answer isCorrect="1">時間が いいです </answer>
+<answer isCorrect="0">えいがが あります </answer>
+<answer isCorrect="0">いっしょにいいです</answer>
+</question>
+<question weight="1" title="" text="Ａ 「田中先生は どの かた ですか。」Ｂ 「______。」">
+<answer isCorrect="1">あの めがねの かたです </answer>
+<answer isCorrect="0">とても しずかな かたです </answer>
+<answer isCorrect="0">日本語を おしえる先生です </answer>
+<answer isCorrect="0">あれは 田中先生です</answer>
+</question>
+<question weight="1" title="" text="Ａ 「その へやに 入らないで ください。」Ｂ 「______。」">
+<answer isCorrect="0">すみませんが </answer>
+<answer isCorrect="0">わかりました </answer>
+<answer isCorrect="1">ごめんください </answer>
+<answer isCorrect="0">しつれいします</answer>
+</question>
+<question weight="1" title="" text="Ａ 「ちょっと、休みましょう。」Ｂ 「ええ、______。」">
+<answer isCorrect="0">休みました </answer>
+<answer isCorrect="0">そうでしょう </answer>
+<answer isCorrect="0">休みません </answer>
+<answer isCorrect="1">そうですね</answer>
+</question>
+</task>
+<task caption="問題Ⅴ つぎの ぶんを 読んで しつもんに こたえなさい。こたえは 1・2・3・4からいちばん いい ものを 一つ えらびなさい。">
+<question weight="1" title="Ａ 「この おんがくは とても いいですよ。いっしょに 聞きましょう。テープレコーダーは ありま
+すか。」
+Ｂ 「ええ。後ろに ありますよ。」
+Ａ 「これは （ ア ） つかいますか。おしえて ください。」
+Ｂ「はじめに、その ボタンを おして ください。」
+Ａ 「（ イ ）。」
+Ｂ 「いいえ、あおい ボタンです。」
+Ａ 「ああ、わかりました。（ ウ ） 白い ボタンですか。」
+Ｂ 「いいえ、その 前に、ここに テープを入れて ください。」
+Ａ 「はい、入れました。これで いいですか。」
+" text="問（1） （ア）">
+<answer isCorrect="0">１．なぜ </answer>
+<answer isCorrect="1">２． どう </answer>
+<answer isCorrect="0">３． どんなに </answer>
+<answer isCorrect="0">４． なにが</answer>
+</question>
+<question weight="1" title="Ａ 「この おんがくは とても いいですよ。いっしょに 聞きましょう。テープレコーダーは ありま
+すか。」
+Ｂ 「ええ。後ろに ありますよ。」
+Ａ 「これは （ ア ） つかいますか。おしえて ください。」
+Ｂ「はじめに、その ボタンを おして ください。」
+Ａ 「（ イ ）。」
+Ｂ 「いいえ、あおい ボタンです。」
+Ａ 「ああ、わかりました。（ ウ ） 白い ボタンですか。」
+Ｂ 「いいえ、その 前に、ここに テープを入れて ください。」
+Ａ 「はい、入れました。これで いいですか。」
+" text="問（2） （イ）">
+<answer isCorrect="1">１．これ ですね </answer>
+<answer isCorrect="0">２． どれ ですか </answer>
+<answer isCorrect="0">３． あおい ボタンですね </answer>
+<answer isCorrect="0">４． ええ、そうです</answer>
+</question>
+<question weight="1" title="Ａ 「この おんがくは とても いいですよ。いっしょに 聞きましょう。テープレコーダーは ありま
+すか。」
+Ｂ 「ええ。後ろに ありますよ。」
+Ａ 「これは （ ア ） つかいますか。おしえて ください。」
+Ｂ「はじめに、その ボタンを おして ください。」
+Ａ 「（ イ ）。」
+Ｂ 「いいえ、あおい ボタンです。」
+Ａ 「ああ、わかりました。（ ウ ） 白い ボタンですか。」
+Ｂ 「いいえ、その 前に、ここに テープを入れて ください。」
+Ａ 「はい、入れました。これで いいですか。」
+" text="問（3） （ウ）">
