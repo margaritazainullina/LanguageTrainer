@@ -1,0 +1,1013 @@
+<test level="5" name="Test N2 #4">
+<section name="文字・語彙">
+<task caption="問題Ⅰ 次の下線をつけたことばは、どのように読になすか。その読に方をそれぞれの1、2、3、4から一つ選びなさい。">
+<question weight="1" title="問（1） 泥だらけの靴で家に入って怒られた。" text="泥 ">
+<answer isCorrect="0">すな </answer>
+<answer isCorrect="0">つち </answer>
+<answer isCorrect="0">とち </answer>
+<answer isCorrect="1">どろ</answer>
+</question>
+<question weight="1" title="問（1） 泥だらけの靴で家に入って怒られた。" text="靴 ">
+<answer isCorrect="0">かさ </answer>
+<answer isCorrect="0">かばん </answer>
+<answer isCorrect="1">くつ </answer>
+<answer isCorrect="0">ふく</answer>
+</question>
+<question weight="1" title="問（1） 泥だらけの靴で家に入って怒られた。" text="怒られた ">
+<answer isCorrect="1">おこられた </answer>
+<answer isCorrect="0">しかられた </answer>
+<answer isCorrect="0">どなられた </answer>
+<answer isCorrect="0">なぐられた</answer>
+</question>
+<question weight="1" title="問（2） 友人から届いた小包を開けた。" text="届いた ">
+<answer isCorrect="0">といた </answer>
+<answer isCorrect="1">とどいた </answer>
+<answer isCorrect="0">ついた </answer>
+<answer isCorrect="0">いただいた</answer>
+</question>
+<question weight="1" title="問（2） 友人から届いた小包を開けた。" text="小包 ">
+<answer isCorrect="0">しょうほう </answer>
+<answer isCorrect="0">しょうぼう </answer>
+<answer isCorrect="0">こつづみ </answer>
+<answer isCorrect="1">こづつみ</answer>
+</question>
+<question weight="1" title="問（3） 社は新商品の販売を延期した。" text="商品 ">
+<answer isCorrect="1">しょうひん </answer>
+<answer isCorrect="0">しょくひん </answer>
+<answer isCorrect="0">せいひん </answer>
+<answer isCorrect="0">やくひん</answer>
+</question>
+<question weight="1" title="問（3） 社は新商品の販売を延期した。" text="販売 ">
+<answer isCorrect="0">ばいばい </answer>
+<answer isCorrect="0">はくばい </answer>
+<answer isCorrect="0">はつばい </answer>
+<answer isCorrect="1">はんばい</answer>
+</question>
+<question weight="1" title="問（3） 社は新商品の販売を延期した。" text="延期 ">
+<answer isCorrect="0">えいき </answer>
+<answer isCorrect="1">えんき </answer>
+<answer isCorrect="0">ていき </answer>
+<answer isCorrect="0">てんき</answer>
+</question>
+<question weight="1" title="問（4） 考えの異なる人とでも、案外仲良くなれるものだ。" text="異なる ">
+<answer isCorrect="0">かさなる </answer>
+<answer isCorrect="1">ことなる </answer>
+<answer isCorrect="0">つらなる </answer>
+<answer isCorrect="0">なくなる</answer>
+</question>
+<question weight="1" title="問（4） 考えの異なる人とでも、案外仲良くなれるものだ。" text="案外 ">
+<answer isCorrect="1">あんがい </answer>
+<answer isCorrect="0">あんかい </answer>
+<answer isCorrect="0">いがい </answer>
+<answer isCorrect="0">いかい</answer>
+</question>
+<question weight="1" title="問（4） 考えの異なる人とでも、案外仲良くなれるものだ。" text="仲良く ">
+<answer isCorrect="0">いさぎよく </answer>
+<answer isCorrect="0">こころよく </answer>
+<answer isCorrect="1">なかよく </answer>
+<answer isCorrect="0">ほどよく</answer>
+</question>
+<question weight="1" title="問（5） 受付の応対は、会社への評価に影響する。" text="応対 ">
+<answer isCorrect="0">おうえん </answer>
+<answer isCorrect="0">おうせつ </answer>
+<answer isCorrect="1">おうたい </answer>
+<answer isCorrect="0">おうよう</answer>
+</question>
+<question weight="1" title="問（5） 受付の応対は、会社への評価に影響する。" text="評価 ">
+<answer isCorrect="1">ひょうか </answer>
+<answer isCorrect="0">ひょうち </answer>
+<answer isCorrect="0">へいか </answer>
+<answer isCorrect="0">へいち</answer>
+</question>
+<question weight="1" title="問（6） この記事の内容は信用できない。" text="記事 ">
+<answer isCorrect="1">きじ </answer>
+<answer isCorrect="0">きいじ </answer>
+<answer isCorrect="0">きごと </answer>
+<answer isCorrect="0">きいごと</answer>
+</question>
+<question weight="1" title="問（6） この記事の内容は信用できない。" text="内容 ">
+<answer isCorrect="0">ないよ </answer>
+<answer isCorrect="0">ないゆ </answer>
+<answer isCorrect="1">ないよう </answer>
+<answer isCorrect="0">ないゆう</answer>
+</question>
+<question weight="1" title="問（6） この記事の内容は信用できない。" text="信用 ">
+<answer isCorrect="0">しにゅう </answer>
+<answer isCorrect="0">しんおう </answer>
+<answer isCorrect="1">しんよう </answer>
+<answer isCorrect="0">しんにょ</answer>
+</question>
+<question weight="1" title="問（7） 観察の結果をレポートにまとめる。" text="観察 ">
+<answer isCorrect="0">かんさい </answer>
+<answer isCorrect="1">かんさつ </answer>
+<answer isCorrect="0">けんさい </answer>
+<answer isCorrect="0">けんさつ</answer>
+</question>
+<question weight="1" title="問（7） 観察の結果をレポートにまとめる。" text="結果 ">
+<answer isCorrect="0">けつが </answer>
+<answer isCorrect="0">けつか </answer>
+<answer isCorrect="0">けっが </answer>
+<answer isCorrect="1">けっか</answer>
+</question>
+<question weight="1" title="問（8） 彼女ならどんなときでも適切な判断ができる。" text="適切 ">
+<answer isCorrect="0">てっきり </answer>
+<answer isCorrect="0">てききり </answer>
+<answer isCorrect="0">てっせつ </answer>
+<answer isCorrect="1">てきせつ</answer>
+</question>
+<question weight="1" title="問（8） 彼女ならどんなときでも適切な判断ができる。" text="判断 ">
+<answer isCorrect="0">けってい </answer>
+<answer isCorrect="0">けつだん </answer>
+<answer isCorrect="0">はんてい </answer>
+<answer isCorrect="1">はんだん</answer>
+</question>
+</task>
+<task caption="問題Ⅱ 次の文の下線をつけたことばは、どのような漢字を書きますか。その漢字をそれぞれの1、2、3、4から一つ選びなさい。">
+<question weight="1" title="問（1） あの人にじょゆうとしてのさいのうがあるかどうかはぎもんだ。" text="じょゆう ">
+<answer isCorrect="0">女憂 </answer>
+<answer isCorrect="1">女優 </answer>
+<answer isCorrect="0">助憂 </answer>
+<answer isCorrect="0">助優</answer>
+</question>
+<question weight="1" title="問（1） あの人にじょゆうとしてのさいのうがあるかどうかはぎもんだ。" text="さいのう ">
+<answer isCorrect="1">才能 </answer>
+<answer isCorrect="0">才脳 </answer>
+<answer isCorrect="0">歳能 </answer>
+<answer isCorrect="0">歳脳</answer>
+</question>
+<question weight="1" title="問（1） あの人にじょゆうとしてのさいのうがあるかどうかはぎもんだ。" text="ぎもん ">
+<answer isCorrect="0">欺問 </answer>
+<answer isCorrect="1">疑問 </answer>
+<answer isCorrect="0">擬問 </answer>
+<answer isCorrect="0">議問</answer>
+</question>
+<question weight="1" title="問（2） あのホテルは20名からだんたい わりびきでしゅくはくできる。" text="だんたい ">
+<answer isCorrect="0">団軍 </answer>
+<answer isCorrect="1">団体 </answer>
+<answer isCorrect="0">図軍 </answer>
+<answer isCorrect="0">図体</answer>
+</question>
+<question weight="1" title="問（2） あのホテルは20名からだんたい わりびきでしゅくはくできる。" text="わりびき ">
+<answer isCorrect="0">取引 </answer>
+<answer isCorrect="0">差引 </answer>
+<answer isCorrect="1">割引 </answer>
+<answer isCorrect="0">福引</answer>
+</question>
+<question weight="1" title="問（2） あのホテルは20名からだんたい わりびきでしゅくはくできる。" text="しゅくはく ">
+<answer isCorrect="0">宿伯 </answer>
+<answer isCorrect="1">宿泊 </answer>
+<answer isCorrect="0">縮伯 </answer>
+<answer isCorrect="0">縮泊</answer>
+</question>
+<question weight="1" title="問（3） みな よろこんでおんせん旅行に参加した。" text="みな ">
+<answer isCorrect="0">旨 </answer>
+<answer isCorrect="0">昔 </answer>
+<answer isCorrect="1">皆 </answer>
+<answer isCorrect="0">替</answer>
+</question>
+<question weight="1" title="問（3） みな よろこんでおんせん旅行に参加した。" text="よろこんで ">
+<answer isCorrect="0">吉んで </answer>
+<answer isCorrect="0">啓んで </answer>
+<answer isCorrect="0">善んで </answer>
+<answer isCorrect="1">喜んで</answer>
+</question>
+<question weight="1" title="問（3） みな よろこんでおんせん旅行に参加した。" text="おんせん ">
+<answer isCorrect="1">温泉 </answer>
+<answer isCorrect="0">温湯 </answer>
+<answer isCorrect="0">暖泉 </answer>
+<answer isCorrect="0">暖湯</answer>
+</question>
+<question weight="1" title="問（4） 台風のひがいがかくだいしている。" text="ひがい ">
+<answer isCorrect="0">彼害 </answer>
+<answer isCorrect="0">波害 </answer>
+<answer isCorrect="0">破害 </answer>
+<answer isCorrect="1">被害</answer>
+</question>
+<question weight="1" title="問（4） 台風のひがいがかくだいしている。" text="かくだい ">
+<answer isCorrect="0">広大 </answer>
+<answer isCorrect="0">各大 </answer>
+<answer isCorrect="1">拡大 </answer>
+<answer isCorrect="0">格大</answer>
+</question>
+<question weight="1" title="問（5） じゅんびがととのったら出かけよう。" text="じゅんび ">
+<answer isCorrect="0">守備 </answer>
+<answer isCorrect="0">設備 </answer>
+<answer isCorrect="1">準備 </answer>
+<answer isCorrect="0">警備</answer>
+</question>
+<question weight="1" title="問（5） じゅんびがととのったら出かけよう。" text="ととのったら ">
+<answer isCorrect="0">済ったら </answer>
+<answer isCorrect="0">終ったら </answer>
+<answer isCorrect="0">補ったら </answer>
+<answer isCorrect="1">整ったら</answer>
+</question>
+<question weight="1" title="問（6） 友人のしょうかいで、マスコミかんけいの仕事を始めた。" text="しょうかい ">
+<answer isCorrect="0">招介 </answer>
+<answer isCorrect="0">昭介 </answer>
+<answer isCorrect="1">紹介 </answer>
+<answer isCorrect="0">照介</answer>
+</question>
+<question weight="1" title="問（6） 友人のしょうかいで、マスコミかんけいの仕事を始めた。" text="かんけい ">
+<answer isCorrect="1">関係 </answer>
+<answer isCorrect="0">関系 </answer>
+<answer isCorrect="0">間係 </answer>
+<answer isCorrect="0">間系</answer>
+</question>
+<question weight="1" title="問（7） 山下さんが会社をやめてしまうのはざんねんだ。" text="やめて ">
+<answer isCorrect="0">去めて </answer>
+<answer isCorrect="0">留めて </answer>
+<answer isCorrect="0">閉めて </answer>
+<answer isCorrect="1">辞めて</answer>
+</question>
+<question weight="1" title="問（7） 山下さんが会社をやめてしまうのはざんねんだ。" text="ざんねん ">
+<answer isCorrect="1">残念 </answer>
+<answer isCorrect="0">残年 </answer>
+<answer isCorrect="0">浅念 </answer>
+<answer isCorrect="0">浅年</answer>
+</question>
+<question weight="1" title="問（8） 前の社長は、ごういんなけいえいでしっぱいした。" text="ごういん ">
+<answer isCorrect="0">強因 </answer>
+<answer isCorrect="1">強引 </answer>
+<answer isCorrect="0">合因 </answer>
+<answer isCorrect="0">合引</answer>
+</question>
+<question weight="1" title="問（8） 前の社長は、ごういんなけいえいでしっぱいした。" text="けいえい ">
+<answer isCorrect="1">経営 </answer>
+<answer isCorrect="0">経栄 </answer>
+<answer isCorrect="0">径営 </answer>
+<answer isCorrect="0">径栄</answer>
+</question>
+<question weight="1" title="問（8） 前の社長は、ごういんなけいえいでしっぱいした。" text="しっぱい ">
+<answer isCorrect="0">矢敗 </answer>
+<answer isCorrect="0">矢配 </answer>
+<answer isCorrect="1">失敗 </answer>
+<answer isCorrect="0">失配</answer>
+</question>
+</task>
+<task caption="﻿問題Ⅲ 次の文の＿＿の部分に入れるのに最も適当なものを、1・2・3・4から一つ選びなさい。">
+<question weight="1" title="" text="この国にも日本と＿＿＿＿の問題がある。">
+<answer isCorrect="1">共通 </answer>
+<answer isCorrect="0">共同 </answer>
+<answer isCorrect="0">通用 </answer>
+<answer isCorrect="0">同格</answer>
+</question>
+<question weight="1" title="" text="川野さんは＿＿＿＿人だ。おもしろいことを言ってよくみんなを笑わせる。">
+<answer isCorrect="0">あいまいな </answer>
+<answer isCorrect="0">いだいな </answer>
+<answer isCorrect="0">みごとな </answer>
+<answer isCorrect="1">ゆかいな</answer>
+</question>
+<question weight="1" title="" text="＿＿＿＿の高い料理を食べ過ぎると太る。">
+<answer isCorrect="1">カロリー </answer>
+<answer isCorrect="0">パーセント </answer>
+<answer isCorrect="0">ビタミン </answer>
+<answer isCorrect="0">メーター</answer>
+</question>
+<question weight="1" title="" text="旅行の予約の＿＿＿＿はあしただ。">
+<answer isCorrect="0">ふみきり </answer>
+<answer isCorrect="0">つめきり </answer>
+<answer isCorrect="1">しめきり </answer>
+<answer isCorrect="0">おもいきり</answer>
+</question>
+<question weight="1" title="" text="夕べは＿＿＿＿したので、けさは眠くてしかたがない。">
+<answer isCorrect="0">深夜 </answer>
+<answer isCorrect="1">徹夜 </answer>
+<answer isCorrect="0">夜行 </answer>
+<answer isCorrect="0">夜明け</answer>
+</question>
+<question weight="1" title="" text="坂田さんは、子どもが生まれて、_________のため休暇をとっている。">
+<answer isCorrect="0">幼稚 </answer>
+<answer isCorrect="0">児童 </answer>
+<answer isCorrect="0">教養 </answer>
+<answer isCorrect="1">育児</answer>
+</question>
+<question weight="1" title="" text="家の中は＿＿＿＿清潔にしておきましょう。">
+<answer isCorrect="0">たんに </answer>
+<answer isCorrect="0">ついに </answer>
+<answer isCorrect="1">つねに </answer>
+<answer isCorrect="0">すでに</answer>
+</question>
+<question weight="1" title="" text="今日は風邪＿＿＿＿だから、家にいよう。">
+<answer isCorrect="0">がち </answer>
+<answer isCorrect="1">ぎみ </answer>
+<answer isCorrect="0">ぞい </answer>
+<answer isCorrect="0">ぶり</answer>
+</question>
+<question weight="1" title="" text="彼女は結婚生活に大きな夢を_______いる。">
+<answer isCorrect="1">いだいて </answer>
+<answer isCorrect="0">くだいて </answer>
+<answer isCorrect="0">かかえて </answer>
+<answer isCorrect="0">むかえて</answer>
+</question>
+<question weight="1" title="" text="ちょっと席をはなれた＿＿＿＿に荷物を盗まれてしまった。">
+<answer isCorrect="0">あき </answer>
+<answer isCorrect="0">さき </answer>
+<answer isCorrect="1">すき </answer>
+<answer isCorrect="0">わき</answer>
+</question>
+</task>
+<task caption="問題Ⅳ 次の（1）から（5）は、言葉の意味や使い方を説明したものです。その説明に最もあう言葉を、1・2・3・4から一つ選びなさい。">
+<question weight="1" title="" text="今までになかった新しいものを作り出すこと。">
+<answer isCorrect="0">発表 </answer>
+<answer isCorrect="0">発見 </answer>
+<answer isCorrect="1">発明 </answer>
+<answer isCorrect="0">発揮</answer>
+</question>
+<question weight="1" title="" text="同じことを長い時間続けて、いやになること。">
+<answer isCorrect="1">あきる </answer>
+<answer isCorrect="0">あきれる </answer>
+<answer isCorrect="0">あきらめる </answer>
+<answer isCorrect="0">あらためる</answer>
+</question>
+<question weight="1" title="" text="他人に不幸なことが起こったときに言う言葉。">
+<answer isCorrect="0">おかまいなく </answer>
+<answer isCorrect="1">おきのどくに </answer>
+<answer isCorrect="0">おつかれさま </answer>
+<answer isCorrect="0">ごくろうさま</answer>
+</question>
+<question weight="1" title="" text="作物ができなくて、食糧が足りなくなる状態。">
+<answer isCorrect="0">汚染 </answer>
+<answer isCorrect="0">火災 </answer>
+<answer isCorrect="0">乾燥 </answer>
+<answer isCorrect="1">飢饉</answer>
+</question>
+<question weight="1" title="" text="自慢したり、誇りに思ったりするようす。">
+<answer isCorrect="0">目が高い </answer>
+<answer isCorrect="1">鼻が高い </answer>
+<answer isCorrect="0">声が高い </answer>
+<answer isCorrect="0">頭が高い</answer>
+</question>
+</task>
+<task caption="問題Ⅴ 次の（1）から（5）は、言葉の意味や使い方を説明したものです。その説明に最もあう言葉を、1・2・3・4から一つ選びなさい。">
+<question weight="1" title="" text="それとも">
+<answer isCorrect="0">１．箱の中身はスカーフ、それともセーターでしょう。</answer>
+<answer isCorrect="0">２．28歳未満の場合は父親、それとも母親の許可が必要です。</answer>
+<answer isCorrect="0">３．あしたうかがいます。それともあさってになるかもしれません。</answer>
+<answer isCorrect="1">４．あなたが知りたいのは住所ですが、それとも電話番号ですか。</answer>
+</question>
+<question weight="1" title="" text="夢中">
+<answer isCorrect="0">１．彼は新しいアイデアに夢中している。</answer>
+<answer isCorrect="1">２．弟はテレビゲームに夢中だ。</answer>
+<answer isCorrect="0">３．わたしはそのとき、夢中に悩んでいた。</answer>
+<answer isCorrect="0">４．今日本では若い人の間で何が夢中ですか。</answer>
+</question>
+<question weight="1" title="" text="作法">
+<answer isCorrect="0">１．新しいパソコンの作法がわからない。</answer>
+<answer isCorrect="0">２．おいしいパンの作法を習いたい。</answer>
+<answer isCorrect="1">３．祖母は礼儀や作法にきびしい。</answer>
+<answer isCorrect="0">４．日本語を教える作法を勉強している。</answer>
+</question>
+<question weight="1" title="" text="たまたま">
+<answer isCorrect="1">１．ぼくはひまがあると、たまたま映画を見る。</answer>
+<answer isCorrect="0">２．たまたま遊びに来てください。</answer>
+<answer isCorrect="0">３．弟はたまたまいたずらをする。</answer>
+<answer isCorrect="0">４．きのうはたまたま父と同じバスで帰った。</answer>
+</question>
+<question weight="1" title="" text="せめて">
+<answer isCorrect="0">１．100点がとれなくても、せめて80点はとりたい。</answer>
+<answer isCorrect="0">２．どんなにがんばっても、せめて50点しかとれないだろう。</answer>
+<answer isCorrect="0">３．がんばったので、せめて60点とれた。</answer>
+<answer isCorrect="1">４．前回の試験は、せめて40点だった。</answer>
+</question>
+</task>
+<task caption="問題Ⅵ 次の（1）から（5）の下線をつけた言葉の意味に最も似ているものを、それぞれの1・2・3・4から一つ選びなさい。">
+<question weight="1" title="" text="木村さんは冷静な人だ。">
+<answer isCorrect="0">１．しずかな </answer>
+<answer isCorrect="1">２．おちついた </answer>
+<answer isCorrect="0">３．つめたい </answer>
+<answer isCorrect="0">４．うごかない</answer>
+</question>
+<question weight="1" title="" text="この葉はあらゆる病気にきくそうだ。">
+<answer isCorrect="0">１．大体の </answer>
+<answer isCorrect="1">２．すべての </answer>
+<answer isCorrect="0">３．新しい </answer>
+<answer isCorrect="0">４．難しい</answer>
+</question>
+<question weight="1" title="" text="犯人はいきなりナイフを取り出した。">
+<answer isCorrect="0">１．初めに </answer>
+<answer isCorrect="0">２．うっかり </answer>
+<answer isCorrect="0">３．いつのまにか </answer>
+<answer isCorrect="1">４．突然</answer>
+</question>
+<question weight="1" title="" text="あの人は日本でもっとも人気がある歌手だ。">
+<answer isCorrect="1">１．一番 </answer>
+<answer isCorrect="0">２．最近 </answer>
+<answer isCorrect="0">３．ずっと </answer>
+<answer isCorrect="0">４．わりに</answer>
+</question>
+<question weight="1" title="" text="この問題はかなり難しい。">
+<answer isCorrect="0">１．ほぼ </answer>
+<answer isCorrect="0">２．やはり </answer>
+<answer isCorrect="1">３．そうそう </answer>
+<answer isCorrect="0">４．きっと</answer>
+</question>
+</task>
+</section>
+<section name="聴解">
+<task caption="">
+<question weight="1" title="" text="" imgRef="2＿4\2002_02_listen_quiz1.jpg" audioRef="2＿4\n4_2002 (1).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="2＿4\2002_02_listen_quiz2.jpg" audioRef="2＿4\n4_2002 (2).mp3">
+<answer isCorrect="1">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="2＿4\2002_02_listen_quiz3.jpg" audioRef="2＿4\n4_2002 (3).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="1">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="2＿4\2002_02_listen_quiz4.jpg" audioRef="2＿4\n4_2002 (4).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="1">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="2＿4\2002_02_listen_quiz5.jpg" audioRef="2＿4\n2_2002 (5).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="1">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="2＿4\2002_02_listen_quiz6.jpg" audioRef="2＿4\n2_2002 (6).mp3">
+<answer isCorrect="1">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="2＿4\2002_02_listen_quiz7.jpg" audioRef="2＿4\n2_2002 (7).mp3">
+<answer isCorrect="1">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="2＿4\2002_02_listen_quiz8.jpg" audioRef="2＿4\n2_2002 (8).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="1">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="2＿4\2002_02_listen_quiz9.jpg" audioRef="2＿4\n2_2002 (9).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="2＿4\2002_02_listen_quiz10.jpg" audioRef="2＿4\n2_2002 (10).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="2＿4\2002_02_listen_quiz11.jpg" audioRef="2＿4\n2_2002 (11).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="1">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="2＿4\2002_02_listen_quiz12.jpg" audioRef="2＿4\n2_2002 (12).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="1">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="2＿4\2002_02_listen_quiz13.jpg" audioRef="2＿4\n2_2002 (13).mp3">
+<answer isCorrect="1">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="2＿4\2002_02_listen_quiz14.jpg" audioRef="2＿4\n2_2002 (14).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="2＿4\2002_02_listen_quiz15.jpg" audioRef="2＿4\n2_2002 (15).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="1">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="2＿4\n2_2002 (16).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="2＿4\n2_2002 (17).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="1">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="2＿4\n2_2002 (18).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="1">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="2＿4\n2_2002 (19).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="2＿4\n2_2002 (20).mp3">
+<answer isCorrect="1">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="2＿4\n2_2002 (21).mp3">
+<answer isCorrect="1">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="2＿4\n2_2002 (22).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="2＿4\n2_2002 (23).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="1">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="2＿4\n2_2002 (24).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="1">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="2＿4\n2_2002 (25).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="2＿4\n2_2002 (26).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="1">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="2＿4\n2_2002 (27).mp3">
+<answer isCorrect="1">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="2＿4\n2_2002 (28).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="1">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="2＿4\n2_2002 (29).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="2＿4\n2_2002 (30).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="1">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="2＿4\n2_2002 (31).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+</task>
+</section>
+<section name="読解・文法">
+<task caption="問題1 次の文章を読んで、後の問いに答えなさい。答えは、1234から最も適当なものを一つ選びなさい。">
+<question weight="1" title="数学に関してぜひとも言っておきたいことがあります。
+数学が嫌いな人が多い理由の一つは、数学はできるかできないかがはっきりしているためです。できないとどうしても嫌いになるのです。そこで、ぼくがどうやって数学を勉強してか、①それについて話をします。ぼくは、14歳のとき、夏休みにずっと親の別荘にいて、昼間ずっと数学の問題を解いていました。数学の分厚い問題集の中の問題を解く。これはけっして日本人ができないことではありません。ただし、日本人の多くの学生は、問題をちょっとだけ考えて、すぐできればいいけれども、できないかったらすぐに解答のページ（注1）をめくって「ああ、なるほど」と納得して、つぎの問題に移るのです。②これではダメです。（中略）それでは頭の中に残りません。自分にとっては、どちらかというと失敗の体験なのです。問題はとけなかった。解答を見てわかったけれども、解かなかったのです。
+ぼくはそうではありませんでした。ぼくは問題は自分の力で解くべきだと考えて、それを断固（注2）実行したのです。5分や10分でできた問題もあれば、30分も1時間もかかった問題もよくありました。1時間でもできない問題の場合には、ぼくはベッドの下の引き出しに入りました。横になってふたを下ろすと、まったく暗闇（注3）の中です。その身動きができない状態で数学の問題を考えたのです。 ぼくは、問題が解けない限り、ここから出ないと決心しました。頭の中では数学の問題をずっと考えて、そして結局、解けたのです。さもなければ、いまごろはミイラ（注4）になっているでしょう。
+③そんな悠長な（注5）ことはしていられない。自分が一つの問題を5時間も考えているうちに、外のひとは20問も答がわかてしまう。それでいいのだろうかと思う人がいるでしょう。でもちがうのです。
+「問題を自分の力だけで解いてしまうことができた。やった！」と、大きな喜びを感じられま
+す。そして、数学にもっと興味がわいてくるのです。数学はおもしろいな、楽しいなと思える
+のです。かんたんな問題でもいい。それを自分の力で解くことによって、興味がつぎつぎに
+わいてくるものです。それはポジティブ（注6）な記憶になります。ポジティブな記憶は、頭の中に残るのです。 逆に、解答を見て20問がわかったとしても、「結局できなかった」と虚しさ（注7）が残るだけなのです。この記憶はネガティブ（注8）な記憶ですから、脳が忘れてしまうのです。
+このように、ポジティブな記憶を残していくこと、そのためにいろいろな方法を自分なりに考えてください。そして実行してみて、自分に合わないとわかれば、別の方法を探せばいいのです。ぼくのとった方法もぜひ参考にしてみてください。
+（ピーター•フランクル『ピーター流らくらく学習術』による）
+（注１） ページをめくる：ページをあける
+（注２） 断固：何があっても絶対に
+（注３） 暗闇：真暗なところ
+（注４） ミイラ：人間や動物の死体が乾いて固まったもの
+（注５） 悠長な：のんびりした
+（注６） ポジティブ：積極的、肯定的
+（注７） 虚しさ：満足感がないこと
+（注８） ネガティブ：否定的
+" text="問（1） 筆者は、数学が嫌いな人が多いのはなぜだと言っているか。">
+<answer isCorrect="0">１．できるまでに長い時間がかかるから </answer>
+<answer isCorrect="0">２．できてもできなくてもかまわないから</answer>
+<answer isCorrect="1">３．できるかできないかのどちら化だから </answer>
+<answer isCorrect="0">４．できるかできないかがよくわからないから</answer>
+</question>
+<question weight="1" title="" text="問（2） ①「これ」とはどのようなことか。">
+<answer isCorrect="0">１．夏休みに昼間ずっと親の別荘にいること </answer>
+<answer isCorrect="1">２．数学の問題集にある問題を解いていくこと ３．数学の問題をちょっと考えてすぐ解いてしまうこと </answer>
+<answer isCorrect="0">４．親と一緒に数学の分厚い問題集のなかの問題を解くこと</answer>
+<question weight="1" title="" text="問（3） ②「これではダメです」とあるが、どうしてダメですか。">
+<answer isCorrect="0">１．問題が多すぎて頭の中に残らないから </answer>
+<answer isCorrect="0">２．解答を見ても納得できず、解かなかったから </answer>
+<answer isCorrect="0">３．問題が解けなかったという失敗の体験になるから </answer>
+<answer isCorrect="1">４．解答をみて解き方が失敗だということがわかったから</answer>
+</question>
+<question weight="1" title="" text="問（4） ③「そんな悠長なこと」とはどんなことか。">
+<answer isCorrect="0">１．5分や10分でできる問題をたくさん解くこと </answer>
+<answer isCorrect="0">２．問題が解けるまでずっと何時間も考えつづけること </answer>
+<answer isCorrect="1">３．ベッドの引き出しの中で身動きもせず横たわっていること </answer>
+<answer isCorrect="0">４．解答のページをめくって、わからない問題の答えを調べること</answer>
+</question>
+<question weight="1" title="" text="問（5） 記憶について、筆者が述べていることと合っているものはどれか">
+<answer isCorrect="0">１．ネガティブな記憶は、頭の中に長くとどまらない。 </answer>
+<answer isCorrect="1">２．ポジティブな記憶は、ネガティブな記憶ほど残らない。 </answer>
+<answer isCorrect="0">３．ネガティブな記憶は、いやな体験として長く記憶される。</answer>
+<answer isCorrect="0">４．ポジティブな記憶は、長い時間をかけて初めて得られる。</answer>
+</question>
+<question weight="1" title="" text="問（6） この文章で筆者が言いたいとはどれか">
+<answer isCorrect="0">１．数学は、時間がかかっても数多く問題を解くことにより、興味がわいてくる。</answer>
+<answer isCorrect="0">２．数学は、簡単な問題から解き始めることにより、楽しくなり興味がわいてくる。</answer>
+<answer isCorrect="0">３．数学は、時間がかかっても自分の力で問題を解くことにより、興味がわいてくる。</answer>
+<answer isCorrect="1">４．数学は、解答を見て解き方を納得することにより、理解が深まり興味がわいてくる。</answer>
+</question>
+</task>
+<task caption="問題Ⅱ 次の（１）から（３）の文章を読んで、それぞれの問いに対する答えとして最も適当なものを１，２，３，４から一つ選びなさい。">
+<question weight="1" title="(1)お母さんは赤ん坊に、生まれた日からしゃべりかける。もちろん、赤ん坊は何も理解しているはずはない。しばらくして、目の焦点が合わせられるようになると、赤ん坊がそれを真似るといわれている。
+①この能力はそう簡単なものとは思えない。赤ん坊は目でお母さんの顔を見て、それを自分の顔の形を変える筋肉の活動に訳さなければならない。大人なら鏡を見て自分の顔がどう変わるかわかるが、生まれて数ヶ月の赤ん坊にそんなことはできない。②クール（注2）の最近の研究によると、赤ん坊はお母さんの口の形」を見ただけで、それがどの声に対応するか（注3）を知っている。クールは次のような実験で、これを証明した。
+まず、スピーカーから「ア」という音を出す。そして、二つのテレビの画面のうち、一つにはお母さんが「ア」というときの顔を見せ、もう一つの画面には「イ」の声を出している顔を映す。そして、隠しカメラで赤ん坊の目や頭が、どちらを向いているか記録してみると、赤ん坊は「ア」といっている顔の方に目や頭を向けることがわかる。
+人間の社会では声と顔の表情が大切な信号だから、赤ん坊が声と顔の関係を早く習う能力を持って、生まれてくるのであろう。（ ③ ）、口の形と声との関連性は、赤ん坊の頃から頭に焼き付けられる（注4）。
+（小西正一『小鳥はなぜ歌うのか』による）
+（注１） とがらす：鋭く細くする
+（注２） クール：研究者の名前
+（注３） どの声に対応するか：どの声を表すか
+（注４） 頭に焼き付ける：しっかりと記憶する
+" text="問（1） ①「この能力はそう簡単なものとは思えない」とあるが、それはなぜか。">
+<answer isCorrect="0">１．母親のしゃべりかけるときの表情の意味を理解するのは難しいから</answer>
+<answer isCorrect="0">２．母親をみて自分がどちらを向くかすぐにきめなければならないから</answer>
+<answer isCorrect="0">３．母親を見て自分の顔の筋肉を同じように動かす必要があるから</answer>
+<answer isCorrect="1">４．母親のしゃべりかける内容の意味を理解するのは難しいから</answer>
+</question>
+<question weight="1" title="" text="問（2） ②「クールの最近の研究」の結果から考えると、母親の「イ」という声を赤ん坊に聞">
+<answer isCorrect="0">かせた場合、赤ん坊はどうすると思われるか。</answer>
+<answer isCorrect="1">１．「イ」というときの母親の顔の画面を見る。</answer>
+<answer isCorrect="0">２．「あ」というときの母親の顔の画面を見る。</answer>
+<answer isCorrect="0">３．本物の母親がどこにいるか、さがす。</answer>
+</question>
+<answer isCorrect="0">４．母親の声のした方をふりかえる。</answer>
+<question weight="1" title="" text="問（3） （ ③ ）に入る最も適当な言葉はどれか。">
+<answer isCorrect="0">１．しかし </answer>
+<answer isCorrect="0">２．しかも </answer>
+<answer isCorrect="0">３．といっても </answer>
+<answer isCorrect="1">４．このように</answer>
+</question>
+<question weight="1" title="" text="問（4） この文章の内容と合っているものはどれか。">
+<answer isCorrect="0">１．人間は生まれてすぐ、母親の顔の真似ができる。</answer>
+<answer isCorrect="0">２．大人になると、顔と声を分けて理解するようになる。</answer>
+<answer isCorrect="0">３．赤ん坊は母親の「イ」の顔より「ア」の顔の方が好む。</answer>
+<answer isCorrect="1">４．人間は生まれてから早い時期に顔と声の関係を学習する。</answer>
+</question>
+<question weight="1" title="(2) ①フリーターがふるえている。２００万人にちがい、ともいわれる。それでも②だいした社会問題にならないたいした社会問題にならないのは、フリーターという呼び名だからである。けっして失業者とよおばれない。１９９９年現在、１５歳から２４歳までの男性の失業者は、１０．３パーセントにも達している。
+労働省の定義によれば、「フリーター」とは、１５歳から３４歳までのパートやアルバイトをしている男女、ということになる。つまり、３４歳をすぎると、もうフリーターとはよばれない。ただのパートかアルバイトである。女性の場合、フリーターといわれるのは、独身者のことで、主婦になると、パートのおばさん、である。
+フリーターは、自分で就職せずに、きままに（注1）はたらいて、自由を楽しんでいるようにみえるが、実際のところは、うまく就職できないための、浪人暮らし（注2）がすくなくない。それは失業率がたかくなると、フリーターが多くなることによっても、よく理解できる。正社員に登用（注3）されるかもしれない、と思って、一生懸命はたらいたが、採用（注4）されなかった、というフリーターも多い。③
+これはなどは、まちがいなく失業者の部類にはいるひとである。
+（鎌田慧『現代社会１００面相』による）
+（注１） 気ままに：自分の思い通りに
+（注２） 浪人暮らし：ここでは、失業中の状態
+（注３） 正社員に登用する：正式な社員の地位に引き上げる
+（注４） 採用する：雇う
+" text="問（1） パートやアルバイトをしている人で「フリーター」とよばれるのは、次のうち、どのひとか。">
+<answer isCorrect="1">１．２５歳で結婚している男性</answer>
+<answer isCorrect="0">２．２５歳で結婚している女性</answer>
+<answer isCorrect="0">３．４０歳で独身の男性</answer>
+<answer isCorrect="0">４．４０歳で独身の女性</answer>
+</question>
+<question weight="1" title="" text="問（2） 「だいした社会問題にならない」とあるが、なぜか。">
+<answer isCorrect="1">１．フリーターは失業者だと思われていないから</answer>
+<answer isCorrect="0">２．フリーターは労働者全体からみて数が少ないから</answer>
+<answer isCorrect="0">３．フリーターというよび名がまだあまり知られていないから</answer>
+<answer isCorrect="0">４．フリーターは自分の意志で自由を楽しんでいる人だから</answer>
+</question>
+<question weight="1" title="" text="問（3） 「これ」とあるが、何をさしているか。">
+<answer isCorrect="0">１．自由を楽しんでいる浪人暮らしのフリーター</answer>
+<answer isCorrect="1">２．正社員になりたいのに採用されないフリーター</answer>
+<answer isCorrect="0">３．仕事があるのに自分で就職しないフリーター</answer>
+<answer isCorrect="0">４．一生懸命はたらいて、正社員に登用されたフリーター</answer>
+</question>
+<question weight="1" title="(3)日本人に、日本語で話せばわかる、通じると思うも、もしかしたら幻想（注1）かもしれない。
+たとえば、①「情けは人のためならず」という諺の意味。つねづね（注2）人に情けをかけ（注3）、親切にしていれば、自分のためでもあるんだよというのが今までの解釈だっ田。しかしこの頃は違うのだそうだ。
+あんまり情けをかけると、それを当てにして（注4）怠け者になってしまう、だから情けっはかけるな、ということなのだそうだ。
+この解釈があながち間違っているとは言えない（注5）のが、時代性というものだ。現代は食べるに困るというような人がいなくなってしまった。どうしても助けなければならないような人がいない。居るとすれば多くはその人自身の問題。怠けて働かなかったり、選り好み（注6）をしていて仕事をしていなかったり。そんな人に情けをかけたらたしかに甘える（注7）だけかもしれない。 言葉の意味は時代を反映する。
+（沖ななも「言葉の時代性」『出版ダイジェスト』2001年11月20日号による）
+（注１） 幻想：現実にはないことを想像すること
+（注２） つねづね：常に
+（注３） 情けをかける：相手のためを思って助ける
+（注４） 当てにする：期待する
+（注５） あながち～ない：かならずしも～ない
+（注６） 選り好み：好きなものだけを選ぶこと
+（注７） 甘える：人の親切に頼る
+" text="問（1） 「情けは人のためならず」という諺の、現在の解釈に合っているのはどれか。">
+<answer isCorrect="0">１．自分が困っているときは人に甘えた方がいい。人はみんな問題があり、助け合っていきているのだから</answer>
+<answer isCorrect="0">２．困っている人を見たら助けてあげよう。自分が困ったときに誰かが助けてくれるかもしれないから</answer>
+<answer isCorrect="1">３．困っている人を見ても助けない方がいい。その人が他人に頼って怠けるようになると困るから</answer>
+<answer isCorrect="0">４．困っている人を見たら助けてあげよう。その人が後で必ず自分に親切にしてくれるから</answer>
+</question>
+</task>
+<question weight="1" title="" text="問（2） 「情けは人のためならず」という諺の解釈が変わったのはなぜか。">
+<answer isCorrect="0">１．怠けて働かない人が少なくなったから</answer>
+<answer isCorrect="0">２．昔より人を助ける親切な人がふえたから</answer>
+<answer isCorrect="0">３．日本人でも日本語が通じない人がふえたから</answer>
+<answer isCorrect="1">４．昔のように助けを必要とする人はいなくなったから</answer>
+</question>
+<question weight="1" title="" text="問（3） 筆者の言いたいことはどれか。">
+<answer isCorrect="1">１．言葉の解釈は時代とともにかわるようだ。</answer>
+<answer isCorrect="0">２．言葉の解釈はもともと使う人によって違うものだ。</answer>
+<answer isCorrect="0">３．古い時代のことばの意味が現代に正しく伝えられないのは残念だ。</answer>
+<answer isCorrect="0">４．現代は人々が豊かになって、情けの意味がわからなくなっている。</answer>
+</question>
+</task>
+<task caption="問題Ⅲ 次の（１）から（４）の文章を読んで、それぞれの問いに対する答えとして最も適当なものを１，２，３，４から一つ選びなさい。">
+<question weight="1" title="(1)先日、手術をなさったとのことですが、その後お加減はいかがでしょうか？こちらはみんな変わりなくやっています。
+上の娘が修学旅行（注１）で京都に行ってきました。あちらは今、ちょうど紅葉真っ盛りのようで、嵐山（注2）が美しかったそうです。
+覚えていますか？私たちも高校生の修学旅行で、京都に行きましたね。嵯峨野（注2）で食べたお豆腐がおいしかった。懐かしいですね。また、あなたが元気になったらまいりましょう。 娘が京都で買ってきた、絵葉書を同封（注3）します。それではまた、お大事に。
+（市田ひろみ『心を伝える手紙の書き方』による）
+（注１） 修学旅行：研究•見学のため教師が生徒を連れて行く旅行
+（注２） 嵐山、嵯峨野：京都の中の地名
+（注３） 同封する：封筒のなかに一緒に入れる
+" text="問（1） 手紙を書いた人の説明として正しいものはどれか。">
+<answer isCorrect="1">１．友人が病気で、その病気が治ったら一緒に京都へ行きたいと思っている。</answer>
+<answer isCorrect="0">２．京都にいる友人に、嵯峨野へ旅行に行く計画の相談をしたいと思っている。</answer>
+<answer isCorrect="0">３．最近手術をしたが、治ったら嵯峨野へ行って、豆腐をたべたいと思っている。</answer>
+<answer isCorrect="0">４．紅葉の美しい嵐山の絵ハガキを高校生の娘に買ってきてほしいと思っている。</answer>
+</question>
+<question weight="1" title="(2)私たちは、食べるためばかりでなく、便利で快適な生活を送るため、知らず知らずのうちに多くの生き物の命を奪っています。しかしこのことは、日常生活のなかで実感としてもつことはすくないでしょう。人が生き物の命の尊さ（注1）をわかるには、逆説的（注2）になるかもしれませんが、生き物の命をあやめて（注3）いるという「実感」をもたなければならないでしょう。そうした過程を経
+（注4）なければ、いのちの尊さなどというぉとはわからないのではないでしょうか。
+（松浦秀俊『川に親しむ』による）
+（注１） 尊さ：大切さ
+（注２） 逆説的になる：矛盾しているように見える
+（注３） あやめる：殺す
+（注４） 経る：通る
+" text="問（1） 「そうした過程」とはどのようなことか。">
+<answer isCorrect="0">１．生き物とともに、便利で快適な生活を送る経験をすること</answer>
+<answer isCorrect="1">２．実際に生き物を殺しているということを心から強く感じること</answer>
+<answer isCorrect="0">３．食べるためには、多くの生き物を殺すことは当然だと考えること</answer>
+<answer isCorrect="0">４．多くの生き物の命を奪っていることに気づかないまま生活すること</answer>
+</question>
+<question weight="1" title="(3)「急がば回れ」という諺がある。急いでいるのなら回り道をしたほうがいいという意味であるが、急いでいる時に遠い回り道を選ぶ人はいないだろう。多少の危険があっても近道をしてしまうのが普通ではないか。つまり、これは実際に回り道をしろと言っているのではなく、あわてて事故を起こしたりしないように、それだけの余裕を持てということなのだ。
+" text="問（1） 筆者によると、「急がば回れ」は急いでいる時にどのようにした方がよいということか。">
+<answer isCorrect="0">１．危険があっても近道をした方がいい。</answer>
+<answer isCorrect="0">２．危険があっても遠い道を選んだ方がいい。</answer>
+<answer isCorrect="0">３．事故を起こさないように遠い道を選んだ方がいい。</answer>
+<answer isCorrect="1">４．事故を起こさないように十分余裕を持った方がいい。</answer>
+</question>
+<question weight="1" title="(4)私は、病気は、人間にとって偶然おちかかってくる（注1）事故のようなものだち思っている。それを、どのように受け止める（注2）かは、一人一人の人間のすることで、病気が逆に、ある人間にとっては、時がたつうちに、しあわせな事件であったということにもなるのだ。
+（なだいなだ「お医者さん」『定義集』による）
+（注１） おちかかってくる：ここでは「（よくないことが）おこる」の意味
+（注２） うけとめる：ここでは「考える」の意味
+" text="問（1） この文章の内容と合っているものはどれか。">
+<answer isCorrect="0">１．アイは１００の言葉を同時に記憶することができる。</answer>
+<answer isCorrect="0">２．アイの覚えた言葉はアユムも覚えることができる。</answer>
+<answer isCorrect="0">３．アイは数字の３と４を同時に記憶することができる。</answer>
+<answer isCorrect="1">４．アイはアユムが言葉を覚えるのを楽しみにしている。</answer>
+</question>
+</task>
+<task caption="﻿問題Ⅳ 次の分の＿＿＿にはどんなことばを入れたらよいか。最も適当なものを１２３４から一つ選びなさい。">
+<question weight="1" title="" text="試験の結果を気にする＿＿＿、夜眠れなくなってしまった。">
+<answer isCorrect="0">まで </answer>
+<answer isCorrect="0">わけ </answer>
+<answer isCorrect="1">あまり </answer>
+<answer isCorrect="0">ばかり</answer>
+</question>
+<question weight="1" title="" text="雨が＿＿＿、家帰った方がいい。">
+<answer isCorrect="0">降らなくて </answer>
+<answer isCorrect="0">降らないで </answer>
+<answer isCorrect="0">降らない先に </answer>
+<answer isCorrect="1">降らないうちに</answer>
+</question>
+<question weight="1" title="" text="家の近くに新しい駅ができた＿＿＿＿＿＿便利になってうれしい。">
+<answer isCorrect="0">ためには </answer>
+<answer isCorrect="1">おかげで </answer>
+<answer isCorrect="0">せいで </answer>
+<answer isCorrect="0">ためで</answer>
+</question>
+<question weight="1" title="" text="騒ぎになり＿＿＿＿＿＿から、結婚のことはしばらく言わない方がいい。">
+<answer isCorrect="0">きれない </answer>
+<answer isCorrect="0">きれる </answer>
+<answer isCorrect="1">かねない </answer>
+<answer isCorrect="0">かねる</answer>
+</question>
+<question weight="1" title="" text="から欲しかった本がやっと手に入った＿＿＿＿＿＿、早速徹夜しておわりまで読んでしまった。">
+<answer isCorrect="1">ものだから </answer>
+<answer isCorrect="0">ことだから </answer>
+<answer isCorrect="0">ものでも </answer>
+<answer isCorrect="0">ことでも</answer>
+</question>
+<question weight="1" title="" text="電話＿＿＿＿＿＿最中に、だれかが玄関に来た。">
+<answer isCorrect="1">している </answer>
+<answer isCorrect="0">する </answer>
+<answer isCorrect="0">した </answer>
+<answer isCorrect="0">して</answer>
+</question>
+<question weight="1" title="" text="ここまで来たらもうやる＿＿＿＿＿＿のに、君はまだ迷っているのか。">
+<answer isCorrect="0">きりない </answer>
+<answer isCorrect="1">しかない </answer>
+<answer isCorrect="0">ほどはない </answer>
+<answer isCorrect="0">にすぎない</answer>
+</question>
+<question weight="1" title="" text="国から来た手紙を＿＿＿＿＿＿とたん、彼女は泣き出してしまった。">
+<answer isCorrect="0">見る </answer>
+<answer isCorrect="1">見た </answer>
+<answer isCorrect="0">見て </answer>
+<answer isCorrect="0">見よう</answer>
+</question>
+<question weight="1" title="" text="彼は、夏休み中＿＿＿＿＿＿、毎日図書館で勉強している。">
+<answer isCorrect="0">にそって </answer>
+<answer isCorrect="0">とすれば </answer>
+<answer isCorrect="0">をもとにして </answer>
+<answer isCorrect="1">にもかかわらず</answer>
+</question>
+<question weight="1" title="" text="笑顔だった＿＿＿＿＿＿を見ると、すべてうまくいったにちがいない。">
+<answer isCorrect="1">ところ </answer>
+<answer isCorrect="0">わけ </answer>
+<answer isCorrect="0">ほど </answer>
+<answer isCorrect="0">もの</answer>
+</question>
+<question weight="1" title="" text="昼休み＿＿＿＿＿＿、事務所は">
+<answer isCorrect="0">にとって </answer>
+<answer isCorrect="0">のもので </answer>
+<answer isCorrect="1">につき </answer>
+<answer isCorrect="0">の末に</answer>
+</question>
+<question weight="1" title="" text="東京駅に行く＿＿＿＿＿＿、そこの角を右に曲がった方がちかいですよ。">
+<answer isCorrect="0">かは </answer>
+<answer isCorrect="0">とは </answer>
+<answer isCorrect="0">のが </answer>
+<answer isCorrect="1">には</answer>
+</question>
+<question weight="1" title="" text="ゴミがこれほど散らかっていたら、一人で全部＿＿＿＿＿＿ようもない。">
+<answer isCorrect="1">集め </answer>
+<answer isCorrect="0">集まり </answer>
+<answer isCorrect="0">集める </answer>
+<answer isCorrect="0">集まる</answer>
+</question>
+<question weight="1" title="" text="先輩＿＿＿＿＿＿、入学試験の案内をもらった。">
+<answer isCorrect="0">でもって </answer>
+<answer isCorrect="0">にそって </answer>
+<answer isCorrect="0">にとって </answer>
+<answer isCorrect="1">をとおして</answer>
+</question>
+<question weight="1" title="" text="先月引っ越しなしたので、近くに＿＿＿＿＿＿ときは、ぜひお立ち寄りください。">
+<answer isCorrect="0">うかがった </answer>
+<answer isCorrect="0">まいった </answer>
+<answer isCorrect="1">拝見した </answer>
+<answer isCorrect="0">おじゃました</answer>
+</question>
+<question weight="1" title="" text="（略）">
+<answer isCorrect="1">? </answer>
+<answer isCorrect="0">? </answer>
+<answer isCorrect="0">? </answer>
+<answer isCorrect="0">?</answer>
+</question>
+<question weight="1" title="" text="きのう財布を忘れて出かけたが、困った＿＿＿＿＿＿、それほどでもなかった。">
+<answer isCorrect="0">かなにか </answer>
+<answer isCorrect="0">かのように </answer>
+<answer isCorrect="1">かといえば </answer>
+<answer isCorrect="0">かとすれば</answer>
+</question>
+<question weight="1" title="" text="「下水」＿＿＿＿＿＿、台所などで使った汚れた水のことである。">
+<answer isCorrect="0">といっては </answer>
+<answer isCorrect="0">ということは </answer>
+<answer isCorrect="0">というには </answer>
+<answer isCorrect="1">というのは</answer>
+</question>
+<question weight="1" title="" text="暗くなると＿＿＿＿＿＿、もう帰りましょう。">
+<answer isCorrect="0">いけなくて </answer>
+<answer isCorrect="1">いけないので </answer>
+<answer isCorrect="0">いうところを </answer>
+<answer isCorrect="0">いうほどもなく</answer>
+</question>
+<question weight="1" title="" text="山田さんの家へ遊びに＿＿＿＿＿＿、ちょうど川本さんがきていた。">
+<answer isCorrect="0">行くところ </answer>
+<answer isCorrect="1">行ったところ </answer>
+<answer isCorrect="0">行くばかり </answer>
+<answer isCorrect="0">行ったばかり</answer>
+</question>
+</task>
+<task caption="問題Ⅴ 次の文の＿＿にはどんな言葉をいれたらよいか。１，２，３，４から最も適当なものを一つ選びなさい。">
+<question weight="1" title="" text="彼女は美しくて賢く、私たちのだれもが彼女の魅力に心を＿＿＿＿＿＿いられなかった。">
+<answer isCorrect="1">うばわれずには </answer>
+<answer isCorrect="0">うばわれては </answer>
+<answer isCorrect="0">うばわれるわけには </answer>
+<answer isCorrect="0">うばわれなくては</answer>
+</question>
+<question weight="1" title="" text="相手の話も聞かずに自分の主張だけ通そうとするなんて、それはわがまま＿＿＿＿＿＿。">
+<answer isCorrect="0">ということではない </answer>
+<answer isCorrect="0">というからだ </answer>
+<answer isCorrect="0">というわけではない </answer>
+<answer isCorrect="1">というものだ</answer>
+</question>
+<question weight="1" title="" text="あの正直な彼がうそをついて人をだましたりする＿＿＿＿＿＿。">
+<answer isCorrect="0">べきではない </answer>
+<answer isCorrect="1">わけがない </answer>
+<answer isCorrect="0">ほかはない </answer>
+<answer isCorrect="0">にすぎない</answer>
+</question>
+<question weight="1" title="" text="きのうの歌の練習では何度も間違えてみんなにわられ、＿＿＿＿＿＿。">
+<answer isCorrect="0">恥ずかしいわけがなかった </answer>
+<answer isCorrect="0">はずかしいはずがなかった </answer>
+<answer isCorrect="1">恥ずかしくてたまらなかった </answer>
+<answer isCorrect="0">恥ずかしくていけなかった</answer>
+</question>
+<question weight="1" title="" text="けっして夢をあきらめない彼の生き方を見ていると、私は感動＿＿＿＿＿＿。">
+<answer isCorrect="0">するはずがない </answer>
+<answer isCorrect="0">しないではおかない </answer>
+<answer isCorrect="1">しないではいられない </answer>
+<answer isCorrect="0">するべきではない</answer>
+</question>
+<question weight="1" title="" text="彼は、私が借金を抱えていることを知っているに＿＿＿＿＿＿。">
+<answer isCorrect="1">ちがいない </answer>
+<answer isCorrect="0">かぎらない </answer>
+<answer isCorrect="0">ほかでもない </answer>
+<answer isCorrect="0">おうじない</answer>
+</question>
+<question weight="1" title="" text="せっかく古い友達が訪ねてきたのに、仕事に追われていっしょに酒を飲む＿＿＿＿＿＿。">
+<answer isCorrect="0">ことではなかった </answer>
+<answer isCorrect="1">どころではなかった </answer>
+<answer isCorrect="0">までもなかった </answer>
+<answer isCorrect="0">はずではなかった</answer>
+</question>
+<question weight="1" title="" text="彼女の演奏には、人の心を＿＿＿＿＿＿。">
+<answer isCorrect="0">動くことである </answer>
+<answer isCorrect="0">動かすことである </answer>
+<answer isCorrect="0">動くものがある </answer>
+<answer isCorrect="1">動かすものがある</answer>
+</question>
+<question weight="1" title="" text="今度の選挙では、実力も人気もあるあの若い候補が勝つに＿＿＿＿＿＿。">
+<answer isCorrect="0">限られている </answer>
+<answer isCorrect="0">限っている </answer>
+<answer isCorrect="1">決まっている </answer>
+<answer isCorrect="0">決めている</answer>
+</question>
+<question weight="1" title="" text="山田さんの話し方は発音がきれいで聞きやすく、さすがにもとアナウンサーだった＿＿＿＿＿＿。">
+<answer isCorrect="0">うえのことである </answer>
+<answer isCorrect="1">だけのことである </answer>
+<answer isCorrect="0">はずのことである </answer>
+<answer isCorrect="0">ばかりのことである</answer>
+</question>
+</task>
+<task caption="問題Ⅵ 次の文の＿＿にはどんな言葉をいれたらよいか。１，２，３，４から最も適当なものを一つ選びなさい。">
+<question weight="1" title="" text="田さんはもともと世話好きで、誰に対しても親切だ。そんな彼女の＿＿＿＿＿＿、困っている友達をほうっておけなかってのだろう。">
+<answer isCorrect="0">ものだから </answer>
+<answer isCorrect="1">ことだから </answer>
+<answer isCorrect="0">わけだから </answer>
+<answer isCorrect="0">ところだから</answer>
+</question>
+<question weight="1" title="" text="「山田さんのふるさとは雪がたくさん降るところだから、スキーはお得意でしょ。」 「うーん、＿＿＿＿＿＿けど、もう何年もやってないから…。」">
+<answer isCorrect="1">できないことはない </answer>
+<answer isCorrect="0">できるはずはない </answer>
+<answer isCorrect="0">できないはずだ </answer>
+<answer isCorrect="0">できることはな</answer>
+</question>
+<question weight="1" title="" text="今は都会になってしまったが、数年前までこのあたり畑ばかりのいなかだった。">
+<answer isCorrect="0">によっても </answer>
+<answer isCorrect="0">についても </answer>
+<answer isCorrect="0">においても </answer>
+<answer isCorrect="1">につけても</answer>
+</question>
+<question weight="1" title="" text="みんなの前でパソコンが得意なんてはなすんじゃなかっかた。よけいなことを言った ______クラス会の案内状作りを頼まれてしまった。">
+<answer isCorrect="0">ほどで </answer>
+<answer isCorrect="0">限りに </answer>
+<answer isCorrect="0">だけあって </answer>
+<answer isCorrect="1">ばかりに</answer>
+</question>
+<question weight="1" title="" text="この仕事は重い荷物を運んだり、夜中や休日でも呼び出されたりすることがよくある。だから、体が＿＿＿とても続かないだろう。">
+<answer isCorrect="0">じょうぶだったら </answer>
+<answer isCorrect="0">じょうふなのに </answer>
+<answer isCorrect="1">じょうぶでなければ </answer>
+<answer isCorrect="0">じょうぶでなくても</answer>
+</question>
+<question weight="1" title="" text="コーチは、これまで選手を育てることにすべてのエネルギーを注いできた。選手たちはこれ＿＿＿、今年の大会で次次と新記録を出した。">
+<answer isCorrect="1">にこたえて </answer>
+<answer isCorrect="0">にくらべて </answer>
+<answer isCorrect="0">に反して </answer>
+<answer isCorrect="0">にもかかわらず</answer>
+</question>
+</task>
+</section>
+</test>
