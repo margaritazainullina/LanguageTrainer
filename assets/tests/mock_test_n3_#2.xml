@@ -1,0 +1,670 @@
+<test level="5" name="Test N3 #2">
+<section name="文字・語彙">
+<task caption="問題1 漢字読み">
+<question weight="1" title="" text="日本の首都はどこですか。">
+<answer isCorrect="0">ゅとう	</answer>
+<answer isCorrect="0">しゅうと	</answer>
+<answer isCorrect="1">しゅと	</answer>
+<answer isCorrect="0">しゅうとう</answer>
+</question>
+<question weight="1" title="" text="地球は太陽のまわりを回っている。">
+<answer isCorrect="0">きゅう </answer>
+<answer isCorrect="1">ちきゅう </answer>
+<answer isCorrect="0">じきゆ	</answer>
+<answer isCorrect="0">ちきゆ</answer>
+</question>
+<question weight="1" title="" text="あの時計は遅れている。">
+<answer isCorrect="0">こわれて </answer>
+<answer isCorrect="1">おくれて </answer>
+<answer isCorrect="0">たおれて </answer>
+<answer isCorrect="0">よごれて</answer>
+</question>
+<question weight="1" title="" text="二人で協力すれば、仕事も早く終わるだろう。">
+<answer isCorrect="0">ょりよく </answer>
+<answer isCorrect="0">どりょく </answer>
+<answer isCorrect="1">ようりよく </answer>
+<answer isCorrect="0">どうりよ</answer>
+</question>
+<question weight="1" title="" text="大学の挺学金に応募した。">
+<answer isCorrect="1">うぼ	</answer>
+<answer isCorrect="0">おうも	</answer>
+<answer isCorrect="0">おうぼう </answer>
+<answer isCorrect="0">おうもう</answer>
+</question>
+<question weight="1" title="" text="子どもの疑問に答えた。">
+<answer isCorrect="0">もん	</answer>
+<answer isCorrect="0">きもん	</answer>
+<answer isCorrect="0">ぐもん	</answer>
+<answer isCorrect="1">ぎもん</answer>
+</question>
+<question weight="1" title="" text="試験の成結が発表された0">
+<answer isCorrect="0">つひよう </answer>
+<answer isCorrect="1">はっぴよう </answer>
+<answer isCorrect="0">はつひよ	</answer>
+<answer isCorrect="0">はっぴよ</answer>
+</question>
+<question weight="1" title="" text="单語のリストはとなりのページにあります。">
+<answer isCorrect="0">いご	</answer>
+<answer isCorrect="0">けいご	</answer>
+<answer isCorrect="0">だんご	</answer>
+<answer isCorrect="1">たんご </answer>
+</question>
+</task>
+<task caption="問題2 表記">
+<question weight="1" title="" text="みんなで話し合って、問題をかいけつした。">
+<answer isCorrect="0">決	</answer>
+<answer isCorrect="0">改結	</answer>
+<answer isCorrect="1">解決	</answer>
+<answer isCorrect="0">解結</answer>
+</question>
+<question weight="1" title="" text="山ロさんに!ic京をあんないしてもらった。">
+<answer isCorrect="0">内	</answer>
+<answer isCorrect="0">家内	</answer>
+<answer isCorrect="0">室内	</answer>
+<answer isCorrect="1">案内</answer>
+</question>
+<question weight="1" title="" text="わたしはけんこうのために毎日走っています。">
+<answer isCorrect="1">康	</answer>
+<answer isCorrect="0">建康	</answer>
+<answer isCorrect="0">健雎	</answer>
+<answer isCorrect="0">建庫</answer>
+</question>
+<question weight="1" title="" text="今年のgはきおんが高かった。">
+<answer isCorrect="0">湿	</answer>
+<answer isCorrect="1">気温	</answer>
+<answer isCorrect="0">気湯	</answer>
+<answer isCorrect="0">気混</answer>
+</question>
+<question weight="1" title="" text="頭がいたいので、薬を飲んだ。">
+<answer isCorrect="0">い	</answer>
+<answer isCorrect="1">痛い	</answer>
+<answer isCorrect="0">疫い	</answer>
+<answer isCorrect="0">症い</answer>
+</question>
+<question weight="1" title="" text="このシャツは工場でたいりように作られている。">
+<answer isCorrect="0">量	</answer>
+<answer isCorrect="0">多料	</answer>
+<answer isCorrect="1">大量	</answer>
+<answer isCorrect="0">大料 </answer>
+</question>
+</task>
+<task caption="問題3　文脈規定">
+<question weight="1" title="" text="この携帯電話はボタンが押しにくいという（	）を持つ利用者もいる。">
+<answer isCorrect="0">関心	</answer>
+<answer isCorrect="1">不満	</answer>
+<answer isCorrect="0">目標	</answer>
+<answer isCorrect="0">我慢</answer>
+</question>
+<question weight="1" title="" text="街を（	）していたら、山本さんに会った。">
+<answer isCorrect="0">ぐらぐら	</answer>
+<answer isCorrect="0">がらがら	</answer>
+<answer isCorrect="0">ばらばら	</answer>
+<answer isCorrect="1">ぶらぶら</answer>
+</question>
+<question weight="1" title="" text="セミナーに参加したい人は、（	）に住所、氏名、希望日を書いてください。">
+<answer isCorrect="0">めいしょ	</answer>
+<answer isCorrect="0">ょうしゅうしょ	</answer>
+<answer isCorrect="1">うしこみしょ	</answer>
+<answer isCorrect="0">んこうしょ</answer>
+</question>
+<question weight="1" title="" text="この計算は（	）なので、コンピュー夕一を使っても時間がかかる。">
+<answer isCorrect="0">意外　</answer>
+<answer isCorrect="0">重大　</answer>
+<answer isCorrect="1">複雑　</answer>
+<answer isCorrect="0">正常</answer>
+</question>
+<question weight="1" title="" text="このオレンジはアメリカ（	）です。">
+<answer isCorrect="1">産　</answer>
+<answer isCorrect="0">製　</answer>
+<answer isCorrect="0">作　</answer>
+<answer isCorrect="0">品</answer>
+</question>
+<question weight="1" title="" text="した">
+<answer isCorrect="0">ピーチ	</answer>
+<answer isCorrect="1">インタビユー　</answer>
+<answer isCorrect="0">メッセージ	</answer>
+<answer isCorrect="0">コミュニケーション</answer>
+</question>
+<question weight="1" title="" text="全員が自分の意見を（	）したので、会議がなかなか終わらなかった。">
+<answer isCorrect="0">命令　</answer>
+<answer isCorrect="0">返信　</answer>
+<answer isCorrect="1">主張　</answer>
+<answer isCorrect="0">注文</answer>
+</question>
+<question weight="1" title="" text="朝から何も飲んでいないので、のどが（	）です。">
+<answer isCorrect="0">ぺらぺら	</answer>
+<answer isCorrect="1">からから	</answer>
+<answer isCorrect="0">ふらふら	</answer>
+<answer isCorrect="0">ぺこぺこ</answer>
+</question>
+<question weight="1" title="" text="持来のために、お金を（	）います。">
+<answer isCorrect="1">ためて	</answer>
+<answer isCorrect="0">のせて	</answer>
+<answer isCorrect="0">かさねて </answer>
+<answer isCorrect="0">くわえて </answer>
+</question>
+</task>
+<task caption="問題4	に意味が最も近いものを、1.2 . 3 . 4から一つえらびなさい。">
+<question weight="1" title="" text="わたしは茇と一緒に通勤しています。">
+<answer isCorrect="1">仕事に行って	</answer>
+<answer isCorrect="0">勉強に行って </answer>
+<answer isCorrect="0">買い物に行って	</answer>
+<answer isCorrect="0">散歩に行って</answer>
+</question>
+<question weight="1" title="" text="とてもおそろしい経験をした。">
+<answer isCorrect="0">たのしい	</answer>
+<answer isCorrect="0">うれしい	</answer>
+<answer isCorrect="0">はずかしい </answer>
+<answer isCorrect="1">こわい</answer>
+</question>
+<question weight="1" title="" text="先生にわけを話した。">
+<answer isCorrect="0">アイディア </answer>
+<answer isCorrect="0">ルール	</answer>
+<answer isCorrect="1">理由	</answer>
+<answer isCorrect="0">秘密</answer>
+</question>
+<question weight="1" title="" text="最近、この川は水がへった気がする。">
+<answer isCorrect="0">多くなった	</answer>
+<answer isCorrect="1">少なくなった </answer>
+<answer isCorrect="0">きれいになった	</answer>
+<answer isCorrect="0">きたなくなった</answer>
+</question>
+<question weight="1" title="" text="実験がうまくいかなかったので、やりなおした。">
+<answer isCorrect="0">やり方を調べた	</answer>
+<answer isCorrect="0">やり方を教わった </answer>
+<answer isCorrect="1">もう一度やった	</answer>
+<answer isCorrect="0">やるのを途中でやめた</answer>
+</question>
+</task>
+<task caption="﻿問題5　用法">
+<question weight="1" title="" text="ころぶ">
+<answer isCorrect="0">1　　今日は疲れたので、早めにベッドにころんだ。</answer>
+<answer isCorrect="0">2	仕事が人ったので、旅行の計両がころんでしまった。</answer>
+<answer isCorrect="0">3	台風で庭の木がころんだ。</answer>
+<answer isCorrect="1">4	階段でころんでけがをした。</answer>
+</question>
+<question weight="1" title="" text="指示">
+<answer isCorrect="1">1「この捭類、30部コピーしておいて」と秘卉に指示した。</answer>
+<answer isCorrect="0">2	「この作文を見ていただけませんか」と先生に指示した。</answer>
+<answer isCorrect="0">3	「あした映丨_丨を見に行こうよ」と友達に指示した。</answer>
+<answer isCorrect="0">4	「トイレはどこにありますか」と店員に指示した。</answer>
+</question>
+<question weight="1" title="" text="見送る">
+<answer isCorrect="0">1毎日かならずメールを見送るようにしている。</answer>
+<answer isCorrect="0">2	何ページか見送ってみたが、むずかしくてわからなかった。</answer>
+<answer isCorrect="0">3	電中:の窓から丨;1色を兄送るのが好きだ。</answer>
+<answer isCorrect="1">4	闰に帰る友人を空港まで見送った。</answer>
+</question>
+<question weight="1" title="" text="植える">
+<answer isCorrect="1">1近所の公別にはいろいろな花が桢えてある。</answer>
+<answer isCorrect="0">2	ケーキにいちごやクリームをたくさん桢えた。</answer>
+<answer isCorrect="0">3	この空港は海に土を植えて作られた。</answer>
+<answer isCorrect="0">4	道に屯灯を植えたので明るくなった。</answer>
+</question>
+<question weight="1" title="" text="正直">
+<answer isCorrect="1">1　　小川さんはな人で、決してうそは言いません。</answer>
+<answer isCorrect="0">2	この商品の正商な使い方をこれから説明します。</answer>
+<answer isCorrect="0">3	これは正鹿な話なのに、だれも信じてくれません。</answer>
+<answer isCorrect="0">4	正商な距離は分かりませんが、10キロぐらいだと思います。 </answer>
+</question>
+</task>
+</section>
+<section name="読解・文法">
+<task caption="問題1 文法形式の判断">
+<question weight="1" title="" text="今度の試合に勝てる（	）一生けんめいがんばります。">
+<answer isCorrect="0">ために	</answer>
+<answer isCorrect="1">ように	</answer>
+<answer isCorrect="0">ことに	</answer>
+<answer isCorrect="0">みたいに</answer>
+</question>
+<question weight="1" title="" text="今のわたしの安い給料では、何年働いても自分の家は（	）そうもない。">
+<answer isCorrect="0">買い	</answer>
+<answer isCorrect="1">買え	</answer>
+<answer isCorrect="0">買う	</answer>
+<answer isCorrect="0">買える</answer>
+</question>
+<question weight="1" title="" text=" A「最近、山田さん元気ないね。」　B「うん。蒋来の（	）悩んでるらしいよ。」">
+<answer isCorrect="0">ほうに	</answer>
+<answer isCorrect="0">場合に	</answer>
+<answer isCorrect="0">ほかで	</answer>
+<answer isCorrect="1">ことで</answer>
+</question>
+<question weight="1" title="" text=" A 「ねえ、（	） どんな人？」　B「とても親切でいい人だよ。」">
+<answer isCorrect="0">田中中さんが	</answer>
+<answer isCorrect="0">田中中さんで </answer>
+<answer isCorrect="1">田中さんって </answer>
+<answer isCorrect="0">由中さんでも</answer>
+</question>
+<question weight="1" title="" text="A 「沖縄旅行はどうだった？」　B 「海が青くて、料理もおいしくて、M高だったよ。」 A 「いいなあ。わたしも（	）一度行ってみたいなあ。j">
+<answer isCorrect="0">いつのまにか </answer>
+<answer isCorrect="0">いつ	</answer>
+<answer isCorrect="0">いつでも	</answer>
+<answer isCorrect="1">いつか</answer>
+</question>
+<question weight="1" title="" text="　「(デパートでシャツを選びながら）　山田「明るい色のシャツが欲しいんだけど……。」　田中「だったら、これ（	）どう？ 山wさんにすごく似合うと思うよ。」">
+<answer isCorrect="1">なんか	</answer>
+<answer isCorrect="0">ばかり	</answer>
+<answer isCorrect="0">へ	</answer>
+<answer isCorrect="0">に</answer>
+</question>
+<question weight="1" title="" text="(スーパーで）　母親「今、お菜子を買った子がタケルくん？」　子ども「ちがうよ。あそこで泣いて、お菓子を（	）子だよ。」">
+<answer isCorrect="0">欲しい	</answer>
+<answer isCorrect="1">欲しがっている　</answer>
+<answer isCorrect="0">欲しそうな	</answer>
+<answer isCorrect="0">欲しがってみる </answer>
+</question>
+<question weight="1" title="" text="学生「先生、ご相談したいことがあるのですが、授業の後、先生の研究室に よろしいでしようか。」　先生「はい、いいですよ。」">
+<answer isCorrect="0">られても	</answer>
+<answer isCorrect="0">いらっしゃっても　</answer>
+<answer isCorrect="1">うかがっても	</answer>
+<answer isCorrect="0">行かれても</answer>
+</question>
+<question weight="1" title="" text="A 「昨日からずっと頭が痛いんですが、どこかいい病院を知りませんか。」 B「そうですねえ、ABC病院に行って（	）。」">
+<answer isCorrect="0">させてください	</answer>
+<answer isCorrect="0">みてもいいでしようか　</answer>
+<answer isCorrect="0">みさせてほしいのですが	</answer>
+<answer isCorrect="1">みたらどうでしよう</answer>
+</question>
+<question weight="1" title="" text="このお菓子は小羞粉とWと办轱（	）できています。バ夕ーや半軋は使っていません。">
+<answer isCorrect="0">ほどが	</answer>
+<answer isCorrect="0">ほどで	</answer>
+<answer isCorrect="0">だけが	</answer>
+<answer isCorrect="1">だけで</answer>
+</question>
+<question weight="1" title="" text="(会社で）　A 「すみません、山田さんはどこですか。」　B 「山㈩さんは会議中ですが、会議は">
+<answer isCorrect="0">までは	</answer>
+<answer isCorrect="1">までには </answer>
+<answer isCorrect="0">までも	</answer>
+<answer isCorrect="0">までにも</answer>
+</question>
+<question weight="1" title="" text="妹「今日は友だちと晩ご飯を食べてくるね。」　兄「わかった。">
+<answer isCorrect="0">らしいなら </answer>
+<answer isCorrect="0">らしいのに	</answer>
+<answer isCorrect="1">ようなら	</answer>
+<answer isCorrect="0">ようなのに</answer>
+</question>
+<question weight="1" title="" text="弟「お父さん、どこにいるか知らない？」　兄「さっき部屋にいたけど、忙しそうだったよ。」　弟「そうか。じゃあ今は（	）。進学のこと、相談したかったんだけど。」">
+<answer isCorrect="1">話しかけないほうがよさそうだな　</answer>
+<answer isCorrect="0">話しかけなくてもよさそうだな　</answer>
+<answer isCorrect="0">話しかけないほうがいいそうだな　</answer>
+<answer isCorrect="0">話しかけなくてもいいそうだな </answer>
+</question>
+</task>
+<task caption="問題2 文の文法">
+<question weight="1" title="" text="「来週、試合　＿　＿　★　＿　んですか。」　B「すみません。」">
+<answer isCorrect="0">何をやっていた	</answer>
+<answer isCorrect="1">練習に来ないで </answer>
+<answer isCorrect="0">なのに	</answer>
+<answer isCorrect="0">ちっとも </answer>
+</question>
+<question weight="1" title="" text="あの美術館は曜日　＿　＿　★　＿　窓口で確認したほうがいいよ">
+<answer isCorrect="0">閉まる時間	</answer>
+<answer isCorrect="0">違うから	</answer>
+<answer isCorrect="0">によって	</answer>
+<answer isCorrect="1">が</answer>
+</question>
+<question weight="1" title="" text="自分で野菜を作ってみて、おいしい野菜を宵てる　＿　＿　★　＿　わかりました。">
+<answer isCorrect="0">とが	</answer>
+<answer isCorrect="1">大変な	</answer>
+<answer isCorrect="0">ことか	</answer>
+<answer isCorrect="0">どんなに </answer>
+</question>
+<question weight="1" title="" text="「今度のさよならパーティ一で、みんなで歌う歌は、これでいいですか。」 B「すみません。この歌は好きなんですが、少しむずかしいです　＿　＿　★　＿　してほしいです。」">
+<answer isCorrect="1">の	</answer>
+<answer isCorrect="0">ほか	</answer>
+<answer isCorrect="0">に	</answer>
+<answer isCorrect="0">から</answer>
+</question>
+<question weight="1" title="" text="最近、子どもがピアノを淠いたいと言いだした。わたしは、子どもが　＿　＿　★　＿　と思っている。">
+<answer isCorrect="0">したい	</answer>
+<answer isCorrect="0">やりたい	</answer>
+<answer isCorrect="1">やらせて　</answer>
+<answer isCorrect="0">と思うことは</answer>
+</question>
+</task>
+<task caption="﻿問題3 ">
+<question weight="1" title="下の文卓は、3か月前に日本に来た留学生のダニエルさんが、「電車通学をして気が ついたこと」について迸いた作文である。
+" text="問（1） ">
+<answer isCorrect="0">1　わかって くるはずです	</answer>
+<answer isCorrect="0">2 わかっていくそうです</answer>
+<answer isCorrect="1">3 わかってきました	</answer>
+<answer isCorrect="0">4 わかっていったようです</answer>
+</question>
+<question weight="1" title="" text="問（1） ">
+<answer isCorrect="0">1　したがって </answer>
+<answer isCorrect="0">2 つまり	</answer>
+<answer isCorrect="0">3 たとえば </answer>
+<answer isCorrect="1">4 それから</answer>
+</question>
+<question weight="1" title="" text="問（1） ">
+<answer isCorrect="0">1　ある黹車	</answer>
+<answer isCorrect="0">2	そこの湛車</answer>
+<answer isCorrect="1">3	こういう電車	</answer>
+<answer isCorrect="0">4	どちらかの電車</answer>
+</question>
+<question weight="1" title="" text="問（1） ">
+<answer isCorrect="0">1答えなのか </answer>
+<answer isCorrect="1">2 なぜなのか	</answer>
+<answer isCorrect="0">3 理由なのか </answer>
+<answer isCorrect="0">4 だれなのか</answer>
+</question>
+<question weight="1" title="" text="問（1） ">
+<answer isCorrect="1">1　なるのでしようか	</answer>
+<answer isCorrect="0">2	なったでしよう</answer>
+<answer isCorrect="0">3	なってしまうのです	</answer>
+<answer isCorrect="0">4	なってしまいました</answer>
+</question>
+<question weight="1" title="(1) 中村さんの机の上に、先生からのメモが置いてある。
+中村さん
+おはようございます。
+昨日プリンターが敌_:したので、川名屯気に修理を頼みました。修理の人は、
+10時に来てくれるそうです。わたしは授菜があるので、修理の人が来たら、 プリンタ一の場所に案内をお願いします。
+故降の丨人J容ですが、印刷するときに紙にインクの汚れがついてしまいます。 実際に印刷した紙がブリン夕一のところに趵いてありますから、それを修理の 人に見せて説明してください。
+修理がすんだら、午後のゼミの资料を人数分用意しておいてください。
+下田
+" text="問（1） 修理の人が来たとき、中村さんがしなければならないことは何か。">
+<answer isCorrect="0">1 教室へ下田先生を呼びに行く。</answer>
+<answer isCorrect="0">2	印刷した紙をブリン夕一のところに置く。</answer>
+<answer isCorrect="1">3	修理の人に故睁の状態を説明する。</answer>
+<answer isCorrect="0">4	修理の人にゼミの資料を印刷してもらう。 </answer>
+</question>
+<question weight="1" title="(2) これは、川总先生のゼミの学生に届いたメールである
+" text="問（1）　このメールを見て、参加しない人は、どうしなければならないか。 ">
+<answer isCorrect="0">1 返信の必要はないが、7月3丨日までに記念品代を払う。</answer>
+<answer isCorrect="0">2	返信の必要はないが、8月10日に記念品代を払う。</answer>
+<answer isCorrect="1">3	7月8日までに返信して、7月31日までに記念品代を払う。</answer>
+<answer isCorrect="0">4	7月8日までに返信して、8月10日に記念品代を払う。</answer>
+</question>
+</task>
+<task caption="問題4">
+<question weight="1" title="(3) 先週、うれしいことがあった。
+ほっとしてホテルに戻ったのだが、荷物を整理したとき、問違えて重要な畨類を格てて
+(注）しまった。しかし、気がつかずにその日夜Mく束京に帰ってきた。翌朝気がついて、 あわててホテルに電話をしたら、すぐに杏類を見つけてくれた。そのホテルでは、客が チェックアウトしたあとも部Mのゴミはもう一泊させるのだそうだ。客のことをよく考え たサービスだと感心し、本当にうれしかった。
+(注）ほっとする：安心する
+" text="問（1） うれしいこととあるが\どのようなことか、">
+<answer isCorrect="0">1　会社の難しい問_題がやっと解決できたこと</answer>
+<answer isCorrect="0">2	ホテルの人が2T類の整理をしてくれていたこと</answer>
+<answer isCorrect="1">3	ホテルが#類を捨てずに残しておいてくれたこと</answer>
+<answer isCorrect="0">4	同じ部屋にもう一晚泊まることができたこと </answer>
+</question>
+<question weight="1" title="(4)子どものころのことを思い出してみてください。雲が動物の形に見えたり、壁のしみや 汚れが顔に見えたりしたことはありませんか。また、雨や風の音を聞いて、音楽のようだ と感じたことがある人もいるかもしれません。では、大人になった今はどうでしょう。 多くの人が、大人になると、そのように感じる「子どもの心」をなくしてしまいます。 「子どもの心」を持ち続け、それによって感じたものを音楽や絵で表すことのできる人が、 芸術家なのではないでしょうか。
+" text="問（1） この文草を#いた人は、どんな人が芸術家だと考えているか。">
+<answer isCorrect="0">1 子どものころの経験を大人になっても思い出すことができる人</answer>
+<answer isCorrect="0">2	子どものころの経験を大人になっても音楽や絵で伝えられる人</answer>
+<answer isCorrect="0">3	大人になって「子どもの心」をほとんどなくしてしまった人</answer>
+<answer isCorrect="1">4	大人になっても「子どもの心」で感じたものを音楽や絵で表せる人 </answer>
+</question>
+</task>
+<task caption="問題5">
+<question weight="1" title="(1) わたしは、家の近くを好ロ敗歩していますが、今日はいつもと違う道を歩いてみました。 ぶらぶら歩いていると、どこからか花のいいにおいがしてきました。知っている香りなの に、それがどんな花なのか思い出せませんでした。でも、そのとき丨与然に、昔住んでいた 家のことを思い出しました。
+それは、田舎の、広い庭がある家でした。祖父と祖母も一緒に住んでいて、にぎやかな毎日でした。隣の家の明子ちゃんという女の子と、家の輿にある山に行ったり、近くの
+川に行ったりして、よく一緒に遊びました。なつかしい思い出です。
+どうしてあの時、昔住んでいた家のことを思い出したのか、わたしは不思議でした。家 に帰ってから、昔の写真や祖父、祖战の写真を見ながら、しばらく考えました。そして、
+昔住んでいた家の庭には、春になると、白くて小さな、かわいい花がたくさん咲いていた ことを思い出しました。その花は、今日道を歩いていたときの、あの花と同じ香りだった のです。 
+" text="問（1） それとあるが、何のことか。">
+<answer isCorrect="0">1　敗歩の途中で見た、花が咲いている家</answer>
+<answer isCorrect="0">2	昔住んでいた家によく似ている家</answer>
+<answer isCorrect="1">3	子どものころ、自分が住んでいた家</answer>
+<answer isCorrect="0">4	昔一緒によく遊んだ明子ちゃんの家</answer>
+</question>
+<question weight="1" title="" text="問（1） なつかしい思い出とあるが、例えばどんな思い出だとg•っているか。">
+<answer isCorrect="0">1　隣の家の広い庭によく行った。</answer>
+<answer isCorrect="0">2	祖父と祖母がよく遊びに来た。</answer>
+<answer isCorrect="0">3	庭で明子ちゃんと花を見た。</answer>
+<answer isCorrect="1">4　友達と一緒に山や川で遊んだ。 </answer>
+</question>
+<question weight="1" title="" text="問（1） この文草を#いた人は、散歩のときに昔住んでいた家のことを思い出したのはなぜだ と考えているか。">
+<answer isCorrect="1">1　昔住んでいた家の庭に咲いていたのと冋じ花の香りがしたから</answer>
+<answer isCorrect="0">2	昔住んでいた家の庭に咲いていたのと|a丨じ白い花をW■たから</answer>
+<answer isCorrect="0">3	昔住んでいた家の近くの逍に咲いていたのと同じ花の香りがしたから</answer>
+<answer isCorrect="0">4	昔住んでいた家の近くの道に咲いていたのと同じ白い花を見たから </answer>
+</question>
+<question weight="1" title="(2)日本では、1960年ごろから町に逍路ゃビルが次々につくられ、公阑ゃ空き地が少しずつ
+けず削られてきた。このような町の変化によって、屋外で子どもの遊ぶ場所が減少した。 そして、子どもの遊び方も変化してきた。昔は子どもは外で遊ぶことが多かったが、今は —人で、室内でテレビを見たり、ゲームをしたりすることが多い。
+このことは、二つの点で子どもたちに重大な影髀を与えた。一つ目は「体力」への影影響 である。子どもの体力と運動に閲する調*では、走る、跳ぶ、投げるなどの雄礎的な体力 は昔より落ちている。外で体を動かして遊ぶ機会が減ったことが、M大の®因だと考えら れている。
+二つ目は「付き合い方」への影-である。昔は、近所の子どもが一緒に外で遊び、 年齢や個人による違いを受け入れて、付き合い方を学沔した。しかし、今は部屋で一人で 過ごす時間が長くなり、人間関係がうまく作れない子どもが増えてしまった。
+これからも日本の町は発展していくだろうが、それが子どもに与える影赞:も忘れては いけない。
+(注）空き地：述物が逮っていない、使われていない土地
+" text="問（1） このことは、何を指しているか。">
+<answer isCorrect="0">1 町の中に公阑や子どもの遊ぶ場所が増えてきたこと</answer>
+<answer isCorrect="0">2	昔は子どもが家の外で遊ぶことが多かったこと</answer>
+<answer isCorrect="1">3	子どもが一人で家の中で遊ぶようになったこと</answer>
+<answer isCorrect="0">4	以前に比べて子どもの体力がなくなってきたこと</answer>
+</question>
+<question weight="1" title="" text="問（1） この文章では、子どもに見られる変化には、例えばどんなものがあると言っているか ">
+<answer isCorrect="0">1 外で一人で遊ぶ時間が少なくなって、体力が落ちている。</answer>
+<answer isCorrect="1">2	体を動かさないで遊ぶことが塯えて、体力が落ちている。</answer>
+<answer isCorrect="0">3	友達との遊びの中で、よい付き合い方が学習できるようになった。</answer>
+<answer isCorrect="0">4	テレビやゲームから、よい付き合い方が学習できるようになった。</answer>
+</question>
+<question weight="1" title="" text="問（1） この文草で一番言いたいことは何か。">
+<answer isCorrect="1">1 町の発展が、子どもに悪い影響を与えていることに注意しなくてはいけない。</answer>
+<answer isCorrect="0">2	町が発城しない場合、子どもにも悪い影Wが出ることを忘れてはいけない。</answer>
+<answer isCorrect="0">3 子どもに悪い影響が出ているので、町を発展する前の状態に戻したほうがいい。</answer>
+<answer isCorrect="0">4 子どもに悪い影輝を与えてしまうことはあるが、町は_5&偁したほうがいい。 </answer>
+</question>
+</task>
+<task caption="問題6 つぎの文章を読んで、質問に答えなさい。答えは、 よいものを一つえらびなさい。">
+<question weight="1" title="現在、日本で農菜をしている人は、約200万人。40年前に比べると、その数は3分の 1以下に減っている。そして、農業をしている人の60%以上は65歳以上のお年铬りだ。 この状態を変えようと、最近いろいろな農築のやり方が考えられているそうだ。
+その一つは、これまでのように家族で農業をするのではなく、多くの人が働く「会社」 の形で殷業をするというものだ。このような会社の一つに「あおぞら」がある。「あおぞ ら」では今までにないいくつかの工夫によって、若者も脚きやすい環境を作っている。
+第一の工夫は「決まった給料を払うこと」。　は自然が相手なので、どうしても収入 が多い時と少ない時が出てしまう。しかし、一年中いろいろな棰類の野菜を作ることで、 一つがだめでも他の野菜でカバーできるようにし、悔月同じ給料が払えるようにする。
+第二の工夫は「休めるようにすること」。社員はみんな違う日に休みを取る。社Mが大勢 いるので、それぞれが順番に休みを取るようにすれば、それほど多くはないが、みんなが きちんと休めるのだ。
+第三の工夫は「S裳を教えること」。土に触ったことが全然ないような人には、経験者 が農業を一からきちんと教える。
+このような工夫は若者にも伝わり、「あおぞら」には梅年ぬ龙にチヤレンジしたいと③
+いう若者が大勢人ってきて、経営もうまくいっているそうだ。
+そして、それは新しい農業の形として期待されている。 
+" text="問（1） ①この状態とあるが、何か。">
+<answer isCorrect="1">1　農業をする人が大きく減って、半分以上がお年寄りになったこと</answer>
+<answer isCorrect="0">2	農菜をする人が大きく減って、半分以上が若者になったこと</answer>
+<answer isCorrect="0">3	K策をする人が少し減って、お年寄りの割合が垧えていること</answer>
+<answer isCorrect="0">4	鹿菜をする人が少し減って、若者の割合が埚えていること </answer>
+</question>
+<question weight="1" title="" text="問（1） ②いくつかの工夫とあるが、例えばどんな工夫か。">
+<answer isCorrect="0">1　多い月や少ない月があるが、毎月給料が払えるようにする。</answer>
+<answer isCorrect="0">2	一年中、一種類の野菜を作り続けるようにする。</answer>
+<answer isCorrect="0">3	社貝みんなが、土曜日と日曜日に休めるようにする。</answer>
+<answer isCorrect="1">4	経験がない人には、農業の基礎から教えるようにする。</answer>
+</question>
+<question weight="1" title="" text="問（1） ③「あおぞら」には飪年鹿菜にチャレンジしたいという若者が大勢人ってきてとあ るが、それはどうしてだと言っているか。">
+<answer isCorrect="0">1　「あおぞら」では、休みをたくさん取ることができるから</answer>
+<answer isCorrect="0">2	「あおぞら」では、会社経営の方法を教えてもらえるから</answer>
+<answer isCorrect="0">3	「あおぞら」は、昔からの燬龙のやり方を守っているから</answer>
+<answer isCorrect="1">4	「あおぞら」は、仕事がしやすい環境を作っているから</answer>
+</question>
+<question weight="1" title="" text="問（1） この文草全体のテーマは、何か。">
+<answer isCorrect="0">1お年寄りと農業 </answer>
+<answer isCorrect="1">2これからの農業 </answer>
+<answer isCorrect="0">3家族で行う農業</answer>
+<answer isCorrect="0">4 経験者に教わる農業</answer>
+</question>
+</task>
+<task caption="問題7 右のページは、「XYZ旅行社2月の旅行Jの案内である。これを読んで、下の 質問に答えなさい。答えは、1• 2 • 3 • 4から最もよいものを一つえらびなさい。">
+<question weight="1" title="" text="問（1） リンさんは、スキーをしたいと思っている。スキー用具を持っていないので、 無料で用具を借りられる旅行がいい。また、ぜひ温泉旅館に泊まりたいと思っている。 リンさんの希望に合うのは、どの旅行か。">
+<answer isCorrect="0">1①</answer>
+<answer isCorrect="1">2②</answer>
+<answer isCorrect="0">3③</answer>
+<answer isCorrect="0">4④</answer>
+</question>
+<question weight="1" title="" text="問（1） キムさんは、「みんなで沖縄4闩間」の2月25日出発の旅行に参加する。料金を 旅行社で支払う場合、いつまでに払わなければならないか。">
+<answer isCorrect="0">1　2月18日</answer>
+<answer isCorrect="0">2	2月20日</answer>
+<answer isCorrect="1">3	2月22日</answer>
+<answer isCorrect="0">4	2月25日 </answer>
+</question>
+</task>
+</section>
+<section name="聴解">
+<task caption="問題1">
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (1).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (2).mp3 3＿2\2012_01_listen_quiz1.jpg ">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="1">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (3).mp3">
+<answer isCorrect="1">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (4).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (5).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="1">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (6).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+</task>
+<task caption="問題2">
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (7).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="1">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (8).mp3">
+<answer isCorrect="1">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (9).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="1">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (10).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (11).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="1">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (12).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="1">4</answer>
+</question>
+</task>
+<task caption="問題3">
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (13).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (14).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (15).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="1">4</answer>
+</question>
+</task>
+<task caption="問題4">
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (16).mp3 3＿2\2012_01_listen_quiz2.jpg ">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (17).mp3 3＿2\2012_01_listen_quiz3.jpg ">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="1">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (18).mp3 3＿2\2012_01_listen_quiz4.jpg ">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (19).mp3 3＿2\2012_01_listen_quiz5.jpg ">
+<answer isCorrect="1">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+</task>
+<task caption="問題5">
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (20).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="1">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (21).mp3  ">
+<answer isCorrect="1">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (22).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="1">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (23).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (24).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (25).mp3">
+<answer isCorrect="1">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (26).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="1">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+<question weight="1" title="" text="" imgRef="" audioRef="3＿2\n3_2012 (27).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="1">2</answer>
+<answer isCorrect="0">3</answer>
+<answer isCorrect="0">4</answer>
+</question>
+</task>
+</section>
+</test>
