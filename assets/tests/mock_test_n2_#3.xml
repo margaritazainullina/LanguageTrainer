@@ -2,368 +2,368 @@
 <section name="文字・語彙">
 <task caption="問題Ⅰ 次の下線をつけたことばは、どのように読になすか。その読に方をそれぞれの1234から一つ選びなさい。">
 <question weight="1" title="問（1） 話しあいで決まったことを記録する。。" text="決まった ">
-<answer isCorrect="1">きまった </answer>
-<answer isCorrect="0">おさまった </answer>
-<answer isCorrect="0">かたまった </answer>
+<answer isCorrect="1">きまった</answer>
+<answer isCorrect="0">おさまった</answer>
+<answer isCorrect="0">かたまった</answer>
 <answer isCorrect="0">まとまった</answer>
 </question>
 <question weight="1" title="問（1） 話しあいで決まったことを記録する。。" text="記録 ">
-<answer isCorrect="0">きえん </answer>
-<answer isCorrect="1">きろく </answer>
-<answer isCorrect="0">きじゅつ </answer>
+<answer isCorrect="0">きえん</answer>
+<answer isCorrect="1">きろく</answer>
+<answer isCorrect="0">きじゅつ</answer>
 <answer isCorrect="0">きりょく</answer>
 </question>
 <question weight="1" title="問（2） 子どもは成長するにしたがって知恵がつく。" text="成長 ">
-<answer isCorrect="0">せいなが </answer>
-<answer isCorrect="0">ぜいなが </answer>
-<answer isCorrect="1">せいちょう </answer>
+<answer isCorrect="0">せいなが</answer>
+<answer isCorrect="0">ぜいなが</answer>
+<answer isCorrect="1">せいちょう</answer>
 <answer isCorrect="0">ぜいちょう</answer>
 </question>
 <question weight="1" title="問（2） 子どもは成長するにしたがって知恵がつく。" text="知恵 ">
-<answer isCorrect="0">しえ </answer>
-<answer isCorrect="1">ちえ </answer>
-<answer isCorrect="0">しけい </answer>
+<answer isCorrect="0">しえ</answer>
+<answer isCorrect="1">ちえ</answer>
+<answer isCorrect="0">しけい</answer>
 <answer isCorrect="0">ちけい</answer>
 </question>
 <question weight="1" title="問（3） このことについて例外は認めません。" text="例外 ">
-<answer isCorrect="0">れがい </answer>
-<answer isCorrect="1">れいがい </answer>
-<answer isCorrect="0">れつがい </answer>
+<answer isCorrect="0">れがい</answer>
+<answer isCorrect="1">れいがい</answer>
+<answer isCorrect="0">れつがい</answer>
 <answer isCorrect="0">れんがい</answer>
 </question>
 <question weight="1" title="問（3） このことについて例外は認めません。" text="認めません ">
-<answer isCorrect="0">すすめません </answer>
-<answer isCorrect="0">つとめません </answer>
-<answer isCorrect="0">ふくめません </answer>
+<answer isCorrect="0">すすめません</answer>
+<answer isCorrect="0">つとめません</answer>
+<answer isCorrect="0">ふくめません</answer>
 <answer isCorrect="1">みとめません</answer>
 </question>
 <question weight="1" title="問（4） エンジンに異常があるという連絡があった。" text="異常 ">
-<answer isCorrect="1">いじょう </answer>
-<answer isCorrect="0">こしょう </answer>
-<answer isCorrect="0">ししょう </answer>
+<answer isCorrect="1">いじょう</answer>
+<answer isCorrect="0">こしょう</answer>
+<answer isCorrect="0">ししょう</answer>
 <answer isCorrect="0">ひじょう</answer>
 </question>
 <question weight="1" title="問（4） エンジンに異常があるという連絡があった。" text="連絡 ">
-<answer isCorrect="0">てんかく </answer>
-<answer isCorrect="0">てんらく </answer>
-<answer isCorrect="0">れんかく </answer>
+<answer isCorrect="0">てんかく</answer>
+<answer isCorrect="0">てんらく</answer>
+<answer isCorrect="0">れんかく</answer>
 <answer isCorrect="1">れんらく</answer>
 </question>
 <question weight="1" title="問（5） この機械は操作が比較的簡単です。" text="操作 ">
-<answer isCorrect="0">そうさく </answer>
-<answer isCorrect="0">ぞうさく </answer>
-<answer isCorrect="1">そうさ </answer>
+<answer isCorrect="0">そうさく</answer>
+<answer isCorrect="0">ぞうさく</answer>
+<answer isCorrect="1">そうさ</answer>
 <answer isCorrect="0">ぞうさ</answer>
 </question>
 <question weight="1" title="問（5） この機械は操作が比較的簡単です。" text="比較的 ">
-<answer isCorrect="1">ひかくてき </answer>
-<answer isCorrect="0">ひがくてき </answer>
-<answer isCorrect="0">ひこうてき </answer>
+<answer isCorrect="1">ひかくてき</answer>
+<answer isCorrect="0">ひがくてき</answer>
+<answer isCorrect="0">ひこうてき</answer>
 <answer isCorrect="0">ひごうてき</answer>
 </question>
 <question weight="1" title="問（6） この政党から総理大臣が出たことはない。" text="政党 ">
-<answer isCorrect="0">せいと </answer>
-<answer isCorrect="1">せいとう </answer>
-<answer isCorrect="0">せいど </answer>
+<answer isCorrect="0">せいと</answer>
+<answer isCorrect="1">せいとう</answer>
+<answer isCorrect="0">せいど</answer>
 <answer isCorrect="0">せいどう</answer>
 </question>
 <question weight="1" title="問（6） この政党から総理大臣が出たことはない。" text="大臣 ">
-<answer isCorrect="0">たいしん </answer>
-<answer isCorrect="0">たいじん </answer>
-<answer isCorrect="0">だいしん </answer>
+<answer isCorrect="0">たいしん</answer>
+<answer isCorrect="0">たいじん</answer>
+<answer isCorrect="0">だいしん</answer>
 <answer isCorrect="1">だいじん</answer>
 </question>
 <question weight="1" title="問（7） この説は誤りだと仮定してみよう" text="誤り ">
-<answer isCorrect="1">あやまり </answer>
-<answer isCorrect="0">いつわり </answer>
-<answer isCorrect="0">こだわり </answer>
+<answer isCorrect="1">あやまり</answer>
+<answer isCorrect="0">いつわり</answer>
+<answer isCorrect="0">こだわり</answer>
 <answer isCorrect="0">さだまり</answer>
 </question>
 <question weight="1" title="問（7） この説は誤りだと仮定してみよう" text="仮定 ">
-<answer isCorrect="1">かてい </answer>
-<answer isCorrect="0">かりてい </answer>
-<answer isCorrect="0">はんてい </answer>
+<answer isCorrect="1">かてい</answer>
+<answer isCorrect="0">かりてい</answer>
+<answer isCorrect="0">はんてい</answer>
 <answer isCorrect="0">ばんてい</answer>
 </question>
 <question weight="1" title="問（8） 昨年度の日本における総医療費は３０兆３５８３億円であった。" text="医療 ">
-<answer isCorrect="0">いりゅう </answer>
-<answer isCorrect="1">いりょう </answer>
-<answer isCorrect="0">ちりゅう </answer>
+<answer isCorrect="0">いりゅう</answer>
+<answer isCorrect="1">いりょう</answer>
+<answer isCorrect="0">ちりゅう</answer>
 <answer isCorrect="0">ちりょう</answer>
 </question>
 <question weight="1" title="問（8） 昨年度の日本における総医療費は３０兆３５８３億円であった。" text="兆 ">
-<answer isCorrect="0">ちゅ </answer>
-<answer isCorrect="0">ちゅう </answer>
-<answer isCorrect="0">ちょ </answer>
+<answer isCorrect="0">ちゅ</answer>
+<answer isCorrect="0">ちゅう</answer>
+<answer isCorrect="0">ちょ</answer>
 <answer isCorrect="1">ちょう</answer>
 </question>
 <question weight="1" title="問（8） 昨年度の日本における総医療費は３０兆３５８３億円であった。" text="億 ">
-<answer isCorrect="1">おく </answer>
-<answer isCorrect="0">おうく </answer>
-<answer isCorrect="0">おくう </answer>
+<answer isCorrect="1">おく</answer>
+<answer isCorrect="0">おうく</answer>
+<answer isCorrect="0">おくう</answer>
 <answer isCorrect="0">おっく</answer>
 </question>
 <question weight="1" title="問（9） 世界の主要都市の暮らしやすさについて調査する。" text="主要 ">
-<answer isCorrect="0">しゅよ </answer>
-<answer isCorrect="1">しゅよう </answer>
-<answer isCorrect="0">しゅうよ </answer>
+<answer isCorrect="0">しゅよ</answer>
+<answer isCorrect="1">しゅよう</answer>
+<answer isCorrect="0">しゅうよ</answer>
 <answer isCorrect="0">しゅうよう</answer>
 </question>
 <question weight="1" title="問（9） 世界の主要都市の暮らしやすさについて調査する。" text="暮らし ">
-<answer isCorrect="0">ならし </answer>
-<answer isCorrect="0">てらし </answer>
-<answer isCorrect="0">さらし </answer>
+<answer isCorrect="0">ならし</answer>
+<answer isCorrect="0">てらし</answer>
+<answer isCorrect="0">さらし</answer>
 <answer isCorrect="1">くらし</answer>
 </question>
 <question weight="1" title="問（9） 世界の主要都市の暮らしやすさについて調査する。" text="調査 ">
-<answer isCorrect="1">ちょうさ </answer>
-<answer isCorrect="0">こうさ </answer>
-<answer isCorrect="0">しんさ </answer>
+<answer isCorrect="1">ちょうさ</answer>
+<answer isCorrect="0">こうさ</answer>
+<answer isCorrect="0">しんさ</answer>
 <answer isCorrect="0">けんさ</answer>
 </question>
 </task>
 <task caption="問題Ⅱ 次の文の下線をつけたことばは、どのような漢字を書きますか。その漢字をそれぞれの1、2、3、4から一つ選びなさい。">
 <question weight="1" title="問（1） もうしこみ書のけいしきがへんこうされた。" text="もうしこみ ">
-<answer isCorrect="0">甲し込み </answer>
-<answer isCorrect="1">申し込み </answer>
-<answer isCorrect="0">甲し混み </answer>
+<answer isCorrect="0">甲し込み</answer>
+<answer isCorrect="1">申し込み</answer>
+<answer isCorrect="0">甲し混み</answer>
 <answer isCorrect="0">申し混み</answer>
 </question>
 <question weight="1" title="問（1） もうしこみ書のけいしきがへんこうされた。" text="けいしき ">
-<answer isCorrect="0">刑式 </answer>
-<answer isCorrect="0">刑武 </answer>
-<answer isCorrect="1">形式 </answer>
+<answer isCorrect="0">刑式</answer>
+<answer isCorrect="0">刑武</answer>
+<answer isCorrect="1">形式</answer>
 <answer isCorrect="0">形武</answer>
 </question>
 <question weight="1" title="問（1） もうしこみ書のけいしきがへんこうされた。" text="へんこう ">
-<answer isCorrect="0">変化 </answer>
-<answer isCorrect="1">変更 </answer>
-<answer isCorrect="0">変則 </answer>
+<answer isCorrect="0">変化</answer>
+<answer isCorrect="1">変更</answer>
+<answer isCorrect="0">変則</answer>
 <answer isCorrect="0">変換</answer>
 </question>
 <question weight="1" title="問（2） みなさん、せっきょくてきにぎろんにさんかしてください" text="せっきょくてき ">
-<answer isCorrect="0">責局的 </answer>
-<answer isCorrect="0">責極的 </answer>
-<answer isCorrect="0">積局的 </answer>
+<answer isCorrect="0">責局的</answer>
+<answer isCorrect="0">責極的</answer>
+<answer isCorrect="0">積局的</answer>
 <answer isCorrect="1">積極的</answer>
 </question>
 <question weight="1" title="問（2） みなさん、せっきょくてきにぎろんにさんかしてください" text="ぎろん ">
-<answer isCorrect="0">儀論 </answer>
-<answer isCorrect="0">儀諭 </answer>
-<answer isCorrect="1">議論 </answer>
+<answer isCorrect="0">儀論</answer>
+<answer isCorrect="0">儀諭</answer>
+<answer isCorrect="1">議論</answer>
 <answer isCorrect="0">議諭</answer>
 </question>
 <question weight="1" title="問（2） みなさん、せっきょくてきにぎろんにさんかしてください" text="さんか ">
-<answer isCorrect="1">参加 </answer>
-<answer isCorrect="0">参画 </answer>
-<answer isCorrect="0">賛加 </answer>
+<answer isCorrect="1">参加</answer>
+<answer isCorrect="0">参画</answer>
+<answer isCorrect="0">賛加</answer>
 <answer isCorrect="0">賛画</answer>
 </question>
 <question weight="1" title="問（3） たにのそこから発見されたこうぶつは、たいへんめずらしいものらしい。" text="たに ">
-<answer isCorrect="1">谷 </answer>
-<answer isCorrect="0">俗 </answer>
-<answer isCorrect="0">浴 </answer>
+<answer isCorrect="1">谷</answer>
+<answer isCorrect="0">俗</answer>
+<answer isCorrect="0">浴</answer>
 <answer isCorrect="0">容</answer>
 </question>
 <question weight="1" title="問（3） たにのそこから発見されたこうぶつは、たいへんめずらしいものらしい。" text="そこ ">
-<answer isCorrect="1">底 </answer>
-<answer isCorrect="0">低 </answer>
-<answer isCorrect="0">抵 </answer>
+<answer isCorrect="1">底</answer>
+<answer isCorrect="0">低</answer>
+<answer isCorrect="0">抵</answer>
 <answer isCorrect="0">邸</answer>
 </question>
 <question weight="1" title="問（3） たにのそこから発見されたこうぶつは、たいへんめずらしいものらしい。" text="こうぶつ ">
-<answer isCorrect="0">公物 </answer>
-<answer isCorrect="0">高物 </answer>
-<answer isCorrect="0">貢物 </answer>
+<answer isCorrect="0">公物</answer>
+<answer isCorrect="0">高物</answer>
+<answer isCorrect="0">貢物</answer>
 <answer isCorrect="1">鉱物</answer>
 </question>
 <question weight="1" title="問（3） たにのそこから発見されたこうぶつは、たいへんめずらしいものらしい。" text="めずらしい ">
-<answer isCorrect="0">妙しい </answer>
-<answer isCorrect="1">珍しい </answer>
-<answer isCorrect="0">貴しい </answer>
+<answer isCorrect="0">妙しい</answer>
+<answer isCorrect="1">珍しい</answer>
+<answer isCorrect="0">貴しい</answer>
 <answer isCorrect="0">稀しい</answer>
 </question>
 <question weight="1" title="問（4） えいきゅうにせんそうが起きないようにねがう。" text="えいきゅう ">
-<answer isCorrect="1">永久 </answer>
-<answer isCorrect="0">永遠 </answer>
-<answer isCorrect="0">恒久 </answer>
+<answer isCorrect="1">永久</answer>
+<answer isCorrect="0">永遠</answer>
+<answer isCorrect="0">恒久</answer>
 <answer isCorrect="0">恒遠</answer>
 </question>
 <question weight="1" title="問（4） えいきゅうにせんそうが起きないようにねがう。" text="せんそう ">
-<answer isCorrect="0">戦双 </answer>
-<answer isCorrect="1">戦争 </answer>
-<answer isCorrect="0">闘双 </answer>
+<answer isCorrect="0">戦双</answer>
+<answer isCorrect="1">戦争</answer>
+<answer isCorrect="0">闘双</answer>
 <answer isCorrect="0">闘争</answer>
 </question>
 <question weight="1" title="問（4） えいきゅうにせんそうが起きないようにねがう。" text="ねがう ">
-<answer isCorrect="0">求う </answer>
-<answer isCorrect="0">祈う </answer>
-<answer isCorrect="0">望う </answer>
+<answer isCorrect="0">求う</answer>
+<answer isCorrect="0">祈う</answer>
+<answer isCorrect="0">望う</answer>
 <answer isCorrect="1">願う</answer>
 </question>
 <question weight="1" title="問（5） どんなに健康にじしんがあっても、ゆだんしているとかぜをひく。" text="じしん ">
-<answer isCorrect="0">自身 </answer>
-<answer isCorrect="0">自真 </answer>
-<answer isCorrect="1">自信 </answer>
+<answer isCorrect="0">自身</answer>
+<answer isCorrect="0">自真</answer>
+<answer isCorrect="1">自信</answer>
 <answer isCorrect="0">自伸</answer>
 </question>
 <question weight="1" title="問（5） どんなに健康にじしんがあっても、ゆだんしているとかぜをひく。" text="ゆだん ">
-<answer isCorrect="0">由断 </answer>
-<answer isCorrect="0">由談 </answer>
-<answer isCorrect="1">油断 </answer>
+<answer isCorrect="0">由断</answer>
+<answer isCorrect="0">由談</answer>
+<answer isCorrect="1">油断</answer>
 <answer isCorrect="0">油談</answer>
 </question>
 <question weight="1" title="問（6） あくてんこうのため、荷物のとうちゃくがおくれた。" text="あくてんこう ">
-<answer isCorrect="0">悪天向 </answer>
-<answer isCorrect="0">悪天荒 </answer>
-<answer isCorrect="0">悪天航 </answer>
+<answer isCorrect="0">悪天向</answer>
+<answer isCorrect="0">悪天荒</answer>
+<answer isCorrect="0">悪天航</answer>
 <answer isCorrect="1">悪天候</answer>
 </question>
 <question weight="1" title="問（6） あくてんこうのため、荷物のとうちゃくがおくれた。" text="とうちゃく ">
-<answer isCorrect="0">至着 </answer>
-<answer isCorrect="1">到着 </answer>
-<answer isCorrect="0">致着 </answer>
+<answer isCorrect="0">至着</answer>
+<answer isCorrect="1">到着</answer>
+<answer isCorrect="0">致着</answer>
 <answer isCorrect="0">倒着</answer>
 </question>
 <question weight="1" title="問（6） あくてんこうのため、荷物のとうちゃくがおくれた。" text="おくれた ">
-<answer isCorrect="0">延れた </answer>
-<answer isCorrect="0">留れた </answer>
-<answer isCorrect="1">遅れた </answer>
+<answer isCorrect="0">延れた</answer>
+<answer isCorrect="0">留れた</answer>
+<answer isCorrect="1">遅れた</answer>
 <answer isCorrect="0">滞れた</answer>
 </question>
 <question weight="1" title="問（7） きょうどうで部屋を借りれば、家賃をせつやくできる。" text="きょうどう ">
-<answer isCorrect="1">共同 </answer>
-<answer isCorrect="0">共働 </answer>
-<answer isCorrect="0">供同 </answer>
+<answer isCorrect="1">共同</answer>
+<answer isCorrect="0">共働</answer>
+<answer isCorrect="0">供同</answer>
 <answer isCorrect="0">供働</answer>
 </question>
 <question weight="1" title="問（7） きょうどうで部屋を借りれば、家賃をせつやくできる。" text="せつやく ">
-<answer isCorrect="0">倹約 </answer>
-<answer isCorrect="0">倹略 </answer>
-<answer isCorrect="1">節約 </answer>
+<answer isCorrect="0">倹約</answer>
+<answer isCorrect="0">倹略</answer>
+<answer isCorrect="1">節約</answer>
 <answer isCorrect="0">節略</answer>
 </question>
 </task>
 <task caption="﻿問題Ⅲ 次の51から55は、ことばの意味を説明したのです。その説明にあうことばを1、2、3、4から一つ選びなさい。">
-<question weight="1" title="" text="スピーチが終わると，会場から＿＿が起こった。">
-<answer isCorrect="0">握手 </answer>
-<answer isCorrect="0">応援 </answer>
-<answer isCorrect="1">拍手 </answer>
+<question weight="2" title="" text="スピーチが終わると，会場から＿＿が起こった。">
+<answer isCorrect="0">握手</answer>
+<answer isCorrect="0">応援</answer>
+<answer isCorrect="1">拍手</answer>
 <answer isCorrect="0">理解</answer>
 </question>
-<question weight="1" title="" text="転ばないように＿＿に気をつけてください。">
-<answer isCorrect="1">足元 </answer>
-<answer isCorrect="0">足早 </answer>
-<answer isCorrect="0">足音 </answer>
+<question weight="2" title="" text="転ばないように＿＿に気をつけてください。">
+<answer isCorrect="1">足元</answer>
+<answer isCorrect="0">足早</answer>
+<answer isCorrect="0">足音</answer>
 <answer isCorrect="0">足跡</answer>
 </question>
-<question weight="1" title="" text="今度の打ちあわせは土曜日です。＿＿、時間は後ほどお伝えします。">
-<answer isCorrect="1">なお </answer>
-<answer isCorrect="0">さらに </answer>
-<answer isCorrect="0">むしろ </answer>
+<question weight="2" title="" text="今度の打ちあわせは土曜日です。＿＿、時間は後ほどお伝えします。">
+<answer isCorrect="1">なお</answer>
+<answer isCorrect="0">さらに</answer>
+<answer isCorrect="0">むしろ</answer>
 <answer isCorrect="0">それでも</answer>
 </question>
-<question weight="1" title="" text="みそしるをつくって、ごはんを＿＿。">
-<answer isCorrect="0">きざんだ </answer>
-<answer isCorrect="1">たいた </answer>
-<answer isCorrect="0">わかした </answer>
+<question weight="2" title="" text="みそしるをつくって、ごはんを＿＿。">
+<answer isCorrect="0">きざんだ</answer>
+<answer isCorrect="1">たいた</answer>
+<answer isCorrect="0">わかした</answer>
 <answer isCorrect="0">むいた</answer>
 </question>
-<question weight="1" title="" text="何があったのか＿＿話していただけませんか。">
-<answer isCorrect="0">するどく </answer>
-<answer isCorrect="0">すまなく </answer>
-<answer isCorrect="0">けわしく </answer>
+<question weight="2" title="" text="何があったのか＿＿話していただけませんか。">
+<answer isCorrect="0">するどく</answer>
+<answer isCorrect="0">すまなく</answer>
+<answer isCorrect="0">けわしく</answer>
 <answer isCorrect="1">くわしく</answer>
 </question>
-<question weight="1" title="" text="弱点を＿＿して、オリンピック選手に選ばれた。">
-<answer isCorrect="0">修正 </answer>
-<answer isCorrect="0">修理 </answer>
-<answer isCorrect="0">回復 </answer>
+<question weight="2" title="" text="弱点を＿＿して、オリンピック選手に選ばれた。">
+<answer isCorrect="0">修正</answer>
+<answer isCorrect="0">修理</answer>
+<answer isCorrect="0">回復</answer>
 <answer isCorrect="1">克服</answer>
 </question>
-<question weight="1" title="" text="田中さんは毎回予習を＿＿やってくるまじめな学生だ。">
-<answer isCorrect="0">ふたたび </answer>
-<answer isCorrect="0">そんなに </answer>
-<answer isCorrect="1">ちゃんと </answer>
+<question weight="2" title="" text="田中さんは毎回予習を＿＿やってくるまじめな学生だ。">
+<answer isCorrect="0">ふたたび</answer>
+<answer isCorrect="0">そんなに</answer>
+<answer isCorrect="1">ちゃんと</answer>
 <answer isCorrect="0">かわりに</answer>
 </question>
-<question weight="1" title="" text="漢字を書くのは＿＿だが、読むほうは問題ない。">
-<answer isCorrect="0">得意 </answer>
-<answer isCorrect="0">敬意 </answer>
-<answer isCorrect="0">上手 </answer>
+<question weight="2" title="" text="漢字を書くのは＿＿だが、読むほうは問題ない。">
+<answer isCorrect="0">得意</answer>
+<answer isCorrect="0">敬意</answer>
+<answer isCorrect="0">上手</answer>
 <answer isCorrect="1">苦手</answer>
 </question>
-<question weight="1" title="" text="彼は、今度のコンサートが終わったら歌手を＿＿したいと語った。">
-<answer isCorrect="1">移動 </answer>
-<answer isCorrect="0">引退 </answer>
-<answer isCorrect="0">失業 </answer>
+<question weight="2" title="" text="彼は、今度のコンサートが終わったら歌手を＿＿したいと語った。">
+<answer isCorrect="1">移動</answer>
+<answer isCorrect="0">引退</answer>
+<answer isCorrect="0">失業</answer>
 <answer isCorrect="0">完了</answer>
 </question>
-<question weight="1" title="" text="人間は言葉による＿＿を行う動物である。">
-<answer isCorrect="0">コミュニケーション </answer>
-<answer isCorrect="1">オートメーション </answer>
-<answer isCorrect="0">コレクション </answer>
+<question weight="2" title="" text="人間は言葉による＿＿を行う動物である。">
+<answer isCorrect="0">コミュニケーション</answer>
+<answer isCorrect="1">オートメーション</answer>
+<answer isCorrect="0">コレクション</answer>
 <answer isCorrect="0">ファッション</answer>
 </question>
 </task>
 <task caption="問題Ⅳ 次の51から55は、ことばの意味を説明したのです。その説明にあうことばを1、2、3、4から一つ選びなさい。">
-<question weight="1" title="" text="お金を出すのをいやがる人。">
-<answer isCorrect="0">かち </answer>
-<answer isCorrect="1">けち </answer>
-<answer isCorrect="0">とち </answer>
+<question weight="2" title="" text="お金を出すのをいやがる人。">
+<answer isCorrect="0">かち</answer>
+<answer isCorrect="1">けち</answer>
+<answer isCorrect="0">とち</answer>
 <answer isCorrect="0">ふち</answer>
 </question>
-<question weight="1" title="" text="他人の迷惑を考えないで、行動するようす。">
-<answer isCorrect="1">あつかましい </answer>
-<answer isCorrect="0">あわただしい </answer>
-<answer isCorrect="0">はなはだしい </answer>
+<question weight="2" title="" text="他人の迷惑を考えないで、行動するようす。">
+<answer isCorrect="1">あつかましい</answer>
+<answer isCorrect="0">あわただしい</answer>
+<answer isCorrect="0">はなはだしい</answer>
 <answer isCorrect="0">いさましい</answer>
 </question>
-<question weight="1" title="" text="足りない点を補う。">
-<answer isCorrect="0">パスする </answer>
-<answer isCorrect="0">セットする </answer>
-<answer isCorrect="1">カバーする </answer>
+<question weight="2" title="" text="足りない点を補う。">
+<answer isCorrect="0">パスする</answer>
+<answer isCorrect="0">セットする</answer>
+<answer isCorrect="1">カバーする</answer>
 <answer isCorrect="0">マイナスする</answer>
 </question>
-<question weight="1" title="" text="ものが多すぎて余っている状態。">
-<answer isCorrect="0">多分 </answer>
-<answer isCorrect="0">多量 </answer>
-<answer isCorrect="1">過剰 </answer>
+<question weight="2" title="" text="ものが多すぎて余っている状態。">
+<answer isCorrect="0">多分</answer>
+<answer isCorrect="0">多量</answer>
+<answer isCorrect="1">過剰</answer>
 <answer isCorrect="0">過半数</answer>
 </question>
-<question weight="1" title="" text="川を流れとは反対の方へ進むこと。">
-<answer isCorrect="0">おいかける </answer>
-<answer isCorrect="1">さかのぼる </answer>
-<answer isCorrect="0">たちあがる </answer>
+<question weight="2" title="" text="川を流れとは反対の方へ進むこと。">
+<answer isCorrect="0">おいかける</answer>
+<answer isCorrect="1">さかのぼる</answer>
+<answer isCorrect="0">たちあがる</answer>
 <answer isCorrect="0">とりかえる</answer>
 </question>
 </task>
 <task caption="問題Ⅴ 次の56から60の言葉の使い方として最も適当なものを、1、2、3、4から一つ選びなさい。">
-<question weight="1" title="" text="せっかく">
+<question weight="2" title="" text="せっかく">
 <answer isCorrect="1">１．せっかく休みをとって旅行に来たんだから、仕事のことを考えるのはやめよう。</answer>
 <answer isCorrect="0">２．彼女にせっかくおみやげをあげたら、あらないと言われた。</answer>
 <answer isCorrect="0">３．せっかく教えて下さって、ありがとうございます。</answer>
 <answer isCorrect="0">４．彼はせっかくパソコンを買って、eメールを始めた。</answer>
 </question>
-<question weight="1" title="" text="単なる">
+<question weight="2" title="" text="単なる">
 <answer isCorrect="0">１．あなたはわたしにとって単なる存在です。</answer>
 <answer isCorrect="0">２．祖母は単なる話を何度もくりかえす。</answer>
 <answer isCorrect="0">３．昨日のインタビューは単なる３０分で終わった。</answer>
 <answer isCorrect="1">４．それは単なるうわさだから、気にしないほうがいいよ。</answer>
 </question>
-<question weight="1" title="" text="ふりむく">
+<question weight="2" title="" text="ふりむく">
 <answer isCorrect="0">１．窓から外をふりむいたら、富士山がきれいに見えた。</answer>
 <answer isCorrect="1">２．声をかけられてふりむくと、林先生が立っていた。</answer>
 <answer isCorrect="0">３．どんなことがあっても未来をふりむいて生きていきたい。</answer>
 <answer isCorrect="0">４．下をふりむかずに歩きなさい。</answer>
 </question>
-<question weight="1" title="" text="だらけ">
+<question weight="2" title="" text="だらけ">
 <answer isCorrect="0">１．彼の部屋は汚いだらけだ。</answer>
 <answer isCorrect="0">２．彼は部屋を散らかしだらけだ。</answer>
 <answer isCorrect="0">３．彼の部屋は不潔だらけだ。</answer>
 <answer isCorrect="1">４．彼の部屋はゴミだらけだ。</answer>
 </question>
-<question weight="1" title="" text="いちいち">
+<question weight="2" title="" text="いちいち">
 <answer isCorrect="0">１．すみません、この三つ、いちいち包んでいただけますか。</answer>
 <answer isCorrect="0">２．小山さん、いちいち親切にしてくれてありがとう。</answer>
 <answer isCorrect="1">３．うちの親は私のやることにいちいち文句をつける。</answer>
@@ -371,34 +371,34 @@
 </question>
 </task>
 <task caption="問題Ⅵ 次の６１から６５の下線をつけた言葉の意味に最も近いものを、１，２，３，４から一つ選びなさい。">
-<question weight="1" title="" text="小泉さんはおしゃべりな人だ。">
-<answer isCorrect="0">１．よく飲む </answer>
-<answer isCorrect="0">２．よく食べる </answer>
-<answer isCorrect="1">３．よく話す </answer>
+<question weight="2" title="" text="小泉さんはおしゃべりな人だ。">
+<answer isCorrect="0">１．よく飲む</answer>
+<answer isCorrect="0">２．よく食べる</answer>
+<answer isCorrect="1">３．よく話す</answer>
 <answer isCorrect="0">４．よく怒る</answer>
 </question>
-<question weight="1" title="" text="あの人はおそらくパーティーには出席しないだろう。">
-<answer isCorrect="0">１．たしかに </answer>
-<answer isCorrect="0">２．もちろん </answer>
-<answer isCorrect="0">３．たとえ </answer>
+<question weight="2" title="" text="あの人はおそらくパーティーには出席しないだろう。">
+<answer isCorrect="0">１．たしかに</answer>
+<answer isCorrect="0">２．もちろん</answer>
+<answer isCorrect="0">３．たとえ</answer>
 <answer isCorrect="1">４．たぶん</answer>
 </question>
-<question weight="1" title="" text="スーツケースの重さはやく３キロだ。">
-<answer isCorrect="0">１．あと </answer>
-<answer isCorrect="0">２．もう </answer>
-<answer isCorrect="1">３．およそ </answer>
+<question weight="2" title="" text="スーツケースの重さはやく３キロだ。">
+<answer isCorrect="0">１．あと</answer>
+<answer isCorrect="0">２．もう</answer>
+<answer isCorrect="1">３．およそ</answer>
 <answer isCorrect="0">４．たった</answer>
 </question>
-<question weight="1" title="" text="小野さんに先日のことをおわびした。">
-<answer isCorrect="0">１．怒鳴った </answer>
-<answer isCorrect="1">２．謝った </answer>
-<answer isCorrect="0">３．感謝した </answer>
+<question weight="2" title="" text="小野さんに先日のことをおわびした。">
+<answer isCorrect="0">１．怒鳴った</answer>
+<answer isCorrect="1">２．謝った</answer>
+<answer isCorrect="0">３．感謝した</answer>
 <answer isCorrect="0">４．質問した</answer>
 </question>
-<question weight="1" title="" text="犬がいなくなったので、ほうぼう探しまわった。">
-<answer isCorrect="1">１．あちこち </answer>
-<answer isCorrect="0">２．あれこれ </answer>
-<answer isCorrect="0">３．うろうろ </answer>
+<question weight="2" title="" text="犬がいなくなったので、ほうぼう探しまわった。">
+<answer isCorrect="1">１．あちこち</answer>
+<answer isCorrect="0">２．あれこれ</answer>
+<answer isCorrect="0">３．うろうろ</answer>
 <answer isCorrect="0">４．まごまご</answer>
 </question>
 </task>
@@ -594,8 +594,8 @@
 </task>
 </section>
 <section name="読解・文法">
-<task caption="問題1 次の文章を読んで、後の問いに答えなさい。答えは、1234から最も適当なものを一つ選びなさい。">
-<question weight="1" title="子どもを持ったことのある人なら、三歳の子どもが電話に興味を持つことをご存じだと 思う。会話がとてもおもしろい時期である。話しかければ返事をしてくれる電話に夢中に ならないはずがない。言葉の発達と共に、うちの電話機は子どものおもちゃとなっていった。
+<task caption="問題Ⅰ 次の文章を読んで、後の問いに答えなさい。答えは、1234から最も適当なものを一つ選びなさい。">
+<question weight="2" title="子どもを持ったことのある人なら、三歳の子どもが電話に興味を持つことをご存じだと 思う。会話がとてもおもしろい時期である。話しかければ返事をしてくれる電話に夢中に ならないはずがない。言葉の発達と共に、うちの電話機は子どものおもちゃとなっていった。
 初めのうちは、ジジババ（注１）からの電話の途中で少し話をして喜んでいるだけであったが、 そのうち掛かってくる電話にも①出たがるようになった。（中略）
 次に彼は、番号を押して自分で電話を掛けることに興味を覚えたようである。ジジババの家と、うちの子と話をするのを楽しみにしてくれる叔母にかぎって掛けさせることにし て、この二軒の電話番号を＃０１と＃０２の短縮番号(注２)にしてあげた。彼はほとんど毎日②どちらかに電話をした。
 「ぼくのなまえはあおきいくまです」「四さいになったらおおさわようちえんにいくん だよ」とか、「今日ねおにくとおやさいいっぱいたべたの。あとね、えーとね……」 などなど、彼のおしゃべりにつき合っている叔母もたいへんだなと横で聞いていて思い つつ、③好きにさせておいた。
@@ -625,37 +625,37 @@
 <answer isCorrect="0">３．大人が電話で話している間、外に遊びに行くこと</answer>
 <answer isCorrect="0">４．相手とつながっていない電話をおもちゃにして遊ぶこと</answer>
 </question>
-<question weight="1" title="" text="問（2） ②「どちらかに電話をした」とあるが、筆者(親)は子どもがだれと話していると思っていたか。">
+<question weight="2" title="" text="問（2） ②「どちらかに電話をした」とあるが、筆者(親)は子どもがだれと話していると思っていたか。">
 <answer isCorrect="0">１．おばさんが見知らぬ人</answer>
 <answer isCorrect="0">２．おじいさんかおばあさん</answer>
 <answer isCorrect="1">３．おじいさんかおばあさんかおばさん</answer>
 <answer isCorrect="0">４．おじいさんかおばあさんか見知らぬ人</answer>
 </question>
-<question weight="1" title="" text="問（3） ③「好きにさせておいた」とあるが、だれがだれに何をさせておいたのか。">
+<question weight="2" title="" text="問（3） ③「好きにさせておいた」とあるが、だれがだれに何をさせておいたのか。">
 <answer isCorrect="0">１．母が子どもを友達と遊ばせておいた。</answer>
 <answer isCorrect="0">２．叔母が子どもに電話で話させておいた。</answer>
 <answer isCorrect="1">３．親が子どもに電話をかけさせておいた。</answer>
 <answer isCorrect="0">４．ジジババが子どもを自由にさせておいた。</answer>
 </question>
-<question weight="1" title="" text="問（4） ④「子どもは元気？」とあるが、なぜこのように言ったのか。">
+<question weight="2" title="" text="問（4） ④「子どもは元気？」とあるが、なぜこのように言ったのか。">
 <answer isCorrect="1">１．子どもから全然電話がかかってこないから</answer>
 <answer isCorrect="0">２．親とはよく会うが子どもとは全然会わないから</answer>
 <answer isCorrect="0">３．子どもからときどきしか電話がかかってこないから</answer>
 <answer isCorrect="0">４．親とはよく会うが子どもとはときどきしか会わないから</answer>
 </question>
-<question weight="1" title="" text="問（5） ⑤「事故にでもあったんじゃないか」とあるが、この人は、だれが事故にあったと考えたのか。">
+<question weight="2" title="" text="問（5） ⑤「事故にでもあったんじゃないか」とあるが、この人は、だれが事故にあったと考えたのか。">
 <answer isCorrect="0">１．この人の孫</answer>
 <answer isCorrect="0">２．この人の息子夫婦</answer>
 <answer isCorrect="0">３．電話をかける子どもの親</answer>
 <answer isCorrect="1">４．電話をかけてくる子ども</answer>
 </question>
-<question weight="1" title="" text="問（6） ⑥「孫も一緒だった」とあるが、どういう意味か。">
-<answer isCorrect="0">１．主人と同じ病気で亡くなった。 </answer>
+<question weight="2" title="" text="問（6） ⑥「孫も一緒だった」とあるが、どういう意味か。">
+<answer isCorrect="0">１．主人と同じ病気で亡くなった。</answer>
 <answer isCorrect="0">２．ともだちと同じ幼稚園に入った。</answer>
 <answer isCorrect="0">３．おばあさんと一緒に電話で話した。</answer>
 <answer isCorrect="1">４．息子夫婦と一緒に交通事故にあった。</answer>
 </question>
-<question weight="1" title="" text="問（7） ⑦｢幸運的な間違い電話｣とあるが、なぜ｢幸運的｣なのか。">
+<question weight="2" title="" text="問（7） ⑦｢幸運的な間違い電話｣とあるが、なぜ｢幸運的｣なのか。">
 <answer isCorrect="0">１．めったにかかったこないから</answer>
 <answer isCorrect="1">２．孫のような子どもの声が聞けたから</answer>
 <answer isCorrect="0">３．ちょうど待っていた電話だったから</answer>
@@ -663,7 +663,7 @@
 </question>
 </task>
 <task caption="問題Ⅱ 次の（１）から（３）の文章を読んで、それぞれの問いに対する答えとして最も適当なものを１，２，３，４から一つ選びなさい。">
-<question weight="1" title="(1) ついこの前、近くのお店に買い物に行った時のこと。
+<question weight="2" title="(1) ついこの前、近くのお店に買い物に行った時のこと。
 私がお店を出ようとすると、前に電動三輪車①「ありがとう」という声が聞こえた。驚いて振り返る 私はおじいさんに、とても申し訳ない気がした。お礼を言われるまで、おじいさんにとって自動ドアを通ることが大変だなんて、少しも気付かなかった。結果として親切な行動となったが、それは偶然のことで、親切な気持ちではなかったのだから。
 私には何ともないことでも、苦労する人がいるのだと、実感した出来事だった。 その人の立場にならなければ、なかなか分からないことだけれど、今度こんな状況に出合ったら、すぐに気が付くようにしたい。そして、今度はお礼を言われても、それにこたえられるような、気持ちからの行動にしたい。
 （２００１年１月４日付朝日新聞による）
@@ -675,19 +675,19 @@
 <answer isCorrect="0">３．自分に合わせてゆっくり歩いてくれたと思ったから</answer>
 <answer isCorrect="1">４．自分のために自動ドアを開けてくれたと思ったから</answer>
 </question>
-<question weight="1" title="" text="問（2） 筆者はなぜ②「おじいさんに、とても申し訳ない気がした」のか。">
+<question weight="2" title="" text="問（2） 筆者はなぜ②「おじいさんに、とても申し訳ない気がした」のか。">
 <answer isCorrect="0">１．おじいさんが他の人と間違えて筆者にお礼を言ったから</answer>
 <answer isCorrect="1">２．親切な気持ちからしたのではないのに、ありがとうと言われたから</answer>
 <answer isCorrect="0">３．お礼を言われたのに、おじいさんが自動ドアを通るのを助けてあげなかったから</answer>
 <answer isCorrect="0">４．おじいさんが自動ドアを通るのが大変だと気付かず、ドアを閉めてしまったから</answer>
 </question>
-<question weight="1" title="" text="問（3） 筆者はこれからどうしようと思っているか。">
+<question weight="2" title="" text="問（3） 筆者はこれからどうしようと思っているか。">
 <answer isCorrect="0">１．お礼を言われたから、今度ははっきり返事をしたい</answer>
 <answer isCorrect="1">２．相手のことを考えて、自分から人を助ける行動をしたい</answer>
 <answer isCorrect="0">３．困っているところを助けられたら、必ずお礼を言うようにしたい</answer>
 <answer isCorrect="0">４．自分には何ともないことでも、他の人がいやがることはしないようにしたい</answer>
 </question>
-<question weight="1" title="(2) 首都圏(注１)在住(注２)で４～９歳の子を持つお母さん５００人を対象に実態(注３)調査をしたとこ ろ、子どもだちは年平均４．６回風邪をひき、１０回以上をひく子が１割以上いることがわかった。
+<question weight="2" title="(2) 首都圏(注１)在住(注２)で４～９歳の子を持つお母さん５００人を対象に実態(注３)調査をしたとこ ろ、子どもだちは年平均４．６回風邪をひき、１０回以上をひく子が１割以上いることがわかった。
 「今の子どもは、あなたの子どものころと比べて、風邪をひきやすくなったと感じるか」という問いに対して半数以上が「今の子どもの方がひきやすい」と答え、原因として「外で遊ばなくなったから」「食生活の変化」「体力の減退」などを挙げた。
 子どもが風邪をひいた時の夫の対応(注４)は、「協力的だ」が６割を超えた。夫に協力してほしいこととしては「早く帰宅して」「他の子どもの世話をして」「自分の身の回りのことは自分でして」という回答が多く、「看病してほしい」というのは１割ほど。父親には、看病する能力をあまり期待していないようだ。
 （『サイアス』２０００年３月号による）
@@ -701,19 +701,19 @@
 <answer isCorrect="0">３．1年に１０回程度風邪をひく。</answer>
 <answer isCorrect="1">４．1年に４～５回程度風邪をひく。</answer>
 </question>
-<question weight="1" title="" text="問（2） 母親は、今の子どもについてどう思っているか。">
+<question weight="2" title="" text="問（2） 母親は、今の子どもについてどう思っているか。">
 <answer isCorrect="0">１．風邪をひいたときでも外で遊びたがる。</answer>
 <answer isCorrect="0">２．自分の身の回りのことは自分でできる。</answer>
 <answer isCorrect="0">３．母親が子どもだったころより体力がある。</answer>
 <answer isCorrect="1">４．母親が子どもだったころより風邪をひきやすい。</answer>
 </question>
-<question weight="1" title="" text="問（3） 子どもが風邪をひいたとき、多くの母親は、夫にどうしてほしいと考えているか。">
+<question weight="2" title="" text="問（3） 子どもが風邪をひいたとき、多くの母親は、夫にどうしてほしいと考えているか。">
 <answer isCorrect="1">１．自分自身のことは自分でしてほしい。</answer>
 <answer isCorrect="0">２．家族のために料理や家事をしてほしい。</answer>
 <answer isCorrect="0">３．風邪をひいた子どもの世話をしてほしい。</answer>
 <answer isCorrect="0">４．子どものことは心配しないで仕事をしてほしい。</answer>
 </question>
-<question weight="1" title="(3) ①日本人はだれがほんとうの責任者なのかわかりにくい、と言われている。 日本人と会議をすると、すぐに「それは本社と相談して」と言われるからだ。そ の場で決めてくれない。会議に出ている社員ばかりではない。社員でさえ、いや日本の首相でさえ、その場で一人で決めることはできないである。まわりの一人々と相談して、全員の了解（注）を取って、初めて決定できる。日本人はそれに時間をかける。
+<question weight="2" title="(3) ①日本人はだれがほんとうの責任者なのかわかりにくい、と言われている。 日本人と会議をすると、すぐに「それは本社と相談して」と言われるからだ。そ の場で決めてくれない。会議に出ている社員ばかりではない。社員でさえ、いや日本の首相でさえ、その場で一人で決めることはできないである。まわりの一人々と相談して、全員の了解（注）を取って、初めて決定できる。日本人はそれに時間をかける。
 このことは、よく外国人から批判の対象になってきた。しかし、私はその批判に対して二つのことを言いたい。第一に、②これは日本のことだけではないということだ。実はどこの国にもあること
 である。大統領でも首相でも、何でも一人で決めていたら大変なことになる。まわりと相談するのは当然のことだ。ただ日本のやり方はそれが徹底していて、ほかの国よりきびしいだけなのである。
 第二に、そのおかげで日本人はまとまって次の行動ができるのである。つまり、決定には時間がかかるが、（ ③ ）。
@@ -725,13 +725,13 @@
 <answer isCorrect="0">３．ものごとを決定するとき、外国人の批判をさけているから</answer>
 <answer isCorrect="0">４．ものごとを決定するとき、責任者はいつも本社にいるから</answer>
 </question>
-<question weight="1" title="" text="問（2） ②「これ」は何を指しているか。">
+<question weight="2" title="" text="問（2） ②「これ」は何を指しているか。">
 <answer isCorrect="1">１．ものごとを会議の場だけで決定しないこと</answer>
 <answer isCorrect="0">２．会議に出ている人々で相談して決定すること</answer>
 <answer isCorrect="0">３．大統領や首相にものごとの決定権があること</answer>
 <answer isCorrect="0">４．首相の決定について外国から批判があること</answer>
 </question>
-<question weight="1" title="" text="問（3） （ ③ ）に入るものはどれか。">
+<question weight="2" title="" text="問（3） （ ③ ）に入るものはどれか。">
 <answer isCorrect="0">１．そのために、決定の後から反対があるのだ</answer>
 <answer isCorrect="0">２．その後で、責任者を決めることができるのだ</answer>
 <answer isCorrect="1">３．その後は、反対者もなく計画が進められるのだ</answer>
@@ -762,9 +762,9 @@
 </question>
 <question weight="1" title="(3)多くの老人達の死を目前にして、私は彼らの本当の望みを知ることができた。 それは、彼らが（ ① ）といって死にたい、ということだった。 （ ① ）．．．．．．。それが何を意味しているのか。もちろん、看病してくれた家族への感謝もあるだろう。遠くからかけつけてくれた親族へのお礼もあるかもしれない。だが、本当に彼らがいいたいのは「ああ、いい人生だった」ということではないだろうか。（フレディ松川『死に方の上手な人下手な人』による）
 " text="問（1） （ ① ）に入る言葉として最も適当なものはどれか。">
-<answer isCorrect="0">１．さようなら </answer>
-<answer isCorrect="0">２．よくできた </answer>
-<answer isCorrect="1">３．ありがとう </answer>
+<answer isCorrect="0">１．さようなら</answer>
+<answer isCorrect="0">２．よくできた</answer>
+<answer isCorrect="1">３．ありがとう</answer>
 <answer isCorrect="0">４．ごめんなさい</answer>
 </question>
 <question weight="1" title="(4) 京都大学霊長類(注１)研究所には「アイ」という有名なチンパンジー(注２)が飼われています。研究所ではチンパンジーに言葉を覚えさせる研究をしているのですが、このアイはすでに約１００の言葉を覚えていて、１けたの数字なら５つまで同時に記憶できるそうです。 最近、アイには赤ちゃんが生まれ、「アユム」という名前がつけられました。アイが覚えた言葉や知識をアユムにどう伝えるかなど、研究もさらに広がりそうで楽しみです。
@@ -785,224 +785,224 @@
 </question>
 </task>
 <task caption="﻿問題Ⅳ 次の分の＿＿＿にはどんなことばを入れたらよいか。最も適当なものを１２３４から一つ選びなさい。">
-<question weight="1" title="" text="彼女はいろいろと悩んだ＿＿、結婚をやめてしまった。">
-<answer isCorrect="0">反面 </answer>
-<answer isCorrect="0">以上 </answer>
-<answer isCorrect="0">とたん </answer>
+<question weight="3" title="" text="彼女はいろいろと悩んだ＿＿、結婚をやめてしまった。">
+<answer isCorrect="0">反面</answer>
+<answer isCorrect="0">以上</answer>
+<answer isCorrect="0">とたん</answer>
 <answer isCorrect="1">あげく</answer>
 </question>
-<question weight="1" title="" text="この作者の作品は、若い女性＿＿読まれている。">
-<answer isCorrect="1">を中心に </answer>
-<answer isCorrect="0">と同時に </answer>
-<answer isCorrect="0">と思えば </answer>
+<question weight="3" title="" text="この作者の作品は、若い女性＿＿読まれている。">
+<answer isCorrect="1">を中心に</answer>
+<answer isCorrect="0">と同時に</answer>
+<answer isCorrect="0">と思えば</answer>
 <answer isCorrect="0">を問わずに</answer>
 </question>
-<question weight="1" title="" text="内田さんは＿＿髪型が違う。">
-<answer isCorrect="0">会ったなら </answer>
-<answer isCorrect="1">会うたびに </answer>
-<answer isCorrect="0">会ううちに </answer>
+<question weight="3" title="" text="内田さんは＿＿髪型が違う。">
+<answer isCorrect="0">会ったなら</answer>
+<answer isCorrect="1">会うたびに</answer>
+<answer isCorrect="0">会ううちに</answer>
 <answer isCorrect="0">会ったところ</answer>
 </question>
-<question weight="1" title="" text="引き受ける＿＿引き受けない＿＿。なるべく早く決めたほうがいい。">
-<answer isCorrect="0">にも／にも </answer>
-<answer isCorrect="0">につれ／につれ </answer>
-<answer isCorrect="0">なんて／なんて </answer>
+<question weight="3" title="" text="引き受ける＿＿引き受けない＿＿。なるべく早く決めたほうがいい。">
+<answer isCorrect="0">にも／にも</answer>
+<answer isCorrect="0">につれ／につれ</answer>
+<answer isCorrect="0">なんて／なんて</answer>
 <answer isCorrect="1">にしろ／にしろ</answer>
 </question>
-<question weight="1" title="" text="彼はチームのキャプテン＿＿、みんなに信頼されている。">
-<answer isCorrect="0">のみで </answer>
-<answer isCorrect="0">にとって </answer>
-<answer isCorrect="1">だけあって </answer>
+<question weight="3" title="" text="彼はチームのキャプテン＿＿、みんなに信頼されている。">
+<answer isCorrect="0">のみで</answer>
+<answer isCorrect="0">にとって</answer>
+<answer isCorrect="1">だけあって</answer>
 <answer isCorrect="0">かというと</answer>
 </question>
-<question weight="1" title="" text="原料が安い＿＿、この製品は値段が安い。">
-<answer isCorrect="0">ものの </answer>
-<answer isCorrect="1">せいか </answer>
-<answer isCorrect="0">くせに </answer>
+<question weight="3" title="" text="原料が安い＿＿、この製品は値段が安い。">
+<answer isCorrect="0">ものの</answer>
+<answer isCorrect="1">せいか</answer>
+<answer isCorrect="0">くせに</answer>
 <answer isCorrect="0">わりには</answer>
 </question>
-<question weight="1" title="" text="先生に教えて＿＿数学のおもしろさがわかりました。">
-<answer isCorrect="0">いただくために </answer>
-<answer isCorrect="1">いただいてはじめて </answer>
-<answer isCorrect="0">いただこうとしても </answer>
+<question weight="3" title="" text="先生に教えて＿＿数学のおもしろさがわかりました。">
+<answer isCorrect="0">いただくために</answer>
+<answer isCorrect="1">いただいてはじめて</answer>
+<answer isCorrect="0">いただこうとしても</answer>
 <answer isCorrect="0">いただいたことだから</answer>
 </question>
-<question weight="1" title="" text="オリンピックの成功＿＿、競技場や道路の整備が行われている。">
-<answer isCorrect="1">にむけ </answer>
-<answer isCorrect="0">として </answer>
-<answer isCorrect="0">にそって </answer>
+<question weight="3" title="" text="オリンピックの成功＿＿、競技場や道路の整備が行われている。">
+<answer isCorrect="1">にむけ</answer>
+<answer isCorrect="0">として</answer>
+<answer isCorrect="0">にそって</answer>
 <answer isCorrect="0">のように</answer>
 </question>
-<question weight="1" title="" text="人生の短さを花＿＿＿、さくらの花だ。">
-<answer isCorrect="0">にくらべて </answer>
-<answer isCorrect="0">に応じては </answer>
-<answer isCorrect="1">にたとえると </answer>
+<question weight="3" title="" text="人生の短さを花＿＿＿、さくらの花だ。">
+<answer isCorrect="0">にくらべて</answer>
+<answer isCorrect="0">に応じては</answer>
+<answer isCorrect="1">にたとえると</answer>
 <answer isCorrect="0">について言えば</answer>
 </question>
-<question weight="1" title="" text="明日もまた仕事を休む＿＿、会社をやめてもらいます。">
-<answer isCorrect="1">ようなら </answer>
-<answer isCorrect="0">ついでに </answer>
-<answer isCorrect="0">ことには </answer>
+<question weight="3" title="" text="明日もまた仕事を休む＿＿、会社をやめてもらいます。">
+<answer isCorrect="1">ようなら</answer>
+<answer isCorrect="0">ついでに</answer>
+<answer isCorrect="0">ことには</answer>
 <answer isCorrect="0">あまりに</answer>
 </question>
-<question weight="1" title="" text="先生のご都合＿＿来週の講義は延期になります。">
-<answer isCorrect="0">上は </answer>
-<answer isCorrect="0">ほどで </answer>
-<answer isCorrect="0">ばかりに </answer>
+<question weight="3" title="" text="先生のご都合＿＿来週の講義は延期になります。">
+<answer isCorrect="0">上は</answer>
+<answer isCorrect="0">ほどで</answer>
+<answer isCorrect="0">ばかりに</answer>
 <answer isCorrect="1">次第では</answer>
 </question>
-<question weight="1" title="" text="彼があんなに喜んでいる＿＿＿、彼の成績はかなり上がったにちがいない。">
-<answer isCorrect="0">どころか </answer>
-<answer isCorrect="0">ところまで </answer>
-<answer isCorrect="1">ところをみると </answer>
+<question weight="3" title="" text="彼があんなに喜んでいる＿＿＿、彼の成績はかなり上がったにちがいない。">
+<answer isCorrect="0">どころか</answer>
+<answer isCorrect="0">ところまで</answer>
+<answer isCorrect="1">ところをみると</answer>
 <answer isCorrect="0">どころではなく</answer>
 </question>
-<question weight="1" title="" text="この新しい薬は、何年にもわたる研究＿＿＿作り出されるものだ。">
-<answer isCorrect="1">の末に </answer>
-<answer isCorrect="0">でさえ </answer>
-<answer isCorrect="0">ぬきでは </answer>
+<question weight="3" title="" text="この新しい薬は、何年にもわたる研究＿＿＿作り出されるものだ。">
+<answer isCorrect="1">の末に</answer>
+<answer isCorrect="0">でさえ</answer>
+<answer isCorrect="0">ぬきでは</answer>
 <answer isCorrect="0">ばかりか</answer>
 </question>
-<question weight="1" title="" text="今日の会合には、どんな手段を＿＿＿時間通りに到着しなければならない。">
-<answer isCorrect="0">使いつつ </answer>
-<answer isCorrect="1">使ってでも </answer>
-<answer isCorrect="0">使ううちに </answer>
+<question weight="3" title="" text="今日の会合には、どんな手段を＿＿＿時間通りに到着しなければならない。">
+<answer isCorrect="0">使いつつ</answer>
+<answer isCorrect="1">使ってでも</answer>
+<answer isCorrect="0">使ううちに</answer>
 <answer isCorrect="0">使おうとして</answer>
 </question>
-<question weight="1" title="" text="大切な用事があって遅刻してはいけない時に＿＿、寝坊してしまう。">
-<answer isCorrect="0">よって </answer>
-<answer isCorrect="0">つれて </answer>
-<answer isCorrect="1">かぎって </answer>
+<question weight="3" title="" text="大切な用事があって遅刻してはいけない時に＿＿、寝坊してしまう。">
+<answer isCorrect="0">よって</answer>
+<answer isCorrect="0">つれて</answer>
+<answer isCorrect="1">かぎって</answer>
 <answer isCorrect="0">ともなって</answer>
 </question>
-<question weight="1" title="" text="あの工場は、設備＿＿周りの環境もすばらしい。">
-<answer isCorrect="0">だけは </answer>
-<answer isCorrect="0">だけなら </answer>
-<answer isCorrect="0">だけでも </answer>
+<question weight="3" title="" text="あの工場は、設備＿＿周りの環境もすばらしい。">
+<answer isCorrect="0">だけは</answer>
+<answer isCorrect="0">だけなら</answer>
+<answer isCorrect="0">だけでも</answer>
 <answer isCorrect="1">だけでなく</answer>
 </question>
-<question weight="1" title="" text="日本語のクラスは、テストの点数と今までの学習期間を＿＿決定される。">
-<answer isCorrect="1">もとに </answer>
-<answer isCorrect="0">かねて </answer>
-<answer isCorrect="0">こめて </answer>
+<question weight="3" title="" text="日本語のクラスは、テストの点数と今までの学習期間を＿＿決定される。">
+<answer isCorrect="1">もとに</answer>
+<answer isCorrect="0">かねて</answer>
+<answer isCorrect="0">こめて</answer>
 <answer isCorrect="0">めぐって</answer>
 </question>
-<question weight="1" title="" text="一度行って＿＿＿、どんな所かわからないだろう。">
-<answer isCorrect="0">みて以来 </answer>
-<answer isCorrect="0">みるとともに </answer>
-<answer isCorrect="0">みたからには </answer>
+<question weight="3" title="" text="一度行って＿＿＿、どんな所かわからないだろう。">
+<answer isCorrect="0">みて以来</answer>
+<answer isCorrect="0">みるとともに</answer>
+<answer isCorrect="0">みたからには</answer>
 <answer isCorrect="1">みないことには</answer>
 </question>
-<question weight="1" title="" text="私が皆様のご意見を＿＿＿うえで、来週ご報告いたします。">
-<answer isCorrect="1">うかがった </answer>
-<answer isCorrect="0">うかがわれた </answer>
-<answer isCorrect="0">うかがわせる </answer>
+<question weight="3" title="" text="私が皆様のご意見を＿＿＿うえで、来週ご報告いたします。">
+<answer isCorrect="1">うかがった</answer>
+<answer isCorrect="0">うかがわれた</answer>
+<answer isCorrect="0">うかがわせる</answer>
 <answer isCorrect="0">うかがっている</answer>
 </question>
-<question weight="1" title="" text="そんなに毎日甘いものばかり＿＿＿虫歯になりますよ。">
-<answer isCorrect="0">食べるには </answer>
-<answer isCorrect="0">食べるまで </answer>
-<answer isCorrect="1">食べていては </answer>
+<question weight="3" title="" text="そんなに毎日甘いものばかり＿＿＿虫歯になりますよ。">
+<answer isCorrect="0">食べるには</answer>
+<answer isCorrect="0">食べるまで</answer>
+<answer isCorrect="1">食べていては</answer>
 <answer isCorrect="0">食べていても</answer>
 </question>
 </task>
 <task caption="問題Ⅴ 次の文の＿＿にはどんな言葉をいれたらよいか。１，２，３，４から最も適当なものを一つ選びなさい。">
-<question weight="1" title="" text="子どもが大人と相撲をしたって、負ける＿＿＿。">
-<answer isCorrect="0">まいか </answer>
-<answer isCorrect="0">ものによる </answer>
-<answer isCorrect="0">にすぎない </answer>
+<question weight="4" title="" text="子どもが大人と相撲をしたって、負ける＿＿＿。">
+<answer isCorrect="0">まいか</answer>
+<answer isCorrect="0">ものによる</answer>
+<answer isCorrect="0">にすぎない</answer>
 <answer isCorrect="1">にきまっている</answer>
 </question>
-<question weight="1" title="" text="たった">
-<answer isCorrect="0">しうる </answer>
-<answer isCorrect="0">しそうだ </answer>
-<answer isCorrect="0">したはずだ </answer>
+<question weight="4" title="" text="たった">
+<answer isCorrect="0">しうる</answer>
+<answer isCorrect="0">しそうだ</answer>
+<answer isCorrect="0">したはずだ</answer>
 <answer isCorrect="1">しきれない</answer>
 </question>
-<question weight="1" title="" text="どのコンピューターを買ったらよいか、なかなか一つには＿＿＿。">
-<answer isCorrect="1">決めがたい </answer>
-<answer isCorrect="0">決めかねない </answer>
-<answer isCorrect="0">決めるしかない </answer>
+<question weight="4" title="" text="どのコンピューターを買ったらよいか、なかなか一つには＿＿＿。">
+<answer isCorrect="1">決めがたい</answer>
+<answer isCorrect="0">決めかねない</answer>
+<answer isCorrect="0">決めるしかない</answer>
 <answer isCorrect="0">決めてたまらない</answer>
 </question>
-<question weight="1" title="" text="大雨が降ると、あの橋はこわれる＿＿＿。">
-<answer isCorrect="0">ものがある </answer>
-<answer isCorrect="0">ことはない </answer>
-<answer isCorrect="1">恐れがある </answer>
+<question weight="4" title="" text="大雨が降ると、あの橋はこわれる＿＿＿。">
+<answer isCorrect="0">ものがある</answer>
+<answer isCorrect="0">ことはない</answer>
+<answer isCorrect="1">恐れがある</answer>
 <answer isCorrect="0">限りではない</answer>
 </question>
-<question weight="1" title="" text="本田さんとは２０年前に一度会った＿＿＿。">
-<answer isCorrect="0">ことだ </answer>
-<answer isCorrect="1">きりだ </answer>
-<answer isCorrect="0">ほどだ </answer>
+<question weight="4" title="" text="本田さんとは２０年前に一度会った＿＿＿。">
+<answer isCorrect="0">ことだ</answer>
+<answer isCorrect="1">きりだ</answer>
+<answer isCorrect="0">ほどだ</answer>
 <answer isCorrect="0">ばかりだ</answer>
 </question>
-<question weight="1" title="" text="あしたはほかの仕事をしなければならないのだから、この仕事をやりかけのまま、帰る＿＿＿。">
-<answer isCorrect="0">せいだ </answer>
-<answer isCorrect="0">ものである </answer>
-<answer isCorrect="0">ことにはならない </answer>
+<question weight="4" title="" text="あしたはほかの仕事をしなければならないのだから、この仕事をやりかけのまま、帰る＿＿＿。">
+<answer isCorrect="0">せいだ</answer>
+<answer isCorrect="0">ものである</answer>
+<answer isCorrect="0">ことにはならない</answer>
 <answer isCorrect="1">わけにはいかない</answer>
 </question>
-<question weight="1" title="" text="今回の失敗の原因は、準備不足＿＿＿。">
-<answer isCorrect="0">のかいがない </answer>
-<answer isCorrect="1">にほかならない </answer>
-<answer isCorrect="0">ではいられない </answer>
+<question weight="4" title="" text="今回の失敗の原因は、準備不足＿＿＿。">
+<answer isCorrect="0">のかいがない</answer>
+<answer isCorrect="1">にほかならない</answer>
+<answer isCorrect="0">ではいられない</answer>
 <answer isCorrect="0">になくてはならない</answer>
 </question>
-<question weight="1" title="" text="日本で生活をするのなら、漢字を＿＿＿。">
-<answer isCorrect="0">覚えかねる </answer>
-<answer isCorrect="0">覚えたわけだ </answer>
-<answer isCorrect="1">覚えざるをえない </answer>
+<question weight="4" title="" text="日本で生活をするのなら、漢字を＿＿＿。">
+<answer isCorrect="0">覚えかねる</answer>
+<answer isCorrect="0">覚えたわけだ</answer>
+<answer isCorrect="1">覚えざるをえない</answer>
 <answer isCorrect="0">覚えるかのようだ</answer>
 </question>
-<question weight="1" title="" text="ここ数年、この町の人口は減る＿＿＿。">
-<answer isCorrect="0">上だ </answer>
-<answer isCorrect="1">一方だ </answer>
-<answer isCorrect="0">通りだ </answer>
+<question weight="4" title="" text="ここ数年、この町の人口は減る＿＿＿。">
+<answer isCorrect="0">上だ</answer>
+<answer isCorrect="1">一方だ</answer>
+<answer isCorrect="0">通りだ</answer>
 <answer isCorrect="0">代わりだ</answer>
 </question>
-<question weight="1" title="" text="今日は朝から仕事が忙しくて、食事をする時間もない＿＿＿。">
-<answer isCorrect="1">くらいだ </answer>
-<answer isCorrect="0">おかげだ </answer>
-<answer isCorrect="0">ことはない </answer>
+<question weight="4" title="" text="今日は朝から仕事が忙しくて、食事をする時間もない＿＿＿。">
+<answer isCorrect="1">くらいだ</answer>
+<answer isCorrect="0">おかげだ</answer>
+<answer isCorrect="0">ことはない</answer>
 <answer isCorrect="0">はずはない</answer>
 </question>
 </task>
 <task caption="問題Ⅵ 次の文の＿＿にはどんな言葉をいれたらよいか。１，２，３，４から最も適当なものを一つ選びなさい。">
-<question weight="1" title="" text="息子は、朝学校に行く際に、必ずと言っていいほど忘れ物をしている。出かけたかと思おうと＿＿＿。">
-<answer isCorrect="0">忘れ物を届けに行く </answer>
-<answer isCorrect="1">すぐ忘れ物を取りに帰ってくる </answer>
-<answer isCorrect="0">夜になって忘れ物を確認している </answer>
+<question weight="4" title="" text="息子は、朝学校に行く際に、必ずと言っていいほど忘れ物をしている。出かけたかと思おうと＿＿＿。">
+<answer isCorrect="0">忘れ物を届けに行く</answer>
+<answer isCorrect="1">すぐ忘れ物を取りに帰ってくる</answer>
+<answer isCorrect="0">夜になって忘れ物を確認している</answer>
 <answer isCorrect="0">次の日まで忘れ物のことを思い出さない</answer>
 </question>
-<question weight="1" title="" text="私は彼のことが大嫌いだ。彼の話し方や服装からして＿＿＿。">
-<answer isCorrect="1">がまんならない </answer>
-<answer isCorrect="0">困ってはいない </answer>
-<answer isCorrect="0">理解せざるをえない </answer>
+<question weight="4" title="" text="私は彼のことが大嫌いだ。彼の話し方や服装からして＿＿＿。">
+<answer isCorrect="1">がまんならない</answer>
+<answer isCorrect="0">困ってはいない</answer>
+<answer isCorrect="0">理解せざるをえない</answer>
 <answer isCorrect="0">ゆるすことができる</answer>
 </question>
-<question weight="1" title="" text="政府は、今年こそ経済がよくなると予測していた。しかし、この予測に＿＿＿、">
-<answer isCorrect="0">際して </answer>
-<answer isCorrect="1">反して </answer>
-<answer isCorrect="0">そって </answer>
+<question weight="4" title="" text="政府は、今年こそ経済がよくなると予測していた。しかし、この予測に＿＿＿、">
+<answer isCorrect="0">際して</answer>
+<answer isCorrect="1">反して</answer>
+<answer isCorrect="0">そって</answer>
 <answer isCorrect="0">したがって</answer>
 </question>
-<question weight="1" title="" text="今から野球大会を行います。試合開始に＿＿、会長からごあいさつをいただきます。">
-<answer isCorrect="0">こたえて </answer>
-<answer isCorrect="0">くわえて </answer>
-<answer isCorrect="0">かけては </answer>
+<question weight="4" title="" text="今から野球大会を行います。試合開始に＿＿、会長からごあいさつをいただきます。">
+<answer isCorrect="0">こたえて</answer>
+<answer isCorrect="0">くわえて</answer>
+<answer isCorrect="0">かけては</answer>
 <answer isCorrect="1">さきだち</answer>
 </question>
-<question weight="1" title="" text="田中さんは、あるパーティーで友達から一人の女性を紹介された。それを＿＿＿、田中さんはその女性と交際を始めたそうだ。">
-<answer isCorrect="0">とわず </answer>
-<answer isCorrect="0">はじめ </answer>
-<answer isCorrect="0">こめて </answer>
+<question weight="4" title="" text="田中さんは、あるパーティーで友達から一人の女性を紹介された。それを＿＿＿、田中さんはその女性と交際を始めたそうだ。">
+<answer isCorrect="0">とわず</answer>
+<answer isCorrect="0">はじめ</answer>
+<answer isCorrect="0">こめて</answer>
 <answer isCorrect="1">きっかけに</answer>
 </question>
-<question weight="1" title="" text="彼は、銀行からの借金が数百万円もあって、返せずにいるという。それ＿＿＿、友人たちからも相当のお金を借りているらしい。">
-<answer isCorrect="0">ばかりに </answer>
-<answer isCorrect="0">ばかりで </answer>
-<answer isCorrect="1">ばかりか </answer>
+<question weight="4" title="" text="彼は、銀行からの借金が数百万円もあって、返せずにいるという。それ＿＿＿、友人たちからも相当のお金を借りているらしい。">
+<answer isCorrect="0">ばかりに</answer>
+<answer isCorrect="0">ばかりで</answer>
+<answer isCorrect="1">ばかりか</answer>
 <answer isCorrect="0">ばかりなら</answer>
 </question>
 </task>
