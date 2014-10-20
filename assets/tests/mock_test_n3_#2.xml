@@ -1,4 +1,4 @@
-<test level="5" name="Test N3 #2">
+<test level="3" name="Test N3 #2">
 <section name="文字・語彙">
 <task caption="問題1 漢字読み">
 <question weight="1" title="" text="日本の首都はどこですか。">
@@ -434,7 +434,7 @@
 <answer isCorrect="1">1 町の発展が、子どもに悪い影響を与えていることに注意しなくてはいけない。</answer>
 <answer isCorrect="0">2	町が発城しない場合、子どもにも悪い影Wが出ることを忘れてはいけない。</answer>
 <answer isCorrect="0">3 子どもに悪い影響が出ているので、町を発展する前の状態に戻したほうがいい。</answer>
-<answer isCorrect="0">4 子どもに悪い影輝を与えてしまうことはあるが、町は_5&偁したほうがいい。</answer>
+<answer isCorrect="0">4 子どもに悪い影輝を与えてしまうことはあるが、町は_5偁したほうがいい。</answer>
 </question>
 </task>
 <task caption="問題6 つぎの文章を読んで、質問に答えなさい。答えは、 よいものを一つえらびなさい。">

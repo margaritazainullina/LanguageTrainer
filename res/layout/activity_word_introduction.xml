@@ -35,21 +35,21 @@
                     android:id="@+id/wordTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="憧れる"
+                    android:text=""
                     android:textSize="@dimen/xlargeText" />
 
                 <TextView
                     android:id="@+id/transcriptionTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="あこがれる"
+                    android:text=""
                     android:textSize="@dimen/largeText" />
 
                 <TextView
                     android:id="@+id/romajiTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="akogareru"
+                    android:text=""
                     android:textSize="@dimen/largeText" />
             </LinearLayout>
 

@@ -1,4 +1,4 @@
-<test level="5" name="Test N3 #1">
+<test level="3" name="Test N3 #1">
 <section name="文字・語彙">
 <task caption="問題1 漢字読み">
 <question weight="1" title="" text="ここが大事な場面だ。">
@@ -959,61 +959,61 @@ From • u（1）．e（1）．ura@ x〇x .co.jp
 </section>
 <section name="聴解">
 <task caption="問題1課題理解">
-<question weight="1" title="" text="（1）．" audioRef="3＿1\n_2001 (1).mp3">
+<question weight="1" title="" text="（1）．" audioRef="3＿1\n3_1 (1).mp3">
 <answer isCorrect="0">1. 質問を箸える</answer>
 <answer isCorrect="0">2. 工場の歴史を調べる</answer>
 <answer isCorrect="1">3. 工場に連絡する</answer>
 <answer isCorrect="0">4. 先生と一緒に工場に行く</answer>
 </question>
-<question weight="1" title="" text="（2）．" audioRef="3＿1\n_2001 (2).mp3" imgRef="3_1\2.jpg">
+<question weight="1" title="" text="（2）．" audioRef="3＿1\n3_1 (2).mp3" imgRef="3_1\2.jpg">
 <answer isCorrect="0">1. 2日</answer>
 <answer isCorrect="0">2. 3日</answer>
 <answer isCorrect="0">3. 14日</answer>
 <answer isCorrect="1">4. 17日</answer>
 </question>
-<question weight="1" title="" text="（3）．" audioRef="3＿1\n_2001 (3).mp3">
+<question weight="1" title="" text="（3）．" audioRef="3＿1\n3_1 (3).mp3">
 <answer isCorrect="1">1. 転出証明書をもらう</answer>
 <answer isCorrect="0">2. はんこを買う</answer>
 <answer isCorrect="0">3. 住民課に行く</answer>
 <answer isCorrect="0">4. パスポを取る</answer>
 </question>
-<question weight="1" title="" text="（4）．" audioRef="3＿1\n_2001 (4).mp3">
+<question weight="1" title="" text="（4）．" audioRef="3＿1\n3_1 (4).mp3">
 <answer isCorrect="0">1. 8時10分</answer>
 <answer isCorrect="0">2. 8時15分</answer>
 <answer isCorrect="1">3. 8時35分</answer>
 <answer isCorrect="0">4. 8時45分</answer>
 </question>
-<question weight="1" title="" text="（5）．" audioRef="3＿1\n_2001 (5).mp3">
+<question weight="1" title="" text="（5）．" audioRef="3＿1\n3_1 (5).mp3">
 <answer isCorrect="0">1.　履歴書と写真</answer>
 <answer isCorrect="1">2. 履歴書と承諾書</answer>
 <answer isCorrect="0">3. 学生書と写真</answer>
 <answer isCorrect="0">4. はんことと承諾書</answer>
 </question>
-<question weight="1" title="" text="（6）．" audioRef="3＿1\n_2001 (6).mp3">
+<question weight="1" title="" text="（6）．" audioRef="3＿1\n3_1 (6).mp3">
 <answer isCorrect="1">1.　白い部分を水にぬらす</answer>
 <answer isCorrect="0">2. 白い部分を乾いた布でふく</answer>
 <answer isCorrect="0">3.　白い部分を曲げる</answer>
 <answer isCorrect="0">4. 白い部分に火をつける</answer>
 </question>
-<question weight="1" title="" text="（7）．" audioRef="3＿1\n_2001 (7).mp3" imgRef="3_1\3.jpg">
+<question weight="1" title="" text="（7）．" audioRef="3＿1\n3_1 (7).mp3" imgRef="3_1\3.jpg">
 <answer isCorrect="0">1. 水曜日</answer>
 <answer isCorrect="0">2.未曜日</answer>
 <answer isCorrect="0">3. 金曜日</answer>
 <answer isCorrect="1">4. 土曜日</answer>
 </question>
-<question weight="1" title="" text="（8）．" audioRef="3＿1\n_2001 (8).mp3" imgRef="3_1\4.jpg">
+<question weight="1" title="" text="（8）．" audioRef="3＿1\n3_1 (8).mp3" imgRef="3_1\4.jpg">
 <answer isCorrect="0">1. 12時00分発</answer>
 <answer isCorrect="0">2. 12時23分発</answer>
 <answer isCorrect="1">3. 12時30分発</answer>
 <answer isCorrect="0">4. 12時33分発</answer>
 </question>
-<question weight="1" title="" text="（9）．" audioRef="3＿1\n_2001 (9).mp3">
+<question weight="1" title="" text="（9）．" audioRef="3＿1\n3_1 (9).mp3">
 <answer isCorrect="0">1. 切手20枚•普通はがき30枚</answer>
 <answer isCorrect="0">2. 切手10枚•往復はがき30枚</answer>
 <answer isCorrect="1">3. 切手20枚•往復はがき30枚</answer>
 <answer isCorrect="0">4. 切手10枚•普通はがき30枚</answer>
 </question>
-<question weight="1" title="" text="（10）．" audioRef="3＿1\n_2001 (10).mp3">
+<question weight="1" title="" text="（10）．" audioRef="3＿1\n3_1 (10).mp3">
 <answer isCorrect="0">1. シャツをクリーニングに出す</answer>
 <answer isCorrect="1">2. コンビニで飛行機代を払う</answer>
 <answer isCorrect="0">3. 銀行でお金をおろす</answer>
@@ -1021,61 +1021,61 @@ From • u（1）．e（1）．ura@ x〇x .co.jp
 </question>
 </task>
 <task caption="問題2ポイント理解">
-<question weight="1" title="" text="（1）．" audioRef="3＿1\n_2001 (11).mp3">
+<question weight="1" title="" text="（1）．" audioRef="3＿1\n3_1 (11).mp3">
 <answer isCorrect="0">1. 彼女からの贈り物だから</answer>
 <answer isCorrect="0">2．黄色が好きだから</answer>
 <answer isCorrect="0">3．金持ちになりたいから</answer>
 <answer isCorrect="1">4．かばんの中で見つけやすいから</answer>
 </question>
-<question weight="1" title="" text="（2）．" audioRef="3＿1\n_2001 (12).mp3">
+<question weight="1" title="" text="（2）．" audioRef="3＿1\n3_1 (12).mp3">
 <answer isCorrect="0">1. 好きな人と別れた　　</answer>
 <answer isCorrect="1">2. 自由に写真をとりたいから</answer>
 <answer isCorrect="0">3. 友だちといてもつまらないから</answer>
 <answer isCorrect="0">4. 本をゆっくり読みたいから</answer>
 </question>
-<question weight="1" title="" text="（3）．" audioRef="3＿1\n_2001 (13).mp3">
+<question weight="1" title="" text="（3）．" audioRef="3＿1\n3_1 (13).mp3">
 <answer isCorrect="0">1. 遅くまで勉強をしていたからつか</answer>
 <answer isCorrect="0">2. 疲れすぎていたから</answer>
 <answer isCorrect="1">3. 映画を最後まで見たから</answer>
 <answer isCorrect="0">4. 心配なことがあったから</answer>
 </question>
-<question weight="1" title="" text="（4）．" audioRef="3＿1\n_2001 (14).mp3">
+<question weight="1" title="" text="（4）．" audioRef="3＿1\n3_1 (14).mp3">
 <answer isCorrect="1">1. 内容をはっきり言う</answer>
 <answer isCorrect="0">2. 興味のありそうな人をさそう</answer>
 <answer isCorrect="0">3. その場ですぐに返事はもらわない</answer>
 <answer isCorrect="0">4. 映画が好きそうな人をさそう</answer>
 </question>
-<question weight="1" title="" text="（5）．" audioRef="3＿1\n_2001 (15).mp3">
+<question weight="1" title="" text="（5）．" audioRef="3＿1\n3_1 (15).mp3">
 <answer isCorrect="0">1. 気持ちがおSいにわかるから</answer>
 <answer isCorrect="0">2. 1人暮らしでさみしいから</answer>
 <answer isCorrect="1">3. 世話が楽だから</answer>
 <answer isCorrect="0">4. 留守を守ってくれるから</answer>
 </question>
-<question weight="1" title="" text="（6）．" audioRef="3＿1\n_2001 (16).mp3">
+<question weight="1" title="" text="（6）．" audioRef="3＿1\n3_1 (16).mp3">
 <answer isCorrect="0">1. 物の値段が下がっているから</answer>
 <answer isCorrect="1">2. 安くても流行を取り入れているから</answer>
 <answer isCorrect="0">3. 交通が便利な都会に店があるから</answer>
 <answer isCorrect="0">4. 人気の商品を集めて売っているから</answer>
 </question>
-<question weight="1" title="" text="（7）．" audioRef="3＿1\n_2001 (17).mp3">
+<question weight="1" title="" text="（7）．" audioRef="3＿1\n3_1 (17).mp3">
 <answer isCorrect="1">1. 悪いのは親なのに、拳どもは自分が悪いと思うこと</answer>
 <answer isCorrect="0">2. 父親や母親になぐられる子どもが多いこと</answer>
 <answer isCorrect="0">3. 食事を与えられない子どもが増えていること</answer>
 <answer isCorrect="0">4. 小さい子どもが悪い親に育てられること</answer>
 </question>
-<question weight="1" title="" text="（8）．" audioRef="3＿1\n_2001 (18).mp3">
+<question weight="1" title="" text="（8）．" audioRef="3＿1\n3_1 (18).mp3">
 <answer isCorrect="0">1. 使い方がわからないから</answer>
 <answer isCorrect="1">2. 説明がわかりにくいから</answer>
 <answer isCorrect="0">3. 操作方法が変わったから</answer>
 <answer isCorrect="0">4.パソコンの動きが遅いから</answer>
 </question>
-<question weight="1" title="" text="（9）．" audioRef="3＿1\n_2001 (19).mp3">
+<question weight="1" title="" text="（9）．" audioRef="3＿1\n3_1 (19).mp3">
 <answer isCorrect="0">1. 大きな声をだすこと</answer>
 <answer isCorrect="1">2. しかったあと、かけ'でほめること</answer>
 <answer isCorrect="0">3. ほかの人がいないときにしかること</answer>
 <answer isCorrect="0">4. しかったあと、みんなの前でほめること</answer>
 </question>
-<question weight="1" title="" text="（10）．" audioRef="3＿1\n_2001 (20).mp3">
+<question weight="1" title="" text="（10）．" audioRef="3＿1\n3_1 (20).mp3">
 <answer isCorrect="1">1. お酒を飲んでいたから</answer>
 <answer isCorrect="0">2. 仕事が終わらなかったから</answer>
 <answer isCorrect="0">3. 後輩が仕事を失敗したから</answer>
@@ -1083,43 +1083,43 @@ From • u（1）．e（1）．ura@ x〇x .co.jp
 </question>
 </task>
 <task caption="問題3概要理解">
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (20).mp3">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (21).mp3">
 <answer isCorrect="1">1</answer>
 <answer isCorrect="0">2</answer>
 <answer isCorrect="0">3</answer>
 <answer isCorrect="0">4</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (21).mp3">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (22).mp3">
 <answer isCorrect="0">1</answer>
 <answer isCorrect="0">2</answer>
 <answer isCorrect="1">3</answer>
 <answer isCorrect="0">4</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (22).mp3">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (23).mp3">
 <answer isCorrect="0">1</answer>
 <answer isCorrect="0">2</answer>
 <answer isCorrect="0">3</answer>
 <answer isCorrect="1">4</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (23).mp3">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (24).mp3">
 <answer isCorrect="0">1</answer>
 <answer isCorrect="0">2</answer>
 <answer isCorrect="0">3</answer>
 <answer isCorrect="1">4</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (24).mp3">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (25).mp3">
 <answer isCorrect="0">1</answer>
 <answer isCorrect="0">2</answer>
 <answer isCorrect="1">3</answer>
 <answer isCorrect="0">4</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (25).mp3">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (26).mp3">
 <answer isCorrect="0">1</answer>
 <answer isCorrect="0">2</answer>
 <answer isCorrect="0">3</answer>
 <answer isCorrect="1">4</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (26).mp3">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (27).mp3">
 <answer isCorrect="1">1</answer>
 <answer isCorrect="0">2</answer>
 <answer isCorrect="0">3</answer>
@@ -1127,61 +1127,61 @@ From • u（1）．e（1）．ura@ x〇x .co.jp
 </question>
 </task>
 <task caption="問題4発話表現">
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (27).mp3" imgRef="3_1\5.jpg">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (28).mp3" imgRef="3_1\5.jpg">
 <answer isCorrect="1">1</answer>
 <answer isCorrect="0">2</answer>
 <answer isCorrect="0">3</answer>
 <answer isCorrect="0">4</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (28).mp3" imgRef="3_1\6.jpg">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (29).mp3" imgRef="3_1\6.jpg">
 <answer isCorrect="0">1</answer>
 <answer isCorrect="0">2</answer>
 <answer isCorrect="1">3</answer>
 <answer isCorrect="0">4</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (29).mp3" imgRef="3_1\7.jpg">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (30).mp3" imgRef="3_1\7.jpg">
 <answer isCorrect="0">1</answer>
 <answer isCorrect="1">2</answer>
 <answer isCorrect="0">3</answer>
 <answer isCorrect="0">4</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (30).mp3" imgRef="3_1\8.jpg">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (31).mp3" imgRef="3_1\8.jpg">
 <answer isCorrect="0">1</answer>
 <answer isCorrect="1">2</answer>
 <answer isCorrect="0">3</answer>
 <answer isCorrect="0">4</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (31).mp3" imgRef="3_1\9.jpg">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (32).mp3" imgRef="3_1\9.jpg">
 <answer isCorrect="0">1</answer>
 <answer isCorrect="0">2</answer>
 <answer isCorrect="1">3</answer>
 <answer isCorrect="0">4</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (32).mp3" imgRef="3_1\10.jpg">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (33).mp3" imgRef="3_1\10.jpg">
 <answer isCorrect="1">1</answer>
 <answer isCorrect="0">2</answer>
 <answer isCorrect="0">3</answer>
 <answer isCorrect="0">4</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (33).mp3" imgRef="3_1\11.jpg">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (34).mp3" imgRef="3_1\11.jpg">
 <answer isCorrect="0">1</answer>
 <answer isCorrect="0">2</answer>
 <answer isCorrect="1">3</answer>
 <answer isCorrect="0">4</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (34).mp3" imgRef="3_1\12.jpg">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (35).mp3" imgRef="3_1\12.jpg">
 <answer isCorrect="0">1</answer>
 <answer isCorrect="1">2</answer>
 <answer isCorrect="0">3</answer>
 <answer isCorrect="0">4</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (35).mp3" imgRef="3_1\13.jpg">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (36).mp3" imgRef="3_1\13.jpg">
 <answer isCorrect="1">1</answer>
 <answer isCorrect="0">2</answer>
 <answer isCorrect="0">3</answer>
 <answer isCorrect="0">4</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (36).mp3" imgRef="3_1\14.jpg">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (37).mp3" imgRef="3_1\14.jpg">
 <answer isCorrect="0">1</answer>
 <answer isCorrect="1">2</answer>
 <answer isCorrect="0">3</answer>
@@ -1189,76 +1189,77 @@ From • u（1）．e（1）．ura@ x〇x .co.jp
 </question>
 </task>
 <task caption="問題5即時応答">
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (37).mp3">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (38).mp3">
 <answer isCorrect="0">1</answer>
 <answer isCorrect="0">2</answer>
 <answer isCorrect="1">3</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (38).mp3">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (39).mp3">
 <answer isCorrect="1">1</answer>
 <answer isCorrect="0">2</answer>
 <answer isCorrect="0">3</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (39).mp3">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (40).mp3">
 <answer isCorrect="0">1</answer>
 <answer isCorrect="1">2</answer>
 <answer isCorrect="0">3</answer>
 </question>
-<question weight="1" title="" text="" audioRef<answer isCorrect="0">1</answer>
-<answer isCorrect="0">2</answer>
-<answer isCorrect="1">3</answer>
-</question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (41).mp3">
-<answer isCorrect="1">1</answer>
-<answer isCorrect="0">2</answer>
-<answer isCorrect="0">3</answer>
-</question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (42).mp3">
-<answer isCorrect="1">1</answer>
-<answer isCorrect="0">2</answer>
-<answer isCorrect="0">3</answer>
-</question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (43).mp3">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (41).mp3">
 <answer isCorrect="0">1</answer>
 <answer isCorrect="0">2</answer>
 <answer isCorrect="1">3</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (44).mp3">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (42).mp3">
+<answer isCorrect="1">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+</question>
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (43).mp3">
+<answer isCorrect="1">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="0">3</answer>
+</question>
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (44).mp3">
+<answer isCorrect="0">1</answer>
+<answer isCorrect="0">2</answer>
+<answer isCorrect="1">3</answer>
+</question>
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (45).mp3">
 <answer isCorrect="0">1</answer>
 <answer isCorrect="1">2</answer>
 <answer isCorrect="0">3</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (45).mp3">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (46).mp3">
 <answer isCorrect="0">1</answer>
 <answer isCorrect="0">2</answer>
 <answer isCorrect="1">3</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (46).mp3">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (47).mp3">
 <answer isCorrect="1">1</answer>
 <answer isCorrect="0">2</answer>
 <answer isCorrect="0">3</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (47).mp3">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (48).mp3">
 <answer isCorrect="0">1</answer>
 <answer isCorrect="1">2</answer>
 <answer isCorrect="0">3</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (48).mp3">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (49).mp3">
 <answer isCorrect="1">1</answer>
 <answer isCorrect="0">2</answer>
 <answer isCorrect="0">3</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (49).mp3">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (50).mp3">
 <answer isCorrect="0">1</answer>
 <answer isCorrect="0">2</answer>
 <answer isCorrect="1">3</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (50).mp3">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (51).mp3">
 <answer isCorrect="0">1</answer>
 <answer isCorrect="1">2</answer>
 <answer isCorrect="0">3</answer>
 </question>
-<question weight="1" title="" text="" audioRef="3＿1\n_2001 (51).mp3">
+<question weight="1" title="" text="" audioRef="3＿1\n3_1 (52).mp3">
 <answer isCorrect="0">1</answer>
 <answer isCorrect="0">2</answer>
 <answer isCorrect="1">3</answer>

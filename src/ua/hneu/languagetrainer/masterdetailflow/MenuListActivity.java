@@ -137,7 +137,7 @@ public class MenuListActivity extends FragmentActivity implements
 			}
 			// if selected Tests
 			if (id == "mock_tests") {
-				Intent intent = new Intent(this, MockTestActivity.class);
+				Intent intent = new Intent(this, TestActivity.class);
 				startActivity(intent);
 			}
 			// if selected counter words

@@ -141,6 +141,7 @@ public class TestService {
 		// reading from assets xml file
 		BufferedReader reader = null;
 		try {
+			int i=0;
 			reader = new BufferedReader(new InputStreamReader(
 					assetManager.open(filepath)));
 			// do reading, usually loop until end of file reading
@@ -149,6 +150,8 @@ public class TestService {
 			while ((mLine = reader.readLine()) != null) {
 				if (mLine != null) {
 					xml.append(mLine);
+					System.out.println(i);
+					i++;
 					// System.out.println(mLine);
 				}
 			}

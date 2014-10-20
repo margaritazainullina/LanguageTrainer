@@ -1,5 +1,6 @@
 package ua.hneu.languagetrainer;
 
+import java.util.HashMap;
 import java.util.Locale;
 
 import ua.hneu.edu.languagetrainer.R;
@@ -110,12 +111,12 @@ public class App extends Application {
 
 		/*vs.dropTable();
 		vs.createTable();
-		vs.bulkInsertFromCSV("N5.txt", getAssets(), 5, getContentResolver());
-		vs.bulkInsertFromCSV("N4.txt", getAssets(), 4, getContentResolver());
-		vs.bulkInsertFromCSV("N3.txt", getAssets(), 3, getContentResolver());
-		vs.bulkInsertFromCSV("N3.txt", getAssets(), 2, getContentResolver());
-		vs.bulkInsertFromCSV("N1.txt", getAssets(), 1, getContentResolver());
-*/
+		vs.bulkInsertFromCSV("vocabulary/N5.txt", getAssets(), 5, getContentResolver());
+		vs.bulkInsertFromCSV("vocabulary/N4.txt", getAssets(), 4, getContentResolver());
+		vs.bulkInsertFromCSV("vocabulary/N3.txt", getAssets(), 3, getContentResolver());
+		vs.bulkInsertFromCSV("vocabulary/N2.txt", getAssets(), 2, getContentResolver());
+		vs.bulkInsertFromCSV("vocabulary/N1.txt", getAssets(), 1, getContentResolver());
+
 		// test
 		ts.dropTable();
 		qs.dropTable();
@@ -125,29 +126,56 @@ public class App extends Application {
 		qs.createTable();
 		QuestionService.startCounting(getContentResolver());
 		as.createTable();
-		ts.insertFromXml("level_def_test.xml", getAssets(),
+		ts.insertFromXml("tests/level_def_test.xml", getAssets(),
 				getContentResolver());
-		ts.insertFromXml("mock_test_n5_#1.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("mock_test_n5_2.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n5_#1.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n1_#1.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n1_#2.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n1_#3.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n1_#4.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n1_#5.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n2_#1.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n2_#2.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n2_#3.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n2_#4.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n2_#5.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n3_#1.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n3_#2.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n4_#1.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n4_#2.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n4_#3.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n4_#4.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n4_#5.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n5_#1.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n5_#2.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n5_#3.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n5_#4.xml", getAssets(), getContentResolver());
+		ts.insertFromXml("tests/mock_test_n5_#5.xml", getAssets(), getContentResolver());
 
-		/*GiongoService gs = new GiongoService();
+		HashMap<String, int[]> hm =ts.getTestNamesAndPoints(cr, 1);
+		HashMap<String, int[]> hm1 =ts.getTestNamesAndPoints(cr, 2);
+		HashMap<String, int[]> hm2 =ts.getTestNamesAndPoints(cr, 3);
+		HashMap<String, int[]> hm3 =ts.getTestNamesAndPoints(cr, 4);
+		HashMap<String, int[]> hm4 =ts.getTestNamesAndPoints(cr, 5);
+		HashMap<String, int[]> hm5 =ts.getTestNamesAndPoints(cr, -1);
+		
+		GiongoService gs = new GiongoService();
 		gs.dropTable();
 		gs.createTable();
 		ges.dropTable();
 		GiongoService.startCounting(getContentResolver());
 		ges.createTable();
-		gs.bulkInsertFromCSV("giongo.txt", getAssets(), getContentResolver());
+		gs.bulkInsertFromCSV("giongo/giongo.txt", getAssets(), getContentResolver());
 
 		cws.dropTable();
 		cws.createTable();
-		cws.bulkInsertFromCSV("numbers.txt", getAssets(), getContentResolver());
-		cws.bulkInsertFromCSV("people_and_things.txt", getAssets(),
+		cws.bulkInsertFromCSV("counters/numbers.txt", getAssets(), getContentResolver());
+		cws.bulkInsertFromCSV("counters/people_and_things.txt", getAssets(),
 				getContentResolver());
-		cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),
+		cws.bulkInsertFromCSV("counters/time_calendar.txt", getAssets(),
 				getContentResolver());
-		cws.bulkInsertFromCSV("time_calendar.txt", getAssets(),
-				getContentResolver());
-		cws.bulkInsertFromCSV("extent_freq.txt", getAssets(),
+		
+		cws.bulkInsertFromCSV("counters/extent_freq.txt", getAssets(),
 				getContentResolver());
 
 		grs.dropTable();
@@ -155,17 +183,17 @@ public class App extends Application {
 		GrammarService.startCounting(getContentResolver());
 		gres.dropTable();
 		gres.createTable();
-		grs.bulkInsertFromCSV("grammar_n5.txt", 5, getAssets(),
+		grs.bulkInsertFromCSV("grammar/grammar_n5.txt", 5, getAssets(),
 				getContentResolver());
-		grs.bulkInsertFromCSV("grammar_n4.txt", 4, getAssets(),
+		grs.bulkInsertFromCSV("grammar/grammar_n4.txt", 4, getAssets(),
 				getContentResolver());
-		grs.bulkInsertFromCSV("grammar_n3.txt", 3, getAssets(),
+		grs.bulkInsertFromCSV("grammar/grammar_n3.txt", 3, getAssets(),
 				getContentResolver());
-		grs.bulkInsertFromCSV("grammar_n2.txt", 2, getAssets(),
+		grs.bulkInsertFromCSV("grammar/grammar_n2.txt", 2, getAssets(),
 				getContentResolver());
-		grs.bulkInsertFromCSV("grammar_n1.txt", 1, getAssets(),
+		grs.bulkInsertFromCSV("grammar/grammar_n1.txt", 1, getAssets(),
 				getContentResolver());
-
+*/
 		us.dropTable();
 		us.createTable();
 		
@@ -174,7 +202,7 @@ public class App extends Application {
 		if (currentUser != null) {
 			// fetch user data from db
 			userInfo = currentUser;
-		}*/
+		}
 		App.context = getApplicationContext();
 		getSettings();
 		super.onCreate();
