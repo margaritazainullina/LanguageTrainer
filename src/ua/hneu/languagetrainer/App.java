@@ -42,6 +42,9 @@ public class App extends Application {
 	// counter words for session
 	public static CounterWordsDictionary counterWordsDictionary;
 
+	//all dictionary
+	public static VocabularyDictionary allVocabularyDictionary;
+	
 	// user info
 	public static User userInfo;
 	// service for access to db
@@ -91,7 +94,7 @@ public class App extends Application {
 		editor = settings.edit();
 
 		// set localized menu elements
-		MenuElements.addItem(new MenuElements.MenuItem("vocabulary", this
+		/*MenuElements.addItem(new MenuElements.MenuItem("vocabulary", this
 				.getString(R.string.vocabulary)));
 		MenuElements.addItem(new MenuElements.MenuItem("grammar", this
 				.getString(R.string.grammar)));
@@ -109,7 +112,7 @@ public class App extends Application {
 		// creating and inserting into whole database
 		// vocabulary
 
-		/*vs.dropTable();
+		vs.dropTable();
 		vs.createTable();
 		vs.bulkInsertFromCSV("vocabulary/N5.txt", getAssets(), 5, getContentResolver());
 		vs.bulkInsertFromCSV("vocabulary/N4.txt", getAssets(), 4, getContentResolver());
@@ -128,7 +131,6 @@ public class App extends Application {
 		as.createTable();
 		ts.insertFromXml("tests/level_def_test.xml", getAssets(),
 				getContentResolver());
-		ts.insertFromXml("tests/mock_test_n5_#1.xml", getAssets(), getContentResolver());
 		ts.insertFromXml("tests/mock_test_n1_#1.xml", getAssets(), getContentResolver());
 		ts.insertFromXml("tests/mock_test_n1_#2.xml", getAssets(), getContentResolver());
 		ts.insertFromXml("tests/mock_test_n1_#3.xml", getAssets(), getContentResolver());
@@ -151,13 +153,6 @@ public class App extends Application {
 		ts.insertFromXml("tests/mock_test_n5_#3.xml", getAssets(), getContentResolver());
 		ts.insertFromXml("tests/mock_test_n5_#4.xml", getAssets(), getContentResolver());
 		ts.insertFromXml("tests/mock_test_n5_#5.xml", getAssets(), getContentResolver());
-
-		HashMap<String, int[]> hm =ts.getTestNamesAndPoints(cr, 1);
-		HashMap<String, int[]> hm1 =ts.getTestNamesAndPoints(cr, 2);
-		HashMap<String, int[]> hm2 =ts.getTestNamesAndPoints(cr, 3);
-		HashMap<String, int[]> hm3 =ts.getTestNamesAndPoints(cr, 4);
-		HashMap<String, int[]> hm4 =ts.getTestNamesAndPoints(cr, 5);
-		HashMap<String, int[]> hm5 =ts.getTestNamesAndPoints(cr, -1);
 		
 		GiongoService gs = new GiongoService();
 		gs.dropTable();
@@ -192,8 +187,8 @@ public class App extends Application {
 		grs.bulkInsertFromCSV("grammar/grammar_n2.txt", 2, getAssets(),
 				getContentResolver());
 		grs.bulkInsertFromCSV("grammar/grammar_n1.txt", 1, getAssets(),
-				getContentResolver());
-*/
+				getContentResolver());*/
+
 		us.dropTable();
 		us.createTable();
 		

@@ -2,6 +2,7 @@ package ua.hneu.languagetrainer.masterdetailflow;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.pages.vocabulary.AllVocabulary;
 import ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity;
 import ua.hneu.languagetrainer.service.VocabularyService;
 import android.content.Intent;
@@ -41,7 +42,9 @@ public class VocabularyActivity extends FragmentActivity {
 		App.vocabularyDictionary = VocabularyService.createCurrentDictionary(
 				App.userInfo.getLevel(), App.numberOfEntriesInCurrentDict,
 				App.cr);
-		Intent intent = new Intent(this, WordIntroductionActivity.class);
+		//REPLACE!!
+		//Intent intent = new Intent(this, WordIntroductionActivity.class);
+		Intent intent = new Intent(this, AllVocabulary.class);
 		startActivity(intent);
 	}
 

@@ -168,9 +168,10 @@ public class MockTestActivity extends Activity {
 		double progress = ((double) currentWordNumber / (double) t
 				.getQuestions().size()) * 100;
 		progressBar.setProgress((int) progress);
-		if (currentWordNumber >= t.getQuestions().size())
+		if (currentWordNumber >= t.getQuestions().size()){
 			endTesting();
-
+			}
+		else{
 		q = t.getQuestions().get(currentWordNumber);
 		// setting sections variable - vocabulary, reading and listening
 		if (q.getSection().equals("文字・語彙")) {
@@ -198,7 +199,6 @@ public class MockTestActivity extends Activity {
 				// set image to ImageView
 				img.setImageDrawable(d);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}// if audio for question exists
@@ -210,6 +210,7 @@ public class MockTestActivity extends Activity {
 		answersListView.setAdapter(adapter);
 		answersListView.setOnItemClickListener(answersListViewClickListener);
 		rightAnswer = q.getRightAnswer();
+	}
 	}
 
 	// listeners for click on the list row

@@ -258,12 +258,12 @@ public class VocabularyService {
 	 */
 	public static VocabularyDictionary createCurrentDictionary(int level,
 			int numberWordsInCurrentDict, ContentResolver contentResolver) {
-		all = new VocabularyDictionary();
-		all = selectAllEntriesOflevel(level, contentResolver);
+		App.allVocabularyDictionary = new VocabularyDictionary();
+		App.allVocabularyDictionary = selectAllEntriesOflevel(level, contentResolver);
 		VocabularyDictionary currentDict = new VocabularyDictionary();
 		// if words have never been showed - set entries randomly
 		if (App.userInfo.isLevelLaunchedFirstTime == 1) {
-			all.sortRandomly();
+			App.allVocabularyDictionary.sortRandomly();
 			for (int i = 0; i < App.numberOfEntriesInCurrentDict; i++) {
 				VocabularyEntry e = all.get(i);
 				if (e.getLearnedPercentage() != 1)
