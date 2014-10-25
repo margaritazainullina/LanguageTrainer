@@ -1,8 +1,11 @@
 package ua.hneu.languagetrainer.masterdetailflow;
 
 import ua.hneu.edu.languagetrainer.R;
+import ua.hneu.languagetrainer.AllGrammarListViewAdapter;
 import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.pages.grammar.AllGrammar;
 import ua.hneu.languagetrainer.pages.grammar.GrammarIntroductionActivity;
+import ua.hneu.languagetrainer.pages.vocabulary.AllVocabulary;
 import ua.hneu.languagetrainer.service.GrammarService;
 import android.content.Intent;
 import android.os.Bundle;
@@ -40,7 +43,9 @@ public class GrammarActivity extends FragmentActivity {
 		App.grammarDictionary = GrammarService.createCurrentDictionary(
 				App.userInfo.getLevel(), App.numberOfEntriesInCurrentDict,
 				App.cr);
-		Intent intent = new Intent(this, GrammarIntroductionActivity.class);
+		//REPLACE!!
+		//Intent intent = new Intent(this, GrammarIntroductionActivity.class);
+		Intent intent = new Intent(this, AllGrammar.class);
 		startActivity(intent);
 
 	}

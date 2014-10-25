@@ -44,6 +44,7 @@ public class App extends Application {
 
 	//all dictionary
 	public static VocabularyDictionary allVocabularyDictionary;
+	public static GrammarDictionary allGrammarDictionary;
 	
 	// user info
 	public static User userInfo;
@@ -94,7 +95,7 @@ public class App extends Application {
 		editor = settings.edit();
 
 		// set localized menu elements
-		/*MenuElements.addItem(new MenuElements.MenuItem("vocabulary", this
+		MenuElements.addItem(new MenuElements.MenuItem("vocabulary", this
 				.getString(R.string.vocabulary)));
 		MenuElements.addItem(new MenuElements.MenuItem("grammar", this
 				.getString(R.string.grammar)));
@@ -112,7 +113,7 @@ public class App extends Application {
 		// creating and inserting into whole database
 		// vocabulary
 
-		vs.dropTable();
+		/*vs.dropTable();
 		vs.createTable();
 		vs.bulkInsertFromCSV("vocabulary/N5.txt", getAssets(), 5, getContentResolver());
 		vs.bulkInsertFromCSV("vocabulary/N4.txt", getAssets(), 4, getContentResolver());

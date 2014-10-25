@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
+encoding//src/ua/hneu/languagetrainer/AllGrammarListViewAdapter.java=UTF-8
+encoding//src/ua/hneu/languagetrainer/AllVocabularyListViewAdapter.java=UTF-8
 encoding//src/ua/hneu/languagetrainer/App.java=UTF-8
 encoding//src/ua/hneu/languagetrainer/CounterWordsListViewAdapter.java=UTF-8
 encoding//src/ua/hneu/languagetrainer/ExamplesListViewAdapter.java=UTF-8

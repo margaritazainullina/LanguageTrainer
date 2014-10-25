@@ -138,22 +138,22 @@ public class GrammarService {
 	 */
 	public static GrammarDictionary createCurrentDictionary(int level,
 			int numberOfWordsInCurrentDict, ContentResolver contentResolver) {
-		all = new GrammarDictionary();
-		all = selectAllEntriesOflevel(level, contentResolver);
+		App.allGrammarDictionary = new GrammarDictionary();
+		App.allGrammarDictionary = selectAllEntriesOflevel(level, contentResolver);
 		GrammarDictionary current = new GrammarDictionary();
 		// if words have never been showed - set entries randomly
 		if (App.userInfo.isLevelLaunchedFirstTime == 1) {
-			all.sortRandomly();
+			App.allGrammarDictionary.sortRandomly();
 			for (int i = 0; i < App.numberOfEntriesInCurrentDict; i++) {
-				GrammarRule e = all.get(i);
+				GrammarRule e = App.allGrammarDictionary.get(i);
 				if (e.getLearnedPercentage() != 1)
 					current.add(e);
 			}
 		} else {
 			// sorting descending
 			// get last elements
-			all.sortByLastViewedTime();
-			int i = all.size() - 1;
+			App.allGrammarDictionary.sortByLastViewedTime();
+			int i = App.allGrammarDictionary.size() - 1;
 			while (current.size() < App.numberOfEntriesInCurrentDict) {
 				GrammarRule e = all.get(i);
 				if (e.getLearnedPercentage() != 1)

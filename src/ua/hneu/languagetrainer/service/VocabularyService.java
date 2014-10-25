@@ -265,21 +265,21 @@ public class VocabularyService {
 		if (App.userInfo.isLevelLaunchedFirstTime == 1) {
 			App.allVocabularyDictionary.sortRandomly();
 			for (int i = 0; i < App.numberOfEntriesInCurrentDict; i++) {
-				VocabularyEntry e = all.get(i);
+				VocabularyEntry e = App.allVocabularyDictionary.get(i);
 				if (e.getLearnedPercentage() != 1)
 					currentDict.add(e);
 			}
 		} else {
 			// sorting descending
 			// get last elements
-			all.sortByLastViewedTime();
-			int i = all.size() - 1;
+			App.allVocabularyDictionary.sortByLastViewedTime();
+			int i = App.allVocabularyDictionary.size() - 1;
 			while (currentDict.size() < App.numberOfEntriesInCurrentDict) {
-				VocabularyEntry e = all.get(i);
+				VocabularyEntry e = App.allVocabularyDictionary.get(i);
 				if (e.getLearnedPercentage() != 1)
 					currentDict.add(e);
 				i--;
-				Log.i("createCurrentDictionary", all.get(i).toString());
+				Log.i("createCurrentDictionary", App.allVocabularyDictionary.get(i).toString());
 			}
 		}
 		return currentDict;

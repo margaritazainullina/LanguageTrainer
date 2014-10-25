@@ -9,6 +9,7 @@ import java.util.Set;
 
 import android.util.Log;
 
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import ua.hneu.languagetrainer.service.GrammarService;
 import ua.hneu.languagetrainer.service.VocabularyService;
 
@@ -100,7 +101,7 @@ public class GrammarDictionary {
 			int size) {
 		Hashtable<GrammarExample, GrammarRule> random = new Hashtable<GrammarExample, GrammarRule>();
 		Random rn = new Random();
-		//TODO: what if wasn't learned words number is less than size
+		// TODO: what if wasn't learned words number is less than size
 		if (this.size() <= size) {
 			for (GrammarRule gr : this.entries) {
 				int j = rn.nextInt(gr.getExamples().size());
@@ -134,5 +135,21 @@ public class GrammarDictionary {
 				this.entries.add(gr);
 			}
 		}
+	}
+
+	public ArrayList<String> getAllRules() {
+		ArrayList<String> rules = new ArrayList<String>();
+		for (GrammarRule e : entries) {
+			rules.add(e.getRule());
+		}
+		return rules;
+	}
+
+	public ArrayList<String> getAllDescriptions() {
+		ArrayList<String> descriptions = new ArrayList<String>();
+		for (GrammarRule e : entries) {
+			descriptions.add(e.getDescription());
+		}
+		return descriptions;
 	}
 }

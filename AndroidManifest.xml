@@ -17,8 +17,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Green_dark"
-        android:debuggable="true">
+        android:theme="@style/Green_dark">
         <provider
             android:name="ua.hneu.languagetrainer.db.dao.VocabularyDAO"
             android:authorities="ua.edu.hneu.languagetrainer.db.vocabularyprovider" >
@@ -88,6 +87,10 @@
         </activity>
         <activity
             android:name="ua.hneu.languagetrainer.pages.vocabulary.AllVocabulary"
+            android:label="@string/title_activity_word_practice" >
+        </activity>
+         <activity
+            android:name="ua.hneu.languagetrainer.pages.grammar.AllGrammar"
             android:label="@string/title_activity_word_practice" >
         </activity>
         <activity
