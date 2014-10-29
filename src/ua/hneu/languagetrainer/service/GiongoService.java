@@ -26,7 +26,6 @@ import android.util.Log;
  */
 public class GiongoService {
 	GiongoExampleService ges = new GiongoExampleService();
-	public static GiongoDictionary all;
 	static int numberOfEnteries = 0;
 
 	/**
@@ -270,28 +269,28 @@ public class GiongoService {
 	 */
 	public GiongoDictionary createCurrentDictionary(
 			int numberOfEntriesInCurrentDict, ContentResolver cr) {
-		all = new GiongoDictionary();
-		all = getAllGiongo(cr);
+		App.allGiongoDictionary = new GiongoDictionary();
+		App.allGiongoDictionary = getAllGiongo(cr);
 		GiongoDictionary current = new GiongoDictionary();
 		// if words have never been showed - set entries randomly
 		if (App.userInfo.isLevelLaunchedFirstTime == 1) {
-			all.sortRandomly();
+			App.allGiongoDictionary.sortRandomly();
 			for (int i = 0; i < App.numberOfEntriesInCurrentDict; i++) {
-				Giongo e = all.get(i);
+				Giongo e = App.allGiongoDictionary.get(i);
 				if (e.getLearnedPercentage() != 1)
 					current.add(e);
 			}
 		} else {
 			// sorting descending
 			// get last elements
-			all.sortByLastViewedTime();
-			int i = all.size() - 1;
+			App.allGiongoDictionary.sortByLastViewedTime();
+			int i = App.allGiongoDictionary.size() - 1;
 			while (current.size() < App.numberOfEntriesInCurrentDict) {
-				Giongo e = all.get(i);
+				Giongo e = App.allGiongoDictionary.get(i);
 				if (e.getLearnedPercentage() != 1)
 					current.add(e);
 				i--;
-				Log.i("createCurrentDictionary", all.get(i).toString());
+				Log.i("createCurrentDictionary", App.allGiongoDictionary.get(i).toString());
 			}
 		}
 		return current;

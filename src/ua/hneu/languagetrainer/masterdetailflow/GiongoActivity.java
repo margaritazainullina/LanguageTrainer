@@ -2,6 +2,7 @@ package ua.hneu.languagetrainer.masterdetailflow;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.pages.giongo.AllGiongo;
 import ua.hneu.languagetrainer.pages.giongo.GiongoIntroductionActivity;
 import ua.hneu.languagetrainer.service.GiongoService;
 import android.content.Intent;
@@ -38,8 +39,16 @@ public class GiongoActivity extends FragmentActivity {
 		GiongoService gs = new GiongoService();
 		App.giongoWordsDictionary = gs.createCurrentDictionary(
 				App.numberOfEntriesInCurrentDict, App.cr);
-
 		Intent intent = new Intent(this, GiongoIntroductionActivity.class);
+		startActivity(intent);
+	}
+	
+	public void onClickAllGiongo(View v) {
+		// load giongo
+		GiongoService gs = new GiongoService();
+		App.giongoWordsDictionary = gs.createCurrentDictionary(
+				App.numberOfEntriesInCurrentDict, App.cr);
+		Intent intent = new Intent(this, AllGiongo.class);
 		startActivity(intent);
 
 	}

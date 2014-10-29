@@ -46,4 +46,12 @@
         android:onClick="onClickPracticeGiongo"
         android:text="@string/practice_words" />
 
+    <Button
+        android:id="@+id/allGiongo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"        
+        android:layout_gravity="center"
+        android:onClick="onClickAllGiongo"
+        android:text="@string/all_giongo" />
+
 </LinearLayout>

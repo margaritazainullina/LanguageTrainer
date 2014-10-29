@@ -28,11 +28,18 @@
     </ListView>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/practiceCounters"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:onClick="onClickPracticeCounterWords"
         android:text="@string/practice_words" />
+      <Button
+        android:id="@+id/allCounters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="onClickPracticeCounterWords"
+        android:text="@string/all_counters" />
 
 </LinearLayout>

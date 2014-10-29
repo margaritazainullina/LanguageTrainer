@@ -110,5 +110,10 @@
     <string name="num_of_entries">Количество записей в итерации заданий</string>
     <string name="num_of_repetations">Количество повторений слова, после которого оно считается выученным</string><string name="congratulations">Поздравляем, вы выучили все на этом уровне! Теперь ваш уровень</string>
     <string name="or">или выберите уровень</string>
+    
+    <string name="all_vocabulary">Все слова уровня</string>
+    <string name="all_grammar">Все правила уровня</string>
+    <string name="all_giongo">Все гионго</string>
+    <string name="all_counters">Все счетные слова</string>
 
 </resources>

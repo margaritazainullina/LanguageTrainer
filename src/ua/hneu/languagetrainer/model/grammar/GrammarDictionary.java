@@ -9,6 +9,7 @@ import java.util.Set;
 
 import android.util.Log;
 
+import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import ua.hneu.languagetrainer.service.GrammarService;
 import ua.hneu.languagetrainer.service.VocabularyService;
@@ -128,8 +129,8 @@ public class GrammarDictionary {
 		Random rn = new Random();
 
 		while (this.size() < size) {
-			int i = rn.nextInt(GrammarService.all.size());
-			GrammarRule gr = GrammarService.all.get(i);
+			int i = rn.nextInt(App.allGrammarDictionary.size());
+			GrammarRule gr = App.allGrammarDictionary.get(i);
 			// if the word is not learned
 			if (gr.getLearnedPercentage() < 1) {
 				this.entries.add(gr);

@@ -42,8 +42,15 @@ public class VocabularyActivity extends FragmentActivity {
 		App.vocabularyDictionary = VocabularyService.createCurrentDictionary(
 				App.userInfo.getLevel(), App.numberOfEntriesInCurrentDict,
 				App.cr);
-		//REPLACE!!
-		//Intent intent = new Intent(this, WordIntroductionActivity.class);
+		Intent intent = new Intent(this, WordIntroductionActivity.class);
+		startActivity(intent);
+	}
+	
+	public void onClickAllVocabulary(View v) {
+		// load vocabulary
+		App.vocabularyDictionary = VocabularyService.createCurrentDictionary(
+				App.userInfo.getLevel(), App.numberOfEntriesInCurrentDict,
+				App.cr);		
 		Intent intent = new Intent(this, AllVocabulary.class);
 		startActivity(intent);
 	}

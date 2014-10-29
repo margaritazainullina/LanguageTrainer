@@ -2,6 +2,7 @@ package ua.hneu.languagetrainer.masterdetailflow;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.pages.counterwords.AllCounterWords;
 import ua.hneu.languagetrainer.pages.counterwords.CounterWordsIntroductionActivity;
 import ua.hneu.languagetrainer.service.CounterWordsService;
 import android.content.Intent;
@@ -41,8 +42,17 @@ public class CounterWordsActivity extends FragmentActivity {
 		App.counterWordsDictionary = cws.createCurrentDictionary(
 				CounterWordsActivityFragment.selectedSection,
 				App.numberOfEntriesInCurrentDict, App.cr);
-
 		Intent intent = new Intent(this, CounterWordsIntroductionActivity.class);
+		startActivity(intent);
+	}
+	
+	public void onClickAllCounterWords(View v) {
+		// load counter words
+		CounterWordsService cws = new CounterWordsService();
+		App.counterWordsDictionary = cws.createCurrentDictionary(
+				CounterWordsActivityFragment.selectedSection,
+				App.numberOfEntriesInCurrentDict, App.cr);
+		Intent intent = new Intent(this, AllCounterWords.class);
 		startActivity(intent);
 
 	}

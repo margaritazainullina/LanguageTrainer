@@ -5,7 +5,9 @@ import java.util.Collections;
 import java.util.Hashtable;
 import java.util.Random;
 
+import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.model.grammar.GrammarRule;
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import ua.hneu.languagetrainer.service.GiongoService;
 import ua.hneu.languagetrainer.service.GrammarService;
 
@@ -100,12 +102,28 @@ public class GiongoDictionary {
 		Random rn = new Random();
 
 		while (this.size() < size) {
-			int i = rn.nextInt(GiongoService.all.size());
-			Giongo g = GiongoService.all.get(i);
+			int i = rn.nextInt(App.allGiongoDictionary.size());
+			Giongo g = App.allGiongoDictionary.get(i);
 			// if the word is not learned
 			if (g.getLearnedPercentage() < 1) {
 				this.entries.add(g);
 			}
 		}
-	}	
+	}
+	
+	public ArrayList<String> getAllGiongo() {
+		ArrayList<String> giongo = new ArrayList<String>();
+		for (Giongo e : entries) {
+			giongo.add(e.getWord());
+		}
+	return giongo;
+		}
+	
+	public ArrayList<String> getAllTranslation() {
+		ArrayList<String> translation = new ArrayList<String>();
+		for (Giongo e : entries) {
+			translation.add(e.getTranslation());
+		}
+	return translation;
+		}
 }

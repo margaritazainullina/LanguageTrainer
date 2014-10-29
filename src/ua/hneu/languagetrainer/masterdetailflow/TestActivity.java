@@ -12,10 +12,12 @@ import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.TestInfoListViewAdapter;
 import ua.hneu.languagetrainer.pages.test.MockTestActivity;
 import ua.hneu.languagetrainer.service.TestService;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -84,9 +86,18 @@ public class TestActivity extends Activity {
 				resultsPart2, resultsPart3);
 		infoListView.setAdapter(adapter);
 		infoListView.setOnItemClickListener(sectionsListViewClickListener);
+		
+		ActionBar actionBar = getActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item) {
+		Intent myIntent = new Intent(getApplicationContext(),
+				VocabularyActivity.class);
+		startActivityForResult(myIntent, 0);
+		return true;
 
 	}
-
 	public void onClickPassTest(View v) {
 		// load test
 		Intent intent = new Intent(this, MockTestActivity.class);

@@ -35,5 +35,13 @@
         android:gravity="center"
         android:onClick="onClickPracticeVocabulary"
         android:text="@string/practice_words" />
+    <Button
+        android:id="@+id/allVocabulary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:onClick="onClickAllVocabulary"
+        android:text="@string/all_vocabulary" />
 
 </LinearLayout>

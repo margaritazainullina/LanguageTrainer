@@ -1,6 +1,5 @@
 package ua.hneu.languagetrainer;
 
-import java.util.HashMap;
 import java.util.Locale;
 
 import ua.hneu.edu.languagetrainer.R;
@@ -45,6 +44,9 @@ public class App extends Application {
 	//all dictionary
 	public static VocabularyDictionary allVocabularyDictionary;
 	public static GrammarDictionary allGrammarDictionary;
+	public static GiongoDictionary allGiongoDictionary;
+	public static CounterWordsDictionary allCounterWordsDictionary;
+	
 	
 	// user info
 	public static User userInfo;

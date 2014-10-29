@@ -93,6 +93,14 @@
             android:name="ua.hneu.languagetrainer.pages.grammar.AllGrammar"
             android:label="@string/title_activity_word_practice" >
         </activity>
+         <activity
+            android:name="ua.hneu.languagetrainer.pages.giongo.AllGiongo"
+            android:label="@string/title_activity_word_practice" >
+        </activity>
+         <activity
+            android:name="ua.hneu.languagetrainer.pages.counterwords.AllCounterWords"
+            android:label="@string/title_activity_word_practice" >
+        </activity>
         <activity
             android:name="ua.hneu.languagetrainer.pages.grammar.GrammarIntroductionActivity"
             android:label="@string/title_activity_grammar_practice" >

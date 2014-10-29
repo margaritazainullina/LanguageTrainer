@@ -24,7 +24,6 @@ import android.util.Log;
  * @version 1.0
  */
 public class GrammarService {
-	public static GrammarDictionary all;
 	boolean isFirstTimeCreated;
 	static GrammarExampleService ges = new GrammarExampleService();
 	static int numberOfEnteries = 0;
@@ -155,11 +154,11 @@ public class GrammarService {
 			App.allGrammarDictionary.sortByLastViewedTime();
 			int i = App.allGrammarDictionary.size() - 1;
 			while (current.size() < App.numberOfEntriesInCurrentDict) {
-				GrammarRule e = all.get(i);
+				GrammarRule e = App.allGrammarDictionary.get(i);
 				if (e.getLearnedPercentage() != 1)
 					current.add(e);
 				i--;
-				Log.i("createCurrentDictionary", all.get(i).toString());
+				Log.i("createCurrentDictionary", App.allGrammarDictionary.get(i).toString());
 			}
 		}
 		return current;

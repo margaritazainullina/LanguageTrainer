@@ -25,7 +25,6 @@ import android.util.Log;
  */
 @SuppressLint("NewApi")
 public class CounterWordsService {
-	public static CounterWordsDictionary all;
 
 	/**
 	 * Inserts an CounterWord instance to database
@@ -322,28 +321,28 @@ public class CounterWordsService {
 	 */
 	public CounterWordsDictionary createCurrentDictionary(String section,
 			int numberEntriesInCurrentDict, ContentResolver contentResolver) {
-		all = new CounterWordsDictionary();
-		all = getCounterwordsBySection(section, contentResolver);
+		App.allCounterWordsDictionary = new CounterWordsDictionary();
+		App.allCounterWordsDictionary = getCounterwordsBySection(section, contentResolver);
 		CounterWordsDictionary currentDict = new CounterWordsDictionary();
 		// if words have never been showed - set entries randomly
 		if (App.userInfo.isLevelLaunchedFirstTime == 1) {
-			all.sortRandomly();
+			App.allCounterWordsDictionary.sortRandomly();
 			for (int i = 0; i < App.numberOfEntriesInCurrentDict; i++) {
-				CounterWord e = all.get(i);
+				CounterWord e = App.allCounterWordsDictionary.get(i);
 				if (e.getLearnedPercentage() != 1)
 					currentDict.add(e);
 			}
 		} else {
 			// sorting descending
 			// get last elements
-			all.sortByLastViewedTime();
-			int i = all.size() - 1;
+			App.allCounterWordsDictionary.sortByLastViewedTime();
+			int i = App.allCounterWordsDictionary.size() - 1;
 			while (currentDict.size() < App.numberOfEntriesInCurrentDict
 					&& i >= 0) {
-				CounterWord e = all.get(i);
+				CounterWord e = App.allCounterWordsDictionary.get(i);
 				if (e.getLearnedPercentage() != 1)
 					currentDict.add(e);
-				Log.i("createCurrentDictionary", all.get(i).toString());
+				Log.i("createCurrentDictionary", App.allCounterWordsDictionary.get(i).toString());
 				i--;
 			}
 		}

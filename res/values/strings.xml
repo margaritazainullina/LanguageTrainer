@@ -110,5 +110,10 @@
     <string name="num_of_repetations">Number of repetation of entry, after which entry is considered to be learned</string>
     <string name="congratulations">Congratulations! You\'ve learned all in this level. Now your level is</string>
     <string name="or">or choose a level</string>
+    
+    <string name="all_vocabulary">All words of the level</string>
+    <string name="all_grammar">All grammar rules of the level</string>
+    <string name="all_giongo">All goingo</string>
+    <string name="all_counters">All counter words</string>
 
 </resources>

@@ -8,6 +8,7 @@ import java.util.Set;
 
 import android.util.Log;
 
+import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.service.VocabularyService;
 
 public class VocabularyDictionary {
@@ -80,8 +81,8 @@ public class VocabularyDictionary {
 			for (int i = 0; i < this.entries.size(); i++) {
 				// delete entries without kanji
 				if (this.entries.get(i).getKanji().isEmpty()) {
-					int j = rn.nextInt(VocabularyService.all.size());
-					VocabularyEntry e = VocabularyService.all.get(j);
+					int j = rn.nextInt(App.allVocabularyDictionary.size());
+					VocabularyEntry e = App.allVocabularyDictionary.get(j);
 					if (e.getLearnedPercentage() != 1
 							&& (!e.getKanji().isEmpty()))
 						this.entries.set(i, e);
@@ -90,8 +91,8 @@ public class VocabularyDictionary {
 			}
 		}
 		while (wordsWithKanji < size) {
-			int i = rn.nextInt(VocabularyService.all.size());
-			VocabularyEntry e = VocabularyService.all.get(i);
+			int i = rn.nextInt(App.allVocabularyDictionary.size());
+			VocabularyEntry e = App.allVocabularyDictionary.get(i);
 			// if the word is not learned
 			if (e.getLearnedPercentage() != 1) {
 				this.entries.add(e);
@@ -105,8 +106,8 @@ public class VocabularyDictionary {
 		de.addAll(this.entries);
 		Random rn = new Random();
 		while (de.size() < size) {
-			int i = rn.nextInt(VocabularyService.all.size());
-			VocabularyEntry e = VocabularyService.all.get(i);
+			int i = rn.nextInt(App.allVocabularyDictionary.size());
+			VocabularyEntry e = App.allVocabularyDictionary.get(i);
 			// if the word is not learned
 			if (e.getLearnedPercentage() != 1)
 				de.add(e);

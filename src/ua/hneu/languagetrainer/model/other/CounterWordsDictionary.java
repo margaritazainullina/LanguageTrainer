@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.service.CounterWordsService;
 import android.util.Log;
 
@@ -91,13 +92,29 @@ public class CounterWordsDictionary {
 		}
 		return translation;
 	}
-
+	
+	public ArrayList<String> getAllWords() {
+		ArrayList<String> words = new ArrayList<String>();
+		for (CounterWord e : entries) {
+			words.add(e.getWord());
+		}
+		return words;
+	}
+	
+	public ArrayList<String> getAllTranscriptions() {
+		ArrayList<String> translation = new ArrayList<String>();
+		for (CounterWord e : entries) {
+			translation.add(e.getTranslation());
+		}
+		return translation;
+	}
+	
 	public void addEntriesToDictionaryAndGet(int size) {
 		Random rn = new Random();
 
 		while (this.size() < size) {
-			int i = rn.nextInt(CounterWordsService.all.size());
-			CounterWord cw = CounterWordsService.all.get(i);
+			int i = rn.nextInt(App.allCounterWordsDictionary.size());
+			CounterWord cw = App.allCounterWordsDictionary.get(i);
 			// if the word is not learned
 			if (cw.getLearnedPercentage() < 1) {
 				this.entries.add(cw);

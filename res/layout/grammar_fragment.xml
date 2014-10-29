@@ -37,4 +37,12 @@
         android:onClick="onClickPracticeGrammar"
         android:text="@string/practice_grammar" />
 
+    <Button
+        android:id="@+id/allGrammar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="onClickAllGrammar"
+        android:text="@string/all_grammar" />
+
 </LinearLayout>

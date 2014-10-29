@@ -43,11 +43,17 @@ public class GrammarActivity extends FragmentActivity {
 		App.grammarDictionary = GrammarService.createCurrentDictionary(
 				App.userInfo.getLevel(), App.numberOfEntriesInCurrentDict,
 				App.cr);
-		//REPLACE!!
-		//Intent intent = new Intent(this, GrammarIntroductionActivity.class);
+		Intent intent = new Intent(this, GrammarIntroductionActivity.class);
+		startActivity(intent);
+	}
+	
+	public void onClickAllGrammar(View v) {
+		// load grammar
+		App.grammarDictionary = GrammarService.createCurrentDictionary(
+				App.userInfo.getLevel(), App.numberOfEntriesInCurrentDict,
+				App.cr);
 		Intent intent = new Intent(this, AllGrammar.class);
 		startActivity(intent);
-
 	}
 
 	@Override

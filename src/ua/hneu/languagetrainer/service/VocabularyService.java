@@ -25,7 +25,6 @@ import android.util.Log;
  * @version 1.0
  */
 public class VocabularyService {
-	public static VocabularyDictionary all;
 	boolean isFirstTimeCreated;
 
 	/**
