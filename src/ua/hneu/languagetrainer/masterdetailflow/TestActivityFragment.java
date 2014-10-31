@@ -36,7 +36,7 @@ public class TestActivityFragment extends Fragment {
 	public static final String ARG_ITEM_ID = "item_id";
 	TestService ts = new TestService();
 	public static String testName;
-
+private boolean wasLoded=false;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -52,7 +52,8 @@ public class TestActivityFragment extends Fragment {
 		HashMap<String, int[]> info = ts.getTestNamesAndPoints(App.cr,
 				App.userInfo.getLevel());
 		infoListView = (ListView) rootView.findViewById(R.id.infoListView);
-
+		
+		if(!wasLoded){
 		testNames.add(this.getString(R.string.test));
 		if (App.userInfo.getLevel() == 4 || App.userInfo.getLevel() == 5) {
 			resultsPart1.add(this.getString(R.string.voc_gr) + ", "
@@ -67,6 +68,7 @@ public class TestActivityFragment extends Fragment {
 		int i = 1;
 		Set<Entry<String, int[]>> set = info.entrySet();
 		Iterator<Entry<String, int[]>> it = set.iterator();
+		
 		while (it.hasNext()) {
 			Map.Entry<String, int[]> entry = (Map.Entry<String, int[]>) it
 					.next();
@@ -87,12 +89,13 @@ public class TestActivityFragment extends Fragment {
 				resultsPart3.add(entry.getValue()[2] + "/" + 60);
 			}
 			i++;
-		}
+		}}
 
 		adapter = new TestInfoListViewAdapter(getActivity(), testNames,
 				resultsPart1, resultsPart2, resultsPart3);
 		infoListView.setAdapter(adapter);
 		infoListView.setOnItemClickListener(sectionsListViewClickListener);
+wasLoded = true;
 		return rootView;
 	}
 

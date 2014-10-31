@@ -21,7 +21,6 @@ public class GreetingActivity extends Activity {
 		setContentView(R.layout.activity_greeting);
 		buttonTakeTest = (Button) findViewById(R.id.buttonTakeTest);
 		buttonStart = (Button) findViewById(R.id.buttonStart);	
-	
 		
 	}
 
@@ -34,7 +33,8 @@ public class GreetingActivity extends Activity {
 	public void buttonStartOnClick(View v) {
 		if (level != -1) {
 			App.goToLevel(level);
-			Intent intent = new Intent(this, MenuListActivity.class);
+			//Intent intent = new Intent(this, MenuListActivity.class);
+			Intent intent = new Intent(this, MainActivity.class);
 			startActivity(intent);
 		}
 	}

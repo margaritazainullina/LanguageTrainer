@@ -225,8 +225,8 @@ public class App extends Application {
 			// set all other users as not current
 			us.insert(userInfo, cr);
 			// load dictionary
-			vocabularyDictionary = VocabularyService.createCurrentDictionary(
-					userInfo.getLevel(), numberOfEntriesInCurrentDict, cr);
+			/*vocabularyDictionary = VocabularyService.createCurrentDictionary(
+					userInfo.getLevel(), numberOfEntriesInCurrentDict, cr);*/
 			App.editor.putString("showRomaji", "only_4_5");
 			// default settings when launched first
 			if (level == 4 || level == 5)

@@ -3,6 +3,7 @@ package ua.hneu.languagetrainer.pages.test;
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.masterdetailflow.MenuListActivity;
+import ua.hneu.languagetrainer.pages.MainActivity;
 import ua.hneu.languagetrainer.passing.TestPassing;
 import android.app.Activity;
 import android.content.Intent;
@@ -52,13 +53,13 @@ public class LevelDefTestResultActivity extends Activity {
 	public void buttonChooseLevelOnClick(View v) {
 		if (choosedLevel != -1)
 			App.goToLevel(choosedLevel);
-		Intent intent = new Intent(this, MenuListActivity.class);
+		Intent intent = new Intent(this, MainActivity.class);
 		startActivity(intent);
 	}
 
 	public void buttonIAgreeOnClick(View v) {
 		App.goToLevel(recommendedLevel);
-		Intent intent = new Intent(this, MenuListActivity.class);
+		Intent intent = new Intent(this, MainActivity.class);
 		startActivity(intent);
 	}
 
