@@ -12,7 +12,7 @@
     tools:context="ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity" >
 
     <ListView
-        android:id="@+id/allInfoListView"
+        android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="278dp"
         android:layout_weight="0.44" >

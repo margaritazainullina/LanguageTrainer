@@ -36,7 +36,8 @@ public class TestActivityFragment extends Fragment {
 	public static final String ARG_ITEM_ID = "item_id";
 	TestService ts = new TestService();
 	public static String testName;
-private boolean wasLoded=false;
+	private boolean wasLoded = false;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -52,50 +53,52 @@ private boolean wasLoded=false;
 		HashMap<String, int[]> info = ts.getTestNamesAndPoints(App.cr,
 				App.userInfo.getLevel());
 		infoListView = (ListView) rootView.findViewById(R.id.infoListView);
-		
-		if(!wasLoded){
-		testNames.add(this.getString(R.string.test));
-		if (App.userInfo.getLevel() == 4 || App.userInfo.getLevel() == 5) {
-			resultsPart1.add(this.getString(R.string.voc_gr) + ", "
-					+ this.getString(R.string.reading));
-			resultsPart2.add("");
-		} else {
-			resultsPart1.add(this.getString(R.string.voc_gr));
-			resultsPart2.add(this.getString(R.string.reading));
-		}
-		resultsPart3.add(this.getString(R.string.listening));
 
-		int i = 1;
-		Set<Entry<String, int[]>> set = info.entrySet();
-		Iterator<Entry<String, int[]>> it = set.iterator();
-		
-		while (it.hasNext()) {
-			Map.Entry<String, int[]> entry = (Map.Entry<String, int[]>) it
-					.next();
-			testNames.add(entry.getKey() + "");
-			testNumb.add(this.getString(R.string.test_name) + " " + i);
+		if (!wasLoded) {
+			testNames.add(this.getString(R.string.test));
 			if (App.userInfo.getLevel() == 4 || App.userInfo.getLevel() == 5) {
-				// if 4 or 5 level - Language Knowledge+Reading 120 points,
-				// listening 60
-				resultsPart1.add(entry.getValue()[0] + entry.getValue()[1]
-						+ "/" + 120);
+				resultsPart1.add(this.getString(R.string.voc_gr) + ", "
+						+ this.getString(R.string.reading));
 				resultsPart2.add("");
-				resultsPart3.add(entry.getValue()[2] + "/" + 60);
 			} else {
-				// if 1,2,3 level - Language Knowledge 60 points, Reading 60
-				// points, listening 60
-				resultsPart1.add(entry.getValue()[0] + "/" + 60);
-				resultsPart2.add(entry.getValue()[1] + "/" + 60);
-				resultsPart3.add(entry.getValue()[2] + "/" + 60);
+				resultsPart1.add(this.getString(R.string.voc_gr));
+				resultsPart2.add(this.getString(R.string.reading));
 			}
-			i++;
-		}}
+			resultsPart3.add(this.getString(R.string.listening));
+
+			int i = 1;
+			Set<Entry<String, int[]>> set = info.entrySet();
+			Iterator<Entry<String, int[]>> it = set.iterator();
+
+			while (it.hasNext()) {
+				Map.Entry<String, int[]> entry = (Map.Entry<String, int[]>) it
+						.next();
+				testNames.add(entry.getKey() + "");
+				testNumb.add(this.getString(R.string.test_name) + " " + i);
+				if (App.userInfo.getLevel() == 4
+						|| App.userInfo.getLevel() == 5) {
+					// if 4 or 5 level - Language Knowledge+Reading 120 points,
+					// listening 60
+					resultsPart1.add(entry.getValue()[0] + entry.getValue()[1]
+							+ "/" + 120);
+					resultsPart2.add("");
+					resultsPart3.add(entry.getValue()[2] + "/" + 60);
+				} else {
+					// if 1,2,3 level - Language Knowledge 60 points, Reading 60
+					// points, listening 60
+					resultsPart1.add(entry.getValue()[0] + "/" + 60);
+					resultsPart2.add(entry.getValue()[1] + "/" + 60);
+					resultsPart3.add(entry.getValue()[2] + "/" + 60);
+				}
+				i++;
+			}
+		}
 
 		adapter = new TestInfoListViewAdapter(getActivity(), testNames,
 				resultsPart1, resultsPart2, resultsPart3);
 		infoListView.setAdapter(adapter);
 		infoListView.setOnItemClickListener(sectionsListViewClickListener);
-wasLoded = true;
+		wasLoded = true;
 		return rootView;
 	}
 

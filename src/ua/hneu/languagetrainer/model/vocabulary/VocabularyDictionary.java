@@ -231,4 +231,24 @@ public class VocabularyDictionary {
 		}
 	}
 
+	public VocabularyDictionary search(String query) {
+		VocabularyDictionary result = new VocabularyDictionary();
+		for (VocabularyEntry ve : entries) {
+			/*String a1 = ve.getRomaji();
+			String a2 = ve.getKanji();
+			String a3 = ve.getTranscription();
+			String a4 = ve.translationsToString();
+			boolean b1 = a1.contains(query);
+			boolean b2 = a2.contains(query);
+			boolean b3 = a3.contains(query);
+			boolean b4 = a4.contains(query);*/
+			if(ve.getKanji().startsWith(query)||
+					ve.getRomaji().startsWith(query)||
+					ve.getTranscription().startsWith(query)||
+					ve.translationsToString().startsWith(query))
+			result.add(ve);
+		}
+		return result;
+	}
+
 }

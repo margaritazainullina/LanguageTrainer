@@ -2,7 +2,11 @@ package ua.hneu.languagetrainer.masterdetailflow;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.pages.vocabulary.AllVocabulary;
+import ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity;
+import ua.hneu.languagetrainer.service.VocabularyService;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -52,4 +56,5 @@ public class VocabularyActivityFragment extends Fragment {
 		progressBar.setProgress(learnedPersentage);
 		return rootView;
 	}
+	
 }

@@ -3,6 +3,9 @@ package ua.hneu.languagetrainer.pages;
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.masterdetailflow.MenuListFragment;
+import ua.hneu.languagetrainer.pages.vocabulary.AllVocabulary;
+import ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity;
+import ua.hneu.languagetrainer.service.VocabularyService;
 import ua.hneu.languagetrainer.tabsswipe.TabsPagerAdapter;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
@@ -11,6 +14,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -20,6 +24,7 @@ public class MainActivity extends FragmentActivity implements
 	private ViewPager viewPager;
 	private TabsPagerAdapter mAdapter;
 	private ActionBar actionBar;
+
 	// Tab titles
 	// TODO from resources
 
@@ -28,12 +33,12 @@ public class MainActivity extends FragmentActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		String[] tabs={ getResources().getString(R.string.vocabulary),
-			getResources().getString(R.string.grammar),
-			getResources().getString(R.string.mock_tests),
-			getResources().getString(R.string.giongo),
-			getResources().getString(R.string.counter_words) };
-		
+		String[] tabs = { getResources().getString(R.string.vocabulary),
+				getResources().getString(R.string.grammar),
+				getResources().getString(R.string.mock_tests),
+				getResources().getString(R.string.giongo),
+				getResources().getString(R.string.counter_words) };
+
 		if (App.userInfo == null) {
 			// for first time when app is launched - set default preferences
 			App.editor.putString("showRomaji", "only_4_5");
@@ -44,7 +49,7 @@ public class MainActivity extends FragmentActivity implements
 			startActivity(greetingIntent);
 			return;
 		}
-		
+
 		// Initilization
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		actionBar = getActionBar();
@@ -81,6 +86,24 @@ public class MainActivity extends FragmentActivity implements
 		});
 	}
 
+	public void onClickPracticeVocabulary(View v) {
+		// load vocabulary
+		App.vocabularyDictionary = VocabularyService.createCurrentDictionary(
+				App.userInfo.getLevel(), App.numberOfEntriesInCurrentDict,
+				App.cr);
+		Intent intent = new Intent(this, WordIntroductionActivity.class);
+		startActivity(intent);
+	}
+
+	public void onClickAllVocabulary(View v) {
+		// load vocabulary
+		App.vocabularyDictionary = VocabularyService.createCurrentDictionary(
+				App.userInfo.getLevel(), App.numberOfEntriesInCurrentDict,
+				App.cr);
+		Intent intent = new Intent(this, AllVocabulary.class);
+		startActivity(intent);
+	}
+
 	@Override
 	public void onTabReselected(Tab tab, FragmentTransaction ft) {
 	}
@@ -95,5 +118,4 @@ public class MainActivity extends FragmentActivity implements
 	@Override
 	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
 	}
-
 }
