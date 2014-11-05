@@ -10,6 +10,8 @@ import java.util.Set;
 import android.util.Log;
 
 import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.App.Languages;
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import ua.hneu.languagetrainer.service.GrammarService;
 import ua.hneu.languagetrainer.service.VocabularyService;
@@ -152,5 +154,29 @@ public class GrammarDictionary {
 			descriptions.add(e.getDescription());
 		}
 		return descriptions;
+	}
+
+	public GrammarDictionary search(String query) {
+		boolean isFound = false;
+		GrammarDictionary result = new GrammarDictionary();
+		for (GrammarRule ve : entries) {
+			if ((ve.getRule().toLowerCase()).contains(query.toLowerCase())
+					|| (ve.getDescription().toLowerCase()).contains(query.toLowerCase())) {
+				result.add(ve);
+			} else {
+				for (String transl : ve.getAllTranslations()) {
+					if ((transl.toLowerCase()).startsWith(query.toLowerCase())) {
+						result.add(ve);
+						isFound = true;
+						break;
+					}
+					if (isFound) {
+						isFound = false;
+						break;
+					}
+				}
+			}
+		}
+		return result;
 	}
 }

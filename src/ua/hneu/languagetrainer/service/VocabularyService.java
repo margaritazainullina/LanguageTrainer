@@ -331,10 +331,10 @@ public class VocabularyService {
 			c.moveToNext();
 
 			List<String> translations1 = new ArrayList<String>(
-					Arrays.asList(translations.split(";")));
+					Arrays.asList(translations.split(";|,")));
 
 			List<String> translations2 = new ArrayList<String>(
-					Arrays.asList(translationsRus.split(";")));
+					Arrays.asList(translationsRus.split(";|,")));
 
 			VocabularyEntry de = new VocabularyEntry(id, kanji, level,
 					transcription, romaji, translations1, translations2,

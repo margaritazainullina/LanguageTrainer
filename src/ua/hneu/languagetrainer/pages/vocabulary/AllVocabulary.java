@@ -1,26 +1,15 @@
 package ua.hneu.languagetrainer.pages.vocabulary;
 
-import java.util.ArrayList;
-
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.AllVocabularyListViewAdapter;
 import ua.hneu.languagetrainer.App;
-import ua.hneu.languagetrainer.ListViewAdapter;
-import ua.hneu.languagetrainer.masterdetailflow.VocabularyActivity;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
-import android.app.ActionBar;
-import android.app.Activity;
 import android.app.ListActivity;
 import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.MenuItemCompat;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.MenuItem.OnActionExpandListener;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -34,9 +23,7 @@ public class AllVocabulary extends ListActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		setContentView(R.layout.activity_allvocabulary);
-
 		handleIntent(getIntent());
 		showAll();
 
@@ -71,7 +58,7 @@ public class AllVocabulary extends ListActivity {
 						public boolean onQueryTextChange(String change) {
 							if (change.isEmpty())
 								showAll();
-							doMySearch(change);
+							search(change);
 							return false;
 						}
 
@@ -93,7 +80,7 @@ public class AllVocabulary extends ListActivity {
 		// TODO: call detail activity for clicked entry
 	}
 
-	private void doMySearch(String query) {
+	private void search(String query) {
 		kanji = kanji.search(query);
 		adapter1 = new AllVocabularyListViewAdapter(this, kanji);
 		this.setListAdapter(adapter1);
@@ -108,7 +95,7 @@ public class AllVocabulary extends ListActivity {
 	private void handleIntent(Intent intent) {
 		if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
 			String query = intent.getStringExtra(SearchManager.QUERY);
-			doMySearch(query);
+			search(query);
 		}
 	}
 }

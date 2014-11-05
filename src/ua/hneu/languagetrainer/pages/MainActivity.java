@@ -2,9 +2,20 @@ package ua.hneu.languagetrainer.pages;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.masterdetailflow.CounterWordsActivityFragment;
 import ua.hneu.languagetrainer.masterdetailflow.MenuListFragment;
+import ua.hneu.languagetrainer.pages.counterwords.AllCounterWords;
+import ua.hneu.languagetrainer.pages.counterwords.CounterWordsIntroductionActivity;
+import ua.hneu.languagetrainer.pages.giongo.AllGiongo;
+import ua.hneu.languagetrainer.pages.giongo.GiongoIntroductionActivity;
+import ua.hneu.languagetrainer.pages.grammar.AllGrammar;
+import ua.hneu.languagetrainer.pages.grammar.GrammarIntroductionActivity;
+import ua.hneu.languagetrainer.pages.test.MockTestActivity;
 import ua.hneu.languagetrainer.pages.vocabulary.AllVocabulary;
 import ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity;
+import ua.hneu.languagetrainer.service.CounterWordsService;
+import ua.hneu.languagetrainer.service.GiongoService;
+import ua.hneu.languagetrainer.service.GrammarService;
 import ua.hneu.languagetrainer.service.VocabularyService;
 import ua.hneu.languagetrainer.tabsswipe.TabsPagerAdapter;
 import android.app.ActionBar;
@@ -101,6 +112,61 @@ public class MainActivity extends FragmentActivity implements
 				App.userInfo.getLevel(), App.numberOfEntriesInCurrentDict,
 				App.cr);
 		Intent intent = new Intent(this, AllVocabulary.class);
+		startActivity(intent);
+	}
+
+	public void onClickPracticeGrammar(View v) {
+		// load grammar
+		App.grammarDictionary = GrammarService.createCurrentDictionary(
+				App.userInfo.getLevel(), App.numberOfEntriesInCurrentDict,
+				App.cr);
+		Intent intent = new Intent(this, GrammarIntroductionActivity.class);
+		startActivity(intent);
+	}
+
+	public void onClickAllGrammar(View v) {
+		// load grammar
+		App.grammarDictionary = GrammarService.createCurrentDictionary(
+				App.userInfo.getLevel(), App.numberOfEntriesInCurrentDict,
+				App.cr);
+		Intent intent = new Intent(this, AllGrammar.class);
+		startActivity(intent);
+	}
+
+	public void onClickPracticeGiongo(View v) {
+		// load giongo
+		GiongoService gs = new GiongoService();
+		App.giongoWordsDictionary = gs.createCurrentDictionary(
+				App.numberOfEntriesInCurrentDict, App.cr);
+		Intent intent = new Intent(this, GiongoIntroductionActivity.class);
+		startActivity(intent);
+	}
+
+	public void onClickAllGiongo(View v) {
+		// load giongo
+		GiongoService gs = new GiongoService();
+		App.giongoWordsDictionary = gs.createCurrentDictionary(
+				App.numberOfEntriesInCurrentDict, App.cr);
+		Intent intent = new Intent(this, AllGiongo.class);
+		startActivity(intent);
+
+	}
+
+	public void onClickPracticeCounterWords(View v) {
+		// load counter words
+		CounterWordsService cws = new CounterWordsService();
+		App.counterWordsDictionary = cws.createCurrentDictionary(
+				null, App.numberOfEntriesInCurrentDict, App.cr);
+		Intent intent = new Intent(this, CounterWordsIntroductionActivity.class);
+		startActivity(intent);
+	}
+
+	public void onClickAllCounterWords(View v) {
+		// load counter words
+		CounterWordsService cws = new CounterWordsService();
+		App.counterWordsDictionary = cws.createCurrentDictionary(null,
+				App.numberOfEntriesInCurrentDict, App.cr);
+		Intent intent = new Intent(this, AllCounterWords.class);
 		startActivity(intent);
 	}
 

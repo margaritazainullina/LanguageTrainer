@@ -67,11 +67,11 @@ public class GiongoDictionary {
 	public void remove(Giongo g) {
 		entries.remove(g);
 	}
-	public Hashtable<GiongoExample, Giongo> getRandomExamplesWithWord(
-			int size) {
+
+	public Hashtable<GiongoExample, Giongo> getRandomExamplesWithWord(int size) {
 		Hashtable<GiongoExample, Giongo> random = new Hashtable<GiongoExample, Giongo>();
 		Random rn = new Random();
-		//TODO: what if wasn't learned words number is less than size
+		// TODO: what if wasn't learned words number is less than size
 		if (this.size() <= size) {
 			for (Giongo gr : this.entries) {
 				int j = rn.nextInt(gr.getExamples().size());
@@ -110,20 +110,32 @@ public class GiongoDictionary {
 			}
 		}
 	}
-	
+
 	public ArrayList<String> getAllGiongo() {
 		ArrayList<String> giongo = new ArrayList<String>();
 		for (Giongo e : entries) {
 			giongo.add(e.getWord());
 		}
-	return giongo;
-		}
-	
+		return giongo;
+	}
+
 	public ArrayList<String> getAllTranslation() {
 		ArrayList<String> translation = new ArrayList<String>();
 		for (Giongo e : entries) {
 			translation.add(e.getTranslation());
 		}
-	return translation;
+		return translation;
+	}
+
+	public GiongoDictionary search(String query) {
+		GiongoDictionary result = new GiongoDictionary();
+	
+		for (Giongo ve : entries) {
+			if ((ve.getRomaji().toLowerCase()).startsWith(query.toLowerCase())
+					|| (ve.getTranslation().toLowerCase()).startsWith(query.toLowerCase())
+					|| (ve.getWord().toLowerCase()).startsWith(query.toLowerCase()))				
+			result.add(ve);
 		}
+		return result;
+	}
 }

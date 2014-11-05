@@ -3,12 +3,14 @@ package ua.hneu.languagetrainer.model.vocabulary;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
 import android.util.Log;
 
 import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.App.Languages;
 import ua.hneu.languagetrainer.service.VocabularyService;
 
 public class VocabularyDictionary {
@@ -233,20 +235,39 @@ public class VocabularyDictionary {
 
 	public VocabularyDictionary search(String query) {
 		VocabularyDictionary result = new VocabularyDictionary();
+		boolean isFound = false;
 		for (VocabularyEntry ve : entries) {
-			/*String a1 = ve.getRomaji();
-			String a2 = ve.getKanji();
-			String a3 = ve.getTranscription();
-			String a4 = ve.translationsToString();
-			boolean b1 = a1.contains(query);
-			boolean b2 = a2.contains(query);
-			boolean b3 = a3.contains(query);
-			boolean b4 = a4.contains(query);*/
-			if(ve.getKanji().startsWith(query)||
-					ve.getRomaji().startsWith(query)||
-					ve.getTranscription().startsWith(query)||
-					ve.translationsToString().startsWith(query))
-			result.add(ve);
+			if ((ve.getKanji().toLowerCase()).startsWith(query.toLowerCase())
+					|| (ve.getRomaji().toLowerCase()).startsWith(query.toLowerCase())
+					|| (ve.getTranscription().toLowerCase()).startsWith(query.toLowerCase())) {
+				result.add(ve);
+			} else {
+				if (App.lang == Languages.RUS) {
+					for (String transl : ve.getTranslationsRus()) {
+						if ((transl.toLowerCase()).startsWith(query.toLowerCase())) {
+							result.add(ve);
+							isFound = true;
+							break;
+						}
+						if (isFound) {
+							break;
+						}
+						isFound = false;
+					}
+				} else {
+					for (String transl : ve.getTranslationsEng()) {
+						if ((transl.toLowerCase()).startsWith(query.toLowerCase())) {
+							result.add(ve);
+							isFound = true;
+							break;
+						}
+						if (isFound) {
+							break;
+						}
+						isFound = false;
+					}
+				}
+			}
 		}
 		return result;
 	}
