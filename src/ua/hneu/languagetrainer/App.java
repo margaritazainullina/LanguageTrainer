@@ -47,6 +47,7 @@ public class App extends Application {
 	public static GiongoDictionary allGiongoDictionary;
 	public static CounterWordsDictionary allCounterWordsDictionary;
 	
+	public static String testName;
 	
 	// user info
 	public static User userInfo;

@@ -26,12 +26,6 @@ public class AllVocabulary extends ListActivity {
 		setContentView(R.layout.activity_allvocabulary);
 		handleIntent(getIntent());
 		showAll();
-
-		// TODO all like this
-		/*
-		 * ActionBar actionBar = getActionBar();
-		 * actionBar.setDisplayHomeAsUpEnabled(true); actionBar.
-		 */
 	}
 
 	@Override

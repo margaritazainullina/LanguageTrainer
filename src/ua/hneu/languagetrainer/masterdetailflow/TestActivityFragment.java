@@ -10,8 +10,10 @@ import java.util.Set;
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.TestInfoListViewAdapter;
+import ua.hneu.languagetrainer.pages.test.MockTestActivity;
 import ua.hneu.languagetrainer.service.TestService;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -35,7 +37,6 @@ public class TestActivityFragment extends Fragment {
 	TestInfoListViewAdapter adapter;
 	public static final String ARG_ITEM_ID = "item_id";
 	TestService ts = new TestService();
-	public static String testName;
 	private boolean wasLoded = false;
 
 	@Override
@@ -101,7 +102,8 @@ public class TestActivityFragment extends Fragment {
 		wasLoded = true;
 		return rootView;
 	}
-
+	
+	
 	final private transient OnItemClickListener sectionsListViewClickListener = new OnItemClickListener() {
 		@Override
 		public void onItemClick(final AdapterView<?> parent, final View view,
@@ -110,7 +112,7 @@ public class TestActivityFragment extends Fragment {
 			// TODO: replace this
 			adapter.setTextColorOfListViewRow((ListView) parent, position,
 					Color.parseColor("#ffbb33"));
-			testName = testNames.get(position);
+			App.testName = testNames.get(position);
 		}
 	};
 

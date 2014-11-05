@@ -4,6 +4,7 @@ import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.masterdetailflow.MenuListActivity;
 import ua.hneu.languagetrainer.model.tests.Test;
+import ua.hneu.languagetrainer.pages.MainActivity;
 import ua.hneu.languagetrainer.passing.TestPassing;
 import ua.hneu.languagetrainer.service.TestService;
 import android.app.Activity;
@@ -96,7 +97,7 @@ public class TestResultActivity extends Activity {
 	}
 
 	public void buttonReturnOnClick(View v) {
-		Intent intent = new Intent(this, MenuListActivity.class);
+		Intent intent = new Intent(this, MainActivity.class);
 		startActivity(intent);
 	}
 

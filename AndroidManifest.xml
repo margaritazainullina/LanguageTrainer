@@ -83,13 +83,15 @@
         </activity>
         <activity
             android:name="ua.hneu.languagetrainer.pages.vocabulary.WordIntroductionActivity"
-            android:label="@string/title_activity_word_practice" >
+            android:label="@string/title_activity_word_practice" 
+            android:parentActivityName="ua.hneu.languagetrainer.pages.MainActivity" >
         </activity>
 
         <activity
             android:name="ua.hneu.languagetrainer.pages.vocabulary.AllVocabulary"
             android:label="@string/title_activity_word_practice"
-            android:launchMode="singleTop" >
+            android:launchMode="singleTop" 
+            android:parentActivityName="ua.hneu.languagetrainer.pages.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" android:launchMode="singleTop"/>
             </intent-filter>
@@ -104,7 +106,8 @@
          <activity
             android:name="ua.hneu.languagetrainer.pages.grammar.AllGrammar"
             android:label="@string/title_activity_word_practice"
-            android:launchMode="singleTop" >
+            android:launchMode="singleTop" 
+            android:parentActivityName="ua.hneu.languagetrainer.pages.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" android:launchMode="singleTop"/>
             </intent-filter>
@@ -119,7 +122,8 @@
          <activity
             android:name="ua.hneu.languagetrainer.pages.giongo.AllGiongo"
             android:label="@string/title_activity_word_practice"
-            android:launchMode="singleTop" >
+            android:launchMode="singleTop" 
+            android:parentActivityName="ua.hneu.languagetrainer.pages.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" android:launchMode="singleTop"/>
             </intent-filter>
@@ -134,7 +138,8 @@
          <activity
             android:name="ua.hneu.languagetrainer.pages.counterwords.AllCounterWords"
             android:label="@string/title_activity_word_practice"
-            android:launchMode="singleTop" >
+            android:launchMode="singleTop" 
+            android:parentActivityName="ua.hneu.languagetrainer.pages.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" android:launchMode="singleTop"/>
             </intent-filter>
@@ -148,15 +153,18 @@
          
         <activity
             android:name="ua.hneu.languagetrainer.pages.grammar.GrammarIntroductionActivity"
-            android:label="@string/title_activity_grammar_practice" >
+            android:label="@string/title_activity_grammar_practice" 
+            android:parentActivityName="ua.hneu.languagetrainer.pages.MainActivity" >
         </activity>
         <activity
             android:name="ua.hneu.languagetrainer.pages.giongo.GiongoIntroductionActivity"
-            android:label="@string/giongo" >
+            android:label="@string/giongo" 
+            android:parentActivityName="ua.hneu.languagetrainer.pages.MainActivity" >
         </activity>
         <activity
             android:name="ua.hneu.languagetrainer.pages.counterwords.CounterWordsIntroductionActivity"
-            android:label="@string/counter_words" >
+            android:label="@string/counter_words" 
+            android:parentActivityName="ua.hneu.languagetrainer.pages.MainActivity" >
         </activity>
         <activity
             android:name="ua.hneu.languagetrainer.pages.vocabulary.VocabularyResultActivity"

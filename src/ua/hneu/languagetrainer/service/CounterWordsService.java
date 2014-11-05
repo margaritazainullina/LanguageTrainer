@@ -184,11 +184,13 @@ public class CounterWordsService {
 				CounterWordsDAO.COLOR };
 		Cursor c;
 		if (App.lang == Languages.RUS)
-			c = cr.query(CounterWordsDAO.CONTENT_URI, col, null, null, null,
-					null);
+			c = cr.query(CounterWordsDAO.CONTENT_URI, col,
+					CounterWordsDAO.SECTION_RUS + "!=\"Числа\"", null,
+					null, null);
 		else
-			c = cr.query(CounterWordsDAO.CONTENT_URI, col, null, null, null,
-					null);
+			c = cr.query(CounterWordsDAO.CONTENT_URI, col,
+					CounterWordsDAO.SECTION_ENG + "!=\"Numbers\"", null,
+					null, null);
 
 		c.moveToFirst();
 		String sectionEng = "";

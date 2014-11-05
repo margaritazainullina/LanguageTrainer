@@ -127,15 +127,21 @@ public class CounterWordsDictionary {
 	public CounterWordsDictionary search(String query) {
 		CounterWordsDictionary result = new CounterWordsDictionary();
 		for (CounterWord cw : entries) {
-			if ((cw.getHiragana().toLowerCase()).startsWith(query.toLowerCase())
-					|| (cw.getRomaji().toLowerCase()).startsWith(query.toLowerCase())
-					|| (cw.getTranscription().toLowerCase()).startsWith(query.toLowerCase()))
+			if ((cw.getHiragana().toLowerCase())
+					.startsWith(query.toLowerCase())
+					|| (cw.getRomaji().toLowerCase()).startsWith(query
+							.toLowerCase())
+					|| (cw.getTranscription().toLowerCase()).startsWith(query
+							.toLowerCase()))
 				result.add(cw);
-			else
-				{
+			else {
 				String[] words = cw.getTranslation().split("\\b");
-				for(String w: words){
-					if((w.trim().toLowerCase()).startsWith(query.toLowerCase())) {result.add(cw); break;}
+				for (String w : words) {
+					if ((w.trim().toLowerCase())
+							.startsWith(query.toLowerCase())) {
+						result.add(cw);
+						break;
+					}
 				}
 			}
 		}

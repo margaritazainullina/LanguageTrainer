@@ -7,11 +7,14 @@ import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.TextToVoiceMediaPlayer;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -59,8 +62,22 @@ public class WordIntroductionActivity extends Activity {
 		idx = 0;
 		showEntry();
 		prevButton.setEnabled(false);
+
+		ActionBar actionBar = getActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true); 
 	}
 
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+        case android.R.id.home:
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    }
+	
 	private void speakOut(final VocabularyEntry entry) {
 		twmp.play(entry.getTranscription());
 	}

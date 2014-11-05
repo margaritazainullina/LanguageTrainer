@@ -155,8 +155,8 @@ public class MainActivity extends FragmentActivity implements
 	public void onClickPracticeCounterWords(View v) {
 		// load counter words
 		CounterWordsService cws = new CounterWordsService();
-		App.counterWordsDictionary = cws.createCurrentDictionary(
-				null, App.numberOfEntriesInCurrentDict, App.cr);
+		App.counterWordsDictionary = cws.createCurrentDictionary(null,
+				App.numberOfEntriesInCurrentDict, App.cr);
 		Intent intent = new Intent(this, CounterWordsIntroductionActivity.class);
 		startActivity(intent);
 	}
@@ -179,6 +179,17 @@ public class MainActivity extends FragmentActivity implements
 		// on tab selected
 		// show respected fragment view
 		viewPager.setCurrentItem(tab.getPosition());
+	}
+
+	public void onClickPassTest(View v) {
+		// load test
+		if (!App.testName.isEmpty()) {
+			Intent intent = new Intent(this, MockTestActivity.class);
+			intent.putExtra("testName", App.testName);
+			App.testName = "";
+			startActivity(intent);
+		}
+
 	}
 
 	@Override

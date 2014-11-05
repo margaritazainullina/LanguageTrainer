@@ -198,14 +198,5 @@ public class MenuListActivity extends FragmentActivity implements
 
 		Intent intent = new Intent(this, GiongoIntroductionActivity.class);
 		startActivity(intent);
-
-	}
-
-	public void onClickPassTest(View v) {
-		// load test
-		Intent intent = new Intent(this, MockTestActivity.class);
-		intent.putExtra("testName", TestActivityFragment.testName);
-		startActivity(intent);
-
 	}
 }
