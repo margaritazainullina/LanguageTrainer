@@ -10,6 +10,7 @@ import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.ListViewAdapter;
 import ua.hneu.languagetrainer.model.grammar.GrammarDictionary;
 import ua.hneu.languagetrainer.model.other.GiongoDictionary;
+import ua.hneu.languagetrainer.pages.test.MockTestActivity;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.app.SearchManager;
@@ -78,7 +79,10 @@ public class AllGrammar extends ListActivity {
 	}
 
 	public void onListItemClick(ListView l, View v, int position, long id) {
-		// TODO: call detail activity for clicked entry
+		Intent intent = new Intent(this, AllGrammarExamples.class);
+		String desc = entries.get(position).getDescription();
+		intent.putExtra("rule", desc);
+		startActivity(intent);
 	}
 
 	private void handleIntent(Intent intent) {

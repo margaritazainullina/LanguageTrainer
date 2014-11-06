@@ -161,7 +161,8 @@ public class GrammarDictionary {
 		GrammarDictionary result = new GrammarDictionary();
 		for (GrammarRule ve : entries) {
 			if ((ve.getRule().toLowerCase()).contains(query.toLowerCase())
-					|| (ve.getDescription().toLowerCase()).contains(query.toLowerCase())) {
+					|| (ve.getDescription().toLowerCase()).contains(query
+							.toLowerCase())) {
 				result.add(ve);
 			} else {
 				for (String transl : ve.getAllTranslations()) {
@@ -178,5 +179,16 @@ public class GrammarDictionary {
 			}
 		}
 		return result;
+	}
+
+	public GrammarRule getByRule(String rule) {
+		GrammarRule gr = null;
+		for (GrammarRule r : entries) {
+			if (r.getDescription().equals(rule)) {
+				gr = r;
+				break;
+			}
+		}
+		return gr;
 	}
 }

@@ -10,6 +10,7 @@ import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.ListViewAdapter;
 import ua.hneu.languagetrainer.model.other.GiongoDictionary;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
+import ua.hneu.languagetrainer.pages.grammar.AllGrammarExamples;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.app.SearchManager;
@@ -76,8 +77,12 @@ public class AllGiongo extends ListActivity {
 	}
 
 	public void onListItemClick(ListView l, View v, int position, long id) {
-		// TODO: call detail activity for clicked entry
+		Intent intent = new Intent(this, AllGiongoExamples.class);
+		String desc = entries.get(position).getWord();
+		intent.putExtra("giongo", desc);
+		startActivity(intent);
 	}
+	
 	private void handleIntent(Intent intent) {
 		if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
 			String query = intent.getStringExtra(SearchManager.QUERY);

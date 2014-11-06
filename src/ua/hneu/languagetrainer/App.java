@@ -116,7 +116,7 @@ public class App extends Application {
 		// creating and inserting into whole database
 		// vocabulary
 
-		/*vs.dropTable();
+		vs.dropTable();
 		vs.createTable();
 		vs.bulkInsertFromCSV("vocabulary/N5.txt", getAssets(), 5, getContentResolver());
 		vs.bulkInsertFromCSV("vocabulary/N4.txt", getAssets(), 4, getContentResolver());
@@ -191,7 +191,7 @@ public class App extends Application {
 		grs.bulkInsertFromCSV("grammar/grammar_n2.txt", 2, getAssets(),
 				getContentResolver());
 		grs.bulkInsertFromCSV("grammar/grammar_n1.txt", 1, getAssets(),
-				getContentResolver());*/
+				getContentResolver());
 
 		us.dropTable();
 		us.createTable();

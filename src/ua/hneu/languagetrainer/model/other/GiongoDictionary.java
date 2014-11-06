@@ -138,4 +138,15 @@ public class GiongoDictionary {
 		}
 		return result;
 	}
+
+	public Giongo getByWord(String word) {
+		Giongo gr = null;
+		for (Giongo g : entries) {
+			if (g.getWord().equals(word)) {
+				gr = g;
+				break;
+			}
+		}
+		return gr;
+	}
 }
