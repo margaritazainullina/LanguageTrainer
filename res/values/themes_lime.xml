@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="Lime" parent="android:Theme.Holo">
+      
+    <item name="android:windowBackground">@drawable/bgn</item>
+
+    <item name="android:editTextBackground">@drawable/lime_edit_text_holo_dark</item>
+
+    <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewLime</item>
+
+    <item name="android:listChoiceIndicatorMultiple">@drawable/lime_btn_check_holo_dark</item>
+
+    <item name="android:listChoiceIndicatorSingle">@drawable/lime_btn_radio_holo_dark</item>
+
+    <item name="android:buttonStyle">@style/ButtonLime</item>
+
+    <item name="android:imageButtonStyle">@style/ImageButtonLime</item>
+
+    <item name="android:dropDownSpinnerStyle">@style/SpinnerLime</item>
+
+    <item name="android:progressBarStyleHorizontal">@style/ProgressBarLime</item>
+
+    <item name="android:seekBarStyle">@style/SeekBarLime</item>
+
+    <item name="android:ratingBarStyle">@style/RatingBarLime</item>
+
+    <item name="android:ratingBarStyleIndicator">@style/RatingBarBigLime</item>
+
+    <item name="android:ratingBarStyleSmall">@style/RatingBarSmallLime</item>
+
+    <item name="android:buttonStyleToggle">@style/ToggleLime</item>
+
+    <item name="android:listChoiceBackgroundIndicator">@drawable/lime_list_selector_holo_dark</item>
+
+    <item name="android:activatedBackgroundIndicator">@drawable/lime_activated_background_holo_dark</item>
+
+    <item name="android:fastScrollThumbDrawable">@drawable/lime_fastscroll_thumb_holo</item>
+
+  </style>
+
+</resources>
