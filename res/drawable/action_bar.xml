@@ -1,0 +1,6 @@
+<bitmap
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:src="@drawable/action_bar_bgn"
+android:tileMode="mirror"
+android:antialias="true"
+android:dither="true" />
