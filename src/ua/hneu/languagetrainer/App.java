@@ -29,6 +29,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.graphics.Typeface;
 
 public class App extends Application {
 
@@ -41,14 +42,14 @@ public class App extends Application {
 	// counter words for session
 	public static CounterWordsDictionary counterWordsDictionary;
 
-	//all dictionary
+	// all dictionary
 	public static VocabularyDictionary allVocabularyDictionary;
 	public static GrammarDictionary allGrammarDictionary;
 	public static GiongoDictionary allGiongoDictionary;
 	public static CounterWordsDictionary allCounterWordsDictionary;
-	
+
 	public static String testName;
-	
+
 	// user info
 	public static User userInfo;
 	// service for access to db
@@ -86,6 +87,11 @@ public class App extends Application {
 		ENG, RUS
 	};
 
+	public static Typeface kanjiFont;
+	public static Typeface titleFont;
+	public static Typeface titleFontItalic;
+	
+
 	@Override
 	public void onCreate() {
 		// get current location
@@ -116,86 +122,90 @@ public class App extends Application {
 		// creating and inserting into whole database
 		// vocabulary
 
-		/*vs.dropTable();
-		vs.createTable();
-		vs.bulkInsertFromCSV("vocabulary/N5.txt", getAssets(), 5, getContentResolver());
-		vs.bulkInsertFromCSV("vocabulary/N4.txt", getAssets(), 4, getContentResolver());
-		vs.bulkInsertFromCSV("vocabulary/N3.txt", getAssets(), 3, getContentResolver());
-		vs.bulkInsertFromCSV("vocabulary/N2.txt", getAssets(), 2, getContentResolver());
-		vs.bulkInsertFromCSV("vocabulary/N1.txt", getAssets(), 1, getContentResolver());
-
-		// test
-		ts.dropTable();
-		qs.dropTable();
-		as.dropTable();
-		ts.createTable();
-		TestService.startCounting(getContentResolver());
-		qs.createTable();
-		QuestionService.startCounting(getContentResolver());
-		as.createTable();
-		ts.insertFromXml("tests/level_def_test.xml", getAssets(),
-				getContentResolver());
-		ts.insertFromXml("tests/mock_test_n1_#1.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("tests/mock_test_n1_#2.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("tests/mock_test_n1_#3.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("tests/mock_test_n1_#4.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("tests/mock_test_n1_#5.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("tests/mock_test_n2_#1.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("tests/mock_test_n2_#2.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("tests/mock_test_n2_#3.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("tests/mock_test_n2_#4.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("tests/mock_test_n2_#5.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("tests/mock_test_n3_#1.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("tests/mock_test_n3_#2.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("tests/mock_test_n4_#1.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("tests/mock_test_n4_#2.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("tests/mock_test_n4_#3.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("tests/mock_test_n4_#4.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("tests/mock_test_n4_#5.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("tests/mock_test_n5_#1.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("tests/mock_test_n5_#2.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("tests/mock_test_n5_#3.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("tests/mock_test_n5_#4.xml", getAssets(), getContentResolver());
-		ts.insertFromXml("tests/mock_test_n5_#5.xml", getAssets(), getContentResolver());
-		
-		GiongoService gs = new GiongoService();
-		gs.dropTable();
-		gs.createTable();
-		ges.dropTable();
-		GiongoService.startCounting(getContentResolver());
-		ges.createTable();
-		gs.bulkInsertFromCSV("giongo/giongo.txt", getAssets(), getContentResolver());
-
-		cws.dropTable();
-		cws.createTable();
-		cws.bulkInsertFromCSV("counters/numbers.txt", getAssets(), getContentResolver());
-		cws.bulkInsertFromCSV("counters/people_and_things.txt", getAssets(),
-				getContentResolver());
-		cws.bulkInsertFromCSV("counters/time_calendar.txt", getAssets(),
-				getContentResolver());
-		
-		cws.bulkInsertFromCSV("counters/extent_freq.txt", getAssets(),
-				getContentResolver());
-
-		grs.dropTable();
-		grs.createTable();
-		GrammarService.startCounting(getContentResolver());
-		gres.dropTable();
-		gres.createTable();
-		grs.bulkInsertFromCSV("grammar/grammar_n5.txt", 5, getAssets(),
-				getContentResolver());
-		grs.bulkInsertFromCSV("grammar/grammar_n4.txt", 4, getAssets(),
-				getContentResolver());
-		grs.bulkInsertFromCSV("grammar/grammar_n3.txt", 3, getAssets(),
-				getContentResolver());
-		grs.bulkInsertFromCSV("grammar/grammar_n2.txt", 2, getAssets(),
-				getContentResolver());
-		grs.bulkInsertFromCSV("grammar/grammar_n1.txt", 1, getAssets(),
-				getContentResolver());*/
-
+		/*
+		 * vs.dropTable(); vs.createTable();
+		 * vs.bulkInsertFromCSV("vocabulary/N5.txt", getAssets(), 5,
+		 * getContentResolver()); vs.bulkInsertFromCSV("vocabulary/N4.txt",
+		 * getAssets(), 4, getContentResolver());
+		 * vs.bulkInsertFromCSV("vocabulary/N3.txt", getAssets(), 3,
+		 * getContentResolver()); vs.bulkInsertFromCSV("vocabulary/N2.txt",
+		 * getAssets(), 2, getContentResolver());
+		 * vs.bulkInsertFromCSV("vocabulary/N1.txt", getAssets(), 1,
+		 * getContentResolver());
+		 * 
+		 * // test ts.dropTable(); qs.dropTable(); as.dropTable();
+		 * ts.createTable(); TestService.startCounting(getContentResolver());
+		 * qs.createTable();
+		 * QuestionService.startCounting(getContentResolver());
+		 * as.createTable(); ts.insertFromXml("tests/level_def_test.xml",
+		 * getAssets(), getContentResolver());
+		 * ts.insertFromXml("tests/mock_test_n1_#1.xml", getAssets(),
+		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n1_#2.xml",
+		 * getAssets(), getContentResolver());
+		 * ts.insertFromXml("tests/mock_test_n1_#3.xml", getAssets(),
+		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n1_#4.xml",
+		 * getAssets(), getContentResolver());
+		 * ts.insertFromXml("tests/mock_test_n1_#5.xml", getAssets(),
+		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n2_#1.xml",
+		 * getAssets(), getContentResolver());
+		 * ts.insertFromXml("tests/mock_test_n2_#2.xml", getAssets(),
+		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n2_#3.xml",
+		 * getAssets(), getContentResolver());
+		 * ts.insertFromXml("tests/mock_test_n2_#4.xml", getAssets(),
+		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n2_#5.xml",
+		 * getAssets(), getContentResolver());
+		 * ts.insertFromXml("tests/mock_test_n3_#1.xml", getAssets(),
+		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n3_#2.xml",
+		 * getAssets(), getContentResolver());
+		 * ts.insertFromXml("tests/mock_test_n4_#1.xml", getAssets(),
+		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n4_#2.xml",
+		 * getAssets(), getContentResolver());
+		 * ts.insertFromXml("tests/mock_test_n4_#3.xml", getAssets(),
+		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n4_#4.xml",
+		 * getAssets(), getContentResolver());
+		 * ts.insertFromXml("tests/mock_test_n4_#5.xml", getAssets(),
+		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n5_#1.xml",
+		 * getAssets(), getContentResolver());
+		 * ts.insertFromXml("tests/mock_test_n5_#2.xml", getAssets(),
+		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n5_#3.xml",
+		 * getAssets(), getContentResolver());
+		 * ts.insertFromXml("tests/mock_test_n5_#4.xml", getAssets(),
+		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n5_#5.xml",
+		 * getAssets(), getContentResolver());
+		 * 
+		 * GiongoService gs = new GiongoService(); gs.dropTable();
+		 * gs.createTable(); ges.dropTable();
+		 * GiongoService.startCounting(getContentResolver()); ges.createTable();
+		 * gs.bulkInsertFromCSV("giongo/giongo.txt", getAssets(),
+		 * getContentResolver());
+		 * 
+		 * cws.dropTable(); cws.createTable();
+		 * cws.bulkInsertFromCSV("counters/numbers.txt", getAssets(),
+		 * getContentResolver());
+		 * cws.bulkInsertFromCSV("counters/people_and_things.txt", getAssets(),
+		 * getContentResolver());
+		 * cws.bulkInsertFromCSV("counters/time_calendar.txt", getAssets(),
+		 * getContentResolver());
+		 * 
+		 * cws.bulkInsertFromCSV("counters/extent_freq.txt", getAssets(),
+		 * getContentResolver());
+		 * 
+		 * grs.dropTable(); grs.createTable();
+		 * GrammarService.startCounting(getContentResolver()); gres.dropTable();
+		 * gres.createTable(); grs.bulkInsertFromCSV("grammar/grammar_n5.txt",
+		 * 5, getAssets(), getContentResolver());
+		 * grs.bulkInsertFromCSV("grammar/grammar_n4.txt", 4, getAssets(),
+		 * getContentResolver());
+		 * grs.bulkInsertFromCSV("grammar/grammar_n3.txt", 3, getAssets(),
+		 * getContentResolver());
+		 * grs.bulkInsertFromCSV("grammar/grammar_n2.txt", 2, getAssets(),
+		 * getContentResolver());
+		 * grs.bulkInsertFromCSV("grammar/grammar_n1.txt", 1, getAssets(),
+		 * getContentResolver());
+		 */
 		us.dropTable();
 		us.createTable();
-		
+
 		// if it isn't first time when launching app - user exists in db
 		User currentUser = us.getUserWithCurrentLevel(App.cr);
 		if (currentUser != null) {
@@ -203,6 +213,10 @@ public class App extends Application {
 			userInfo = currentUser;
 		}
 		App.context = getApplicationContext();
+		kanjiFont = Typeface.createFromAsset(context.getAssets(), "fonts/EPKYOUKA.TTF");
+		titleFont = Typeface.createFromAsset(context.getAssets(), "fonts/MAIAN.TTF");
+		titleFontItalic = Typeface.createFromAsset(context.getAssets(), "fonts/mvboli.ttf");
+		
 		getSettings();
 		super.onCreate();
 	}
@@ -226,8 +240,10 @@ public class App extends Application {
 			// set all other users as not current
 			us.insert(userInfo, cr);
 			// load dictionary
-			/*vocabularyDictionary = VocabularyService.createCurrentDictionary(
-					userInfo.getLevel(), numberOfEntriesInCurrentDict, cr);*/
+			/*
+			 * vocabularyDictionary = VocabularyService.createCurrentDictionary(
+			 * userInfo.getLevel(), numberOfEntriesInCurrentDict, cr);
+			 */
 			App.editor.putString("showRomaji", "only_4_5");
 			// default settings when launched first
 			if (level == 4 || level == 5)
@@ -294,7 +310,7 @@ public class App extends Application {
 			timeLimit2 = 60 * 60 * 1000;
 			timeLimit3 = 35 * 60 * 1000;
 		case 5:
-			//timeLimit1 = 20 * 1000;
+			// timeLimit1 = 20 * 1000;
 			timeLimit1 = 25 * 60 * 1000;
 			timeLimit2 = 50 * 60 * 1000;
 			timeLimit3 = 30 * 60 * 1000;

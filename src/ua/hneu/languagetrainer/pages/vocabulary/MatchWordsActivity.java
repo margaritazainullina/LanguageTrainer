@@ -100,9 +100,9 @@ public class MatchWordsActivity extends Activity {
 		}
 
 		// creating adapters for columns - ListViews
-		adapter1 = new ListViewAdapter(this, kanji);
-		adapter2 = new ListViewAdapter(this, readings);
-		adapter3 = new ListViewAdapter(this, translations);
+		adapter1 = new ListViewAdapter(this, kanji, true);
+		adapter2 = new ListViewAdapter(this, readings, true);
+		adapter3 = new ListViewAdapter(this, translations, false);
 
 		// bindings adapters to ListViews
 		kanjiListView.setAdapter(adapter1);

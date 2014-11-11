@@ -17,6 +17,7 @@ import ua.hneu.languagetrainer.model.grammar.GrammarRule;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -100,9 +101,14 @@ public class GrammarTestActivity extends Activity {
 		part1TextView.setTextColor(color);
 		part2TextView.setTextColor(color);
 		part3TextView.setTextColor(color);
+
+		part1TextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
+		part2TextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
+		part3TextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
+		
 		// shuffling, because first line always stores right answer
 		Collections.shuffle(answers);
-		adapter = new ListViewAdapter(this, answers);
+		adapter = new ListViewAdapter(this, answers,true);
 		// bindings adapter to ListView
 		answersListView.setAdapter(adapter);
 		answersListView.setOnItemClickListener(answersListViewClickListener);

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import ua.hneu.edu.languagetrainer.R;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,6 +54,10 @@ public class ExamplesListViewAdapter extends ArrayAdapter<String> {
 		romajiTv.setText(romaji.get(position));
 		translationTv.setText(translations.get(position));
 		changeColor(rowView, color);
+		
+		textPart1.setTypeface(App.kanjiFont, Typeface.NORMAL);
+		textPart2.setTypeface(App.kanjiFont, Typeface.NORMAL);
+		textPart3.setTypeface(App.kanjiFont, Typeface.NORMAL);
 		return rowView;
 	}
 

@@ -11,6 +11,7 @@ import ua.hneu.languagetrainer.model.other.CounterWordsDictionary;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -55,7 +56,9 @@ public class CounterWordsTestActivity extends Activity {
 
 		// at first show word and possible answers
 		nextWord();
-		
+
+		wordTextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
+		romajiTextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
 	}
 
 	public void nextWord() {
@@ -89,7 +92,7 @@ public class CounterWordsTestActivity extends Activity {
 		// creating adapter for ListView with possible answers
 		
 			adapter = new ListViewAdapter(this,
-					randomDictionaryList.getAllTranslations());
+					randomDictionaryList.getAllTranslations(), true);
 		
 		// bindings adapter to ListView
 		answersListView.setAdapter(adapter);

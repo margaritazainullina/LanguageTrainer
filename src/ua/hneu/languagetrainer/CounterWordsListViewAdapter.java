@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import ua.hneu.edu.languagetrainer.R;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,8 @@ public class CounterWordsListViewAdapter extends ArrayAdapter<String> {
 		TextView textView1 = (TextView) rowView.findViewById(R.id.ListElementInfo);
 		textView.setText(values1.get(position));
 		textView1.setText(values2.get(position));
+		
+		//rowView.setTypeface(App.kanjiFont, Typeface.NORMAL);
 		return rowView;
 	}
 

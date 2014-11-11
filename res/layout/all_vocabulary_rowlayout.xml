@@ -22,7 +22,18 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/avr_reading"
+            android:id="@+id/avr_hiragana"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:gravity="left"
+            android:text="もじ"
+            android:textSize="@dimen/buttonTextSize" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/avr_romaji"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -56,20 +67,9 @@
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:gravity="left"
-            android:text="10/*10"
             android:textSize="@dimen/buttonTextSize" >
         </TextView>
 
-        <TextView
-            android:id="@+id/avr_isLearned"
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:gravity="left"
-            android:text="learned"
-            android:textSize="@dimen/buttonTextSize" >
-        </TextView>
     </LinearLayout>
 
 </LinearLayout>

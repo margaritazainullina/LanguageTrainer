@@ -11,6 +11,7 @@ import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -51,16 +52,18 @@ public class TranscriptionTestActivity extends Activity {
 		setContentView(R.layout.activity_translation_transcription_cw_test);
 		App.vocabularyDictionary
 				.addEntriesToDictionaryAndGetOnlyWithKanji(App.numberOfEntriesInCurrentDict);
-
 		// Initialize
 		wordTextView = (TextView) findViewById(R.id.wordTextView);
 		transcriptionTextView = (TextView) findViewById(R.id.transcriptionTextView);
 		romajiTextView = (TextView) findViewById(R.id.romajiTextView);
 		answersListView = (ListView) findViewById(R.id.answersListView);
 		isRight = (TextView) findViewById(R.id.isCorrectTextView);
-
 		// at first show word and possible answers
 		nextWord();
+		if (isKanjiShown) {
+			wordTextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
+		}
+		transcriptionTextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
 	}
 
 	public void nextWord() {
@@ -117,10 +120,10 @@ public class TranscriptionTestActivity extends Activity {
 		// creating adapter for ListView with possible answers
 		if (isKanjiShown) {
 			adapter = new ListViewAdapter(this,
-					randomDictionaryList.getAllReadings());
+					randomDictionaryList.getAllReadings(), true);
 		} else {
 			adapter = new ListViewAdapter(this,
-					randomDictionaryList.getAllKanji());
+					randomDictionaryList.getAllKanji(), true);
 		}
 		// bindings adapter to ListView
 		answersListView.setAdapter(adapter);
@@ -151,7 +154,7 @@ public class TranscriptionTestActivity extends Activity {
 				final int position, final long itemID) {
 			VocabularyEntry selected = randomDictionaryList.get(position);
 			// comparing correct and selected answer
-			if (selected == rightAnswer) {				
+			if (selected == rightAnswer) {
 				App.vp.incrementNumberOfCorrectAnswersInTranslation();
 				// increment percentage
 				if (!ifWasWrong)
@@ -234,7 +237,8 @@ public class TranscriptionTestActivity extends Activity {
 	}
 
 	public void buttonSkipSelectOnClick(View v) {
-		Intent matchWordsIntent = new Intent(this, VocabularyResultActivity.class);
+		Intent matchWordsIntent = new Intent(this,
+				VocabularyResultActivity.class);
 		startActivity(matchWordsIntent);
 	}
 

@@ -272,4 +272,15 @@ public class VocabularyDictionary {
 		return result;
 	}
 
+	public ArrayList<String> getAllStatistics() {
+		ArrayList<String> statistics = new ArrayList<String>();
+		for (VocabularyEntry e : entries) {
+			int a = (int) Math.round(App.numberOfEntriesInCurrentDict*e.getLearnedPercentage());
+			if (e.getLearnedPercentage() == 1) statistics.add("Learned");
+			else
+				statistics.add(a+"/"+App.numberOfEntriesInCurrentDict);
+		}
+		return statistics;
+	}
+
 }

@@ -9,6 +9,7 @@ import ua.hneu.languagetrainer.model.other.CounterWord;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -54,6 +55,8 @@ public class CounterWordsIntroductionActivity extends Activity {
 		curWord = App.counterWordsDictionary.get(0);
 		idx = 0;
 		showEntry(curWord);
+		wordTextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
+		hiraganaTextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
 		prevButton.setEnabled(false);
 	}
 

@@ -10,6 +10,7 @@ import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.util.Log;
@@ -45,12 +46,8 @@ public class WordIntroductionActivity extends Activity {
 		App.userInfo.isLevelLaunchedFirstTime = 0;
 		App.userInfo.updateUserData(getContentResolver());
 
-		// Initialize views
-		wordTextView = (TextView) findViewById(R.id.wordTextView);
-		transcriptionTextView = (TextView) findViewById(R.id.transcriptionTextView);
-		romajiTextView = (TextView) findViewById(R.id.romajiTextView);
-		translationTextView = (TextView) findViewById(R.id.translationTextView);
 		twmp = new TextToVoiceMediaPlayer();
+
 		// increment number of
 		App.vp.incrementNumberOfPassingsInARow();
 
@@ -61,23 +58,27 @@ public class WordIntroductionActivity extends Activity {
 		curEntry = App.vocabularyDictionary.get(0);
 		idx = 0;
 		showEntry();
+
+		wordTextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
+		transcriptionTextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
+
 		prevButton.setEnabled(false);
 
 		ActionBar actionBar = getActionBar();
-		actionBar.setDisplayHomeAsUpEnabled(true); 
+		actionBar.setDisplayHomeAsUpEnabled(true);
 	}
 
 	@Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-        case android.R.id.home:
-            NavUtils.navigateUpFromSameTask(this);
-            return true;
-        default:
-            return super.onOptionsItemSelected(item);
-        }
-    }
-	
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			NavUtils.navigateUpFromSameTask(this);
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+
 	private void speakOut(final VocabularyEntry entry) {
 		twmp.play(entry.getTranscription());
 	}
@@ -126,7 +127,7 @@ public class WordIntroductionActivity extends Activity {
 		wordTextView.setText(curEntry.getKanji());
 		transcriptionTextView.setText(curEntry.getTranscription());
 		if (App.isShowRomaji)
-			romajiTextView.setText(curEntry.getRomaji());
+		romajiTextView.setText(curEntry.getRomaji());
 		translationTextView.setText(curEntry.translationsToString());
 
 		// set color of entry

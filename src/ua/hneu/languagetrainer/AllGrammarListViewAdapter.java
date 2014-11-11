@@ -8,6 +8,7 @@ import ua.hneu.languagetrainer.model.grammar.GrammarDictionary;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,8 @@ public class AllGrammarListViewAdapter extends ArrayAdapter<String> {
 		descriptionTv = (TextView) rowView.findViewById(R.id.agr_description);
 		ruleTv.setText(rules.get(position));
 		descriptionTv.setText(descriptions.get(position));
+		
+		ruleTv.setTypeface(App.kanjiFont, Typeface.NORMAL);
 		return rowView;
 	}
 

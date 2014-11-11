@@ -9,6 +9,7 @@ import ua.hneu.languagetrainer.model.other.GiongoDictionary;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,8 @@ public class AllGiongoListViewAdapter extends ArrayAdapter<String> {
 		translationTv = (TextView) rowView.findViewById(R.id.agr_translation);
 		giongoTv.setText(giongo.get(position));
 		translationTv.setText(translations.get(position));
+
+		giongoTv.setTypeface(App.kanjiFont, Typeface.NORMAL);
 		return rowView;
 	}
 

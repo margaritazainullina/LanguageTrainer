@@ -4,11 +4,14 @@ import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.masterdetailflow.MenuListActivity;
 import ua.hneu.languagetrainer.pages.test.MockTestActivity;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class GreetingActivity extends Activity {
 	Button buttonTakeTest;
@@ -21,7 +24,6 @@ public class GreetingActivity extends Activity {
 		setContentView(R.layout.activity_greeting);
 		buttonTakeTest = (Button) findViewById(R.id.buttonTakeTest);
 		buttonStart = (Button) findViewById(R.id.buttonStart);	
-		
 	}
 
 	public void buttonTakeTestOnClick(View v) {

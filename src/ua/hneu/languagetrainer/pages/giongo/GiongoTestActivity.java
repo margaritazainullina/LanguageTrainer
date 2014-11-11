@@ -17,6 +17,7 @@ import ua.hneu.languagetrainer.model.other.GiongoExample;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -60,6 +61,9 @@ public class GiongoTestActivity extends Activity {
 		isRight = (TextView) findViewById(R.id.isCorrectTextView);		
 		// at first show word and possible answers
 		nextWord();
+		part1TextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
+		part2TextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
+		part3TextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
 	}
 
 	public void nextWord() {
@@ -102,7 +106,7 @@ public class GiongoTestActivity extends Activity {
 		part3TextView.setTextColor(color);
 		// shuffling, because first line always stores right answer
 		Collections.shuffle(answers);
-		adapter = new ListViewAdapter(this, answers);
+		adapter = new ListViewAdapter(this, answers, true);
 		// bindings adapter to ListView
 		answersListView.setAdapter(adapter);
 		answersListView.setOnItemClickListener(answersListViewClickListener);

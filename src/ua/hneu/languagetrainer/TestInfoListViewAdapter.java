@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import ua.hneu.edu.languagetrainer.R;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

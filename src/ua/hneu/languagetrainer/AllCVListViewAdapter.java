@@ -8,6 +8,7 @@ import ua.hneu.languagetrainer.model.other.CounterWordsDictionary;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +46,9 @@ public class AllCVListViewAdapter extends ArrayAdapter<String> {
 		wordTv.setText(word.get(position));
 		readingTv.setText(reading.get(position));
 		translationTv.setText(translation.get(position));
+		
+		wordTv.setTypeface(App.kanjiFont, Typeface.NORMAL);
+		readingTv.setTypeface(App.kanjiFont, Typeface.NORMAL);
 		return rowView;
 	}
 

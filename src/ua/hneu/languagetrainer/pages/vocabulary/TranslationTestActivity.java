@@ -11,6 +11,7 @@ import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -49,7 +50,6 @@ public class TranslationTestActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_translation_transcription_cw_test);
-
 		// Initialize
 		wordTextView = (TextView) findViewById(R.id.wordTextView);
 		transcriptionTextView = (TextView) findViewById(R.id.transcriptionTextView);
@@ -57,7 +57,6 @@ public class TranslationTestActivity extends Activity {
 		translationTextView = (TextView) findViewById(R.id.translationTextView);
 		answersListView = (ListView) findViewById(R.id.answersListView);
 		isRight = (TextView) findViewById(R.id.isCorrectTextView);
-
 		// at first show word and possible answers
 		nextWord();
 	}
@@ -77,16 +76,19 @@ public class TranslationTestActivity extends Activity {
 		// show word, reading and translations - set text to all TextViews
 		VocabularyEntry currentEntry = App.vocabularyDictionary
 				.get(currentWordNumber);
+
 		if (isFromJapanese) {
 			wordTextView.setText(currentEntry.getKanji());
 			transcriptionTextView.setText(currentEntry.getTranscription());
 			if (App.isShowRomaji)
 				romajiTextView.setText(currentEntry.getRomaji());
+			wordTextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
 		} else {
 			transcriptionTextView.setText("");
 			romajiTextView.setText("");
 			wordTextView.setText(currentEntry.translationsToString());
 		}
+		transcriptionTextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
 
 		// get dictionary with random entries, add current one and shuffle
 		randomDictionary = App.vocabularyDictionary.getRandomEntries(
@@ -104,10 +106,10 @@ public class TranslationTestActivity extends Activity {
 		// creating adapter for ListView with possible answers
 		if (isFromJapanese) {
 			adapter = new ListViewAdapter(this,
-					randomDictionaryList.getAllTranslations());
+					randomDictionaryList.getAllTranslations(),false);
 		} else {
 			adapter = new ListViewAdapter(this,
-					randomDictionaryList.getAllKanjiWithReadings());
+					randomDictionaryList.getAllKanjiWithReadings(),true);
 		}
 		// bindings adapter to ListView
 		answersListView.setAdapter(adapter);
@@ -121,6 +123,7 @@ public class TranslationTestActivity extends Activity {
 		// set this word shown
 		rightAnswer.setLastView();
 		App.vs.update(rightAnswer, getContentResolver());
+
 	}
 
 	@Override

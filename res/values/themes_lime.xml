@@ -4,6 +4,8 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="Lime" parent="android:Theme.Holo">
+        
+        <item name="android:fontFamily">sans-serif-light</item>        
         <item name="android:windowBackground">@drawable/bgn</item>
         <item name="android:editTextBackground">@drawable/lime_edit_text_holo_dark</item>
         <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewLime</item>

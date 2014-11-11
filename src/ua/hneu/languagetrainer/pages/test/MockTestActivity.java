@@ -18,6 +18,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -156,6 +157,11 @@ public class MockTestActivity extends Activity {
 		}
 		// at first show word and possible answers
 		nextWord();
+		
+		titleTextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
+		sectionTextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
+		taskTextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
+		textTextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
 	}
 
 	public void timeIsOver() {
@@ -206,7 +212,7 @@ public class MockTestActivity extends Activity {
 			playAudio();
 
 		sectionTextView.setText(q.getSection());
-		adapter = new ListViewAdapter(this, q.getAllAnswers());
+		adapter = new ListViewAdapter(this, q.getAllAnswers(), true);
 		answersListView.setAdapter(adapter);
 		answersListView.setOnItemClickListener(answersListViewClickListener);
 		rightAnswer = q.getRightAnswer();
