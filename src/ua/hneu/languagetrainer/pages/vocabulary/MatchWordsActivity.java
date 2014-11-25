@@ -5,6 +5,7 @@ import java.util.Collections;
 
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.DoubleListViewAdapter;
 import ua.hneu.languagetrainer.ListViewAdapter;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
@@ -19,6 +20,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -31,7 +33,7 @@ public class MatchWordsActivity extends Activity {
 	ListView kanjiListView;
 	ListView readingListView;
 	ListView translationListView;
-	TextView isCorrectTextView;
+	ImageView isCorrect;
 
 	// has 3 elements - index of kanji, transcription, translation
 	int[] currentAnswer = new int[] { -1, -1, -1 };
@@ -51,7 +53,7 @@ public class MatchWordsActivity extends Activity {
 
 	// custom adapters for ListViews
 	ListViewAdapter adapter1;
-	ListViewAdapter adapter2;
+	DoubleListViewAdapter adapter2;
 	ListViewAdapter adapter3;
 
 	// views - rows with given answers
@@ -74,7 +76,7 @@ public class MatchWordsActivity extends Activity {
 		kanjiListView = (ListView) findViewById(R.id.kanjiListView);
 		readingListView = (ListView) findViewById(R.id.readingListView);
 		translationListView = (ListView) findViewById(R.id.translationListView);
-		isCorrectTextView = (TextView) findViewById(R.id.isCorrectTextView);
+		isCorrect = (ImageView) findViewById(R.id.isCorrect);
 
 		// initializing indices
 		for (int i = 0; i < entriesForMatchingNumber; i++) {
@@ -84,6 +86,8 @@ public class MatchWordsActivity extends Activity {
 			translationIndices.add(curDictionary.get(i).getId());
 		}
 
+		isCorrect.setImageResource(android.R.color.transparent);
+		
 		// shuffling indices
 		Collections.shuffle(kanjiIndices);
 		Collections.shuffle(readingIndices);
@@ -101,7 +105,7 @@ public class MatchWordsActivity extends Activity {
 
 		// creating adapters for columns - ListViews
 		adapter1 = new ListViewAdapter(this, kanji, true);
-		adapter2 = new ListViewAdapter(this, readings, true);
+		adapter2 = new DoubleListViewAdapter(this, readings, true);
 		adapter3 = new ListViewAdapter(this, translations, false);
 
 		// bindings adapters to ListViews
@@ -208,16 +212,14 @@ public class MatchWordsActivity extends Activity {
 			// set lastView also when user answered correctly
 			currentEntry.setLastView();
 			App.vs.update(currentEntry, getContentResolver());
-			isCorrectTextView.setText("Correct!");
-			isCorrectTextView.setTextColor(Color.parseColor("#669900"));
+			isCorrect.setImageResource(R.drawable.yes);
 			// fade correct selected answers
 			fadeout(v1, v2, v3);
 
 		} else {
 			// add given answer to wrong
 			wrongAnswers.add(currentEntry);
-			isCorrectTextView.setText("Wrong");
-			isCorrectTextView.setTextColor(Color.parseColor("#CC0000"));
+			isCorrect.setImageResource(R.drawable.no);
 			// make selected items white
 			if (currentAnswer[0] != -1)
 				adapter1.changeColor(v1, Color.parseColor("#eaeaea"));
@@ -250,7 +252,8 @@ public class MatchWordsActivity extends Activity {
 		if (view1 != null)
 			adapter1.hideElement(view1, fadeOutAnimation, 350);
 		adapter2.hideElement(view2, fadeOutAnimation, 350);
-		adapter3.hideElement(view3, fadeOutAnimation, 350);
+		adapter3.hideElement(view3, fadeOutAnimation, 350);		
+		isCorrect.startAnimation(fadeOutAnimation);
 	}
 
 	public void buttonIAlrKnow(View v) {

@@ -28,7 +28,6 @@ public class AllVocabularyListViewAdapter extends ArrayAdapter<String> {
 	TextView romajiTv;
 	TextView translationTv;
 	TextView statTv;
-	TextView isLearnedTv;
 	
 	public AllVocabularyListViewAdapter(Context context, VocabularyDictionary d ) {
 		super(context, R.layout.all_vocabulary_rowlayout, d.getAllKanji());
@@ -50,15 +49,14 @@ public class AllVocabularyListViewAdapter extends ArrayAdapter<String> {
 		TextView romajiTv = (TextView) rowView.findViewById(R.id.avr_romaji);
 		TextView translationTv = (TextView) rowView.findViewById(R.id.avr_translation);
 		TextView statTv = (TextView) rowView.findViewById(R.id.avr_stat);
-		TextView isLearnedTv = (TextView) rowView.findViewById(R.id.avr_isLearned);
 		kanjiTv.setText(kanji.get(position));
+		
 		translationTv.setText(translation.get(position));
 		statTv.setText(stat.get(position));
-		isLearnedTv.setText("Learned");
 		
 		String[] s = reading.get(position).split(" - ");
 		hiraganaTv.setText(s[0]);
-		romajiTv.setText(" - " + s[1]);
+		romajiTv.setText(s[1]);
 		hiraganaTv.setTypeface(App.kanjiFont, Typeface.NORMAL);
 		kanjiTv.setTypeface(App.kanjiFont, Typeface.NORMAL);
 		

@@ -1,4 +1,4 @@
-あつあつ	Atsuatsu 	piping hot	С пылу, с жару
+﻿あつあつ	Atsuatsu 	piping hot	С пылу, с жару
 二人は大	あつあつ	だ	ni nin wa dai atsuatsu da 	They are madly in love	Они по уши влюблены друг в друга.
 
 いきいき	ikiiki 	fresh and full of life	Свежий, полный жизни
@@ -43,7 +43,7 @@
 
 ぐずぐず	guzuguzu 	 slowly	Медленно, нерешительно
 	ぐずぐず	せずに	guzuguzu se zu ni 	without hesitation 	Без колебаний / с ходу.
-	ぐずぐず	迷っていないで	guzuguzu mayotte i nai de, hon ka omocha ka, docchi ga ii no ka kimenasai.	Stop shilly‐shallying and decide whether you want the book or the toy!	Хватит сомневаться и реши, хочешь ли ты книгу или игрушку !
+	ぐずぐず	迷っていないで本かおもちゃか、どっちがいいのか決めなさい	guzuguzu mayotte i nai de, hon ka omocha ka, docchi ga ii no ka kimenasai.	Stop shilly‐shallying and decide whether you want the book or the toy!	Хватит сомневаться и реши, хочешь ли ты книгу или игрушку !
 
 くらくら	kurakura 	feel dizzy	Чувствовать головокружение
 私は頭が	くらくら	する	watashi wa atama ga  guragura suru	My head whirls.	Голова кружится.

@@ -21,7 +21,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="品物を"
             android:textSize="@dimen/buttonTextSize" />
 
         <TextView
@@ -41,7 +40,6 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/part2TextView"
             android:gravity="center"
-            android:text="手に取っては見ない	"
             android:textSize="@dimen/buttonTextSize" />
     </RelativeLayout>
 
@@ -53,13 +51,11 @@
 
     </ListView>
 
-    <TextView
-        android:id="@+id/isCorrectTextView"
+    <ImageView
+        android:id="@+id/isCorrect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:gravity="center" />
+        android:src="@drawable/no" />
 
     <LinearLayout
         android:layout_width="match_parent"

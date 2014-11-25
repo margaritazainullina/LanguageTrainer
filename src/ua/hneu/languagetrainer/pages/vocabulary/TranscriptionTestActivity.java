@@ -8,6 +8,7 @@ import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.ListViewAdapter;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
+import android.widget.ImageView;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -31,7 +32,7 @@ public class TranscriptionTestActivity extends Activity {
 	TextView wordTextView;
 	TextView transcriptionTextView;
 	TextView romajiTextView;
-	TextView isRight;
+	ImageView isCorrect;
 	VocabularyEntry rightAnswer;
 	int answersNumber = 5;
 	int currentWordNumber = -1;
@@ -57,7 +58,7 @@ public class TranscriptionTestActivity extends Activity {
 		transcriptionTextView = (TextView) findViewById(R.id.transcriptionTextView);
 		romajiTextView = (TextView) findViewById(R.id.romajiTextView);
 		answersListView = (ListView) findViewById(R.id.answersListView);
-		isRight = (TextView) findViewById(R.id.isCorrectTextView);
+		isCorrect = (ImageView) findViewById(R.id.isCorrect);
 		// at first show word and possible answers
 		nextWord();
 		if (isKanjiShown) {
@@ -134,7 +135,7 @@ public class TranscriptionTestActivity extends Activity {
 		wordTextView.setTextColor(color);
 		transcriptionTextView.setTextColor(color);
 		romajiTextView.setTextColor(color);
-		isRight.setText("");
+		isCorrect.setImageResource(android.R.color.transparent);
 		// set this word shown
 		rightAnswer.setLastView();
 		App.vs.update(rightAnswer, getContentResolver());
@@ -168,13 +169,13 @@ public class TranscriptionTestActivity extends Activity {
 				}
 				App.vs.update(rightAnswer, getContentResolver());
 				// change color to green and fade out
-				isRight.setText("Correct!");
+				isCorrect.setImageResource(R.drawable.yes);
 				adapter.changeColor(view, Color.parseColor("#669900"));
 				// fading out textboxes
 				fadeOut(wordTextView, 750);
 				fadeOut(transcriptionTextView, 750);
 				fadeOut(romajiTextView, 750);
-				fadeOut(isRight, 750);
+				fadeOut(isCorrect, 750);
 
 				// fading out listview
 				ListView v = (ListView) view.getParent();
@@ -213,7 +214,7 @@ public class TranscriptionTestActivity extends Activity {
 			} else {
 				// change color of row and set text
 				adapter.changeColor(view, Color.parseColor("#CC0000"));
-				isRight.setText("Wrong");
+				isCorrect.setImageResource(R.drawable.no);
 				ifWasWrong = true;
 				// set information about wrong answer in VocabularyPassing
 				App.vp.incrementNumberOfIncorrectAnswersInTranscription();

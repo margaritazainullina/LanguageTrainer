@@ -25,6 +25,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -39,7 +40,7 @@ public class GrammarTestActivity extends Activity {
 	TextView part1TextView;
 	TextView part2TextView;
 	TextView part3TextView;
-	TextView isRight;
+	ImageView isCorrect;
 	int answersNumber = 4;
 	int currentWordNumber = -1;
 	int color = 0;
@@ -58,12 +59,13 @@ public class GrammarTestActivity extends Activity {
 		part2TextView = (TextView) findViewById(R.id.part2TextView);
 		part3TextView = (TextView) findViewById(R.id.part3TextView);
 		answersListView = (ListView) findViewById(R.id.answersListView);
-		isRight = (TextView) findViewById(R.id.isCorrectTextView);
+		isCorrect = (ImageView) findViewById(R.id.isCorrect);
 		// at first show word and possible answers
 		nextWord();
 	}
 
 	public void nextWord() {
+		isCorrect.setImageResource(android.R.color.transparent);
 		// move pointer to next word
 		currentWordNumber++;
 		if (currentWordNumber >= App.grammarDictionary.size() - 1)
@@ -142,13 +144,13 @@ public class GrammarTestActivity extends Activity {
 
 				App.grs.update(rightRule, getContentResolver());
 				// change color to green and fade out
-				isRight.setText("Correct!");
+				isCorrect.setImageResource(R.drawable.yes);
 				adapter.changeColor(view, Color.parseColor("#669900"));
 				// fading out textboxes
 				fadeOut(part1TextView, 750);
 				fadeOut(part2TextView, 750);
 				fadeOut(part3TextView, 750);
-				fadeOut(isRight, 750);
+				fadeOut(isCorrect, 750);
 				// fading out listview
 				ListView v = (ListView) view.getParent();
 				fadeOut(v, 750);
@@ -185,7 +187,7 @@ public class GrammarTestActivity extends Activity {
 			} else {
 				// change color of row and set text
 				adapter.changeColor(view, Color.parseColor("#CC0000"));
-				isRight.setText("Wrong");
+				isCorrect.setImageResource(R.drawable.no);
 				ifWasWrong = true;
 				// set information about wrong answer in GrammarPassing
 				App.grp.incrementNumberOfIncorrectAnswers();

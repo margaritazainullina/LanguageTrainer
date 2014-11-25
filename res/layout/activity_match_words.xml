@@ -4,8 +4,6 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:scrollbars="vertical"
     tools:context=".MatchWordsActivity" >
@@ -13,54 +11,53 @@
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
-        android:layout_height="380dp"
+        android:layout_height="wrap_content"
         android:baselineAligned="false" >
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" >
+            android:layout_width="60dp"
+            android:layout_height="wrap_content" >
 
             <ListView
                 android:id="@+id/kanjiListView"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
                 android:visibility="visible" >
             </ListView>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" >
+            android:layout_width="160dp"
+            android:layout_height="wrap_content" >
 
             <ListView
                 android:id="@+id/readingListView"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
                 android:visibility="visible" >
             </ListView>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" >
+            android:gravity="right" >
 
             <ListView
                 android:id="@+id/translationListView"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:visibility="visible" >
             </ListView>
+
         </LinearLayout>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/isCorrectTextView"
+    <ImageView
+        android:id="@+id/isCorrect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:src="@drawable/no" />
 
     <LinearLayout
         android:layout_width="wrap_content"

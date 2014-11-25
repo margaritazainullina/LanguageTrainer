@@ -90,7 +90,6 @@ public class App extends Application {
 	public static Typeface kanjiFont;
 	public static Typeface titleFont;
 	public static Typeface titleFontItalic;
-	
 
 	@Override
 	public void onCreate() {
@@ -122,87 +121,108 @@ public class App extends Application {
 		// creating and inserting into whole database
 		// vocabulary
 
-		/*
-		 * vs.dropTable(); vs.createTable();
-		 * vs.bulkInsertFromCSV("vocabulary/N5.txt", getAssets(), 5,
-		 * getContentResolver()); vs.bulkInsertFromCSV("vocabulary/N4.txt",
-		 * getAssets(), 4, getContentResolver());
-		 * vs.bulkInsertFromCSV("vocabulary/N3.txt", getAssets(), 3,
-		 * getContentResolver()); vs.bulkInsertFromCSV("vocabulary/N2.txt",
-		 * getAssets(), 2, getContentResolver());
-		 * vs.bulkInsertFromCSV("vocabulary/N1.txt", getAssets(), 1,
-		 * getContentResolver());
-		 * 
-		 * // test ts.dropTable(); qs.dropTable(); as.dropTable();
-		 * ts.createTable(); TestService.startCounting(getContentResolver());
-		 * qs.createTable();
-		 * QuestionService.startCounting(getContentResolver());
-		 * as.createTable(); ts.insertFromXml("tests/level_def_test.xml",
-		 * getAssets(), getContentResolver());
-		 * ts.insertFromXml("tests/mock_test_n1_#1.xml", getAssets(),
-		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n1_#2.xml",
-		 * getAssets(), getContentResolver());
-		 * ts.insertFromXml("tests/mock_test_n1_#3.xml", getAssets(),
-		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n1_#4.xml",
-		 * getAssets(), getContentResolver());
-		 * ts.insertFromXml("tests/mock_test_n1_#5.xml", getAssets(),
-		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n2_#1.xml",
-		 * getAssets(), getContentResolver());
-		 * ts.insertFromXml("tests/mock_test_n2_#2.xml", getAssets(),
-		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n2_#3.xml",
-		 * getAssets(), getContentResolver());
-		 * ts.insertFromXml("tests/mock_test_n2_#4.xml", getAssets(),
-		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n2_#5.xml",
-		 * getAssets(), getContentResolver());
-		 * ts.insertFromXml("tests/mock_test_n3_#1.xml", getAssets(),
-		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n3_#2.xml",
-		 * getAssets(), getContentResolver());
-		 * ts.insertFromXml("tests/mock_test_n4_#1.xml", getAssets(),
-		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n4_#2.xml",
-		 * getAssets(), getContentResolver());
-		 * ts.insertFromXml("tests/mock_test_n4_#3.xml", getAssets(),
-		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n4_#4.xml",
-		 * getAssets(), getContentResolver());
-		 * ts.insertFromXml("tests/mock_test_n4_#5.xml", getAssets(),
-		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n5_#1.xml",
-		 * getAssets(), getContentResolver());
-		 * ts.insertFromXml("tests/mock_test_n5_#2.xml", getAssets(),
-		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n5_#3.xml",
-		 * getAssets(), getContentResolver());
-		 * ts.insertFromXml("tests/mock_test_n5_#4.xml", getAssets(),
-		 * getContentResolver()); ts.insertFromXml("tests/mock_test_n5_#5.xml",
-		 * getAssets(), getContentResolver());
-		 * 
-		 * GiongoService gs = new GiongoService(); gs.dropTable();
-		 * gs.createTable(); ges.dropTable();
-		 * GiongoService.startCounting(getContentResolver()); ges.createTable();
-		 * gs.bulkInsertFromCSV("giongo/giongo.txt", getAssets(),
-		 * getContentResolver());
-		 * 
-		 * cws.dropTable(); cws.createTable();
-		 * cws.bulkInsertFromCSV("counters/numbers.txt", getAssets(),
-		 * getContentResolver());
-		 * cws.bulkInsertFromCSV("counters/people_and_things.txt", getAssets(),
-		 * getContentResolver());
-		 * cws.bulkInsertFromCSV("counters/time_calendar.txt", getAssets(),
-		 * getContentResolver());
-		 * 
-		 * cws.bulkInsertFromCSV("counters/extent_freq.txt", getAssets(),
-		 * getContentResolver());
-		 * 
-		 * grs.dropTable(); grs.createTable();
-		 * GrammarService.startCounting(getContentResolver()); gres.dropTable();
-		 * gres.createTable(); grs.bulkInsertFromCSV("grammar/grammar_n5.txt",
-		 * 5, getAssets(), getContentResolver());
-		 * grs.bulkInsertFromCSV("grammar/grammar_n4.txt", 4, getAssets(),
-		 * getContentResolver());
-		 * grs.bulkInsertFromCSV("grammar/grammar_n3.txt", 3, getAssets(),
-		 * getContentResolver());
-		 * grs.bulkInsertFromCSV("grammar/grammar_n2.txt", 2, getAssets(),
-		 * getContentResolver());
-		 * grs.bulkInsertFromCSV("grammar/grammar_n1.txt", 1, getAssets(),
-		 * getContentResolver());
-		 */
+		/*vs.dropTable();
+		vs.createTable();
+		vs.bulkInsertFromCSV("vocabulary/N5.txt", getAssets(), 5,
+				getContentResolver());
+		vs.bulkInsertFromCSV("vocabulary/N4.txt", getAssets(), 4,
+				getContentResolver());
+		vs.bulkInsertFromCSV("vocabulary/N3.txt", getAssets(), 3,
+				getContentResolver());
+		vs.bulkInsertFromCSV("vocabulary/N2.txt", getAssets(), 2,
+				getContentResolver());
+		vs.bulkInsertFromCSV("vocabulary/N1.txt", getAssets(), 1,
+				getContentResolver());
+
+		// test ts.dropTable(); qs.dropTable(); as.dropTable();
+		ts.createTable();
+		TestService.startCounting(getContentResolver());
+		qs.createTable();
+		QuestionService.startCounting(getContentResolver());
+		as.createTable();
+		ts.insertFromXml("tests/level_def_test.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n1_#1.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n1_#2.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n1_#3.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n1_#4.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n1_#5.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n2_#1.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n2_#2.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n2_#3.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n2_#4.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n2_#5.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n3_#1.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n3_#2.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n4_#1.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n4_#2.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n4_#3.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n4_#4.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n4_#5.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n5_#1.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n5_#2.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n5_#3.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n5_#4.xml", getAssets(),
+				getContentResolver());
+		ts.insertFromXml("tests/mock_test_n5_#5.xml", getAssets(),
+				getContentResolver());
+
+		GiongoService gs = new GiongoService();
+		gs.dropTable();
+		gs.createTable();
+		ges.dropTable();
+		GiongoService.startCounting(getContentResolver());
+		ges.createTable();
+		gs.bulkInsertFromCSV("giongo/giongo.txt", getAssets(),
+				getContentResolver());
+
+		cws.dropTable();
+		cws.createTable();
+		cws.bulkInsertFromCSV("counters/numbers.txt", getAssets(),
+				getContentResolver());
+		cws.bulkInsertFromCSV("counters/people_and_things.txt", getAssets(),
+				getContentResolver());
+		cws.bulkInsertFromCSV("counters/time_calendar.txt", getAssets(),
+				getContentResolver());
+
+		cws.bulkInsertFromCSV("counters/extent_freq.txt", getAssets(),
+				getContentResolver());
+
+		grs.dropTable();
+		grs.createTable();
+		GrammarService.startCounting(getContentResolver());
+		gres.dropTable();
+		gres.createTable();
+		grs.bulkInsertFromCSV("grammar/grammar_n5.txt", 5, getAssets(),
+				getContentResolver());
+		grs.bulkInsertFromCSV("grammar/grammar_n4.txt", 4, getAssets(),
+				getContentResolver());
+		grs.bulkInsertFromCSV("grammar/grammar_n3.txt", 3, getAssets(),
+				getContentResolver());
+		grs.bulkInsertFromCSV("grammar/grammar_n2.txt", 2, getAssets(),
+				getContentResolver());
+		grs.bulkInsertFromCSV("grammar/grammar_n1.txt", 1, getAssets(),
+				getContentResolver());*/
 		us.dropTable();
 		us.createTable();
 
@@ -213,10 +233,13 @@ public class App extends Application {
 			userInfo = currentUser;
 		}
 		App.context = getApplicationContext();
-		kanjiFont = Typeface.createFromAsset(context.getAssets(), "fonts/EPKYOUKA.TTF");
-		titleFont = Typeface.createFromAsset(context.getAssets(), "fonts/MAIAN.TTF");
-		titleFontItalic = Typeface.createFromAsset(context.getAssets(), "fonts/mvboli.ttf");
-		
+		kanjiFont = Typeface.createFromAsset(context.getAssets(),
+				"fonts/EPKYOUKA.TTF");
+		titleFont = Typeface.createFromAsset(context.getAssets(),
+				"fonts/MAIAN.TTF");
+		titleFontItalic = Typeface.createFromAsset(context.getAssets(),
+				"fonts/mvboli.ttf");
+
 		getSettings();
 		super.onCreate();
 	}

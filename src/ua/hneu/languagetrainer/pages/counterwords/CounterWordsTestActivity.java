@@ -19,6 +19,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -32,7 +33,7 @@ public class CounterWordsTestActivity extends Activity {
 	TextView transcriptionTextView;
 	TextView romajiTextView;
 	TextView translationTextView;
-	TextView isRight;
+	ImageView isCorrect;
 	CounterWord rightAnswer;
 	int answersNumber = 5;
 	int currentWordNumber = -1;
@@ -52,7 +53,7 @@ public class CounterWordsTestActivity extends Activity {
 		romajiTextView = (TextView) findViewById(R.id.romajiTextView);
 		translationTextView = (TextView) findViewById(R.id.translationTextView);
 		answersListView = (ListView) findViewById(R.id.answersListView);
-		isRight = (TextView) findViewById(R.id.isCorrectTextView);
+		isCorrect = (ImageView) findViewById(R.id.isCorrect);
 
 		// at first show word and possible answers
 		nextWord();
@@ -102,7 +103,7 @@ public class CounterWordsTestActivity extends Activity {
 		wordTextView.setTextColor(color);
 		transcriptionTextView.setTextColor(color);
 		romajiTextView.setTextColor(color);
-		isRight.setText("");
+		isCorrect.setImageResource(android.R.color.transparent);
 		// set this word shown
 		rightAnswer.setLastView();
 		App.cws.update(rightAnswer, getContentResolver());
@@ -135,13 +136,13 @@ public class CounterWordsTestActivity extends Activity {
 				}
 				App.cws.update(rightAnswer, getContentResolver());
 				// change color to green and fade out
-				isRight.setText("Correct!");
+				isCorrect.setImageResource(R.drawable.yes);
 				adapter.changeColor(view, Color.parseColor("#669900"));
 				// fading out textboxes
 				fadeOut(wordTextView, 750);
 				fadeOut(transcriptionTextView, 750);
 				fadeOut(romajiTextView, 750);
-				fadeOut(isRight, 750);
+				fadeOut(isCorrect, 750);
 
 				// fading out listview
 				ListView v = (ListView) view.getParent();
@@ -180,7 +181,7 @@ public class CounterWordsTestActivity extends Activity {
 			} else {
 				// change color of row and set text
 				adapter.changeColor(view, Color.parseColor("#CC0000"));
-				isRight.setText("Wrong");
+				isCorrect.setImageResource(R.drawable.no);
 				ifWasWrong = true;
 				// set information about wrong answer in counter words passing
 				App.cwp.incrementNumberOfIncorrectAnswers();

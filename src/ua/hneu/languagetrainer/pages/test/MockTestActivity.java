@@ -46,7 +46,7 @@ public class MockTestActivity extends Activity {
 	Button soundButton;
 	ImageView img;
 	ProgressBar progressBar;
-	TextView isRight;
+	ImageView isCorrect;
 	Button skipSection;
 	Chronometer chronometer;
 	MediaPlayer player;
@@ -77,7 +77,7 @@ public class MockTestActivity extends Activity {
 		textTextView = (TextView) findViewById(R.id.textTextView);
 		answersListView = (ListView) findViewById(R.id.answersListView);
 		progressBar = (ProgressBar) findViewById(R.id.testProgressBar);
-		isRight = (TextView) findViewById(R.id.isCorrectTextView);
+		isCorrect = (ImageView) findViewById(R.id.isCorrect);
 		skipSection = (Button) findViewById(R.id.buttonSkipSection);
 		chronometer = (Chronometer) findViewById(R.id.chronometer);
 		img = (ImageView) findViewById(R.id.img);
@@ -162,6 +162,7 @@ public class MockTestActivity extends Activity {
 		sectionTextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
 		taskTextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
 		textTextView.setTypeface(App.kanjiFont, Typeface.NORMAL);
+		isCorrect.setImageResource(android.R.color.transparent);
 	}
 
 	public void timeIsOver() {
@@ -169,6 +170,7 @@ public class MockTestActivity extends Activity {
 	}
 
 	public void nextWord() {
+		isCorrect.setImageResource(android.R.color.transparent);
 		// move pointer to next word
 		currentWordNumber++;
 		double progress = ((double) currentWordNumber / (double) t
@@ -242,19 +244,17 @@ public class MockTestActivity extends Activity {
 				tp.incrementNumberOfCorrectAnswers();
 
 				// change color to green and fade out
-				isRight.setText("Correct!");
-				adapter.changeColor(view, Color.parseColor("#669900"));
+				isCorrect.setImageResource(R.drawable.yes);
 			} else {
 				// change color of row and set text
-				adapter.changeColor(view, Color.parseColor("#CC0000"));
-				isRight.setText("Wrong");
+				isCorrect.setImageResource(R.drawable.no);
 			}
 			// fading out textboxes
 			fadeOut(sectionTextView, 750);
 			fadeOut(taskTextView, 750);
 			fadeOut(titleTextView, 750);
 			fadeOut(textTextView, 750);
-			fadeOut(isRight, 750);
+			fadeOut(isCorrect, 750);
 
 			// fading out listview
 			ListView v = (ListView) view.getParent();

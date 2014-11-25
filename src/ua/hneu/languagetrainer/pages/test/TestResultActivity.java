@@ -70,11 +70,11 @@ public class TestResultActivity extends Activity {
 			vocIcon.setVisibility(View.INVISIBLE);
 
 			if (scoreVoc + scoreReading < 38)
-				readingIcon.setImageResource(R.drawable.wrong);
+				readingIcon.setImageResource(R.drawable.no);
 			if (scoreListening < 19)
-				listeningIcon.setImageResource(R.drawable.wrong);
+				listeningIcon.setImageResource(R.drawable.no);
 			if (!t.isPassed())
-				totalIcon.setImageResource(R.drawable.wrong);
+				totalIcon.setImageResource(R.drawable.no);
 		} else {
 			vocResultTextView.setText(scoreVoc + " / 60");
 			readingResultTextView.setText(scoreReading + " / 60");
@@ -82,13 +82,13 @@ public class TestResultActivity extends Activity {
 			totalResultTextView.setText(total + " / 180");
 
 			if (scoreVoc < 19)
-				vocIcon.setImageResource(R.drawable.wrong);
+				vocIcon.setImageResource(R.drawable.no);
 			if (scoreReading < 19)
-				readingIcon.setImageResource(R.drawable.wrong);
+				readingIcon.setImageResource(R.drawable.no);
 			if (scoreListening < 19)
-				listeningIcon.setImageResource(R.drawable.wrong);
+				listeningIcon.setImageResource(R.drawable.no);
 			if (!t.isPassed())
-				totalIcon.setImageResource(R.drawable.wrong);
+				totalIcon.setImageResource(R.drawable.no);
 		}
 		t.setPointsPart1(scoreVoc);
 		t.setPointsPart2(scoreReading);
