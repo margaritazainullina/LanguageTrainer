@@ -136,6 +136,7 @@ public class VocabularyDictionary {
 		while (random.size() <= size) {
 			int i = rn.nextInt(entries.size());
 			boolean isEmpty = false;
+			if(entries.get(i).getLearnedPercentage()<1){
 			if (entries.get(i).getKanji().isEmpty())
 				isEmpty = true;
 
@@ -153,9 +154,10 @@ public class VocabularyDictionary {
 				}
 			}
 		}
+		}
 		return random;
 	}
-
+	
 	public void setEntries(ArrayList<VocabularyEntry> entries) {
 		this.entries = entries;
 	}

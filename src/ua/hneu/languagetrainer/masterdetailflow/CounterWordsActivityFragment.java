@@ -10,8 +10,10 @@ import java.util.Set;
 import ua.hneu.edu.languagetrainer.R;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.CounterWordsListViewAdapter;
+import ua.hneu.languagetrainer.pages.counterwords.CounterWordsIntroductionActivity;
 import ua.hneu.languagetrainer.service.CounterWordsService;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -80,7 +82,9 @@ public class CounterWordsActivityFragment extends Fragment {
 				selectedSection = sectionNames.get(position);
 			adapter.setTextColorOfListViewRow((ListView) parent, position,
 					Color.parseColor("#ffbb33"));
+			
+			App.sectionName=selectedSection;
 		}
 	};
-
+	
 }

@@ -5,8 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
@@ -257,29 +259,16 @@ public class VocabularyService {
 	 */
 	public static VocabularyDictionary createCurrentDictionary(int level,
 			int numberWordsInCurrentDict, ContentResolver contentResolver) {
-		App.allVocabularyDictionary = new VocabularyDictionary();
-		App.allVocabularyDictionary = selectAllEntriesOflevel(level, contentResolver);
+		if(App.allVocabularyDictionary==null){
+			App.allVocabularyDictionary = new VocabularyDictionary();
+			App.allVocabularyDictionary = selectAllEntriesOflevel(level, contentResolver);
+		}
 		VocabularyDictionary currentDict = new VocabularyDictionary();
 		// if words have never been showed - set entries randomly
 		if (App.userInfo.isLevelLaunchedFirstTime == 1) {
-			App.allVocabularyDictionary.sortRandomly();
-			for (int i = 0; i < App.numberOfEntriesInCurrentDict; i++) {
-				VocabularyEntry e = App.allVocabularyDictionary.get(i);
-				if (e.getLearnedPercentage() != 1)
-					currentDict.add(e);
-			}
+			currentDict.getEntries().addAll(App.allVocabularyDictionary.getRandomEntries(App.numberOfEntriesInCurrentDict, false));
 		} else {
-			// sorting descending
-			// get last elements
-			App.allVocabularyDictionary.sortByLastViewedTime();
-			int i = App.allVocabularyDictionary.size() - 1;
-			while (currentDict.size() < App.numberOfEntriesInCurrentDict) {
-				VocabularyEntry e = App.allVocabularyDictionary.get(i);
-				if (e.getLearnedPercentage() != 1)
-					currentDict.add(e);
-				i--;
-				Log.i("createCurrentDictionary", App.allVocabularyDictionary.get(i).toString());
-			}
+			currentDict= VocabularyService.getNLastViewedEntries(App.numberOfEntriesInCurrentDict, contentResolver);
 		}
 		return currentDict;
 	}
@@ -345,6 +334,66 @@ public class VocabularyService {
 		return wd;
 	}
 
+	public static VocabularyDictionary getNLastViewedEntries(int size,
+			ContentResolver contentResolver) {
+		VocabularyDictionary lastViewedEntries = new VocabularyDictionary();
+
+		String[] selectionArgs = { VocabularyDAO.ID, VocabularyDAO.KANJI,
+				VocabularyDAO.LEVEL, VocabularyDAO.TRANSCRIPTION,
+				VocabularyDAO.ROMAJI, VocabularyDAO.TRANSLATIONS,
+				VocabularyDAO.TRANSLATIONS_RUS, VocabularyDAO.PERCENTAGE,
+				VocabularyDAO.LASTVIEW, VocabularyDAO.SHOWNTIMES,
+				VocabularyDAO.COLOR };
+		
+		final Cursor c = contentResolver.query(
+				VocabularyDAO.CONTENT_URI,
+				selectionArgs,
+		        VocabularyDAO.PERCENTAGE+"<1",
+		        null,
+		        VocabularyDAO.LASTVIEW+" ASC limit "+size);		
+		
+		c.moveToFirst();
+		int id = 0;
+		String kanji = "";
+		int level = 0;
+		String transcription = "";
+		String romaji = "";
+		String translations = "";
+		String translationsRus = "";
+		double percentage = 0;
+		String lastview = "";
+		int showntimes = 0;
+		String color = "";
+
+		while (!c.isAfterLast()) {
+			id = c.getInt(0);
+			kanji = c.getString(1);
+			level = c.getInt(2);
+			transcription = c.getString(3);
+			romaji = c.getString(4);
+			translations = c.getString(5);
+			translationsRus = c.getString(6);
+			percentage = c.getDouble(7);
+			lastview = c.getString(8);
+			showntimes = c.getInt(9);
+			color = c.getString(10);
+			c.moveToNext();
+
+			List<String> translations1 = new ArrayList<String>(
+					Arrays.asList(translations.split(";|,")));
+
+			List<String> translations2 = new ArrayList<String>(
+					Arrays.asList(translationsRus.split(";|,")));
+
+			VocabularyEntry de = new VocabularyEntry(id, kanji, level,
+					transcription, romaji, translations1, translations2,
+					percentage, lastview, showntimes, color);
+			lastViewedEntries.add(de);
+		}
+		c.close();
+		return lastViewedEntries;
+	}
+	
 	/**
 	 * Returns number of all words in level
 	 * 

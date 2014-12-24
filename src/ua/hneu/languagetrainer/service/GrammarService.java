@@ -4,13 +4,21 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 import ua.hneu.languagetrainer.App;
+import ua.hneu.languagetrainer.db.dao.GiongoDAO;
 import ua.hneu.languagetrainer.db.dao.GrammarDAO;
 import ua.hneu.languagetrainer.model.grammar.GrammarDictionary;
 import ua.hneu.languagetrainer.model.grammar.GrammarExample;
 import ua.hneu.languagetrainer.model.grammar.GrammarRule;
+import ua.hneu.languagetrainer.model.other.Giongo;
+import ua.hneu.languagetrainer.model.other.GiongoDictionary;
+import ua.hneu.languagetrainer.model.other.GiongoExample;
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -27,6 +35,7 @@ public class GrammarService {
 	boolean isFirstTimeCreated;
 	static GrammarExampleService ges = new GrammarExampleService();
 	static int numberOfEnteries = 0;
+	private ArrayList<GrammarRule> entries;
 
 	/**
 	 * Inserts a Grammar rule to database
@@ -136,32 +145,63 @@ public class GrammarService {
 	 * @return currentDict GiongoDictionary with Giongo entries
 	 */
 	public static GrammarDictionary createCurrentDictionary(int level,
-			int numberOfWordsInCurrentDict, ContentResolver contentResolver) {
-		App.allGrammarDictionary = new GrammarDictionary();
-		App.allGrammarDictionary = selectAllEntriesOflevel(level, contentResolver);
-		GrammarDictionary current = new GrammarDictionary();
+			int numberWordsInCurrentDict, ContentResolver contentResolver) {
+		if(App.allGrammarDictionary==null){
+			App.allGrammarDictionary = new GrammarDictionary();
+			App.allGrammarDictionary = selectAllEntriesOflevel(level, contentResolver);
+		}
+		GrammarDictionary currentDict = new GrammarDictionary();
 		// if words have never been showed - set entries randomly
 		if (App.userInfo.isLevelLaunchedFirstTime == 1) {
-			App.allGrammarDictionary.sortRandomly();
-			for (int i = 0; i < App.numberOfEntriesInCurrentDict; i++) {
-				GrammarRule e = App.allGrammarDictionary.get(i);
-				if (e.getLearnedPercentage() != 1)
-					current.add(e);
-			}
+			currentDict.getEntries().addAll(App.allGrammarDictionary.getRandomEntries(App.numberOfEntriesInCurrentDict));
 		} else {
-			// sorting descending
-			// get last elements
-			App.allGrammarDictionary.sortByLastViewedTime();
-			int i = App.allGrammarDictionary.size() - 1;
-			while (current.size() < App.numberOfEntriesInCurrentDict) {
-				GrammarRule e = App.allGrammarDictionary.get(i);
-				if (e.getLearnedPercentage() != 1)
-					current.add(e);
-				i--;
-				Log.i("createCurrentDictionary", App.allGrammarDictionary.get(i).toString());
-			}
+			currentDict= GrammarService.getNLastViewedEntries(App.numberOfEntriesInCurrentDict, contentResolver);
 		}
-		return current;
+		return currentDict;
+	}
+
+	
+	
+		
+	public static GrammarDictionary getNLastViewedEntries(int size,
+			ContentResolver cr) {
+		GrammarDictionary gd = new GrammarDictionary();
+
+		String[] selectionArgs = { GrammarDAO.ID, GrammarDAO.RULE,
+				GrammarDAO.LEVEL, GrammarDAO.DESC_ENG, GrammarDAO.DESC_RUS,
+				GrammarDAO.PERCENTAGE, GrammarDAO.LASTVIEW,
+				GrammarDAO.SHOWNTIMES, GrammarDAO.COLOR };
+		Cursor c = cr.query(GrammarDAO.CONTENT_URI, selectionArgs, GrammarDAO.PERCENTAGE
+				+ "<1", null, GrammarDAO.LASTVIEW + " ASC limit " + size, null);
+		c.moveToFirst();
+		int id = 0;
+		String rule = "";
+		int level = 0;
+		String eng = "";
+		String rus = "";
+		double percentage = 0;
+		String lastview = "";
+		int shownTimes = 0;
+		String color = "";
+		while (!c.isAfterLast()) {
+			id = c.getInt(0);
+			rule = c.getString(1);
+			level = c.getInt(2);
+			eng = c.getString(3);
+			rus = c.getString(4);
+			percentage = c.getDouble(5);
+			lastview = c.getString(6);
+			shownTimes = c.getInt(7);
+			color = c.getString(8);
+			c.moveToNext();
+
+			GrammarRule gr = new GrammarRule(rule, level, eng, rus, percentage,
+					lastview, shownTimes, color, ges.getExamplesByRuleId(id,
+							cr));
+			gd.add(gr);
+		}
+		c.close();
+		return gd;
 	}
 
 	/**
@@ -346,6 +386,21 @@ public class GrammarService {
 		this.insert(g, cr);
 	}
 
+	// returns Set with stated size of unique random entries from current
+	// dictionary
+		public Set<GrammarRule> getRandomEntries(int size) {
+			Set<GrammarRule> random = new HashSet<GrammarRule>();
+			Random rn = new Random();
+
+			while (random.size() <= size) {
+				int i = rn.nextInt(entries.size());
+				if(entries.get(i).getLearnedPercentage()<1){
+					random.add(entries.get(i));
+				}
+			}
+			return random;
+		}
+	
 	/**
 	 * Returns number of all grammar rules to get id of last rule for inserting
 	 * in GrammarRulesExamples table

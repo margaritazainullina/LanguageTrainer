@@ -82,6 +82,7 @@ public class App extends Application {
 	public static int numberOfRepeatationsForLearning = 0;
 	static SharedPreferences settings;
 	public static Editor editor;
+	public static String sectionName="";
 
 	public enum Languages {
 		ENG, RUS
@@ -340,6 +341,8 @@ public class App extends Application {
 		}
 		return new long[] { timeLimit1, timeLimit2, timeLimit3 };
 	}
+	
+	
 
 	// increment for percentage of learned element when responding correctly
 	public static double getPercentageIncrement() {

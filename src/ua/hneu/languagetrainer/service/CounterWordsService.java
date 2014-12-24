@@ -9,6 +9,8 @@ import java.util.Random;
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.App.Languages;
 import ua.hneu.languagetrainer.db.dao.CounterWordsDAO;
+import ua.hneu.languagetrainer.db.dao.GiongoDAO;
+import ua.hneu.languagetrainer.model.grammar.GrammarDictionary;
 import ua.hneu.languagetrainer.model.other.CounterWord;
 import ua.hneu.languagetrainer.model.other.CounterWordsDictionary;
 import android.annotation.SuppressLint;
@@ -120,7 +122,7 @@ public class CounterWordsService {
 	 *            content resolver to database
 	 * @return CounterWordsDictionary
 	 */
-	public CounterWordsDictionary getCounterwordsBySection(String section,
+	public static CounterWordsDictionary getCounterwordsBySection(String section,
 			ContentResolver cr) {
 		String[] col = { CounterWordsDAO.SECTION_ENG,
 				CounterWordsDAO.SECTION_RUS, CounterWordsDAO.WORD,
@@ -185,12 +187,12 @@ public class CounterWordsService {
 		Cursor c;
 		if (App.lang == Languages.RUS)
 			c = cr.query(CounterWordsDAO.CONTENT_URI, col,
-					CounterWordsDAO.SECTION_RUS + "!=\"Числа\"", null,
-					null, null);
+					CounterWordsDAO.SECTION_RUS + "!=\"Числа\"", null, null,
+					null);
 		else
 			c = cr.query(CounterWordsDAO.CONTENT_URI, col,
-					CounterWordsDAO.SECTION_ENG + "!=\"Numbers\"", null,
-					null, null);
+					CounterWordsDAO.SECTION_ENG + "!=\"Numbers\"", null, null,
+					null);
 
 		c.moveToFirst();
 		String sectionEng = "";
@@ -372,39 +374,81 @@ public class CounterWordsService {
 	 *            content resolver to database
 	 * @return currentDict CounterWordsDictionary with CounterWords entries
 	 */
-	public CounterWordsDictionary createCurrentDictionary(String section,
-			int numberEntriesInCurrentDict, ContentResolver contentResolver) {
-		App.allCounterWordsDictionary = new CounterWordsDictionary();
-		if (section == null)
-			App.allCounterWordsDictionary = getAllCounterwords(contentResolver);
-		else
+	public static CounterWordsDictionary createCurrentDictionary(String section,
+			int numberWordsInCurrentDict,   ContentResolver contentResolver) {
+		if (App.allCounterWordsDictionary == null) {
+			App.allCounterWordsDictionary = new CounterWordsDictionary();
 			App.allCounterWordsDictionary = getCounterwordsBySection(section,
 					contentResolver);
+		}
 		CounterWordsDictionary currentDict = new CounterWordsDictionary();
 		// if words have never been showed - set entries randomly
 		if (App.userInfo.isLevelLaunchedFirstTime == 1) {
-			App.allCounterWordsDictionary.sortRandomly();
-			for (int i = 0; i < App.numberOfEntriesInCurrentDict; i++) {
-				CounterWord e = App.allCounterWordsDictionary.get(i);
-				if (e.getLearnedPercentage() != 1)
-					currentDict.add(e);
-			}
+			currentDict
+					.getEntries()
+					.addAll(App.allCounterWordsDictionary
+							.getRandomEntries(App.numberOfEntriesInCurrentDict));
 		} else {
-			// sorting descending
-			// get last elements
-			App.allCounterWordsDictionary.sortByLastViewedTime();
-			int i = App.allCounterWordsDictionary.size() - 1;
-			while (currentDict.size() < App.numberOfEntriesInCurrentDict
-					&& i >= 0) {
-				CounterWord e = App.allCounterWordsDictionary.get(i);
-				if (e.getLearnedPercentage() != 1)
-					currentDict.add(e);
-				Log.i("createCurrentDictionary", App.allCounterWordsDictionary
-						.get(i).toString());
-				i--;
-			}
+			currentDict = CounterWordsService.getNLastViewedEntries(
+					App.numberOfEntriesInCurrentDict, section, contentResolver);
 		}
 		return currentDict;
+	}
+
+	private static CounterWordsDictionary getNLastViewedEntries(int size,
+			String section, ContentResolver cr) {
+		String[] col = { CounterWordsDAO.SECTION_ENG,
+				CounterWordsDAO.SECTION_RUS, CounterWordsDAO.WORD,
+				CounterWordsDAO.HIRAGANA, CounterWordsDAO.ROMAJI,
+				CounterWordsDAO.TRANSLATION_ENG,
+				CounterWordsDAO.TRANSLATION_RUS, CounterWordsDAO.PERCENTAGE,
+				CounterWordsDAO.LASTVIEW, CounterWordsDAO.SHOWNTIMES,
+				CounterWordsDAO.COLOR };
+		Cursor c;
+		if (App.lang == Languages.RUS)
+			c = cr.query(CounterWordsDAO.CONTENT_URI, col,
+					CounterWordsDAO.SECTION_RUS + "=\"" + section + "\" AND"
+							+ CounterWordsDAO.PERCENTAGE + "<1", null,
+							CounterWordsDAO.LASTVIEW + " ASC limit " + size, null);
+		else
+			c = cr.query(CounterWordsDAO.CONTENT_URI, col,
+					CounterWordsDAO.SECTION_ENG + "=\"" + section + "\" AND"
+							+ CounterWordsDAO.PERCENTAGE + "<1", null,
+							CounterWordsDAO.LASTVIEW + " ASC limit " + size, null);
+
+		c.moveToFirst();
+		String sectionEng = "";
+		String sectionRus = "";
+		String word = "";
+		String hiragana = "";
+		String romaji = "";
+		String translationEng = "";
+		String translationRus = "";
+		double percentage = 0;
+		String lastview = "";
+		int showntimes = 0;
+		String color = "";
+		CounterWordsDictionary cw = new CounterWordsDictionary();
+		while (!c.isAfterLast()) {
+			sectionEng = c.getString(0);
+			sectionRus = c.getString(1);
+			word = c.getString(2);
+			hiragana = c.getString(3);
+			romaji = c.getString(4);
+			translationEng = c.getString(5);
+			translationRus = c.getString(6);
+			percentage = c.getDouble(7);
+			lastview = c.getString(8);
+			showntimes = c.getInt(9);
+			color = c.getString(10);
+
+			cw.add(new CounterWord(sectionEng, sectionRus, word, hiragana,
+					romaji, translationEng, translationRus, percentage,
+					showntimes, lastview, color));
+			c.moveToNext();
+		}
+		c.close();
+		return cw;
 	}
 
 	/**

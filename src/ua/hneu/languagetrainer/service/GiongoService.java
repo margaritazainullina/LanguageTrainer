@@ -4,14 +4,22 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.db.dao.CounterWordsDAO;
 import ua.hneu.languagetrainer.db.dao.GiongoDAO;
+import ua.hneu.languagetrainer.db.dao.VocabularyDAO;
+import ua.hneu.languagetrainer.model.grammar.GrammarRule;
 import ua.hneu.languagetrainer.model.other.Giongo;
 import ua.hneu.languagetrainer.model.other.GiongoDictionary;
 import ua.hneu.languagetrainer.model.other.GiongoExample;
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyDictionary;
+import ua.hneu.languagetrainer.model.vocabulary.VocabularyEntry;
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -27,6 +35,7 @@ import android.util.Log;
 public class GiongoService {
 	GiongoExampleService ges = new GiongoExampleService();
 	static int numberOfEnteries = 0;
+	private ArrayList<Giongo> entries;
 
 	/**
 	 * Inserts a Giongo to database
@@ -141,7 +150,7 @@ public class GiongoService {
 	 * @return giongoList list of all giongo in the table
 	 */
 	@SuppressLint("NewApi")
-	public GiongoDictionary getAllGiongo(ContentResolver cr) {
+	public static GiongoDictionary getAllGiongo(ContentResolver cr) {
 		String[] col = { GiongoDAO.ID, GiongoDAO.WORD, GiongoDAO.ROMAJI,
 				GiongoDAO.TRANSLATION_ENG, GiongoDAO.TRANSLATION_RUS,
 				GiongoDAO.PERCENTAGE, GiongoDAO.LASTVIEW, GiongoDAO.SHOWNTIMES,
@@ -258,6 +267,62 @@ public class GiongoService {
 		}
 	}
 
+	// returns Set with stated size of unique random entries from current
+	// dictionary
+	public Set<Giongo> getRandomEntries(int size) {
+		Set<Giongo> random = new HashSet<Giongo>();
+		Random rn = new Random();
+
+		while (random.size() <= size) {
+			int i = rn.nextInt(entries.size());
+			if (entries.get(i).getLearnedPercentage() < 1) {
+				random.add(entries.get(i));
+			}
+		}
+		return random;
+	}
+
+	public static GiongoDictionary getNLastViewedEntries(int size,
+			ContentResolver cr) {
+		String[] col = { GiongoDAO.ID, GiongoDAO.WORD, GiongoDAO.ROMAJI,
+				GiongoDAO.TRANSLATION_ENG, GiongoDAO.TRANSLATION_RUS,
+				GiongoDAO.PERCENTAGE, GiongoDAO.LASTVIEW, GiongoDAO.SHOWNTIMES,
+				GiongoDAO.COLOR };
+		Cursor c = cr.query(GiongoDAO.CONTENT_URI, col, GiongoDAO.PERCENTAGE
+				+ "<1", null, GiongoDAO.LASTVIEW + " ASC limit " + size, null);
+		c.moveToFirst();
+		int id = 0;
+		String word;
+		String romaji;
+		String translEng;
+		String translRus;
+		double percentage = 0;
+		String lastview = "";
+		int showntimes = 0;
+		String color;
+
+		GiongoExampleService ges = new GiongoExampleService();
+		GiongoDictionary giongoList = new GiongoDictionary();
+		while (!c.isAfterLast()) {
+			id = c.getInt(0);
+			word = c.getString(1);
+			romaji = c.getString(2);
+			translEng = c.getString(3);
+			translRus = c.getString(4);
+			percentage = c.getDouble(5);
+			lastview = c.getString(6);
+			showntimes = c.getInt(7);
+			color = c.getString(8);
+			ArrayList<GiongoExample> ge = new ArrayList<GiongoExample>();
+			ge = ges.getExamplesByGiongoId(id, cr);
+			giongoList.add(new Giongo(word, romaji, translEng, translRus,
+					percentage, showntimes, lastview, color, ge));
+			c.moveToNext();
+		}
+		c.close();
+		return giongoList;
+	}
+
 	/**
 	 * Returns GiongoDictionary to store it in the App class
 	 * 
@@ -267,32 +332,22 @@ public class GiongoService {
 	 *            content resolver to database
 	 * @return currentDict GiongoDictionary with Giongo entries
 	 */
-	public GiongoDictionary createCurrentDictionary(
-			int numberOfEntriesInCurrentDict, ContentResolver cr) {
-		App.allGiongoDictionary = new GiongoDictionary();
-		App.allGiongoDictionary = getAllGiongo(cr);
-		GiongoDictionary current = new GiongoDictionary();
+	public GiongoDictionary createCurrentDictionary(int level,ContentResolver contentResolver) {
+		if (App.allGiongoDictionary == null) {
+			App.allGiongoDictionary = new GiongoDictionary();
+			App.allGiongoDictionary = getAllGiongo(contentResolver);
+		}
+		GiongoDictionary currentDict = new GiongoDictionary();
 		// if words have never been showed - set entries randomly
 		if (App.userInfo.isLevelLaunchedFirstTime == 1) {
-			App.allGiongoDictionary.sortRandomly();
-			for (int i = 0; i < App.numberOfEntriesInCurrentDict; i++) {
-				Giongo e = App.allGiongoDictionary.get(i);
-				if (e.getLearnedPercentage() != 1)
-					current.add(e);
-			}
+			currentDict
+					.getEntries()
+					.addAll(App.allGiongoDictionary
+							.getRandomEntries(App.numberOfEntriesInCurrentDict));
 		} else {
-			// sorting descending
-			// get last elements
-			App.allGiongoDictionary.sortByLastViewedTime();
-			int i = App.allGiongoDictionary.size() - 1;
-			while (current.size() < App.numberOfEntriesInCurrentDict) {
-				Giongo e = App.allGiongoDictionary.get(i);
-				if (e.getLearnedPercentage() != 1)
-					current.add(e);
-				i--;
-				Log.i("createCurrentDictionary", App.allGiongoDictionary.get(i).toString());
-			}
+			currentDict = GiongoService.getNLastViewedEntries(
+					App.numberOfEntriesInCurrentDict, contentResolver);
 		}
-		return current;
+		return currentDict;
 	}
 }

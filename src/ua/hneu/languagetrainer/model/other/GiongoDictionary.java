@@ -2,8 +2,10 @@ package ua.hneu.languagetrainer.model.other;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Random;
+import java.util.Set;
 
 import ua.hneu.languagetrainer.App;
 import ua.hneu.languagetrainer.model.grammar.GrammarRule;
@@ -93,7 +95,21 @@ public class GiongoDictionary {
 		}
 		return random;
 	}
+	
+	// returns Set with stated size of unique random entries from current
+		// dictionary
+	public Set<Giongo> getRandomEntries(int size) {
+		Set<Giongo> random = new HashSet<Giongo>();
+		Random rn = new Random();
 
+		while (random.size() <= size) {
+			int i = rn.nextInt(entries.size());
+			random.add(entries.get(i));
+
+		}
+		return random;
+	}
+	
 	public ArrayList<Giongo> getEntries() {
 		return entries;
 	}

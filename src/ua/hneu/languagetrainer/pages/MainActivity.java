@@ -154,8 +154,9 @@ public class MainActivity extends FragmentActivity implements
 
 	public void onClickPracticeCounterWords(View v) {
 		// load counter words
-		CounterWordsService cws = new CounterWordsService();
-		App.counterWordsDictionary = cws.createCurrentDictionary(null,
+		CounterWordsService cws = new CounterWordsService();	
+		
+		App.counterWordsDictionary = cws.createCurrentDictionary(App.sectionName,
 				App.numberOfEntriesInCurrentDict, App.cr);
 		Intent intent = new Intent(this, CounterWordsIntroductionActivity.class);
 		startActivity(intent);
